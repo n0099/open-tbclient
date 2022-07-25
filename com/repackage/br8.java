@@ -60,7 +60,7 @@ public class br8 extends BdAsyncTask<Void, Void, List<cr8>> {
             }
         }
         this.b = context;
-        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027c);
+        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027a);
         this.e = new SimpleDateFormat("mm:ss");
         this.d = new SimpleDateFormat("HH:mm:ss");
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");

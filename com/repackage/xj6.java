@@ -63,7 +63,7 @@ public class xj6 extends cd6<qr6, GameRankListViewHolder> implements go6 {
             if (StringUtils.isNull(pr6Var.c())) {
                 return;
             }
-            rl4.o(this.a.k.getPageActivity(), pr6Var.c());
+            sl4.o(this.a.k.getPageActivity(), pr6Var.c());
         }
     }
 
@@ -92,9 +92,9 @@ public class xj6 extends cd6<qr6, GameRankListViewHolder> implements go6 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                xt4 k = xt4.k();
+                yt4 k = yt4.k();
                 k.y("game_rank_list_info", System.currentTimeMillis() + ",7");
-                xt4.k().w("game_rank_list_show_times", 0);
+                yt4.k().w("game_rank_list_show_times", 0);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921005));
             }
         }

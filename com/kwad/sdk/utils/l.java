@@ -44,14 +44,14 @@ public final class l {
                         } catch (Exception e) {
                             e = e;
                             bufferedInputStream = bufferedInputStream2;
-                            com.kwad.sdk.core.d.b.a(e);
-                            com.kwad.sdk.crash.utils.b.a(bufferedInputStream);
-                            com.kwad.sdk.crash.utils.b.a(zipOutputStream);
+                            com.kwad.sdk.core.e.b.printStackTrace(e);
+                            com.kwad.sdk.crash.utils.b.closeQuietly(bufferedInputStream);
+                            com.kwad.sdk.crash.utils.b.closeQuietly(zipOutputStream);
                         } catch (Throwable th) {
                             th = th;
                             bufferedInputStream = bufferedInputStream2;
-                            com.kwad.sdk.crash.utils.b.a(bufferedInputStream);
-                            com.kwad.sdk.crash.utils.b.a(zipOutputStream);
+                            com.kwad.sdk.crash.utils.b.closeQuietly(bufferedInputStream);
+                            com.kwad.sdk.crash.utils.b.closeQuietly(zipOutputStream);
                             throw th;
                         }
                     }
@@ -68,12 +68,12 @@ public final class l {
             th = th3;
             zipOutputStream = null;
         }
-        com.kwad.sdk.crash.utils.b.a(bufferedInputStream);
-        com.kwad.sdk.crash.utils.b.a(zipOutputStream);
+        com.kwad.sdk.crash.utils.b.closeQuietly(bufferedInputStream);
+        com.kwad.sdk.crash.utils.b.closeQuietly(zipOutputStream);
     }
 
     @RequiresApi(api = 19)
-    public static byte[] a(byte[] bArr) {
+    public static byte[] k(byte[] bArr) {
         byte[] bArr2 = null;
         if (bArr != null) {
             try {
@@ -88,7 +88,7 @@ public final class l {
                 gZIPOutputStream.close();
                 byteArrayOutputStream.close();
             } catch (IOException e) {
-                com.kwad.sdk.core.d.b.a(e);
+                com.kwad.sdk.core.e.b.printStackTrace(e);
             }
         }
         return bArr2;

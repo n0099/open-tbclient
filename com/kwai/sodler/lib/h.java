@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.utils.ab;
 import com.kwad.sdk.utils.o;
-import com.kwad.sdk.utils.z;
 import com.kwai.sodler.lib.ext.PluginError;
 import java.io.File;
 import java.io.IOException;
@@ -41,22 +41,11 @@ public class h extends g {
         }
     }
 
-    private File a(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, file)) == null) {
-            File file2 = new File(file.getParentFile(), this.c.d());
-            o.i(file2);
-            return file2;
-        }
-        return (File) invokeL.objValue;
-    }
-
     private Set<File> a(Context context, File file, File file2) {
         InterceptResult invokeLLL;
         String[] list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, context, file, file2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, context, file, file2)) == null) {
             new StringBuilder("Install plugin so libs, destDir = ").append(file2);
             HashSet hashSet = new HashSet();
             if (file2.exists() && (list = file2.list()) != null && list.length > 0) {
@@ -65,69 +54,80 @@ public class h extends g {
                 }
                 return hashSet;
             }
-            File file3 = new File(file2.getParentFile(), this.c.e());
-            o.i(file3);
-            for (String str2 : com.kwai.sodler.lib.d.c.a(file, file3)) {
+            File file3 = new File(file2.getParentFile(), this.axi.FB());
+            o.U(file3);
+            for (String str2 : com.kwai.sodler.lib.d.c.h(file, file3)) {
                 new StringBuilder("extractSoLib, soName = ").append(str2);
                 File a = com.kwai.sodler.lib.d.c.a(file3, str2, file2);
                 if (a != null) {
                     hashSet.add(a);
                 }
             }
-            o.d(file3);
+            o.O(file3);
             return hashSet;
         }
         return (Set) invokeLLL.objValue;
     }
 
-    private void a(Set<File> set) {
+    private File ag(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, file)) == null) {
+            File file2 = new File(file.getParentFile(), this.axi.FA());
+            o.U(file2);
+            return file2;
+        }
+        return (File) invokeL.objValue;
+    }
+
+    private void d(Set<File> set) {
         com.kwai.sodler.lib.c.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, set) == null) || (bVar = this.f) == null || bVar.i.size() <= 0 || set == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, this, set) == null) || (bVar = this.aya) == null || bVar.ayF.size() <= 0 || set == null) {
             return;
         }
-        HashMap<String, String> hashMap = this.f.i;
+        HashMap<String, String> hashMap = this.aya.ayF;
         for (File file : set) {
-            String a = z.a(file);
+            String Y = ab.Y(file);
             String str = hashMap.get(file.getName());
-            if (str != null && !TextUtils.equals(a, str)) {
-                b(set);
-                throw new PluginError.LoadError(new Exception(file.getName() + " Md5 check error,find " + a + ",except " + str), 4008);
+            if (str != null && !TextUtils.equals(Y, str)) {
+                e(set);
+                throw new PluginError.LoadError(new Exception(file.getName() + " Md5 check error,find " + Y + ",except " + str), 4008);
             }
         }
     }
 
-    public static void b(Set<File> set) {
+    public static void e(Set<File> set) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, set) == null) {
             for (File file : set) {
-                o.d(file);
+                o.O(file);
             }
         }
     }
 
     @Override // com.kwai.sodler.lib.g, com.kwai.sodler.lib.a.a
-    public void a(Context context, String str) {
+    public void ad(Context context, String str) {
         ClassLoader classLoader;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
-            super.a(context, str);
+            super.ad(context, str);
             File file = new File(str);
             try {
-                File a = a(file);
-                this.a = a;
+                File ag = ag(file);
+                this.axU = ag;
                 try {
                     try {
-                        a(a(context, file, a));
-                        com.kwai.sodler.lib.c.b bVar = this.f;
-                        if (bVar == null || (classLoader = bVar.l) == null) {
+                        d(a(context, file, ag));
+                        com.kwai.sodler.lib.c.b bVar = this.aya;
+                        if (bVar == null || (classLoader = bVar.ayI) == null) {
                             classLoader = getClass().getClassLoader();
                         }
                         synchronized (Runtime.getRuntime()) {
-                            com.kwai.sodler.lib.ext.d.a(classLoader, this.a);
+                            com.kwai.sodler.lib.ext.d.c(classLoader, this.axU);
                         }
                     } catch (PluginError.LoadError e) {
-                        o.d(file);
+                        o.O(file);
                         throw e;
                     }
                 } catch (IOException e2) {

@@ -13,7 +13,7 @@ import java.util.List;
 public final class ab implements w {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SparseArray<Handler> a;
+    public final SparseArray<Handler> atK;
 
     public ab() {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class ab implements w {
                 return;
             }
         }
-        this.a = new SparseArray<>();
+        this.atK = new SparseArray<>();
     }
 
     public static void a(Handler handler) {
@@ -46,36 +46,36 @@ public final class ab implements w {
     }
 
     @Override // com.kwai.filedownloader.w
-    public final void a() {
+    public final void Df() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (int i = 0; i < this.a.size(); i++) {
-                a(this.a.get(this.a.keyAt(i)));
+            for (int i = 0; i < this.atK.size(); i++) {
+                a(this.atK.get(this.atK.keyAt(i)));
             }
         }
     }
 
     @Override // com.kwai.filedownloader.w
-    public final void a(List<Integer> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            for (Integer num : list) {
-                b(this.a.get(num.intValue()));
-            }
-        }
-    }
-
-    @Override // com.kwai.filedownloader.w
-    public final boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.a.get(i) != null : invokeI.booleanValue;
-    }
-
-    @Override // com.kwai.filedownloader.w
-    public final int b() {
+    public final int Dg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.atK.size() : invokeV.intValue;
+    }
+
+    @Override // com.kwai.filedownloader.w
+    public final void E(List<Integer> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            for (Integer num : list) {
+                b(this.atK.get(num.intValue()));
+            }
+        }
+    }
+
+    @Override // com.kwai.filedownloader.w
+    public final boolean ca(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.atK.get(i) != null : invokeI.booleanValue;
     }
 }

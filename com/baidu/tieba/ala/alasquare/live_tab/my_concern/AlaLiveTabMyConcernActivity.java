@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bq5;
 import com.repackage.dq5;
-import com.repackage.k55;
+import com.repackage.l55;
 import com.repackage.ni;
 import com.repackage.nn;
 import com.repackage.pi;
@@ -34,7 +34,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
     public dq5 a;
     public MyConcernTabModel b;
     public boolean c;
-    public k55 d;
+    public l55 d;
     public boolean e;
     public boolean f;
     public CustomMessageListener g;
@@ -255,17 +255,17 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
     public final void L1(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && z) {
-            P1(R.drawable.new_pic_emotion_08, getResources().getString(R.string.obfuscated_res_0x7f0f0f9b), this.j);
+            P1(R.drawable.new_pic_emotion_08, getResources().getString(R.string.obfuscated_res_0x7f0f0f84), this.j);
         }
     }
 
     public final void M1() {
-        k55 k55Var;
+        l55 l55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (k55Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (l55Var = this.d) == null) {
             return;
         }
-        k55Var.dettachView(this.a.f());
+        l55Var.dettachView(this.a.f());
     }
 
     public final void N1() {
@@ -291,9 +291,9 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048581, this, i, str, onClickListener) == null) {
             if (this.d == null) {
-                k55 k55Var = new k55(getPageContext().getPageActivity(), onClickListener);
-                this.d = k55Var;
-                k55Var.g(null);
+                l55 l55Var = new l55(getPageContext().getPageActivity(), onClickListener);
+                this.d = l55Var;
+                l55Var.g(null);
                 this.d.p();
                 this.d.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }
@@ -333,9 +333,9 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
             this.b = myConcernTabModel;
             myConcernTabModel.J(this.i);
             if (!pi.D()) {
-                P1(R.drawable.new_pic_emotion_08, getResources().getString(R.string.obfuscated_res_0x7f0f0f9b), this.j);
+                P1(R.drawable.new_pic_emotion_08, getResources().getString(R.string.obfuscated_res_0x7f0f0f84), this.j);
             } else {
-                showLoadingView(this.a.g(), false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a7));
+                showLoadingView(this.a.g(), false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a5));
                 O1();
             }
             registerListener(this.g);

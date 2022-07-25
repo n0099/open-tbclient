@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.nn;
-import com.repackage.nn4;
+import com.repackage.on4;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -39,10 +39,10 @@ public abstract class AbsGroupUbsABTest {
         }
         HashMap hashMap = new HashMap(UbsABTestHelper.getUbsABTestMap());
         for (nn nnVar : list) {
-            if (nnVar instanceof nn4) {
-                nn4 nn4Var = (nn4) nnVar;
+            if (nnVar instanceof on4) {
+                on4 on4Var = (on4) nnVar;
                 for (Map.Entry entry : hashMap.entrySet()) {
-                    nn4Var.setABTest((BdUniqueId) entry.getKey(), (UsbAbTestSwitch) entry.getValue());
+                    on4Var.setABTest((BdUniqueId) entry.getKey(), (UsbAbTestSwitch) entry.getValue());
                 }
             }
         }

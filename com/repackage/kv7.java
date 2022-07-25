@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kv7 extends yv4 {
+public class kv7 extends zv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean p;
@@ -27,19 +27,19 @@ public class kv7 extends yv4 {
     public ThreadData v;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kv7(TbPageContext tbPageContext, xv4 xv4Var, int i) {
-        super(tbPageContext, xv4Var);
+    public kv7(TbPageContext tbPageContext, yv4 yv4Var, int i) {
+        super(tbPageContext, yv4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, xv4Var, Integer.valueOf(i)};
+            Object[] objArr = {tbPageContext, yv4Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (xv4) objArr2[1]);
+                super((TbPageContext) objArr2[0], (yv4) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -61,14 +61,14 @@ public class kv7 extends yv4 {
         }
     }
 
-    @Override // com.repackage.yv4, android.view.View.OnClickListener
+    @Override // com.repackage.zv4, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null || view2.getAlpha() < 0.4d) {
             return;
         }
-        wv4 wv4Var = this.a;
-        String userId = wv4Var != null ? wv4Var.getUserId() : "";
+        xv4 xv4Var = this.a;
+        String userId = xv4Var != null ? xv4Var.getUserId() : "";
         TiebaStatic.log(new StatisticItem("c12408").param("obj_source", u()).param("obj_id", userId).param("tid", this.t));
         int i = this.r;
         int i2 = 8;
@@ -114,7 +114,7 @@ public class kv7 extends yv4 {
         }
         TbPageContext tbPageContext = this.s;
         if (tbPageContext != null) {
-            u85.e(tbPageContext.getPageActivity(), statisticItem2);
+            v85.e(tbPageContext.getPageActivity(), statisticItem2);
         }
         TiebaStatic.log(statisticItem2);
         super.onClick(view2);

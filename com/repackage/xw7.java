@@ -50,7 +50,7 @@ public class xw7 extends uw7 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             LinearLayout linearLayout = (LinearLayout) this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d020c, (ViewGroup) null);
             this.f = linearLayout;
-            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091fa9);
+            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091fae);
             return this.f;
         }
         return (View) invokeV.objValue;
@@ -71,7 +71,7 @@ public class xw7 extends uw7 {
     public void c(OriginalThreadInfo originalThreadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
-            this.g.setText(new SpannableString(this.a.getString(R.string.obfuscated_res_0x7f0f0cfb)));
+            this.g.setText(new SpannableString(this.a.getString(R.string.obfuscated_res_0x7f0f0ce7)));
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
         }
     }

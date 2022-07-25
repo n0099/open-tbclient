@@ -58,8 +58,8 @@ public class db6 extends cd6<fd6, FrsEmpertyItemViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fd6Var, frsEmpertyItemViewHolder})) == null) {
             super.S(i, view2, viewGroup, fd6Var, frsEmpertyItemViewHolder);
-            frsEmpertyItemViewHolder.d(fd6Var.b());
-            frsEmpertyItemViewHolder.c(fd6Var.a());
+            frsEmpertyItemViewHolder.c(fd6Var.b());
+            frsEmpertyItemViewHolder.b(fd6Var.a());
             return view2;
         }
         return (View) invokeCommon.objValue;

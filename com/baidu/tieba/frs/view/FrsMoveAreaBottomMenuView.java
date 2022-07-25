@@ -58,9 +58,9 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0332, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090b65);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b6c);
-            this.d = findViewById(R.id.obfuscated_res_0x7f090b6d);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090b5e);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b65);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090b66);
             this.b.setOnClickListener(this);
             this.c.setOnClickListener(this);
             c();
@@ -118,7 +118,7 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
                 } else {
                     BdTopToast bdTopToast = new BdTopToast(getContext());
                     bdTopToast.i(false);
-                    bdTopToast.h(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0716));
+                    bdTopToast.h(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0712));
                     bdTopToast.j((ViewGroup) getParent());
                 }
             } else {
@@ -134,7 +134,7 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
     public void setMoveNumber(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            String string = getContext().getString(R.string.obfuscated_res_0x7f0f0718);
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f0714);
             if (i > 0) {
                 string = string + String.format(Locale.CHINA, "(%d)", Integer.valueOf(i));
             }

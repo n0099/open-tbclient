@@ -30,8 +30,8 @@ import com.repackage.hx7;
 import com.repackage.lr7;
 import com.repackage.ok8;
 import com.repackage.pi;
-import com.repackage.u85;
-import com.repackage.uu4;
+import com.repackage.v85;
+import com.repackage.vu4;
 /* loaded from: classes3.dex */
 public class PbFirstFloorEnterForumAdapter extends an<lr7, PbFirstFloorEnterForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
@@ -86,7 +86,7 @@ public class PbFirstFloorEnterForumAdapter extends an<lr7, PbFirstFloorEnterForu
             this.c = viewGroup.getChildAt(3);
         }
 
-        public void d() {
+        public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 WebPManager.setPureDrawable(this.d, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0107, null);
@@ -96,7 +96,7 @@ public class PbFirstFloorEnterForumAdapter extends an<lr7, PbFirstFloorEnterForu
             }
         }
 
-        public void e(lr7 lr7Var) {
+        public void d(lr7 lr7Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lr7Var) == null) {
                 if (lr7Var != null) {
@@ -107,8 +107,8 @@ public class PbFirstFloorEnterForumAdapter extends an<lr7, PbFirstFloorEnterForu
                         this.i.k = lr7Var.h;
                     }
                     this.c.setVisibility(lr7Var.e ? 0 : 8);
-                    if (b() != null) {
-                        b().setPadding(0, 0, 0, lr7Var.e ? pi.f(this.i.a, R.dimen.tbds42) : 0);
+                    if (a() != null) {
+                        a().setPadding(0, 0, 0, lr7Var.e ? pi.f(this.i.a, R.dimen.tbds42) : 0);
                     }
                     this.a.setData(lr7Var.a, lr7Var.b, lr7Var.c, lr7Var.d);
                 }
@@ -117,30 +117,30 @@ public class PbFirstFloorEnterForumAdapter extends an<lr7, PbFirstFloorEnterForu
                 }
                 this.d.setVisibility(4);
                 this.f.setVisibility(0);
-                g();
-                f("c14274");
+                f();
+                e("c14274");
             }
         }
 
-        public final void f(String str) {
+        public final void e(String str) {
             TbPageTag l;
             lr7 lr7Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (l = u85.l(this.i.i.getContext())) == null || (lr7Var = this.e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (l = v85.l(this.i.i.getContext())) == null || (lr7Var = this.e) == null) {
                 return;
             }
             hx7.a(str, lr7Var.f, lr7Var.g, TbadkCoreApplication.getCurrentAccount(), l.locatePage);
         }
 
-        public final void g() {
+        public final void f() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f == null) {
                 return;
             }
             if (this.i.k) {
-                this.f.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f063b));
+                this.f.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0637));
                 this.f.setClickable(false);
-                ((uu4) this.f.getStyleConfig()).t(R.color.CAM_X0109);
+                ((vu4) this.f.getStyleConfig()).t(R.color.CAM_X0109);
                 return;
             }
             this.f.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f02a7));
@@ -188,7 +188,7 @@ public class PbFirstFloorEnterForumAdapter extends an<lr7, PbFirstFloorEnterForu
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ok8) && ((ok8) customResponsedMessage.getData()).b) {
                 this.a.k = true;
-                this.a.j.g();
+                this.a.j.f();
             }
         }
     }
@@ -268,9 +268,9 @@ public class PbFirstFloorEnterForumAdapter extends an<lr7, PbFirstFloorEnterForu
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lr7Var, pbFirstFloorEnterForumViewHolder})) == null) {
             if (lr7Var != null) {
-                pbFirstFloorEnterForumViewHolder.e(lr7Var);
+                pbFirstFloorEnterForumViewHolder.d(lr7Var);
             }
-            pbFirstFloorEnterForumViewHolder.d();
+            pbFirstFloorEnterForumViewHolder.c();
             return view2;
         }
         return (View) invokeCommon.objValue;

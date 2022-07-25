@@ -39,11 +39,11 @@ public class jl5 implements CustomMessageTask.CustomRunnable<String> {
             if (customMessage == null || !(customMessage instanceof GetContactListRequestMessage)) {
                 return null;
             }
-            List<az4> e = ml5.f().e();
+            List<bz4> e = ml5.f().e();
             if (e != null) {
-                Iterator<az4> it = e.iterator();
+                Iterator<bz4> it = e.iterator();
                 while (it.hasNext()) {
-                    az4 next = it.next();
+                    bz4 next = it.next();
                     if ((oi.isEmpty(next.e()) && oi.isEmpty(next.f())) || next.h() == 1) {
                         it.remove();
                     }

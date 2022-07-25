@@ -1,133 +1,92 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.utility.PermissionChecker;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.RectF;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.MarkerOptions;
+import com.baidu.mapapi.map.OverlayOptions;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lv2;
-import com.repackage.m53;
+import com.repackage.cn2;
 /* loaded from: classes6.dex */
 public class h54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements af3<k53<m53.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-
-        public a(c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static OverlayOptions a(r54 r54Var, q54 q54Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, r54Var, q54Var)) == null) {
+            ix1.i("map", "createLabel start");
+            if (q54Var == null) {
+                return null;
             }
-            this.a = cVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.af3
-        /* renamed from: b */
-        public void a(k53<m53.e> k53Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k53Var) == null) {
-                if (f53.h(k53Var)) {
-                    h54.c(this.a);
-                } else {
-                    this.a.onFail();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements lv2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-
-        public b(c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cVar;
-        }
-
-        @Override // com.repackage.lv2.a
-        public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) {
-                if (i != 0) {
-                    this.a.onFail();
-                    return;
-                }
-                for (int i2 : iArr) {
-                    if (i2 == -1) {
-                        this.a.onFail();
-                        return;
+            cn2 cn2Var = q54Var.a;
+            if (cn2Var != null && cn2Var.j != null && cn2Var.b != null) {
+                Paint paint = new Paint();
+                paint.setAntiAlias(true);
+                paint.setStyle(Paint.Style.FILL_AND_STROKE);
+                paint.setColor(cn2Var.j.b);
+                paint.setTextSize(cn2Var.j.c);
+                cn2.c cVar = cn2Var.j;
+                float f = cVar.e;
+                float f2 = cVar.j;
+                Paint paint2 = new Paint();
+                paint2.setAntiAlias(true);
+                paint2.setStyle(Paint.Style.FILL_AND_STROKE);
+                paint2.setColor(cn2Var.j.d);
+                String str = cn2Var.j.a;
+                float f3 = f * 2.0f;
+                float measureText = paint.measureText(str) + f3;
+                float f4 = (paint.getFontMetrics().bottom - paint.getFontMetrics().top) + f3;
+                if (f4 > 0.0f && measureText > 0.0f) {
+                    float f5 = cn2Var.j.h;
+                    Bitmap createBitmap = Bitmap.createBitmap((int) (measureText + f5 + 0.5d), (int) (f4 + f5 + 0.5d), Bitmap.Config.ARGB_8888);
+                    createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
+                    Canvas canvas = new Canvas(createBitmap);
+                    canvas.drawColor(0, PorterDuff.Mode.CLEAR);
+                    RectF rectF = new RectF();
+                    float f6 = f5 / 2.0f;
+                    rectF.left = f6;
+                    rectF.top = f6;
+                    rectF.bottom = f4 + f6;
+                    rectF.right = measureText + f6;
+                    canvas.drawRoundRect(rectF, f2, f2, paint2);
+                    if (f5 > 0.0f) {
+                        paint2.setStyle(Paint.Style.STROKE);
+                        paint2.setColor(cn2Var.j.i);
+                        paint2.setStrokeWidth(f5);
+                        canvas.drawRoundRect(rectF, f2, f2, paint2);
                     }
+                    canvas.drawText(str, f + f6, (-paint.getFontMetrics().top) + f + f6, paint);
+                    ImageView imageView = new ImageView(AppRuntime.getAppContext());
+                    imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
+                    cn2.c cVar2 = cn2Var.j;
+                    imageView.setPadding((int) cVar2.f, (int) cVar2.g, 0, 0);
+                    imageView.setImageBitmap(createBitmap);
+                    BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(imageView);
+                    MarkerOptions markerOptions = new MarkerOptions();
+                    bn2 bn2Var = cn2Var.b;
+                    MarkerOptions zIndex = markerOptions.position(new LatLng(bn2Var.a, bn2Var.b)).icon(fromView).anchor(0.0f, 0.0f).zIndex(66);
+                    ix1.i("map", "createLabel end");
+                    return zIndex;
                 }
-                this.a.onSuccess();
+                ix1.c("map", "label heigth or width is 0");
+                return null;
             }
+            ix1.c("map", "marker data error");
+            return null;
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void onFail();
-
-        void onSuccess();
-    }
-
-    public static void b(Context context, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, cVar) == null) {
-            if (!(context instanceof Activity)) {
-                cVar.onFail();
-                return;
-            }
-            h03 M = h03.M();
-            if (M != null) {
-                M.e0().g((Activity) context, "mapp_location", new a(cVar));
-            }
-        }
-    }
-
-    public static void c(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, cVar) == null) {
-            h03 b0 = h03.b0();
-            if (be3.M() && b0 != null) {
-                cVar.onSuccess();
-            } else {
-                b0.w().y(0, new String[]{PermissionChecker.ACCESS_FINE_LOCATION, PermissionChecker.ACCESS_COARSE_LOCATION}, new b(cVar));
-            }
-        }
+        return (OverlayOptions) invokeLL.objValue;
     }
 }

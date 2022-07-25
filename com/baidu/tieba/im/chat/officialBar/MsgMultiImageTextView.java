@@ -22,7 +22,7 @@ public class MsgMultiImageTextView extends g47 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgMultiImageTextView(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0563);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d056d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,8 +45,8 @@ public class MsgMultiImageTextView extends g47 {
     public final void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.i = (TextView) a(R.id.obfuscated_res_0x7f091fa6);
-            this.C = (MultiContentView) a(R.id.obfuscated_res_0x7f0914be);
+            this.i = (TextView) a(R.id.obfuscated_res_0x7f091faa);
+            this.C = (MultiContentView) a(R.id.obfuscated_res_0x7f091499);
         }
     }
 

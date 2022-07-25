@@ -49,6 +49,7 @@ import com.coremedia.iso.boxes.fragment.TrackFragmentBox;
 import com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox;
 import com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox;
 import com.coremedia.iso.boxes.fragment.TrackRunBox;
+import com.coremedia.iso.boxes.mdat.MediaDataBox;
 import com.googlecode.mp4parser.BasicContainer;
 import com.googlecode.mp4parser.DataSource;
 import com.googlecode.mp4parser.authoring.Movie;
@@ -304,7 +305,7 @@ public class FragmentedMp4Builder implements Mp4Builder {
             public String getType() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) ? "mdat" : (String) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) ? MediaDataBox.TYPE : (String) invokeV.objValue;
             }
 
             @Override // com.coremedia.iso.boxes.Box

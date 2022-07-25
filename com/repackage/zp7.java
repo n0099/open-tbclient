@@ -80,7 +80,7 @@ public class zp7 implements xp7, View.OnClickListener {
         public void onFailure(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
-                this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f1150), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+                this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f10ff), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
                 this.a.a.T0();
             }
         }
@@ -136,7 +136,7 @@ public class zp7 implements xp7, View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
                 this.b.a.closeLoadingDialog();
-                this.b.a.showToast(String.format(this.b.a.getString(R.string.obfuscated_res_0x7f0f13d1), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+                this.b.a.showToast(String.format(this.b.a.getString(R.string.obfuscated_res_0x7f0f1380), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
                 this.b.a.T0();
             }
         }
@@ -175,23 +175,23 @@ public class zp7 implements xp7, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, loginDialogActivity, viewGroup) == null) {
             this.a = loginDialogActivity;
-            View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.obfuscated_res_0x7f0d0774, viewGroup, true);
-            this.b = inflate.findViewById(R.id.obfuscated_res_0x7f09076e);
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f090786);
+            View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.obfuscated_res_0x7f0d077e, viewGroup, true);
+            this.b = inflate.findViewById(R.id.obfuscated_res_0x7f09076d);
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f090785);
             this.d = inflate.findViewById(R.id.obfuscated_res_0x7f09062e);
             this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09062f);
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090792);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090790);
-            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f092324);
-            this.i = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09230c);
-            this.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09232d);
-            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092348);
-            this.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091399);
-            this.m = inflate.findViewById(R.id.obfuscated_res_0x7f091a2d);
+            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090790);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09078e);
+            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f092326);
+            this.i = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09230e);
+            this.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09232f);
+            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09234a);
+            this.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091375);
+            this.m = inflate.findViewById(R.id.obfuscated_res_0x7f091a07);
             this.n = inflate.findViewById(R.id.obfuscated_res_0x7f0924dd);
             this.o = inflate.findViewById(R.id.obfuscated_res_0x7f0924e0);
             this.p = inflate.findViewById(R.id.obfuscated_res_0x7f092563);
-            this.q = inflate.findViewById(R.id.obfuscated_res_0x7f0914b5);
+            this.q = inflate.findViewById(R.id.obfuscated_res_0x7f091490);
             this.b.setOnClickListener(this);
             this.d.setOnClickListener(this);
             this.e.setOnClickListener(this);
@@ -224,7 +224,7 @@ public class zp7 implements xp7, View.OnClickListener {
         }
         this.i.J(storageModel.url, 10, false);
         this.j.setText(this.r.displayname);
-        this.k.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f114f, this.r.app));
+        this.k.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f10fe, this.r.app));
     }
 
     public final void e() {
@@ -296,31 +296,31 @@ public class zp7 implements xp7, View.OnClickListener {
     public void n(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            ur4 d = ur4.d(this.c);
+            vr4 d = vr4.d(this.c);
             d.m(1);
             d.n(R.string.J_X14);
             d.f(R.color.CAM_X0207);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080900, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            ur4 d2 = ur4.d(this.f);
+            vr4 d2 = vr4.d(this.f);
             d2.v(R.color.CAM_X0105);
             d2.z(R.dimen.T_X05);
             d2.A(R.string.F_X02);
-            ur4 d3 = ur4.d(this.g);
+            vr4 d3 = vr4.d(this.g);
             d3.v(R.color.CAM_X0108);
             d3.z(R.dimen.T_X08);
             d3.A(R.string.F_X01);
-            ur4 d4 = ur4.d(this.h);
+            vr4 d4 = vr4.d(this.h);
             d4.n(R.string.J_X05);
             d4.f(R.color.CAM_X0204);
-            ur4 d5 = ur4.d(this.j);
+            vr4 d5 = vr4.d(this.j);
             d5.v(R.color.CAM_X0105);
             d5.z(R.dimen.T_X05);
             d5.A(R.string.F_X02);
-            ur4 d6 = ur4.d(this.k);
+            vr4 d6 = vr4.d(this.k);
             d6.v(R.color.CAM_X0108);
             d6.z(R.dimen.T_X08);
             d6.A(R.string.F_X01);
-            ur4 d7 = ur4.d(this.l);
+            vr4 d7 = vr4.d(this.l);
             d7.v(R.color.CAM_X0101);
             d7.z(R.dimen.T_X05);
             d7.A(R.string.F_X01);
@@ -334,11 +334,11 @@ public class zp7 implements xp7, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f09076e || id == R.id.obfuscated_res_0x7f09062e || id == R.id.obfuscated_res_0x7f09062f) {
+            if (id == R.id.obfuscated_res_0x7f09076d || id == R.id.obfuscated_res_0x7f09062e || id == R.id.obfuscated_res_0x7f09062f) {
                 c();
-            } else if (id == R.id.obfuscated_res_0x7f091399) {
+            } else if (id == R.id.obfuscated_res_0x7f091375) {
                 e();
-            } else if (id == R.id.obfuscated_res_0x7f091a2d) {
+            } else if (id == R.id.obfuscated_res_0x7f091a07) {
                 g();
             } else if (id == R.id.obfuscated_res_0x7f0924dd) {
                 i();
@@ -346,7 +346,7 @@ public class zp7 implements xp7, View.OnClickListener {
                 j();
             } else if (id == R.id.obfuscated_res_0x7f092563) {
                 k();
-            } else if (id == R.id.obfuscated_res_0x7f0914b5) {
+            } else if (id == R.id.obfuscated_res_0x7f091490) {
                 f();
             }
         }

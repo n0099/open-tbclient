@@ -53,7 +53,7 @@ public class aw7 {
         }
         this.d = zd5.b();
         this.e = false;
-        this.a = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0604, (ViewGroup) null);
+        this.a = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d060e, (ViewGroup) null);
         b();
     }
 
@@ -70,10 +70,10 @@ public class aw7 {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0906a0);
-            EMTextView eMTextView = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f09226a);
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09069f);
+            EMTextView eMTextView = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f09226c);
             this.c = eMTextView;
-            ur4 d = ur4.d(eMTextView);
+            vr4 d = vr4.d(eMTextView);
             d.w(R.dimen.M_H_X003);
             d.v(R.color.CAM_X0109);
             d.A(R.string.F_X01);
@@ -83,7 +83,7 @@ public class aw7 {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ur4 d = ur4.d(this.b);
+            vr4 d = vr4.d(this.b);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0206);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);

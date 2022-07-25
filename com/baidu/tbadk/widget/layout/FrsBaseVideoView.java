@@ -27,11 +27,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.an4;
 import com.repackage.p68;
 import com.repackage.qg;
 import com.repackage.s68;
 import com.repackage.x68;
-import com.repackage.zm4;
 import tbclient.VideoInfo;
 /* loaded from: classes3.dex */
 public class FrsBaseVideoView extends LinearLayout implements View.OnClickListener {
@@ -542,7 +542,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
             if (this.c == null || this.a == null || (tbVideoViewContainer = this.e) == null || tbVideoViewContainer.getControl() == null) {
                 return;
             }
-            if (zm4.c().g() && this.i != null && videoInfo != null) {
+            if (an4.c().g() && this.i != null && videoInfo != null) {
                 this.a.setVisibility(0);
                 this.c.setDefaultBgResource(R.drawable.pic_bg_video_frs);
                 this.c.J(videoInfo.thumbnail_url, 10, false);
@@ -553,7 +553,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
                     l(true, 4);
                 }
                 this.b.setText(StringHelper.stringForVideoTime(videoInfo.video_duration.intValue() * 1000));
-                this.k.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e71), StringHelper.numFormatOverWan(videoInfo.play_count.intValue())));
+                this.k.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e5a), StringHelper.numFormatOverWan(videoInfo.play_count.intValue())));
                 return;
             }
             this.a.setVisibility(8);
@@ -565,17 +565,17 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d013d, this);
             setOrientation(1);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090a85);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090a7e);
             this.a = frameLayout;
             frameLayout.setOnClickListener(this);
             this.a.addOnAttachStateChangeListener(new a(this));
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e4d);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e46);
             this.c = tbImageView;
             tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             this.c.setEvent(this.p);
             this.c.setGifIconSupport(false);
             this.h = new p68((ViewGroup) findViewById(R.id.obfuscated_res_0x7f0902e4));
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e4e);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e47);
             TbVideoViewContainer tbVideoViewContainer = new TbVideoViewContainer(getContext());
             this.e = tbVideoViewContainer;
             tbVideoViewContainer.getControl().setStageType("2003");
@@ -585,8 +585,8 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
             this.j = findViewById(R.id.obfuscated_res_0x7f0902e1);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0902e3);
             this.g = findViewById(R.id.obfuscated_res_0x7f0902e2);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091fe6);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091fe7);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091fea);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091feb);
         }
     }
 

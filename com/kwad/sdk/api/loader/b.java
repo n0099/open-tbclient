@@ -12,20 +12,6 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 /* loaded from: classes5.dex */
 public final class b {
-    public static void a(File file) {
-        if (file.isFile()) {
-            file.delete();
-            return;
-        }
-        File[] listFiles = file.listFiles();
-        if (listFiles == null || listFiles.length <= 0) {
-            return;
-        }
-        for (File file2 : listFiles) {
-            a(file2);
-        }
-    }
-
     public static void a(InputStream inputStream, OutputStream outputStream) {
         try {
             byte[] bArr = new byte[8192];
@@ -62,7 +48,7 @@ public final class b {
     }
 
     public static void a(String str, String str2) {
-        String str3 = t.a() ? "lib/arm64-v8a/" : "lib/armeabi-v7a/";
+        String str3 = v.a() ? "lib/arm64-v8a/" : "lib/armeabi-v7a/";
         ZipFile zipFile = null;
         try {
             ZipFile zipFile2 = new ZipFile(str);
@@ -97,22 +83,36 @@ public final class b {
         }
     }
 
-    public static boolean a(Context context, String str, String str2) {
+    public static boolean b(Context context, String str, String str2) {
         String a = h.a(context, str2);
-        a(new File(a));
-        String c = h.c(context, str2);
-        String d = h.d(context, str2);
-        String e = h.e(context, str2);
+        d(new File(a));
+        String m = h.m(context, str2);
+        String n = h.n(context, str2);
+        String o = h.o(context, str2);
         try {
-            a(new FileInputStream(str), new FileOutputStream(c));
-            a(str, e);
-            return k.a(context, c, d, e).c != null;
-        } catch (Exception e2) {
-            a(new File(c));
-            a(new File(d));
-            a(new File(e));
-            a(new File(a));
-            throw e2;
+            a(new FileInputStream(str), new FileOutputStream(m));
+            a(str, o);
+            return l.b(context, m, n, o).RJ != null;
+        } catch (Exception e) {
+            d(new File(m));
+            d(new File(n));
+            d(new File(o));
+            d(new File(a));
+            throw e;
+        }
+    }
+
+    public static void d(File file) {
+        if (file.isFile()) {
+            file.delete();
+            return;
+        }
+        File[] listFiles = file.listFiles();
+        if (listFiles == null || listFiles.length <= 0) {
+            return;
+        }
+        for (File file2 : listFiles) {
+            d(file2);
         }
     }
 }

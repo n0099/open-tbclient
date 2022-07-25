@@ -137,7 +137,7 @@ public class xv7 {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void b(AgreeData agreeData) {
-        p85 currentVisiblePageExtra;
+        q85 currentVisiblePageExtra;
         BaijiahaoData baijiahaoData;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, agreeData) == null) || agreeData == null) {

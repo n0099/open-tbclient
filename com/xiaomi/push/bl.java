@@ -22,13 +22,13 @@ public class bl {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
-        public int f862a;
+        public int f142a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Object f863a;
+        public Object f143a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f864a;
+        public String f144a;
 
         static {
             InterceptResult invokeClinit;
@@ -61,8 +61,8 @@ public class bl {
                     return;
                 }
             }
-            this.f862a = i;
-            this.f863a = obj;
+            this.f142a = i;
+            this.f143a = obj;
         }
     }
 
@@ -89,7 +89,7 @@ public class bl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m1137a() {
+    private void m199a() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.a.size() <= 100) {
             return;
@@ -98,7 +98,7 @@ public class bl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m1138a() {
+    public synchronized int m200a() {
         InterceptResult invokeV;
         int size;
         Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class bl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized LinkedList<a> m1139a() {
+    public synchronized LinkedList<a> m201a() {
         InterceptResult invokeV;
         LinkedList<a> linkedList;
         Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class bl {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             synchronized (this) {
                 this.a.add(new a(0, obj));
-                m1137a();
+                m199a();
             }
         }
     }

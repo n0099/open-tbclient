@@ -18,7 +18,7 @@ public final class cb implements Runnable {
     public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ hn f1685a;
+    public final /* synthetic */ hn f965a;
 
     public cb(Context context, hn hnVar) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public final class cb implements Runnable {
             }
         }
         this.a = context;
-        this.f1685a = hnVar;
+        this.f965a = hnVar;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0042 */
@@ -79,11 +79,11 @@ public final class cb implements Runnable {
                 try {
                     try {
                         File file = new File(this.a.getFilesDir(), "tiny_data.lock");
-                        com.xiaomi.push.ab.m1099a(file);
+                        com.xiaomi.push.ab.m161a(file);
                         randomAccessFile = new RandomAccessFile(file, "rw");
                         try {
                             fileLock2 = randomAccessFile.getChannel().lock();
-                            ca.c(this.a, this.f1685a);
+                            ca.c(this.a, this.f965a);
                             fileLock = fileLock2;
                             r3 = randomAccessFile;
                             if (fileLock2 != null) {

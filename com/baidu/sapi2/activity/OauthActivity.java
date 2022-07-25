@@ -109,7 +109,7 @@ public class OauthActivity extends BaseActivity {
             }
             String stringExtra = intent.getStringExtra(L);
             this.z = stringExtra;
-            if (TextUtils.isEmpty(stringExtra) || SapiUtils.versionCompareTo(this.z, "9.5.5") <= 0) {
+            if (TextUtils.isEmpty(stringExtra) || SapiUtils.versionCompareTo(this.z, "9.6.3.3") <= 0) {
                 return;
             }
             setResult(0, a(-208));
@@ -124,7 +124,7 @@ public class OauthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04e1);
+                setContentView(R.layout.obfuscated_res_0x7f0d04eb);
                 if (b()) {
                     this.configuration = SapiAccountManager.getInstance().getConfignation();
                     init();

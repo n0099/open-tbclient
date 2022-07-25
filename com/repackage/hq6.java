@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.FrsPage.RecmForumInfo;
 /* loaded from: classes6.dex */
-public class hq6 extends d55 {
+public class hq6 extends e55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView a;
@@ -48,13 +48,13 @@ public class hq6 extends d55 {
 
         /* renamed from: com.repackage.hq6$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0652a implements View.OnClickListener {
+        public class View$OnClickListenerC0499a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0652a(a aVar, int i) {
+            public View$OnClickListenerC0499a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,18 +132,18 @@ public class hq6 extends d55 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
                 if (view2 == null) {
-                    view2 = LayoutInflater.from(this.b.e.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d072d, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.b.e.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0737, (ViewGroup) null);
                     bVar = new b();
-                    bVar.f = view2.findViewById(R.id.obfuscated_res_0x7f091b72);
-                    bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a3f);
-                    bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909e6);
-                    bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092061);
+                    bVar.f = view2.findViewById(R.id.obfuscated_res_0x7f091b4c);
+                    bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a38);
+                    bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909df);
+                    bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092065);
                     bVar.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902a6);
-                    bVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d03);
-                    bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909e5);
-                    bVar.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092060);
-                    bVar.i = view2.findViewById(R.id.obfuscated_res_0x7f0907ca);
-                    bVar.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0906b7);
+                    bVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cfc);
+                    bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909de);
+                    bVar.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092064);
+                    bVar.i = view2.findViewById(R.id.obfuscated_res_0x7f0907c8);
+                    bVar.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0906b6);
                     view2.setTag(bVar);
                 } else {
                     bVar = (b) view2.getTag();
@@ -153,7 +153,7 @@ public class hq6 extends d55 {
                     bVar.e.J(getItem(i).avatar, 10, false);
                     bVar.c.setText(StringHelper.numberUniformFormat(getItem(i).member_count.intValue()));
                     bVar.b.setText(StringHelper.numberUniformFormat(getItem(i).post_num.intValue()));
-                    bVar.f.setOnClickListener(new View$OnClickListenerC0652a(this, i));
+                    bVar.f.setOnClickListener(new View$OnClickListenerC0499a(this, i));
                     SkinManager.setViewTextColor(bVar.a, (int) R.color.CAM_X0105);
                     SkinManager.setViewTextColor(bVar.c, (int) R.color.CAM_X0109);
                     SkinManager.setViewTextColor(bVar.b, (int) R.color.CAM_X0109);
@@ -219,13 +219,13 @@ public class hq6 extends d55 {
             }
         }
         this.e = d9Var;
-        this.a = (TbImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0915ae);
-        this.b = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0915ad);
-        this.f = this.attachedView.findViewById(R.id.obfuscated_res_0x7f0907b7);
-        this.c = (BdListView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091a8e);
+        this.a = (TbImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091589);
+        this.b = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091588);
+        this.f = this.attachedView.findViewById(R.id.obfuscated_res_0x7f0907b5);
+        this.c = (BdListView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091a68);
         this.attachedView.setOnClickListener(null);
-        this.g = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0906bf);
-        this.h = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091389);
+        this.g = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0906be);
+        this.h = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091365);
     }
 
     public void b(List<RecmForumInfo> list) {
@@ -267,7 +267,7 @@ public class hq6 extends d55 {
         }
     }
 
-    @Override // com.repackage.d55
+    @Override // com.repackage.e55
     public void onViewAttached() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -276,7 +276,7 @@ public class hq6 extends d55 {
         }
     }
 
-    @Override // com.repackage.d55
+    @Override // com.repackage.e55
     public void onViewDettached() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

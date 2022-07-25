@@ -28,8 +28,8 @@ import com.repackage.gd7;
 import com.repackage.ma8;
 import com.repackage.oa8;
 import com.repackage.pa8;
-import com.repackage.pn4;
 import com.repackage.qa8;
+import com.repackage.qn4;
 import com.repackage.ra8;
 import com.repackage.sa8;
 import com.repackage.t98;
@@ -45,7 +45,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
     public transient /* synthetic */ FieldHolder $fh;
     public String adId;
     public AdvertAppInfo appInfo;
-    public pn4 appInfoModel;
+    public qn4 appInfoModel;
     public int cardType;
     public AdCloseInfo closeInfo;
     public String cmdScheme;
@@ -119,7 +119,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         va8Var.b(jSONObject.optJSONObject(AdWebVideoActivityConfig.KEY_TAIL_FRAME));
         JSONObject optJSONObject4 = jSONObject.optJSONObject("app_info");
         if (optJSONObject4 != null) {
-            this.appInfoModel = pn4.b(optJSONObject4);
+            this.appInfoModel = qn4.b(optJSONObject4);
         }
         JSONObject optJSONObject5 = jSONObject.optJSONObject("pic_info");
         if (optJSONObject5 != null) {
@@ -196,10 +196,10 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
-    public pn4 getAppInfoModel() {
+    public qn4 getAppInfoModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.appInfoModel : (pn4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.appInfoModel : (qn4) invokeV.objValue;
     }
 
     public String getButtonCmdScheme() {

@@ -91,7 +91,7 @@ public class m96 {
                         kVar.a(4, 0, 0, null);
                         return;
                     } else {
-                        pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1092);
+                        pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f104e);
                         return;
                     }
                 }
@@ -142,7 +142,7 @@ public class m96 {
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
                 k kVar = this.a;
                 if (kVar == null) {
-                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1091);
+                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f104d);
                 } else {
                     kVar.a(4, 0, 0, null);
                 }
@@ -150,21 +150,21 @@ public class m96 {
         }
 
         @Override // com.baidu.tbadk.img.GetEmotionInfosModel.b
-        public void onSuccess(List<p45> list) {
+        public void onSuccess(List<q45> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 if (list == null || list.isEmpty()) {
                     k kVar = this.a;
                     if (kVar == null) {
-                        pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1091);
+                        pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f104d);
                     } else {
                         kVar.a(4, 0, 0, null);
                     }
                 }
-                for (p45 p45Var : list) {
-                    if (!v86.e().f(p45Var.a)) {
-                        p45Var.f = (String) this.b.get(p45Var.g);
-                        this.c.add(p45Var);
+                for (q45 q45Var : list) {
+                    if (!v86.e().f(q45Var.a)) {
+                        q45Var.f = (String) this.b.get(q45Var.g);
+                        this.c.add(q45Var);
                     }
                 }
                 this.e.l(this.c, this.a, this.d);
@@ -177,18 +177,18 @@ public class m96 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List a;
-        public final /* synthetic */ p45 b;
+        public final /* synthetic */ q45 b;
         public final /* synthetic */ AtomicInteger c;
         public final /* synthetic */ k d;
         public final /* synthetic */ boolean e;
         public final /* synthetic */ m96 f;
 
-        public c(m96 m96Var, List list, p45 p45Var, AtomicInteger atomicInteger, k kVar, boolean z) {
+        public c(m96 m96Var, List list, q45 q45Var, AtomicInteger atomicInteger, k kVar, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {m96Var, list, p45Var, atomicInteger, kVar, Boolean.valueOf(z)};
+                Object[] objArr = {m96Var, list, q45Var, atomicInteger, kVar, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -200,7 +200,7 @@ public class m96 {
             }
             this.f = m96Var;
             this.a = list;
-            this.b = p45Var;
+            this.b = q45Var;
             this.c = atomicInteger;
             this.d = kVar;
             this.e = z;
@@ -284,7 +284,7 @@ public class m96 {
                 }
                 k kVar2 = this.c;
                 if (kVar2 == null) {
-                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1091);
+                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f104d);
                 } else {
                     kVar2.a(4, 0, 0, null);
                 }
@@ -517,15 +517,15 @@ public class m96 {
             }
             for (DiyEmotionData diyEmotionData : list) {
                 if (diyEmotionData != null) {
-                    p45 p45Var = new p45();
-                    p45Var.a = diyEmotionData.getPid();
-                    p45Var.f = diyEmotionData.getPkgId();
-                    p45Var.d = diyEmotionData.getPicUrl();
-                    p45Var.e = diyEmotionData.getThumbnail();
-                    p45Var.b = diyEmotionData.getWidth();
-                    p45Var.c = diyEmotionData.getHeight();
-                    kn7.a("【表情云同步】：4 - 开始：重新下载数据库中有数据但是没文件的表情，" + p45Var.d);
-                    new j(this.a, null).execute(p45Var);
+                    q45 q45Var = new q45();
+                    q45Var.a = diyEmotionData.getPid();
+                    q45Var.f = diyEmotionData.getPkgId();
+                    q45Var.d = diyEmotionData.getPicUrl();
+                    q45Var.e = diyEmotionData.getThumbnail();
+                    q45Var.b = diyEmotionData.getWidth();
+                    q45Var.c = diyEmotionData.getHeight();
+                    kn7.a("【表情云同步】：4 - 开始：重新下载数据库中有数据但是没文件的表情，" + q45Var.d);
+                    new j(this.a, null).execute(q45Var);
                 }
             }
         }
@@ -568,10 +568,10 @@ public class m96 {
     }
 
     /* loaded from: classes6.dex */
-    public class j extends BdAsyncTask<p45, Void, Boolean> {
+    public class j extends BdAsyncTask<q45, Void, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public p45 a;
+        public q45 a;
         public i b;
         public final /* synthetic */ m96 c;
 
@@ -597,12 +597,12 @@ public class m96 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public Boolean doInBackground(p45[] p45VarArr) {
+        public Boolean doInBackground(q45[] q45VarArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, p45VarArr)) == null) {
-                if (p45VarArr != null && p45VarArr.length > 0) {
-                    this.a = p45VarArr[0];
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, q45VarArr)) == null) {
+                if (q45VarArr != null && q45VarArr.length > 0) {
+                    this.a = q45VarArr[0];
                     WebClient webClient = new WebClient();
                     byte[] downloadImageBytes = webClient.downloadImageBytes(this.a.d, false);
                     if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
@@ -684,7 +684,7 @@ public class m96 {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, str, z)) == null) {
-            String str2 = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + m45.c() + "/" + str + "_s.jpg";
+            String str2 = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + n45.c() + "/" + str + "_s.jpg";
             if (z) {
                 String replace = str2.replace("_s.jpg", "_b.jpg");
                 if (new File(replace).exists()) {
@@ -725,31 +725,31 @@ public class m96 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, kVar) == null) {
             if (nn7.o().p()) {
-                pi.N(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f05da);
+                pi.N(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f05d6);
                 return;
             }
-            p45 p45Var = new p45();
-            p45Var.d = str;
-            p45Var.f = str2;
+            q45 q45Var = new q45();
+            q45Var.d = str;
+            q45Var.f = str2;
             ArrayList arrayList = new ArrayList();
-            arrayList.add(p45Var);
+            arrayList.add(q45Var);
             h(arrayList, true, kVar);
         }
     }
 
-    public void h(List<p45> list, boolean z, k kVar) {
+    public void h(List<q45> list, boolean z, k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{list, Boolean.valueOf(z), kVar}) == null) {
             new a(this, kVar, list, z).execute(new Void[0]);
         }
     }
 
-    public void i(List<p45> list, boolean z, k kVar) {
+    public void i(List<q45> list, boolean z, k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, Boolean.valueOf(z), kVar}) == null) {
             if (list == null || list.isEmpty()) {
                 if (kVar == null) {
-                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1091);
+                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f104d);
                 } else {
                     kVar.a(4, 0, 0, null);
                 }
@@ -757,17 +757,17 @@ public class m96 {
                 ArrayList arrayList = new ArrayList();
                 ArrayList arrayList2 = new ArrayList();
                 HashMap hashMap = new HashMap();
-                for (p45 p45Var : list) {
-                    String str = p45Var.a;
+                for (q45 q45Var : list) {
+                    String str = q45Var.a;
                     if (str != null && !TextUtils.isEmpty(str)) {
-                        if (!v86.e().f(p45Var.a)) {
-                            arrayList.add(p45Var);
+                        if (!v86.e().f(q45Var.a)) {
+                            arrayList.add(q45Var);
                         }
                     } else {
-                        arrayList2.add(p45Var.d);
-                        String str2 = p45Var.f;
+                        arrayList2.add(q45Var.d);
+                        String str2 = q45Var.f;
                         if (str2 != null) {
-                            hashMap.put(p45Var.d, str2);
+                            hashMap.put(q45Var.d, str2);
                         }
                     }
                 }
@@ -815,7 +815,7 @@ public class m96 {
         }
     }
 
-    public final void l(List<p45> list, k kVar, boolean z) {
+    public final void l(List<q45> list, k kVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048582, this, list, kVar, z) == null) {
             if (list.size() == 0) {
@@ -829,8 +829,8 @@ public class m96 {
             }
             AtomicInteger atomicInteger = new AtomicInteger(list.size());
             CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
-            for (p45 p45Var : list) {
-                new j(this, new c(this, copyOnWriteArrayList, p45Var, atomicInteger, kVar, z)).execute(p45Var);
+            for (q45 q45Var : list) {
+                new j(this, new c(this, copyOnWriteArrayList, q45Var, atomicInteger, kVar, z)).execute(q45Var);
             }
         }
     }
@@ -860,12 +860,12 @@ public class m96 {
         return (List) invokeV.objValue;
     }
 
-    public final String p(p45 p45Var, boolean z) {
+    public final String p(q45 q45Var, boolean z) {
         InterceptResult invokeLZ;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, p45Var, z)) == null) {
-            if (p45Var == null || TextUtils.isEmpty(p45Var.d) || TextUtils.isEmpty(p45Var.a)) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, q45Var, z)) == null) {
+            if (q45Var == null || TextUtils.isEmpty(q45Var.d) || TextUtils.isEmpty(q45Var.a)) {
                 return "";
             }
             if (z) {
@@ -873,7 +873,7 @@ public class m96 {
             } else {
                 str = "_s.jpg";
             }
-            return TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + m45.c() + "/" + p45Var.a + str;
+            return TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + n45.c() + "/" + q45Var.a + str;
         }
         return (String) invokeLZ.objValue;
     }
@@ -1002,34 +1002,34 @@ public class m96 {
         }
     }
 
-    public final DiyEmotionData u(p45 p45Var) {
+    public final DiyEmotionData u(q45 q45Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, p45Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, q45Var)) == null) {
             DiyEmotionData diyEmotionData = new DiyEmotionData();
             StringBuilder sb = new StringBuilder("meme,diy_");
-            if (TextUtils.isEmpty(p45Var.f)) {
-                sb.append(p45Var.a);
+            if (TextUtils.isEmpty(q45Var.f)) {
+                sb.append(q45Var.a);
                 sb.append(",");
             } else {
-                sb.append(p45Var.f);
+                sb.append(q45Var.f);
                 sb.append("_");
-                sb.append(p45Var.a);
+                sb.append(q45Var.a);
                 sb.append(",");
             }
-            sb.append(p45Var.b);
+            sb.append(q45Var.b);
             sb.append(",");
-            sb.append(p45Var.c);
+            sb.append(q45Var.c);
             sb.append(",");
             String lowerCase = vi.c(sb.toString().replace("diy_", "") + UploadedImageInfo.MD5_KEY).toLowerCase();
-            diyEmotionData.setPid(p45Var.a);
+            diyEmotionData.setPid(q45Var.a);
             diyEmotionData.setUid(TbadkCoreApplication.getCurrentAccount());
             diyEmotionData.setSharpText(SmallTailInfo.EMOTION_PREFIX + sb.toString() + lowerCase + SmallTailInfo.EMOTION_SUFFIX);
             diyEmotionData.setOrderId(y86.o().m(diyEmotionData.getUid()) + 1);
-            diyEmotionData.setWidth(p45Var.b);
-            diyEmotionData.setHeight(p45Var.c);
-            diyEmotionData.setPicUrl(p45Var.d);
-            diyEmotionData.setThumbnail(p45Var.e);
+            diyEmotionData.setWidth(q45Var.b);
+            diyEmotionData.setHeight(q45Var.c);
+            diyEmotionData.setPicUrl(q45Var.d);
+            diyEmotionData.setThumbnail(q45Var.e);
             diyEmotionData.setBackup("");
             return diyEmotionData;
         }

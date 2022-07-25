@@ -1,6 +1,9 @@
 package com.repackage;
 
-import com.google.protobuf.MessageLiteOrBuilder;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface lj3 extends MessageLiteOrBuilder {
+public /* synthetic */ class lj3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gb7 extends n35 {
+public class gb7 extends o35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean K;
@@ -30,7 +30,7 @@ public class gb7 extends n35 {
     public PermissionJudgePolicy O;
 
     /* loaded from: classes6.dex */
-    public class a implements k15 {
+    public class a implements l15 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ gb7 a;
@@ -53,12 +53,12 @@ public class gb7 extends n35 {
             this.a = gb7Var;
         }
 
-        @Override // com.repackage.k15
-        public void C(j15 j15Var) {
+        @Override // com.repackage.l15
+        public void C(k15 k15Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, j15Var) == null) {
-                Object obj = j15Var.c;
-                if ((obj instanceof lx4) && EmotionGroupType.isSendAsPic(((lx4) obj).getType())) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, k15Var) == null) {
+                Object obj = k15Var.c;
+                if ((obj instanceof mx4) && EmotionGroupType.isSendAsPic(((mx4) obj).getType())) {
                     if (this.a.O == null) {
                         this.a.O = new PermissionJudgePolicy();
                     }
@@ -67,7 +67,7 @@ public class gb7 extends n35 {
                     if (this.a.O.startRequestPermission(this.a.n.getPageActivity())) {
                         return;
                     }
-                    this.a.h((lx4) j15Var.c);
+                    this.a.h((mx4) k15Var.c);
                     this.a.z(false, null);
                 }
             }
@@ -130,7 +130,7 @@ public class gb7 extends n35 {
         return (WriteData) invokeV.objValue;
     }
 
-    @Override // com.repackage.n35
+    @Override // com.repackage.o35
     public void M(String str, WriteData writeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, writeData) == null) {
@@ -165,16 +165,16 @@ public class gb7 extends n35 {
                 this.h.V().setVoiceDuringTime(-1);
             }
             if (!this.h.T()) {
-                this.n.showToast(R.string.obfuscated_res_0x7f0f15d7);
+                this.n.showToast(R.string.obfuscated_res_0x7f0f1586);
                 return;
             }
-            k35 k35Var = this.y;
-            if ((k35Var == null || !k35Var.a()) && !this.h.h0()) {
+            l35 l35Var = this.y;
+            if ((l35Var == null || !l35Var.a()) && !this.h.h0()) {
             }
         }
     }
 
-    @Override // com.repackage.n35
+    @Override // com.repackage.o35
     public void V(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -199,7 +199,7 @@ public class gb7 extends n35 {
         }
     }
 
-    @Override // com.repackage.n35
+    @Override // com.repackage.o35
     public void s(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
@@ -211,7 +211,7 @@ public class gb7 extends n35 {
         }
     }
 
-    @Override // com.repackage.n35
+    @Override // com.repackage.o35
     public void z(boolean z, PostWriteCallBackData postWriteCallBackData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048580, this, z, postWriteCallBackData) == null) {

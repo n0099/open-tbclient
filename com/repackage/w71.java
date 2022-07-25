@@ -35,13 +35,13 @@ public class w71 implements v71 {
 
         /* renamed from: com.repackage.w71$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0754a implements Runnable {
+        public class RunnableC0601a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ a b;
 
-            public RunnableC0754a(a aVar, String str) {
+            public RunnableC0601a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -205,7 +205,7 @@ public class w71 implements v71 {
                         httpURLConnection = inputStream;
                         if (this.c != null) {
                             if (this.d.b) {
-                                this.d.a.post(new RunnableC0754a(this, c2));
+                                this.d.a.post(new RunnableC0601a(this, c2));
                                 httpURLConnection = inputStream;
                             } else {
                                 this.c.c(c2);
@@ -302,14 +302,14 @@ public class w71 implements v71 {
 
         /* renamed from: com.repackage.w71$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0755b implements Runnable {
+        public class RunnableC0602b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ String b;
             public final /* synthetic */ b c;
 
-            public RunnableC0755b(b bVar, int i, String str) {
+            public RunnableC0602b(b bVar, int i, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -334,7 +334,7 @@ public class w71 implements v71 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     q71 q71Var = this.c.d;
-                    q71Var.a(new IOException("status code " + this.a + ", response " + this.b), this.a, m91.a().getResources().getString(R.string.obfuscated_res_0x7f0f0eb2));
+                    q71Var.a(new IOException("status code " + this.a + ", response " + this.b), this.a, m91.a().getResources().getString(R.string.obfuscated_res_0x7f0f0e9b));
                 }
             }
         }
@@ -369,7 +369,7 @@ public class w71 implements v71 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.d.a(this.a, -1000, m91.a().getResources().getString(R.string.obfuscated_res_0x7f0f0eb2));
+                    this.b.d.a(this.a, -1000, m91.a().getResources().getString(R.string.obfuscated_res_0x7f0f0e9b));
                 }
             }
         }
@@ -451,7 +451,7 @@ public class w71 implements v71 {
                         String c3 = g91.c(errorStream);
                         if (this.d != null) {
                             if (this.e.b) {
-                                this.e.a.post(new RunnableC0755b(this, responseCode, c3));
+                                this.e.a.post(new RunnableC0602b(this, responseCode, c3));
                             } else {
                                 q71 q71Var = this.d;
                                 StringBuilder sb2 = new StringBuilder();
@@ -459,7 +459,7 @@ public class w71 implements v71 {
                                 sb2.append(responseCode);
                                 sb2.append(", response ");
                                 sb2.append(c3);
-                                q71Var.a(new IOException(sb2.toString()), responseCode, m91.a().getResources().getString(R.string.obfuscated_res_0x7f0f0eb2));
+                                q71Var.a(new IOException(sb2.toString()), responseCode, m91.a().getResources().getString(R.string.obfuscated_res_0x7f0f0e9b));
                             }
                         }
                     }
@@ -472,7 +472,7 @@ public class w71 implements v71 {
                             if (this.e.b) {
                                 this.e.a.post(new c(this, th));
                             } else {
-                                this.d.a(th, -1000, m91.a().getResources().getString(R.string.obfuscated_res_0x7f0f0eb2));
+                                this.d.a(th, -1000, m91.a().getResources().getString(R.string.obfuscated_res_0x7f0f0e9b));
                             }
                         }
                         g91.a(null, dataOutputStream);
@@ -508,7 +508,7 @@ public class w71 implements v71 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, s71Var, r71Var, q71Var) == null) {
             if (!u71.b(m91.a())) {
-                q71Var.a(new Exception(SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR), 119501, m91.a().getResources().getString(R.string.obfuscated_res_0x7f0f040b));
+                q71Var.a(new Exception(SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR), 119501, m91.a().getResources().getString(R.string.obfuscated_res_0x7f0f040a));
             } else {
                 a91.a(new b(this, str, s71Var, r71Var, q71Var));
             }

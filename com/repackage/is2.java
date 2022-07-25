@@ -1,100 +1,72 @@
 package com.repackage;
 
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class is2 {
+public final class is2 extends hs2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final boolean b;
 
-    /* loaded from: classes6.dex */
-    public static final class a implements es2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Function1 a;
-        public final /* synthetic */ String b;
-
-        public a(Function1 function1, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {function1, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = function1;
-            this.b = str;
-        }
-
-        @Override // com.repackage.es2
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONArray c = is2.c();
-                if (c != null && c.length() != 0) {
-                    int length = c.length();
-                    for (int i = 0; i < length; i++) {
-                        if (Intrinsics.areEqual(this.b, c.get(i))) {
-                            Function1 function1 = this.a;
-                            if (function1 != null) {
-                                Unit unit = (Unit) function1.invoke(Boolean.TRUE);
-                                return;
-                            }
-                            return;
-                        }
-                    }
-                    Function1 function12 = this.a;
-                    if (function12 != null) {
-                        Unit unit2 = (Unit) function12.invoke(Boolean.FALSE);
-                        return;
-                    }
-                    return;
-                }
-                Function1 function13 = this.a;
-                if (function13 != null) {
-                    Unit unit3 = (Unit) function13.invoke(Boolean.TRUE);
-                }
-            }
-        }
-    }
-
-    public static final void b(String str, Function1<? super Boolean, Unit> function1) {
+    public is2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, function1) == null) {
-            ds2.g().z(new a(function1, str));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.a = "SwanAppPayCheckNode";
     }
 
-    public static final JSONArray c() {
+    @Override // com.repackage.hs2
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            h03 b0 = h03.b0();
-            if (b0 != null) {
-                String q = b0.e0().q("note_data_pay_check_list", "");
-                if (q == null || StringsKt__StringsJVMKt.isBlank(q)) {
-                    return null;
-                }
-                return new JSONObject(q).optJSONArray("pay_keys");
-            }
-            return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "payinfo" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.hs2
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b) {
+            Log.d(this.a, "onFail: ");
         }
-        return (JSONArray) invokeV.objValue;
+    }
+
+    @Override // com.repackage.hs2
+    public void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b) {
+            Log.d(this.a, "onFiltered: ");
+        }
+    }
+
+    @Override // com.repackage.hs2
+    public void d(String str, JSONObject jSONObject, String str2) {
+        i03 b0;
+        r43 e0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, jSONObject, str2) == null) {
+            if (this.b) {
+                Log.d(this.a, "onUpdate: ");
+            }
+            if (jSONObject == null || (b0 = i03.b0()) == null || (e0 = b0.e0()) == null) {
+                return;
+            }
+            e0.B("note_data_pay_check_list", jSONObject.toString());
+        }
     }
 }

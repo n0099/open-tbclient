@@ -17,6 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.PermissionRequest;
 import com.repackage.sw5;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -62,12 +63,12 @@ public class qw5 implements sw5 {
 
         /* renamed from: com.repackage.qw5$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0718a implements Camera.PictureCallback {
+        public class C0565a implements Camera.PictureCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0718a(a aVar) {
+            public C0565a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +124,7 @@ public class qw5 implements sw5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.b.g.takePicture(null, null, new C0718a(this));
+                    this.b.g.takePicture(null, null, new C0565a(this));
                 } catch (Exception e) {
                     e.printStackTrace();
                     this.b.J(false);
@@ -677,7 +678,7 @@ public class qw5 implements sw5 {
         tw5 tw5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            if (ContextCompat.checkSelfPermission(this.f, "android.permission.CAMERA") != 0) {
+            if (ContextCompat.checkSelfPermission(this.f, PermissionRequest.RESOURCE_VIDEO_CAPTURE) != 0) {
                 if (!z || (tw5Var = this.i) == null) {
                     return;
                 }

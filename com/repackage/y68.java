@@ -98,12 +98,12 @@ public class y68 extends a78 {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || view2 == null) {
             return;
         }
-        if (view2.getId() == R.id.obfuscated_res_0x7f0923ba) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f0923bc) {
             W();
             return;
         }
         if (!ni.z()) {
-            pi.N(this.O, R.string.obfuscated_res_0x7f0f0c64);
+            pi.N(this.O, R.string.obfuscated_res_0x7f0f0c50);
         } else {
             w0(ThreadCardUtils.computeViewArea(this.Q));
         }
@@ -162,8 +162,8 @@ public class y68 extends a78 {
         }
         Context context = this.O;
         boolean z = this.T;
-        String str2 = this.h0;
-        pd5.e(context, arrayList, str, z, 0, rect, "from_nani_video", "personalize_page", "", str2, str2, false, this.P0.isJumpToFrsVideoTabPlay, true);
+        String str2 = this.b0;
+        qd5.e(context, arrayList, str, z, 0, rect, "from_nani_video", "personalize_page", "", str2, str2, false, this.P0.isJumpToFrsVideoTabPlay, true);
     }
 
     public void x0() {

@@ -12,6 +12,7 @@ import com.baidu.mapapi.search.district.DistrictResult;
 import com.baidu.mapsdkplatform.comapi.util.AlgorithmUtil;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -148,7 +149,7 @@ public abstract class a {
                     if (jSONObject.has("status_sp")) {
                         return jSONObject.getInt("status_sp");
                     }
-                    if (!jSONObject.has("result") || (optJSONObject = jSONObject.optJSONObject("result")) == null) {
+                    if (!jSONObject.has(TiebaStatic.LogFields.RESULT) || (optJSONObject = jSONObject.optJSONObject(TiebaStatic.LogFields.RESULT)) == null) {
                         return 10204;
                     }
                     return optJSONObject.optInt("error");

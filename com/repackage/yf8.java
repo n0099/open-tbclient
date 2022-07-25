@@ -75,7 +75,7 @@ public class yf8 extends jx5<hf8> {
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 this.a.u = false;
                 if (this.a.s.getErrorCode() == 22) {
-                    pi.O(this.a.b.getPageActivity(), this.a.b.getString(R.string.obfuscated_res_0x7f0f0819));
+                    pi.O(this.a.b.getPageActivity(), this.a.b.getString(R.string.obfuscated_res_0x7f0f0815));
                 } else if (obj == null) {
                 } else {
                     if (this.a.s.getErrorCode() != 0) {
@@ -149,23 +149,23 @@ public class yf8 extends jx5<hf8> {
             }
         }
         this.u = false;
-        this.p = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f067c);
-        this.q = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0680);
+        this.p = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0678);
+        this.q = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f067c);
         View h = h();
         this.i = h;
         this.j = (BarImageView) h.findViewById(R.id.obfuscated_res_0x7f090313);
         this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090320);
-        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090754);
-        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091452);
-        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091968);
-        this.o = (TBSpecificationBtn) h.findViewById(R.id.obfuscated_res_0x7f090a32);
+        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090753);
+        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09142e);
+        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091943);
+        this.o = (TBSpecificationBtn) h.findViewById(R.id.obfuscated_res_0x7f090a2b);
     }
 
     @Override // com.repackage.jx5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d079a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07a4 : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5
@@ -223,7 +223,7 @@ public class yf8 extends jx5<hf8> {
             return;
         }
         if (!pi.D()) {
-            UtilHelper.showToast(this.b.getPageActivity(), this.b.getString(R.string.obfuscated_res_0x7f0f0c2b));
+            UtilHelper.showToast(this.b.getPageActivity(), this.b.getString(R.string.obfuscated_res_0x7f0f0c17));
             return;
         }
         hf8 hf8Var = this.r;
@@ -248,7 +248,7 @@ public class yf8 extends jx5<hf8> {
             return;
         }
         if (!pi.D()) {
-            UtilHelper.showToast(this.b.getPageActivity(), this.b.getString(R.string.obfuscated_res_0x7f0f0c2b));
+            UtilHelper.showToast(this.b.getPageActivity(), this.b.getString(R.string.obfuscated_res_0x7f0f0c17));
             return;
         }
         hf8 hf8Var = this.r;
@@ -309,15 +309,15 @@ public class yf8 extends jx5<hf8> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             if (!z) {
-                uu4 uu4Var = new uu4();
-                uu4Var.r(R.color.CAM_X0302);
-                this.o.setConfig(uu4Var);
-                this.o.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0665));
+                vu4 vu4Var = new vu4();
+                vu4Var.r(R.color.CAM_X0302);
+                this.o.setConfig(vu4Var);
+                this.o.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0661));
             } else {
-                uu4 uu4Var2 = new uu4();
-                uu4Var2.t(R.color.CAM_X0109);
-                this.o.setConfig(uu4Var2);
-                this.o.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0678));
+                vu4 vu4Var2 = new vu4();
+                vu4Var2.t(R.color.CAM_X0109);
+                this.o.setConfig(vu4Var2);
+                this.o.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0674));
             }
             this.r.s(z);
         }

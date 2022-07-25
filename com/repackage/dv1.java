@@ -1,6 +1,7 @@
 package com.repackage;
 
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,11 +9,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class dv1 extends nt1 {
+public class dv1 extends ot1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public int e;
+    public int f;
 
     public dv1() {
         Interceptable interceptable = $ic;
@@ -28,24 +33,37 @@ public class dv1 extends nt1 {
         }
     }
 
-    @Override // com.repackage.nt1
-    public void a(ot1 ot1Var, Canvas canvas) {
+    @Override // com.repackage.ot1
+    public void a(pt1 pt1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, ot1Var, canvas) == null) {
-            if (ot1Var.a() == 0) {
-                ot1Var.b(canvas.save());
+        if (interceptable == null || interceptable.invokeLL(1048576, this, pt1Var, canvas) == null) {
+            if (pt1Var.a() == 0) {
+                pt1Var.b(canvas.save());
             }
-            canvas.translate(this.a, this.b);
+            Matrix matrix = new Matrix();
+            matrix.setValues(new float[]{this.a, this.c, this.e, this.b, this.d, this.f, 0.0f, 0.0f, 1.0f});
+            canvas.concat(matrix);
         }
     }
 
-    @Override // com.repackage.nt1
+    @Override // com.repackage.ot1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 1) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 6) {
+                    this.a = (float) jSONArray.optDouble(0);
+                    this.b = (float) jSONArray.optDouble(1);
+                    this.c = (float) jSONArray.optDouble(2);
+                    this.d = (float) jSONArray.optDouble(3);
+                    this.e = zd3.g((float) jSONArray.optDouble(4));
+                    this.f = zd3.g((float) jSONArray.optDouble(5));
+                }
+            } catch (Exception e) {
+                if (sg1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
-        this.a = yd3.g((float) jSONArray.optDouble(0));
-        this.b = yd3.g((float) jSONArray.optDouble(1));
     }
 }

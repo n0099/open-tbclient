@@ -7,84 +7,102 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwad.sdk.utils.as;
+import com.kwad.sdk.utils.w;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context) {
+    public static void G(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
-            a b = b(context);
+            a Q = Q(context);
             long currentTimeMillis = System.currentTimeMillis();
-            if (b == null) {
-                b = new a(currentTimeMillis, 1);
-            } else if (b.a(currentTimeMillis)) {
-                b.b++;
+            if (Q == null) {
+                Q = new a(currentTimeMillis, 1);
+            } else if (Q.e(currentTimeMillis)) {
+                Q.eo++;
             } else {
-                b.a = currentTimeMillis;
-                b.b = 1;
+                Q.en = currentTimeMillis;
+                Q.eo = 1;
             }
-            a(context, b);
-        }
-    }
-
-    public static void a(Context context, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, aVar) == null) {
-            if (context == null || aVar == null) {
-                com.kwad.sdk.core.d.b.a("SplashLocalHelper", "saveSplashLocalInfo illegal arguments.");
-                return;
-            }
-            context.getSharedPreferences("ksadsdk_splash_local_ad_force_active", 0).edit().putString("key_local_info", aVar.toJson().toString()).apply();
+            a(context, Q);
         }
     }
 
     @Nullable
-    public static a b(Context context) {
+    public static a Q(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             if (context == null) {
                 return null;
             }
             try {
-                JSONObject jSONObject = new JSONObject(context.getSharedPreferences("ksadsdk_splash_local_ad_force_active", 0).getString("key_local_info", null));
+                String zF = w.zF();
+                if (TextUtils.isEmpty(zF)) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject(zF);
                 a aVar = new a();
                 aVar.parseJson(jSONObject);
                 return aVar;
             } catch (Exception e) {
-                com.kwad.sdk.core.d.b.b(e);
+                com.kwad.sdk.core.e.b.printStackTraceOnly(e);
                 return null;
             }
         }
         return (a) invokeL.objValue;
     }
 
-    public static void c(Context context) {
+    public static void R(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            a d = d(context);
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            a S = S(context);
             long currentTimeMillis = System.currentTimeMillis();
-            if (d == null) {
-                d = new a(currentTimeMillis, 1);
-            } else if (d.a(currentTimeMillis)) {
-                d.b++;
+            if (S == null) {
+                S = new a(currentTimeMillis, 1);
+            } else if (S.e(currentTimeMillis)) {
+                S.eo++;
             } else {
-                d.a = currentTimeMillis;
-                d.b = 1;
+                S.en = currentTimeMillis;
+                S.eo = 1;
             }
-            if (context == null || d == null) {
+            if (context == null || S == null) {
                 return;
             }
-            as.n(context, d.toJson().toString());
+            w.O(context, S.toJson().toString());
         }
     }
 
     @Nullable
-    public static a d(Context context) {
+    public static a S(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            try {
+                String cs = w.cs(context);
+                if (TextUtils.isEmpty(cs)) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject(cs);
+                a aVar = new a();
+                aVar.parseJson(jSONObject);
+                return aVar;
+            } catch (Exception e) {
+                com.kwad.sdk.core.e.b.printStackTraceOnly(e);
+                return null;
+            }
+        }
+        return (a) invokeL.objValue;
+    }
+
+    @Nullable
+    public static a T(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
@@ -92,64 +110,50 @@ public final class b {
                 return null;
             }
             try {
-                String g = as.g(context);
-                if (TextUtils.isEmpty(g)) {
+                String ct = w.ct(context);
+                if (TextUtils.isEmpty(ct)) {
                     return null;
                 }
-                JSONObject jSONObject = new JSONObject(g);
+                JSONObject jSONObject = new JSONObject(ct);
                 a aVar = new a();
                 aVar.parseJson(jSONObject);
                 return aVar;
             } catch (Exception e) {
-                com.kwad.sdk.core.d.b.b(e);
+                com.kwad.sdk.core.e.b.printStackTraceOnly(e);
                 return null;
             }
         }
         return (a) invokeL.objValue;
     }
 
-    @Nullable
-    public static a e(Context context) {
-        InterceptResult invokeL;
+    public static void U(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            try {
-                String h = as.h(context);
-                if (TextUtils.isEmpty(h)) {
-                    return null;
-                }
-                JSONObject jSONObject = new JSONObject(h);
-                a aVar = new a();
-                aVar.parseJson(jSONObject);
-                return aVar;
-            } catch (Exception e) {
-                com.kwad.sdk.core.d.b.b(e);
-                return null;
-            }
-        }
-        return (a) invokeL.objValue;
-    }
-
-    public static void f(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
-            a e = e(context);
+        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
+            a T = T(context);
             long currentTimeMillis = System.currentTimeMillis();
-            if (e == null) {
-                e = new a(currentTimeMillis, 1);
-            } else if (e.a(currentTimeMillis)) {
-                e.b++;
+            if (T == null) {
+                T = new a(currentTimeMillis, 1);
+            } else if (T.e(currentTimeMillis)) {
+                T.eo++;
             } else {
-                e.a = currentTimeMillis;
-                e.b = 1;
+                T.en = currentTimeMillis;
+                T.eo = 1;
             }
-            if (context == null || e == null) {
+            if (context == null || T == null) {
                 return;
             }
-            as.o(context, e.toJson().toString());
+            w.P(context, T.toJson().toString());
+        }
+    }
+
+    public static void a(Context context, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, context, aVar) == null) {
+            if (context == null || aVar == null) {
+                com.kwad.sdk.core.e.b.d("SplashLocalHelper", "saveSplashLocalInfo illegal arguments.");
+            } else {
+                w.dH(aVar.toJson().toString());
+            }
         }
     }
 }

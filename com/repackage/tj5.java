@@ -40,7 +40,7 @@ public class tj5 implements ji5 {
     public TextView e;
     public EMTextView f;
     public AttentionView g;
-    public k55 h;
+    public l55 h;
     @Nullable
     public f i;
     public final ArrayList<SelectForumData> j;
@@ -233,7 +233,7 @@ public class tj5 implements ji5 {
         m();
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean J0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -243,7 +243,7 @@ public class tj5 implements ji5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -285,8 +285,8 @@ public class tj5 implements ji5 {
             if (attentionView != null) {
                 attentionView.setVisibility(0);
             }
-            k55 k55Var = this.h;
-            if (k55Var == null || !k55Var.isViewAttached()) {
+            l55 l55Var = this.h;
+            if (l55Var == null || !l55Var.isViewAttached()) {
                 return;
             }
             this.h.dettachView(this.d);
@@ -296,10 +296,10 @@ public class tj5 implements ji5 {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04e7, (ViewGroup) this.b, true);
-            this.d = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091cfc);
-            this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091cfd);
-            AttentionView attentionView = (AttentionView) this.b.findViewById(R.id.obfuscated_res_0x7f091cfb);
+            LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04f1, (ViewGroup) this.b, true);
+            this.d = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091d02);
+            this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091d03);
+            AttentionView attentionView = (AttentionView) this.b.findViewById(R.id.obfuscated_res_0x7f091d01);
             this.g = attentionView;
             if (attentionView != null) {
                 attentionView.setForumSelectStateChangedListener(j());
@@ -310,7 +310,7 @@ public class tj5 implements ji5 {
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public void n(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
@@ -326,9 +326,9 @@ public class tj5 implements ji5 {
             if (attentionView != null) {
                 attentionView.a();
             }
-            k55 k55Var = this.h;
-            if (k55Var != null) {
-                k55Var.onChangeSkinType();
+            l55 l55Var = this.h;
+            if (l55Var != null) {
+                l55Var.onChangeSkinType();
             }
         }
     }
@@ -360,9 +360,9 @@ public class tj5 implements ji5 {
 
     @Override // com.repackage.ji5
     public void onResume() {
-        k55 k55Var;
+        l55 l55Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (k55Var = this.h) != null && k55Var.isViewAttached()) {
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (l55Var = this.h) != null && l55Var.isViewAttached()) {
             l();
             AttentionView attentionView = this.g;
             if (attentionView != null) {
@@ -405,7 +405,7 @@ public class tj5 implements ji5 {
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -420,11 +420,11 @@ public class tj5 implements ji5 {
         if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.a == null || this.d == null) {
             return;
         }
-        k55 k55Var = this.h;
-        if (k55Var == null || !k55Var.isViewAttached()) {
-            k55 k55Var2 = new k55(this.a.getPageActivity(), new b(this));
-            this.h = k55Var2;
-            k55Var2.j(true);
+        l55 l55Var = this.h;
+        if (l55Var == null || !l55Var.isViewAttached()) {
+            l55 l55Var2 = new l55(this.a.getPageActivity(), new b(this));
+            this.h = l55Var2;
+            l55Var2.j(true);
             this.h.m(this.a.getString(R.string.obfuscated_res_0x7f0f0095));
             this.h.o(this.a.getString(R.string.obfuscated_res_0x7f0f0096));
             this.h.g(this.a.getString(R.string.obfuscated_res_0x7f0f0094));

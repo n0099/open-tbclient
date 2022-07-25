@@ -16,8 +16,8 @@ import com.kwad.sdk.core.config.d;
 public class a extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
+    public boolean KP;
+    public String mUniqueId;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -32,14 +32,14 @@ public class a extends WebViewClient {
                 return;
             }
         }
-        this.b = true;
-        this.a = "";
+        this.KP = true;
+        this.mUniqueId = "";
     }
 
-    public final void a(boolean z) {
+    public final void setNeedHybridLoad(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.b = z;
+            this.KP = z;
         }
     }
 
@@ -49,11 +49,11 @@ public class a extends WebViewClient {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, webResourceRequest)) == null) {
-            if (this.b && d.U()) {
+            if (this.KP && d.si()) {
                 String uri = webResourceRequest.getUrl().toString();
-                com.kwad.sdk.core.d.b.a("HybridWebViewClient", "shouldInterceptRequestAPI 21: " + uri);
-                WebResourceResponse a = com.kwad.components.a.a.a().a(uri, this.a);
-                return a == null ? super.shouldInterceptRequest(webView, webResourceRequest) : a;
+                com.kwad.sdk.core.e.b.d("HybridWebViewClient", "shouldInterceptRequestAPI 21: " + uri);
+                WebResourceResponse m = com.kwad.components.a.a.qo().m(uri, this.mUniqueId);
+                return m == null ? super.shouldInterceptRequest(webView, webResourceRequest) : m;
             }
             return super.shouldInterceptRequest(webView, webResourceRequest);
         }
@@ -65,10 +65,10 @@ public class a extends WebViewClient {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
-            if (this.b && d.U()) {
-                com.kwad.sdk.core.d.b.a("HybridWebViewClient", "shouldInterceptRequest: " + str);
-                WebResourceResponse a = com.kwad.components.a.a.a().a(str, this.a);
-                return a == null ? super.shouldInterceptRequest(webView, str) : a;
+            if (this.KP && d.si()) {
+                com.kwad.sdk.core.e.b.d("HybridWebViewClient", "shouldInterceptRequest: " + str);
+                WebResourceResponse m = com.kwad.components.a.a.qo().m(str, this.mUniqueId);
+                return m == null ? super.shouldInterceptRequest(webView, str) : m;
             }
             return super.shouldInterceptRequest(webView, str);
         }

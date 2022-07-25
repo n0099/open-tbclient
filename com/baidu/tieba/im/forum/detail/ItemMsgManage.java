@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd5;
+import com.repackage.kd5;
 import com.repackage.s77;
 import tbclient.GetForumDetail.ManagerElectionTab;
 import tbclient.ManagerApplyInfo;
@@ -38,7 +38,7 @@ public class ItemMsgManage extends LinearLayout {
     public TextView h;
 
     /* loaded from: classes3.dex */
-    public class a implements jd5<Boolean> {
+    public class a implements kd5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ItemMsgManage a;
@@ -62,7 +62,7 @@ public class ItemMsgManage extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -175,16 +175,16 @@ public class ItemMsgManage extends LinearLayout {
                 int intValue2 = priManagerApplyInfo.assist_left_num.intValue();
                 this.e.setVisibility(0);
                 if (intValue == -1) {
-                    String format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0662), StringHelper.numberUniformFormat(intValue2));
+                    String format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f065e), StringHelper.numberUniformFormat(intValue2));
                     if (intValue2 > 0) {
                         this.e.setText(format);
                     } else {
                         this.e.setVisibility(8);
                     }
                 } else if (intValue == 1) {
-                    this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0663));
+                    this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f065f));
                 } else if (intValue == 2) {
-                    this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0661));
+                    this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f065d));
                 } else {
                     this.e.setVisibility(8);
                 }

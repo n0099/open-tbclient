@@ -13,11 +13,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.es4;
 import com.repackage.fs4;
+import com.repackage.gs4;
 import com.repackage.q9;
 import com.repackage.v70;
-import com.repackage.xt4;
+import com.repackage.yt4;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class InitDebugTask extends LaunchTask {
@@ -42,8 +42,8 @@ public class InitDebugTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && TbadkCoreApplication.getInst().isDebugMode()) {
             ArrayList arrayList = new ArrayList();
+            arrayList.add(gs4.class.getName());
             arrayList.add(fs4.class.getName());
-            arrayList.add(es4.class.getName());
             arrayList.add(CmdConfigHttp.class.getName());
             q9.a().c(arrayList);
         }
@@ -65,7 +65,7 @@ public class InitDebugTask extends LaunchTask {
 
     private void initUETool() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && TbadkCoreApplication.getInst().isDebugMode() && TbadkCoreApplication.getInst().isMainProcess(false) && xt4.k().h("key_ue_tool_switch", false)) {
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && TbadkCoreApplication.getInst().isDebugMode() && TbadkCoreApplication.getInst().isMainProcess(false) && yt4.k().h("key_ue_tool_switch", false)) {
             MessageManager.getInstance().runTask(2921513, null, null);
         }
     }

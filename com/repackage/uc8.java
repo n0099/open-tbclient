@@ -67,64 +67,64 @@ public class uc8 {
             return;
         }
         if (!ni.z()) {
-            pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1153);
+            pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1102);
             return;
         }
         if (z && (b = b()) != null) {
             shareItem.E = b;
         }
-        jz4 jz4Var = new jz4(this.a, null);
+        kz4 kz4Var = new kz4(this.a, null);
         if (i == 3) {
             IWXAPI createWXAPI = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID);
             if (createWXAPI != null && !createWXAPI.isWXAppInstalled()) {
-                BdToast.b(this.a, TbadkCoreApplication.getInst().getText(R.string.obfuscated_res_0x7f0f1185)).h();
+                BdToast.b(this.a, TbadkCoreApplication.getInst().getText(R.string.obfuscated_res_0x7f0f1134)).h();
                 return;
             }
             e(shareItem, 4);
-            jz4Var.t(shareItem);
+            kz4Var.t(shareItem);
         } else if (i == 2) {
             IWXAPI createWXAPI2 = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID);
             if (createWXAPI2 != null && !createWXAPI2.isWXAppInstalled()) {
-                BdToast.b(this.a, TbadkCoreApplication.getInst().getText(R.string.obfuscated_res_0x7f0f1185)).h();
+                BdToast.b(this.a, TbadkCoreApplication.getInst().getText(R.string.obfuscated_res_0x7f0f1134)).h();
                 return;
             }
             e(shareItem, 3);
             if (shareItem.b) {
                 shareItem.v = a(shareItem);
             }
-            jz4Var.u(shareItem);
+            kz4Var.u(shareItem);
         } else if (i == 4) {
             if (sh8.b(this.a, "com.tencent.mobileqq")) {
                 e(shareItem, 5);
-                jz4Var.p(shareItem);
+                kz4Var.p(shareItem);
                 return;
             }
             Context context = this.a;
-            BdToast.b(context, context.getText(R.string.obfuscated_res_0x7f0f115f)).h();
+            BdToast.b(context, context.getText(R.string.obfuscated_res_0x7f0f110e)).h();
         } else if (i == 5) {
             if (!shareItem.a) {
                 shareItem.v = a(shareItem);
             }
-            jz4Var.s(shareItem);
+            kz4Var.s(shareItem);
         } else if (i == 6) {
             e(shareItem, 7);
             if (!shareItem.a) {
                 shareItem.v = a(shareItem);
             }
-            jz4Var.r(shareItem);
+            kz4Var.r(shareItem);
         } else if (i == 7) {
             if (!shareItem.a) {
                 shareItem.v = a(shareItem);
             }
-            jz4Var.q(shareItem);
+            kz4Var.q(shareItem);
         } else if (i == 8) {
             if (sh8.b(this.a, "com.tencent.mobileqq")) {
                 e(shareItem, 9);
-                jz4Var.o(shareItem);
+                kz4Var.o(shareItem);
                 return;
             }
             Context context2 = this.a;
-            BdToast.b(context2, context2.getText(R.string.obfuscated_res_0x7f0f115f)).h();
+            BdToast.b(context2, context2.getText(R.string.obfuscated_res_0x7f0f110e)).h();
         }
     }
 

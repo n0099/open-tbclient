@@ -15,8 +15,8 @@ public class xh8 extends ThreadData {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public rq4 a;
-    public tq4 b;
+    public sq4 a;
+    public uq4 b;
     public boolean c;
 
     static {
@@ -51,16 +51,16 @@ public class xh8 extends ThreadData {
         this.c = false;
     }
 
-    public rq4 c() {
+    public sq4 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (rq4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (sq4) invokeV.objValue;
     }
 
-    public tq4 d() {
+    public uq4 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (tq4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (uq4) invokeV.objValue;
     }
 
     public boolean g() {
@@ -83,17 +83,17 @@ public class xh8 extends ThreadData {
         }
     }
 
-    public void k(rq4 rq4Var) {
+    public void k(sq4 sq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, rq4Var) == null) {
-            this.a = rq4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, sq4Var) == null) {
+            this.a = sq4Var;
         }
     }
 
-    public void m(tq4 tq4Var) {
+    public void m(uq4 uq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, tq4Var) == null) {
-            this.b = tq4Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, uq4Var) == null) {
+            this.b = uq4Var;
         }
     }
 }

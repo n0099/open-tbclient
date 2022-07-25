@@ -2,8 +2,7 @@ package com.repackage;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,117 +11,176 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileFilter;
+import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class mq2 extends jq2 {
+public class mq2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public static class a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
 
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final mq2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-177125019, "Lcom/repackage/mq2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-177125019, "Lcom/repackage/mq2$b;");
-                    return;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            a = new mq2(null);
+        }
+
+        @Override // java.io.FileFilter
+        public boolean accept(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? file.isDirectory() && TextUtils.isDigitsOnly(file.getName()) : invokeL.booleanValue;
         }
     }
 
-    public /* synthetic */ mq2(a aVar) {
-        this();
-    }
-
-    public static mq2 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (mq2) invokeV.objValue;
-    }
-
-    public boolean h(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pMSAppInfo)) == null) {
-            JSONObject d = d(pMSAppInfo);
-            if (d == null || d.length() <= 0) {
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755490717, "Lcom/repackage/mq2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            boolean optBoolean = d.optBoolean("is_opti");
-            if (jq2.c) {
-                Log.d("SwanAppExtInfo", "is opt pkg  - " + optBoolean);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755490717, "Lcom/repackage/mq2;");
+                return;
             }
-            return optBoolean;
         }
-        return invokeL.booleanValue;
+        a = sg1.a;
     }
 
-    public boolean i(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        boolean z;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo)) == null) {
-            JSONObject b2 = b(pMSAppInfo);
-            if (b2 != null && b2.has(PrefetchEvent.MODULE)) {
-                z = b2.optBoolean(PrefetchEvent.MODULE);
+        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        File file = new File(ej2.g(), str);
+        if (file.exists()) {
+            if (a) {
+                Log.d("PkgInfoExt", "clear all pkg info's ext ,appId - " + str);
+            }
+            File[] listFiles = file.listFiles(new a());
+            if (listFiles == null || listFiles.length <= 0) {
+                return;
+            }
+            for (File file2 : listFiles) {
+                b(str, file2.getName());
+            }
+        }
+    }
+
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            String e = e(str, str2);
+            if (TextUtils.isEmpty(e)) {
+                return;
+            }
+            w83.a().edit().remove(e).apply();
+            if (a) {
+                Log.d("PkgInfoExt", "clear pkg info's ext , appId - " + str + ", version code - " + str2);
+            }
+        }
+    }
+
+    public static String c(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, pMSAppInfo)) == null) ? d(pMSAppInfo.appId, pMSAppInfo.versionCode) : (String) invokeL.objValue;
+    }
+
+    public static String d(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j)) == null) ? e(str, String.valueOf(j)) : (String) invokeLJ.objValue;
+    }
+
+    public static String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                return str + "_" + str2 + "_pkg_info_ext";
+            } else if (a) {
+                Log.e("PkgInfoExt", "#getExtKey appId or version code is empty");
+                Log.d("PkgInfoExt", "#getExtKey appId=" + str + " version=" + str2);
+                return null;
             } else {
-                JSONObject a2 = a(pMSAppInfo);
-                z = a2 != null && a2.optBoolean(PrefetchEvent.MODULE);
-            }
-            if (jq2.c) {
-                Log.d("SwanAppExtInfo", "is prefetch on - " + z);
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean j(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pMSAppInfo)) == null) ? TextUtils.equals(c(pMSAppInfo), "1") : invokeL.booleanValue;
-    }
-
-    public JSONObject k(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pMSAppInfo)) == null) {
-            JSONObject b2 = b(pMSAppInfo);
-            if (b2 == null || b2.length() <= 0) {
                 return null;
             }
-            return b2.optJSONObject("topPages");
         }
-        return (JSONObject) invokeL.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public mq2() {
+    public static String f(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, pMSAppInfo)) == null) {
+            if (pMSAppInfo == null) {
+                return "";
+            }
+            String c = c(pMSAppInfo);
+            if (TextUtils.isEmpty(c)) {
+                return "";
+            }
+            String string = w83.a().getString(c, "");
+            if (a) {
+                Log.d("PkgInfoExt", "appId - " + pMSAppInfo.appId + ", get pkg info' ext - " + string);
+            }
+            return string;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void g(String str, JSONObject jSONObject, f94 f94Var, List<g94> list) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65543, null, str, jSONObject, f94Var, list) == null) {
+            if (jSONObject == null) {
+                if (a) {
+                    Log.d("PkgInfoExt", "pkgObject from pms is null");
+                }
+            } else if (f94Var == null && list == null) {
+                if (a) {
+                    Log.d("PkgInfoExt", "pkg info's ext must has at lest one main or sub pkg");
+                }
+            } else {
+                String str2 = null;
+                if (f94Var != null) {
+                    str = f94Var.g;
+                    j = f94Var.i;
+                    str2 = f94Var.p;
+                } else if (list.size() > 0) {
+                    g94 g94Var = list.get(0);
+                    j = g94Var.i;
+                    str2 = g94Var.s;
+                } else {
+                    j = -1;
+                }
+                if (str2 == null) {
+                    if (a) {
+                        Log.e("PkgInfoExt", "can not get ext from pkg ");
+                    }
+                } else if (!TextUtils.isEmpty(str) && j != -1) {
+                    w83.a().edit().putString(d(str, j), str2).apply();
+                } else if (a) {
+                    Log.e("PkgInfoExt", "can not get appId and version code from pkg ");
+                }
             }
         }
     }

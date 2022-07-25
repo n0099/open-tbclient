@@ -11,12 +11,12 @@ import android.os.Build;
 import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.p0.h;
 import com.yy.hiidostatis.api.StatisContent;
 import com.yy.hiidostatis.defs.interf.IStatisAPI;
 import com.yy.hiidostatis.inner.util.ArdUtil;
@@ -271,7 +271,7 @@ public class DeviceController {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             String[] strArr = new String[3];
             try {
-                if (ArdUtil.checkPermissions(context, PermissionChecker.ACCESS_WIFI_STATE)) {
+                if (ArdUtil.checkPermissions(context, h.d)) {
                     WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                     if (wifiManager.isWifiEnabled() && wifiManager.getWifiState() == 3 && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
                         int ipAddress = connectionInfo.getIpAddress();

@@ -21,7 +21,7 @@ import java.util.List;
 public class KsAppTagsView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public int Cu;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KsAppTagsView(Context context) {
@@ -41,7 +41,7 @@ public class KsAppTagsView extends LinearLayout {
                 return;
             }
         }
-        this.a = 3;
+        this.Cu = 3;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -63,7 +63,7 @@ public class KsAppTagsView extends LinearLayout {
                 return;
             }
         }
-        this.a = 3;
+        this.Cu = 3;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -85,7 +85,7 @@ public class KsAppTagsView extends LinearLayout {
                 return;
             }
         }
-        this.a = 3;
+        this.Cu = 3;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -108,7 +108,7 @@ public class KsAppTagsView extends LinearLayout {
                 return;
             }
         }
-        this.a = 3;
+        this.Cu = 3;
     }
 
     public static void a(LinearLayout linearLayout, String str, @LayoutRes int i) {
@@ -120,7 +120,7 @@ public class KsAppTagsView extends LinearLayout {
         }
     }
 
-    public final void a(List<String> list, @LayoutRes int i) {
+    public final void c(List<String> list, @LayoutRes int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(1048576, this, list, i) == null) || list == null) {
             return;
@@ -128,7 +128,7 @@ public class KsAppTagsView extends LinearLayout {
         int i2 = 0;
         for (String str : list) {
             i2++;
-            if (i2 > this.a) {
+            if (i2 > this.Cu) {
                 return;
             }
             a(this, str, i);
@@ -138,14 +138,14 @@ public class KsAppTagsView extends LinearLayout {
     public void setAppTags(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            a(list, R.layout.obfuscated_res_0x7f0d044d);
+            c(list, R.layout.obfuscated_res_0x7f0d044d);
         }
     }
 
     public void setMaxCount(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a = i;
+            this.Cu = i;
         }
     }
 }

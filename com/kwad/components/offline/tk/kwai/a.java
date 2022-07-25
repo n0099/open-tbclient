@@ -12,7 +12,7 @@ import com.kwad.sdk.core.webview.kwai.f;
 public final class a implements com.kwad.sdk.core.webview.kwai.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final IOfflineCompoCallBackFunction a;
+    public final IOfflineCompoCallBackFunction Qn;
 
     public a(IOfflineCompoCallBackFunction iOfflineCompoCallBackFunction) {
         Interceptable interceptable = $ic;
@@ -29,29 +29,29 @@ public final class a implements com.kwad.sdk.core.webview.kwai.c {
                 return;
             }
         }
-        this.a = iOfflineCompoCallBackFunction;
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.c
-    public final void a(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            String jSONObject = new e(i, str).toJson().toString();
-            IOfflineCompoCallBackFunction iOfflineCompoCallBackFunction = this.a;
-            if (iOfflineCompoCallBackFunction != null) {
-                iOfflineCompoCallBackFunction.onError(jSONObject);
-            }
-        }
+        this.Qn = iOfflineCompoCallBackFunction;
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.c
     public final void a(com.kwad.sdk.core.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             String jSONObject = new f(bVar).toJson().toString();
-            IOfflineCompoCallBackFunction iOfflineCompoCallBackFunction = this.a;
+            IOfflineCompoCallBackFunction iOfflineCompoCallBackFunction = this.Qn;
             if (iOfflineCompoCallBackFunction != null) {
                 iOfflineCompoCallBackFunction.onSuccess(jSONObject);
+            }
+        }
+    }
+
+    @Override // com.kwad.sdk.core.webview.kwai.c
+    public final void onError(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            String jSONObject = new e(i, str).toJson().toString();
+            IOfflineCompoCallBackFunction iOfflineCompoCallBackFunction = this.Qn;
+            if (iOfflineCompoCallBackFunction != null) {
+                iOfflineCompoCallBackFunction.onError(jSONObject);
             }
         }
     }

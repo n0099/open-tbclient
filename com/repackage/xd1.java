@@ -33,11 +33,11 @@ public class xd1 {
 
         /* renamed from: com.repackage.xd1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0771a implements Thread.UncaughtExceptionHandler {
+        public class C0619a implements Thread.UncaughtExceptionHandler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0771a(a aVar) {
+            public C0619a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +84,7 @@ public class xd1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
                 Thread thread = new Thread(runnable, "TaskScheduler #" + this.a.getAndIncrement());
-                thread.setUncaughtExceptionHandler(new C0771a(this));
+                thread.setUncaughtExceptionHandler(new C0619a(this));
                 return thread;
             }
             return (Thread) invokeL.objValue;

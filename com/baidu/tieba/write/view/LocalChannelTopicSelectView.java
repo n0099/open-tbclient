@@ -98,7 +98,7 @@ public class LocalChannelTopicSelectView extends RelativeLayout implements View.
     public void setLocalChannelTopic(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a35, str));
+            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a21, str));
         }
     }
 

@@ -128,7 +128,7 @@ public class y71 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
                 this.c.x("8", 119501, "cashier/launchpayment", i, this.a);
-                this.b.b(th, m91.a().getResources().getString(R.string.obfuscated_res_0x7f0f040b));
+                this.b.b(th, m91.a().getResources().getString(R.string.obfuscated_res_0x7f0f040a));
             }
         }
 

@@ -147,14 +147,14 @@ public class qo7 extends an<zo7, InterestedForumStyleAForumViewHolder> {
             interestedForumStyleAForumViewHolder.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
             interestedForumStyleAForumViewHolder.b.setPlaceHolder(1);
             interestedForumStyleAForumViewHolder.b.J(zo7Var.a(), 10, false);
-            interestedForumStyleAForumViewHolder.c.setText(zo7Var.d() + this.a.getString(R.string.obfuscated_res_0x7f0f0650));
+            interestedForumStyleAForumViewHolder.c.setText(zo7Var.d() + this.a.getString(R.string.obfuscated_res_0x7f0f064c));
             if (!StringUtils.isNull(zo7Var.h())) {
-                interestedForumStyleAForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0934, zo7Var.h()));
+                interestedForumStyleAForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f091f, zo7Var.h()));
             } else {
-                interestedForumStyleAForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0938));
+                interestedForumStyleAForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0923));
             }
-            interestedForumStyleAForumViewHolder.e.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f041a), StringHelper.numberUniformFormatExtraWithRoundInt(zo7Var.g())));
-            interestedForumStyleAForumViewHolder.f.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f06b9), StringHelper.numberUniformFormatExtraWithRoundInt(zo7Var.i())));
+            interestedForumStyleAForumViewHolder.e.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0419), StringHelper.numberUniformFormatExtraWithRoundInt(zo7Var.g())));
+            interestedForumStyleAForumViewHolder.f.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f06b5), StringHelper.numberUniformFormatExtraWithRoundInt(zo7Var.i())));
             i0(interestedForumStyleAForumViewHolder.h, zo7Var.k());
         }
     }
@@ -169,16 +169,16 @@ public class qo7 extends an<zo7, InterestedForumStyleAForumViewHolder> {
     public final void h0(InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, interestedForumStyleAForumViewHolder) == null) {
-            ur4 d = ur4.d(interestedForumStyleAForumViewHolder.c);
+            vr4 d = vr4.d(interestedForumStyleAForumViewHolder.c);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X06);
-            ur4 d2 = ur4.d(interestedForumStyleAForumViewHolder.d);
+            vr4 d2 = vr4.d(interestedForumStyleAForumViewHolder.d);
             d2.v(R.color.CAM_X0109);
             d2.z(R.dimen.T_X09);
-            ur4 d3 = ur4.d(interestedForumStyleAForumViewHolder.e);
+            vr4 d3 = vr4.d(interestedForumStyleAForumViewHolder.e);
             d3.v(R.color.CAM_X0109);
             d3.z(R.dimen.T_X09);
-            ur4 d4 = ur4.d(interestedForumStyleAForumViewHolder.f);
+            vr4 d4 = vr4.d(interestedForumStyleAForumViewHolder.f);
             d4.v(R.color.CAM_X0109);
             d4.z(R.dimen.T_X09);
             TBSelector.setViewBackgroundColorWithPressedState(interestedForumStyleAForumViewHolder.a, R.color.CAM_X0205, R.color.CAM_X0204);

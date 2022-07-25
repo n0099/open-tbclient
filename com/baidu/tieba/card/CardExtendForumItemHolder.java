@@ -53,68 +53,68 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void c(t27 t27Var) {
+    public void b(t27 t27Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, t27Var) == null) {
             if (t27Var != null && (t27Var instanceof sy5)) {
                 sy5 sy5Var = (sy5) t27Var;
                 this.e = sy5Var;
                 this.b.setTag(sy5Var.b);
-                this.b.setTag(R.id.obfuscated_res_0x7f091eff, this.e.c);
+                this.b.setTag(R.id.obfuscated_res_0x7f091f03, this.e.c);
                 this.b.J(this.e.b, 15, false);
                 TextView textView = this.c;
-                textView.setText(StringHelper.getFixedText(this.e.c, 4, true) + b().getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0650));
-                this.c.setTag(R.id.obfuscated_res_0x7f091eff, this.e.c);
-                this.d.setTag(R.id.obfuscated_res_0x7f091efe, Long.valueOf(this.e.d));
-                this.d.setTag(R.id.obfuscated_res_0x7f091eff, this.e.c);
-                b().setTag(R.id.obfuscated_res_0x7f091efe, Long.valueOf(this.e.d));
-                b().setTag(R.id.obfuscated_res_0x7f091eff, this.e.c);
-                g(this.d, this.e.e);
+                textView.setText(StringHelper.getFixedText(this.e.c, 4, true) + a().getContext().getResources().getString(R.string.obfuscated_res_0x7f0f064c));
+                this.c.setTag(R.id.obfuscated_res_0x7f091f03, this.e.c);
+                this.d.setTag(R.id.obfuscated_res_0x7f091f02, Long.valueOf(this.e.d));
+                this.d.setTag(R.id.obfuscated_res_0x7f091f03, this.e.c);
+                a().setTag(R.id.obfuscated_res_0x7f091f02, Long.valueOf(this.e.d));
+                a().setTag(R.id.obfuscated_res_0x7f091f03, this.e.c);
+                f(this.d, this.e.e);
                 this.b.setOnClickListener(this.a);
                 this.d.setOnClickListener(this.a);
                 this.c.setOnClickListener(this.a);
-                b().setOnClickListener(this.a);
+                a().setOnClickListener(this.a);
             }
-            e(TbadkCoreApplication.getInst().getSkinType());
+            d(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public ItemViewHolder d(View view2) {
+    public ItemViewHolder c(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
             CardExtendForumItemHolder cardExtendForumItemHolder = new CardExtendForumItemHolder(view2);
-            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0909fc);
+            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0909f5);
             cardExtendForumItemHolder.b = barImageView;
             barImageView.setGifIconSupport(false);
-            cardExtendForumItemHolder.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913ce);
-            cardExtendForumItemHolder.d = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0909f7);
+            cardExtendForumItemHolder.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913aa);
+            cardExtendForumItemHolder.d = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0909f0);
             return cardExtendForumItemHolder;
         }
         return (ItemViewHolder) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void e(int i) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             if (this.f != i) {
-                SkinManager.setBackgroundColor(b(), R.color.CAM_X0201);
+                SkinManager.setBackgroundColor(a(), R.color.CAM_X0201);
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-                g(this.d, this.e.e);
+                f(this.d, this.e.e);
             }
             this.f = i;
         }
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public final void g(EntelechyUserLikeButton entelechyUserLikeButton, boolean z) {
+    public final void f(EntelechyUserLikeButton entelechyUserLikeButton, boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLZ(1048579, this, entelechyUserLikeButton, z) == null) || entelechyUserLikeButton == null) {
             return;
         }
-        entelechyUserLikeButton.setTag(R.id.obfuscated_res_0x7f090a1e, Boolean.valueOf(z));
+        entelechyUserLikeButton.setTag(R.id.obfuscated_res_0x7f090a17, Boolean.valueOf(z));
         entelechyUserLikeButton.h(z);
     }
 }

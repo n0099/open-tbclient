@@ -19,12 +19,12 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public final class b extends com.kwad.components.ad.draw.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup b;
-    public DrawCardApp c;
-    public DrawCardH5 d;
-    public AdTemplate e;
-    public AdInfo f;
-    public a.InterfaceC0457a g;
+    public DrawCardApp bC;
+    public DrawCardH5 bD;
+    public ViewGroup bh;
+    public a.InterfaceC0303a bz;
+    public AdInfo mAdInfo;
+    public AdTemplate mAdTemplate;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -39,10 +39,10 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
                 return;
             }
         }
-        this.g = new a.InterfaceC0457a(this) { // from class: com.kwad.components.ad.draw.a.a.b.1
+        this.bz = new a.InterfaceC0303a(this) { // from class: com.kwad.components.ad.draw.a.a.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
+            public final /* synthetic */ b bE;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -59,39 +59,27 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
                         return;
                     }
                 }
-                this.a = this;
+                this.bE = this;
             }
 
-            @Override // com.kwad.components.ad.draw.a.a.a.InterfaceC0457a
-            public final void a() {
+            @Override // com.kwad.components.ad.draw.a.a.a.InterfaceC0303a
+            public final void ax() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.a.d();
+                    this.bE.ax();
                 }
             }
         };
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
+    private void aA() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            if (com.kwad.sdk.core.response.a.a.I(this.f)) {
-                e();
-            } else {
-                g();
-            }
-        }
-    }
-
-    private void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.b.setVisibility(8);
-            this.c.a(this.e, new DrawCardApp.a(this) { // from class: com.kwad.components.ad.draw.a.a.b.2
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            this.bh.setVisibility(8);
+            this.bD.a(this.mAdTemplate, new DrawCardH5.a(this) { // from class: com.kwad.components.ad.draw.a.a.b.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ b a;
+                public final /* synthetic */ b bE;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -108,123 +96,135 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
                             return;
                         }
                     }
-                    this.a = this;
-                }
-
-                @Override // com.kwad.components.ad.draw.view.playcard.DrawCardApp.a
-                public final void a() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.b.setVisibility(0);
-                    }
-                }
-
-                @Override // com.kwad.components.ad.draw.view.playcard.DrawCardApp.a
-                public final void b() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.a.h();
-                    }
-                }
-            });
-            this.c.setVisibility(0);
-            this.c.b();
-        }
-    }
-
-    private void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.b.setVisibility(8);
-            this.d.a(this.e, new DrawCardH5.a(this) { // from class: com.kwad.components.ad.draw.a.a.b.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ b a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
+                    this.bE = this;
                 }
 
                 @Override // com.kwad.components.ad.draw.view.playcard.DrawCardH5.a
-                public final void a() {
+                public final void aC() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.b.setVisibility(0);
+                        this.bE.bh.setVisibility(0);
                     }
                 }
 
                 @Override // com.kwad.components.ad.draw.view.playcard.DrawCardH5.a
-                public final void b() {
+                public final void aD() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.a.h();
+                        this.bE.aB();
                     }
                 }
             });
-            this.d.setVisibility(0);
-            this.d.b();
+            this.bD.setVisibility(0);
+            this.bD.aT();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void h() {
+    public void aB() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            com.kwad.sdk.core.report.a.a(this.e, 29, ((com.kwad.components.ad.draw.kwai.a) this).a.b.getTouchCoords());
-            KsDrawAd.AdInteractionListener adInteractionListener = ((com.kwad.components.ad.draw.kwai.a) this).a.a;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            com.kwad.sdk.core.report.a.a(this.mAdTemplate, 29, this.aK.mRootContainer.getTouchCoords());
+            KsDrawAd.AdInteractionListener adInteractionListener = this.aK.aJ;
             if (adInteractionListener != null) {
                 adInteractionListener.onAdClicked();
             }
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void ax() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            if (com.kwad.sdk.core.response.a.a.am(this.mAdInfo)) {
+                az();
+            } else {
+                aA();
+            }
+        }
+    }
+
+    private void az() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            this.bh.setVisibility(8);
+            this.bC.a(this.mAdTemplate, new DrawCardApp.a(this) { // from class: com.kwad.components.ad.draw.a.a.b.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ b bE;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.bE = this;
+                }
+
+                @Override // com.kwad.components.ad.draw.view.playcard.DrawCardApp.a
+                public final void aC() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.bE.bh.setVisibility(0);
+                    }
+                }
+
+                @Override // com.kwad.components.ad.draw.view.playcard.DrawCardApp.a
+                public final void aD() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                        this.bE.aB();
+                    }
+                }
+            });
+            this.bC.setVisibility(0);
+            this.bC.aT();
+        }
+    }
+
     @Override // com.kwad.components.ad.draw.kwai.a, com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            AdTemplate adTemplate = ((com.kwad.components.ad.draw.kwai.a) this).a.c;
-            this.e = adTemplate;
-            this.f = d.i(adTemplate);
-            ((com.kwad.components.ad.draw.kwai.a) this).a.f.a(this.g);
-            this.c.setVisibility(8);
-            this.d.setVisibility(8);
+            super.aq();
+            AdTemplate adTemplate = this.aK.mAdTemplate;
+            this.mAdTemplate = adTemplate;
+            this.mAdInfo = d.bQ(adTemplate);
+            this.aK.ba.a(this.bz);
+            this.bC.setVisibility(8);
+            this.bD.setVisibility(8);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void i_() {
+    public final void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.i_();
-            this.b = (ViewGroup) b(R.id.obfuscated_res_0x7f090fe9);
-            this.c = (DrawCardApp) b(R.id.obfuscated_res_0x7f091008);
-            this.d = (DrawCardH5) b(R.id.obfuscated_res_0x7f091011);
+            super.onCreate();
+            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090fe0);
+            this.bC = (DrawCardApp) findViewById(R.id.obfuscated_res_0x7f090fff);
+            this.bD = (DrawCardH5) findViewById(R.id.obfuscated_res_0x7f091008);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void k_() {
+    public final void onUnbind() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.k_();
-            this.c.a();
-            this.d.a();
-            ((com.kwad.components.ad.draw.kwai.a) this).a.f.a((a.InterfaceC0457a) null);
+            super.onUnbind();
+            this.bC.release();
+            this.bD.release();
+            this.aK.ba.a((a.InterfaceC0303a) null);
         }
     }
 }

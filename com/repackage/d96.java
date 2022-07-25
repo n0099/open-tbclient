@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y15;
+import com.repackage.z15;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class d96 extends y15 {
+public class d96 extends z15 {
     public static /* synthetic */ Interceptable $ic;
     public static d96 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<b25> a;
+    public LinkedList<c25> a;
 
     public d96() {
         Interceptable interceptable = $ic;
@@ -52,8 +52,8 @@ public class d96 extends y15 {
         return (d96) invokeV.objValue;
     }
 
-    @Override // com.repackage.y15
-    public void b(y15.a aVar) {
+    @Override // com.repackage.z15
+    public void b(z15.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD()) {
             List<MyEmotionGroupData> h = q86.c().h(TbadkCoreApplication.getCurrentAccount());
@@ -73,7 +73,7 @@ public class d96 extends y15 {
         }
     }
 
-    @Override // com.repackage.y15
+    @Override // com.repackage.z15
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class d96 extends y15 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.y15
+    @Override // com.repackage.z15
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {

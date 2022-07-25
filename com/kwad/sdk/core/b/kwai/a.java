@@ -24,11 +24,26 @@ public final class a implements com.kwad.sdk.core.d<ABParams> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "videoBlackAreaClick", aBParams.videoBlackAreaClick);
-        com.kwad.sdk.utils.r.a(jSONObject, "videoBlackAreaNewStyle", aBParams.videoBlackAreaNewStyle);
-        com.kwad.sdk.utils.r.a(jSONObject, "drawActionBarTimes", aBParams.drawActionBarTimes);
-        com.kwad.sdk.utils.r.a(jSONObject, "showVideoAtH5", aBParams.showVideoAtH5);
-        com.kwad.sdk.utils.r.a(jSONObject, "playableStyle", aBParams.playableStyle);
+        int i = aBParams.videoBlackAreaClick;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "videoBlackAreaClick", i);
+        }
+        int i2 = aBParams.videoBlackAreaNewStyle;
+        if (i2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "videoBlackAreaNewStyle", i2);
+        }
+        String str = aBParams.drawActionBarTimes;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "drawActionBarTimes", aBParams.drawActionBarTimes);
+        }
+        int i3 = aBParams.showVideoAtH5;
+        if (i3 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "showVideoAtH5", i3);
+        }
+        int i4 = aBParams.playableStyle;
+        if (i4 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "playableStyle", i4);
+        }
         return jSONObject;
     }
 

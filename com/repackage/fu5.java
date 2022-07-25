@@ -110,12 +110,12 @@ public class fu5 extends an<vu5, CardViewHolder<aw5>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vu5Var, cardViewHolder})) == null) {
-            if (cardViewHolder.c() == null) {
+            if (cardViewHolder.b() == null) {
                 return null;
             }
-            a0(vu5Var, cardViewHolder.c());
-            cardViewHolder.c().h().setOnClickListener(new a(this));
-            return cardViewHolder.c().h();
+            a0(vu5Var, cardViewHolder.b());
+            cardViewHolder.b().h().setOnClickListener(new a(this));
+            return cardViewHolder.b().h();
         }
         return (View) invokeCommon.objValue;
     }

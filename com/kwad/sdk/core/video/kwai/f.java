@@ -1,11 +1,9 @@
 package com.kwad.sdk.core.video.kwai;
 /* loaded from: classes5.dex */
 public interface f {
-    boolean a();
+    boolean lt();
 
-    boolean b();
+    boolean lu();
 
-    boolean c();
-
-    boolean d();
+    boolean lv();
 }

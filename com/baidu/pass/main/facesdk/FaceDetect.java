@@ -225,12 +225,7 @@ public class FaceDetect {
                         byte[] modelContent = FileUitls.getModelContent(this.val$context, this.val$atttibuteModel);
                         int i2 = -1;
                         if (modelContent.length != 0) {
-                            try {
-                                i = this.this$0.nativeAttributeModelInit(index, modelContent);
-                            } catch (Throwable th) {
-                                th.printStackTrace();
-                                i = -1;
-                            }
+                            i = this.this$0.nativeAttributeModelInit(index, modelContent);
                             if (i != 0) {
                                 this.val$callback.onResponse(i, "属性模型加载失败");
                                 return;
@@ -239,16 +234,9 @@ public class FaceDetect {
                             i = -1;
                         }
                         byte[] modelContent2 = FileUitls.getModelContent(this.val$context, this.val$emotionModel);
-                        if (modelContent2.length != 0) {
-                            try {
-                                i2 = this.this$0.nativeEmotionsModelInit(index, modelContent2);
-                            } catch (Throwable th2) {
-                                th2.printStackTrace();
-                            }
-                            if (i2 != 0) {
-                                this.val$callback.onResponse(i2, "情绪模型加载失败");
-                                return;
-                            }
+                        if (modelContent2.length != 0 && (i2 = this.this$0.nativeEmotionsModelInit(index, modelContent2)) != 0) {
+                            this.val$callback.onResponse(i2, "情绪模型加载失败");
+                            return;
                         }
                         if (i == 0 || i2 == 0) {
                             this.val$callback.onResponse(0, "属性模型加载成功");
@@ -312,12 +300,7 @@ public class FaceDetect {
                         byte[] modelContent = FileUitls.getModelContent(this.val$context, this.val$eyecloseModel);
                         int i2 = -1;
                         if (modelContent.length != 0) {
-                            try {
-                                i = this.this$0.nativeFaceCloseModelInit(index, modelContent, 0);
-                            } catch (Throwable th) {
-                                th.printStackTrace();
-                                i = -1;
-                            }
+                            i = this.this$0.nativeFaceCloseModelInit(index, modelContent, 0);
                             if (i != 0) {
                                 this.val$callback.onResponse(i, "眼睛闭合模型加载失败");
                                 return;
@@ -326,16 +309,9 @@ public class FaceDetect {
                             i = -1;
                         }
                         byte[] modelContent2 = FileUitls.getModelContent(this.val$context, this.val$mouthcloseModel);
-                        if (modelContent2.length != 0) {
-                            try {
-                                i2 = this.this$0.nativeFaceCloseModelInit(index, modelContent2, 1);
-                            } catch (Throwable th2) {
-                                th2.printStackTrace();
-                            }
-                            if (i2 != 0) {
-                                this.val$callback.onResponse(i2, "嘴巴闭合模型加载失败");
-                                return;
-                            }
+                        if (modelContent2.length != 0 && (i2 = this.this$0.nativeFaceCloseModelInit(index, modelContent2, 1)) != 0) {
+                            this.val$callback.onResponse(i2, "嘴巴闭合模型加载失败");
+                            return;
                         }
                         if (i == 0 || i2 == 0) {
                             this.val$callback.onResponse(0, "闭眼闭嘴模型加载成功");
@@ -390,12 +366,11 @@ public class FaceDetect {
                 @Override // java.lang.Runnable
                 public void run() {
                     int i;
-                    int i2;
                     Callback callback2;
                     String str3;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int i3 = 1;
+                        int i2 = 1;
                         if (this.val$context == null) {
                             this.val$callback.onResponse(1, "没有初始化上下文");
                             return;
@@ -405,14 +380,9 @@ public class FaceDetect {
                             return;
                         }
                         byte[] modelContent = FileUitls.getModelContent(this.val$context, this.val$detectModel);
-                        int i4 = -1;
+                        int i3 = -1;
                         if (modelContent.length != 0) {
-                            try {
-                                i = this.this$0.nativeDetectModelInit(index, modelContent, this.val$detectType.ordinal());
-                            } catch (Throwable th) {
-                                th.printStackTrace();
-                                i = -1;
-                            }
+                            i = this.this$0.nativeDetectModelInit(index, modelContent, this.val$detectType.ordinal());
                             if (i != 0) {
                                 this.val$callback.onResponse(i, "检测模型加载失败");
                                 return;
@@ -421,38 +391,24 @@ public class FaceDetect {
                             i = -1;
                         }
                         byte[] modelContent2 = FileUitls.getModelContent(this.val$context, this.val$alignModel);
-                        if (modelContent2.length != 0) {
-                            try {
-                                i2 = this.this$0.nativeAlignModelInit(index, this.val$detectType.ordinal(), this.val$alignType.ordinal(), modelContent2);
-                            } catch (Throwable th2) {
-                                th2.printStackTrace();
-                                i2 = -1;
-                            }
-                            if (i2 != 0) {
-                                this.val$callback.onResponse(i2, "对齐模型加载失败");
-                                return;
-                            }
-                        } else {
-                            i2 = -1;
-                        }
-                        try {
-                            i4 = this.this$0.nativeLoadTrack(index, this.val$detectType.ordinal(), this.val$alignType.ordinal());
-                        } catch (Throwable th3) {
-                            th3.printStackTrace();
-                        }
-                        if (i4 != 0) {
-                            this.val$callback.onResponse(i4, "跟踪能力加载失败");
+                        if (modelContent2.length != 0 && (i3 = this.this$0.nativeAlignModelInit(index, this.val$detectType.ordinal(), this.val$alignType.ordinal(), modelContent2)) != 0) {
+                            this.val$callback.onResponse(i3, "对齐模型加载失败");
                             return;
                         }
-                        if (i == 0 && i2 == 0) {
+                        int nativeLoadTrack = this.this$0.nativeLoadTrack(index, this.val$detectType.ordinal(), this.val$alignType.ordinal());
+                        if (nativeLoadTrack != 0) {
+                            this.val$callback.onResponse(nativeLoadTrack, "跟踪能力加载失败");
+                            return;
+                        }
+                        if (i == 0 && i3 == 0) {
                             callback2 = this.val$callback;
-                            i3 = 0;
+                            i2 = 0;
                             str3 = "检测对齐模型加载成功";
                         } else {
                             callback2 = this.val$callback;
                             str3 = "检测对齐模型加载失败";
                         }
-                        callback2.onResponse(i3, str3);
+                        callback2.onResponse(i2, str3);
                         Log.e(FaceDetect.TAG, "FaceDetect initModel");
                     }
                 }
@@ -500,9 +456,11 @@ public class FaceDetect {
                 public void run() {
                     int i;
                     int i2;
-                    int i3;
+                    Callback callback2;
+                    String str4;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        int i3 = 1;
                         if (this.val$context == null) {
                             this.val$callback.onResponse(1, "没有初始化上下文");
                             return;
@@ -512,50 +470,47 @@ public class FaceDetect {
                             return;
                         }
                         byte[] modelContent = FileUitls.getModelContent(this.val$context, this.val$visModel);
+                        int i4 = -1;
                         if (modelContent.length != 0) {
-                            try {
-                                i = this.this$0.nativeDetectModelInit(index, modelContent, BDFaceSDKCommon.DetectType.DETECT_VIS.ordinal());
-                            } catch (Throwable th) {
-                                th.printStackTrace();
-                                i = -1;
-                            }
+                            i = this.this$0.nativeDetectModelInit(index, modelContent, BDFaceSDKCommon.DetectType.DETECT_VIS.ordinal());
                             if (i != 0) {
                                 this.val$callback.onResponse(i, "Vis检测模型加载失败");
                                 return;
                             }
+                        } else {
+                            i = -1;
                         }
                         byte[] modelContent2 = FileUitls.getModelContent(this.val$context, this.val$nirModel);
                         if (modelContent2.length != 0) {
-                            try {
-                                i2 = this.this$0.nativeDetectModelInit(index, modelContent2, BDFaceSDKCommon.DetectType.DETECT_NIR.ordinal());
-                            } catch (Throwable th2) {
-                                th2.printStackTrace();
-                                i2 = -1;
-                            }
-                            if (i2 != 0) {
-                                this.val$callback.onResponse(i2, "Nir检测模型加载失败");
+                            int nativeDetectModelInit = this.this$0.nativeDetectModelInit(index, modelContent2, BDFaceSDKCommon.DetectType.DETECT_NIR.ordinal());
+                            if (nativeDetectModelInit != 0) {
+                                this.val$callback.onResponse(nativeDetectModelInit, "Nir检测模型加载失败");
                                 return;
                             }
+                            i2 = nativeDetectModelInit;
+                        } else {
+                            i2 = -1;
                         }
                         byte[] modelContent3 = FileUitls.getModelContent(this.val$context, this.val$alignModel);
-                        if (modelContent3.length != 0) {
-                            try {
-                                i3 = this.this$0.nativeAlignModelInit(index, BDFaceSDKCommon.DetectType.DETECT_VIS.ordinal(), BDFaceSDKCommon.AlignType.BDFACE_ALIGN_TYPE_RGB_ACCURATE.ordinal(), modelContent3);
-                            } catch (Throwable th3) {
-                                th3.printStackTrace();
-                                i3 = -1;
-                            }
-                            if (i3 != 0) {
-                                this.val$callback.onResponse(i3, "对齐模型加载失败");
-                                return;
-                            }
+                        if (modelContent3.length != 0 && (i4 = this.this$0.nativeAlignModelInit(index, BDFaceSDKCommon.DetectType.DETECT_VIS.ordinal(), BDFaceSDKCommon.AlignType.BDFACE_ALIGN_TYPE_RGB_ACCURATE.ordinal(), modelContent3)) != 0) {
+                            this.val$callback.onResponse(i4, "对齐模型加载失败");
+                            return;
                         }
-                        try {
-                            this.this$0.nativeLoadTrack(index, BDFaceSDKCommon.DetectType.DETECT_VIS.ordinal(), BDFaceSDKCommon.AlignType.BDFACE_ALIGN_TYPE_RGB_ACCURATE.ordinal());
-                        } catch (Throwable th4) {
-                            th4.printStackTrace();
+                        int nativeLoadTrack = this.this$0.nativeLoadTrack(index, BDFaceSDKCommon.DetectType.DETECT_VIS.ordinal(), BDFaceSDKCommon.AlignType.BDFACE_ALIGN_TYPE_RGB_ACCURATE.ordinal());
+                        if (nativeLoadTrack != 0) {
+                            this.val$callback.onResponse(nativeLoadTrack, "跟踪能力加载失败");
+                            return;
                         }
-                        this.val$callback.onResponse(-1, "跟踪能力加载失败");
+                        if ((i == 0 || i2 == 0) && i4 == 0) {
+                            callback2 = this.val$callback;
+                            i3 = 0;
+                            str4 = "检测对齐模型加载成功";
+                        } else {
+                            callback2 = this.val$callback;
+                            str4 = "检测对齐模型加载失败";
+                        }
+                        callback2.onResponse(i3, str4);
+                        Log.e(FaceDetect.TAG, "FaceDetect initModel");
                     }
                 }
             });
@@ -615,12 +570,7 @@ public class FaceDetect {
                         byte[] modelContent = FileUitls.getModelContent(this.val$context, this.val$blurModel);
                         int i3 = -1;
                         if (modelContent.length != 0) {
-                            try {
-                                i = this.this$0.nativeQualityModelInit(index, modelContent, BDFaceSDKCommon.FaceQualityType.BLUR.ordinal());
-                            } catch (Throwable th) {
-                                th.printStackTrace();
-                                i = -1;
-                            }
+                            i = this.this$0.nativeQualityModelInit(index, modelContent, BDFaceSDKCommon.FaceQualityType.BLUR.ordinal());
                             if (i != 0) {
                                 this.val$callback.onResponse(i, "模糊模型加载失败");
                                 return;
@@ -629,16 +579,9 @@ public class FaceDetect {
                             i = -1;
                         }
                         byte[] modelContent2 = FileUitls.getModelContent(this.val$context, this.val$occlurModel);
-                        if (modelContent2.length != 0) {
-                            try {
-                                i3 = this.this$0.nativeQualityModelInit(index, modelContent2, BDFaceSDKCommon.FaceQualityType.OCCLUSION.ordinal());
-                            } catch (Throwable th2) {
-                                th2.printStackTrace();
-                            }
-                            if (i3 != 0) {
-                                this.val$callback.onResponse(i3, "遮挡模型加载失败");
-                                return;
-                            }
+                        if (modelContent2.length != 0 && (i3 = this.this$0.nativeQualityModelInit(index, modelContent2, BDFaceSDKCommon.FaceQualityType.OCCLUSION.ordinal())) != 0) {
+                            this.val$callback.onResponse(i3, "遮挡模型加载失败");
+                            return;
                         }
                         if (i == 0 || i3 == 0) {
                             callback2 = this.val$callback;
@@ -666,11 +609,7 @@ public class FaceDetect {
         if (index == 0) {
             return;
         }
-        try {
-            nativeLoadConfig(index, bDFaceSDKConfig);
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
+        nativeLoadConfig(index, bDFaceSDKConfig);
     }
 
     public FaceInfo[] track(BDFaceSDKCommon.DetectType detectType, BDFaceImageInstance bDFaceImageInstance) {
@@ -717,12 +656,7 @@ public class FaceDetect {
             if (index == 0) {
                 return -1;
             }
-            try {
-                return nativeUninitModel(index);
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return -1;
-            }
+            return nativeUninitModel(index);
         }
         return invokeV.intValue;
     }

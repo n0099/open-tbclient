@@ -13,7 +13,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.security.RSAUtil;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
-import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -388,9 +387,9 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
-            int a2 = a(context, PermissionChecker.ACCESS_COARSE_LOCATION);
-            int a3 = a(context, PermissionChecker.ACCESS_FINE_LOCATION);
-            int a4 = a(context, PermissionChecker.READ_PHONE_STATE);
+            int a2 = a(context, com.kuaishou.weapon.p0.h.h);
+            int a3 = a(context, com.kuaishou.weapon.p0.h.g);
+            int a4 = a(context, com.kuaishou.weapon.p0.h.c);
             return "&per=" + a2 + "|" + a3 + "|" + a4;
         }
         return (String) invokeL.objValue;

@@ -60,7 +60,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dv4;
+import com.repackage.ev4;
 import com.repackage.gi6;
 import com.repackage.gq6;
 import com.repackage.gr6;
@@ -72,22 +72,22 @@ import com.repackage.kk8;
 import com.repackage.lo6;
 import com.repackage.ni;
 import com.repackage.op6;
-import com.repackage.p55;
 import com.repackage.pi;
 import com.repackage.q55;
+import com.repackage.r55;
 import com.repackage.sc6;
 import com.repackage.sd6;
 import com.repackage.sj8;
 import com.repackage.tc6;
 import com.repackage.ud6;
 import com.repackage.un6;
-import com.repackage.ur4;
 import com.repackage.vd6;
+import com.repackage.vr4;
 import com.repackage.wd6;
-import com.repackage.wl4;
 import com.repackage.wn6;
 import com.repackage.wz5;
 import com.repackage.xe6;
+import com.repackage.xl4;
 import com.repackage.yc6;
 import com.repackage.yd6;
 import com.repackage.ye6;
@@ -230,7 +230,7 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
     }
 
     /* loaded from: classes3.dex */
-    public class a extends p55 {
+    public class a extends q55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsTabInfo c;
@@ -257,8 +257,8 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
             this.d = i;
         }
 
-        @Override // com.repackage.p55
-        public q55 a() {
+        @Override // com.repackage.q55
+        public r55 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -278,16 +278,16 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
                 bundle.putSerializable("view_data", this.e.j);
                 bundle.putBoolean("isAdded", false);
                 frsCommonTabFragment.setArguments(bundle);
-                q55 q55Var = new q55();
-                q55Var.a = frsCommonTabFragment;
-                q55Var.e = this.d;
-                q55Var.i = q55.k;
-                return q55Var;
+                r55 r55Var = new r55();
+                r55Var.a = frsCommonTabFragment;
+                r55Var.e = this.d;
+                r55Var.i = r55.k;
+                return r55Var;
             }
-            return (q55) invokeV.objValue;
+            return (r55) invokeV.objValue;
         }
 
-        @Override // com.repackage.p55
+        @Override // com.repackage.q55
         public TbFragmentTabIndicator c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -297,7 +297,7 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
             return (TbFragmentTabIndicator) invokeL.objValue;
         }
 
-        @Override // com.repackage.p55
+        @Override // com.repackage.q55
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -309,7 +309,7 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends p55 {
+    public class b extends q55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsTabInfo c;
@@ -336,8 +336,8 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
             this.d = i;
         }
 
-        @Override // com.repackage.p55
-        public q55 a() {
+        @Override // com.repackage.q55
+        public r55 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -358,16 +358,16 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
                 bundle.putSerializable("view_data", this.e.j);
                 bundle.putBoolean("isAdded", false);
                 frsTabWebFragment.setArguments(bundle);
-                q55 q55Var = new q55();
-                q55Var.a = frsTabWebFragment;
-                q55Var.e = this.d;
-                q55Var.i = q55.k;
-                return q55Var;
+                r55 r55Var = new r55();
+                r55Var.a = frsTabWebFragment;
+                r55Var.e = this.d;
+                r55Var.i = r55.k;
+                return r55Var;
             }
-            return (q55) invokeV.objValue;
+            return (r55) invokeV.objValue;
         }
 
-        @Override // com.repackage.p55
+        @Override // com.repackage.q55
         public TbFragmentTabIndicator c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -377,7 +377,7 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
             return (TbFragmentTabIndicator) invokeL.objValue;
         }
 
-        @Override // com.repackage.p55
+        @Override // com.repackage.q55
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -389,7 +389,7 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
     }
 
     /* loaded from: classes3.dex */
-    public class c extends p55 {
+    public class c extends q55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int c;
@@ -416,8 +416,8 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
             this.d = frsTabInfo;
         }
 
-        @Override // com.repackage.p55
-        public q55 a() {
+        @Override // com.repackage.q55
+        public r55 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -436,16 +436,16 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
                 bundle.putInt(FrsActivityConfig.FRS_CALL_FROM_BY_ITEM_POSITION, this.e.a.r3());
                 frsItemTabFragment.setArguments(bundle);
                 frsItemTabFragment.x1(this.e.a.getUniqueId());
-                q55 q55Var = new q55();
-                q55Var.a = frsItemTabFragment;
-                q55Var.e = this.c;
-                q55Var.i = q55.k;
-                return q55Var;
+                r55 r55Var = new r55();
+                r55Var.a = frsItemTabFragment;
+                r55Var.e = this.c;
+                r55Var.i = r55.k;
+                return r55Var;
             }
-            return (q55) invokeV.objValue;
+            return (r55) invokeV.objValue;
         }
 
-        @Override // com.repackage.p55
+        @Override // com.repackage.q55
         public TbFragmentTabIndicator c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -455,7 +455,7 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
             return (TbFragmentTabIndicator) invokeL.objValue;
         }
 
-        @Override // com.repackage.p55
+        @Override // com.repackage.q55
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -649,9 +649,9 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
             if (!ListUtils.isEmpty(this.a.m) && this.a.m.size() > i) {
                 p pVar = (p) ListUtils.getItem(this.a.m, i);
                 if (pVar.a == 506) {
-                    dv4 dv4Var = new dv4(5);
-                    dv4Var.n(13);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, dv4Var));
+                    ev4 ev4Var = new ev4(5);
+                    ev4Var.n(13);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, ev4Var));
                 }
                 if (pVar.d == 100) {
                     TiebaStatic.log(new StatisticItem("c13008").param("obj_type", 16));
@@ -823,7 +823,7 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
     }
 
     /* loaded from: classes3.dex */
-    public class k extends p55 {
+    public class k extends q55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsTabInfo c;
@@ -850,8 +850,8 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
             this.d = i;
         }
 
-        @Override // com.repackage.p55
-        public q55 a() {
+        @Override // com.repackage.q55
+        public r55 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -867,16 +867,16 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
                 bundle.putInt("tab_id", this.d);
                 bundle.putBoolean("isAdded", false);
                 frsAllThreadFragment.setArguments(bundle);
-                q55 q55Var = new q55();
-                q55Var.a = frsAllThreadFragment;
-                q55Var.e = 1;
-                q55Var.i = q55.k;
-                return q55Var;
+                r55 r55Var = new r55();
+                r55Var.a = frsAllThreadFragment;
+                r55Var.e = 1;
+                r55Var.i = r55.k;
+                return r55Var;
             }
-            return (q55) invokeV.objValue;
+            return (r55) invokeV.objValue;
         }
 
-        @Override // com.repackage.p55
+        @Override // com.repackage.q55
         public TbFragmentTabIndicator c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -886,7 +886,7 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
             return (TbFragmentTabIndicator) invokeL.objValue;
         }
 
-        @Override // com.repackage.p55
+        @Override // com.repackage.q55
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -898,7 +898,7 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
     }
 
     /* loaded from: classes3.dex */
-    public class l extends p55 {
+    public class l extends q55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsTabInfo c;
@@ -925,8 +925,8 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
             this.d = i;
         }
 
-        @Override // com.repackage.p55
-        public q55 a() {
+        @Override // com.repackage.q55
+        public r55 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -941,16 +941,16 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
                 bundle.putString("forum_id", this.e.a.d());
                 bundle.putBoolean("isAdded", false);
                 frsGoodFragment.setArguments(bundle);
-                q55 q55Var = new q55();
-                q55Var.a = frsGoodFragment;
-                q55Var.e = this.d;
-                q55Var.i = q55.k;
-                return q55Var;
+                r55 r55Var = new r55();
+                r55Var.a = frsGoodFragment;
+                r55Var.e = this.d;
+                r55Var.i = r55.k;
+                return r55Var;
             }
-            return (q55) invokeV.objValue;
+            return (r55) invokeV.objValue;
         }
 
-        @Override // com.repackage.p55
+        @Override // com.repackage.q55
         public TbFragmentTabIndicator c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -960,7 +960,7 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
             return (TbFragmentTabIndicator) invokeL.objValue;
         }
 
-        @Override // com.repackage.p55
+        @Override // com.repackage.q55
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -972,7 +972,7 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
     }
 
     /* loaded from: classes3.dex */
-    public class m extends p55 {
+    public class m extends q55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsTabInfo c;
@@ -999,8 +999,8 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
             this.d = i;
         }
 
-        @Override // com.repackage.p55
-        public q55 a() {
+        @Override // com.repackage.q55
+        public r55 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -1014,16 +1014,16 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
                 bundle.putString("forum_id", this.e.a.d());
                 bundle.putBoolean("isAdded", false);
                 frsNewAreaFragment.setArguments(bundle);
-                q55 q55Var = new q55();
-                q55Var.a = frsNewAreaFragment;
-                q55Var.e = this.d;
-                q55Var.i = q55.k;
-                return q55Var;
+                r55 r55Var = new r55();
+                r55Var.a = frsNewAreaFragment;
+                r55Var.e = this.d;
+                r55Var.i = r55.k;
+                return r55Var;
             }
-            return (q55) invokeV.objValue;
+            return (r55) invokeV.objValue;
         }
 
-        @Override // com.repackage.p55
+        @Override // com.repackage.q55
         public TbFragmentTabIndicator c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -1033,7 +1033,7 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
             return (TbFragmentTabIndicator) invokeL.objValue;
         }
 
-        @Override // com.repackage.p55
+        @Override // com.repackage.q55
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1045,7 +1045,7 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
     }
 
     /* loaded from: classes3.dex */
-    public class n extends p55 {
+    public class n extends q55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsTabViewController c;
@@ -1068,8 +1068,8 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
             this.c = frsTabViewController;
         }
 
-        @Override // com.repackage.p55
-        public q55 a() {
+        @Override // com.repackage.q55
+        public r55 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -1080,16 +1080,16 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
                 bundle.putString("forum_id", this.c.a.d());
                 bundle.putBoolean("isAdded", false);
                 frsADFragment.setArguments(bundle);
-                q55 q55Var = new q55();
-                q55Var.a = frsADFragment;
-                q55Var.e = 90;
-                q55Var.i = q55.k;
-                return q55Var;
+                r55 r55Var = new r55();
+                r55Var.a = frsADFragment;
+                r55Var.e = 90;
+                r55Var.i = r55.k;
+                return r55Var;
             }
-            return (q55) invokeV.objValue;
+            return (r55) invokeV.objValue;
         }
 
-        @Override // com.repackage.p55
+        @Override // com.repackage.q55
         public TbFragmentTabIndicator c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -1099,7 +1099,7 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
             return (TbFragmentTabIndicator) invokeL.objValue;
         }
 
-        @Override // com.repackage.p55
+        @Override // com.repackage.q55
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1171,11 +1171,11 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
         this.H = new e(this);
         this.a = frsFragment;
         this.A.a(view2, onClickListener);
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090bbb);
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f090bb7);
-        this.c = view2.findViewById(R.id.obfuscated_res_0x7f0907d7);
-        this.h = (LinearGradientView) view2.findViewById(R.id.obfuscated_res_0x7f090bb9);
-        TbTabLayout tbTabLayout = (TbTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f090bb8);
+        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090bb4);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f090bb0);
+        this.c = view2.findViewById(R.id.obfuscated_res_0x7f0907d5);
+        this.h = (LinearGradientView) view2.findViewById(R.id.obfuscated_res_0x7f090bb2);
+        TbTabLayout tbTabLayout = (TbTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f090bb1);
         this.e = tbTabLayout;
         tbTabLayout.setOnTabSelectedListener(this);
         this.e.setSelectedTabTextBlod(true);
@@ -1188,14 +1188,14 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
         this.t.h0(D(R.dimen.tbds34));
         this.t.i0(D(R.dimen.tbds10));
         this.t.M(this.H);
-        this.f = (FrsTabViewPager) view2.findViewById(R.id.obfuscated_res_0x7f090bd0);
+        this.f = (FrsTabViewPager) view2.findViewById(R.id.obfuscated_res_0x7f090bc9);
         this.m = new ArrayList();
         this.l = new FragmentAdapter(this, this.a.getActivity().getSupportFragmentManager(), this.m);
         this.f.addOnPageChangeListener(this.C);
         RelativeLayout relativeLayout = new RelativeLayout(this.a.getContext());
         this.g = relativeLayout;
         this.o = new gi6(frsFragment, relativeLayout);
-        PublishProgressView publishProgressView = (PublishProgressView) view2.findViewById(R.id.obfuscated_res_0x7f0919f3);
+        PublishProgressView publishProgressView = (PublishProgressView) view2.findViewById(R.id.obfuscated_res_0x7f0919cd);
         this.q = publishProgressView;
         publishProgressView.setVisibility(8);
     }
@@ -1206,16 +1206,16 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
         return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? i2 > 200 && i2 <= 300 : invokeI.booleanValue;
     }
 
-    public final Fragment A(int i2, List<p55> list) {
+    public final Fragment A(int i2, List<q55> list) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, list)) == null) {
-            for (p55 p55Var : list) {
-                Bundle arguments = p55Var.b().a.getArguments();
-                if (arguments != null && i2 == p55Var.b().e && !arguments.getBoolean("isAdded")) {
+            for (q55 q55Var : list) {
+                Bundle arguments = q55Var.b().a.getArguments();
+                if (arguments != null && i2 == q55Var.b().e && !arguments.getBoolean("isAdded")) {
                     arguments.putBoolean("isAdded", true);
-                    p55Var.b().a.setArguments(arguments);
-                    return p55Var.b().a;
+                    q55Var.b().a.setArguments(arguments);
+                    return q55Var.b().a;
                 }
             }
             return null;
@@ -1223,7 +1223,7 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
         return (Fragment) invokeIL.objValue;
     }
 
-    public final p55 B(FrsTabInfo frsTabInfo) {
+    public final q55 B(FrsTabInfo frsTabInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsTabInfo)) == null) {
@@ -1251,7 +1251,7 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
             }
             return new a(this, frsTabInfo, intValue);
         }
-        return (p55) invokeL.objValue;
+        return (q55) invokeL.objValue;
     }
 
     public p C() {
@@ -1525,7 +1525,7 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
         if (!(interceptable == null || interceptable.invokeV(1048599, this) == null) || (yc6Var = this.n) == null) {
             return;
         }
-        List<p55> f2 = yc6Var.f();
+        List<q55> f2 = yc6Var.f();
         if (ListUtils.isEmpty(f2) || ListUtils.isEmpty(this.i)) {
             return;
         }
@@ -1786,7 +1786,7 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
                             lo6Var3.a = frsTabInfo.tab_name;
                             lo6Var3.d = frsTabInfo.tab_url;
                             lo6Var3.e = frsTabInfo.tab_type.intValue();
-                            if (wl4.g(lo6Var3.d)) {
+                            if (xl4.g(lo6Var3.d)) {
                                 if (MessageManager.getInstance().findTask(2016447) != null) {
                                     tabData.add(lo6Var3);
                                     arrayList.add(frsTabInfo);
@@ -2168,7 +2168,7 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
                 y(1);
             }
             i2++;
-            p55 B = B(frsTabInfo);
+            q55 B = B(frsTabInfo);
             if (B != null) {
                 s(frsTabInfo, B);
                 this.n.a(B);
@@ -2188,12 +2188,12 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
         }
     }
 
-    public final void s(FrsTabInfo frsTabInfo, p55 p55Var) {
+    public final void s(FrsTabInfo frsTabInfo, q55 q55Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048619, this, frsTabInfo, p55Var) == null) || p55Var == null || p55Var.b() == null || !(p55Var.b().a instanceof BaseFragment)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048619, this, frsTabInfo, q55Var) == null) || q55Var == null || q55Var.b() == null || !(q55Var.b().a instanceof BaseFragment)) {
             return;
         }
-        ((BaseFragment) p55Var.b().a).setTbPageExtraPageTabName(frsTabInfo != null ? frsTabInfo.tab_name : "");
+        ((BaseFragment) q55Var.b().a).setTbPageExtraPageTabName(frsTabInfo != null ? frsTabInfo.tab_name : "");
     }
 
     public final void t() {
@@ -2201,7 +2201,7 @@ public class FrsTabViewController implements gq6, TbTabLayout.c {
         if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
             SkinManager.setBackgroundColor(this.d, R.color.CAM_X0205);
             this.d.setAlpha(0.0f);
-            ur4.d(this.b).o(new int[]{R.color.CAM_X0202, R.color.CAM_X0204});
+            vr4.d(this.b).o(new int[]{R.color.CAM_X0202, R.color.CAM_X0204});
         }
     }
 

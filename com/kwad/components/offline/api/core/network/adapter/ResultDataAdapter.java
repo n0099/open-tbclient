@@ -78,7 +78,7 @@ public class ResultDataAdapter<T extends BaseOfflineCompoResultData> extends Bas
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             JSONObject json = super.toJson();
-            r.a(json, this.mOfflineCompoResultData.toJson());
+            r.merge(json, this.mOfflineCompoResultData.toJson());
             return json;
         }
         return (JSONObject) invokeV.objValue;

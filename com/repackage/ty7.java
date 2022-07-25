@@ -257,7 +257,7 @@ public class ty7 {
         ViewGroup viewGroup = (ViewGroup) fragmentActivity.getWindow().getDecorView();
         this.b = viewGroup;
         this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f090293);
-        this.d = (ViewGroup) this.b.findViewById(R.id.obfuscated_res_0x7f0923c5);
+        this.d = (ViewGroup) this.b.findViewById(R.id.obfuscated_res_0x7f0923c7);
     }
 
     public final void j() {
@@ -265,15 +265,15 @@ public class ty7 {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View[] viewArr = new View[3];
             this.p = viewArr;
-            viewArr[0] = this.b.findViewById(R.id.obfuscated_res_0x7f0917c4);
-            this.p[1] = this.b.findViewById(R.id.obfuscated_res_0x7f0917c2);
-            this.p[2] = this.b.findViewById(R.id.obfuscated_res_0x7f0923c1);
+            viewArr[0] = this.b.findViewById(R.id.obfuscated_res_0x7f09179f);
+            this.p[1] = this.b.findViewById(R.id.obfuscated_res_0x7f09179d);
+            this.p[2] = this.b.findViewById(R.id.obfuscated_res_0x7f0923c3);
             this.b.findViewById(16908290).setBackgroundResource(R.color.transparent);
-            this.b.findViewById(R.id.obfuscated_res_0x7f0906a0).setBackgroundResource(R.color.transparent);
-            this.b.findViewById(R.id.obfuscated_res_0x7f0923c5).setBackgroundResource(R.color.transparent);
-            this.b.findViewById(R.id.obfuscated_res_0x7f0917bd).setBackgroundResource(R.color.transparent);
+            this.b.findViewById(R.id.obfuscated_res_0x7f09069f).setBackgroundResource(R.color.transparent);
+            this.b.findViewById(R.id.obfuscated_res_0x7f0923c7).setBackgroundResource(R.color.transparent);
+            this.b.findViewById(R.id.obfuscated_res_0x7f091798).setBackgroundResource(R.color.transparent);
             this.b.findViewById(R.id.obfuscated_res_0x7f090293).setBackgroundResource(R.color.transparent);
-            this.b.findViewById(R.id.obfuscated_res_0x7f091c8c).setBackgroundResource(R.color.transparent);
+            this.b.findViewById(R.id.obfuscated_res_0x7f091c92).setBackgroundResource(R.color.transparent);
             if (this.b.getChildAt(0) instanceof SwipeBackLayout) {
                 SwipeBackLayout swipeBackLayout = (SwipeBackLayout) this.b.getChildAt(0);
                 this.c = swipeBackLayout;

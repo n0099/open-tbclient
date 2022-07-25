@@ -91,7 +91,7 @@ public class ly8 {
             this.b.O(32);
             this.b.L(2);
             this.b.M(new a(this));
-            int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070232);
+            int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070230);
             int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
             int dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
             this.b.Z(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize2);
@@ -99,6 +99,6 @@ public class ly8 {
             this.b.i0(-dimensionPixelSize3);
             this.b.N(3000);
         }
-        this.b.k0(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0899), "key_show_hottopic_tip");
+        this.b.k0(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0884), "key_show_hottopic_tip");
     }
 }

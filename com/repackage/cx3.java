@@ -1,6 +1,7 @@
 package com.repackage;
 
-import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,27 +27,148 @@ public class cx3 implements tx3 {
     }
 
     @Override // com.repackage.tx3
-    public byte[] a(String str, byte[] bArr) {
-        InterceptResult invokeLL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
-            if (str == null || bArr == null) {
-                return bArr;
-            }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 76158) {
-                if (hashCode == 1952093519 && str.equals("BASE64")) {
-                    c = 1;
-                }
-            } else if (str.equals("MD5")) {
-                c = 0;
-            }
-            if (c != 0) {
-                return c != 1 ? bArr : Base64.encode(bArr, 2);
-            }
-            return lg4.d(bArr, false).getBytes();
-        }
-        return (byte[]) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ex1.v(String.format("%s/api/user/addiction/gamevalid", cx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tx3
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ex1.v(String.format("%s/api/minigame/get_game_tencent_ads", cx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tx3
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ex1.v(String.format("%s/api/msgame/reservation/query", cx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tx3
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ex1.v(String.format("%s/api/report/download", cx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tx3
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ex1.v(String.format("%s/api/msgame/adblock", cx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tx3
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ex1.v(String.format("%s/ma/game/rest/check_is_user_advised_to_rest", u())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tx3
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ex1.v(String.format("%s/api/exchange/transfer_report", cx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tx3
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? ex1.v(String.format("%s/api/user/addiction/polling", cx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tx3
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? ex1.v(String.format("%s/api/user/addiction/realname", cx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tx3
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? ex1.v(String.format("%s/api/user/rechargecheck", cx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tx3
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? ex1.v(String.format("%s/ma/game/od/get_friend_cloud_storage", u())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tx3
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? ex1.v(String.format("%s/user/gamehistory/upload", cx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tx3
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? ex1.v(String.format("%s/ma/game/od/remove_user_cloud_storage", cx1.c())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tx3
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? ex1.v(String.format("%s/api/msgame/reservation/auto_download/finish", cx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tx3
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? ex1.v(String.format("%s/ma/game/od/set_user_cloud_storage", u())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tx3
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? ex1.v(String.format("%s/api/exchange/list", cx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tx3
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? ex1.v(String.format("%s/api/user/addiction/behavior_report", cx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tx3
+    public String r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? ex1.v(String.format("%s/ma/game/od/get_user_info", u())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tx3
+    public String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? ex1.v(String.format("%s/ma/game/od/get_user_cloud_storage", u())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tx3
+    public String t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? ex1.v(String.format("%s/api/minigame/get_return_guide_config", cx1.a())) : (String) invokeV.objValue;
+    }
+
+    public final String u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? ex1.a : (String) invokeV.objValue;
     }
 }

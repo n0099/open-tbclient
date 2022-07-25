@@ -72,7 +72,7 @@ public class wp5 extends an<aq5, LiveTabConcernRecommendLineHolder> {
                 return null;
             }
             kq5Var.i(aq5Var);
-            return liveTabConcernRecommendLineHolder.b();
+            return liveTabConcernRecommendLineHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

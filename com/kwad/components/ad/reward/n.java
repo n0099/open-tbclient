@@ -1,44 +1,28 @@
 package com.kwad.components.ad.reward;
 
-import androidx.annotation.Nullable;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.core.playable.PlayableSource;
-import org.json.JSONObject;
+import com.kwad.components.core.page.DownloadLandPageActivity;
+import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.core.response.model.AdTemplate;
 /* loaded from: classes5.dex */
-public final class n extends com.kwad.components.ad.h.b {
+public final class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n(@Nullable JSONObject jSONObject, @Nullable String str) {
-        super(jSONObject, null);
+    public static void g(k kVar) {
+        com.kwad.components.core.playable.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((JSONObject) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65536, null, kVar) == null) {
+            AdTemplate adTemplate = kVar.mAdTemplate;
+            Context context = kVar.mContext;
+            AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
+            if ((com.kwad.sdk.core.response.a.a.aY(bQ) && (aVar = kVar.mk) != null && aVar.od()) || com.kwad.sdk.core.response.a.b.bg(adTemplate) || com.kwad.components.ad.reward.kwai.b.j(bQ) || adTemplate.mXiaomiAppStoreDetailViewOpen || !com.kwad.sdk.core.response.a.a.am(bQ) || !com.kwad.sdk.core.response.a.a.aa(bQ) || adTemplate.hasEnterAdWebViewLandPageActivity) {
                 return;
             }
-        }
-    }
-
-    @Override // com.kwad.components.ad.h.b
-    public final void a(com.kwad.components.core.webview.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            super.a(aVar);
-            aVar.a(new com.kwad.components.ad.reward.d.b(this.a.getContext(), this.b, PlayableSource.ENDCARD_CLICK));
+            kVar.mAdTemplate.hasEnterAdWebViewLandPageActivity = true;
+            DownloadLandPageActivity.launch(context, adTemplate, true);
         }
     }
 }

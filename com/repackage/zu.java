@@ -150,12 +150,12 @@ public class zu {
 
             /* renamed from: com.repackage.zu$d$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class RunnableC0789a implements Runnable {
+            public class RunnableC0637a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0789a(a aVar) {
+                public RunnableC0637a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -208,7 +208,7 @@ public class zu {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    bt.c(new RunnableC0789a(this));
+                    bt.c(new RunnableC0637a(this));
                     return Unit.INSTANCE;
                 }
                 return (Unit) invokeV.objValue;
@@ -332,14 +332,14 @@ public class zu {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, context, charSequence, str, str2)) == null) {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d074b, (ViewGroup) null);
-            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f081019);
-            gradientDrawable.setColor(ev.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060abd)));
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d0755, (ViewGroup) null);
+            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f08101c);
+            gradientDrawable.setColor(ev.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060aad)));
             gradientDrawable.setAlpha(204);
             relativeLayout.setBackground(gradientDrawable);
-            TextView textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091621);
+            TextView textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0915fc);
             if (textView != null) {
-                textView.setTextColor(ev.a.a(str2, resources.getColor(R.color.obfuscated_res_0x7f060abc)));
+                textView.setTextColor(ev.a.a(str2, resources.getColor(R.color.obfuscated_res_0x7f060aac)));
                 textView.setText(charSequence);
             }
             return relativeLayout;
@@ -353,24 +353,24 @@ public class zu {
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, charSequence, Integer.valueOf(i), charSequence2, Integer.valueOf(i2), str, str2, str3, str4, str5, str6, eVar, aVar}) == null) {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d074c, (ViewGroup) null);
-            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f081019);
-            gradientDrawable.setColor(ev.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060abd)));
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d0756, (ViewGroup) null);
+            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f08101c);
+            gradientDrawable.setColor(ev.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060aad)));
             gradientDrawable.setAlpha(204);
             linearLayout.setBackground(gradientDrawable);
             linearLayout.setClickable(true);
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091b2e)) != null) {
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091b08)) != null) {
                 textView.setText(charSequence);
-                textView.setTextColor(ev.a.a(str3, resources.getColor(R.color.obfuscated_res_0x7f060abc)));
+                textView.setTextColor(ev.a.a(str3, resources.getColor(R.color.obfuscated_res_0x7f060aac)));
                 textView.setTextSize(1, i);
             }
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091b2d);
-            GradientDrawable gradientDrawable2 = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f08101a);
-            gradientDrawable2.setColor(ev.a.a(str4, resources.getColor(R.color.obfuscated_res_0x7f060abd)));
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091b07);
+            GradientDrawable gradientDrawable2 = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f08101d);
+            gradientDrawable2.setColor(ev.a.a(str4, resources.getColor(R.color.obfuscated_res_0x7f060aad)));
             textView2.setBackground(gradientDrawable2);
             if (!TextUtils.isEmpty(charSequence2)) {
                 textView2.setText(charSequence2);
-                textView2.setTextColor(ev.a.a(str6, resources.getColor(R.color.obfuscated_res_0x7f060abc)));
+                textView2.setTextColor(ev.a.a(str6, resources.getColor(R.color.obfuscated_res_0x7f060aac)));
                 textView2.setTextSize(1, i2);
             }
             textView2.setOnClickListener(new c(aVar));

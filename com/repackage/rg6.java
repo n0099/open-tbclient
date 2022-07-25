@@ -23,7 +23,7 @@ import tbclient.SportScheduleInfo;
 import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes7.dex */
-public class rg6 implements u75 {
+public class rg6 implements v75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -106,14 +106,14 @@ public class rg6 implements u75 {
         this.j = dataRes.item_info;
     }
 
-    @Override // com.repackage.u75
+    @Override // com.repackage.v75
     public void initByJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
         }
     }
 
-    @Override // com.repackage.u75
+    @Override // com.repackage.v75
     public void initByProtobuf(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {

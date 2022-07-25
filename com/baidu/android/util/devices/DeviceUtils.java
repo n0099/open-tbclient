@@ -17,7 +17,6 @@ import com.baidu.android.util.devices.IDevices;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -26,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.C0294;
+import com.kuaishou.weapon.p0.k1;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -250,7 +249,7 @@ public class DeviceUtils implements IDevices {
                 }
                 CPUInfo cPUInfo2 = new CPUInfo();
                 try {
-                    FileReader fileReader = new FileReader(C0294.f19);
+                    FileReader fileReader = new FileReader(k1.a);
                     BufferedReader bufferedReader = new BufferedReader(fileReader);
                     for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
                         String lowerCase = readLine.trim().toLowerCase(Locale.getDefault());
@@ -326,7 +325,7 @@ public class DeviceUtils implements IDevices {
         public static boolean supportMips() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? supportABI("mips") : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? supportABI(IDevices.ABI_MIPS) : invokeV.booleanValue;
         }
 
         public static boolean supportX86() {
@@ -807,7 +806,7 @@ public class DeviceUtils implements IDevices {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
-                return (String) cls.getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, "hw_sc.build.os.version");
+                return (String) cls.getDeclaredMethod("get", String.class).invoke(cls, "hw_sc.build.os.version");
             } catch (Throwable th) {
                 th.printStackTrace();
                 return "";

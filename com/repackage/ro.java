@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ro extends u15 {
+public class ro extends v15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ro(Context context) {
-        super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0aec), 6);
+        super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ad8), 6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,7 +44,7 @@ public class ro extends u15 {
         this.p = new int[]{1, 9};
     }
 
-    @Override // com.repackage.u15
+    @Override // com.repackage.v15
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class ro extends u15 {
             if (!TbadkCoreApplication.getInst().isAudioRecorderOpen()) {
                 String uegVoiceWarning = TbadkCoreApplication.getInst().getUegVoiceWarning();
                 if (StringUtils.isNull(uegVoiceWarning)) {
-                    uegVoiceWarning = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14a4);
+                    uegVoiceWarning = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1453);
                 }
                 UtilHelper.showToast(TbadkCoreApplication.getInst(), uegVoiceWarning);
                 return false;

@@ -69,7 +69,7 @@ public class qg5 extends BitmapDrawable {
         }
         Paint paint = new Paint();
         ColorMatrix colorMatrix = new ColorMatrix();
-        l45 k = l45.k();
+        m45 k = m45.k();
         ym m = (k == null || (str2 = this.d) == null) ? null : k.m(str2);
         if (m == null) {
             Bitmap resBitmap = BitmapHelper.getResBitmap(this.b, this.a);

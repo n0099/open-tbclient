@@ -70,38 +70,38 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
         }
         try {
             this.mOriginalObjData = jSONObject;
-            JSONObject jSONObject2 = new JSONObject(d.b(jSONObject.optString("data")));
+            JSONObject jSONObject2 = new JSONObject(d.getResponseData(jSONObject.optString("data")));
             this.mDataJsonObj = jSONObject2;
             this.requestInterval = jSONObject2.optLong("requestInterval");
             this.goodIdcThresholdMs = this.mDataJsonObj.optInt("goodIdcThresholdMs", 200);
             this.canUseThresholdMs = this.mDataJsonObj.optInt("canUseThresholdMs", 300);
-            com.kwad.sdk.core.config.b.a(this.mDataJsonObj);
+            com.kwad.sdk.core.config.b.d(this.mDataJsonObj);
             JSONObject optJSONObject = this.mDataJsonObj.optJSONObject("abConfig");
             this.abConfig = optJSONObject;
-            com.kwad.sdk.core.config.b.a(optJSONObject);
+            com.kwad.sdk.core.config.b.d(optJSONObject);
             JSONObject optJSONObject2 = this.mDataJsonObj.optJSONObject("adxConfig");
             this.adxConfig = optJSONObject2;
-            com.kwad.sdk.core.config.b.a(optJSONObject2);
+            com.kwad.sdk.core.config.b.d(optJSONObject2);
             this.appConfig = this.mDataJsonObj.optJSONObject(PrefetchEvent.EVENT_KEY_APP_CONFIG);
             this.h5PreloadConfigs = r.a(this.mDataJsonObj.optString("h5PreloadConfigs"), new c<com.kwad.sdk.e.kwai.a>() { // from class: com.kwad.sdk.core.response.model.SdkConfigData.1
-                public static com.kwad.sdk.e.kwai.a b() {
+                public static com.kwad.sdk.e.kwai.a va() {
                     return new com.kwad.sdk.e.kwai.a();
                 }
 
                 /* JADX DEBUG: Return type fixed from 'com.kwad.sdk.core.b' to match base method */
                 @Override // com.kwad.sdk.core.c
-                public final /* synthetic */ com.kwad.sdk.e.kwai.a a() {
-                    return b();
+                public final /* synthetic */ com.kwad.sdk.e.kwai.a qt() {
+                    return va();
                 }
             });
-            com.kwad.sdk.core.config.b.a(this.appConfig);
+            com.kwad.sdk.core.config.b.d(this.appConfig);
             this.templateConfig.parseJson(this.mDataJsonObj.optJSONObject("templateConfig"));
             this.splashConfig.parseJson(this.mDataJsonObj.optJSONObject("splashConfig"));
             this.templateConfigMap.parseJson(this.mDataJsonObj.optJSONObject("templateConfigMap"));
             this.couponActiveConfig.parseJson(this.mDataJsonObj.optJSONObject("couponActiveConfig"));
             this.httpDnsInfo.parseJson(this.mDataJsonObj.optJSONObject("httpDnsInfo"));
         } catch (Exception e) {
-            com.kwad.sdk.core.d.b.b(e);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
         }
     }
 

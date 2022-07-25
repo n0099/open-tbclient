@@ -26,8 +26,8 @@ public final class ku9<E> extends hu9<E> {
             }
         }
         LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>();
-        g(linkedQueueNode);
         f(linkedQueueNode);
+        e(linkedQueueNode);
         linkedQueueNode.soNext(null);
     }
 
@@ -38,8 +38,8 @@ public final class ku9<E> extends hu9<E> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
             if (e != null) {
                 LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>(e);
-                c().soNext(linkedQueueNode);
-                g(linkedQueueNode);
+                b().soNext(linkedQueueNode);
+                f(linkedQueueNode);
                 return true;
             }
             throw new NullPointerException("null elements not allowed");
@@ -52,7 +52,7 @@ public final class ku9<E> extends hu9<E> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinkedQueueNode<E> lvNext = b().lvNext();
+            LinkedQueueNode<E> lvNext = a().lvNext();
             if (lvNext != null) {
                 return lvNext.lpValue();
             }
@@ -66,10 +66,10 @@ public final class ku9<E> extends hu9<E> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LinkedQueueNode<E> lvNext = b().lvNext();
+            LinkedQueueNode<E> lvNext = a().lvNext();
             if (lvNext != null) {
                 E andNullValue = lvNext.getAndNullValue();
-                f(lvNext);
+                e(lvNext);
                 return andNullValue;
             }
             return null;

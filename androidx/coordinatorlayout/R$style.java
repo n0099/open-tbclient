@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class R$style {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int TextAppearance_Compat_Notification = 2131755493;
-    public static final int TextAppearance_Compat_Notification_Info = 2131755494;
-    public static final int TextAppearance_Compat_Notification_Line2 = 2131755498;
-    public static final int TextAppearance_Compat_Notification_Time = 2131755501;
-    public static final int TextAppearance_Compat_Notification_Title = 2131755503;
-    public static final int Widget_Compat_NotificationActionContainer = 2131755809;
-    public static final int Widget_Compat_NotificationActionText = 2131755810;
-    public static final int Widget_Support_CoordinatorLayout = 2131755923;
+    public static final int TextAppearance_Compat_Notification = 2131755498;
+    public static final int TextAppearance_Compat_Notification_Info = 2131755499;
+    public static final int TextAppearance_Compat_Notification_Line2 = 2131755501;
+    public static final int TextAppearance_Compat_Notification_Time = 2131755504;
+    public static final int TextAppearance_Compat_Notification_Title = 2131755506;
+    public static final int Widget_Compat_NotificationActionContainer = 2131755812;
+    public static final int Widget_Compat_NotificationActionText = 2131755813;
+    public static final int Widget_Support_CoordinatorLayout = 2131755926;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$style() {

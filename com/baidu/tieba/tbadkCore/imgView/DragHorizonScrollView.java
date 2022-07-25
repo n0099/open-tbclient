@@ -632,7 +632,7 @@ public class DragHorizonScrollView extends ViewGroup implements bj8, aj8, View.O
             this.p = viewConfiguration.getScaledMaximumFlingVelocity();
             this.k = new Scroller(context, new LinearInterpolator());
             this.l = new Scroller(context);
-            this.t = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702f0);
+            this.t = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ee);
             this.u = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207);
         }
     }

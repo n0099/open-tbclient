@@ -42,10 +42,10 @@ public class DynamicInstallReceiver extends BroadcastReceiver {
                 @Override // java.lang.Runnable
                 public final void run() {
                     try {
-                        if (b.a(context, file.getPath(), stringExtra2)) {
+                        if (b.b(context, file.getPath(), stringExtra2)) {
                             Log.i(DynamicInstallReceiver.TAG, "onReceive ApkInstaller installApk success");
-                            g.a(context, g.a, stringExtra2);
-                            h.a(file);
+                            g.b(context, stringExtra2);
+                            h.d(file);
                         }
                     } catch (Exception e) {
                         Log.i(DynamicInstallReceiver.TAG, "onReceive ApkInstaller installApk error:".concat(String.valueOf(e)));

@@ -103,13 +103,13 @@ public class ek6 extends an<e36, CardViewHolder<px5>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, e36Var, cardViewHolder})) == null) {
-            if (cardViewHolder.c() == null) {
+            if (cardViewHolder.b() == null) {
                 return null;
             }
-            cardViewHolder.c().i(e36Var);
-            cardViewHolder.c().n(new a(this));
-            cardViewHolder.c().j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            return cardViewHolder.c().h();
+            cardViewHolder.b().i(e36Var);
+            cardViewHolder.b().n(new a(this));
+            cardViewHolder.b().j(this.i, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.b().h();
         }
         return (View) invokeCommon.objValue;
     }

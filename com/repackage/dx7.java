@@ -29,10 +29,10 @@ public class dx7 {
     public PbModel d;
     public boolean e;
     public List<nn> f;
-    public final dm4 g;
+    public final em4 g;
 
     /* loaded from: classes5.dex */
-    public class a implements dm4 {
+    public class a implements em4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dx7 a;
@@ -55,7 +55,7 @@ public class dx7 {
             this.a = dx7Var;
         }
 
-        @Override // com.repackage.dm4
+        @Override // com.repackage.em4
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) || this.a.c == null || this.a.c.X0() == null) {
@@ -64,7 +64,7 @@ public class dx7 {
             this.a.c.X0().M();
         }
 
-        @Override // com.repackage.dm4
+        @Override // com.repackage.em4
         public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {

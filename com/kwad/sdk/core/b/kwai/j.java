@@ -55,19 +55,49 @@ public final class j implements com.kwad.sdk.core.d<AdInfo.AdConversionInfo> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "h5Url", adConversionInfo.h5Url);
-        com.kwad.sdk.utils.r.a(jSONObject, "h5Type", adConversionInfo.h5Type);
-        com.kwad.sdk.utils.r.a(jSONObject, "deeplinkUrl", adConversionInfo.deeplinkUrl);
-        com.kwad.sdk.utils.r.a(jSONObject, "appDownloadUrl", adConversionInfo.appDownloadUrl);
-        com.kwad.sdk.utils.r.a(jSONObject, DeepLinkItem.DEEPLINK_MARKETURL_KEY, adConversionInfo.marketUrl);
-        com.kwad.sdk.utils.r.a(jSONObject, "supportThirdDownload", adConversionInfo.supportThirdDownload);
-        com.kwad.sdk.utils.r.a(jSONObject, "retryH5TimeStep", adConversionInfo.retryH5TimeStep);
-        com.kwad.sdk.utils.r.a(jSONObject, "playableUrl", adConversionInfo.playableUrl);
+        String str = adConversionInfo.h5Url;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "h5Url", adConversionInfo.h5Url);
+        }
+        int i = adConversionInfo.h5Type;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "h5Type", i);
+        }
+        String str2 = adConversionInfo.deeplinkUrl;
+        if (str2 != null && !str2.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "deeplinkUrl", adConversionInfo.deeplinkUrl);
+        }
+        String str3 = adConversionInfo.appDownloadUrl;
+        if (str3 != null && !str3.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "appDownloadUrl", adConversionInfo.appDownloadUrl);
+        }
+        String str4 = adConversionInfo.marketUrl;
+        if (str4 != null && !str4.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, DeepLinkItem.DEEPLINK_MARKETURL_KEY, adConversionInfo.marketUrl);
+        }
+        int i2 = adConversionInfo.supportThirdDownload;
+        if (i2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "supportThirdDownload", i2);
+        }
+        com.kwad.sdk.utils.r.putValue(jSONObject, "retryH5TimeStep", adConversionInfo.retryH5TimeStep);
+        String str5 = adConversionInfo.playableUrl;
+        if (str5 != null && !str5.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "playableUrl", adConversionInfo.playableUrl);
+        }
         com.kwad.sdk.utils.r.a(jSONObject, "playableStyleInfo", adConversionInfo.playableStyleInfo);
         com.kwad.sdk.utils.r.a(jSONObject, "smallAppJumpInfo", adConversionInfo.smallAppJumpInfo);
-        com.kwad.sdk.utils.r.a(jSONObject, "callbackUrl", adConversionInfo.callbackUrl);
-        com.kwad.sdk.utils.r.a(jSONObject, "callbackUrlInfo", adConversionInfo.callbackUrlInfo);
-        com.kwad.sdk.utils.r.a(jSONObject, "blockCallbackIfSpam", adConversionInfo.blockCallbackIfSpam);
+        String str6 = adConversionInfo.callbackUrl;
+        if (str6 != null && !str6.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "callbackUrl", adConversionInfo.callbackUrl);
+        }
+        String str7 = adConversionInfo.callbackUrlInfo;
+        if (str7 != null && !str7.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "callbackUrlInfo", adConversionInfo.callbackUrlInfo);
+        }
+        boolean z = adConversionInfo.blockCallbackIfSpam;
+        if (z) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "blockCallbackIfSpam", z);
+        }
         return jSONObject;
     }
 

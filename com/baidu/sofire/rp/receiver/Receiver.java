@@ -5,18 +5,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
-import com.baidu.sofire.utility.CommonMethods;
-import com.baidu.sofire.utility.CtrlUtil;
+import com.baidu.sofire.j.a;
+import com.baidu.sofire.k.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class Receiver extends BroadcastReceiver {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String ACTION_REPORT_POLL = "com.b.r.p";
-    public static final long DAY = 86400000;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     public Receiver() {
@@ -38,10 +35,11 @@ public class Receiver extends BroadcastReceiver {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null) {
             return;
         }
-        SharedPreferenceManager sharedPreferenceManager = SharedPreferenceManager.getInstance(context);
-        CommonMethods.setUpgradeAlarm(context, sharedPreferenceManager.getReportPollHour() * 3600000);
-        CtrlUtil.getInstance(context).report();
-        sharedPreferenceManager.setReportOffLineTimestap(System.currentTimeMillis());
+        a a = a.a(context);
+        com.baidu.sofire.k.a.a(context, a.l() * 3600000);
+        b.a(context).a();
+        a.f.putLong("re_last_ofline_time", System.currentTimeMillis());
+        a.f.commit();
     }
 
     @Override // android.content.BroadcastReceiver
@@ -52,11 +50,11 @@ public class Receiver extends BroadcastReceiver {
         }
         try {
             String action = intent.getAction();
-            if (!TextUtils.isEmpty(action) && action.equals(ACTION_REPORT_POLL)) {
+            if (!TextUtils.isEmpty(action) && action.equals("com.b.r.p")) {
                 handleDailyWork(context, intent);
             }
-        } catch (Throwable th) {
-            CommonMethods.handleNuLException(th);
+        } catch (Throwable unused) {
+            int i = com.baidu.sofire.a.b.a;
         }
     }
 }

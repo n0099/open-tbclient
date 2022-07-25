@@ -69,7 +69,7 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
         }
         List<nn> b = f58.b(e48Var.h());
         if (!ListUtils.isEmpty(b)) {
-            this.b.r(R.string.obfuscated_res_0x7f0f0e16);
+            this.b.r(R.string.obfuscated_res_0x7f0f0dff);
         }
         this.b.n(b);
         this.c.m(e48Var);
@@ -118,7 +118,7 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d06ae, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d06b8, viewGroup, false);
             g58 g58Var = new g58(getPageContext(), inflate, this);
             this.b = g58Var;
             g58Var.m(1011);

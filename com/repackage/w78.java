@@ -90,7 +90,7 @@ public class w78 {
                     }
                     String errorString = postSearchHttpResponseMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2b);
+                        errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                     }
                     this.a.a.showToast(errorString);
                     this.a.a.y0(intValue, null, z);

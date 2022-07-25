@@ -49,12 +49,12 @@ public class tn7 {
         Bitmap f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
-            o45 o45Var = new o45();
-            ym c = o45Var.c(imageFileInfo, true);
+            p45 p45Var = new p45();
+            ym c = p45Var.c(imageFileInfo, true);
             if (c != null) {
                 f = c.p();
             } else {
-                f = o45Var.f(imageFileInfo, true);
+                f = p45Var.f(imageFileInfo, true);
             }
             return f == null ? a(imageFileInfo.getFilePath()) : f;
         }

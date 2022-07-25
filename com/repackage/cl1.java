@@ -1,15 +1,21 @@
 package com.repackage;
 
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import android.content.Context;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface cl1 {
-    sg2 a(ZeusPluginFactory.Invoker invoker, String str);
+    void a(Context context, JSONObject jSONObject);
 
-    si2 b(ZeusPluginFactory.Invoker invoker, String str);
+    void b(Context context, JSONObject jSONObject);
 
-    si2 c(ZeusPluginFactory.Invoker invoker, String str);
+    void c(GenericDraweeHierarchy genericDraweeHierarchy, boolean z);
 
-    rg2 d(ZeusPluginFactory.Invoker invoker, String str);
+    void d(Context context, String[] strArr, int i);
 
-    pe2 e(ZeusPluginFactory.Invoker invoker, String str);
+    ImageRequestBuilder e(ImageRequestBuilder imageRequestBuilder, Map<String, String> map);
+
+    void f(Context context, JSONObject jSONObject);
 }

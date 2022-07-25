@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ct4;
+import com.repackage.dt4;
 import com.repackage.gm5;
 import com.repackage.li;
 import com.repackage.pi;
@@ -108,19 +108,19 @@ public class SplashNativePolicy {
         printStream.println("SplashPolicy loadResult: " + this.loadResult);
     }
 
-    @ct4
+    @dt4
     private native void nativeInitSplashPolicy(String str, String str2, int i, int i2, int i3, int i4, int i5);
 
-    @ct4
+    @dt4
     private native void nativeReleaseSplash();
 
-    @ct4
+    @dt4
     private native void nativeUpdateSplashConfig(int i, int i2, int i3, int i4, int i5);
 
-    @ct4
+    @dt4
     private native void onNativeSplashEvent(int i, int i2);
 
-    @ct4
+    @dt4
     public void eventCallback(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {

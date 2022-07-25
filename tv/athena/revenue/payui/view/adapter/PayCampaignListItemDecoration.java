@@ -44,14 +44,14 @@ public class PayCampaignListItemDecoration extends RecyclerView.ItemDecoration {
             int childAdapterPosition = recyclerView.getChildAdapterPosition(view2);
             int i = 0;
             if (itemCount == 1) {
-                RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b53);
+                RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b2d);
                 relativeLayout.measure(0, 0);
                 int measuredWidth = relativeLayout.getMeasuredWidth() + bz9.a(this.a);
                 int b = ((lz9.b(view2.getContext()) - measuredWidth) / 2) - bz9.a(this.b);
                 rect.left = b;
                 RLog.debug("PayCampaignListItemDecoration", "getItemOffsets itemCount == 1 width:" + measuredWidth + " marginLeft:" + b + " position:" + childAdapterPosition);
             } else if (itemCount == 2) {
-                RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b53);
+                RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b2d);
                 relativeLayout2.measure(0, 0);
                 int measuredWidth2 = relativeLayout2.getMeasuredWidth() + bz9.a(this.a);
                 int b2 = lz9.b(view2.getContext()) / 2;

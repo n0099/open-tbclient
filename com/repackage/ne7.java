@@ -39,12 +39,12 @@ public class ne7 implements ILoginListener {
 
         /* renamed from: com.repackage.ne7$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0687a extends de5<Object> {
+        public class C0532a extends de5<Object> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0687a(a aVar) {
+            public C0532a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public class ne7 implements ILoginListener {
                 Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive connect=" + z);
                 Log.d("ImSdkManager", "registerConnectListener connect ：" + intent.getIntExtra("com.baidu.lcp.sdk.connect.state", -1));
                 if (z) {
-                    he5.b(new C0687a(this), null);
+                    he5.b(new C0532a(this), null);
                 }
             }
         }

@@ -252,19 +252,29 @@ public class b {
                         } catch (IOException e3) {
                             e3.printStackTrace();
                         }
+                        try {
+                            byteArrayOutputStream.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                        }
                         throw th;
                     }
-                } catch (IOException e4) {
-                    e4.printStackTrace();
+                } catch (IOException e5) {
+                    e5.printStackTrace();
                     try {
                         bufferedOutputStream.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                    } catch (IOException e6) {
+                        e6.printStackTrace();
                     }
                     try {
                         bufferedInputStream.close();
-                    } catch (IOException e6) {
-                        e6.printStackTrace();
+                    } catch (IOException e7) {
+                        e7.printStackTrace();
+                    }
+                    try {
+                        byteArrayOutputStream.close();
+                    } catch (IOException e8) {
+                        e8.printStackTrace();
                     }
                     return null;
                 }
@@ -273,14 +283,19 @@ public class b {
             byte[] byteArray = byteArrayOutputStream.toByteArray();
             try {
                 bufferedOutputStream.close();
-            } catch (IOException e7) {
-                e7.printStackTrace();
+            } catch (IOException e9) {
+                e9.printStackTrace();
             }
             try {
                 bufferedInputStream.close();
+            } catch (IOException e10) {
+                e10.printStackTrace();
+            }
+            try {
+                byteArrayOutputStream.close();
                 return byteArray;
-            } catch (IOException e8) {
-                e8.printStackTrace();
+            } catch (IOException e11) {
+                e11.printStackTrace();
                 return byteArray;
             }
         }

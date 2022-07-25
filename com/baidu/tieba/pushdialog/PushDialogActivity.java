@@ -40,8 +40,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.an4;
 import com.repackage.d88;
+import com.repackage.dr4;
 import com.repackage.eg;
 import com.repackage.f88;
 import com.repackage.fg;
@@ -50,7 +51,6 @@ import com.repackage.kp8;
 import com.repackage.ni;
 import com.repackage.pb8;
 import com.repackage.vo8;
-import com.repackage.zm4;
 /* loaded from: classes3.dex */
 public class PushDialogActivity extends BaseActivity<PushDialogActivity> implements Object {
     public static /* synthetic */ Interceptable $ic;
@@ -153,7 +153,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         public final /* synthetic */ PushDialogActivity a;
 
         /* loaded from: classes3.dex */
-        public class a implements cr4.e {
+        public class a implements dr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -173,11 +173,11 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 }
             }
 
-            @Override // com.repackage.cr4.e
-            public void onClick(cr4 cr4Var) {
+            @Override // com.repackage.dr4.e
+            public void onClick(dr4 dr4Var) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) && cr4Var != null && cr4Var.isShowing()) {
-                    cr4Var.dismiss();
+                if ((interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) && dr4Var != null && dr4Var.isShowing()) {
+                    dr4Var.dismiss();
                 }
             }
         }
@@ -213,10 +213,10 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 if (updateAttentionMessage.getData() == null || updateAttentionMessage.getData().c == null || (message = updateAttentionMessage.getmOrginalMessage()) == null || message.getTag() == null || !message.getTag().equals(this.a.getPageContext().getUniqueId()) || updateAttentionMessage.getData().a) {
                     return;
                 }
-                cr4 cr4Var = new cr4(this.a);
-                cr4Var.setMessage(this.a.getString(R.string.obfuscated_res_0x7f0f0f31));
-                cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0427, new a(this));
-                cr4Var.create(this.a.getPageContext()).show();
+                dr4 dr4Var = new dr4(this.a);
+                dr4Var.setMessage(this.a.getString(R.string.obfuscated_res_0x7f0f0f1a));
+                dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0426, new a(this));
+                dr4Var.create(this.a.getPageContext()).show();
             }
         }
     }
@@ -270,7 +270,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 if (imageView instanceof TbImageView) {
                     TbImageView tbImageView = (TbImageView) imageView;
                     tbImageView.setTag(null);
-                    if (zm4.c().g()) {
+                    if (an4.c().g()) {
                         tbImageView.setAdjustViewBounds(false);
                         tbImageView.setInterceptOnClick(false);
                     } else {
@@ -311,7 +311,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.a);
-                boolean g = zm4.c().g();
+                boolean g = an4.c().g();
                 foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g) {
                     foreDrawableImageView.setAdjustViewBounds(false);
@@ -581,7 +581,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 LinearLayout linearLayout = new LinearLayout(this.a);
-                linearLayout.setId(R.id.obfuscated_res_0x7f09179f);
+                linearLayout.setId(R.id.obfuscated_res_0x7f09177a);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 linearLayout.setLayoutParams(layoutParams);
                 linearLayout.setGravity(16);
@@ -751,7 +751,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     public int E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.id.obfuscated_res_0x7f091a19 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.id.obfuscated_res_0x7f0919f3 : invokeV.intValue;
     }
 
     public void H(Context context, String str) {
@@ -864,7 +864,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.v85
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

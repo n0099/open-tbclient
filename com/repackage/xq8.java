@@ -149,7 +149,7 @@ public class xq8 implements fq8, kq8.c, rz5 {
                 this.b.c();
                 this.b = null;
             } else if (TextUtils.isEmpty(str)) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0acf);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0abb);
                 xp8 xp8Var2 = this.b;
                 if (xp8Var2 != null) {
                     xp8Var2.g(i, str2);

@@ -47,40 +47,40 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
         this.d = 3;
         this.a = view2.findViewById(R.id.obfuscated_res_0x7f090117);
         this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090110);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920af);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920b3);
     }
 
-    public void c(nn nnVar) {
+    public void b(nn nnVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, nnVar) == null) && (nnVar instanceof s08)) {
             this.e = nnVar;
             s08 s08Var = (s08) nnVar;
             SkinManager.setImageResource(this.b, R.drawable.icon_mine_pic_add);
             if (s08Var.a() > 0) {
-                this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f082a), Integer.valueOf(s08Var.a())));
+                this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0826), Integer.valueOf(s08Var.a())));
             }
-            b().setOnClickListener(this.f);
-            e(TbadkCoreApplication.getInst().getSkinType());
+            a().setOnClickListener(this.f);
+            d(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public nn d() {
+    public nn c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (nn) invokeV.objValue;
     }
 
-    public void e(int i) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.d == i) {
             return;
         }
         SkinManager.setViewTextColor(this.c, R.color.CAM_X0110, 1);
-        SkinManager.setBackgroundColor(b(), R.color.CAM_X0205);
+        SkinManager.setBackgroundColor(a(), R.color.CAM_X0205);
         this.d = i;
     }
 
-    public void f(View.OnClickListener onClickListener) {
+    public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
             this.f = onClickListener;

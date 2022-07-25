@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.VideoCloudSetting;
-import com.kuaishou.weapon.p0.C0294;
+import com.kuaishou.weapon.p0.k1;
 import dalvik.system.BaseDexClassLoader;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -526,7 +526,7 @@ public class o {
             if (context != null && (packageManager = context.getPackageManager()) != null) {
                 try {
                     if (Build.VERSION.SDK_INT < 30) {
-                        return packageManager.checkPermission("android.permission.READ_EXTERNAL_STORAGE", context.getPackageName()) == 0 && packageManager.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", context.getPackageName()) == 0;
+                        return packageManager.checkPermission(com.kuaishou.weapon.p0.h.i, context.getPackageName()) == 0 && packageManager.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", context.getPackageName()) == 0;
                     }
                     CyberLog.i("sdk_Utils", "android 11 no ExternalStorage Permission!");
                     return false;
@@ -790,7 +790,7 @@ public class o {
             String str = "";
             try {
                 byte[] bArr = new byte[1024];
-                RandomAccessFile randomAccessFile = new RandomAccessFile(C0294.f19, "r");
+                RandomAccessFile randomAccessFile = new RandomAccessFile(k1.a, "r");
                 randomAccessFile.read(bArr);
                 String str2 = new String(bArr);
                 int indexOf = str2.indexOf(0);

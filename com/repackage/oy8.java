@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -37,7 +37,7 @@ public class oy8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public cr4 b;
+    public dr4 b;
     public ey8 c;
     public dy8 d;
     public BdBaseViewPager e;
@@ -189,7 +189,7 @@ public class oy8 {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements cr4.e {
+    public class d implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ oy8 a;
@@ -212,10 +212,10 @@ public class oy8 {
             this.a = oy8Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 if (this.a.b != null) {
                     this.a.b.dismiss();
                 }
@@ -225,7 +225,7 @@ public class oy8 {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements cr4.e {
+    public class e implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ oy8 a;
@@ -248,10 +248,10 @@ public class oy8 {
             this.a = oy8Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 if (this.a.b != null) {
                     this.a.b.dismiss();
                 }
@@ -282,7 +282,7 @@ public class oy8 {
         this.p = new ArrayList<>();
         this.i = tbPageContext;
         this.n = wy8Var;
-        this.k = (LinearLayout) LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08e4, (ViewGroup) null);
+        this.k = (LinearLayout) LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08ee, (ViewGroup) null);
         m();
     }
 
@@ -354,7 +354,7 @@ public class oy8 {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.h = (FragmentTabWidget) this.k.findViewById(R.id.obfuscated_res_0x7f091ed4);
+            this.h = (FragmentTabWidget) this.k.findViewById(R.id.obfuscated_res_0x7f091ed8);
             Resources resources = this.i.getResources();
             String[] stringArray = resources.getStringArray(R.array.obfuscated_res_0x7f03000f);
             this.p.clear();
@@ -362,7 +362,7 @@ public class oy8 {
                 FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this.i.getContext());
                 fragmentTabIndicator.setText(stringArray[i]);
                 fragmentTabIndicator.setTextColorResId(R.color.edit_pic_tab_title_color);
-                fragmentTabIndicator.setTextSize(0, resources.getDimension(R.dimen.obfuscated_res_0x7f070331));
+                fragmentTabIndicator.setTextSize(0, resources.getDimension(R.dimen.obfuscated_res_0x7f07032f));
                 fragmentTabIndicator.e(TbadkCoreApplication.getInst().getSkinType());
                 this.h.addView(fragmentTabIndicator, i);
                 this.p.add(fragmentTabIndicator);
@@ -378,15 +378,15 @@ public class oy8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.e = (BdBaseViewPager) this.k.findViewById(R.id.obfuscated_res_0x7f09252b);
-            this.f = (StickerLayout) this.k.findViewById(R.id.obfuscated_res_0x7f091e3c);
+            this.f = (StickerLayout) this.k.findViewById(R.id.obfuscated_res_0x7f091e42);
             Resources resources = this.i.getResources() == null ? TbadkCoreApplication.getInst().getResources() : this.i.getResources();
             NavigationBar navigationBar = (NavigationBar) this.k.findViewById(R.id.obfuscated_res_0x7f09252a);
             this.o = navigationBar;
-            navigationBar.setCenterTextTitle(resources.getString(R.string.obfuscated_res_0x7f0f0e61));
+            navigationBar.setCenterTextTitle(resources.getString(R.string.obfuscated_res_0x7f0f0e4a));
             this.o.showBottomLine();
-            this.g = this.o.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, resources.getString(R.string.obfuscated_res_0x7f0f04ef));
+            this.g = this.o.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, resources.getString(R.string.obfuscated_res_0x7f0f04eb));
             this.o.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            FrameLayout frameLayout = (FrameLayout) this.k.findViewById(R.id.obfuscated_res_0x7f090821);
+            FrameLayout frameLayout = (FrameLayout) this.k.findViewById(R.id.obfuscated_res_0x7f09081f);
             ey8 ey8Var = new ey8(this.i);
             this.c = ey8Var;
             ey8Var.m(new b(this));
@@ -429,9 +429,9 @@ public class oy8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             if (this.b == null) {
-                cr4 cr4Var = new cr4(this.i.getPageActivity());
-                this.b = cr4Var;
-                cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0cf8);
+                dr4 dr4Var = new dr4(this.i.getPageActivity());
+                this.b = dr4Var;
+                dr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0ce4);
                 this.b.setPositiveButton(R.string.obfuscated_res_0x7f0f0262, new d(this));
                 this.b.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new e(this));
                 this.b.create(this.i);

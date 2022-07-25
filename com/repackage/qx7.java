@@ -34,7 +34,7 @@ public class qx7 extends PbListView {
             }
         }
         this.E = tbPageContext;
-        b().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702fe));
+        b().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702fc));
         z();
         y();
         v();
@@ -45,7 +45,7 @@ public class qx7 extends PbListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.f();
-            C(this.E.getResources().getString(R.string.obfuscated_res_0x7f0f0a29));
+            C(this.E.getResources().getString(R.string.obfuscated_res_0x7f0f0a15));
             b().setVisibility(0);
         }
     }
@@ -55,7 +55,7 @@ public class qx7 extends PbListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.f();
-            C(this.E.getResources().getString(R.string.obfuscated_res_0x7f0f121e));
+            C(this.E.getResources().getString(R.string.obfuscated_res_0x7f0f11cd));
             b().setVisibility(0);
         }
     }

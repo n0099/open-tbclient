@@ -3,7 +3,7 @@ package com.repackage;
 public interface lu6 {
     void b();
 
-    void c(int i, wc5 wc5Var, int i2);
+    void c(int i, xc5 xc5Var, int i2);
 
-    void d(int i, int i2, wc5 wc5Var, int i3);
+    void d(int i, int i2, xc5 xc5Var, int i3);
 }

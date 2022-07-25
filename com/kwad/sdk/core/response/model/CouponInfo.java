@@ -76,7 +76,7 @@ public class CouponInfo extends com.kwad.sdk.core.response.kwai.a implements com
         try {
             return new DecimalFormat("#.#").format(Float.parseFloat(str) / 1000.0f);
         } catch (Exception e) {
-            com.kwad.sdk.core.d.b.b(e);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
             return null;
         }
     }
@@ -110,7 +110,7 @@ public class CouponInfo extends com.kwad.sdk.core.response.kwai.a implements com
         try {
             return new DecimalFormat("#.#").format(Float.valueOf(this.displayDiscount).floatValue() / 10.0f);
         } catch (Exception e) {
-            com.kwad.sdk.core.d.b.b(e);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
             return null;
         }
     }

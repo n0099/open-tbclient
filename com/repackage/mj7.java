@@ -53,20 +53,20 @@ public class mj7 {
             }
         }
         this.i = memberTaskCenterActivity;
-        memberTaskCenterActivity.setContentView(R.layout.obfuscated_res_0x7f0d0544);
-        this.d = memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f091b72);
-        this.a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f092439);
-        NavigationBar navigationBar = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f092437);
+        memberTaskCenterActivity.setContentView(R.layout.obfuscated_res_0x7f0d054e);
+        this.d = memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f091b4c);
+        this.a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f09243b);
+        NavigationBar navigationBar = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f092439);
         this.b = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.b.setTitleText(R.string.obfuscated_res_0x7f0f0ab2);
-        this.c = (BdListView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f091451);
-        this.f = LayoutInflater.from(memberTaskCenterActivity.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0545, (ViewGroup) null);
+        this.b.setTitleText(R.string.obfuscated_res_0x7f0f0a9e);
+        this.c = (BdListView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f09142d);
+        this.f = LayoutInflater.from(memberTaskCenterActivity.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d054f, (ViewGroup) null);
         BdListViewHelper.d(memberTaskCenterActivity.getActivity(), this.c, BdListViewHelper.HeadType.DEFAULT);
         TbImageView tbImageView = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090144);
         this.g = tbImageView;
         tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09070e);
+        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09070d);
         this.g.setOnClickListener(onClickListener);
         kj7 kj7Var = new kj7(memberTaskCenterActivity);
         this.e = kj7Var;
@@ -112,7 +112,7 @@ public class mj7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, list, Long.valueOf(j)}) == null) {
             this.g.J(str, 10, false);
-            this.h.setText(a(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f0472), String.valueOf(j)));
+            this.h.setText(a(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f0471), String.valueOf(j)));
             this.e.c(list);
             this.e.notifyDataSetChanged();
         }

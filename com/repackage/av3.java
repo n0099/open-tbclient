@@ -1,172 +1,197 @@
 package com.repackage;
 
 import android.app.Activity;
-import android.content.DialogInterface;
-import android.util.Log;
+import android.content.Context;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import com.repackage.ez1;
 import org.json.JSONObject;
-@Service
 /* loaded from: classes5.dex */
-public class av3 implements qh1 {
+public class av3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a extends ev3 {
+    public class a implements ez1.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ ps1 c;
+        public final /* synthetic */ av3 d;
 
-        public a(av3 av3Var) {
+        public a(av3 av3Var, boolean z, Context context, ps1 ps1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {av3Var};
+                Object[] objArr = {av3Var, Boolean.valueOf(z), context, ps1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.d = av3Var;
+            this.a = z;
+            this.b = context;
+            this.c = ps1Var;
         }
 
-        @Override // com.repackage.ev3
-        @NonNull
-        public File a() {
-            InterceptResult invokeV;
+        @Override // com.repackage.ez1.b
+        public void a(boolean z, String str) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ix1.a() : (File) invokeV.objValue;
-        }
-
-        @Override // com.repackage.ev3
-        public void b(@NonNull String str, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-                ix1.e(str, j);
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
+                if (z) {
+                    if (this.a) {
+                        this.d.g(this.b, this.c);
+                        return;
+                    }
+                    fx1.c(this.b, false);
+                    this.d.e(this.c, true, "setEnableDebug:ok");
+                    return;
+                }
+                ez1.c(this.b, str);
+                av3 av3Var = this.d;
+                av3Var.e(this.c, false, av3Var.f(str));
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements vu3 {
+    public class b implements bf3<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ ps1 b;
+        public final /* synthetic */ av3 c;
 
-        public b(av3 av3Var) {
+        public b(av3 av3Var, Context context, ps1 ps1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {av3Var};
+                Object[] objArr = {av3Var, context, ps1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.c = av3Var;
+            this.a = context;
+            this.b = ps1Var;
         }
 
-        @Override // com.repackage.vu3
-        public void a(boolean z) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.bf3
+        /* renamed from: b */
+        public void a(Boolean bool) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && av3.a) {
-                String str = av3.b;
-                Log.d(str, "download sConsole result: " + z);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
+                if (bool.booleanValue()) {
+                    fx1.c(this.a, true);
+                    this.c.e(this.b, true, "setEnableDebug:ok");
+                    return;
+                }
+                yu3.m().p((Activity) this.a, null);
+                this.c.e(this.b, false, "internet error");
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755843373, "Lcom/repackage/av3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755843373, "Lcom/repackage/av3;");
-                return;
-            }
-        }
-        a = rg1.a;
-        b = av3.class.getSimpleName();
-    }
-
-    public av3() {
+    public av3(s72 s72Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {s72Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.repackage.qh1
-    public void a(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener) {
+    public static void h(JSONObject jSONObject) {
+        i03 M;
+        SwanAppActivity w;
+        q72 g1;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, onClickListener) == null) {
-            xu3.m().p(activity, onClickListener);
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) == null) || (M = i03.M()) == null || !M.w0() || (w = M.w()) == null) {
+            return;
+        }
+        hd2 Q = w.Q();
+        if ((Q instanceof iw3) && (g1 = ((iw3) Q).g1()) != null) {
+            g1.dispatchEvent(vu3.a(jSONObject));
         }
     }
 
-    @Override // com.repackage.qh1
-    public String b() {
-        InterceptResult invokeV;
+    public final void d(@NonNull i03 i03Var, @NonNull Context context, @NonNull ps1 ps1Var, boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? xu3.m().e() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.qh1
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            zu3.h(jSONObject);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{i03Var, context, ps1Var, Boolean.valueOf(z)}) == null) {
+            ez1.a(i03Var, context, new a(this, z, context, ps1Var));
         }
     }
 
-    @Override // com.repackage.qh1
-    public a84 d() {
-        InterceptResult invokeV;
+    public final void e(ps1 ps1Var, boolean z, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new dv3(new a(this), new b(this)) : (a84) invokeV.objValue;
-    }
-
-    @Override // com.repackage.qh1
-    public void e(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
-            cv3.d(i, str);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{ps1Var, Boolean.valueOf(z), str}) == null) {
+            qu3 qu3Var = new qu3();
+            qu3Var.errMsg = str;
+            t24.call(ps1Var, z, qu3Var);
         }
     }
 
-    @Override // com.repackage.qh1
-    public void f(af3<Boolean> af3Var) {
+    public final String f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, af3Var) == null) {
-            xu3.m().o(af3Var);
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? String.format("setEnableDebug:fail %s", str) : (String) invokeL.objValue;
+    }
+
+    public final void g(Context context, ps1 ps1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, ps1Var) == null) {
+            yu3.m().o(new b(this, context, ps1Var));
+        }
+    }
+
+    public void i(JsObject jsObject) {
+        ps1 F;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) || (F = ps1.F(jsObject)) == null) {
+            return;
+        }
+        boolean l = F.l("enableDebug");
+        i03 M = i03.M();
+        if (M == null) {
+            e(F, false, f("internal error"));
+            return;
+        }
+        SwanAppActivity w = M.w();
+        if (w == null) {
+            e(F, false, f("internal error"));
+        } else if (l == fx1.a()) {
+            e(F, true, "setEnableDebug:ok");
+        } else {
+            d(M, w, F, l);
         }
     }
 }

@@ -1079,7 +1079,7 @@ public class ir6 implements zq6.f {
                 return;
             }
         }
-        d = tm4.a();
+        d = um4.a();
     }
 
     public ir6() {
@@ -1232,19 +1232,19 @@ public class ir6 implements zq6.f {
                 return;
             }
             FunAdConfig.Builder builder = new FunAdConfig.Builder(application);
-            if (vc5.c()) {
+            if (wc5.c()) {
                 builder.forbiddenPlatform(FunAdSdk.PLATFORM_CSJ);
                 or6.a("不初始化 PLATFORM_CSJ");
             } else {
                 or6.a("初始化 PLATFORM_CSJ");
             }
-            if (vc5.d()) {
+            if (wc5.d()) {
                 builder.forbiddenPlatform(FunAdSdk.PLATFORM_GDT);
                 or6.a("不初始化 PLATFORM_GDT");
             } else {
                 or6.a("初始化 PLATFORM_GDT");
             }
-            if (vc5.e()) {
+            if (wc5.e()) {
                 builder.forbiddenPlatform(FunAdSdk.PLATFORM_KS);
                 or6.a("不初始化 PLATFORM_KS");
             } else {
@@ -1252,7 +1252,7 @@ public class ir6 implements zq6.f {
             }
             boolean z = true;
             FunAdConfig.Builder videoDataFlowAutoStart = builder.setAppName(application.getString(R.string.obfuscated_res_0x7f0f029e)).setAppId(d).setUserId("").setUseTextureView(true).setVideoSoundEnable(false).setVideoDataFlowAutoStart(false);
-            if (!tm4.g() && !tm4.h() && !TbadkCoreApplication.getInst().isDebugMode()) {
+            if (!um4.g() && !um4.h() && !TbadkCoreApplication.getInst().isDebugMode()) {
                 z = false;
             }
             videoDataFlowAutoStart.setLogEnabled(z).setKsAdConfig(w().build()).setCsjAdConfig(v().build());
@@ -1364,7 +1364,7 @@ public class ir6 implements zq6.f {
     public final void y(String str, String str2, int i2, zq6.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048597, this, str, str2, i2, gVar) == null) {
-            vg a2 = r95.a();
+            vg a2 = s95.a();
             a2.b("type", "bear");
             a2.b("locate", gVar.a);
             a2.b(SetImageWatermarkTypeReqMsg.SWITCH, gVar.b);

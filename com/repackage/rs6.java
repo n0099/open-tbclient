@@ -3,7 +3,6 @@ package com.repackage;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.sofire.core.ForHostApp;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -24,8 +23,8 @@ public class rs6 {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public ArrayList<ThreadData> b;
-    public bo4 c;
-    public zo4 d;
+    public co4 c;
+    public ap4 d;
     public u07 e;
     @Nullable
     public String f;
@@ -47,16 +46,16 @@ public class rs6 {
         this.a = true;
     }
 
-    public bo4 a() {
+    public co4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (bo4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (co4) invokeV.objValue;
     }
 
-    public zo4 b() {
+    public ap4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (zo4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (ap4) invokeV.objValue;
     }
 
     public u07 c() {
@@ -98,7 +97,7 @@ public class rs6 {
                     if (jSONObject2 != null) {
                         ThreadData threadData = new ThreadData();
                         threadData.isFromFeedTab = true;
-                        threadData.isFromLocal = ForHostApp.KEY_NAME_LOCAL.equals(this.f);
+                        threadData.isFromLocal = "local".equals(this.f);
                         threadData.parserJson(jSONObject2);
                         threadData.insertItemToTitleOrAbstractText();
                         this.b.add(threadData);
@@ -107,7 +106,7 @@ public class rs6 {
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("banner_list");
             if (optJSONArray2 != null) {
-                this.c = new bo4();
+                this.c = new co4();
                 ArrayList arrayList = new ArrayList();
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                     JSONObject optJSONObject = optJSONArray2.optJSONObject(i3);
@@ -123,7 +122,7 @@ public class rs6 {
             }
             JSONArray optJSONArray3 = jSONObject.optJSONArray("grid");
             if (optJSONArray3 != null && optJSONArray3.length() >= 4) {
-                this.d = new zo4();
+                this.d = new ap4();
                 ArrayList arrayList2 = new ArrayList();
                 for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
                     JSONObject optJSONObject2 = optJSONArray3.optJSONObject(i4);

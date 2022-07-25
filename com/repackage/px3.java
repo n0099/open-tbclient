@@ -1,17 +1,9 @@
 package com.repackage;
-
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface px3 {
-    boolean a(@NonNull Context context, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull ho3 ho3Var);
+    boolean a(Object obj);
 
-    boolean b(Context context, String str, String str2, String str3);
+    void b(Object obj);
 
-    boolean c();
-
-    String getPackageName();
-
-    void init();
+    void c(Object obj);
 }

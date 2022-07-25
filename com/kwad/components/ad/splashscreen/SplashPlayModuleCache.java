@@ -14,7 +14,7 @@ import java.util.HashMap;
 public final class SplashPlayModuleCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, WeakReference<com.kwad.components.ad.splashscreen.c.a>> a;
+    public HashMap<String, WeakReference<com.kwad.components.ad.splashscreen.c.a>> ya;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
@@ -96,30 +96,30 @@ public final class SplashPlayModuleCache {
                 return;
             }
         }
-        this.a = new HashMap<>(1);
+        this.ya = new HashMap<>(1);
     }
 
     public /* synthetic */ SplashPlayModuleCache(byte b) {
         this();
     }
 
-    public static SplashPlayModuleCache a() {
+    public static SplashPlayModuleCache getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Holder.INSTANCE.getInstance() : (SplashPlayModuleCache) invokeV.objValue;
     }
 
-    public final com.kwad.components.ad.splashscreen.c.a a(String str) {
+    public final com.kwad.components.ad.splashscreen.c.a X(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            WeakReference<com.kwad.components.ad.splashscreen.c.a> weakReference = this.a.get(str);
+            WeakReference<com.kwad.components.ad.splashscreen.c.a> weakReference = this.ya.get(str);
             if (weakReference != null) {
                 com.kwad.components.ad.splashscreen.c.a aVar = weakReference.get();
                 if (aVar != null) {
                     return aVar;
                 }
-                this.a.remove(str);
+                this.ya.remove(str);
             }
             return null;
         }
@@ -129,7 +129,7 @@ public final class SplashPlayModuleCache {
     public final void a(String str, com.kwad.components.ad.splashscreen.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) {
-            this.a.put(str, new WeakReference<>(aVar));
+            this.ya.put(str, new WeakReference<>(aVar));
         }
     }
 }

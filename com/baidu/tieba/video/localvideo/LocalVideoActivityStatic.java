@@ -109,7 +109,7 @@ public class LocalVideoActivityStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, packageInfo) == null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f09dc);
+                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f09c6);
                 }
             }
 
@@ -118,7 +118,7 @@ public class LocalVideoActivityStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f09dc);
+                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f09c6);
                 }
             }
 

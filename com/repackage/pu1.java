@@ -1,8 +1,7 @@
 package com.repackage;
 
 import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.text.TextUtils;
+import android.graphics.DashPathEffect;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,10 +9,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class pu1 extends nt1 {
+public class pu1 extends ot1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Paint.Join a;
+    public DashPathEffect a;
 
     public pu1() {
         Interceptable interceptable = $ic;
@@ -29,29 +28,36 @@ public class pu1 extends nt1 {
         }
     }
 
-    @Override // com.repackage.nt1
-    public void a(ot1 ot1Var, Canvas canvas) {
-        Paint.Join join;
+    @Override // com.repackage.ot1
+    public void a(pt1 pt1Var, Canvas canvas) {
+        DashPathEffect dashPathEffect;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, ot1Var, canvas) == null) || (join = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, pt1Var, canvas) == null) || (dashPathEffect = this.a) == null) {
             return;
         }
-        ot1Var.c.setStrokeJoin(join);
+        pt1Var.c.setPathEffect(dashPathEffect);
     }
 
-    @Override // com.repackage.nt1
+    @Override // com.repackage.ot1
     public void b(JSONArray jSONArray) {
+        float[] fArr;
+        JSONArray optJSONArray;
+        int length;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
-            return;
-        }
-        String optString = jSONArray.optString(0);
-        if (TextUtils.equals(optString, "bevel")) {
-            this.a = Paint.Join.BEVEL;
-        } else if (TextUtils.equals(optString, "round")) {
-            this.a = Paint.Join.ROUND;
-        } else if (TextUtils.equals(optString, "miter")) {
-            this.a = Paint.Join.MITER;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            if (jSONArray.length() <= 0 || (optJSONArray = jSONArray.optJSONArray(0)) == null || (length = optJSONArray.length()) <= 0) {
+                fArr = null;
+            } else {
+                fArr = new float[length];
+                for (int i = 0; i < length; i++) {
+                    fArr[i] = zd3.g((float) optJSONArray.optDouble(i));
+                }
+            }
+            int g = jSONArray.length() > 1 ? zd3.g((float) jSONArray.optDouble(1)) : 0;
+            if (fArr == null || g < 0) {
+                return;
+            }
+            this.a = new DashPathEffect(fArr, g);
         }
     }
 }

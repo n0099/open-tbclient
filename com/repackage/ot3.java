@@ -1,354 +1,102 @@
 package com.repackage;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.text.TextUtils;
-import android.webkit.JavascriptInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.v8engine.JSExceptionType;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.TreeMap;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ot3 extends EventTargetImpl implements lt3 {
+public final class ot3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public np3 a;
-    @V8JavascriptField
-    public String adUnitId;
-    public String b;
-    public boolean c;
-    public mt3 d;
-    public nt3 e;
-    public Map<String, String> f;
-    public wo3 g;
-    public b h;
-    public boolean i;
-    public boolean j;
-    public gf3 k;
-    public mp3 l;
+    public pu3 a;
 
-    /* loaded from: classes6.dex */
-    public class a implements mp3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ot3 a;
-
-        /* renamed from: com.repackage.ot3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0699a implements gf3 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0699a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // com.repackage.gf3
-            public void a() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                }
-            }
-
-            @Override // com.repackage.gf3
-            public void f() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.a.a.i = false;
-                    this.a.a.a.i0();
-                }
-            }
-
-            @Override // com.repackage.gf3
-            public void m() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.a.a.i = true;
-                    if (this.a.a.j) {
-                        this.a.a.a.N();
-                    }
-                }
-            }
-        }
-
-        public a(ot3 ot3Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755428221, "Lcom/repackage/ot3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ot3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = ot3Var;
-        }
-
-        @Override // com.repackage.mp3
-        public void a(boolean z, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
-                if (z) {
-                    this.a.dispatchEvent(new JSEvent("load"));
-                    if (this.a.d != null) {
-                        this.a.d.c();
-                    }
-                    kt3.b().c(16, "");
-                    et3.b(this.a.getType(), "success");
-                    return;
-                }
-                if (this.a.d != null) {
-                    this.a.d.b(str);
-                }
-                kt3.b().c(17, str);
-                et3.c(this.a.getType(), com.baidu.pass.biometrics.face.liveness.b.a.g0, str);
-            }
-        }
-
-        @Override // com.repackage.mp3
-        public void b(boolean z, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
-                if (z) {
-                    if (this.a.e != null) {
-                        this.a.e.c();
-                    }
-                    if (this.a.h == null) {
-                        this.a.h = new b(this.a, null);
-                        IntentFilter intentFilter = new IntentFilter();
-                        intentFilter.addAction("android.intent.action.SCREEN_ON");
-                        intentFilter.addAction("android.intent.action.SCREEN_OFF");
-                        AppRuntime.getAppContext().registerReceiver(this.a.h, intentFilter);
-                    }
-                    if (this.a.k == null) {
-                        this.a.k = new C0699a(this);
-                        ot3.M(this.a.k);
-                    }
-                } else if (this.a.e != null) {
-                    this.a.e.b(str);
-                }
-            }
-        }
-
-        @Override // com.repackage.mp3
-        public void c(boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-                JSEvent jSEvent = new JSEvent("close");
-                jSEvent.data = pt3.a(z);
-                this.a.dispatchEvent(jSEvent);
-                et3.a(this.a.getType(), "pageclose", i);
-                this.a.destroy();
-            }
-        }
-
-        @Override // com.repackage.mp3
-        public void onClick(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-                et3.a(this.a.getType(), "click", i);
-            }
-        }
-
-        @Override // com.repackage.mp3
-        public void onError(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                JSEvent jSEvent = new JSEvent("error");
-                jSEvent.data = pt3.b(str);
-                this.a.dispatchEvent(jSEvent);
-                pp3.k(this.a.f, str);
-                this.a.destroy();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ot3 this$0;
-
-        public b(ot3 ot3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ot3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = ot3Var;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                if (TextUtils.equals(intent.getAction(), "android.intent.action.SCREEN_ON")) {
-                    this.this$0.j = true;
-                    if (this.this$0.i) {
-                        this.this$0.a.N();
-                    }
-                } else if (TextUtils.equals(intent.getAction(), "android.intent.action.SCREEN_OFF")) {
-                    this.this$0.j = false;
-                }
-            }
-        }
-
-        public /* synthetic */ b(ot3 ot3Var, a aVar) {
-            this(ot3Var);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ot3(r72 r72Var, JsObject jsObject) {
-        super(r72Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {r72Var, jsObject};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755428221, "Lcom/repackage/ot3;");
                 return;
             }
         }
-        this.adUnitId = "";
-        this.f = new TreeMap();
-        this.j = true;
-        this.l = new a(this);
-        os1 F = os1.F(jsObject);
-        if (F != null) {
-            this.adUnitId = F.B("adUnitId");
-            this.b = F.B("appSid");
-        }
-        if (F != null && !TextUtils.isEmpty(this.adUnitId) && !TextUtils.isEmpty(this.b)) {
-            boolean g = aq3.g();
-            this.c = g;
-            if (g) {
-                this.b = aq3.c();
-                this.adUnitId = aq3.d();
-            }
-            this.f = pp3.a("video", "game", this.b, this.adUnitId, this.c);
-            this.g = new ct3();
-            np3 np3Var = new np3(ul2.U().getActivity(), this.b, this.adUnitId, this.c, this.l, this.g);
-            this.a = np3Var;
-            np3Var.k0(this.f);
-            loadAd(null);
-            return;
-        }
-        r72Var.throwJSException(JSExceptionType.Error, "请求广告的必须参数为空,中断执行");
+        b = sg1.a;
     }
 
-    public static void M(gf3 gf3Var) {
-        yh1 W;
+    public ot3() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65549, null, gf3Var) == null) || (W = ul2.U().W()) == null) {
-            return;
-        }
-        W.e(gf3Var);
-    }
-
-    public static void N(gf3 gf3Var) {
-        yh1 W;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65550, null, gf3Var) == null) || (W = ul2.U().W()) == null) {
-            return;
-        }
-        W.f(gf3Var);
-    }
-
-    public final void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.h != null) {
-                AppRuntime.getAppContext().unregisterReceiver(this.h);
-                this.h = null;
-            }
-            gf3 gf3Var = this.k;
-            if (gf3Var != null) {
-                N(gf3Var);
-                this.k = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public String getType() {
-        InterceptResult invokeV;
+    public static ot3 d(ps1 ps1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c ? "gdtvideo" : "video" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ps1Var)) == null) {
+            if (ps1Var == null) {
+                return null;
+            }
+            ot3 ot3Var = new ot3();
+            ot3Var.a = pu3.e(ps1Var);
+            return ot3Var;
+        }
+        return (ot3) invokeL.objValue;
     }
 
-    @JavascriptInterface
-    public synchronized void loadAd(JsObject jsObject) {
+    public final JSONObject a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
-            synchronized (this) {
-                this.d = mt3.d(os1.F(jsObject));
-                kt3.b().a(this.d);
-                if (this.a != null) {
-                    this.a.c0();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                jSONObject.put("errDes", up3.a(str));
+            } catch (Exception e) {
+                if (b) {
+                    e.printStackTrace();
                 }
             }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            JSONObject a = a(str);
+            pu3 pu3Var = this.a;
+            if (pu3Var != null) {
+                pu3Var.b(a);
+            }
         }
     }
 
-    @JavascriptInterface
-    public synchronized void showAd(JsObject jsObject) {
+    public void c() {
+        pu3 pu3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
-            synchronized (this) {
-                et3.d(getType());
-                this.e = nt3.d(os1.F(jsObject));
-                if (this.a != null) {
-                    this.a.l0();
-                }
-            }
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (pu3Var = this.a) == null) {
+            return;
         }
+        pu3Var.c();
     }
 }

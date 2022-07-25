@@ -85,10 +85,10 @@ public class q91 {
                 String string2 = this.a.getString("tradeType");
                 i91.g("onWindowFocusChanged panelType=" + string + ", tradeType=" + string2);
                 if (TextUtils.equals(string, HlsPlaylistParser.METHOD_NONE) && TextUtils.equals(string2, "DIRECTPAY")) {
-                    this.c.S(e91.c(m91.a().getString(R.string.obfuscated_res_0x7f0f0d5e) + message), str);
+                    this.c.S(e91.c(m91.a().getString(R.string.obfuscated_res_0x7f0f0d47) + message), str);
                 } else {
                     ChannelListView channelListView = this.c;
-                    channelListView.S(m91.a().getString(R.string.obfuscated_res_0x7f0f0d5e) + message, str);
+                    channelListView.S(m91.a().getString(R.string.obfuscated_res_0x7f0f0d47) + message, str);
                 }
                 w81 w81Var = new w81("1");
                 w81Var.b(new SdkException("launchpayment error --> " + str, th).getStackMessage());
@@ -365,11 +365,11 @@ public class q91 {
         public void onOptionClick(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                if (i == R.id.obfuscated_res_0x7f091916) {
+                if (i == R.id.obfuscated_res_0x7f0918f1) {
                     r81.h().f();
                     this.a.b0(6, "支付结果查询失败，请重试", "0");
                     this.c.d.dismiss();
-                } else if (i == R.id.obfuscated_res_0x7f091918) {
+                } else if (i == R.id.obfuscated_res_0x7f0918f3) {
                     z81.e(new w81("111"));
                     this.c.d.d(false);
                     this.c.d.h();
@@ -553,7 +553,7 @@ public class q91 {
                     return;
                 } else if (4 == Integer.parseInt(str2)) {
                     String a2 = f91.a(0, map.get("orderId"), "Successful payment");
-                    PopupWindow popupWindow = new PopupWindow(View.inflate(channelListView.getContext(), R.layout.obfuscated_res_0x7f0d0658, null), -1, -1, true);
+                    PopupWindow popupWindow = new PopupWindow(View.inflate(channelListView.getContext(), R.layout.obfuscated_res_0x7f0d0662, null), -1, -1, true);
                     popupWindow.w(false);
                     popupWindow.y(false);
                     popupWindow.B(false);

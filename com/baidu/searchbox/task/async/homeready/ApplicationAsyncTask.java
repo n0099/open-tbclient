@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.z95;
+import com.repackage.aa5;
 /* loaded from: classes2.dex */
 public class ApplicationAsyncTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -41,7 +41,7 @@ public class ApplicationAsyncTask extends LaunchTask {
     private void trackPushSwitchOpen() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            if (z95.a(TbadkCoreApplication.getInst())) {
+            if (aa5.a(TbadkCoreApplication.getInst())) {
                 TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 1));
             } else {
                 TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 2));

@@ -173,7 +173,7 @@ public class ul7 extends sl7 {
         public LinearLayout h;
         public LinearLayout i;
         public NewMyFansUserLikeButton j;
-        public yv4 k;
+        public zv4 k;
         public ProgressBar l;
         public TextView m;
         public TextView n;
@@ -240,27 +240,27 @@ public class ul7 extends sl7 {
     }
 
     @Override // com.repackage.sl7
-    public void a(vp4 vp4Var) {
+    public void a(wp4 wp4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, vp4Var) == null) || vp4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, wp4Var) == null) || wp4Var == null) {
             return;
         }
-        this.i = vp4Var.i;
+        this.i = wp4Var.i;
         ArrayList arrayList = new ArrayList();
-        if (this.a.isEmpty() && !ListUtils.isEmpty(vp4Var.a())) {
-            Iterator<UserData> it = vp4Var.a().iterator();
+        if (this.a.isEmpty() && !ListUtils.isEmpty(wp4Var.a())) {
+            Iterator<UserData> it = wp4Var.a().iterator();
             while (it.hasNext()) {
                 UserData next = it.next();
                 if (next != null && !StringUtils.isNull(next.getUserId())) {
                     this.k.add(Long.valueOf(ng.g(next.getUserId(), 0L)));
                 }
             }
-            arrayList.addAll(vp4Var.a());
+            arrayList.addAll(wp4Var.a());
             UserData userData = new UserData();
             userData.mAttentionType = 0;
             arrayList.add(userData);
         }
-        arrayList.addAll(i(vp4Var.b()));
+        arrayList.addAll(i(wp4Var.b()));
         this.a.addAll(arrayList);
         if (this.a.isEmpty() || this.a.get(0).mAttentionType == 3) {
             return;
@@ -376,34 +376,34 @@ public class ul7 extends sl7 {
             } else {
                 dVar = new d(this, null);
                 if (getItemViewType(i) == 0) {
-                    view2 = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06ce, (ViewGroup) null);
-                    ViewGroup viewGroup2 = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f090f7e);
+                    view2 = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06d8, (ViewGroup) null);
+                    ViewGroup viewGroup2 = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f090f77);
                     dVar.a = viewGroup2;
                     viewGroup2.setOnClickListener(this.n);
-                    ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918ce);
+                    ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918a9);
                     dVar.c = clickableHeaderImageView;
-                    clickableHeaderImageView.setRadius(pi.f(this.d.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07030a));
+                    clickableHeaderImageView.setRadius(pi.f(this.d.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070308));
                     dVar.c.setAutoChangeStyle(true);
                     dVar.c.setGodIconWidth(R.dimen.tbds36);
                     dVar.c.setOnClickListener(this.o);
                     dVar.c.setTag(Integer.valueOf(i));
-                    TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f09232b);
+                    TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f09232d);
                     dVar.b = tBLottieAnimationView;
                     SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.card_live_header_bg);
                     j((UserData) ListUtils.getItem(this.a, i), dVar, i);
-                    dVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ec4);
-                    dVar.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f49);
-                    EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09155e);
+                    dVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ebd);
+                    dVar.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f4d);
+                    EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091539);
                     dVar.d = eMTextView;
                     eMTextView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, dVar));
-                    View a2 = uk4.b().a(this.d.getPageContext().getPageActivity(), 5);
+                    View a2 = vk4.b().a(this.d.getPageContext().getPageActivity(), 5);
                     dVar.e = a2;
                     if (a2 != null) {
                         a2.setVisibility(8);
                         dVar.i.addView(dVar.e, 1);
                     }
                     dVar.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902b1);
-                    dVar.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090f14);
+                    dVar.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090f0d);
                     TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905d1);
                     dVar.g = textView;
                     textView.setOnClickListener(this.l);
@@ -411,22 +411,22 @@ public class ul7 extends sl7 {
                     dVar.j = newMyFansUserLikeButton;
                     newMyFansUserLikeButton.setContext(this.d.getPageContext());
                     dVar.j.setCallback(this.p);
-                    dVar.k = new yv4(this.d.getPageContext(), dVar.j);
+                    dVar.k = new zv4(this.d.getPageContext(), dVar.j);
                     dVar.l = null;
                     dVar.n = null;
                     dVar.o = null;
                 } else if (getItemViewType(i) == 2) {
-                    view2 = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06d0, (ViewGroup) null);
-                    dVar.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091895);
-                    dVar.o = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0915dc);
+                    view2 = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06da, (ViewGroup) null);
+                    dVar.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091870);
+                    dVar.o = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0915b7);
                 } else if (getItemViewType(i) == 3) {
                     view2 = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0120, (ViewGroup) null);
                     dVar.p = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0902bf);
                 } else {
-                    view2 = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0603, (ViewGroup) null);
-                    dVar.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091765);
+                    view2 = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d060d, (ViewGroup) null);
+                    dVar.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091740);
                     view2.setOnClickListener(this.m);
-                    dVar.l = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0919c7);
+                    dVar.l = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0919a2);
                     dVar.n = null;
                     dVar.o = null;
                 }
@@ -447,27 +447,27 @@ public class ul7 extends sl7 {
                     dVar.m.setVisibility(0);
                     if (this.f) {
                         if (this.g) {
-                            dVar.m.setText(R.string.obfuscated_res_0x7f0f0c88);
+                            dVar.m.setText(R.string.obfuscated_res_0x7f0f0c74);
                         } else {
                             int i2 = this.h;
                             if (i2 == 2) {
-                                dVar.m.setText(R.string.obfuscated_res_0x7f0f0837);
+                                dVar.m.setText(R.string.obfuscated_res_0x7f0f0833);
                             } else if (i2 == 1) {
-                                dVar.m.setText(R.string.obfuscated_res_0x7f0f083b);
+                                dVar.m.setText(R.string.obfuscated_res_0x7f0f0837);
                             } else {
-                                dVar.m.setText(R.string.obfuscated_res_0x7f0f0c3e);
+                                dVar.m.setText(R.string.obfuscated_res_0x7f0f0c2a);
                             }
                         }
                     } else if (this.g) {
-                        dVar.m.setText(R.string.obfuscated_res_0x7f0f0c8b);
+                        dVar.m.setText(R.string.obfuscated_res_0x7f0f0c77);
                     } else {
                         int i3 = this.h;
                         if (i3 == 2) {
-                            dVar.m.setText(R.string.obfuscated_res_0x7f0f0839);
+                            dVar.m.setText(R.string.obfuscated_res_0x7f0f0835);
                         } else if (i3 == 1) {
-                            dVar.m.setText(R.string.obfuscated_res_0x7f0f083c);
+                            dVar.m.setText(R.string.obfuscated_res_0x7f0f0838);
                         } else {
-                            dVar.m.setText(R.string.obfuscated_res_0x7f0f0c4d);
+                            dVar.m.setText(R.string.obfuscated_res_0x7f0f0c39);
                         }
                     }
                 } else {
@@ -487,10 +487,10 @@ public class ul7 extends sl7 {
                             dVar.e.setVisibility(8);
                         } else {
                             dVar.e.setVisibility(0);
-                            tk4 tk4Var = new tk4();
-                            tk4Var.a = userData.getAlaUserData();
-                            tk4Var.b = 5;
-                            dVar.e.setTag(tk4Var);
+                            uk4 uk4Var = new uk4();
+                            uk4Var.a = userData.getAlaUserData();
+                            uk4Var.b = 5;
+                            dVar.e.setTag(uk4Var);
                         }
                     }
                     if (oi.isEmpty(userData.getIntro())) {
@@ -527,7 +527,7 @@ public class ul7 extends sl7 {
             } else if (getItemViewType(i) == 2) {
                 dVar.n.setText(this.i);
             } else if (getItemViewType(i) != 2 || getItemViewType(i) != 3) {
-                dVar.d.setText(this.d.getPageContext().getString(R.string.obfuscated_res_0x7f0f0a2c));
+                dVar.d.setText(this.d.getPageContext().getString(R.string.obfuscated_res_0x7f0f0a18));
                 dVar.l.setVisibility(0);
             }
             h(view2, dVar);

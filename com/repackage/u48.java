@@ -30,16 +30,16 @@ public class u48 {
         }
     }
 
-    public hq4 a() {
+    public iq4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            hq4 hq4Var = new hq4();
-            hq4Var.d = false;
-            hq4Var.d(this.b);
-            return hq4Var;
+            iq4 iq4Var = new iq4();
+            iq4Var.d = false;
+            iq4Var.d(this.b);
+            return iq4Var;
         }
-        return (hq4) invokeV.objValue;
+        return (iq4) invokeV.objValue;
     }
 
     public void b(DataRes dataRes) {

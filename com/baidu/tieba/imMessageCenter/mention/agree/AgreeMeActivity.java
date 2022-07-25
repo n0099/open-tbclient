@@ -34,8 +34,8 @@ import com.repackage.la7;
 import com.repackage.ma7;
 import com.repackage.ni;
 import com.repackage.nn;
-import com.repackage.ny4;
 import com.repackage.oa7;
+import com.repackage.oy4;
 import com.repackage.pi;
 import com.repackage.xn;
 import com.repackage.z8;
@@ -139,7 +139,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
         public void onFailed(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                ny4.f0().X(0);
+                oy4.f0().X(0);
                 if (this.a.b == null) {
                     return;
                 }
@@ -148,7 +148,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
                     AgreeMeActivity agreeMeActivity = this.a;
                     agreeMeActivity.hideLoadingView(agreeMeActivity.b.d());
                     AgreeMeActivity agreeMeActivity2 = this.a;
-                    agreeMeActivity2.showNetRefreshView(agreeMeActivity2.b.f(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f9b), null, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f9a), true, this.a.getNetRefreshListener());
+                    agreeMeActivity2.showNetRefreshView(agreeMeActivity2.b.f(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f84), null, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f83), true, this.a.getNetRefreshListener());
                     this.a.setNetRefreshViewEmotionMarginTop(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds530));
                     if (this.a.b.f != null) {
                         this.a.b.f.setVisibility(8);
@@ -327,7 +327,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.v85
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

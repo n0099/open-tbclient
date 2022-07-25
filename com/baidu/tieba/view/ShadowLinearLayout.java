@@ -66,7 +66,7 @@ public class ShadowLinearLayout extends LinearLayout {
             this.i.setStyle(Paint.Style.FILL);
             this.i.setDither(true);
             this.g = pi.f(context, R.dimen.obfuscated_res_0x7f0701d5);
-            float f = pi.f(context, R.dimen.obfuscated_res_0x7f070289);
+            float f = pi.f(context, R.dimen.obfuscated_res_0x7f070287);
             this.h = f;
             this.c = f;
             this.d = f;

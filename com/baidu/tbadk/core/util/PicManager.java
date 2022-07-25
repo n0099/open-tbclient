@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l45;
+import com.repackage.m45;
 import com.repackage.pi;
 import com.repackage.ym;
 /* loaded from: classes3.dex */
@@ -114,7 +114,7 @@ public class PicManager {
     public static void addPicMemoryCache(String str, ym ymVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, ymVar) == null) {
-            l45.k().d(str, ymVar);
+            m45.k().d(str, ymVar);
         }
     }
 
@@ -263,7 +263,7 @@ public class PicManager {
                 }
                 if (z) {
                     Bitmap image = StorageFile.getInstance().getImage(nameMd5FromUrl);
-                    l45.k().i(imageSize);
+                    m45.k().i(imageSize);
                     if (image != null) {
                         addPicMemoryCache(str, image, z2, StorageFile.getInstance().isGif(nameMd5FromUrl), z3, nameMd5FromUrl);
                     }

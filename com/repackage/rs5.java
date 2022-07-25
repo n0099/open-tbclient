@@ -55,6 +55,6 @@ public class rs5 extends an<zs5, AlaFrsLiveListGatherRecommendTitleView.AlaFrsLi
     public View S(int i, View view2, ViewGroup viewGroup, zs5 zs5Var, AlaFrsLiveListGatherRecommendTitleView.AlaFrsLiveListGatherRecommendTitleViewHolder alaFrsLiveListGatherRecommendTitleViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zs5Var, alaFrsLiveListGatherRecommendTitleViewHolder})) == null) ? alaFrsLiveListGatherRecommendTitleViewHolder.b() : (View) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zs5Var, alaFrsLiveListGatherRecommendTitleViewHolder})) == null) ? alaFrsLiveListGatherRecommendTitleViewHolder.a() : (View) invokeCommon.objValue;
     }
 }

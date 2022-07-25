@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gd3;
-import com.repackage.oj2;
-import com.repackage.om1;
-import com.repackage.qm1;
-import com.repackage.rg1;
-import com.repackage.s12;
-import com.repackage.yd3;
+import com.repackage.hd3;
+import com.repackage.pj2;
+import com.repackage.pm1;
+import com.repackage.rm1;
+import com.repackage.sg1;
+import com.repackage.t12;
+import com.repackage.zd3;
 /* loaded from: classes2.dex */
 public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean q;
     public transient /* synthetic */ FieldHolder $fh;
-    public om1 m;
+    public pm1 m;
     public String n;
     public int o;
     public int p;
@@ -68,7 +68,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     }
 
     /* loaded from: classes2.dex */
-    public class b extends s12 {
+    public class b extends t12 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppScopeDetailActivity c;
@@ -91,7 +91,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
             this.c = swanAppScopeDetailActivity;
         }
 
-        @Override // com.repackage.s12, com.repackage.v12
+        @Override // com.repackage.t12, com.repackage.w12
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -99,7 +99,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                ((TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0920bc)).setText(str);
+                ((TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0920be)).setText(str);
             }
         }
     }
@@ -117,7 +117,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                 return;
             }
         }
-        q = rg1.a;
+        q = sg1.a;
     }
 
     public SwanAppScopeDetailActivity() {
@@ -144,13 +144,13 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         }
     }
 
-    /* JADX WARN: Type inference failed for: r1v1, types: [com.repackage.om1] */
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.repackage.pm1] */
     public final void B() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || TextUtils.isEmpty(this.n)) {
             return;
         }
-        qm1 c = oj2.F0().c(this);
+        rm1 c = pj2.F0().c(this);
         c.b0(new b(this));
         this.m = c.t();
         c.loadUrl(this.n);
@@ -162,7 +162,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) || intent == null) {
             return;
         }
-        this.n = gd3.h(intent, "url");
+        this.n = hd3.h(intent, "url");
         if (q) {
             Log.d("ScopeDetailActivity", "mUrl=" + this.n);
         }
@@ -197,14 +197,14 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         }
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.repackage.vd4, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.repackage.wd4, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             D(R.anim.obfuscated_res_0x7f01001c, R.anim.obfuscated_res_0x7f010025);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d07e2);
-            yd3.a(this);
+            setContentView(R.layout.obfuscated_res_0x7f0d07ec);
+            zd3.a(this);
             C(getIntent());
             A();
             B();
@@ -216,9 +216,9 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            om1 om1Var = this.m;
-            if (om1Var != null) {
-                om1Var.destroy();
+            pm1 pm1Var = this.m;
+            if (pm1Var != null) {
+                pm1Var.destroy();
                 this.m = null;
             }
             this.n = null;

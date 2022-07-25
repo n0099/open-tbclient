@@ -181,10 +181,10 @@ public class gj5 {
             if (view2 instanceof LinearLayout) {
                 linearLayout = (LinearLayout) view2;
             } else {
-                linearLayout = (LinearLayout) LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05f2, (ViewGroup) this.f, false);
+                linearLayout = (LinearLayout) LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05fc, (ViewGroup) this.f, false);
             }
-            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f091280);
-            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f091b3a);
+            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f09125c);
+            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f091b14);
             nEGFeedBackReasonCheckBox.a();
             nEGFeedBackReasonCheckBox2.a();
             nEGFeedBackReasonCheckBox.setChecked(false);
@@ -232,10 +232,10 @@ public class gj5 {
             if (view2 instanceof LinearLayout) {
                 linearLayout = (LinearLayout) view2;
             } else {
-                linearLayout = (LinearLayout) LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05f2, (ViewGroup) this.f, false);
+                linearLayout = (LinearLayout) LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05fc, (ViewGroup) this.f, false);
             }
-            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f091280);
-            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f091b3a);
+            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f09125c);
+            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f091b14);
             nEGFeedBackReasonCheckBox.a();
             nEGFeedBackReasonCheckBox2.a();
             nEGFeedBackReasonCheckBox.setChecked(false);
@@ -347,13 +347,13 @@ public class gj5 {
         }
     }
 
-    public void j(kp4 kp4Var) {
+    public void j(lp4 lp4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, kp4Var) == null) || kp4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, lp4Var) == null) || lp4Var == null) {
             return;
         }
-        this.c = kp4Var.b();
-        this.d = kp4Var.g;
+        this.c = lp4Var.b();
+        this.d = lp4Var.g;
     }
 
     public void k(String[] strArr) {

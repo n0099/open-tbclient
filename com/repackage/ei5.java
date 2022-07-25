@@ -25,18 +25,18 @@ public class ei5 {
         }
     }
 
-    public static void b(xw4 xw4Var) {
+    public static void b(yw4 yw4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, xw4Var) == null) || xw4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, null, yw4Var) == null) || yw4Var == null) {
             return;
         }
-        if (xw4Var.b != 0) {
-            xt4.k().y("app_entrance_nologin", xw4Var.b + "");
+        if (yw4Var.b != 0) {
+            yt4.k().y("app_entrance_nologin", yw4Var.b + "");
         }
-        if (xw4Var.a == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
+        if (yw4Var.a == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
             return;
         }
-        xt4.k().y("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), xw4Var.a + "");
+        yt4.k().y("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), yw4Var.a + "");
     }
 
     public int a() {
@@ -45,9 +45,9 @@ public class ei5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (TbadkCoreApplication.getCurrentAccount() == null) {
-                q = xt4.k().q("app_entrance_nologin", "");
+                q = yt4.k().q("app_entrance_nologin", "");
             } else {
-                xt4 k = xt4.k();
+                yt4 k = yt4.k();
                 q = k.q("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), "");
             }
             int e = ng.e(q, 0);

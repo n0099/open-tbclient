@@ -276,7 +276,7 @@ public class SapiStatUtil {
             if (!TextUtils.isEmpty(str)) {
                 hashMap.put("scene", str);
             }
-            hashMap.put(Config.DEVICE_PART, Build.MODEL);
+            hashMap.put(Config.DEVICE_PART, "android");
             hashMap.put(ShareLoginStat.GetShareListStat.KEY_ACCOUNT_SIZE, list.size() + "");
             hashMap.put(ShareLoginStat.GetShareListStat.KEY_ACCOUNT_TPLS, TextUtils.join(",", arrayList));
             hashMap.put(ShareLoginStat.GetShareListStat.KEY_ACCOUNT_APPS, TextUtils.join(",", arrayList2));
@@ -289,7 +289,7 @@ public class SapiStatUtil {
         if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), shareStorage, list}) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("cuid", SapiUtils.getClientId(context));
-            hashMap.put(Config.DEVICE_PART, Build.MODEL);
+            hashMap.put(Config.DEVICE_PART, "android");
             hashMap.put("read_failure_count", i + "");
             hashMap.put("read_sp_count", i2 + "");
             hashMap.put("read_sd_count", i3 + "");
@@ -321,7 +321,7 @@ public class SapiStatUtil {
         if (interceptable == null || interceptable.invokeLL(65554, null, context, str) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("cuid", SapiUtils.getClientId(context));
-            hashMap.put(Config.DEVICE_PART, Build.MODEL);
+            hashMap.put(Config.DEVICE_PART, "android");
             hashMap.put(HttpConstants.OS_VERSION, Build.VERSION.RELEASE);
             hashMap.put("success", str);
             StatService.onEvent("get_sms_check_code_from_clip", hashMap);

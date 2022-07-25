@@ -65,15 +65,15 @@ public class xi6 {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) && this.b == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02bb, (ViewGroup) null);
             this.b = inflate;
-            this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0922e8);
-            this.d = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f0922ea);
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(context.getResources().getString(R.string.obfuscated_res_0x7f0f06ae));
+            this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0922ea);
+            this.d = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f0922ec);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(context.getResources().getString(R.string.obfuscated_res_0x7f0f06aa));
             EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0808f1, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
             eMRichTextAnyIconSpan.b(pi.f(context, R.dimen.tbds0));
             eMRichTextAnyIconSpan.d(pi.f(context, R.dimen.M_W_X002));
             spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
             this.d.setText(spannableStringBuilder);
-            this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f0922e9);
+            this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f0922eb);
             c(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -90,8 +90,8 @@ public class xi6 {
                 layerDrawable.getDrawable(1).setAlpha(0);
             }
             this.c.setBackgroundDrawable(layerDrawable);
-            ur4.d(this.d).v(R.color.CAM_X0109);
-            ur4.d(this.e).v(R.color.CAM_X0109);
+            vr4.d(this.d).v(R.color.CAM_X0109);
+            vr4.d(this.e).v(R.color.CAM_X0109);
         }
     }
 

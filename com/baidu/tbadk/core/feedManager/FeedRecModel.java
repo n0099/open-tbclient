@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ma5;
+import com.repackage.na5;
 import com.repackage.wh8;
 import com.repackage.za;
 import tbclient.Personalized.DataRes;
@@ -128,11 +128,11 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ma5 ma5Var = new ma5(309264);
-            ma5Var.setResponsedClass(RecPersonalizeSocketResponse.class);
-            ma5Var.g(true);
-            ma5Var.setPriority(4);
-            MessageManager.getInstance().registerTask(ma5Var);
+            na5 na5Var = new na5(309264);
+            na5Var.setResponsedClass(RecPersonalizeSocketResponse.class);
+            na5Var.g(true);
+            na5Var.setPriority(4);
+            MessageManager.getInstance().registerTask(na5Var);
         }
     }
 

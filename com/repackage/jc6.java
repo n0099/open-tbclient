@@ -115,7 +115,7 @@ public class jc6 {
             return;
         }
         if (!pi.D()) {
-            this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+            this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
             return;
         }
         c();

@@ -10,8 +10,8 @@ import com.kwad.sdk.api.KsNativeAd;
 public final class e extends com.kwad.components.ad.e.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean c;
-    public KsNativeAd.VideoPlayListener d;
+    public boolean aN;
+    public KsNativeAd.VideoPlayListener jA;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -26,19 +26,19 @@ public final class e extends com.kwad.components.ad.e.kwai.a {
                 return;
             }
         }
-        this.c = false;
+        this.aN = false;
     }
 
     @Override // com.kwad.components.ad.e.kwai.a, com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            this.d = ((com.kwad.components.ad.e.kwai.a) this).a.b;
+            super.aq();
+            this.jA = this.jL.jA;
             com.kwad.components.core.video.h hVar = new com.kwad.components.core.video.h(this) { // from class: com.kwad.components.ad.e.a.e.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ e a;
+                public final /* synthetic */ e jX;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -55,46 +55,64 @@ public final class e extends com.kwad.components.ad.e.kwai.a {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.jX = this;
                 }
 
                 @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-                public final void a() {
+                public final void onVideoPlayCompleted() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        super.a();
-                        if (this.a.d != null) {
-                            try {
-                                this.a.d.onVideoPlayPause();
-                            } catch (Throwable th) {
-                                com.kwad.sdk.core.d.b.b(th);
-                            }
-                        }
-                        this.a.c = true;
-                    }
-                }
-
-                @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-                public final void a(int i, int i2) {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) || this.a.d == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.jX.jA == null) {
                         return;
                     }
-                    this.a.d.onVideoPlayError(i, i2);
+                    this.jX.jA.onVideoPlayComplete();
                 }
 
                 @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-                public final void b() {
+                public final void onVideoPlayError(int i, int i2) {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) || this.jX.jA == null) {
+                        return;
+                    }
+                    this.jX.jA.onVideoPlayError(i, i2);
+                }
+
+                @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
+                public final void onVideoPlayPaused() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                        super.b();
-                        if (this.a.c) {
-                            this.a.c = false;
-                            if (this.a.d != null) {
+                        super.onVideoPlayPaused();
+                        if (this.jX.jA != null) {
+                            try {
+                                this.jX.jA.onVideoPlayPause();
+                            } catch (Throwable th) {
+                                com.kwad.sdk.core.e.b.printStackTraceOnly(th);
+                            }
+                        }
+                        this.jX.aN = true;
+                    }
+                }
+
+                @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
+                public final void onVideoPlayStart() {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048579, this) == null) || this.jX.jA == null) {
+                        return;
+                    }
+                    this.jX.jA.onVideoPlayStart();
+                }
+
+                @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
+                public final void onVideoPlaying() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
+                        super.onVideoPlaying();
+                        if (this.jX.aN) {
+                            this.jX.aN = false;
+                            if (this.jX.jA != null) {
                                 try {
-                                    this.a.d.onVideoPlayResume();
+                                    this.jX.jA.onVideoPlayResume();
                                 } catch (Throwable th) {
-                                    com.kwad.sdk.core.d.b.b(th);
+                                    com.kwad.sdk.core.e.b.printStackTraceOnly(th);
                                 }
                             }
                         }
@@ -102,40 +120,22 @@ public final class e extends com.kwad.components.ad.e.kwai.a {
                 }
 
                 @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-                public final void c() {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048579, this) == null) || this.a.d == null) {
-                        return;
-                    }
-                    this.a.d.onVideoPlayStart();
-                }
-
-                @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-                public final void d() {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048580, this) == null) || this.a.d == null) {
-                        return;
-                    }
-                    this.a.d.onVideoPlayComplete();
-                }
-
-                @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-                public final void e() {
+                public final void onVideoPrepared() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048581, this) == null) {
-                        super.e();
-                        if (this.a.d != null) {
+                        super.onVideoPrepared();
+                        if (this.jX.jA != null) {
                             try {
-                                this.a.d.onVideoPlayReady();
+                                this.jX.jA.onVideoPlayReady();
                             } catch (Throwable th) {
-                                com.kwad.sdk.core.d.b.b(th);
+                                com.kwad.sdk.core.e.b.printStackTraceOnly(th);
                             }
                         }
                     }
                 }
             };
-            ((com.kwad.components.ad.e.kwai.a) this).b = hVar;
-            ((com.kwad.components.ad.e.kwai.a) this).a.f.a(hVar);
+            this.mVideoPlayStateListener = hVar;
+            this.jL.jM.a(hVar);
         }
     }
 }

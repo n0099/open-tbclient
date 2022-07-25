@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hv7 implements e65 {
+public class hv7 implements f65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,11 +26,11 @@ public class hv7 implements e65 {
         }
     }
 
-    @Override // com.repackage.e65
+    @Override // com.repackage.f65
     @NonNull
-    public d65 b(@NonNull TbPageContext tbPageContext) {
+    public e65 b(@NonNull TbPageContext tbPageContext) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbPageContext)) == null) ? new rt7(tbPageContext) : (d65) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbPageContext)) == null) ? new rt7(tbPageContext) : (e65) invokeL.objValue;
     }
 }

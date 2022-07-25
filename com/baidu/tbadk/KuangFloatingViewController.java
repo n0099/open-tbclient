@@ -237,7 +237,7 @@ public class KuangFloatingViewController {
                         }
                     }
                 });
-                this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f0909b8).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tbadk.KuangFloatingViewController.4
+                this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f0909b1).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tbadk.KuangFloatingViewController.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ KuangFloatingViewController this$0;
@@ -271,7 +271,7 @@ public class KuangFloatingViewController {
             } else if (view2.getParent() != null) {
                 return false;
             }
-            ((TextView) this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f090ec4)).setText(this.mInfo);
+            ((TextView) this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f090ebd)).setText(this.mInfo);
             return true;
         }
         return invokeV.booleanValue;
@@ -292,7 +292,7 @@ public class KuangFloatingViewController {
             layoutParams.flags = 65800;
             layoutParams.format = -3;
             layoutParams.x = 0;
-            layoutParams.y = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07028c) + UtilHelper.getStatusBarHeight();
+            layoutParams.y = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07028a) + UtilHelper.getStatusBarHeight();
             layoutParams.width = -2;
             layoutParams.height = -2;
             layoutParams.gravity = 51;

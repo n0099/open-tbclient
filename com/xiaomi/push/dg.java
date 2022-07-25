@@ -15,23 +15,23 @@ public class dg extends df.b {
     public final /* synthetic */ int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ df f933a;
+    public final /* synthetic */ df f213a;
 
     /* renamed from: a  reason: collision with other field name */
-    public File f934a;
+    public File f214a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f935a;
+    public final /* synthetic */ String f215a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Date f936a;
+    public final /* synthetic */ Date f216a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ boolean f937a;
+    public final /* synthetic */ boolean f217a;
     public final /* synthetic */ String b;
 
     /* renamed from: b  reason: collision with other field name */
-    public final /* synthetic */ Date f938b;
+    public final /* synthetic */ Date f218b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public dg(df dfVar, int i, Date date, Date date2, String str, String str2, boolean z) {
@@ -51,13 +51,13 @@ public class dg extends df.b {
                 return;
             }
         }
-        this.f933a = dfVar;
+        this.f213a = dfVar;
         this.a = i;
-        this.f936a = date;
-        this.f938b = date2;
-        this.f935a = str;
+        this.f216a = date;
+        this.f218b = date2;
+        this.f215a = str;
         this.b = str2;
-        this.f937a = z;
+        this.f217a = z;
     }
 
     @Override // com.xiaomi.push.df.b, com.xiaomi.push.ao.b
@@ -65,12 +65,12 @@ public class dg extends df.b {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && ad.d()) {
             try {
-                File file = new File(this.f933a.f926a.getExternalFilesDir(null) + "/.logcache");
+                File file = new File(this.f213a.f206a.getExternalFilesDir(null) + "/.logcache");
                 file.mkdirs();
                 if (file.isDirectory()) {
                     de deVar = new de();
                     deVar.a(this.a);
-                    this.f934a = deVar.a(this.f933a.f926a, this.f936a, this.f938b, file);
+                    this.f214a = deVar.a(this.f213a.f206a, this.f216a, this.f218b, file);
                 }
             } catch (NullPointerException unused) {
             }
@@ -79,14 +79,14 @@ public class dg extends df.b {
 
     @Override // com.xiaomi.push.ao.b
     /* renamed from: c */
-    public void mo1203c() {
+    public void mo265c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            File file = this.f934a;
+            File file = this.f214a;
             if (file != null && file.exists()) {
-                this.f933a.f927a.add(new df.c(this.f933a, this.f935a, this.b, this.f934a, this.f937a));
+                this.f213a.f207a.add(new df.c(this.f213a, this.f215a, this.b, this.f214a, this.f217a));
             }
-            this.f933a.a(0L);
+            this.f213a.a(0L);
         }
     }
 }

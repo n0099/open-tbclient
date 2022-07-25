@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import com.repackage.yq5;
 import java.util.List;
 /* loaded from: classes5.dex */
@@ -44,7 +44,7 @@ public class br5 {
     public BdListView e;
     public NoNetworkView f;
     public PbListView g;
-    public gu4 h;
+    public hu4 h;
     public wq5 i;
     public int j;
     public ar5 k;
@@ -239,11 +239,11 @@ public class br5 {
         ColorDrawable colorDrawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07a9, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07b3, (ViewGroup) null);
             this.c = inflate;
             inflate.setPadding(0, (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275), 0, 0);
-            this.d = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091e0d);
-            this.e = (BdListView) this.c.findViewById(R.id.obfuscated_res_0x7f091e0e);
+            this.d = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091e13);
+            this.e = (BdListView) this.c.findViewById(R.id.obfuscated_res_0x7f091e14);
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 colorDrawable = new ColorDrawable(this.a.getPageContext().getResources().getColor(R.color.CAM_X0204_1));
             } else {
@@ -251,10 +251,10 @@ public class br5 {
             }
             this.e.setDivider(colorDrawable);
             this.e.setDividerHeight(this.a.getActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198));
-            this.f = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f091e0f);
-            gu4 gu4Var = new gu4(this.b);
-            this.h = gu4Var;
-            gu4Var.b0(this.a.getUniqueId());
+            this.f = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f091e15);
+            hu4 hu4Var = new hu4(this.b);
+            this.h = hu4Var;
+            hu4Var.b0(this.a.getUniqueId());
             this.e.setPullRefresh(this.h);
             PbListView pbListView = new PbListView(this.a);
             this.g = pbListView;
@@ -317,7 +317,7 @@ public class br5 {
         }
     }
 
-    public void p(fu4.g gVar) {
+    public void p(gu4.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, gVar) == null) {
             this.h.f(gVar);
@@ -360,7 +360,7 @@ public class br5 {
         if (pbListView.b().getParent() == null) {
             this.e.setNextPage(this.g);
         }
-        this.g.C(this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f09e7));
+        this.g.C(this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f09d3));
         this.g.f();
     }
 }

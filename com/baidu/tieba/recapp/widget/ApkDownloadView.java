@@ -49,7 +49,7 @@ public class ApkDownloadView extends FrameLayout implements sk5 {
                 return;
             }
         }
-        getResources().getString(R.string.obfuscated_res_0x7f0f08ff);
+        getResources().getString(R.string.obfuscated_res_0x7f0f08ea);
         d(context);
     }
 
@@ -84,7 +84,7 @@ public class ApkDownloadView extends FrameLayout implements sk5 {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.a = (mb8) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0118, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f090962);
+            this.a = (mb8) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0118, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f09095b);
             e(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -257,7 +257,7 @@ public class ApkDownloadView extends FrameLayout implements sk5 {
                 return;
             }
         }
-        getResources().getString(R.string.obfuscated_res_0x7f0f08ff);
+        getResources().getString(R.string.obfuscated_res_0x7f0f08ea);
         d(context);
     }
 
@@ -279,7 +279,7 @@ public class ApkDownloadView extends FrameLayout implements sk5 {
                 return;
             }
         }
-        getResources().getString(R.string.obfuscated_res_0x7f0f08ff);
+        getResources().getString(R.string.obfuscated_res_0x7f0f08ea);
         d(context);
     }
 }

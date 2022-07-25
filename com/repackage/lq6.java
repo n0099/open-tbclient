@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import com.repackage.ti8;
 import java.util.HashSet;
 import java.util.List;
@@ -211,17 +211,17 @@ public class lq6 extends BaseAdapter implements go6 {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements cr4.e {
+    public class d implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
 
-        public d(lq6 lq6Var, cr4 cr4Var) {
+        public d(lq6 lq6Var, dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lq6Var, cr4Var};
+                Object[] objArr = {lq6Var, dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -231,13 +231,13 @@ public class lq6 extends BaseAdapter implements go6 {
                     return;
                 }
             }
-            this.a = cr4Var;
+            this.a = dr4Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.dismiss();
             }
         }
@@ -400,10 +400,10 @@ public class lq6 extends BaseAdapter implements go6 {
                     gVar = new g(this);
                     view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0317, (ViewGroup) null, false);
                     gVar.b = view2;
-                    gVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b0a);
-                    gVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b0b);
-                    gVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092146);
-                    gVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092144);
+                    gVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b03);
+                    gVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b04);
+                    gVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092148);
+                    gVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092146);
                     view2.setTag(gVar);
                 }
                 m(gVar, (nn) ListUtils.getItem(this.a, i));
@@ -414,10 +414,10 @@ public class lq6 extends BaseAdapter implements go6 {
                     fVar = new f(this);
                     view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0316, (ViewGroup) null, false);
                     fVar.b = view2;
-                    fVar.f = view2.findViewById(R.id.obfuscated_res_0x7f092147);
-                    fVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092146);
-                    fVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092145);
-                    fVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092144);
+                    fVar.f = view2.findViewById(R.id.obfuscated_res_0x7f092149);
+                    fVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092148);
+                    fVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092147);
+                    fVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092146);
                     view2.setTag(fVar);
                 }
                 nn nnVar = (nn) ListUtils.getItem(this.a, i);
@@ -458,7 +458,7 @@ public class lq6 extends BaseAdapter implements go6 {
         if (!(interceptable == null || interceptable.invokeLLI(1048583, this, fVar, threadData, i) == null) || fVar == null || threadData == null) {
             return;
         }
-        fVar.d.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1445));
+        fVar.d.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13f4));
         xn6.b(fVar.d, this.h);
         threadData.parserTitleFrsForTop();
         SpannableStringBuilder span_str = threadData.getSpan_str();
@@ -482,12 +482,12 @@ public class lq6 extends BaseAdapter implements go6 {
             if (ah8Var.c() != 0) {
                 fVar.e.setVisibility(0);
                 if (ah8Var.c() == -1) {
-                    fVar.e.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0c6d));
+                    fVar.e.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0c59));
                 } else if (ah8Var.c() > 999) {
-                    fVar.e.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0f5d));
+                    fVar.e.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0f46));
                 } else {
                     TextView textView = fVar.e;
-                    textView.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0f5c) + ah8Var.c());
+                    textView.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0f45) + ah8Var.c());
                 }
                 if (!StringUtils.isNull(ah8Var.d())) {
                     fVar.c.setText(ah8Var.d());
@@ -516,17 +516,17 @@ public class lq6 extends BaseAdapter implements go6 {
         if (!(interceptable == null || interceptable.invokeLLI(1048585, this, fVar, hh8Var, i) == null) || fVar == null || hh8Var == null || hh8Var.a() == null || this.f == null) {
             return;
         }
-        fVar.d.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f074e));
+        fVar.d.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f074a));
         xn6.b(fVar.d, this.h);
         if (this.f.getIs_manager() == 1) {
             if (hh8Var.a().audit_status.intValue() == 0 && hh8Var.a().has_forum_rule.intValue() == 0) {
-                fVar.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0751));
+                fVar.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f074d));
             } else if (hh8Var.a().audit_status.intValue() == 0) {
                 fVar.c.setText(hh8Var.a().title);
             } else if (hh8Var.a().audit_status.intValue() == 1) {
-                fVar.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f074f));
+                fVar.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f074b));
             } else if (hh8Var.a().audit_status.intValue() == 2) {
-                fVar.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0752));
+                fVar.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f074e));
             }
         } else {
             fVar.c.setText(hh8Var.a().title);
@@ -548,7 +548,7 @@ public class lq6 extends BaseAdapter implements go6 {
                 span_str = new SpannableStringBuilder(threadData.getAbstractText());
                 TiePlusEventController.p(threadData.getTiePlusLinkOriginData());
             }
-            gVar.d.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1445));
+            gVar.d.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13f4));
             gVar.c.setOnTouchListener(new bu8(span_str));
             gVar.c.setText(span_str);
             if (StringUtils.isNull(this.i)) {
@@ -582,12 +582,12 @@ public class lq6 extends BaseAdapter implements go6 {
             if (ah8Var.c() != 0) {
                 gVar.f.setVisibility(0);
                 if (ah8Var.c() == -1) {
-                    gVar.f.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0c6d));
+                    gVar.f.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0c59));
                 } else if (ah8Var.c() > 999) {
-                    gVar.f.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0f5d));
+                    gVar.f.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0f46));
                 } else {
                     TextView textView2 = gVar.f;
-                    textView2.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0f5c) + ah8Var.c());
+                    textView2.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0f45) + ah8Var.c());
                 }
                 if (!StringUtils.isNull(ah8Var.d())) {
                     gVar.c.setText(ah8Var.d());
@@ -626,9 +626,9 @@ public class lq6 extends BaseAdapter implements go6 {
                 return ah8Var.g();
             }
             if (ah8Var.a() == 1) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13e2);
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1391);
             }
-            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1446);
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13f5);
         }
         return (String) invokeL.objValue;
     }
@@ -701,12 +701,12 @@ public class lq6 extends BaseAdapter implements go6 {
         if (!(interceptable == null || interceptable.invokeLL(1048597, this, str, str2) == null) || oi.isEmpty(str) || oi.isEmpty(str2)) {
             return;
         }
-        cr4 cr4Var = new cr4((BaseFragmentActivity) this.b);
-        cr4Var.setTitle(str2);
-        cr4Var.setTitleShowCenter(true);
-        cr4Var.setMessage(str);
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f073d, new d(this, cr4Var));
-        cr4Var.create(p()).show();
+        dr4 dr4Var = new dr4((BaseFragmentActivity) this.b);
+        dr4Var.setTitle(str2);
+        dr4Var.setTitleShowCenter(true);
+        dr4Var.setMessage(str);
+        dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0739, new d(this, dr4Var));
+        dr4Var.create(p()).show();
     }
 
     public final boolean y(gh8 gh8Var, f fVar, int i) {
@@ -724,7 +724,7 @@ public class lq6 extends BaseAdapter implements go6 {
             if (StringUtils.isNull(riskTipNotice)) {
                 return false;
             }
-            fVar.d.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ff0));
+            fVar.d.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fd9));
             xn6.b(fVar.d, this.h);
             fVar.c.setText(riskTipNotice);
             fVar.c.setOnClickListener(new c(this, fVar, riskTipPop, riskTipPopTitle));

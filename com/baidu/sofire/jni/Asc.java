@@ -1,6 +1,6 @@
 package com.baidu.sofire.jni;
 
-import com.baidu.sofire.utility.CommonMethods;
+import com.baidu.sofire.a.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,8 +28,8 @@ public class Asc {
         }
         try {
             System.loadLibrary("fire");
-        } catch (Throwable th) {
-            CommonMethods.handleNuLException(th);
+        } catch (Throwable unused) {
+            int i = b.a;
         }
     }
 

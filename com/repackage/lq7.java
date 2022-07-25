@@ -19,7 +19,7 @@ public class lq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             if (TextUtils.isEmpty(a)) {
-                a = xt4.k().q("nick_name_activity_link", "");
+                a = yt4.k().q("nick_name_activity_link", "");
             }
             return a;
         }
@@ -36,7 +36,7 @@ public class lq7 {
             Drawable drawable = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080873);
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             spannableStringBuilder.append((CharSequence) "tag");
-            spannableStringBuilder.setSpan(new mu4(drawable), length, spannableStringBuilder.length(), 33);
+            spannableStringBuilder.setSpan(new nu4(drawable), length, spannableStringBuilder.length(), 33);
             return spannableStringBuilder;
         }
         return (SpannableStringBuilder) invokeLL.objValue;

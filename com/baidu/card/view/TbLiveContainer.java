@@ -34,8 +34,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.c68;
 import com.repackage.pi;
-import com.repackage.sr4;
-import com.repackage.ur4;
+import com.repackage.tr4;
+import com.repackage.vr4;
 /* loaded from: classes.dex */
 public class TbLiveContainer extends FrameLayout implements c68 {
     public static /* synthetic */ Interceptable $ic;
@@ -192,12 +192,12 @@ public class TbLiveContainer extends FrameLayout implements c68 {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0896, (ViewGroup) null);
-            this.a = (TbLiveCyberView) inflate.findViewById(R.id.obfuscated_res_0x7f091f81);
-            this.b = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090a85);
-            this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091e42);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08a0, (ViewGroup) null);
+            this.a = (TbLiveCyberView) inflate.findViewById(R.id.obfuscated_res_0x7f091f85);
+            this.b = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090a7e);
+            this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091e46);
             addView(inflate, new ViewGroup.LayoutParams(-1, -1));
-            this.b.setRoundLayoutRadius(sr4.y(R.string.J_X05));
+            this.b.setRoundLayoutRadius(tr4.y(R.string.J_X05));
             this.b.setVisibility(8);
             this.a.setOuterListener(new b(this));
         }
@@ -206,7 +206,7 @@ public class TbLiveContainer extends FrameLayout implements c68 {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            ur4 d = ur4.d(this.c);
+            vr4 d = vr4.d(this.c);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0201);
         }

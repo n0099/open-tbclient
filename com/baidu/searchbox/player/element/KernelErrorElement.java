@@ -40,8 +40,8 @@ public class KernelErrorElement extends AbsElement {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             Drawable[] compoundDrawables = this.mTextNetError.getCompoundDrawables();
-            this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070194));
-            compoundDrawables[1].setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701a3), getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701a3));
+            this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070192));
+            compoundDrawables[1].setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701a1), getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701a1));
             this.mTextNetError.setCompoundDrawables(compoundDrawables[0], compoundDrawables[1], compoundDrawables[2], compoundDrawables[3]);
         }
     }
@@ -50,8 +50,8 @@ public class KernelErrorElement extends AbsElement {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             Drawable[] compoundDrawables = this.mTextNetError.getCompoundDrawables();
-            this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070192));
-            compoundDrawables[1].setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701a2), getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701a2));
+            this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070190));
+            compoundDrawables[1].setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701a0), getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701a0));
             this.mTextNetError.setCompoundDrawables(compoundDrawables[0], compoundDrawables[1], compoundDrawables[2], compoundDrawables[3]);
         }
     }
@@ -80,7 +80,7 @@ public class KernelErrorElement extends AbsElement {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LinearLayout linearLayout = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d014e, null);
             this.mRootView = linearLayout;
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091903);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0918de);
             this.mTextNetError = textView;
             textView.setOnClickListener(this.mParent);
         }

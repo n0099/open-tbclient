@@ -5,19 +5,19 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public interface b {
-    InputStream a();
+    Map<String, List<String>> U();
 
-    String a(String str);
+    Map<String, List<String>> V();
 
-    void a(String str, String str2);
+    void W();
 
-    Map<String, List<String>> b();
+    void addHeader(String str, String str2);
 
-    Map<String, List<String>> c();
+    void execute();
 
-    void d();
+    InputStream getInputStream();
 
-    int e();
+    int getResponseCode();
 
-    void f();
+    String p(String str);
 }

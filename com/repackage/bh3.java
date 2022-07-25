@@ -1,11 +1,12 @@
 package com.repackage;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.swan.apps.setting.oauth.OAuthException;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,12 +14,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.po1;
-@Service
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bh3 implements hk1 {
+public class bh3 extends s53 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean u;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean s;
+    public String t;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -27,9 +31,55 @@ public class bh3 implements hk1 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements ak1 {
+    public class b extends h53 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bh3 c;
+
+        /* loaded from: classes5.dex */
+        public class a implements bf3<Bundle> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.repackage.bf3
+            /* renamed from: b */
+            public void a(Bundle bundle) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                    if (bundle == null) {
+                        this.a.e(new OAuthException("null stoken", 10001));
+                        return;
+                    }
+                    String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE, "");
+                    if (!TextUtils.isEmpty(string)) {
+                        this.a.c.t = string;
+                        this.a.d();
+                        return;
+                    }
+                    this.a.e(new OAuthException("empty stoken", 10001));
+                }
+            }
+        }
 
         public b(bh3 bh3Var) {
             Interceptable interceptable = $ic;
@@ -43,64 +93,29 @@ public class bh3 implements hk1 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.c = bh3Var;
         }
 
-        @Override // com.repackage.ak1
-        @NonNull
-        public l53 a(Activity activity, boolean z, String str, String str2) {
-            InterceptResult invokeCommon;
+        @Override // com.repackage.h53
+        public boolean f() throws Exception {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{activity, Boolean.valueOf(z), str, str2})) == null) ? new ug3(activity, z, str, str2) : (l53) invokeCommon.objValue;
-        }
-
-        @Override // com.repackage.ak1
-        @NonNull
-        public q53 b(Activity activity, po1.d dVar, Bundle bundle) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, dVar, bundle)) == null) ? new zg3(activity, dVar, bundle) : (q53) invokeLLL.objValue;
-        }
-
-        @Override // com.repackage.ak1
-        @NonNull
-        public r53 c(Activity activity, String str, String str2, boolean z, boolean z2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? new ah3(activity, str, str2, z, z2) : (r53) invokeCommon.objValue;
-        }
-
-        @Override // com.repackage.ak1
-        @NonNull
-        public m53 d(Context context, boolean z, boolean z2, String[] strArr, String str, boolean z3) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2), strArr, str, Boolean.valueOf(z3)})) == null) ? new vg3(context, z, z2, strArr, str, z3) : (m53) invokeCommon.objValue;
-        }
-
-        @Override // com.repackage.ak1
-        @NonNull
-        public p53 e(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? new yg3(context) : (p53) invokeL.objValue;
-        }
-
-        @Override // com.repackage.ak1
-        @NonNull
-        public o53 f(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? new xg3(context) : (o53) invokeL.objValue;
-        }
-
-        @Override // com.repackage.ak1
-        @NonNull
-        public n53 g(Context context, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, context, str)) == null) ? new wg3(context, str) : (n53) invokeLL.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (!this.c.s) {
+                    this.c.t = null;
+                    if (bh3.u) {
+                        Log.w("MaOpenDataRequest", "user not login");
+                        return true;
+                    }
+                    return true;
+                }
+                ig3.t(this.c.m, new a(this), BdZeusUtil.URL_KEY_MACHINE);
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         public /* synthetic */ b(bh3 bh3Var, a aVar) {
@@ -121,34 +136,60 @@ public class bh3 implements hk1 {
                 return;
             }
         }
-        boolean z = rg1.a;
+        u = sg1.a;
     }
 
-    public bh3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bh3(Activity activity, String str, String str2, boolean z, boolean z2) {
+        super(activity, str, str2, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Activity) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.s = z2;
+        y();
     }
 
-    @Override // com.repackage.hk1
-    public tj1 a() {
+    @Override // com.repackage.s53
+    public JSONObject P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new tg3() : (tj1) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject P = super.P();
+            if (!TextUtils.isEmpty(this.t)) {
+                try {
+                    P.put("stoken", this.t);
+                } catch (JSONException e) {
+                    if (u) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return P;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 
-    @Override // com.repackage.hk1
-    public ak1 b() {
+    @Override // com.repackage.f53
+    public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new b(this, null) : (ak1) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            h(new b(this, null));
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

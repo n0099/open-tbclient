@@ -71,7 +71,7 @@ public class wn7 {
 
         /* renamed from: com.repackage.wn7$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0759a implements m {
+        public class C0607a implements m {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ sn7 a;
@@ -79,7 +79,7 @@ public class wn7 {
             public final /* synthetic */ AtomicInteger c;
             public final /* synthetic */ a d;
 
-            public C0759a(a aVar, sn7 sn7Var, FaceData faceData, AtomicInteger atomicInteger) {
+            public C0607a(a aVar, sn7 sn7Var, FaceData faceData, AtomicInteger atomicInteger) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,12 +131,12 @@ public class wn7 {
 
             /* renamed from: com.repackage.wn7$a$b$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class C0760a implements GetEmotionInfosModel.b {
+            public class C0608a implements GetEmotionInfosModel.b {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b a;
 
-                public C0760a(b bVar) {
+                public C0608a(b bVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -164,23 +164,23 @@ public class wn7 {
                 }
 
                 @Override // com.baidu.tbadk.img.GetEmotionInfosModel.b
-                public void onSuccess(List<p45> list) {
+                public void onSuccess(List<q45> list) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                        for (p45 p45Var : list) {
-                            if (p45Var != null) {
+                        for (q45 q45Var : list) {
+                            if (q45Var != null) {
                                 FaceData faceData = new FaceData();
                                 faceData.type = 2;
-                                faceData.index = this.a.a.c.get(p45Var.g).intValue();
-                                faceData.pid = p45Var.a;
-                                faceData.width = p45Var.b;
-                                faceData.height = p45Var.c;
+                                faceData.index = this.a.a.c.get(q45Var.g).intValue();
+                                faceData.pid = q45Var.a;
+                                faceData.width = q45Var.b;
+                                faceData.height = q45Var.c;
                                 EmotionImageData emotionImageData = new EmotionImageData();
-                                emotionImageData.setPicId(p45Var.a);
-                                emotionImageData.setThumbUrl(p45Var.e);
-                                emotionImageData.setPicUrl(p45Var.d);
-                                emotionImageData.setWidth(p45Var.b);
-                                emotionImageData.setHeight(p45Var.c);
+                                emotionImageData.setPicId(q45Var.a);
+                                emotionImageData.setThumbUrl(q45Var.e);
+                                emotionImageData.setPicUrl(q45Var.d);
+                                emotionImageData.setWidth(q45Var.b);
+                                emotionImageData.setHeight(q45Var.c);
                                 faceData.emotionImageData = emotionImageData;
                                 this.a.a.a.add(faceData);
                             }
@@ -215,7 +215,7 @@ public class wn7 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     if (this.a.b.size() > 0) {
-                        new GetEmotionInfosModel().C(this.a.b, new C0760a(this));
+                        new GetEmotionInfosModel().C(this.a.b, new C0608a(this));
                         return;
                     }
                     UploadFaceGroupModel uploadFaceGroupModel = new UploadFaceGroupModel();
@@ -297,7 +297,7 @@ public class wn7 {
                     }
                     for (int i4 = 0; i4 < this.d.size() && sn7Var.a(); i4++) {
                         FaceData faceData2 = this.d.get(i4);
-                        this.i.B(faceData2.imageFileInfo, new C0759a(this, sn7Var, faceData2, atomicInteger));
+                        this.i.B(faceData2.imageFileInfo, new C0607a(this, sn7Var, faceData2, atomicInteger));
                     }
                     return;
                 }

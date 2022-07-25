@@ -64,10 +64,10 @@ public class r07 extends an<jm7, AdapterViewHolder<NearbyForumFriendCardView>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jm7Var, adapterViewHolder})) == null) {
-            NearbyForumFriendCardView c = adapterViewHolder.c();
-            c.a(jm7Var);
-            c.onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
-            return adapterViewHolder.b();
+            NearbyForumFriendCardView b = adapterViewHolder.b();
+            b.a(jm7Var);
+            b.onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
+            return adapterViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }
@@ -78,6 +78,6 @@ public class r07 extends an<jm7, AdapterViewHolder<NearbyForumFriendCardView>> {
         if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (adapterViewHolder = this.j) == null) {
             return;
         }
-        adapterViewHolder.c().setNeedCompleteProfile(z);
+        adapterViewHolder.b().setNeedCompleteProfile(z);
     }
 }

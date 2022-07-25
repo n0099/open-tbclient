@@ -221,16 +221,16 @@ public class u37 extends BaseExpandableListAdapter {
             } else {
                 view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d0394, (ViewGroup) null);
                 aVar = new a();
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090da9);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090da8);
-                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907d5);
-                aVar.e = view2.findViewById(R.id.obfuscated_res_0x7f0907cf);
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090da2);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090da1);
+                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907d3);
+                aVar.e = view2.findViewById(R.id.obfuscated_res_0x7f0907cd);
                 view2.setTag(aVar);
             }
             if (child == null) {
                 return view2;
             }
-            aVar.b.setText(id5.a(StringHelper.cutStringWithEllipsisNew(child.b(), 15)));
+            aVar.b.setText(jd5.a(StringHelper.cutStringWithEllipsisNew(child.b(), 15)));
             h(aVar.c, child.a().intValue());
             a(aVar, view2, TbadkCoreApplication.getInst().getSkinType());
             return view2;
@@ -276,8 +276,8 @@ public class u37 extends BaseExpandableListAdapter {
             } else {
                 view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d0395, (ViewGroup) null);
                 bVar = new b();
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cfa);
-                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0907ca);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cf3);
+                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0907c8);
                 bVar.d = view2.findViewById(R.id.group_divider);
                 view2.setTag(bVar);
                 view2.setClickable(false);
@@ -307,10 +307,10 @@ public class u37 extends BaseExpandableListAdapter {
         }
         if (i == 10) {
             textView.setVisibility(0);
-            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1456));
+            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1405));
         } else if (i == 11) {
             textView.setVisibility(0);
-            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1455));
+            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1404));
         } else {
             textView.setVisibility(8);
         }

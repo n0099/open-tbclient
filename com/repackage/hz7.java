@@ -141,7 +141,7 @@ public class hz7 extends BaseCardInfo {
             this.j = alaLiveInfo.third_room_id;
             String str2 = alaLiveInfo.router_type;
             this.d = "";
-            this.e = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0da9);
+            this.e = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d92);
             this.f = 1L;
             this.g = true;
             this.l = false;

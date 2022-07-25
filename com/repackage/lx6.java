@@ -114,10 +114,10 @@ public class lx6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
                 vy5 vy5Var = (vy5) nnVar;
                 vy5Var.f = 1;
                 if (this.a.o != null) {
-                    this.a.o.a(threadCardViewHolder.b(), vy5Var);
+                    this.a.o.a(threadCardViewHolder.a(), vy5Var);
                 }
-                ThreadCardUtils.jumpToPB((nn4) vy5Var, view2.getContext(), 2, false);
-                threadCardViewHolder.c().o(new ny.a(1));
+                ThreadCardUtils.jumpToPB((on4) vy5Var, view2.getContext(), 2, false);
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -159,8 +159,8 @@ public class lx6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
             vy5.X = "c10736";
             vy5.Y = "c10737";
             vy5.Z = "c10711";
-            vy5.g0 = "c10758";
-            vy5.h0 = "c10757";
+            vy5.a0 = "c10758";
+            vy5.b0 = "c10757";
         }
     }
 
@@ -179,7 +179,7 @@ public class lx6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
             cy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.n);
             k.r(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.k(this.i);
+            threadCardViewHolder.j(this.i);
             V(new b(this));
             return threadCardViewHolder;
         }
@@ -193,19 +193,19 @@ public class lx6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vy5Var, threadCardViewHolder})) == null) {
-            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || vy5Var.a == null) {
+            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || vy5Var.a == null) {
                 return null;
             }
             vy5Var.I(vy5Var.position + 1);
             vy5Var.a.statFloor = vy5Var.m();
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.c().b(this.l);
-            threadCardViewHolder.g(vy5Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.o);
+            threadCardViewHolder.b().q(i);
+            threadCardViewHolder.b().b(this.l);
+            threadCardViewHolder.f(vy5Var);
+            threadCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().p(this.o);
             cy5.b().a(vy5Var.B());
             ak5.c().a(vy5Var.B());
-            px pxVar = (px) threadCardViewHolder.c().g();
+            px pxVar = (px) threadCardViewHolder.b().g();
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) pxVar.f.d.getLayoutParams();
             layoutParams.width = vy5Var.j;
             layoutParams.height = vy5Var.k;
@@ -214,7 +214,7 @@ public class lx6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
             }
             iz6.i(vy5Var.a, this.i, vy5Var.m());
             iz6.h(vy5Var.a, vy5Var.o(), vy5Var.m());
-            return threadCardViewHolder.b();
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }
@@ -224,30 +224,30 @@ public class lx6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, vy5Var) == null) {
             int id = view2.getId();
             int i = 3;
-            if (view2.getId() == R.id.obfuscated_res_0x7f09202a || id == R.id.obfuscated_res_0x7f09203e) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09202e || id == R.id.obfuscated_res_0x7f092042) {
                 TiebaStatic.log(vy5Var.A());
                 ak5.c().i("page_recommend", "clk_", vy5Var.A());
                 iz6.c(vy5Var.a, vy5Var.o(), vy5Var.m(), 1);
                 i = 1;
             } else {
-                if (id == R.id.obfuscated_res_0x7f09230c) {
+                if (id == R.id.obfuscated_res_0x7f09230e) {
                     TiebaStatic.log(vy5Var.S());
                     ak5.c().i("page_recommend", "clk_", vy5Var.S());
-                } else if (id == R.id.obfuscated_res_0x7f09232d) {
+                } else if (id == R.id.obfuscated_res_0x7f09232f) {
                     TiebaStatic.log(vy5Var.S());
                     ak5.c().i("page_recommend", "clk_", vy5Var.S());
-                } else if (id == R.id.obfuscated_res_0x7f090a40) {
+                } else if (id == R.id.obfuscated_res_0x7f090a39) {
                     TiebaStatic.log(vy5Var.i());
                     ak5.c().i("page_recommend", "clk_", vy5Var.i());
                     i = 9;
                 } else {
-                    if (id == R.id.obfuscated_res_0x7f090c7f) {
+                    if (id == R.id.obfuscated_res_0x7f090c78) {
                         StatisticItem statisticItem = new StatisticItem("c10760");
                         statisticItem.param("obj_locate", 2);
                         TiebaStatic.log(statisticItem);
-                    } else if (id != R.id.obfuscated_res_0x7f090c82 && id != R.id.obfuscated_res_0x7f090c83) {
+                    } else if (id != R.id.obfuscated_res_0x7f090c7b && id != R.id.obfuscated_res_0x7f090c7c) {
                         if (view2 instanceof TbImageView) {
-                            if (view2.getTag(R.id.obfuscated_res_0x7f090c80) instanceof Integer) {
+                            if (view2.getTag(R.id.obfuscated_res_0x7f090c79) instanceof Integer) {
                                 StatisticItem statisticItem2 = new StatisticItem("c10760");
                                 statisticItem2.param("obj_locate", 3);
                                 TiebaStatic.log(statisticItem2);

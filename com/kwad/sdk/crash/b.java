@@ -3,222 +3,222 @@ package com.kwad.sdk.crash;
 import android.content.Context;
 /* loaded from: classes5.dex */
 public final class b {
-    public final com.kwad.sdk.crash.model.b a;
-    public final com.kwad.sdk.crash.model.a b;
-    public final g c;
-    public final String[] d;
-    public final String[] e;
-    public final boolean f;
-    public final boolean g;
-    public final boolean h;
-    public final boolean i;
-    public final Context j;
-    public final e k;
-    public final String l;
-    public final String m;
-    public final String n;
-    public final String o;
-    public final String p;
-    public final String q;
-    public final String r;
-    public final String s;
+    public final String acw;
+    public final boolean agB;
+    public final boolean agC;
+    public final com.kwad.sdk.crash.model.b agF;
+    public final com.kwad.sdk.crash.model.a agG;
+    public final g agH;
+    public final String[] agI;
+    public final String[] agJ;
+    public final boolean agK;
+    public final e agL;
+    public final String agM;
+    public final String agN;
+    public final String agO;
+    public final String agP;
+    public final String agQ;
+    public final Context context;
+    public final boolean isExternal;
+    public final String platform;
+    public final String version;
 
     /* loaded from: classes5.dex */
     public static class a {
-        public int a;
-        public String[] b;
-        public Context g;
-        public e h;
-        public String i;
-        public String j;
-        public String k;
-        public String l;
-        public String m;
-        public String n;
-        public String o;
-        public String p;
-        public int q;
-        public String r;
-        public int s;
-        public String t;
-        public String u;
-        public String v;
-        public String w;
-        public g x;
-        public String[] y;
-        public boolean c = false;
-        public boolean d = false;
-        public boolean e = false;
-        public boolean f = false;
-        public String z = "";
-        public String A = "";
-
-        public final a a(int i) {
-            this.q = i;
-            return this;
-        }
-
-        public final a a(Context context) {
-            this.g = context;
-            return this;
-        }
+        public String LH;
+        public int LI;
+        public int LJ;
+        public int abn;
+        public String acw;
+        public e agL;
+        public String agM;
+        public String agN;
+        public String agO;
+        public String agR;
+        public g agS;
+        public String[] agT;
+        public String[] agU;
+        public String appId;
+        public String appName;
+        public String appPackageName;
+        public String appVersion;
+        public Context context;
+        public String platform;
+        public String sdkVersion;
+        public String version;
+        public boolean agK = false;
+        public boolean agB = false;
+        public boolean agC = false;
+        public boolean isExternal = false;
+        public String agP = "";
+        public String agQ = "";
 
         public final a a(e eVar) {
-            this.h = eVar;
+            this.agL = eVar;
             return this;
         }
 
         public final a a(g gVar) {
-            this.x = gVar;
+            this.agS = gVar;
             return this;
         }
 
-        public final a a(String str) {
-            this.z = str;
+        public final a aR(boolean z) {
+            this.agB = z;
             return this;
         }
 
-        public final a a(boolean z) {
-            this.d = z;
+        public final a aS(boolean z) {
+            this.agC = z;
             return this;
         }
 
-        public final a a(String[] strArr) {
-            this.y = strArr;
+        public final a aT(boolean z) {
+            this.isExternal = z;
             return this;
         }
 
-        public final b a() {
+        public final a bI(Context context) {
+            this.context = context;
+            return this;
+        }
+
+        public final a bc(int i) {
+            this.abn = i;
+            return this;
+        }
+
+        public final a bd(int i) {
+            this.LI = i;
+            return this;
+        }
+
+        public final a be(int i) {
+            this.LJ = 1;
+            return this;
+        }
+
+        public final a cL(String str) {
+            this.agP = str;
+            return this;
+        }
+
+        public final a cM(String str) {
+            this.agQ = str;
+            return this;
+        }
+
+        public final a cN(String str) {
+            this.platform = str;
+            return this;
+        }
+
+        public final a cO(String str) {
+            this.acw = str;
+            return this;
+        }
+
+        public final a cP(String str) {
+            this.agM = str;
+            return this;
+        }
+
+        public final a cQ(String str) {
+            this.agO = str;
+            return this;
+        }
+
+        public final a cR(String str) {
+            this.agR = str;
+            return this;
+        }
+
+        public final a cS(String str) {
+            this.sdkVersion = str;
+            return this;
+        }
+
+        public final a cT(String str) {
+            this.LH = str;
+            return this;
+        }
+
+        public final a cU(String str) {
+            this.appId = str;
+            return this;
+        }
+
+        public final a cV(String str) {
+            this.appName = str;
+            return this;
+        }
+
+        public final a cW(String str) {
+            this.appPackageName = str;
+            return this;
+        }
+
+        public final a cX(String str) {
+            this.appVersion = str;
+            return this;
+        }
+
+        public final a d(String[] strArr) {
+            this.agT = strArr;
+            return this;
+        }
+
+        public final a e(String[] strArr) {
+            this.agU = strArr;
+            return this;
+        }
+
+        public final b wy() {
             return new b(this, (byte) 0);
-        }
-
-        public final a b(int i) {
-            this.s = i;
-            return this;
-        }
-
-        public final a b(String str) {
-            this.A = str;
-            return this;
-        }
-
-        public final a b(boolean z) {
-            this.e = z;
-            return this;
-        }
-
-        public final a b(String[] strArr) {
-            this.b = strArr;
-            return this;
-        }
-
-        public final a c(int i) {
-            this.a = 1;
-            return this;
-        }
-
-        public final a c(String str) {
-            this.i = str;
-            return this;
-        }
-
-        public final a c(boolean z) {
-            this.f = z;
-            return this;
-        }
-
-        public final a d(String str) {
-            this.k = str;
-            return this;
-        }
-
-        public final a e(String str) {
-            this.l = str;
-            return this;
-        }
-
-        public final a f(String str) {
-            this.n = str;
-            return this;
-        }
-
-        public final a g(String str) {
-            this.o = str;
-            return this;
-        }
-
-        public final a h(String str) {
-            this.p = str;
-            return this;
-        }
-
-        public final a i(String str) {
-            this.r = str;
-            return this;
-        }
-
-        public final a j(String str) {
-            this.t = str;
-            return this;
-        }
-
-        public final a k(String str) {
-            this.u = str;
-            return this;
-        }
-
-        public final a l(String str) {
-            this.v = str;
-            return this;
-        }
-
-        public final a m(String str) {
-            this.w = str;
-            return this;
         }
     }
 
     public b(a aVar) {
-        this.a = new com.kwad.sdk.crash.model.b();
-        this.b = new com.kwad.sdk.crash.model.a();
-        this.f = aVar.c;
-        this.g = aVar.d;
-        this.h = aVar.e;
-        this.i = aVar.f;
-        this.r = aVar.z;
-        this.s = aVar.A;
-        this.j = aVar.g;
-        this.k = aVar.h;
-        this.l = aVar.i;
-        this.m = aVar.j;
-        this.n = aVar.k;
-        this.o = aVar.l;
-        this.p = aVar.m;
-        this.q = aVar.n;
-        this.b.a = aVar.t;
-        this.b.b = aVar.u;
-        this.b.d = aVar.w;
-        this.b.c = aVar.v;
-        this.a.d = aVar.r;
-        this.a.e = aVar.s;
-        this.a.b = aVar.p;
-        this.a.c = aVar.q;
-        this.a.a = aVar.o;
-        this.a.f = aVar.a;
-        this.c = aVar.x;
-        this.d = aVar.y;
-        this.e = aVar.b;
+        this.agF = new com.kwad.sdk.crash.model.b();
+        this.agG = new com.kwad.sdk.crash.model.a();
+        this.agK = aVar.agK;
+        this.agB = aVar.agB;
+        this.agC = aVar.agC;
+        this.isExternal = aVar.isExternal;
+        this.agP = aVar.agP;
+        this.agQ = aVar.agQ;
+        this.context = aVar.context;
+        this.agL = aVar.agL;
+        this.platform = aVar.platform;
+        this.version = aVar.version;
+        this.acw = aVar.acw;
+        this.agM = aVar.agM;
+        this.agN = aVar.agN;
+        this.agO = aVar.agO;
+        this.agG.mAppId = aVar.appId;
+        this.agG.mAppName = aVar.appName;
+        this.agG.ahu = aVar.appVersion;
+        this.agG.aht = aVar.appPackageName;
+        this.agF.ahx = aVar.LH;
+        this.agF.ahy = aVar.LI;
+        this.agF.mSdkVersion = aVar.sdkVersion;
+        this.agF.ahw = aVar.abn;
+        this.agF.ahv = aVar.agR;
+        this.agF.ahz = aVar.LJ;
+        this.agH = aVar.agS;
+        this.agI = aVar.agT;
+        this.agJ = aVar.agU;
     }
 
     public /* synthetic */ b(a aVar, byte b) {
         this(aVar);
     }
 
-    public final e a() {
-        return this.k;
+    public final e ww() {
+        return this.agL;
     }
 
-    public final boolean b() {
-        return this.f;
+    public final boolean wx() {
+        return this.agK;
     }
 }

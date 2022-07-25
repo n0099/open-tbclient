@@ -23,7 +23,7 @@ import com.repackage.dj8;
 import com.repackage.he5;
 import com.repackage.hj8;
 import com.repackage.ho;
-import com.repackage.jd5;
+import com.repackage.kd5;
 import com.repackage.ni;
 import com.repackage.oj8;
 import java.util.ArrayList;
@@ -101,7 +101,7 @@ public class SearchJsBridge implements dj8 {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements jd5<String> {
+    public class b implements kd5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -122,7 +122,7 @@ public class SearchJsBridge implements dj8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(String str) {
             Interceptable interceptable = $ic;
@@ -166,7 +166,7 @@ public class SearchJsBridge implements dj8 {
     }
 
     /* loaded from: classes2.dex */
-    public class d implements jd5 {
+    public class d implements kd5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SearchJsBridge a;
@@ -189,7 +189,7 @@ public class SearchJsBridge implements dj8 {
             this.a = searchJsBridge;
         }
 
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         public void onReturnDataInUI(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {

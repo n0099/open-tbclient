@@ -38,8 +38,8 @@ public class o87 implements CustomMessageTask.CustomRunnable<Object> {
             if (customMessage == null || !(customMessage instanceof RequestOfficialBarMenuLocalMessage)) {
                 return null;
             }
-            br4.f();
-            byte[] bArr = br4.d("tb.official_bar_menu").get(ResponseOfficialBarMenuMessage.OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuLocalMessage) customMessage).getForum_id());
+            cr4.f();
+            byte[] bArr = cr4.d("tb.official_bar_menu").get(ResponseOfficialBarMenuMessage.OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuLocalMessage) customMessage).getForum_id());
             ResponseOfficialBarMenuLocalMessage responseOfficialBarMenuLocalMessage = new ResponseOfficialBarMenuLocalMessage();
             try {
                 responseOfficialBarMenuLocalMessage.decodeInBackGround(2001177, bArr);

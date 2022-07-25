@@ -55,7 +55,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     public static final int CORNER_ANIMATION_DURATION = 500;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100325 = 2131755813;
+    public static final int obfuscated_res_0x7f100329 = 2131755817;
     public static final float HIDE_FRICTION = 0.1f;
     public static final float HIDE_THRESHOLD = 0.5f;
     public static final int PEEK_HEIGHT_AUTO = -1;
@@ -343,7 +343,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         public final /* synthetic */ BottomSheetBehavior this$0;
 
         /* renamed from: view  reason: collision with root package name */
-        public final View f1787view;
+        public final View f1067view;
 
         public SettleRunnable(BottomSheetBehavior bottomSheetBehavior, View view2, int i) {
             Interceptable interceptable = $ic;
@@ -361,7 +361,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                 }
             }
             this.this$0 = bottomSheetBehavior;
-            this.f1787view = view2;
+            this.f1067view = view2;
             this.targetState = i;
         }
 
@@ -371,7 +371,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ViewDragHelper viewDragHelper = this.this$0.viewDragHelper;
                 if (viewDragHelper != null && viewDragHelper.continueSettling(true)) {
-                    ViewCompat.postOnAnimation(this.f1787view, this);
+                    ViewCompat.postOnAnimation(this.f1067view, this);
                 } else {
                     this.this$0.setStateInternal(this.targetState);
                 }
@@ -1219,7 +1219,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                 v.setFitsSystemWindows(true);
             }
             if (this.viewRef == null) {
-                this.peekHeightMin = coordinatorLayout.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070203);
+                this.peekHeightMin = coordinatorLayout.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070200);
                 setSystemGestureInsets(v);
                 this.viewRef = new WeakReference<>(v);
                 if (this.shapeThemingEnabled && (materialShapeDrawable = this.materialShapeDrawable) != null) {
@@ -1696,7 +1696,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     private void createMaterialShapeDrawable(@NonNull Context context, AttributeSet attributeSet, boolean z, @Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{context, attributeSet, Boolean.valueOf(z), colorStateList}) == null) && this.shapeThemingEnabled) {
-            this.shapeAppearanceModelDefault = ShapeAppearanceModel.builder(context, attributeSet, (int) R.attr.obfuscated_res_0x7f0400ec, obfuscated_res_0x7f100325).build();
+            this.shapeAppearanceModelDefault = ShapeAppearanceModel.builder(context, attributeSet, (int) R.attr.obfuscated_res_0x7f0400ec, obfuscated_res_0x7f100329).build();
             MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(this.shapeAppearanceModelDefault);
             this.materialShapeDrawable = materialShapeDrawable;
             materialShapeDrawable.initializeElevationOverlay(context);
@@ -1949,8 +1949,8 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                 return invokeLI.booleanValue;
             }
         };
-        this.peekHeightGestureInsetBuffer = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704ba);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843840, R.attr.backgroundTint, R.attr.obfuscated_res_0x7f0400ca, R.attr.obfuscated_res_0x7f0400cb, R.attr.obfuscated_res_0x7f0400cc, R.attr.obfuscated_res_0x7f0400cd, R.attr.obfuscated_res_0x7f0400ce, R.attr.obfuscated_res_0x7f0400d0, R.attr.obfuscated_res_0x7f0400d1, R.attr.obfuscated_res_0x7f0400d2, R.attr.obfuscated_res_0x7f0402a7, R.attr.obfuscated_res_0x7f040590, R.attr.obfuscated_res_0x7f040593});
+        this.peekHeightGestureInsetBuffer = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704b7);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843840, R.attr.backgroundTint, R.attr.obfuscated_res_0x7f0400ca, R.attr.obfuscated_res_0x7f0400cb, R.attr.obfuscated_res_0x7f0400cc, R.attr.obfuscated_res_0x7f0400cd, R.attr.obfuscated_res_0x7f0400ce, R.attr.obfuscated_res_0x7f0400d0, R.attr.obfuscated_res_0x7f0400d1, R.attr.obfuscated_res_0x7f0400d2, R.attr.obfuscated_res_0x7f0402a7, R.attr.obfuscated_res_0x7f040592, R.attr.obfuscated_res_0x7f040595});
         this.shapeThemingEnabled = obtainStyledAttributes.hasValue(11);
         boolean hasValue = obtainStyledAttributes.hasValue(1);
         if (hasValue) {

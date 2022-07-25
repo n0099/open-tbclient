@@ -26,7 +26,7 @@ public final class hj {
     public static final hj a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ hj[] f1187a;
+    public static final /* synthetic */ hj[] f467a;
     public static final hj b;
     public static final hj c;
     public static final hj d;
@@ -55,7 +55,7 @@ public final class hj {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f1188a;
+    public final int f468a;
 
     static {
         InterceptResult invokeClinit;
@@ -108,7 +108,7 @@ public final class hj {
         J = new hj("RevokeMessage", 35, 114);
         hj hjVar = new hj("SimulatorJob", 36, 200);
         K = hjVar;
-        f1187a = new hj[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, hjVar};
+        f467a = new hj[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, hjVar};
     }
 
     public hj(String str, int i2, int i3) {
@@ -129,7 +129,7 @@ public final class hj {
                 return;
             }
         }
-        this.f1188a = i3;
+        this.f468a = i3;
     }
 
     public static hj a(int i2) {
@@ -240,12 +240,12 @@ public final class hj {
     public static hj[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hj[]) f1187a.clone() : (hj[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hj[]) f467a.clone() : (hj[]) invokeV.objValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1188a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f468a : invokeV.intValue;
     }
 }

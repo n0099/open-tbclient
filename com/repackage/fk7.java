@@ -29,7 +29,7 @@ public class fk7 {
                 return;
             }
         }
-        this.a = (GridView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091f4b);
+        this.a = (GridView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091f4f);
     }
 
     public void a(bk7 bk7Var) {

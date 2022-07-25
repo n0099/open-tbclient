@@ -162,12 +162,12 @@ public class jx extends xw {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: w */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, nn4Var) == null) {
-            if (nn4Var != null && nn4Var.getThreadData() != null && nn4Var.getThreadData().getItem() != null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, on4Var) == null) {
+            if (on4Var != null && on4Var.getThreadData() != null && on4Var.getThreadData().getItem() != null) {
                 this.h.setVisibility(0);
-                this.h.setData(nn4Var.getThreadData().itemData, 13, nn4Var.getThreadData().tid);
+                this.h.setData(on4Var.getThreadData().itemData, 13, on4Var.getThreadData().tid);
                 return;
             }
             this.h.setVisibility(8);

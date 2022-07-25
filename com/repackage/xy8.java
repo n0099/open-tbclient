@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import java.util.ArrayList;
 import java.util.Calendar;
 /* loaded from: classes7.dex */
@@ -37,12 +37,12 @@ public class xy8 {
 
         /* renamed from: com.repackage.xy8$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0777a implements cr4.e {
+        public class C0623a implements dr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0777a(a aVar) {
+            public C0623a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,19 +60,19 @@ public class xy8 {
                 this.a = aVar;
             }
 
-            @Override // com.repackage.cr4.e
-            public void onClick(cr4 cr4Var) {
+            @Override // com.repackage.dr4.e
+            public void onClick(dr4 dr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                     this.a.a.d = null;
                     this.a.a.h(false);
-                    cr4Var.dismiss();
+                    dr4Var.dismiss();
                 }
             }
         }
 
         /* loaded from: classes7.dex */
-        public class b implements cr4.e {
+        public class b implements dr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -92,11 +92,11 @@ public class xy8 {
                 }
             }
 
-            @Override // com.repackage.cr4.e
-            public void onClick(cr4 cr4Var) {
+            @Override // com.repackage.dr4.e
+            public void onClick(dr4 dr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                    cr4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                    dr4Var.dismiss();
                 }
             }
         }
@@ -123,14 +123,14 @@ public class xy8 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                cr4 cr4Var = new cr4(this.a.a.getPageActivity());
-                cr4Var.setTitle(this.a.a.getString(R.string.obfuscated_res_0x7f0f1585));
-                cr4Var.setTitleShowCenter(true);
-                cr4Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f1584));
-                cr4Var.setMessageShowCenter(true);
-                cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f049f, new C0777a(this));
-                cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(this));
-                cr4Var.create(this.a.a).show();
+                dr4 dr4Var = new dr4(this.a.a.getPageActivity());
+                dr4Var.setTitle(this.a.a.getString(R.string.obfuscated_res_0x7f0f1534));
+                dr4Var.setTitleShowCenter(true);
+                dr4Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f1533));
+                dr4Var.setMessageShowCenter(true);
+                dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f049e, new C0623a(this));
+                dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(this));
+                dr4Var.create(this.a.a).show();
             }
         }
     }
@@ -205,17 +205,17 @@ public class xy8 {
         voteView.setVoteTitle(writeVoteData.getTitle());
         if (this.d.getIs_multi() == 1) {
             tbPageContext = this.a;
-            i = R.string.obfuscated_res_0x7f0f1590;
+            i = R.string.obfuscated_res_0x7f0f153f;
         } else {
             tbPageContext = this.a;
-            i = R.string.obfuscated_res_0x7f0f1591;
+            i = R.string.obfuscated_res_0x7f0f1540;
         }
         String string = tbPageContext.getString(i);
         int expire_type = this.d.getExpire_type();
         if (expire_type > 0) {
             Calendar calendar = Calendar.getInstance();
             calendar.add(6, expire_type);
-            str = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f15ee), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)));
+            str = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f159d), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)));
         } else {
             str = "";
         }

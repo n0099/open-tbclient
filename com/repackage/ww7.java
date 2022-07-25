@@ -31,12 +31,12 @@ public class ww7 extends uw7 {
 
         /* renamed from: com.repackage.ww7$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0765a extends nn4 {
+        public class C0613a extends on4 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0765a(a aVar) {
+            public C0613a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,17 +54,17 @@ public class ww7 extends uw7 {
                 this.a = aVar;
             }
 
-            @Override // com.repackage.nn4
-            public kp4 getNegFeedBackData() {
+            @Override // com.repackage.on4
+            public lp4 getNegFeedBackData() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     return null;
                 }
-                return (kp4) invokeV.objValue;
+                return (lp4) invokeV.objValue;
             }
 
-            @Override // com.repackage.nn4
+            @Override // com.repackage.on4
             public ThreadData getThreadData() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public class ww7 extends uw7 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) || (jy5Var = (ww7Var = this.a).b) == null) {
                 return;
             }
-            jy5Var.a(ww7Var.f, new C0765a(this));
+            jy5Var.a(ww7Var.f, new C0613a(this));
         }
     }
 

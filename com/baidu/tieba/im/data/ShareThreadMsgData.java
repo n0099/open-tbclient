@@ -26,8 +26,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.h67;
-import com.repackage.mq4;
 import com.repackage.ng;
+import com.repackage.nq4;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -139,7 +139,7 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
             shareThreadMsgData.thread_type = threadData.threadType;
             shareThreadMsgData.id = ng.g(threadData.getTid(), 0L);
             if (threadData.isImShareFromPb()) {
-                shareThreadMsgData.rich_abstract = parseContentTb(threadData.getPbFirstShareData().m0);
+                shareThreadMsgData.rich_abstract = parseContentTb(threadData.getPbFirstShareData().g0);
             } else {
                 shareThreadMsgData.rich_abstract = parseContentTb(threadData.getRichAbstractList());
             }
@@ -178,7 +178,7 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
                 shareThreadMsgData.author_name_show = threadData.getAuthor().getName_show();
             }
             if (threadData.getForumData() != null) {
-                mq4 forumData = threadData.getForumData();
+                nq4 forumData = threadData.getForumData();
                 shareThreadMsgData.forum_id = ng.g(forumData.a, 0L);
                 shareThreadMsgData.forum_avatar = forumData.c;
                 shareThreadMsgData.forum_name = forumData.b;

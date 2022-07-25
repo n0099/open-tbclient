@@ -1,7 +1,10 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbConfig;
+import android.content.Context;
+import android.util.Log;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStatistic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,15 +12,46 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class cv3 {
+public class cv3 extends fz1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile boolean a;
-    public static volatile boolean b;
-    public static volatile List<ia2> c;
+    public static final boolean A;
     public transient /* synthetic */ FieldHolder $fh;
+    public View z;
+
+    /* loaded from: classes5.dex */
+    public class a extends wy1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(cv3 cv3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cv3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.wy1
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                super.a(str);
+                if (cv3.A) {
+                    Log.e("SwanGameConsoleManager", "onPageFinished");
+                }
+                dv3.a();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,96 +66,102 @@ public class cv3 {
                 return;
             }
         }
-        c = new ArrayList();
+        A = sg1.a;
     }
 
-    public cv3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cv3(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public static void a() {
+    @Override // com.repackage.fz1, com.repackage.nm1
+    public void F() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a && !b) {
-            synchronized (cv3.class) {
-                if (c != null) {
-                    for (int i = 0; i < c.size(); i++) {
-                        ul2.U().m("console", c.get(i));
-                    }
-                    c.clear();
-                    c = null;
-                }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            dv3.h(false);
+            this.z = null;
+            super.F();
+        }
+    }
+
+    @Override // com.repackage.fz1, com.repackage.nm1
+    public void H(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            this.z = view2;
+        }
+    }
+
+    @Override // com.repackage.fz1, com.repackage.nm1
+    public void R(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            if (t().getVisibility() == (z ? 0 : 8)) {
+                return;
             }
-            b = true;
-        }
-    }
-
-    public static String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? i != 6 ? TbConfig.TMP_LOG_DIR_NAME : "debug" : "warn" : "error" : "info" : "debug" : (String) invokeI.objValue;
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            synchronized (cv3.class) {
-                c = new ArrayList();
+            if (A) {
+                Log.i("SwanGameConsoleManager", "setConsoleVisible:" + z);
             }
-            b = false;
-        }
-    }
-
-    public static void d(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65541, null, i, str) == null) {
-            e(b(i), str);
-        }
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && a) {
-            f(wu3.t(str, str2));
-        }
-    }
-
-    public static void f(ia2 ia2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, ia2Var) == null) {
-            if (!b) {
-                synchronized (cv3.class) {
-                    if (c != null) {
-                        c.add(ia2Var);
-                        return;
-                    }
-                }
+            if (z) {
+                vl2.U().m("console", xu3.u(true));
             }
-            ul2.U().m("console", ia2Var);
+            if (this.z != null) {
+                this.z.setVisibility(z ? 4 : 0);
+            }
+            super.R(z);
         }
     }
 
-    public static void g(String str, String str2) {
+    @Override // com.repackage.fz1, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.qm1
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && a) {
-            f(wu3.v(str, str2));
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "console" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.fz1, com.repackage.nm1
+    public void i0(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            dv3.g(str, str2);
         }
     }
 
-    public static void h(boolean z) {
+    @Override // com.repackage.fz1
+    public void i1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
-            a = z;
-            hx1.n(z);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            t().setVisibility(8);
+            t().setBackgroundColor(0);
+            dv3.c();
+            k1();
+            String i = yu3.m().i();
+            if (A) {
+                Log.d("SwanGameConsoleManager", HttpRetryStatistic.RETRY_URL + i);
+            }
+            loadUrl(i);
+        }
+    }
+
+    public final void k1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            c(new a(this));
         }
     }
 }

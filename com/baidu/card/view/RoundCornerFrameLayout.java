@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sr4;
+import com.repackage.tr4;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public class RoundCornerFrameLayout extends FrameLayout {
@@ -118,7 +118,7 @@ public class RoundCornerFrameLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setWillNotDraw(false);
             this.a = new RectF();
-            this.b = sr4.y(R.string.J_X05);
+            this.b = tr4.y(R.string.J_X05);
             Paint paint = new Paint();
             this.c = paint;
             paint.setStrokeWidth(0.0f);
@@ -195,7 +195,7 @@ public class RoundCornerFrameLayout extends FrameLayout {
     public void setCornerId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.b = sr4.y(i);
+            this.b = tr4.y(i);
             Bitmap bitmap = this.e;
             if (bitmap != null) {
                 bitmap.recycle();

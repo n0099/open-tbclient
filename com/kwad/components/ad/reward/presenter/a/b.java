@@ -7,9 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.ad.reward.p;
+import com.kwad.components.ad.reward.o;
 import com.kwad.components.ad.reward.presenter.a.kwai.c;
-import com.kwad.components.ad.reward.presenter.o;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
@@ -18,9 +17,9 @@ import com.kwad.sdk.mvp.Presenter;
 public final class b extends com.kwad.components.ad.reward.presenter.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdInfo b;
-    public AdTemplate c;
-    public p.b d;
+    public AdInfo mAdInfo;
+    public AdTemplate mAdTemplate;
+    public o.b sp;
 
     /* loaded from: classes5.dex */
     public static class a extends com.kwad.components.ad.reward.presenter.b {
@@ -48,14 +47,14 @@ public final class b extends com.kwad.components.ad.reward.presenter.a {
         }
 
         @Override // com.kwad.components.ad.reward.presenter.b
-        public final int d() {
+        public final int gS() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.id.obfuscated_res_0x7f091004 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.id.obfuscated_res_0x7f090ffb : invokeV.intValue;
         }
 
         @Override // com.kwad.components.ad.reward.presenter.b
-        public final int e() {
+        public final int gT() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -80,10 +79,10 @@ public final class b extends com.kwad.components.ad.reward.presenter.a {
                 return;
             }
         }
-        this.d = new p.b(this, null, null) { // from class: com.kwad.components.ad.reward.presenter.a.b.1
+        this.sp = new o.b(this, null, null) { // from class: com.kwad.components.ad.reward.presenter.a.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
+            public final /* synthetic */ b sq;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -98,90 +97,90 @@ public final class b extends com.kwad.components.ad.reward.presenter.a {
                     if ((i3 & 1) != 0) {
                         int i4 = i3 & 2;
                         Object[] objArr3 = newInitContext2.callArgs;
-                        super((p) objArr3[0], (p.a) objArr3[1]);
+                        super((o) objArr3[0], (o.a) objArr3[1]);
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
                     }
                 }
-                this.a = this;
+                this.sq = this;
             }
 
-            @Override // com.kwad.components.ad.reward.p.b, com.kwad.components.ad.reward.p.a
-            public final void a(int i3) {
+            @Override // com.kwad.components.ad.reward.o.b, com.kwad.components.core.webview.b.d.c
+            public final void G(boolean z2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048576, this, i3) == null) {
-                    super.a(i3);
-                    ((com.kwad.components.ad.reward.presenter.a) this.a).a.a(this.a.u(), i3, 1);
+                if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z2) == null) {
+                    super.G(z2);
+                    this.sq.gR();
                 }
             }
 
-            @Override // com.kwad.components.ad.reward.p.b, com.kwad.components.ad.reward.e
-            public final void a(boolean z2) {
+            @Override // com.kwad.components.ad.reward.o.b, com.kwad.components.ad.reward.o.a
+            public final void M(int i3) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z2) == null) {
-                    super.a(z2);
-                    this.a.j();
+                if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3) == null) {
+                    super.M(i3);
+                    this.sq.nM.a(this.sq.getContext(), i3, 1);
                 }
             }
 
-            @Override // com.kwad.components.ad.reward.p.b, com.kwad.components.ad.reward.p.a
-            public final void c() {
+            @Override // com.kwad.components.ad.reward.o.b, com.kwad.components.ad.reward.o.a
+            public final void fQ() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    super.c();
-                    ((com.kwad.components.ad.reward.presenter.a) this.a).a.a(this.a.u(), 17, 2);
+                    super.fQ();
+                    this.sq.nM.a(this.sq.getContext(), 17, 2);
                 }
             }
         };
-        this.c = adTemplate;
-        this.b = d.i(adTemplate);
+        this.mAdTemplate = adTemplate;
+        this.mAdInfo = d.bQ(adTemplate);
         if (z) {
-            d();
+            hG();
         } else {
-            e();
+            hH();
         }
     }
 
-    private void d() {
+    private void hG() {
         Presenter aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            if (!com.kwad.sdk.core.response.a.a.ar(this.b)) {
-                if (!com.kwad.components.ad.reward.kwai.b.d(this.b) && com.kwad.sdk.core.response.a.b.n(this.b)) {
-                    aVar = new o();
-                } else if (com.kwad.sdk.core.response.a.b.o(this.c)) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            if (!com.kwad.sdk.core.response.a.a.aY(this.mAdInfo)) {
+                if (!com.kwad.components.ad.reward.kwai.b.j(this.mAdInfo) && com.kwad.sdk.core.response.a.b.cg(this.mAdInfo)) {
+                    aVar = new com.kwad.components.ad.reward.presenter.o();
+                } else if (com.kwad.sdk.core.response.a.b.bg(this.mAdTemplate)) {
                     aVar = new com.kwad.components.ad.reward.presenter.a.kwai.a();
                 }
                 a(aVar);
             }
             c cVar = new c();
-            cVar.a(this.d);
-            a((Presenter) cVar);
-            if (com.kwad.sdk.core.response.a.b.m(this.c)) {
+            cVar.b(this.sp);
+            a(cVar);
+            if (com.kwad.sdk.core.response.a.b.bd(this.mAdTemplate)) {
                 a(new com.kwad.components.ad.reward.presenter.a.kwai.d());
             }
-            a(new a(this.b));
-            if (com.kwad.components.ad.reward.kwai.b.d(this.b) || !com.kwad.sdk.core.response.a.a.w(this.b)) {
+            a(new a(this.mAdInfo));
+            if (com.kwad.components.ad.reward.kwai.b.j(this.mAdInfo) || !com.kwad.sdk.core.response.a.a.Z(this.mAdInfo)) {
                 return;
             }
             a(new com.kwad.components.ad.reward.presenter.a.kwai.b());
         }
     }
 
-    private void e() {
+    private void hH() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             c cVar = new c();
-            cVar.a(this.d);
-            a((Presenter) cVar);
-            if (com.kwad.sdk.core.response.a.b.m(this.c)) {
+            cVar.b(this.sp);
+            a(cVar);
+            if (com.kwad.sdk.core.response.a.b.bd(this.mAdTemplate)) {
                 a(new com.kwad.components.ad.reward.presenter.a.kwai.d());
             }
-            if (d.p(this.c)) {
+            if (d.bX(this.mAdTemplate)) {
                 a(new com.kwad.components.ad.reward.presenter.a.kwai.b());
             }
-            if (com.kwad.sdk.core.response.a.b.o(this.c)) {
+            if (com.kwad.sdk.core.response.a.b.bg(this.mAdTemplate)) {
                 a(new com.kwad.components.ad.reward.presenter.a.kwai.a());
             }
         }

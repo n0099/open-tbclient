@@ -41,12 +41,12 @@ public class jo7 {
         }
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0251, (ViewGroup) null, false);
         this.d = inflate;
-        LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09086a);
+        LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090868);
         this.e = linearLayout;
         linearLayout.setVisibility(8);
-        this.a = this.d.findViewById(R.id.obfuscated_res_0x7f09086d);
-        this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090873);
-        View findViewById = this.d.findViewById(R.id.obfuscated_res_0x7f090867);
+        this.a = this.d.findViewById(R.id.obfuscated_res_0x7f09086b);
+        this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090871);
+        View findViewById = this.d.findViewById(R.id.obfuscated_res_0x7f090865);
         this.c = findViewById;
         findViewById.setVisibility(8);
     }
@@ -101,7 +101,7 @@ public class jo7 {
         if (num.intValue() == 0) {
             this.e.setVisibility(8);
         } else {
-            this.b.setText(String.format(gj.a(R.string.obfuscated_res_0x7f0f0558), num));
+            this.b.setText(String.format(gj.a(R.string.obfuscated_res_0x7f0f0554), num));
             this.e.setVisibility(0);
         }
         if (bo7.b().a()) {

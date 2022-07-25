@@ -35,16 +35,16 @@ public class Wrapper {
 
     /* loaded from: classes5.dex */
     public static class a {
-        public WeakReference<Context> a;
+        public WeakReference<Context> Sc;
+        public StackTraceElement[] Sd;
         public int b;
-        public StackTraceElement[] c;
         public int d;
         public long e;
 
         public a() {
-            this.a = new WeakReference<>(null);
+            this.Sc = new WeakReference<>(null);
             this.b = 0;
-            this.c = null;
+            this.Sd = null;
             this.d = 0;
         }
 
@@ -53,9 +53,9 @@ public class Wrapper {
         }
 
         public final void a() {
-            this.a = new WeakReference<>(null);
+            this.Sc = new WeakReference<>(null);
             this.b = 0;
-            this.c = null;
+            this.Sd = null;
             this.d = 0;
             this.e = 0L;
         }
@@ -73,19 +73,21 @@ public class Wrapper {
         Context context2 = sResContextCache.get(context);
         String name = context2 != null ? context2.getClass().getName() : "";
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-        if (!Arrays.equals(stackTrace, aVar.c)) {
-            if (aVar.c != null) {
+        if (!Arrays.equals(stackTrace, aVar.Sd)) {
+            if (aVar.Sd != null) {
                 aVar.a();
                 return false;
             }
-            aVar.c = stackTrace;
+            aVar.Sd = stackTrace;
             int i = 0;
             int i2 = 0;
             while (i < stackTrace.length) {
                 StackTraceElement stackTraceElement = stackTrace[i];
                 String className = stackTraceElement.getClassName();
                 for (String str2 : getAutoUnWrapStackList()) {
-                    str = className.contains(str2) ? "needAutoUnWrap true 命中白名单" : "needAutoUnWrap true 命中白名单";
+                    if (!TextUtils.isEmpty(str2) && className.contains(str2)) {
+                        str = "needAutoUnWrap true 命中白名单";
+                    }
                 }
                 String methodName = stackTraceElement.getMethodName();
                 i++;
@@ -100,7 +102,7 @@ public class Wrapper {
         }
         int i3 = aVar.d + 1;
         aVar.d = i3;
-        aVar.c = stackTrace;
+        aVar.Sd = stackTrace;
         if (i3 < 5) {
             return false;
         }
@@ -140,9 +142,9 @@ public class Wrapper {
         a aVar = sAutoUnWrapModelTL.get();
         if (aVar == null) {
             sAutoUnWrapModelTL.set(new a((byte) 0));
-        } else if (aVar.a.get() != context || Math.abs(System.currentTimeMillis() - aVar.e) >= 150) {
+        } else if (aVar.Sc.get() != context || Math.abs(System.currentTimeMillis() - aVar.e) >= 150) {
             aVar.a();
-            aVar.a = new WeakReference<>(context);
+            aVar.Sc = new WeakReference<>(context);
             aVar.e = System.currentTimeMillis();
         } else {
             aVar.b++;
@@ -185,33 +187,33 @@ public class Wrapper {
             if (context instanceof ContextThemeWrapper) {
                 Context context2 = sResContextCache.get(context);
                 if (context2 == null) {
-                    m mVar = new m((ContextThemeWrapper) context);
-                    sResContextCache.put(context, mVar);
-                    return mVar;
+                    o oVar = new o((ContextThemeWrapper) context);
+                    sResContextCache.put(context, oVar);
+                    return oVar;
                 }
                 return context2;
             } else if (context instanceof androidx.appcompat.view.ContextThemeWrapper) {
                 Context context3 = sResContextCache.get(context);
                 if (context3 == null) {
-                    n nVar = new n((androidx.appcompat.view.ContextThemeWrapper) context);
-                    sResContextCache.put(context, nVar);
-                    return nVar;
+                    p pVar = new p((androidx.appcompat.view.ContextThemeWrapper) context);
+                    sResContextCache.put(context, pVar);
+                    return pVar;
                 }
                 return context3;
             } else if (context instanceof ContextWrapper) {
                 Context context4 = sResContextCache.get(context);
                 if (context4 == null) {
-                    o oVar = new o(context);
-                    sResContextCache.put(context, oVar);
-                    return oVar;
+                    q qVar = new q(context);
+                    sResContextCache.put(context, qVar);
+                    return qVar;
                 }
                 return context4;
             } else {
                 Context context5 = sResContextCache.get(context);
                 if (context5 == null) {
-                    o oVar2 = new o(context);
-                    sResContextCache.put(context, oVar2);
-                    return oVar2;
+                    q qVar2 = new q(context);
+                    sResContextCache.put(context, qVar2);
+                    return qVar2;
                 }
                 return context5;
             }

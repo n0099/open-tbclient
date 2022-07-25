@@ -73,16 +73,16 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
     public boolean U;
     public boolean V;
     public boolean W;
-    public boolean g0;
-    public int h0;
-    public f68 i0;
-    public boolean j0;
-    public u68 k0;
-    public x68 l0;
-    public TbVideoViewContainer.a m0;
-    public boolean n0;
-    public CyberPlayerManager.OnPreparedListener o0;
-    public CyberPlayerManager.OnCompletionListener p0;
+    public boolean a0;
+    public int b0;
+    public f68 c0;
+    public boolean d0;
+    public u68 e0;
+    public x68 f0;
+    public TbVideoViewContainer.a g0;
+    public boolean h0;
+    public CyberPlayerManager.OnPreparedListener i0;
+    public CyberPlayerManager.OnCompletionListener j0;
     public CyberPlayerManager.OnErrorListener q0;
     public CyberPlayerManager.OnSeekCompleteListener r0;
     public CyberPlayerManager.OnInfoListener s0;
@@ -127,7 +127,7 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
                 if (this.a.getVideoMonitor() != null) {
                     this.a.getVideoMonitor().l(ErrorCode.ARGS_ERROR);
                 }
-                if (!this.a.j0) {
+                if (!this.a.d0) {
                     if (!ViewCompat.isAttachedToWindow(this.a.getView())) {
                         return;
                     }
@@ -135,8 +135,8 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
                         TbVideoViewSet.b().e((TbVideoViewContainer) this.a.getParent(), this.a.L);
                     }
                 }
-                if (this.a.l0 != null) {
-                    this.a.l0.onPrepared();
+                if (this.a.f0 != null) {
+                    this.a.f0.onPrepared();
                 }
                 if (this.a.J && (c = r68.d().c(this.a.L)) > 0) {
                     this.a.seekTo(c);
@@ -194,8 +194,8 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
                     this.a.O.j();
                 }
                 this.a.M = false;
-                if (this.a.l0 != null) {
-                    this.a.l0.onCompletion();
+                if (this.a.f0 != null) {
+                    this.a.f0.onCompletion();
                 }
             }
         }
@@ -234,8 +234,8 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
                     r68.d().update(this.a.L, this.a.getCurrentPosition());
                 }
                 TbVideoViewSet.b().d(this.a.L);
-                if (this.a.l0 != null) {
-                    this.a.l0.onError(i, i2, obj);
+                if (this.a.f0 != null) {
+                    this.a.f0.onError(i, i2, obj);
                     return true;
                 }
                 return true;
@@ -271,10 +271,10 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
         public void onSeekComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.l0 == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f0 == null) {
                 return;
             }
-            this.a.l0.onSeekComplete();
+            this.a.f0.onSeekComplete();
         }
     }
 
@@ -307,8 +307,8 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, obj)) == null) {
-                if (this.a.l0 != null) {
-                    this.a.l0.onInfo(i, i2, obj);
+                if (this.a.f0 != null) {
+                    this.a.f0.onInfo(i, i2, obj);
                 }
                 if (this.a.getVideoMonitor() != null && i == 10009 && (obj instanceof String)) {
                     try {
@@ -425,9 +425,9 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
         this.T = null;
         this.U = false;
         this.V = false;
-        this.j0 = false;
-        this.o0 = new a(this);
-        this.p0 = new b(this);
+        this.d0 = false;
+        this.i0 = new a(this);
+        this.j0 = new b(this);
         this.q0 = new c(this);
         this.r0 = new d(this);
         this.s0 = new e(this);
@@ -461,7 +461,7 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
         if (interceptable == null || interceptable.invokeL(65551, this, videoStatus) == null) {
             OnStatusChangedListener onStatusChangedListener = this.w0;
             if (onStatusChangedListener != null) {
-                if (this.n0) {
+                if (this.h0) {
                     onStatusChangedListener.onStatusChange(videoStatus);
                 } else {
                     onStatusChangedListener.onStatusChange(R(videoStatus));
@@ -510,12 +510,12 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
     public final void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.m0 = null;
+            this.g0 = null;
             this.w0 = null;
-            this.l0 = null;
-            this.i0.j(null);
-            this.i0.i(null);
-            this.i0.k(null);
+            this.f0 = null;
+            this.c0.j(null);
+            this.c0.i(null);
+            this.c0.k(null);
         }
     }
 
@@ -533,13 +533,13 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
                 BdLog.e(e2);
             }
             this.T = new WeakReference<>(TbadkCoreApplication.getInst());
-            super.setOnPreparedListener(this.o0);
-            super.setOnCompletionListener(this.p0);
+            super.setOnPreparedListener(this.i0);
+            super.setOnCompletionListener(this.j0);
             super.setOnErrorListener(this.q0);
             super.setOnSeekCompleteListener(this.r0);
             super.setOnInfoListener(this.s0);
             this.O = new v68();
-            this.i0 = new f68();
+            this.c0 = new f68();
             SkinManager.setBackgroundResource(this, R.color.black_alpha100);
         }
     }
@@ -552,22 +552,22 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
             t68 pcdnConfigData = TbSingleton.getInstance().getPcdnConfigData();
             if (pcdnConfigData != null && pcdnConfigData.c()) {
                 if (!pcdnConfigData.a(uri)) {
-                    this.h0 = 2;
+                    this.b0 = 2;
                     return;
                 } else if (w68.e() != 0 && w68.e() != -1) {
                     setOption(CyberPlayerManager.OPT_ENABLE_PCDN, "1");
                     setOption(CyberPlayerManager.OPT_ENABLE_P2P, pcdnConfigData.b() ? "1" : "0");
                     setOption(CyberPlayerManager.OPT_PCDN_NETHANDLE, String.valueOf(w68.e()));
                     this.W = true;
-                    this.g0 = pcdnConfigData.b();
-                    this.h0 = 1;
+                    this.a0 = pcdnConfigData.b();
+                    this.b0 = 1;
                     return;
                 } else {
-                    this.h0 = 3;
+                    this.b0 = 3;
                     return;
                 }
             }
-            this.h0 = 0;
+            this.b0 = 0;
         }
     }
 
@@ -729,7 +729,7 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
     public f68 getMediaProgressObserver() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.i0 : (f68) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.c0 : (f68) invokeV.objValue;
     }
 
     @Override // com.repackage.e68
@@ -743,7 +743,7 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
     public int getPcdnState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.h0 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.b0 : invokeV.intValue;
     }
 
     @Override // com.repackage.e68
@@ -751,10 +751,10 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            if (this.k0 == null) {
-                this.k0 = new u68(getCyberPlayer());
+            if (this.e0 == null) {
+                this.e0 = new u68(getCyberPlayer());
             }
-            return this.k0;
+            return this.e0;
         }
         return (d68) invokeV.objValue;
     }
@@ -867,7 +867,7 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
             super.onDetachedFromWindow();
-            TbVideoViewContainer.a aVar = this.m0;
+            TbVideoViewContainer.a aVar = this.g0;
             if (aVar != null) {
                 aVar.onSurfaceDestroyed();
             }
@@ -1017,7 +1017,7 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
     public void setOnSurfaceDestroyedListener(TbVideoViewContainer.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, aVar) == null) {
-            this.m0 = aVar;
+            this.g0 = aVar;
         }
     }
 
@@ -1025,7 +1025,7 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
     public void setOperableVideoContainer(x68 x68Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048620, this, x68Var) == null) {
-            this.l0 = x68Var;
+            this.f0 = x68Var;
         }
     }
 
@@ -1146,7 +1146,7 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
             if (v68Var != null) {
                 v68Var.i();
             }
-            this.i0.m();
+            this.c0.m();
             try {
                 if (this.S != null && !this.S.isHeld()) {
                     this.S.acquire();
@@ -1156,7 +1156,7 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
             }
             if (getVideoMonitor() != null) {
                 getVideoMonitor().h(ErrorCode.ARGS_ERROR);
-                getVideoMonitor().c(this.W, this.g0);
+                getVideoMonitor().c(this.W, this.a0);
             }
         }
     }
@@ -1189,7 +1189,7 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
             if (v68Var != null) {
                 v68Var.j();
             }
-            this.i0.n();
+            this.c0.n();
             ll7 ll7Var = this.P;
             if (ll7Var == null || !ll7Var.d(this.Q, this.R)) {
                 return;
@@ -1222,7 +1222,7 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
             if (v68Var != null) {
                 v68Var.j();
             }
-            this.i0.n();
+            this.c0.n();
             ll7 ll7Var = this.P;
             if (ll7Var == null || !ll7Var.d(this.Q, this.R)) {
                 return;
@@ -1249,7 +1249,7 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
                     a2.b(CyberPlayerManager.hasCacheFile(I));
                 }
             }
-            this.i0.l(this);
+            this.c0.l(this);
             v68 v68Var = this.O;
             if (v68Var != null) {
                 v68Var.h();
@@ -1285,9 +1285,9 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
         this.T = null;
         this.U = false;
         this.V = false;
-        this.j0 = false;
-        this.o0 = new a(this);
-        this.p0 = new b(this);
+        this.d0 = false;
+        this.i0 = new a(this);
+        this.j0 = new b(this);
         this.q0 = new c(this);
         this.r0 = new d(this);
         this.s0 = new e(this);
@@ -1319,9 +1319,9 @@ public class TbCyberVideoView extends CyberVideoView implements e68 {
         this.T = null;
         this.U = false;
         this.V = false;
-        this.j0 = false;
-        this.o0 = new a(this);
-        this.p0 = new b(this);
+        this.d0 = false;
+        this.i0 = new a(this);
+        this.j0 = new b(this);
         this.q0 = new c(this);
         this.r0 = new d(this);
         this.s0 = new e(this);

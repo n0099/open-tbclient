@@ -77,11 +77,11 @@ public class b08 extends b9<PraiseListActivity> {
         this.m = null;
         this.n = null;
         this.b = praiseListActivity;
-        praiseListActivity.setContentView(R.layout.obfuscated_res_0x7f0d08e9);
+        praiseListActivity.setContentView(R.layout.obfuscated_res_0x7f0d08f3);
         this.c = praiseListActivity.findViewById(R.id.obfuscated_res_0x7f092570);
         this.d = (NavigationBar) praiseListActivity.findViewById(R.id.obfuscated_res_0x7f09256f);
         this.e = praiseListActivity.findViewById(R.id.obfuscated_res_0x7f09256d);
-        this.f = NoDataViewFactory.a(this.b.getPageContext().getContext(), this.c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(this.b.getActivity(), R.dimen.obfuscated_res_0x7f0702a0)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0ed0), null);
+        this.f = NoDataViewFactory.a(this.b.getPageContext().getContext(), this.c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(this.b.getActivity(), R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0eb9), null);
         this.i = (BdListView) praiseListActivity.findViewById(R.id.obfuscated_res_0x7f09256e);
         TextView textView = new TextView(this.b.getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
@@ -93,7 +93,7 @@ public class b08 extends b9<PraiseListActivity> {
         this.i.setOnScrollListener(this.a);
         this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d.setTitleText("");
-        View inflate = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d08eb, (ViewGroup) null);
+        View inflate = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d08f5, (ViewGroup) null);
         this.g = inflate;
         inflate.setOnClickListener(praiseListActivity);
         TextView textView2 = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092568);
@@ -101,7 +101,7 @@ public class b08 extends b9<PraiseListActivity> {
         textView2.setText(str);
         this.g.setVisibility(8);
         this.i.addHeaderView(this.g);
-        View inflate2 = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d08ea, (ViewGroup) null);
+        View inflate2 = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d08f4, (ViewGroup) null);
         this.j = inflate2;
         this.k = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f092566);
         this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f092567);
@@ -112,15 +112,15 @@ public class b08 extends b9<PraiseListActivity> {
         this.i.setOnItemClickListener(praiseListActivity);
     }
 
-    public void a(rm4 rm4Var, int i) {
+    public void a(sm4 sm4Var, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, rm4Var, i) == null) || rm4Var == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, sm4Var, i) == null) || sm4Var == null) {
             return;
         }
-        rm4Var.k(i == 1);
-        rm4Var.j(this.c);
-        rm4Var.j(this.g);
-        rm4Var.j(this.j);
+        sm4Var.k(i == 1);
+        sm4Var.j(this.c);
+        sm4Var.j(this.g);
+        sm4Var.j(this.j);
         this.d.onChangeSkinType(this.b.getPageContext(), i);
         SkinManager.setBackgroundResource(this.j, R.drawable.bg_pack);
         NoDataView noDataView = this.f;
@@ -166,9 +166,9 @@ public class b08 extends b9<PraiseListActivity> {
             if (!StringUtils.isNull(str)) {
                 this.f.setTextOption(NoDataViewFactory.e.c(str));
             } else if (1 == i) {
-                this.f.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f07e7));
+                this.f.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f07e3));
             } else {
-                this.f.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0ed0));
+                this.f.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0eb9));
             }
         }
     }
@@ -203,9 +203,9 @@ public class b08 extends b9<PraiseListActivity> {
             if (i > 0) {
                 PraiseListActivity praiseListActivity = this.b;
                 if (praiseListActivity.a != 1) {
-                    format2 = String.format(praiseListActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0ed1), StringHelper.numFormatOverWan(i));
+                    format2 = String.format(praiseListActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0eba), StringHelper.numFormatOverWan(i));
                 } else {
-                    format2 = String.format(praiseListActivity.getResources().getString(R.string.obfuscated_res_0x7f0f07e8), StringHelper.numFormatOverWan(i));
+                    format2 = String.format(praiseListActivity.getResources().getString(R.string.obfuscated_res_0x7f0f07e4), StringHelper.numFormatOverWan(i));
                 }
                 this.d.setTitleText(format2);
             } else {
@@ -232,9 +232,9 @@ public class b08 extends b9<PraiseListActivity> {
                         this.l.setVisibility(0);
                         PraiseListActivity praiseListActivity2 = this.b;
                         if (praiseListActivity2.a != 1) {
-                            format = String.format(praiseListActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0ecf), StringHelper.numFormatOverWan(i));
+                            format = String.format(praiseListActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0eb8), StringHelper.numFormatOverWan(i));
                         } else {
-                            format = String.format(praiseListActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f07e8), StringHelper.numFormatOverWan(i));
+                            format = String.format(praiseListActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f07e4), StringHelper.numFormatOverWan(i));
                         }
                         this.l.setText(format);
                         return;

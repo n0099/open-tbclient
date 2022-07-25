@@ -289,9 +289,9 @@ public class c38 extends an<CardPersonDynamicThreadData, CardViewHolder<ay5>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cardPersonDynamicThreadData, cardViewHolder})) == null) {
-            cardViewHolder.c().j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            cardViewHolder.c().i(cardPersonDynamicThreadData);
-            return cardViewHolder.b();
+            cardViewHolder.b().j(this.i, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.b().i(cardPersonDynamicThreadData);
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

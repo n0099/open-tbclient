@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class qd6 extends dc1<a65> {
+public final class qd6 extends dc1<b65> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static final class a implements a65 {
+    public static final class a implements b65 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -37,7 +37,7 @@ public final class qd6 extends dc1<a65> {
             }
         }
 
-        @Override // com.repackage.a65
+        @Override // com.repackage.b65
         public void a(TbPageContext<?> tbPageContext, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, tbPageContext, j) == null) {
@@ -46,7 +46,7 @@ public final class qd6 extends dc1<a65> {
             }
         }
 
-        @Override // com.repackage.a65
+        @Override // com.repackage.b65
         public void b(Context context, Frs$From from, Long l, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, from, l, str) == null) {
@@ -56,7 +56,7 @@ public final class qd6 extends dc1<a65> {
             }
         }
 
-        @Override // com.repackage.a65
+        @Override // com.repackage.b65
         public void c(Long l, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, l, str) == null) {
@@ -91,9 +91,9 @@ public final class qd6 extends dc1<a65> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.dc1
     /* renamed from: a */
-    public a65 createService() {
+    public b65 createService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a() : (a65) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a() : (b65) invokeV.objValue;
     }
 }

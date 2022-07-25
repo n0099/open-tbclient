@@ -39,7 +39,7 @@ public class pm6 {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ma5 h = wh8.h(309360, ResponseIncrForumAccessCountSocketMessage.class, false, false);
+            na5 h = wh8.h(309360, ResponseIncrForumAccessCountSocketMessage.class, false, false);
             h.setResponsedClass(ResponseIncrForumAccessCountSocketMessage.class);
             h.g(true);
             h.h(false);
@@ -59,7 +59,7 @@ public class pm6 {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ma5 h = wh8.h(309365, ResponseSetCommForumStateSocketMessage.class, false, false);
+            na5 h = wh8.h(309365, ResponseSetCommForumStateSocketMessage.class, false, false);
             h.setResponsedClass(ResponseSetCommForumStateSocketMessage.class);
             h.g(true);
             h.h(false);

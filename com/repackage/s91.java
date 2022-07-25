@@ -69,7 +69,7 @@ public class s91 {
                         aVar.c = optJSONObject.optLong("totalAmount");
                         aVar.d = optJSONObject.optLong("userPayAmount");
                         aVar.f = optJSONObject.optString("usedHostMarketingDetail");
-                        aVar.h = r91.a.C0720a.c(optJSONObject.optJSONArray("promotionStatus"));
+                        aVar.h = r91.a.C0568a.c(optJSONObject.optJSONArray("promotionStatus"));
                     } else {
                         aVar.a = jSONObject.optInt("errorLevel", 2);
                         aVar.b = jSONObject.optString("msg");
@@ -136,7 +136,7 @@ public class s91 {
                         aVar.e = optJSONObject.optLong("reduceAmount");
                         aVar.g = optJSONObject.optInt("overdueStatus");
                         aVar.f = optJSONObject.optString("usedHostMarketingDetail");
-                        aVar.h = r91.a.C0720a.c(optJSONObject.optJSONArray("promotionStatus"));
+                        aVar.h = r91.a.C0568a.c(optJSONObject.optJSONArray("promotionStatus"));
                     } else {
                         aVar.a = jSONObject.optInt("errorLevel", 2);
                         aVar.b = jSONObject.optString("msg");

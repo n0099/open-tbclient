@@ -1,59 +1,51 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.AdMatrixInfo;
+import com.kwad.components.splash.SplashPreloadManager;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ek implements com.kwad.sdk.core.d<AdMatrixInfo.RotateInfo> {
+public final class ek implements com.kwad.sdk.core.d<SplashPreloadManager.PreLoadItem> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(AdMatrixInfo.RotateInfo rotateInfo, JSONObject jSONObject) {
+    public static void a2(SplashPreloadManager.PreLoadItem preLoadItem, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        rotateInfo.title = jSONObject.optString("title");
-        if (jSONObject.opt("title") == JSONObject.NULL) {
-            rotateInfo.title = "";
+        preLoadItem.cacheTime = jSONObject.optLong("cacheTime");
+        preLoadItem.expiredTime = jSONObject.optLong("expiredTime");
+        preLoadItem.preloadId = jSONObject.optString("preloadId");
+        if (jSONObject.opt("preloadId") == JSONObject.NULL) {
+            preLoadItem.preloadId = "";
         }
-        rotateInfo.subTitle = jSONObject.optString("subTitle");
-        if (jSONObject.opt("subTitle") == JSONObject.NULL) {
-            rotateInfo.subTitle = "";
-        }
-        AdMatrixInfo.DownloadTexts downloadTexts = new AdMatrixInfo.DownloadTexts();
-        rotateInfo.downloadTexts = downloadTexts;
-        downloadTexts.parseJson(jSONObject.optJSONObject("downloadTexts"));
-        AdMatrixInfo.RotateDegreeInfo rotateDegreeInfo = new AdMatrixInfo.RotateDegreeInfo();
-        rotateInfo.x = rotateDegreeInfo;
-        rotateDegreeInfo.parseJson(jSONObject.optJSONObject("x"));
-        AdMatrixInfo.RotateDegreeInfo rotateDegreeInfo2 = new AdMatrixInfo.RotateDegreeInfo();
-        rotateInfo.y = rotateDegreeInfo2;
-        rotateDegreeInfo2.parseJson(jSONObject.optJSONObject("y"));
-        AdMatrixInfo.RotateDegreeInfo rotateDegreeInfo3 = new AdMatrixInfo.RotateDegreeInfo();
-        rotateInfo.z = rotateDegreeInfo3;
-        rotateDegreeInfo3.parseJson(jSONObject.optJSONObject("z"));
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(AdMatrixInfo.RotateInfo rotateInfo, JSONObject jSONObject) {
+    public static JSONObject b2(SplashPreloadManager.PreLoadItem preLoadItem, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "title", rotateInfo.title);
-        com.kwad.sdk.utils.r.a(jSONObject, "subTitle", rotateInfo.subTitle);
-        com.kwad.sdk.utils.r.a(jSONObject, "downloadTexts", rotateInfo.downloadTexts);
-        com.kwad.sdk.utils.r.a(jSONObject, "x", rotateInfo.x);
-        com.kwad.sdk.utils.r.a(jSONObject, "y", rotateInfo.y);
-        com.kwad.sdk.utils.r.a(jSONObject, "z", rotateInfo.z);
+        long j = preLoadItem.cacheTime;
+        if (j != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "cacheTime", j);
+        }
+        long j2 = preLoadItem.expiredTime;
+        if (j2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "expiredTime", j2);
+        }
+        String str = preLoadItem.preloadId;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "preloadId", preLoadItem.preloadId);
+        }
         return jSONObject;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(AdMatrixInfo.RotateInfo rotateInfo, JSONObject jSONObject) {
-        a2(rotateInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(SplashPreloadManager.PreLoadItem preLoadItem, JSONObject jSONObject) {
+        a2(preLoadItem, jSONObject);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(AdMatrixInfo.RotateInfo rotateInfo, JSONObject jSONObject) {
-        return b2(rotateInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(SplashPreloadManager.PreLoadItem preLoadItem, JSONObject jSONObject) {
+        return b2(preLoadItem, jSONObject);
     }
 }

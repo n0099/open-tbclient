@@ -17,7 +17,7 @@ public class bt extends XMPushService.j {
     public fl a;
 
     /* renamed from: a  reason: collision with other field name */
-    public XMPushService f1669a;
+    public XMPushService f949a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bt(XMPushService xMPushService, fl flVar) {
@@ -37,8 +37,8 @@ public class bt extends XMPushService.j {
                 return;
             }
         }
-        this.f1669a = null;
-        this.f1669a = xMPushService;
+        this.f949a = null;
+        this.f949a = xMPushService;
         this.a = flVar;
     }
 
@@ -55,16 +55,16 @@ public class bt extends XMPushService.j {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 if (this.a != null) {
-                    this.f1669a.a(this.a);
-                    if (this.a.f1092a == null || !hi.a(this.f1669a, 1)) {
+                    this.f949a.a(this.a);
+                    if (this.a.f372a == null || !hi.a(this.f949a, 1)) {
                         return;
                     }
-                    this.a.f1092a.d = System.currentTimeMillis();
-                    bz.a("category_coord_up", "coord_up", "com.xiaomi.xmsf", this.a.f1092a);
+                    this.a.f372a.d = System.currentTimeMillis();
+                    bz.a("category_coord_up", "coord_up", "com.xiaomi.xmsf", this.a.f372a);
                 }
             } catch (gh e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
-                this.f1669a.a(10, e);
+                this.f949a.a(10, e);
             }
         }
     }

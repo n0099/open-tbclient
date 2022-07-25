@@ -14,18 +14,18 @@ import org.json.JSONObject;
 public final class a implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.kwad.sdk.core.webview.kwai.c a;
-    public c b;
+    public com.kwad.sdk.core.webview.kwai.c Lb;
+    public com.kwad.components.core.webview.jshandler.b Lc;
 
     @KsJson
     /* renamed from: com.kwad.components.core.webview.jshandler.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0521a extends com.kwad.sdk.core.response.kwai.a {
+    public static class C0369a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
+        public String Ld;
 
-        public C0521a() {
+        public C0369a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,10 +39,10 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
             }
         }
 
-        public final String a() {
+        public final String getTarget() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.Ld : (String) invokeV.objValue;
         }
     }
 
@@ -51,9 +51,10 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
     public static class b extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
+        public int Le;
+        public int Lf;
+        public int Lg;
+        public int oQ;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -70,17 +71,12 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(a aVar, String str);
-    }
-
-    public a(c cVar) {
+    public a(com.kwad.components.core.webview.jshandler.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar};
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,68 +86,77 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
                 return;
             }
         }
-        this.b = cVar;
+        this.Lc = bVar;
     }
 
-    private void a(b bVar) {
+    public final void a(com.kwad.sdk.core.response.kwai.a aVar) {
         com.kwad.sdk.core.webview.kwai.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, bVar) == null) || (cVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (cVar = this.Lb) == null || aVar == null) {
             return;
         }
-        cVar.a(bVar);
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
-    public final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "getNativeData" : (String) invokeV.objValue;
-    }
-
-    public final void a(PlayableSource playableSource) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playableSource) == null) || playableSource == null) {
-            return;
-        }
-        b bVar = new b();
-        bVar.a = playableSource.getCode();
-        a(bVar);
+        cVar.a(aVar);
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) {
-            this.a = cVar;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
+            this.Lb = cVar;
             try {
-                C0521a c0521a = new C0521a();
-                c0521a.parseJson(new JSONObject(str));
-                String a = c0521a.a();
-                if (this.b != null) {
-                    this.b.a(this, a);
+                C0369a c0369a = new C0369a();
+                c0369a.parseJson(new JSONObject(str));
+                String target = c0369a.getTarget();
+                if (this.Lc != null) {
+                    this.Lc.a(this, target);
                 }
             } catch (Exception unused) {
             }
         }
     }
 
-    public final void a(boolean z, boolean z2) {
+    public final void as(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             b bVar = new b();
-            bVar.b = z ? 1 : 0;
-            bVar.c = z2 ? 1 : 0;
+            bVar.oQ = i;
+            a(bVar);
+        }
+    }
+
+    public final void f(PlayableSource playableSource) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, playableSource) == null) || playableSource == null) {
+            return;
+        }
+        b bVar = new b();
+        bVar.Le = playableSource.getCode();
+        a(bVar);
+    }
+
+    @Override // com.kwad.sdk.core.webview.kwai.a
+    @NonNull
+    public final String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "getNativeData" : (String) invokeV.objValue;
+    }
+
+    public final void h(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            b bVar = new b();
+            bVar.Lf = z ? 1 : 0;
+            bVar.Lg = z2 ? 1 : 0;
             a(bVar);
         }
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void b() {
+    public final void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = null;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.Lb = null;
         }
     }
 }

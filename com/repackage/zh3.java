@@ -1,6 +1,8 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
@@ -8,79 +10,35 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l53;
+import com.repackage.n53;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zh3 extends e23 {
+public class zh3 extends f23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements af3<h53> {
+    public class a implements bf3<l53<n53.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ zh3 c;
-
-        public a(zh3 zh3Var, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zh3Var, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = zh3Var;
-            this.a = callbackHandler;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.af3
-        /* renamed from: b */
-        public void a(h53 h53Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h53Var) == null) {
-                if (h53Var == null || h53Var.d) {
-                    this.c.n(false, null, this.a, this.b, 10005, "system deny");
-                    a73.r(10005, h53Var);
-                    return;
-                }
-                this.c.p(h53Var, this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements tg1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h53 a;
+        public final /* synthetic */ Context a;
         public final /* synthetic */ CallbackHandler b;
         public final /* synthetic */ String c;
-        public final /* synthetic */ zh3 d;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ zh3 e;
 
-        public b(zh3 zh3Var, h53 h53Var, CallbackHandler callbackHandler, String str) {
+        public a(zh3 zh3Var, Context context, CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zh3Var, h53Var, callbackHandler, str};
+                Object[] objArr = {zh3Var, context, callbackHandler, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -90,44 +48,38 @@ public class zh3 extends e23 {
                     return;
                 }
             }
-            this.d = zh3Var;
-            this.a = h53Var;
+            this.e = zh3Var;
+            this.a = context;
             this.b = callbackHandler;
             this.c = str;
+            this.d = str2;
         }
 
-        @Override // com.repackage.tg1
-        public void onResult(int i) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.bf3
+        /* renamed from: b */
+        public void a(l53<n53.e> l53Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (e23.b) {
-                    Log.d("LoginAndGetMobileAction", "onResult: loginStatusCode = " + i);
-                }
-                if (i == -2) {
-                    this.d.n(false, null, this.b, this.c, 20050002, "user did cancel login");
-                } else if (i != 0) {
-                    this.d.n(false, null, this.b, this.c, 20050003, "user fail to login");
-                } else {
-                    this.d.o(this.a.c, ul2.U().getActivity(), this.b, this.c);
-                }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l53Var) == null) {
+                this.e.l(l53Var, this.a, this.b, this.c, this.d);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c implements af3<k53<l53.b>> {
+    public class b implements bf3<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ zh3 c;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ String c;
 
-        public c(zh3 zh3Var, CallbackHandler callbackHandler, String str) {
+        public b(zh3 zh3Var, String str, CallbackHandler callbackHandler, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zh3Var, callbackHandler, str};
+                Object[] objArr = {zh3Var, str, callbackHandler, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -137,41 +89,47 @@ public class zh3 extends e23 {
                     return;
                 }
             }
-            this.c = zh3Var;
-            this.a = callbackHandler;
-            this.b = str;
+            this.a = str;
+            this.b = callbackHandler;
+            this.c = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.af3
+        @Override // com.repackage.bf3
         /* renamed from: b */
-        public void a(k53<l53.b> k53Var) {
-            l53.b bVar;
+        public void a(Bundle bundle) {
+            JSONObject wrapCallbackParams;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k53Var) == null) {
-                if (k53Var == null || !k53Var.c() || (bVar = k53Var.a) == null || bVar.c == null) {
-                    this.c.n(true, null, this.a, this.b, 20050004, "user fail to get mobile information");
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                if (bundle != null && !TextUtils.isEmpty(bundle.getString(this.a))) {
+                    String string = bundle.getString(this.a);
+                    ix1.i("GetStokenAction", "stoken=" + string);
+                    try {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("stoken", string);
+                        wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+                    } catch (JSONException e) {
+                        if (f23.b) {
+                            Log.d("SwanAppAction", e.getMessage());
+                        }
+                        wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "result JSONException");
+                    }
+                    this.b.handleSchemeDispatchCallback(this.c, wrapCallbackParams.toString());
                     return;
                 }
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("data", k53Var.a.c.optString("data"));
-                    jSONObject.put("iv", k53Var.a.c.optString("iv"));
-                    this.c.n(true, jSONObject, this.a, this.b, 0, "success");
-                } catch (JSONException unused) {
-                }
+                this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(1001, "stoken is invalid").toString());
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zh3(e13 e13Var) {
-        super(e13Var, "/swanAPI/getPhoneNumberByLogin");
+    public zh3(f13 f13Var) {
+        super(f13Var, "/swanAPI/getStoken");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e13Var};
+            Object[] objArr = {f13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -185,75 +143,52 @@ public class zh3 extends e23 {
         }
     }
 
-    @Override // com.repackage.e23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+    @Override // com.repackage.f23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
-            if (h03Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
+            if (i03Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
                 return false;
             }
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
             if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty params");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
                 return false;
             }
-            String optString = optParamsAsJo.optString("cb");
+            String optString = optParamsAsJo.optString("tpl");
             if (TextUtils.isEmpty(optString)) {
+                ix1.c("GetStokenAction", "empty tpl");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty tpl");
+                return false;
+            }
+            String optString2 = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString2)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                 return false;
-            }
-            ug1 N = g03.K().q().N();
-            if (N == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty account");
+            } else if (!(context instanceof Activity)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
                 return false;
-            }
-            if (N.e(context)) {
-                n(true, null, callbackHandler, optString, 20050001, "user already login");
             } else {
-                h03Var.e0().e("login_with_mobile", new a(this, callbackHandler, optString));
+                i03Var.e0().g(context, "mapp_i_get_stoken", new a(this, context, callbackHandler, optString2, optString));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final void n(boolean z, JSONObject jSONObject, CallbackHandler callbackHandler, String str, int i, String str2) {
+    public final void l(l53<n53.e> l53Var, Context context, CallbackHandler callbackHandler, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), jSONObject, callbackHandler, str, Integer.valueOf(i), str2}) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject2.put("loginState", z);
-                if (jSONObject != null) {
-                    jSONObject2.put("mobile", jSONObject);
-                }
-                jSONObject3 = UnitedSchemeUtility.wrapCallbackParams(jSONObject2, i, str2);
-            } catch (JSONException unused) {
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l53Var, context, callbackHandler, str, str2) == null) {
+            if (!g53.h(l53Var)) {
+                g53.q(l53Var, callbackHandler, str);
+            } else if (TextUtils.isEmpty(ig3.i(context))) {
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "bduss is invalid").toString());
+            } else {
+                ig3.t(context, new b(this, str2, callbackHandler, str), str2);
             }
-            callbackHandler.handleSchemeDispatchCallback(str, jSONObject3.toString());
-        }
-    }
-
-    public final void o(boolean z, FragmentActivity fragmentActivity, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), fragmentActivity, callbackHandler, str}) == null) {
-            if (z) {
-                l53 a2 = g03.K().x().a().b().a(fragmentActivity, z, "login_with_mobile", null);
-                a2.o(new c(this, callbackHandler, str));
-                a2.call();
-                return;
-            }
-            n(true, null, callbackHandler, str, 20050004, "user fail to get mobile information");
-        }
-    }
-
-    public final void p(h53 h53Var, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, h53Var, callbackHandler, str) == null) {
-            new ci3().h(new b(this, h53Var, callbackHandler, str));
         }
     }
 }

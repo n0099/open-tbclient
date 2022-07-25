@@ -53,16 +53,16 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04df, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04e9, (ViewGroup) this, true);
             this.a = inflate;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091c2b);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091c50);
-            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091c51);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091c1e);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091c49);
+            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091c4a);
             if (SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) {
-                this.d.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609b3));
+                this.d.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609a8));
                 this.b.setImageResource(R.drawable.obfuscated_res_0x7f081007);
                 this.c.setImageResource(R.drawable.obfuscated_res_0x7f081005);
-                this.a.findViewById(R.id.obfuscated_res_0x7f091c4f).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a00));
+                this.a.findViewById(R.id.obfuscated_res_0x7f091c48).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f0));
             }
         }
     }
@@ -70,7 +70,7 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.c.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010116));
+            this.c.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010114));
         }
     }
 

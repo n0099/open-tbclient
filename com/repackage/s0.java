@@ -122,7 +122,7 @@ public class s0 {
                 i2++;
             }
             w7.e<d7> n = this.e.n();
-            n.d();
+            n.c();
             while (n.hasNext()) {
                 d7 next = n.next();
                 for (int h = next.h(); h > i2; h--) {
@@ -189,7 +189,7 @@ public class s0 {
             }
             if (g8Var.get(i).a == p0Var) {
                 w7.e<d7> n = this.e.n();
-                n.d();
+                n.c();
                 while (n.hasNext()) {
                     d7 next = n.next();
                     int h = next.h();
@@ -217,7 +217,7 @@ public class s0 {
             d7 e = this.f.e();
             d7 e2 = this.f.e();
             w7.c<r0> f = this.e.f();
-            f.d();
+            f.c();
             while (true) {
                 boolean z = false;
                 if (!f.hasNext()) {

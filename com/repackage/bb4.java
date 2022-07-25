@@ -1,14 +1,21 @@
 package com.repackage;
 
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class bb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g94 a;
+    public f94 a;
+    public List<g94> b;
+    public List<h94> c;
+    public d94 d;
+    public PMSAppInfo e;
+    public b94 f;
 
     public bb4() {
         Interceptable interceptable = $ic;

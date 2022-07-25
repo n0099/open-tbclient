@@ -5,41 +5,41 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 import androidx.annotation.MainThread;
-import com.kwad.sdk.utils.y;
+import com.kwad.sdk.utils.aa;
 /* loaded from: classes5.dex */
 public class KsAdContainer extends RelativeLayout {
-    public y.a a;
+    public aa.a afd;
 
     public KsAdContainer(Context context) {
         super(context);
-        this.a = new y.a();
+        this.afd = new aa.a();
     }
 
     public KsAdContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = new y.a();
+        this.afd = new aa.a();
     }
 
     public KsAdContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = new y.a();
+        this.afd = new aa.a();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         int action = motionEvent.getAction();
         if (action == 0) {
-            y.a aVar = new y.a(getWidth(), getHeight());
-            this.a = aVar;
-            aVar.a(motionEvent.getX(), motionEvent.getY());
+            aa.a aVar = new aa.a(getWidth(), getHeight());
+            this.afd = aVar;
+            aVar.e(motionEvent.getX(), motionEvent.getY());
         } else if (action == 1) {
-            this.a.b(motionEvent.getX(), motionEvent.getY());
+            this.afd.f(motionEvent.getX(), motionEvent.getY());
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @MainThread
-    public y.a getTouchCoords() {
-        return this.a;
+    public aa.a getTouchCoords() {
+        return this.afd;
     }
 }

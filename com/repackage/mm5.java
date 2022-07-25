@@ -45,11 +45,11 @@ public class mm5 {
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             int i = 0;
             if (b()) {
-                i = xt4.k().l("key_plg_show_count", 0);
+                i = yt4.k().l("key_plg_show_count", 0);
             } else {
-                xt4.k().x("key_plg_show_count_reset_time", System.currentTimeMillis());
+                yt4.k().x("key_plg_show_count_reset_time", System.currentTimeMillis());
             }
-            xt4.k().w("key_plg_show_count", i + 1);
+            yt4.k().w("key_plg_show_count", i + 1);
         }
     }
 
@@ -57,7 +57,7 @@ public class mm5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            long m = xt4.k().m("key_plg_show_count_reset_time", 0L);
+            long m = yt4.k().m("key_plg_show_count_reset_time", 0L);
             if (m >= 0) {
                 return TimeHelper.isSameDay(new Date(m), new Date(System.currentTimeMillis()));
             }
@@ -109,7 +109,7 @@ public class mm5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            int l = xt4.k().l("key_plg_show_count", 0);
+            int l = yt4.k().l("key_plg_show_count", 0);
             boolean z = (UbsABTestHelper.isPlgRequestLimitA() && l > 20) || (UbsABTestHelper.isPlgRequestLimitB() && l > 25) || (UbsABTestHelper.isPlgRequestLimitC() && l > 30);
             if (b()) {
                 return z;

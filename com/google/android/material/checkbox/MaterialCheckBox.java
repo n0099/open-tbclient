@@ -26,7 +26,7 @@ public class MaterialCheckBox extends AppCompatCheckBox {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f10035a = 2131755866;
+    public static final int obfuscated_res_0x7f10035d = 2131755869;
     public static final int[][] ENABLED_CHECKED_STATES;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
@@ -142,7 +142,7 @@ public class MaterialCheckBox extends AppCompatCheckBox {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaterialCheckBox(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f10035a), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f10035d), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -160,7 +160,7 @@ public class MaterialCheckBox extends AppCompatCheckBox {
             }
         }
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f04011b, R.attr.obfuscated_res_0x7f0406b8}, i, obfuscated_res_0x7f10035a, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f04011b, R.attr.obfuscated_res_0x7f0406ba}, i, obfuscated_res_0x7f10035d, new int[0]);
         if (obtainStyledAttributes.hasValue(0)) {
             CompoundButtonCompat.setButtonTintList(this, MaterialResources.getColorStateList(context2, obtainStyledAttributes, 0));
         }

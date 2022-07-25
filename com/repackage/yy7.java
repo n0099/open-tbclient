@@ -74,7 +74,7 @@ public class yy7 extends an<es7, VideoPbEnterForumViewHolder> {
             if (es7Var != null) {
                 videoPbEnterForumViewHolder.setData(es7Var.a);
             }
-            videoPbEnterForumViewHolder.c();
+            videoPbEnterForumViewHolder.b();
             return view2;
         }
         return (View) invokeCommon.objValue;

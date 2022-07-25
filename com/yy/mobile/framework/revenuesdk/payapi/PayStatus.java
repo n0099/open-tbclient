@@ -48,7 +48,7 @@ public final class PayStatus {
         CAN_NOT_USE = new PayStatus("CAN_NOT_USE", 2, -5, "账户已冻结");
         APPLE_PAY_FAIL = new PayStatus("APPLE_PAY_FAIL", 3, -14, "苹果支付凭证重复验证");
         WRONG_ARGS = new PayStatus("WRONG_ARGS", 4, ErrorCode.ARGS_ERROR, "参数错误，特指参数缺失");
-        SEVER_ERROR = new PayStatus("SEVER_ERROR", 5, -500, "服务端错误");
+        SEVER_ERROR = new PayStatus("SEVER_ERROR", 5, ErrorCode.SERVER_ERROR, "服务端错误");
         ORDER_RISK_ERROR = new PayStatus("ORDER_RISK_ERROR", 6, -18, "风控拦截");
         UNKNOWN = new PayStatus(RomUtils.UNKNOWN, 7, 0, "未知状态");
         CANCEL = new PayStatus("CANCEL", 8, -6001, "用户取消支付");

@@ -39,9 +39,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j65;
+import com.repackage.k65;
 import com.repackage.ng;
-import com.repackage.st4;
+import com.repackage.tt4;
 import com.repackage.tw8;
 import java.net.URLDecoder;
 import java.util.Map;
@@ -79,7 +79,7 @@ public class MainTabActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (!StringUtils.isNull(str) && str.startsWith("tiebavr:") && !TbadkCoreApplication.getInst().appResponseToIntentClass(VrPlayerActivityConfig.class)) {
-                        tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f1596);
+                        tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f1545);
                         return 1;
                     }
                 }
@@ -121,7 +121,7 @@ public class MainTabActivityStatic {
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Activity) {
-                    st4.d((Activity) data);
+                    tt4.d((Activity) data);
                 }
             }
         }
@@ -160,10 +160,10 @@ public class MainTabActivityStatic {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
                         if (str.contains(UrlSchemaHelper.GOTO_ENTERFORUM_TAB)) {
-                            st4.f(tbPageContext.getPageActivity(), 1, true);
+                            tt4.f(tbPageContext.getPageActivity(), 1, true);
                             return 1;
                         } else if (str.contains(UrlSchemaHelper.GOTO_RECOMMNEDS_FRS_TAB)) {
-                            st4.f(tbPageContext.getPageActivity(), 2, true);
+                            tt4.f(tbPageContext.getPageActivity(), 2, true);
                             return 1;
                         }
                     }
@@ -190,7 +190,7 @@ public class MainTabActivityStatic {
                             i = -1;
                         }
                         if (i != -1) {
-                            st4.f(tbPageContext.getPageActivity(), i, true);
+                            tt4.f(tbPageContext.getPageActivity(), i, true);
                             return 1;
                         }
                     }
@@ -268,11 +268,11 @@ public class MainTabActivityStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof KeyBoardSwitchMessage) && (data = ((KeyBoardSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (!data.booleanValue()) {
-                    j65.b().m(j65.b().j());
-                    j65.b().c();
-                } else if (j65.b().i() || !j65.b().k()) {
+                    k65.b().m(k65.b().j());
+                    k65.b().c();
+                } else if (k65.b().i() || !k65.b().k()) {
                 } else {
-                    j65.b().o();
+                    k65.b().o();
                 }
             }
         }
@@ -310,11 +310,11 @@ public class MainTabActivityStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof WindowSwitchMessage) && (data = ((WindowSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (data.booleanValue()) {
-                    j65.b().m(j65.b().j());
-                    j65.b().c();
-                } else if (j65.b().i() || !j65.b().k()) {
+                    k65.b().m(k65.b().j());
+                    k65.b().c();
+                } else if (k65.b().i() || !k65.b().k()) {
                 } else {
-                    j65.b().o();
+                    k65.b().o();
                 }
             }
         }

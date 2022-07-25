@@ -24,13 +24,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nn4;
 import com.repackage.ny;
+import com.repackage.on4;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class cy<T extends nn4> implements hx, bk5 {
+public class cy<T extends on4> implements hx, bk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -140,7 +140,7 @@ public class cy<T extends nn4> implements hx, bk5 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             sw swVar = new sw();
             swVar.g(new TbImageView(this.c));
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(pi.f(this.c, R.dimen.obfuscated_res_0x7f070263), pi.f(this.c, R.dimen.obfuscated_res_0x7f0702d4));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(pi.f(this.c, R.dimen.obfuscated_res_0x7f070260), pi.f(this.c, R.dimen.obfuscated_res_0x7f0702d2));
             layoutParams.addRule(11);
             layoutParams.addRule(10);
             layoutParams.rightMargin = -this.n.g;
@@ -285,11 +285,11 @@ public class cy<T extends nn4> implements hx, bk5 {
         if (interceptable == null || interceptable.invokeL(1048587, this, t) == null) {
             this.o = t;
             if (this.h != null) {
-                this.e.setTag(R.id.obfuscated_res_0x7f092479, null);
+                this.e.setTag(R.id.obfuscated_res_0x7f09247b, null);
                 this.h.a(t);
                 qw<T> qwVar = this.h;
                 if (qwVar instanceof fw8) {
-                    this.e.setTag(R.id.obfuscated_res_0x7f092479, qwVar);
+                    this.e.setTag(R.id.obfuscated_res_0x7f09247b, qwVar);
                 }
             }
             qw<T> qwVar2 = this.i;
@@ -363,7 +363,7 @@ public class cy<T extends nn4> implements hx, bk5 {
         if (qwVar != null) {
             qwVar.onChangeSkinType(tbPageContext, i);
             if (this.k == null && ((t2 = this.o) == null || !t2.isSupportContent())) {
-                ur4 d = ur4.d(this.e);
+                vr4 d = vr4.d(this.e);
                 d.m(1);
                 d.n(R.string.J_X06);
                 d.f(this.n.h);
@@ -382,14 +382,14 @@ public class cy<T extends nn4> implements hx, bk5 {
         if (qwVar3 != null) {
             qwVar3.onChangeSkinType(tbPageContext, i);
             if (this.h == null && ((t = this.o) == null || !t.isSupportContent())) {
-                ur4 d2 = ur4.d(this.e);
+                vr4 d2 = vr4.d(this.e);
                 d2.m(2);
                 d2.n(R.string.J_X06);
                 d2.f(this.n.h);
             }
         }
         if (this.h != null && this.k != null) {
-            ur4 d3 = ur4.d(this.e);
+            vr4 d3 = vr4.d(this.e);
             d3.n(R.string.J_X06);
             d3.i(this.n.h, R.color.CAM_X0206);
         }
@@ -546,14 +546,14 @@ public class cy<T extends nn4> implements hx, bk5 {
         this.r = new ny.a(7);
         this.c = bVar.f;
         if (bVar.l().a()) {
-            inflate = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d082f, (ViewGroup) null);
+            inflate = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d0839, (ViewGroup) null);
             FrameLayout frameLayout = new FrameLayout(this.c);
             this.d = frameLayout;
             frameLayout.addView(inflate);
         } else {
-            inflate = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d082f, viewGroup, false);
+            inflate = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d0839, viewGroup, false);
         }
-        ThreadCardView threadCardView = (ThreadCardView) inflate.findViewById(R.id.obfuscated_res_0x7f09202a);
+        ThreadCardView threadCardView = (ThreadCardView) inflate.findViewById(R.id.obfuscated_res_0x7f09202e);
         this.e = threadCardView;
         this.f = (RelativeLayout) threadCardView.findViewById(R.id.obfuscated_res_0x7f0904d3);
         LinearLayout linearLayout = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f090393);

@@ -1,28 +1,24 @@
 package com.repackage;
 
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class ay3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public String f;
+    public s72 a;
 
-    public ay3() {
+    public ay3(s72 s72Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {s72Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,79 +28,49 @@ public class ay3 {
                 return;
             }
         }
-        this.a = "";
-        this.b = Integer.MAX_VALUE;
-        this.c = false;
-        this.d = false;
+        this.a = s72Var;
     }
 
-    public boolean a(os1 os1Var) throws JSTypeMismatchException {
-        InterceptResult invokeL;
+    public final void a(String str, String str2) {
+        s72 s72Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, os1Var)) == null) {
-            try {
-                this.a = os1Var.B("defaultValue");
-                this.b = os1Var.q("maxLength");
-                this.c = os1Var.l("multiple");
-                this.d = os1Var.l("confirmHold");
-                String B = os1Var.B("confirmType");
-                char c = 65535;
-                switch (B.hashCode()) {
-                    case -906336856:
-                        if (B.equals("search")) {
-                            c = 2;
-                            break;
-                        }
-                        break;
-                    case SpeedStatsStampTable.AD_LOAD_BEAR_END_STAMP_KEY /* 3304 */:
-                        if (B.equals("go")) {
-                            c = 3;
-                            break;
-                        }
-                        break;
-                    case 3089282:
-                        if (B.equals("done")) {
-                            c = 0;
-                            break;
-                        }
-                        break;
-                    case 3377907:
-                        if (B.equals(UnitedSchemeConstants.UNITED_SCHEME_NEXT)) {
-                            c = 1;
-                            break;
-                        }
-                        break;
-                    case 3526536:
-                        if (B.equals("send")) {
-                            c = 4;
-                            break;
-                        }
-                        break;
-                }
-                if (c == 0) {
-                    this.e = 6;
-                    this.f = "done";
-                } else if (c == 1) {
-                    this.e = 5;
-                    this.f = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
-                } else if (c == 2) {
-                    this.e = 3;
-                    this.f = "search";
-                } else if (c == 3) {
-                    this.e = 2;
-                    this.f = "go";
-                } else if (c != 4) {
-                    this.e = 6;
-                    this.f = "done";
-                } else {
-                    this.e = 4;
-                    this.f = "send";
-                }
-                return true;
-            } catch (Exception unused) {
-                return false;
-            }
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || (s72Var = this.a) == null || s72Var.o() == null || !this.a.o().hasEventListener(str2)) {
+            return;
         }
-        return invokeL.booleanValue;
+        cy3 cy3Var = new cy3();
+        cy3Var.value = str;
+        JSEvent jSEvent = new JSEvent(str2);
+        jSEvent.data = cy3Var;
+        this.a.o().dispatchEvent(jSEvent);
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            a(str, "keyboardcomplete");
+        }
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            a(str, "keyboardconfirm");
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            a(str, "keyboardinput");
+        }
     }
 }

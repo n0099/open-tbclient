@@ -15,7 +15,7 @@ public class yn5 {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? oj2.M().a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? pj2.M().a() : invokeV.booleanValue;
     }
 
     public static void b() {

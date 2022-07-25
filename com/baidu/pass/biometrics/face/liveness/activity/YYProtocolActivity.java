@@ -11,7 +11,6 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
@@ -90,7 +89,7 @@ public class YYProtocolActivity extends Activity implements NoProguard {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f8e);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f87);
             WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f0924c5);
             this.b = webView;
             webView.setWebChromeClient(new WebChromeClient());
@@ -142,7 +141,7 @@ public class YYProtocolActivity extends Activity implements NoProguard {
     }
 
     @Override // android.app.Activity
-    public void onCreate(@Nullable Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             requestWindowFeature(1);
@@ -151,7 +150,7 @@ public class YYProtocolActivity extends Activity implements NoProguard {
             }
             getWindow().addFlags(128);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d04a5);
+            setContentView(R.layout.obfuscated_res_0x7f0d04a3);
             b();
             a();
             newLoginStatusBarTint(this);

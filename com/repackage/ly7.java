@@ -45,7 +45,7 @@ public class ly7 {
             return;
         }
         if (this.a == null) {
-            this.a = new iy7(LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0680, (ViewGroup) null));
+            this.a = new iy7(LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d068a, (ViewGroup) null));
         }
         this.a.m(jr7Var, str);
     }

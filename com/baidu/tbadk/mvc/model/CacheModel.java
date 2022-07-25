@@ -16,15 +16,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c85;
 import com.repackage.d85;
 import com.repackage.d9;
-import com.repackage.la5;
-import com.repackage.p75;
+import com.repackage.e85;
+import com.repackage.ma5;
 import com.repackage.q75;
+import com.repackage.r75;
 import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class CacheModel<T extends p75, ActivityType> extends BdBaseModel<ActivityType> {
+public abstract class CacheModel<T extends q75, ActivityType> extends BdBaseModel<ActivityType> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageListener<CustomResponsedMessage<?>> a;
@@ -200,7 +200,7 @@ public abstract class CacheModel<T extends p75, ActivityType> extends BdBaseMode
     public final void G() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.d && MessageManager.getInstance().findTask(M()) == null) {
-            MessageManager.getInstance().registerTask(new la5(M(), new c85(M(), z(), L())));
+            MessageManager.getInstance().registerTask(new ma5(M(), new d85(M(), z(), L())));
             this.d = true;
         }
     }
@@ -223,7 +223,7 @@ public abstract class CacheModel<T extends p75, ActivityType> extends BdBaseMode
     public final void I() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.e && MessageManager.getInstance().findTask(N()) == null) {
-            MessageManager.getInstance().registerTask(new la5(N(), new d85(N(), z(), L())));
+            MessageManager.getInstance().registerTask(new ma5(N(), new e85(N(), z(), L())));
             this.e = true;
         }
     }
@@ -275,13 +275,13 @@ public abstract class CacheModel<T extends p75, ActivityType> extends BdBaseMode
         }
     }
 
-    public final void Q(q75 q75Var) {
+    public final void Q(r75 r75Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, q75Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, r75Var) == null) {
             F();
             ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(M());
             readCacheMessage.setTag(getUniqueId());
-            readCacheMessage.setRequestData(q75Var);
+            readCacheMessage.setRequestData(r75Var);
             readCacheMessage.setNeedUid(O());
             R(readCacheMessage);
             G();

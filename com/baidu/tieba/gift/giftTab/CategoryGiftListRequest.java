@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.td5;
+import com.repackage.ud5;
 import tbclient.GetGiftListByCategoryId.DataReq;
 import tbclient.GetGiftListByCategoryId.GetGiftListByCategoryIdReqIdl;
 /* loaded from: classes3.dex */
@@ -45,7 +45,7 @@ public class CategoryGiftListRequest extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.category_id = Integer.valueOf(this.categoryId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                td5.a(builder, true);
+                ud5.a(builder, true);
             }
             GetGiftListByCategoryIdReqIdl.Builder builder2 = new GetGiftListByCategoryIdReqIdl.Builder();
             builder2.data = builder.build(false);

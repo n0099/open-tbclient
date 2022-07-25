@@ -77,7 +77,7 @@ public class BarVoteActivity extends BaseActivity {
                     if (this.a.c.u() != null) {
                         this.a.c.u().setVisibility(8);
                     }
-                    this.a.c.F(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f05a7));
+                    this.a.c.F(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f05a3));
                 }
             } else if (ow5Var == null || ow5Var.a() == null || ow5Var.a().g() < 1 || ow5Var.a().g() > 2) {
                 if (this.a.b == null || this.a.b.mPn != 0) {
@@ -87,9 +87,9 @@ public class BarVoteActivity extends BaseActivity {
                     this.a.c.u().setVisibility(8);
                 }
                 if (ow5Var == null || ow5Var.a() == null) {
-                    this.a.c.F(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c45));
+                    this.a.c.F(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c31));
                 } else if (ow5Var.a().g() < 1 || ow5Var.a().g() > 2) {
-                    this.a.c.F(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f05a7));
+                    this.a.c.F(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f05a3));
                 }
             } else {
                 if (this.a.c.u() != null) {
@@ -203,9 +203,9 @@ public class BarVoteActivity extends BaseActivity {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091b3d) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091b17) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"https://tiebac.baidu.com/mo/q/bzrecruitrule?nomenu=1"});
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091760) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09173b) {
                 iw5 iw5Var = this.c;
                 if (iw5Var != null && iw5Var.v() != null) {
                     this.c.v().N();

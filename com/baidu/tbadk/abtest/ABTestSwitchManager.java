@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xt4;
+import com.repackage.yt4;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -180,7 +180,7 @@ public class ABTestSwitchManager {
                     this.mSwitchs.putAll(hashMap);
                 }
                 EditorHelper.putString(getSharedPreferences(), PREF_KEY_SWITCHS, jSONArray.toString());
-                xt4.k().w("perf_start_open", isATest(ABTestConst.KEY_PERF_START_TEST) ? 1 : 0);
+                yt4.k().w("perf_start_open", isATest(ABTestConst.KEY_PERF_START_TEST) ? 1 : 0);
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -19,13 +19,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ny;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class ey extends qw<nn4> {
+public class ey extends qw<on4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int f;
     public int g;
     public ThreadCommentAndPraiseInfoLayout h;
-    public nn4 i;
+    public on4 i;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -269,19 +269,19 @@ public class ey extends qw<nn4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: v */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, nn4Var) == null) {
-            this.i = nn4Var;
-            this.h.setData(nn4Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048590, this, on4Var) == null) {
+            this.i = on4Var;
+            this.h.setData(on4Var.getThreadData());
             u();
         }
     }
 
-    public void w(tn4 tn4Var) {
+    public void w(un4 un4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, tn4Var) == null) {
-            this.h.setAgreeStatisticData(tn4Var);
+        if (interceptable == null || interceptable.invokeL(1048591, this, un4Var) == null) {
+            this.h.setAgreeStatisticData(un4Var);
         }
     }
 

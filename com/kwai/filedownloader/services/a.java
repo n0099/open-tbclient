@@ -23,12 +23,12 @@ import java.util.List;
 public abstract class a<CALLBACK extends Binder, INTERFACE extends IInterface> implements ServiceConnection, u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CALLBACK a;
-    public volatile INTERFACE b;
-    public final Class<?> c;
-    public final HashMap<String, Object> d;
-    public final List<Context> e;
-    public final ArrayList<Runnable> f;
+    public final ArrayList<Runnable> atw;
+    public final Class<?> avI;
+    public final CALLBACK awm;
+    public volatile INTERFACE awn;
+    public final HashMap<String, Object> awo;
+    public final List<Context> awp;
 
     public a(Class<?> cls) {
         Interceptable interceptable = $ic;
@@ -45,87 +45,87 @@ public abstract class a<CALLBACK extends Binder, INTERFACE extends IInterface> i
                 return;
             }
         }
-        this.d = new HashMap<>();
-        this.e = new ArrayList();
-        this.f = new ArrayList<>();
-        this.c = cls;
-        this.a = a();
+        this.awo = new HashMap<>();
+        this.awp = new ArrayList();
+        this.atw = new ArrayList<>();
+        this.avI = cls;
+        this.awm = CW();
     }
 
     private void a(Context context, Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, context, runnable) == null) {
-            if (com.kwai.filedownloader.e.f.a(context)) {
+            if (com.kwai.filedownloader.e.f.dE(context)) {
                 throw new IllegalStateException("Fatal-Exception: You can't bind the FileDownloadService in :filedownloader process.\n It's the invalid operation and is likely to cause unexpected problems.\n Maybe you want to use non-separate process mode for FileDownloader, More detail about non-separate mode, please move to wiki manually: https://github.com/lingochamp/FileDownloader/wiki/filedownloader.properties");
             }
-            if (com.kwai.filedownloader.e.d.a) {
-                com.kwai.filedownloader.e.d.c(this, "bindStartByContext %s", context.getClass().getSimpleName());
+            if (com.kwai.filedownloader.e.d.awL) {
+                com.kwai.filedownloader.e.d.e(this, "bindStartByContext %s", context.getClass().getSimpleName());
             }
-            Intent intent = new Intent(context, this.c);
-            if (!this.e.contains(context)) {
-                this.e.add(context);
+            Intent intent = new Intent(context, this.avI);
+            if (!this.awp.contains(context)) {
+                this.awp.add(context);
             }
             context.bindService(intent, this, 1);
             context.startService(intent);
         }
     }
 
-    private void a(boolean z) {
+    private void bE(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65538, this, z) == null) {
-            if (com.kwai.filedownloader.e.d.a) {
-                com.kwai.filedownloader.e.d.c(this, "release connect resources %s", this.b);
+            if (com.kwai.filedownloader.e.d.awL) {
+                com.kwai.filedownloader.e.d.e(this, "release connect resources %s", this.awn);
             }
-            this.b = null;
-            com.kwai.filedownloader.f.a().b(new DownloadServiceConnectChangedEvent(DownloadServiceConnectChangedEvent.ConnectStatus.lost, this.c));
+            this.awn = null;
+            com.kwai.filedownloader.f.CE().c(new DownloadServiceConnectChangedEvent(DownloadServiceConnectChangedEvent.ConnectStatus.lost, this.avI));
         }
     }
 
-    public abstract CALLBACK a();
+    public abstract CALLBACK CW();
 
-    public abstract INTERFACE a(IBinder iBinder);
-
-    @Override // com.kwai.filedownloader.u
-    public final void a(Context context) {
+    public final INTERFACE Eq() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            a(context, (Runnable) null);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.awn : (INTERFACE) invokeV.objValue;
     }
 
     public abstract void a(INTERFACE r1, CALLBACK callback);
 
-    public final INTERFACE b() {
-        InterceptResult invokeV;
+    public abstract INTERFACE b(IBinder iBinder);
+
+    @Override // com.kwai.filedownloader.u
+    public final void dC(Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (INTERFACE) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            a(context, (Runnable) null);
+        }
     }
 
     @Override // com.kwai.filedownloader.u
-    public final boolean c() {
+    public final boolean isConnected() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? b() != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Eq() != null : invokeV.booleanValue;
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, componentName, iBinder) == null) {
-            this.b = a(iBinder);
-            if (com.kwai.filedownloader.e.d.a) {
-                com.kwai.filedownloader.e.d.c(this, "onServiceConnected %s %s", componentName, this.b);
+            this.awn = b(iBinder);
+            if (com.kwai.filedownloader.e.d.awL) {
+                com.kwai.filedownloader.e.d.e(this, "onServiceConnected %s %s", componentName, this.awn);
             }
             try {
-                a((a<CALLBACK, INTERFACE>) this.b, (INTERFACE) this.a);
+                a((a<CALLBACK, INTERFACE>) this.awn, (INTERFACE) this.awm);
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
-            this.f.clear();
-            for (Runnable runnable : (List) this.f.clone()) {
+            this.atw.clear();
+            for (Runnable runnable : (List) this.atw.clone()) {
                 runnable.run();
             }
-            com.kwai.filedownloader.f.a().b(new DownloadServiceConnectChangedEvent(DownloadServiceConnectChangedEvent.ConnectStatus.connected, this.c));
+            com.kwai.filedownloader.f.CE().c(new DownloadServiceConnectChangedEvent(DownloadServiceConnectChangedEvent.ConnectStatus.connected, this.avI));
         }
     }
 
@@ -133,10 +133,10 @@ public abstract class a<CALLBACK extends Binder, INTERFACE extends IInterface> i
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, componentName) == null) {
-            if (com.kwai.filedownloader.e.d.a) {
-                com.kwai.filedownloader.e.d.c(this, "onServiceDisconnected %s %s", componentName, this.b);
+            if (com.kwai.filedownloader.e.d.awL) {
+                com.kwai.filedownloader.e.d.e(this, "onServiceDisconnected %s %s", componentName, this.awn);
             }
-            a(true);
+            bE(true);
         }
     }
 }

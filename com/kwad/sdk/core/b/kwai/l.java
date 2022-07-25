@@ -72,7 +72,7 @@ public final class l implements com.kwad.sdk.core.d<AdMatrixInfo.AdDataV2> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "templateDatas", adDataV2.templateDataList);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "templateDatas", adDataV2.templateDataList);
         com.kwad.sdk.utils.r.a(jSONObject, "bottomBannerInfo", adDataV2.bottomBannerInfo);
         com.kwad.sdk.utils.r.a(jSONObject, "actionBarInfo", adDataV2.actionBarInfo);
         com.kwad.sdk.utils.r.a(jSONObject, "fullPageActionBarInfo", adDataV2.fullPageActionBarInfo);

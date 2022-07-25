@@ -6,6 +6,7 @@ import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.callback.IdcardOcrImageCallback;
 import com.baidu.sapi2.result.AccountRealNameResult;
+import com.baidu.sapi2.result.CertGuardianResult;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.response.SocialResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -67,6 +68,7 @@ public class SapiJsCallBacks {
         public SapiWebView.BioScanFaceCallback bioScanFaceCallback;
         public BiometricsIdentificationLiveCallBack biometricsIdentificationLiveCallBack;
         public SapiWebView.BiometricsIdentifyCallback biometricsIdentifyCallback;
+        public CertGuardianRusultCallback certGuardianRusultCallback;
         public SapiWebView.CoverWebBdussCallback coverWebBdussCallback;
         public CurrentAccountBdussExpiredCallback currentAccountBdussExpiredCallback;
         public DirectedLoginParams directedLoginParams;
@@ -90,6 +92,7 @@ public class SapiJsCallBacks {
         public SapiWebView.LocalConfigCallback localConfigCallback;
         public LoginStatusChangeCallback loginStatusChangeCallback;
         public SwitchStyleForCloseBtnAndStatusBarCallBack mSwitchStyleForCloseBtnAndStatusBarCallBack;
+        public SyncAccountCallBack mSyncAccountCallBack;
         public MakeVibrateCallBack makeVibrateCallBack;
         public NormalizeGuestAccountCallback normalizeGuestAccountCallback;
         public String normalizeGuestAccountDesc;
@@ -138,6 +141,11 @@ public class SapiJsCallBacks {
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.promptResult : (JsPromptResult) invokeV.objValue;
         }
+    }
+
+    /* loaded from: classes2.dex */
+    public interface CertGuardianRusultCallback {
+        void onFinish(CertGuardianResult certGuardianResult);
     }
 
     /* loaded from: classes2.dex */
@@ -395,6 +403,11 @@ public class SapiJsCallBacks {
         public static final String mWhite = "1";
 
         void switchStyle(String str);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface SyncAccountCallBack {
+        void onSyncAccount(SapiAccount sapiAccount);
     }
 
     /* loaded from: classes2.dex */

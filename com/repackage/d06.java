@@ -84,12 +84,12 @@ public class d06 implements b06 {
 
         /* renamed from: com.repackage.d06$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0611a implements Runnable {
+        public class RunnableC0456a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0611a(a aVar) {
+            public RunnableC0456a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -146,10 +146,10 @@ public class d06 implements b06 {
                         this.a.o = true;
                     }
                 }
-                qg.a().postDelayed(new RunnableC0611a(this), 100L);
+                qg.a().postDelayed(new RunnableC0456a(this), 100L);
                 this.a.g.setLocalAlbumInfoData(this.a.b, this.a.p, false);
                 if (this.a.r != null) {
-                    this.a.g.y(this.a.r.d(), this.a.r.b() == 0);
+                    this.a.g.y(this.a.r.c(), this.a.r.a() == 0);
                 }
                 return true;
             }
@@ -260,13 +260,13 @@ public class d06 implements b06 {
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
                 if (i == 3) {
                     if (ListUtils.getCount(this.a.p) < 1 || ((float) (this.a.k - this.a.j)) * ((MultiMediaData) this.a.p.get(0)).getCurrentSpeed() < 6000.0f) {
-                        BdToast b = BdToast.b(this.a.a.getPageActivity(), String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f0608), 6));
+                        BdToast b = BdToast.b(this.a.a.getPageActivity(), String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f0604), 6));
                         b.f(BdToast.ToastIcon.FAILURE);
                         b.h();
                         return false;
                     }
                 } else if (i == 4 && (ListUtils.getCount(this.a.p) < 1 || ((float) (this.a.k - this.a.j)) * ((MultiMediaData) this.a.p.get(0)).getCurrentSpeed() < 9000.0f)) {
-                    BdToast b2 = BdToast.b(this.a.a.getPageActivity(), String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f0608), 9));
+                    BdToast b2 = BdToast.b(this.a.a.getPageActivity(), String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f0604), 9));
                     b2.f(BdToast.ToastIcon.FAILURE);
                     b2.h();
                     return false;
@@ -313,7 +313,7 @@ public class d06 implements b06 {
                 this.a.M();
                 this.a.o = true;
                 if (this.a.s != null) {
-                    this.a.g.x(this.a.s.b() == 0);
+                    this.a.g.x(this.a.s.a() == 0);
                 }
                 return false;
             }
@@ -534,11 +534,11 @@ public class d06 implements b06 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
                 this.a.o = true;
-                if ((this.a.k - this.a.j) - 100 >= 3000 || xt4.k().h("key_file_video_clip_less_3_tip_show", false)) {
+                if ((this.a.k - this.a.j) - 100 >= 3000 || yt4.k().h("key_file_video_clip_less_3_tip_show", false)) {
                     return;
                 }
-                this.a.T(R.string.obfuscated_res_0x7f0f060d);
-                xt4.k().u("key_file_video_clip_less_3_tip_show", true);
+                this.a.T(R.string.obfuscated_res_0x7f0f0609);
+                yt4.k().u("key_file_video_clip_less_3_tip_show", true);
             }
         }
 
@@ -562,13 +562,13 @@ public class d06 implements b06 {
             if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.a.s == null) {
                 return;
             }
-            int b2 = this.a.s.b();
+            int a2 = this.a.s.a();
             this.a.N();
-            if (b2 != 0) {
-                this.a.s.c(0);
+            if (a2 != 0) {
+                this.a.s.b(0);
             }
             if (this.a.g != null) {
-                this.a.g.x(this.a.s.b() == 0);
+                this.a.g.x(this.a.s.a() == 0);
             }
         }
 
@@ -587,13 +587,13 @@ public class d06 implements b06 {
             if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.a.r == null) {
                 return;
             }
-            int b2 = this.a.r.b();
+            int a2 = this.a.r.a();
             this.a.N();
-            if (b2 != 0) {
-                this.a.r.c(0);
+            if (a2 != 0) {
+                this.a.r.b(0);
             }
             if (this.a.g != null) {
-                this.a.g.y(this.a.r.d(), this.a.r.b() == 0);
+                this.a.g.y(this.a.r.c(), this.a.r.a() == 0);
             }
         }
 
@@ -615,11 +615,11 @@ public class d06 implements b06 {
                 }
                 this.a.j = j;
                 this.a.k = j2;
-                if (!this.a.o || (this.a.k - this.a.j) - 100 >= 3000 || xt4.k().h("key_file_video_clip_less_3_tip_show", false)) {
+                if (!this.a.o || (this.a.k - this.a.j) - 100 >= 3000 || yt4.k().h("key_file_video_clip_less_3_tip_show", false)) {
                     return;
                 }
-                this.a.T(R.string.obfuscated_res_0x7f0f060d);
-                xt4.k().u("key_file_video_clip_less_3_tip_show", true);
+                this.a.T(R.string.obfuscated_res_0x7f0f0609);
+                yt4.k().u("key_file_video_clip_less_3_tip_show", true);
             }
         }
 
@@ -1013,7 +1013,7 @@ public class d06 implements b06 {
             this.i = (this.p.get(0).height * 1.0f) / this.p.get(0).width;
             dx5 dx5Var = new dx5(this.a, this.p.get(0).height, this.p.get(0).width, this.w);
             this.s = dx5Var;
-            dx5Var.d(0);
+            dx5Var.c(0);
         }
         if (tbMultiMediaData != null) {
             this.j = tbMultiMediaData.start;
@@ -1036,15 +1036,15 @@ public class d06 implements b06 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             fx5 fx5Var = this.r;
             if (fx5Var != null) {
-                fx5Var.c(8);
+                fx5Var.b(8);
                 MultiMediaEditLayout multiMediaEditLayout = this.g;
                 if (multiMediaEditLayout != null) {
-                    multiMediaEditLayout.y(this.r.d(), false);
+                    multiMediaEditLayout.y(this.r.c(), false);
                 }
             }
             cx5 cx5Var = this.s;
             if (cx5Var != null) {
-                cx5Var.c(8);
+                cx5Var.b(8);
                 MultiMediaEditLayout multiMediaEditLayout2 = this.g;
                 if (multiMediaEditLayout2 != null) {
                     multiMediaEditLayout2.x(false);
@@ -1083,8 +1083,8 @@ public class d06 implements b06 {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.d.setZOrderMediaOverlay(true);
             this.d.setMultiMediaDataSourceViewAdapter(this.c, true);
-            this.e = (NavigationBar) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f09158d);
-            this.f = (FrameLayout) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f092124);
+            this.e = (NavigationBar) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091568);
+            this.f = (FrameLayout) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f092126);
             this.g.setPageContext(this.a);
             this.g.setOnlyOneVideo();
             this.g.setLocalAlbumInfoData(this.b, this.p);

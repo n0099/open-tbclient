@@ -12,7 +12,7 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<String> a;
+    public static final List<String> Qe;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,27 +29,27 @@ public final class c {
             }
         }
         ArrayList arrayList = new ArrayList();
-        a = arrayList;
+        Qe = arrayList;
         arrayList.add("application/x-javascript");
-        a.add("image/jpeg");
-        a.add("image/tiff");
-        a.add("text/css");
-        a.add(SapiWebView.DATA_MIME_TYPE);
-        a.add("image/gif");
-        a.add("image/png");
-        a.add("application/javascript");
-        a.add(MimeTypes.VIDEO_MP4);
-        a.add(MimeTypes.AUDIO_MPEG);
-        a.add("application/json");
-        a.add("image/webp");
-        a.add("image/apng");
-        a.add("image/svg+xml");
-        a.add("application/octet-stream");
+        Qe.add("image/jpeg");
+        Qe.add("image/tiff");
+        Qe.add("text/css");
+        Qe.add(SapiWebView.DATA_MIME_TYPE);
+        Qe.add("image/gif");
+        Qe.add("image/png");
+        Qe.add("application/javascript");
+        Qe.add(MimeTypes.VIDEO_MP4);
+        Qe.add(MimeTypes.AUDIO_MPEG);
+        Qe.add("application/json");
+        Qe.add("image/webp");
+        Qe.add("image/apng");
+        Qe.add("image/svg+xml");
+        Qe.add("application/octet-stream");
     }
 
-    public static boolean a(String str) {
+    public static boolean aX(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? a.contains(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? Qe.contains(str) : invokeL.booleanValue;
     }
 }

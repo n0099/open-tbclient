@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class y97 extends ha7 implements r75 {
+public class y97 extends ha7 implements s75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,14 +26,14 @@ public class y97 extends ha7 implements r75 {
         }
     }
 
-    @Override // com.repackage.p75
+    @Override // com.repackage.q75
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "atme_cache" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.r75
+    @Override // com.repackage.s75
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class y97 extends ha7 implements r75 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.r75
+    @Override // com.repackage.s75
     public boolean r(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

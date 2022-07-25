@@ -17,8 +17,8 @@ import tbclient.TopicModule;
 /* loaded from: classes7.dex */
 public class v17 extends ny5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId i0;
-    public static final BdUniqueId j0;
+    public static final BdUniqueId c0;
+    public static final BdUniqueId d0;
     public transient /* synthetic */ FieldHolder $fh;
     public int R;
     public long S;
@@ -29,8 +29,8 @@ public class v17 extends ny5 {
     public w17 X;
     public PostData Y;
     public int Z;
-    public String g0;
-    public ThreadData h0;
+    public String a0;
+    public ThreadData b0;
 
     static {
         InterceptResult invokeClinit;
@@ -45,8 +45,8 @@ public class v17 extends ny5 {
                 return;
             }
         }
-        i0 = BdUniqueId.gen();
-        j0 = BdUniqueId.gen();
+        c0 = BdUniqueId.gen();
+        d0 = BdUniqueId.gen();
     }
 
     public v17() {
@@ -105,7 +105,7 @@ public class v17 extends ny5 {
         this.T = topicModule.topic_name;
         this.U = topicModule.topic_desc;
         this.W = topicModule.topic_image;
-        this.g0 = topicModule.topic_avatar;
+        this.a0 = topicModule.topic_avatar;
         tbclient.PkModule pkModule = topicModule.pk_module;
         if (pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
             return;
@@ -120,35 +120,35 @@ public class v17 extends ny5 {
     public void Q(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) {
-            this.h0 = threadData;
+            this.b0 = threadData;
         }
     }
 
-    @Override // com.repackage.ny5, com.repackage.nn4
-    public kp4 getNegFeedBackData() {
+    @Override // com.repackage.ny5, com.repackage.on4
+    public lp4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            kp4 negFeedBackData = super.getNegFeedBackData();
+            lp4 negFeedBackData = super.getNegFeedBackData();
             if (negFeedBackData != null) {
                 negFeedBackData.q(this.S);
             }
             return negFeedBackData;
         }
-        return (kp4) invokeV.objValue;
+        return (lp4) invokeV.objValue;
     }
 
-    @Override // com.repackage.ny5, com.repackage.nn4
+    @Override // com.repackage.ny5, com.repackage.on4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h0 : (ThreadData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b0 : (ThreadData) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.Z == 0 ? i0 : j0 : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.Z == 0 ? c0 : d0 : (BdUniqueId) invokeV.objValue;
     }
 }

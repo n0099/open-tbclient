@@ -10,16 +10,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
-public final class b12 {
+public class b12 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<x02> a;
-    public final List<x02> b;
-    public final List<x02> c;
+    public int a;
+    public RequestStatus b;
+    public List<y02> c;
+    public List<y02> d;
+    public long e;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -43,186 +47,213 @@ public final class b12 {
             int[] iArr = new int[RequestStatus.values().length];
             a = iArr;
             try {
-                iArr[RequestStatus.STATUS_SEND.ordinal()] = 1;
+                iArr[RequestStatus.STATUS_FAILED.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[RequestStatus.STATUS_SUCCESS.ordinal()] = 2;
+                a[RequestStatus.STATUS_CORE_FAILED.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[RequestStatus.STATUS_FAILED.ordinal()] = 3;
+                a[RequestStatus.STATUS_SERVER_FAILED.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
+            try {
+                a[RequestStatus.STATUS_SUCCESS.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[RequestStatus.STATUS_SLOW.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[RequestStatus.STATUS_UNKNOWN.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755879922, "Lcom/repackage/b12;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755879922, "Lcom/repackage/b12;");
+                return;
+            }
+        }
+        f = sg1.a;
     }
 
     public b12() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
+        this.b = RequestStatus.STATUS_SUCCESS;
         this.c = new ArrayList();
+        this.d = new ArrayList();
+        this.e = 0L;
     }
 
-    public synchronized void a(x02 x02Var) {
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, x02Var) == null) {
-            synchronized (this) {
-                if (x02Var == null) {
-                    return;
-                }
-                int i = a.a[x02Var.e.ordinal()];
-                if (i == 1) {
-                    this.a.add(x02Var);
-                } else if (i == 2) {
-                    this.b.add(x02Var);
-                    c(this.a, x02Var);
-                } else if (i == 3) {
-                    this.c.add(x02Var);
-                    c(this.a, x02Var);
-                }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() - this.e : invokeV.longValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            List<y02> list = this.c;
+            if (list != null) {
+                return list.size();
             }
+            return 0;
         }
+        return invokeV.intValue;
     }
 
-    public synchronized void b() {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.c.clear();
-                this.a.clear();
-                this.b.clear();
-            }
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0024, code lost:
-        r5.remove();
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final synchronized void c(List<x02> list, x02 x02Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, x02Var) == null) {
-            synchronized (this) {
-                if (list != null) {
-                    if (!list.isEmpty() && x02Var != null) {
-                        Iterator<x02> it = list.iterator();
-                        while (true) {
-                            if (!it.hasNext()) {
-                                break;
-                            } else if (x02Var.equals(it.next())) {
-                                break;
-                            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            String g = wc3.g(System.currentTimeMillis(), "【HH:mm:ss】");
+            for (y02 y02Var : this.d) {
+                if (y02Var != null) {
+                    try {
+                        sb.append(String.format("\n%s请求%s耗时较长：%s ms；", g, new URL(y02Var.a).getPath(), Long.valueOf(y02Var.d())));
+                    } catch (MalformedURLException e) {
+                        if (f) {
+                            e.printStackTrace();
                         }
                     }
                 }
             }
+            for (y02 y02Var2 : this.c) {
+                if (y02Var2 != null) {
+                    try {
+                        sb.append(String.format("\n%s请求%s请求失败；", g, new URL(y02Var2.a).getPath()));
+                    } catch (MalformedURLException e2) {
+                        if (f) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+            }
+            return sb.toString();
         }
+        return (String) invokeV.objValue;
     }
 
-    public synchronized List<x02> d() {
+    public String d() {
         InterceptResult invokeV;
-        ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                arrayList = new ArrayList();
-                for (x02 x02Var : this.c) {
-                    if (x02Var != null && x02Var.g(true)) {
-                        arrayList.add(x02Var);
-                    }
-                }
+            StringBuilder sb = new StringBuilder();
+            switch (a.a[this.b.ordinal()]) {
+                case 1:
+                    sb.append("业务请求：失败率超");
+                    sb.append(50);
+                    sb.append("%；");
+                    break;
+                case 2:
+                    sb.append("业务请求：核心业务请求失败；");
+                    break;
+                case 3:
+                    sb.append("业务请求：开发者服务异常；");
+                    break;
+                case 4:
+                    sb.append("业务请求：无异常；");
+                    break;
+                case 5:
+                    sb.append("业务请求：响应缓慢；");
+                    break;
+                case 6:
+                    sb.append("业务请求：未知；");
+                    break;
             }
-            return arrayList;
+            if (g() > 0) {
+                sb.append(String.format("共发起请求%s个，失败%s个，缓慢%s个；", Integer.valueOf(g()), Integer.valueOf(b()), Integer.valueOf(f())));
+            }
+            return sb.toString();
         }
-        return (List) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public synchronized int e() {
+    public RequestStatus e() {
         InterceptResult invokeV;
-        int size;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                size = this.c.size();
-            }
-            return size;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (RequestStatus) invokeV.objValue;
     }
 
-    public synchronized List<x02> f() {
+    public int f() {
         InterceptResult invokeV;
-        ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                arrayList = new ArrayList();
-                for (x02 x02Var : this.c) {
-                    if (x02Var != null && x02Var.f()) {
-                        arrayList.add(x02Var);
-                    }
-                }
+            List<y02> list = this.d;
+            if (list != null) {
+                return list.size();
             }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public synchronized List<x02> g() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                arrayList = new ArrayList();
-                for (x02 x02Var : this.b) {
-                    if (x02Var != null && x02Var.h()) {
-                        arrayList.add(x02Var);
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public synchronized int h() {
-        InterceptResult invokeV;
-        int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                size = this.b.size();
-            }
-            return size;
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    public synchronized int i() {
+    public int g() {
         InterceptResult invokeV;
-        int size;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            synchronized (this) {
-                size = this.a.size() + h() + e();
-            }
-            return size;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public void h(List<y02> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, list) == null) || list == null || list.isEmpty()) {
+            return;
         }
-        return invokeV.intValue;
+        this.c = list;
+    }
+
+    public void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.e = j;
+        }
+    }
+
+    public void j(RequestStatus requestStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, requestStatus) == null) {
+            this.b = requestStatus;
+        }
+    }
+
+    public void k(List<y02> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, list) == null) || list == null || list.isEmpty()) {
+            return;
+        }
+        this.d = list;
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.a = i;
+        }
     }
 }

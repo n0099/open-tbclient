@@ -33,11 +33,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l85;
+import com.repackage.m85;
 import com.repackage.pm5;
 import com.repackage.r18;
-import com.repackage.rl4;
-import com.repackage.xk4;
+import com.repackage.sl4;
+import com.repackage.yk4;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class PersonOftenFuncItemView extends LinearLayout implements View.OnClickListener {
@@ -48,7 +48,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     public r18 c;
 
     /* loaded from: classes3.dex */
-    public class a implements xk4 {
+    public class a implements yk4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -79,7 +79,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
             this.d = i;
         }
 
-        @Override // com.repackage.xk4
+        @Override // com.repackage.yk4
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -94,7 +94,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
             }
         }
 
-        @Override // com.repackage.xk4
+        @Override // com.repackage.yk4
         public void onFail() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -137,10 +137,10 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06b6, this);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06c0, this);
             inflate.setOnClickListener(this);
-            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0913c4);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913c5);
+            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0913a0);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913a1);
         }
     }
 
@@ -201,7 +201,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkCoreApplication.getInst().getApplicationContext(), "AuthenticationCenterPage", hashMap)));
                     return;
                 case 54:
-                    rl4.o(getContext(), l85.g("https://boxnovel.baidu.com/boxnovel/tbvipright?data={\"fromaction\": \"tieba\"}"));
+                    sl4.o(getContext(), m85.g("https://boxnovel.baidu.com/boxnovel/tbvipright?data={\"fromaction\": \"tieba\"}"));
                     return;
                 case 55:
                     d(TbConfig.COMMUNITY_CONVENTION);

@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.wu4;
+import com.repackage.xu4;
 /* loaded from: classes3.dex */
 public class PbFirstFloorMessageButton extends TBSpecificationBtn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wu4 o;
+    public xu4 o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbFirstFloorMessageButton(Context context) {
@@ -43,9 +43,9 @@ public class PbFirstFloorMessageButton extends TBSpecificationBtn {
     private void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            wu4 wu4Var = new wu4();
-            this.o = wu4Var;
-            wu4Var.q(R.color.CAM_X0903);
+            xu4 xu4Var = new xu4();
+            this.o = xu4Var;
+            xu4Var.q(R.color.CAM_X0903);
             this.o.g(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X006));
             this.o.u(R.drawable.obfuscated_res_0x7f0807de, TBSpecificationButtonConfig.IconType.WEBP);
             this.o.o(TBSpecificationButtonConfig.WebpType.PURE);

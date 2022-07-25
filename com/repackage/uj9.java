@@ -52,7 +52,7 @@ public class uj9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
             try {
-                context.getResources().getString(R.string.obfuscated_res_0x7f0f040c);
+                context.getResources().getString(R.string.obfuscated_res_0x7f0f040b);
             } catch (Throwable unused) {
                 Log.e("GooglePlayServicesUtil", "The Google Play services resources were not found. Check your project configuration to ensure that the resources are included.");
             }

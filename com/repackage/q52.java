@@ -1,11 +1,15 @@
 package com.repackage;
 
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,74 +17,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l52;
-import java.util.Set;
+import com.repackage.ej2;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class q52 {
+public final class q52 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final y52 b;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
     /* loaded from: classes7.dex */
-    public static class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ String c;
+    }
 
-        public a(String str, boolean z, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z), str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final q52 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-118019675, "Lcom/repackage/q52$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-118019675, "Lcom/repackage/q52$b;");
                     return;
                 }
             }
-            this.a = str;
-            this.b = z;
-            this.c = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long currentTimeMillis = q52.a ? System.currentTimeMillis() : 0L;
-                Set<String> m = r52.k().m(this.a, true);
-                if (m == null || m.size() <= 0) {
-                    return;
-                }
-                if (q52.a) {
-                    Log.d("SwanPreLinkWhenPreload", "start prelink, swan is already launched - " + this.b);
-                }
-                for (String str : m) {
-                    boolean b = q52.b(this.c, this.a, str);
-                    k52 d = k52.d();
-                    String str2 = this.c;
-                    l52.b a = l52.a();
-                    a.h(RecordType.PREFETCH_PRELINK);
-                    a.f(str);
-                    a.g(b);
-                    d.f(str2, a.e());
-                    if (b) {
-                        r52.k().s(this.a, str);
-                        q52.d(this.a, str);
-                    }
-                }
-                if (q52.a) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    Log.d("SwanPreLinkWhenPreload", " prelink - " + this.a + ", cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
-                }
-            }
+            a = new q52(null);
         }
     }
 
@@ -97,58 +68,265 @@ public class q52 {
                 return;
             }
         }
-        a = rg1.a;
-        b = a62.a();
+        b = sg1.a;
     }
 
-    public static boolean b(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public /* synthetic */ q52(a aVar) {
+        this();
+    }
+
+    public static q52 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return false;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (q52) invokeV.objValue;
+    }
+
+    public final void a(@NonNull SwanAppConfigData swanAppConfigData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, swanAppConfigData) == null) {
+            if (b) {
+                Log.d("AppLaunchMessenger", "afterLaunchEventSent: start");
             }
-            return b.c(str, str2, str3);
+            sp1.k(swanAppConfigData);
+            s52.k().x(h03.K().getAppId(), false);
+            e93.l().t();
         }
-        return invokeLLL.booleanValue;
     }
 
-    public static void c(String str, String str2) {
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00d1 A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00dd A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00ef A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x013d A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x014a  */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x01bf A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x01c7 A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x01d1  */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x01e0 A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x022e A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
+    /* JADX WARN: Type inference failed for: r3v15, types: [com.repackage.pm1] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public synchronized void b(@NonNull e22 e22Var, @NonNull om1 om1Var, @NonNull fl2 fl2Var, @NonNull SwanAppConfigData swanAppConfigData, @Nullable ej2.g gVar, boolean z) {
+        boolean z2;
+        PMSAppInfo f0;
+        boolean H;
+        Bundle P;
+        boolean F;
+        z62 z62Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            if (!b.b()) {
-                if (a) {
-                    Log.d("SwanPreLinkWhenPreload", "prelink by preload ab is off");
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{e22Var, om1Var, fl2Var, swanAppConfigData, gVar, Boolean.valueOf(z)}) == null) {
+            synchronized (this) {
+                if (b) {
+                    Log.d("AppLaunchMessenger", "dispatchLaunchEvent");
+                    Log.d("SwanPrelink", "start dispatch launch event");
                 }
-            } else if (TextUtils.isEmpty(str2)) {
-                if (a) {
-                    Log.d("SwanPreLinkWhenPreload", "prelink by preload appId is empty");
-                }
-            } else {
-                h03 q = g03.K().q();
-                if (q == null) {
-                    if (a) {
-                        Log.d("SwanPreLinkWhenPreload", "prelink by preload swanApp is null");
+                if (this.a) {
+                    if (z) {
+                        x62.c(14);
                     }
-                } else if (TextUtils.equals(q.b, str2)) {
-                    e(str, str2, q.I());
+                    return;
                 }
+                if (z) {
+                    x62.c(1);
+                }
+                String d = t33.d(vl2.U(), fl2Var, swanAppConfigData);
+                String h = swanAppConfigData.h(d);
+                w62 w62Var = new w62();
+                w62Var.a = swanAppConfigData.n;
+                if (gVar != null && !TextUtils.isEmpty(gVar.a)) {
+                    w62Var.b = gVar.a;
+                } else {
+                    w62Var.b = ej2.e.i(fl2Var.H(), fl2Var.v1()).getPath() + File.separator;
+                }
+                w62Var.c = om1Var.b();
+                w62Var.d = d;
+                w62Var.f = String.valueOf(fx1.a());
+                w62Var.g = w62.c(i03.M(), d);
+                w62Var.i = h;
+                if (!b && !vl2.U().N()) {
+                    z2 = false;
+                    w62Var.h = z2;
+                    w62Var.j = om1Var.M();
+                    w62Var.l = a72.b();
+                    f0 = fl2Var.f0();
+                    if (f0 != null && !TextUtils.isEmpty(f0.userActionApis)) {
+                        w62Var.m = f0.userActionApis;
+                    }
+                    H = hw2.H();
+                    if (H) {
+                        w62Var.k = lx1.b();
+                    }
+                    P = fl2Var.P();
+                    if (P != null) {
+                        String string = P.getString(PrefetchEvent.EVENT_DATA_EXTRA_DATA);
+                        if (!TextUtils.isEmpty(string)) {
+                            w62Var.e = string;
+                        }
+                    }
+                    if (b) {
+                        Log.d("AppLaunchMessenger", w62Var.toString());
+                    }
+                    nt2.o().F(new UbcFlowEvent("master_dispatch_start"));
+                    i63.d().i("master_dispatch_start");
+                    e22Var.E(w62Var);
+                    c72.U().U0(w62.b(w62Var));
+                    pj2.m0().a();
+                    c72.U().h1(w62Var.j);
+                    F = hw2.F(fl2Var.g0());
+                    boolean p0 = fl2Var.p0();
+                    if (!F) {
+                        yx1.d();
+                        yx1.g().h("appready");
+                    } else if (p0) {
+                        rx1.e().f("appready");
+                    }
+                    x03 f = vl2.U().f(a43.b(ae3.f(d)));
+                    z62Var = new z62();
+                    if (gVar == null && !TextUtils.isEmpty(gVar.a)) {
+                        z62Var.a = gVar.a;
+                    } else {
+                        z62Var.a = ej2.e.i(fl2Var.H(), fl2Var.v1()).getPath() + File.separator;
+                    }
+                    z62Var.b = d;
+                    z62Var.d = f.g;
+                    z62Var.c = h;
+                    z62Var.k = w62Var.g;
+                    z62Var.e = String.valueOf(fl2Var.m0());
+                    z62Var.g = z2;
+                    z62Var.i = om1Var.M();
+                    z62Var.m = true;
+                    if (H) {
+                        z62Var.j = lx1.d();
+                    }
+                    if (!F) {
+                        yx1.g().h("pageready");
+                    } else if (p0) {
+                        rx1.e().f("pageready");
+                    }
+                    if (b) {
+                        Log.d("AppLaunchMessenger", z62Var.toString());
+                    }
+                    nt2.o().F(new UbcFlowEvent("slave_dispatch_start"));
+                    i63.d().i("slave_dispatch_start");
+                    om1Var.N(z62Var);
+                    pd3.d();
+                    om1Var.t().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, d);
+                    om1Var.T(d);
+                    c72.U().V0(om1Var.b(), z62.a(z62Var));
+                    s63.F(om1Var.b(), z62Var.b);
+                    if (b) {
+                        Log.d("AppLaunchMessenger", "app path: " + w62Var.b);
+                        Log.d("AppLaunchMessenger", "webviewId: " + om1Var.b());
+                        Log.d("AppLaunchMessenger", "pageUrl: " + d);
+                        Log.d("AppLaunchMessenger", "pagePath: " + z62Var.b);
+                        Log.d("AppLaunchMessenger", "onReachBottomDistance: " + z62Var.d);
+                        Log.d("AppLaunchMessenger", "sConsole:" + z62Var.e);
+                    }
+                    a(swanAppConfigData);
+                    this.a = true;
+                    e();
+                }
+                z2 = true;
+                w62Var.h = z2;
+                w62Var.j = om1Var.M();
+                w62Var.l = a72.b();
+                f0 = fl2Var.f0();
+                if (f0 != null) {
+                    w62Var.m = f0.userActionApis;
+                }
+                H = hw2.H();
+                if (H) {
+                }
+                P = fl2Var.P();
+                if (P != null) {
+                }
+                if (b) {
+                }
+                nt2.o().F(new UbcFlowEvent("master_dispatch_start"));
+                i63.d().i("master_dispatch_start");
+                e22Var.E(w62Var);
+                c72.U().U0(w62.b(w62Var));
+                pj2.m0().a();
+                c72.U().h1(w62Var.j);
+                F = hw2.F(fl2Var.g0());
+                boolean p02 = fl2Var.p0();
+                if (!F) {
+                }
+                x03 f2 = vl2.U().f(a43.b(ae3.f(d)));
+                z62Var = new z62();
+                if (gVar == null) {
+                }
+                z62Var.a = ej2.e.i(fl2Var.H(), fl2Var.v1()).getPath() + File.separator;
+                z62Var.b = d;
+                z62Var.d = f2.g;
+                z62Var.c = h;
+                z62Var.k = w62Var.g;
+                z62Var.e = String.valueOf(fl2Var.m0());
+                z62Var.g = z2;
+                z62Var.i = om1Var.M();
+                z62Var.m = true;
+                if (H) {
+                }
+                if (!F) {
+                }
+                if (b) {
+                }
+                nt2.o().F(new UbcFlowEvent("slave_dispatch_start"));
+                i63.d().i("slave_dispatch_start");
+                om1Var.N(z62Var);
+                pd3.d();
+                om1Var.t().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, d);
+                om1Var.T(d);
+                c72.U().V0(om1Var.b(), z62.a(z62Var));
+                s63.F(om1Var.b(), z62Var.b);
+                if (b) {
+                }
+                a(swanAppConfigData);
+                this.a = true;
+                e();
             }
         }
     }
 
-    public static void d(String str, String str2) {
+    public synchronized void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || b.a() == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                this.a = false;
+            }
+        }
+    }
+
+    public final void e() {
+        int b2;
+        e22 W;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (b2 = gu2.b()) == 0 || (W = c72.U().W()) == null) {
             return;
         }
-        b.a().b(str, str2, true);
+        if (b2 < 0) {
+            W.q(b2);
+        } else if (b2 == 1) {
+            W.q(-4);
+        } else {
+            W.q(-2);
+        }
     }
 
-    public static void e(String str, @NonNull String str2, boolean z) {
+    public q52() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65541, null, str, str2, z) == null) {
-            ExecutorUtilsExt.postOnSerial(new a(str2, z, str), "SwanPreLinkWhenPreload");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = false;
     }
 }

@@ -56,9 +56,9 @@ public class jj6 {
                 threadData.parserProtobuf(list.get(i));
                 threadData.parser_title();
                 if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                    dp4 dp4Var = new dp4();
-                    dp4Var.g(threadData.getLegoCard());
-                    linkedList.add(dp4Var);
+                    ep4 ep4Var = new ep4();
+                    ep4Var.g(threadData.getLegoCard());
+                    linkedList.add(ep4Var);
                 } else {
                     linkedList.add(hj6Var);
                 }

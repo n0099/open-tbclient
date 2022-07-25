@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.offline.api.tk.jsbridge.IOfflineCompoBridgeHandler;
 import com.kwad.components.offline.api.tk.jsbridge.IOfflineCompoCallBackFunction;
-import com.kwad.sdk.utils.aj;
+import com.kwad.sdk.utils.am;
 /* loaded from: classes5.dex */
 public final class b implements IOfflineCompoBridgeHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final com.kwad.sdk.core.webview.kwai.a a;
+    public final com.kwad.sdk.core.webview.kwai.a Qo;
 
     public b(com.kwad.sdk.core.webview.kwai.a aVar) {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public final class b implements IOfflineCompoBridgeHandler {
                 return;
             }
         }
-        aj.a(aVar);
-        this.a = aVar;
+        am.checkNotNull(aVar);
+        this.Qo = aVar;
     }
 
     @Override // com.kwad.components.offline.api.tk.jsbridge.IOfflineCompoBridgeHandler
@@ -40,14 +40,14 @@ public final class b implements IOfflineCompoBridgeHandler {
     public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.Qo.getKey() : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.components.offline.api.tk.jsbridge.IOfflineCompoBridgeHandler
     public final void handleJsCall(String str, @NonNull IOfflineCompoCallBackFunction iOfflineCompoCallBackFunction) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, iOfflineCompoCallBackFunction) == null) {
-            this.a.a(str, new a(iOfflineCompoCallBackFunction));
+            this.Qo.a(str, new a(iOfflineCompoCallBackFunction));
         }
     }
 
@@ -55,7 +55,7 @@ public final class b implements IOfflineCompoBridgeHandler {
     public final void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.b();
+            this.Qo.onDestroy();
         }
     }
 }

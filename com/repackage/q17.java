@@ -53,7 +53,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.PbContent;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class q17 extends jx5<i17> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class q17 extends jx5<i17> {
     public boolean y;
     public int z;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements cg5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -164,7 +164,7 @@ public class q17 extends jx5<i17> {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i17Var) == null) {
             ThreadData threadData = i17Var.b;
             ArrayList<MediaData> medias = threadData.getMedias();
-            if (zm4.c().g() && ListUtils.getCount(medias) != 0) {
+            if (an4.c().g() && ListUtils.getCount(medias) != 0) {
                 LinkedList linkedList = new LinkedList();
                 for (int i = 0; i < medias.size(); i++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);
@@ -201,7 +201,7 @@ public class q17 extends jx5<i17> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048580, this, view2, list, i, threadData) == null) {
             if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-                pi.N(this.b.getPageActivity(), R.string.obfuscated_res_0x7f0f0e8a);
+                pi.N(this.b.getPageActivity(), R.string.obfuscated_res_0x7f0f0e73);
                 return;
             }
             ArrayList<String> arrayList = new ArrayList<>();
@@ -266,7 +266,7 @@ public class q17 extends jx5<i17> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d0847 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d0851 : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5
@@ -361,7 +361,7 @@ public class q17 extends jx5<i17> {
             ng5Var.v(pi.f(getContext(), R.dimen.tbds44));
             ng5Var.o(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds7), 1.0f);
             this.r.setLayoutStrategy(ng5Var);
-            this.t = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f09216d);
+            this.t = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f09216f);
             this.s = (ConstrainImageGroup) h.findViewById(R.id.obfuscated_res_0x7f09055d);
             this.s.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10));
             zf5 zf5Var = new zf5(3);
@@ -370,8 +370,8 @@ public class q17 extends jx5<i17> {
             AgreeView agreeView = (AgreeView) h.findViewById(R.id.obfuscated_res_0x7f090559);
             this.o = agreeView;
             agreeView.v();
-            this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09215f);
-            this.q = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f092160);
+            this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092161);
+            this.q = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f092162);
             this.u = h.findViewById(R.id.obfuscated_res_0x7f09055b);
             TbImageView tbImageView = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f090564);
             this.v = tbImageView;
@@ -502,7 +502,7 @@ public class q17 extends jx5<i17> {
         if (StringUtils.isNull(threadData.getForum_name())) {
             this.n.setText(formatTime);
         } else {
-            this.n.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0477), StringHelper.cutChineseAndEnglishWithSuffix(threadData.getForum_name(), 10, StringHelper.STRING_MORE), formatTime));
+            this.n.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0476), StringHelper.cutChineseAndEnglishWithSuffix(threadData.getForum_name(), 10, StringHelper.STRING_MORE), formatTime));
         }
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.q, R.drawable.obfuscated_res_0x7f0809ec, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         String numFormatOverWan = StringHelper.numFormatOverWan(reply_num);

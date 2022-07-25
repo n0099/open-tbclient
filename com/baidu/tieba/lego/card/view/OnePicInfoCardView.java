@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ed7;
-import com.repackage.ga5;
+import com.repackage.ha5;
 import com.repackage.hd7;
 import com.repackage.jc7;
 import com.repackage.rj8;
@@ -187,7 +187,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         LineCountNotifyTextView lineCountNotifyTextView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onePicInfoCard, i) == null) {
-            ga5.a(this.i, getRootView());
+            ha5.a(this.i, getRootView());
             SkinManager.setBackgroundResource(this.m, R.drawable.addresslist_item_bg);
             setTagBg(onePicInfoCard);
             SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0111);
@@ -263,17 +263,17 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01a5, (ViewGroup) null);
             this.m = viewGroup;
-            this.n = (TbImageView) l(viewGroup, R.id.obfuscated_res_0x7f090e5b);
-            this.o = (LineCountNotifyTextView) l(this.m, R.id.obfuscated_res_0x7f091664);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f0907a0);
-            View view2 = (View) l(this.m, R.id.obfuscated_res_0x7f090d7f);
-            this.q = (TextView) l(view2, R.id.obfuscated_res_0x7f090d88);
-            this.r = (LinearLayout) l(view2, R.id.obfuscated_res_0x7f09135e);
-            this.s = (TbImageView) l(view2, R.id.obfuscated_res_0x7f090dc3);
-            this.t = (TextView) l(view2, R.id.obfuscated_res_0x7f091fac);
-            this.u = (LinearLayout) l(view2, R.id.obfuscated_res_0x7f091363);
-            this.v = (TbImageView) l(view2, R.id.obfuscated_res_0x7f090dc4);
-            this.w = (TextView) l(view2, R.id.obfuscated_res_0x7f091fae);
+            this.n = (TbImageView) l(viewGroup, R.id.obfuscated_res_0x7f090e54);
+            this.o = (LineCountNotifyTextView) l(this.m, R.id.obfuscated_res_0x7f09163f);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f09079e);
+            View view2 = (View) l(this.m, R.id.obfuscated_res_0x7f090d78);
+            this.q = (TextView) l(view2, R.id.obfuscated_res_0x7f090d81);
+            this.r = (LinearLayout) l(view2, R.id.obfuscated_res_0x7f09133a);
+            this.s = (TbImageView) l(view2, R.id.obfuscated_res_0x7f090dbc);
+            this.t = (TextView) l(view2, R.id.obfuscated_res_0x7f091fb1);
+            this.u = (LinearLayout) l(view2, R.id.obfuscated_res_0x7f09133f);
+            this.v = (TbImageView) l(view2, R.id.obfuscated_res_0x7f090dbd);
+            this.w = (TextView) l(view2, R.id.obfuscated_res_0x7f091fb2);
             return this.m;
         }
         return (View) invokeV.objValue;

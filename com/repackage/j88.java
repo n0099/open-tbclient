@@ -141,7 +141,7 @@ public class j88 implements QRCodeView.c {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || TextUtils.isEmpty(str)) {
                 return;
             }
-            xt4.k().y("key_gallery_last_image_path", str);
+            yt4.k().y("key_gallery_last_image_path", str);
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
@@ -396,7 +396,7 @@ public class j88 implements QRCodeView.c {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            pi.N(this.b.getPageActivity(), R.string.obfuscated_res_0x7f0f04e8);
+            pi.N(this.b.getPageActivity(), R.string.obfuscated_res_0x7f0f04e4);
             this.b.getPageActivity().finish();
         }
     }
@@ -504,9 +504,9 @@ public class j88 implements QRCodeView.c {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tbPageContext = this.b) == null || tbPageContext.getPageActivity() == null) {
             return;
         }
-        if (Build.VERSION.SDK_INT < 23 || (this.b.getPageActivity().checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") == 0 && this.b.getPageActivity().checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") == 0)) {
+        if (Build.VERSION.SDK_INT < 23 || (this.b.getPageActivity().checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") == 0 && this.b.getPageActivity().checkSelfPermission(com.kuaishou.weapon.p0.h.i) == 0)) {
             String f2 = f(this.b.getPageActivity().getContentResolver());
-            if (TextUtils.isEmpty(f2) || f2.endsWith(".gif") || f2.endsWith(".GIF") || f2.equals(xt4.k().q("key_gallery_last_image_path", null))) {
+            if (TextUtils.isEmpty(f2) || f2.endsWith(".gif") || f2.endsWith(".GIF") || f2.equals(yt4.k().q("key_gallery_last_image_path", null))) {
                 return;
             }
             e eVar = this.e;
@@ -595,7 +595,7 @@ public class j88 implements QRCodeView.c {
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             if (!pi.D()) {
                 this.a.d1();
-                pi.O(this.b.getPageActivity(), this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c2c));
+                pi.O(this.b.getPageActivity(), this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c18));
                 return;
             }
             wo8 wo8Var = this.d;

@@ -22,24 +22,24 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public final class c extends com.kwad.components.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a b;
-    public long c;
-    public boolean d;
+    public long KK;
+    public boolean KQ;
+    public a gX;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Context a;
-        public AdTemplate b;
-        public KsAdWebView.d c;
-        public KsAdWebView.b d;
-        public u.b e;
-        public boolean f;
-        public KsAdWebView.c g;
-        public boolean h;
-        public boolean i;
-        public boolean j;
+        public boolean KN;
+        public boolean KP;
+        public KsAdWebView.b KR;
+        public u.b KS;
+        public boolean KT;
+        public KsAdWebView.c KU;
+        public boolean KV;
+        public AdTemplate mAdTemplate;
+        public final Context mContext;
+        public KsAdWebView.d rb;
 
         public a(Context context) {
             Interceptable interceptable = $ic;
@@ -56,17 +56,27 @@ public final class c extends com.kwad.components.core.webview.kwai.a {
                     return;
                 }
             }
-            this.f = true;
-            this.h = true;
-            this.i = true;
-            this.a = context;
+            this.KT = true;
+            this.KV = true;
+            this.KP = true;
+            this.mContext = context;
+        }
+
+        public final a R(AdTemplate adTemplate) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, adTemplate)) == null) {
+                this.mAdTemplate = adTemplate;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
 
         public final a a(KsAdWebView.b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-                this.d = bVar;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
+                this.KR = bVar;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -75,131 +85,121 @@ public final class c extends com.kwad.components.core.webview.kwai.a {
         public final a a(KsAdWebView.c cVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
-                this.g = cVar;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) {
+                this.KU = cVar;
                 return this;
             }
             return (a) invokeL.objValue;
         }
 
-        public final a a(KsAdWebView.d dVar) {
-            InterceptResult invokeL;
+        public final a aA(boolean z) {
+            InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar)) == null) {
-                this.c = dVar;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+                this.KV = z;
                 return this;
             }
-            return (a) invokeL.objValue;
+            return (a) invokeZ.objValue;
         }
 
-        public final a a(u.b bVar) {
-            InterceptResult invokeL;
+        public final a aB(boolean z) {
+            InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
-                this.e = bVar;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+                this.KT = z;
                 return this;
             }
-            return (a) invokeL.objValue;
+            return (a) invokeZ.objValue;
         }
 
-        public final a a(AdTemplate adTemplate) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, adTemplate)) == null) {
-                this.b = adTemplate;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public final a a(boolean z) {
+        public final a aC(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.h = z;
+                this.KN = true;
                 return this;
             }
             return (a) invokeZ.objValue;
         }
 
-        public final AdTemplate a() {
-            InterceptResult invokeV;
+        public final a b(KsAdWebView.d dVar) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (AdTemplate) invokeV.objValue;
-        }
-
-        public final Context b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (Context) invokeV.objValue;
-        }
-
-        public final a b(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-                this.f = z;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, dVar)) == null) {
+                this.rb = dVar;
                 return this;
             }
-            return (a) invokeZ.objValue;
+            return (a) invokeL.objValue;
         }
 
-        public final KsAdWebView.d c() {
-            InterceptResult invokeV;
+        public final a b(u.b bVar) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : (KsAdWebView.d) invokeV.objValue;
-        }
-
-        public final a c(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-                this.j = true;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bVar)) == null) {
+                this.KS = bVar;
                 return this;
             }
-            return (a) invokeZ.objValue;
+            return (a) invokeL.objValue;
         }
 
-        public final KsAdWebView.b d() {
+        public final AdTemplate getAdTemplate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.d : (KsAdWebView.b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mAdTemplate : (AdTemplate) invokeV.objValue;
         }
 
-        public final u.b e() {
+        public final u.b getClientParams() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.e : (u.b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.KS : (u.b) invokeV.objValue;
         }
 
-        public final boolean f() {
+        public final Context getContext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.h : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mContext : (Context) invokeV.objValue;
         }
 
-        public final boolean g() {
+        public final KsAdWebView.c getOnWebViewScrollChangeListener() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.i : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.KU : (KsAdWebView.c) invokeV.objValue;
         }
 
-        public final boolean h() {
+        public final KsAdWebView.d getWebListener() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.rb : (KsAdWebView.d) invokeV.objValue;
         }
 
-        public final KsAdWebView.c i() {
+        public final KsAdWebView.b kS() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.g : (KsAdWebView.c) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.KR : (KsAdWebView.b) invokeV.objValue;
         }
 
-        public final boolean j() {
+        public final boolean pq() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.j : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.KV : invokeV.booleanValue;
+        }
+
+        public final boolean pr() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.KP : invokeV.booleanValue;
+        }
+
+        public final boolean ps() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.KT : invokeV.booleanValue;
+        }
+
+        public final boolean pt() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.KN : invokeV.booleanValue;
         }
     }
 
@@ -217,90 +217,75 @@ public final class c extends com.kwad.components.core.webview.kwai.a {
         }
     }
 
-    public final a a() {
+    public final void aC(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.mUniqueId = str;
+        }
+    }
+
+    public final a getClientConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (a) invokeV.objValue;
-    }
-
-    public final void a(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public final void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.b = aVar;
-            a(aVar.g());
-        }
-    }
-
-    public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.gX : (a) invokeV.objValue;
     }
 
     @Override // android.webkit.WebViewClient
     public final void onPageFinished(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
             super.onPageFinished(webView, str);
-            com.kwad.components.a.b.b.a(this.a, "onPageFinished");
-            a aVar = this.b;
-            if (aVar != null && aVar.j() && !this.d) {
-                this.d = true;
-                if (this.c > 0) {
-                    if (this.b.e() == null) {
-                        this.b.a(new u.b());
+            com.kwad.components.a.b.b.r(this.mUniqueId, "onPageFinished");
+            a aVar = this.gX;
+            if (aVar != null && aVar.pt() && !this.KQ) {
+                this.KQ = true;
+                if (this.KK > 0) {
+                    if (this.gX.getClientParams() == null) {
+                        this.gX.b(new u.b());
                     }
-                    this.b.e().v = System.currentTimeMillis() - this.c;
-                    this.c = -1L;
+                    this.gX.getClientParams().abR = System.currentTimeMillis() - this.KK;
+                    this.KK = -1L;
                 }
-                com.kwad.sdk.core.report.a.b(this.b.a(), this.b.e());
+                com.kwad.sdk.core.report.a.c(this.gX.getAdTemplate(), this.gX.getClientParams());
             }
-            a aVar2 = this.b;
-            if (aVar2 == null || aVar2.c() == null) {
+            a aVar2 = this.gX;
+            if (aVar2 == null || aVar2.getWebListener() == null) {
                 return;
             }
-            this.b.c().b();
+            this.gX.getWebListener().bw();
         }
     }
 
     @Override // android.webkit.WebViewClient
     public final void onPageStarted(WebView webView, String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, webView, str, bitmap) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, str, bitmap) == null) {
             super.onPageStarted(webView, str, bitmap);
-            com.kwad.components.a.b.b.a(this.a, "onPageStart");
-            a aVar = this.b;
-            if (aVar == null || aVar.c() == null) {
+            com.kwad.components.a.b.b.r(this.mUniqueId, "onPageStart");
+            a aVar = this.gX;
+            if (aVar == null || aVar.getWebListener() == null) {
                 return;
             }
-            this.b.c().a();
+            this.gX.getWebListener().bv();
         }
     }
 
     @Override // android.webkit.WebViewClient
     public final void onReceivedError(WebView webView, int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048582, this, webView, i, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLILL(1048580, this, webView, i, str, str2) == null) {
             super.onReceivedError(webView, i, str, str2);
-            com.kwad.sdk.core.d.b.a("KsAdWebViewClient", "onReceivedError " + i);
-            a aVar = this.b;
-            if (aVar != null && aVar.c() != null) {
-                this.b.c().a(i, str);
+            com.kwad.sdk.core.e.b.d("KsAdWebViewClient", "onReceivedError " + i);
+            a aVar = this.gX;
+            if (aVar != null && aVar.getWebListener() != null) {
+                this.gX.getWebListener().a(i, str, str2);
             }
-            com.kwad.components.a.b.b.b(str2, str);
-            a aVar2 = this.b;
-            if (aVar2 == null || !aVar2.j()) {
+            com.kwad.components.a.b.b.t(str2, str);
+            a aVar2 = this.gX;
+            if (aVar2 == null || !aVar2.pt()) {
                 return;
             }
-            com.kwad.sdk.core.report.a.d(this.b.a(), this.b.e());
+            com.kwad.sdk.core.report.a.e(this.gX.getAdTemplate(), this.gX.getClientParams());
         }
     }
 
@@ -308,10 +293,25 @@ public final class c extends com.kwad.components.core.webview.kwai.a {
     public final boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, renderProcessGoneDetail)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, renderProcessGoneDetail)) == null) {
             return (Build.VERSION.SDK_INT >= 26 && renderProcessGoneDetail != null && renderProcessGoneDetail.didCrash()) || super.onRenderProcessGone(webView, renderProcessGoneDetail);
         }
         return invokeLL.booleanValue;
+    }
+
+    public final void r(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.KK = j;
+        }
+    }
+
+    public final void setClientConfig(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
+            this.gX = aVar;
+            setNeedHybridLoad(aVar.pr());
+        }
     }
 
     @Override // android.webkit.WebViewClient
@@ -319,35 +319,35 @@ public final class c extends com.kwad.components.core.webview.kwai.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, str)) == null) {
-            com.kwad.sdk.core.d.b.e("KsAdWebViewClient", "shouldOverrideUrlLoading url=" + str);
-            com.kwad.components.a.b.b.a(this.a, "shouldOverrideUrlLoading");
+            com.kwad.sdk.core.e.b.e("KsAdWebViewClient", "shouldOverrideUrlLoading url=" + str);
+            com.kwad.components.a.b.b.r(this.mUniqueId, "shouldOverrideUrlLoading");
             try {
             } catch (Exception e) {
-                com.kwad.sdk.core.d.b.a(e);
+                com.kwad.sdk.core.e.b.printStackTrace(e);
             }
             if (!str.startsWith("http") && !str.startsWith("https")) {
                 if (!str.startsWith("tel:") && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
-                    if (this.b != null && this.b.f()) {
-                        int a2 = com.kwad.sdk.core.download.kwai.b.a(this.b.b(), str);
-                        if (a2 == 1) {
-                            if (this.b.d() != null) {
-                                this.b.d().a();
+                    if (this.gX != null && this.gX.pq()) {
+                        int s = com.kwad.sdk.core.download.kwai.b.s(this.gX.getContext(), str);
+                        if (s == 1) {
+                            if (this.gX.kS() != null) {
+                                this.gX.kS().onSuccess();
                             }
-                            com.kwad.sdk.core.report.a.c(this.b.a(), 2);
+                            com.kwad.sdk.core.report.a.j(this.gX.getAdTemplate(), 2);
                             return true;
                         }
-                        if (this.b.d() != null) {
-                            this.b.d().b();
+                        if (this.gX.kS() != null) {
+                            this.gX.kS().kU();
                         }
-                        if (a2 == -1) {
-                            com.kwad.sdk.core.report.a.d(this.b.a(), 2);
+                        if (s == -1) {
+                            com.kwad.sdk.core.report.a.k(this.gX.getAdTemplate(), 2);
                         }
                     }
                     return true;
                 }
                 Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-                if (this.b != null) {
-                    this.b.b().startActivity(intent);
+                if (this.gX != null) {
+                    this.gX.getContext().startActivity(intent);
                 }
                 return true;
             }

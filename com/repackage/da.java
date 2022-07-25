@@ -153,9 +153,9 @@ public class da {
             int i3 = a - i2;
             Application app = BdBaseApplication.getInst().getApp();
             if (i3 > -300 && i3 <= -200) {
-                return app.getString(R.string.obfuscated_res_0x7f0f08ba);
+                return app.getString(R.string.obfuscated_res_0x7f0f08a5);
             }
-            return app.getString(R.string.obfuscated_res_0x7f0f08bb);
+            return app.getString(R.string.obfuscated_res_0x7f0f08a6);
         }
         return (String) invokeI.objValue;
     }

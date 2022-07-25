@@ -32,7 +32,6 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -55,7 +54,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import java.lang.reflect.Method;
 import java.util.Date;
 /* loaded from: classes5.dex */
@@ -281,7 +280,7 @@ public class a68 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ v a;
@@ -310,12 +309,12 @@ public class a68 {
             this.c = str2;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.d.f1();
-                cr4Var.dismiss();
+                dr4Var.dismiss();
                 this.d.O1(this.a, false, this.b, this.c);
             }
         }
@@ -331,7 +330,7 @@ public class a68 {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements cr4.e {
+    public class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -351,11 +350,11 @@ public class a68 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -684,7 +683,7 @@ public class a68 {
     }
 
     /* loaded from: classes5.dex */
-    public class j extends km4 {
+    public class j extends lm4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a68 a;
@@ -707,7 +706,7 @@ public class a68 {
             this.a = a68Var;
         }
 
-        @Override // com.repackage.km4, android.app.Application.ActivityLifecycleCallbacks
+        @Override // com.repackage.lm4, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity == this.a.E0) {
@@ -1483,7 +1482,7 @@ public class a68 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             try {
-                Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class);
+                Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
                 declaredMethod.setAccessible(true);
                 return (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
             } catch (Throwable unused) {
@@ -1843,48 +1842,48 @@ public class a68 {
             p68 p68Var = new p68((ViewGroup) this.e.findViewById(R.id.obfuscated_res_0x7f0902e4));
             this.g = p68Var;
             p68Var.f(this.H0);
-            VideoListMediaControllerView videoListMediaControllerView = (VideoListMediaControllerView) this.e.findViewById(R.id.obfuscated_res_0x7f09142c);
+            VideoListMediaControllerView videoListMediaControllerView = (VideoListMediaControllerView) this.e.findViewById(R.id.obfuscated_res_0x7f091408);
             this.h = videoListMediaControllerView;
             videoListMediaControllerView.setPlayer(this.f.getControl());
-            ProgressBar progressBar = (ProgressBar) this.e.findViewById(R.id.obfuscated_res_0x7f0918c5);
+            ProgressBar progressBar = (ProgressBar) this.e.findViewById(R.id.obfuscated_res_0x7f0918a0);
             this.i = progressBar;
             progressBar.setMax(pi.k(this.E0));
             this.i.setProgress(0);
             this.h.setOnSeekBarChangeListener(this.S0);
             this.h.setOnProgressUpdatedListener(this.R0);
             this.j = this.e.findViewById(R.id.obfuscated_res_0x7f090380);
-            View findViewById = this.e.findViewById(R.id.obfuscated_res_0x7f091236);
+            View findViewById = this.e.findViewById(R.id.obfuscated_res_0x7f091212);
             this.k = findViewById;
             findViewById.setOnClickListener(this.N0);
-            this.l = (FrameLayout) this.e.findViewById(R.id.obfuscated_res_0x7f090730);
-            ImageView imageView = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090e83);
+            this.l = (FrameLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09072f);
+            ImageView imageView = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090e7c);
             this.n = imageView;
             imageView.setOnClickListener(this.N0);
-            this.o = this.e.findViewById(R.id.obfuscated_res_0x7f091247);
-            this.p = this.e.findViewById(R.id.obfuscated_res_0x7f092092);
+            this.o = this.e.findViewById(R.id.obfuscated_res_0x7f091223);
+            this.p = this.e.findViewById(R.id.obfuscated_res_0x7f092096);
             this.f.getControl().setContinuePlayEnable(true);
             this.f.getControl().setOperableVideoContainer(this.G0);
             this.f.getControl().setOnSurfaceDestroyedListener(this.L0);
-            SwitchImageView switchImageView = (SwitchImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090e9a);
+            SwitchImageView switchImageView = (SwitchImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090e93);
             this.t = switchImageView;
             switchImageView.setStateImage(R.drawable.obfuscated_res_0x7f08035f, R.drawable.obfuscated_res_0x7f080361);
             this.t.setState(0);
             this.t.setOnClickListener(this.N0);
-            TextView textView = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0922c6);
+            TextView textView = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0922c8);
             this.u = textView;
             textView.setOnClickListener(this.N0);
-            TextView textView2 = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0922c4);
+            TextView textView2 = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0922c6);
             this.v = textView2;
             textView2.setOnClickListener(this.N0);
-            this.w = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0922c3);
-            TbImageView tbImageView = (TbImageView) this.e.findViewById(R.id.obfuscated_res_0x7f0923fb);
+            this.w = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0922c5);
+            TbImageView tbImageView = (TbImageView) this.e.findViewById(R.id.obfuscated_res_0x7f0923fd);
             this.A = tbImageView;
-            tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f0e);
-            ImageView imageView2 = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090e7e);
+            tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f15);
+            ImageView imageView2 = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090e77);
             this.E = imageView2;
             imageView2.setOnClickListener(this.N0);
-            this.F = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0923fd);
-            View findViewById2 = this.e.findViewById(R.id.obfuscated_res_0x7f091257);
+            this.F = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0923ff);
+            View findViewById2 = this.e.findViewById(R.id.obfuscated_res_0x7f091233);
             this.q = findViewById2;
             findViewById2.setVisibility(8);
             this.L = AnimationUtils.loadAnimation(this.E0, R.anim.obfuscated_res_0x7f010035);
@@ -1966,7 +1965,7 @@ public class a68 {
         if (interceptable == null || interceptable.invokeLLLL(1048608, this, str, str2, vVar, objArr) == null) {
             K1();
             if (ni.x() && !dq8.c().d() && !TbSingleton.getInstance().hasAgreeToPlay()) {
-                Date date = new Date(xt4.k().m("video_list_confirm_play_in_mobile_net", 0L));
+                Date date = new Date(yt4.k().m("video_list_confirm_play_in_mobile_net", 0L));
                 Date date2 = new Date();
                 if (objArr != null && objArr.length > 0 && (objArr[0] instanceof Boolean)) {
                     this.v0 = ((Boolean) objArr[0]).booleanValue();
@@ -1979,7 +1978,7 @@ public class a68 {
                     }
                     if (!this.b) {
                         this.b = true;
-                        pi.N(this.E0, R.string.obfuscated_res_0x7f0f0e74);
+                        pi.N(this.E0, R.string.obfuscated_res_0x7f0f0e5d);
                     }
                     O1(vVar, true, str, str2);
                     return;
@@ -1989,11 +1988,11 @@ public class a68 {
                     wVar2.a(false);
                     return;
                 }
-                cr4 cr4Var = new cr4(this.E0);
-                cr4Var.setMessage(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e73));
-                cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0528, new b(this, vVar, str, str2));
-                cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0527, new c(this));
-                cr4Var.create(this.c).show();
+                dr4 dr4Var = new dr4(this.E0);
+                dr4Var.setMessage(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e5c));
+                dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0524, new b(this, vVar, str, str2));
+                dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0523, new c(this));
+                dr4Var.create(this.c).show();
                 return;
             }
             O1(vVar, true, str, str2);
@@ -2362,7 +2361,7 @@ public class a68 {
     public void f1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048629, this) == null) {
-            xt4.k().x("video_list_confirm_play_in_mobile_net", System.currentTimeMillis());
+            yt4.k().x("video_list_confirm_play_in_mobile_net", System.currentTimeMillis());
         }
     }
 
@@ -2446,17 +2445,17 @@ public class a68 {
             if (i2 == 1) {
                 if (this.Q == null && (view3 = this.e) != null && (view3 instanceof ViewGroup)) {
                     LayoutInflater.from(this.E0).inflate(R.layout.obfuscated_res_0x7f0d028a, (ViewGroup) this.e, true);
-                    View findViewById = this.e.findViewById(R.id.obfuscated_res_0x7f09120f);
+                    View findViewById = this.e.findViewById(R.id.obfuscated_res_0x7f0911eb);
                     this.Q = findViewById;
-                    this.S = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091d83);
+                    this.S = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091d89);
                     this.V = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0902a4);
                 }
             } else if (i2 == 2 && this.R == null && (view2 = this.e) != null && (view2 instanceof ViewGroup)) {
                 LayoutInflater.from(this.E0).inflate(R.layout.obfuscated_res_0x7f0d028b, (ViewGroup) this.e, true);
-                View findViewById2 = this.e.findViewById(R.id.obfuscated_res_0x7f091218);
+                View findViewById2 = this.e.findViewById(R.id.obfuscated_res_0x7f0911f4);
                 this.R = findViewById2;
                 this.U = (ImageView) findViewById2.findViewById(R.id.obfuscated_res_0x7f0902aa);
-                this.T = (SeekBar) this.R.findViewById(R.id.obfuscated_res_0x7f091d85);
+                this.T = (SeekBar) this.R.findViewById(R.id.obfuscated_res_0x7f091d8b);
             }
         }
     }
@@ -2703,7 +2702,7 @@ public class a68 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048657, this) == null) {
             this.s = true;
-            this.e.setLayoutParams(new FrameLayout.LayoutParams(Integer.parseInt(bd5.d().g(this.E0)), Integer.parseInt(bd5.d().f(this.E0))));
+            this.e.setLayoutParams(new FrameLayout.LayoutParams(Integer.parseInt(cd5.d().g(this.E0)), Integer.parseInt(cd5.d().f(this.E0))));
             A0(this.E0, true);
             this.q.setVisibility(0);
             this.E.setVisibility(0);

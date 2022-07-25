@@ -56,8 +56,8 @@ public class f18 extends an<v18, CardViewHolder<d28>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, v18Var, cardViewHolder})) == null) {
-            cardViewHolder.c().i(v18Var);
-            return cardViewHolder.b();
+            cardViewHolder.b().i(v18Var);
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

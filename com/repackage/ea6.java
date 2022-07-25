@@ -25,21 +25,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ea6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
     public BdTypeListView b;
-    public gu4 c;
+    public hu4 c;
     public RelativeLayout d;
     public NoNetworkView e;
     public PbListView f;
     public o96 g;
     public ForumEmotionVoteEntryView h;
-    public j55 i;
+    public k55 i;
     public NoDataView j;
     public LinearLayout k;
 
@@ -61,14 +61,14 @@ public class ea6 {
         this.a = tbPageContext;
         RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02d1, (ViewGroup) null);
         this.d = relativeLayout;
-        this.e = (NoNetworkView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091607);
-        BdTypeListView bdTypeListView = (BdTypeListView) this.d.findViewById(R.id.obfuscated_res_0x7f090a11);
+        this.e = (NoNetworkView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0915e2);
+        BdTypeListView bdTypeListView = (BdTypeListView) this.d.findViewById(R.id.obfuscated_res_0x7f090a0a);
         this.b = bdTypeListView;
         bdTypeListView.addHeaderView(this.k);
         this.b.setDivider(null);
-        gu4 gu4Var = new gu4(this.a);
-        this.c = gu4Var;
-        gu4Var.b0(bdUniqueId);
+        hu4 hu4Var = new hu4(this.a);
+        this.c = hu4Var;
+        hu4Var.b0(bdUniqueId);
         this.b.setPullRefresh(this.c);
         PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
         this.f = pbListView;
@@ -122,12 +122,12 @@ public class ea6 {
     }
 
     public void g() {
-        j55 j55Var;
+        k55 k55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (j55Var = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (k55Var = this.i) == null) {
             return;
         }
-        j55Var.dettachView(this.d);
+        k55Var.dettachView(this.d);
         this.i = null;
     }
 
@@ -206,7 +206,7 @@ public class ea6 {
         }
     }
 
-    public void n(fu4.g gVar) {
+    public void n(gu4.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, gVar) == null) {
             this.c.f(gVar);
@@ -239,9 +239,9 @@ public class ea6 {
         if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (tbPageContext = this.a) == null || this.d == null) {
             return;
         }
-        j55 j55Var = new j55(tbPageContext.getPageActivity());
-        this.i = j55Var;
-        j55Var.attachView(this.d, false);
+        k55 k55Var = new k55(tbPageContext.getPageActivity());
+        this.i = k55Var;
+        k55Var.attachView(this.d, false);
         this.i.onChangeSkinType();
     }
 
@@ -249,7 +249,7 @@ public class ea6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             if (this.j == null) {
-                this.j = NoDataViewFactory.b(this.a.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070238)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f054e)), null, true);
+                this.j = NoDataViewFactory.b(this.a.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070236)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f054a)), null, true);
             }
             this.j.setVisibility(0);
             this.g.c().setVisibility(4);
@@ -267,7 +267,7 @@ public class ea6 {
         if (pbListView.b().getParent() == null) {
             this.b.setNextPage(this.f);
         }
-        this.f.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e7));
+        this.f.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09d3));
         this.f.f();
     }
 }

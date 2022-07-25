@@ -26,7 +26,7 @@ public final class a implements c.a {
     }
 
     @Override // com.kwai.filedownloader.e.c.a
-    public final int a(long j) {
+    public final int V(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {

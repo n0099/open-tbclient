@@ -16,22 +16,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup a;
     @Nullable
-    public TextView b;
+    public ImageView CO;
     @Nullable
-    public ImageView c;
+    public ImageView CP;
     @Nullable
-    public ImageView d;
+    public InterfaceC0358a CQ;
     @Nullable
-    public InterfaceC0513a e;
+    public TextView mTitle;
+    public ViewGroup pV;
 
     /* renamed from: com.kwad.components.core.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0513a {
-        void a(View view2);
+    public interface InterfaceC0358a {
+        void r(View view2);
 
-        void b(View view2);
+        void s(View view2);
     }
 
     public a(ViewGroup viewGroup) {
@@ -52,57 +52,57 @@ public final class a implements View.OnClickListener {
         if (viewGroup == null) {
             return;
         }
-        ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f09107b);
-        this.a = viewGroup2;
+        ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f091072);
+        this.pV = viewGroup2;
         if (viewGroup2 == null) {
             return;
         }
-        a();
+        initView();
     }
 
-    private void a() {
+    private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091078);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091079);
-            ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09107a);
-            this.d = imageView;
+            this.mTitle = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09106f);
+            this.CO = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091070);
+            ImageView imageView = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091071);
+            this.CP = imageView;
             imageView.setOnClickListener(this);
-            this.c.setOnClickListener(this);
+            this.CO.setOnClickListener(this);
         }
     }
 
-    public final void a(@Nullable InterfaceC0513a interfaceC0513a) {
+    public final void a(@Nullable InterfaceC0358a interfaceC0358a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0513a) == null) {
-            this.e = interfaceC0513a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0358a) == null) {
+            this.CQ = interfaceC0358a;
         }
     }
 
     public final void a(b bVar) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || this.a == null || (textView = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || this.pV == null || (textView = this.mTitle) == null) {
             return;
         }
-        textView.setText(bVar.a());
+        textView.setText(bVar.getTitle());
     }
 
     @MainThread
-    public final void a(boolean z) {
+    public final void ag(boolean z) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (imageView = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (imageView = this.CP) == null) {
             return;
         }
         imageView.setVisibility(z ? 0 : 8);
     }
 
     @MainThread
-    public final void b(boolean z) {
+    public final void ah(boolean z) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (imageView = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (imageView = this.CO) == null) {
             return;
         }
         imageView.setVisibility(z ? 0 : 8);
@@ -111,13 +111,13 @@ public final class a implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public final void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || this.e == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || this.CQ == null) {
             return;
         }
-        if (view2.equals(this.d)) {
-            this.e.b(view2);
-        } else if (view2.equals(this.c)) {
-            this.e.a(view2);
+        if (view2.equals(this.CP)) {
+            this.CQ.s(view2);
+        } else if (view2.equals(this.CO)) {
+            this.CQ.r(view2);
         }
     }
 }

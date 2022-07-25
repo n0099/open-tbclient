@@ -1,122 +1,155 @@
 package com.repackage;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.view.View;
-import androidx.annotation.NonNull;
+import android.content.Intent;
+import android.os.Build;
+import android.util.Log;
+import android.view.Window;
+import android.widget.Toast;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.android.ActivityUtils;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rc3 {
+public final class rc3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-
-        public a(View view2) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755355185, "Lcom/repackage/rc3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = view2;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.setTranslationX(0.0f);
-            }
-        }
-    }
-
-    public static void a(qz1 qz1Var, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, qz1Var, context) == null) {
-            b(qz1Var, context, 2);
-        }
-    }
-
-    public static void b(qz1 qz1Var, Context context, int i) {
-        View U;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65537, null, qz1Var, context, i) == null) || qz1Var == null || qz1Var.k() < i) {
-            return;
-        }
-        nz1 j = qz1Var.j(qz1Var.k() - i);
-        nz1 m = qz1Var.m();
-        if (m == null || !m.D0) {
-            float o = yd3.o(context) >> 2;
-            if (j == null || (U = j.U()) == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755355185, "Lcom/repackage/rc3;");
                 return;
             }
-            ObjectAnimator.ofFloat(U, "translationX", -o, 0.0f).setDuration(300L).start();
+        }
+        a = sg1.a;
+    }
+
+    public static void a(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, activity) == null) || activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
+            return;
+        }
+        Window window = activity.getWindow();
+        window.clearFlags(1024);
+        int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (~c());
+        if (ez2.b) {
+            systemUiVisibility |= 5120;
+        }
+        window.getDecorView().setSystemUiVisibility(systemUiVisibility);
+    }
+
+    public static void b(Activity activity, Dialog dialog) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, activity, dialog) == null) || activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null || dialog == null || dialog.getWindow() == null || dialog.getWindow().getDecorView() == null) {
+            return;
+        }
+        dialog.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility());
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return 5894;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean d(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) ? (activity == null || activity.isDestroyed() || activity.isFinishing()) ? false : true : invokeL.booleanValue;
+    }
+
+    public static void e(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65541, null, activity) == null) || activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
+            return;
+        }
+        Window window = activity.getWindow();
+        window.setFlags(1024, 1024);
+        window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | c());
+    }
+
+    public static void f(Activity activity, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, activity, intent) == null) {
+            h(activity, intent, true);
         }
     }
 
-    public static void c(qz1 qz1Var, Context context) {
-        View U;
+    public static boolean g(Context context, Intent intent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, qz1Var, context) == null) || qz1Var == null || qz1Var.k() < 2) {
-            return;
-        }
-        nz1 j = qz1Var.j(qz1Var.k() - 2);
-        float o = yd3.o(context) >> 2;
-        if (j == null || (U = j.U()) == null) {
-            return;
-        }
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(U, "translationX", 0.0f, -o);
-        ofFloat.setDuration(300L).start();
-        ofFloat.addListener(new a(U));
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, intent)) == null) ? h(context, intent, false) : invokeLL.booleanValue;
     }
 
-    public static void d(@NonNull de4 de4Var, String str, int i, int i2) {
+    public static boolean h(Context context, Intent intent, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLII(65539, null, de4Var, str, i, i2) == null) || de4Var == null) {
-            return;
-        }
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1876181062) {
-            if (hashCode != -983638536) {
-                if (hashCode == 1528366175 && str.equals("showModalPage")) {
-                    c = 1;
-                }
-            } else if (str.equals("navigateBack")) {
-                c = 0;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, context, intent, z)) == null) ? i(context, intent, z, true) : invokeLLZ.booleanValue;
+    }
+
+    public static boolean i(Context context, Intent intent, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (z || !(context instanceof Activity)) {
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
-        } else if (str.equals("hideModalPage")) {
-            c = 2;
+            try {
+                context.startActivity(intent);
+                return true;
+            } catch (ActivityNotFoundException unused) {
+                if (z2) {
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f11ee, 0).show();
+                    return false;
+                }
+                return false;
+            } catch (SecurityException e) {
+                if (z2) {
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f11ee, 0).show();
+                }
+                if (a) {
+                    Log.e(ActivityUtils.TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e);
+                    return false;
+                }
+                return false;
+            }
         }
-        if (c != 0) {
-            if (c == 1 || c == 2) {
+        return invokeCommon.booleanValue;
+    }
+
+    public static void j(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, activity) == null) {
+            if (a) {
+                Log.i(ActivityUtils.TAG, "tryFinishAndRemoveTask: " + activity);
+            }
+            if (activity == null || activity.isDestroyed()) {
                 return;
             }
-            de4Var.i(i, i2);
-            return;
-        }
-        qz1 V = ul2.U().V();
-        nz1 j = V.j(V.k() - 1);
-        if (j == null || !j.D0) {
-            de4Var.i(i, i2);
+            if (Build.VERSION.SDK_INT >= 21) {
+                activity.finishAndRemoveTask();
+            } else {
+                activity.finish();
+            }
         }
     }
 }

@@ -33,26 +33,26 @@ public class d {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, map, bVar, list)) == null) {
-            int e = bVar.e();
-            String a = bVar.a(Headers.LOCATION);
+            int responseCode = bVar.getResponseCode();
+            String p = bVar.p(Headers.LOCATION);
             ArrayList arrayList = new ArrayList();
             int i = 0;
-            while (a(e)) {
-                if (a == null) {
-                    throw new IllegalAccessException(f.a("receive %d (redirect) but the location is null with response [%s]", Integer.valueOf(e), bVar.c()));
+            while (cb(responseCode)) {
+                if (p == null) {
+                    throw new IllegalAccessException(f.h("receive %d (redirect) but the location is null with response [%s]", Integer.valueOf(responseCode), bVar.V()));
                 }
-                if (com.kwai.filedownloader.e.d.a) {
-                    com.kwai.filedownloader.e.d.c(d.class, "redirect to %s with %d, %s", a, Integer.valueOf(e), arrayList);
+                if (com.kwai.filedownloader.e.d.awL) {
+                    com.kwai.filedownloader.e.d.e(d.class, "redirect to %s with %d, %s", p, Integer.valueOf(responseCode), arrayList);
                 }
-                bVar.f();
-                bVar = a(map, a);
-                arrayList.add(a);
-                bVar.d();
-                e = bVar.e();
-                a = bVar.a(Headers.LOCATION);
+                bVar.W();
+                bVar = b(map, p);
+                arrayList.add(p);
+                bVar.execute();
+                responseCode = bVar.getResponseCode();
+                p = bVar.p(Headers.LOCATION);
                 i++;
                 if (i >= 10) {
-                    throw new IllegalAccessException(f.a("redirect too many times! %s", arrayList));
+                    throw new IllegalAccessException(f.h("redirect too many times! %s", arrayList));
                 }
             }
             if (list != null) {
@@ -63,26 +63,26 @@ public class d {
         return (b) invokeLLL.objValue;
     }
 
-    public static b a(Map<String, List<String>> map, String str) {
+    public static b b(Map<String, List<String>> map, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, map, str)) == null) {
-            b a = com.kwai.filedownloader.download.b.a().a(str);
+            b et = com.kwai.filedownloader.download.b.Dp().et(str);
             for (Map.Entry<String, List<String>> entry : map.entrySet()) {
                 String key = entry.getKey();
                 List<String> value = entry.getValue();
                 if (value != null) {
                     for (String str2 : value) {
-                        a.a(key, str2);
+                        et.addHeader(key, str2);
                     }
                 }
             }
-            return a;
+            return et;
         }
         return (b) invokeLL.objValue;
     }
 
-    public static boolean a(int i) {
+    public static boolean cb(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == 301 || i == 302 || i == 303 || i == 300 || i == 307 || i == 308 : invokeI.booleanValue;

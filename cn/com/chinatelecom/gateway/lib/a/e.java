@@ -74,7 +74,7 @@ public class e {
             int length = charArray.length / 2;
             byte[] bArr = new byte[length];
             for (int i = 0; i < length; i++) {
-                int i2 = i * 2;
+                int i2 = i << 1;
                 int digit = Character.digit(charArray[i2 + 1], 16) | (Character.digit(charArray[i2], 16) << 4);
                 if (digit > 127) {
                     digit -= 256;

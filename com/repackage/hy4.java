@@ -1,7 +1,7 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +10,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.FrsPage.DataRes;
 /* loaded from: classes6.dex */
 public class hy4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final hy4 b;
+    public static final hy4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
+    public String a;
+    public String b;
+    public final boolean c;
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +32,7 @@ public class hy4 {
                 return;
             }
         }
-        b = new hy4(false);
+        d = new hy4(false);
     }
 
     public hy4(boolean z) {
@@ -49,32 +50,69 @@ public class hy4 {
                 return;
             }
         }
-        this.a = z;
+        this.a = "";
+        this.b = "";
+        this.c = z;
     }
 
-    @NonNull
-    public static hy4 b(@Nullable JSONObject jSONObject) {
+    public static hy4 e(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            return new hy4((jSONObject != null ? jSONObject.optInt("voice_room_config") : 0) == 1);
+            if (jSONObject == null) {
+                return d;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("video_activity");
+            if (optJSONObject != null) {
+                String optString = optJSONObject.optString("image_url");
+                String optString2 = optJSONObject.optString("url");
+                if (!StringUtils.isNull(optString) && !StringUtils.isNull(optString2)) {
+                    hy4 hy4Var = new hy4(true);
+                    hy4Var.g(optString);
+                    hy4Var.f(optString2);
+                    return hy4Var;
+                }
+            }
+            return d;
         }
         return (hy4) invokeL.objValue;
     }
 
-    @NonNull
-    public static hy4 c(@Nullable DataRes dataRes) {
+    public boolean a(hy4 hy4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, dataRes)) == null) {
-            return new hy4((dataRes != null ? dataRes.voice_room_config.intValue() : 0) == 1);
-        }
-        return (hy4) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hy4Var)) == null) ? this.b.equals(hy4Var.b()) && this.a.equals(hy4Var.c()) : invokeL.booleanValue;
     }
 
-    public boolean a() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a = str;
+        }
     }
 }

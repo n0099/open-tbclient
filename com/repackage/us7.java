@@ -298,7 +298,7 @@ public class us7 {
             int intExtra2 = intent.getIntExtra("sort_type", -1);
             r = intExtra2;
             if (intExtra2 < 0) {
-                intExtra2 = xt4.k().l("key_pb_current_sort_type", 2);
+                intExtra2 = yt4.k().l("key_pb_current_sort_type", 2);
             }
             r = intExtra2;
             m = intExtra2 != 2 ? m : "0";
@@ -500,7 +500,7 @@ public class us7 {
             PbPageRequestMessage pbPageRequestMessage = new PbPageRequestMessage();
             pbPageRequestMessage.setUpdateType(3);
             pbPageRequestMessage.setIsReqAd(1);
-            pbPageRequestMessage.setLastids(z05.l);
+            pbPageRequestMessage.setLastids(a15.l);
             if (p || u) {
                 C = false;
             }

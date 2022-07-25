@@ -40,8 +40,8 @@ public class q87 implements CustomMessageTask.CustomRunnable<Object> {
                 return null;
             }
             String str = ResponseGroupsByUidMessage.CACHE_KEY_PREFIX + (TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "");
-            br4.f();
-            byte[] bArr = br4.d("tb.im_entergroup").get(str);
+            cr4.f();
+            byte[] bArr = cr4.d("tb.im_entergroup").get(str);
             ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = new ResponseGroupsByUidLocalMessage();
             if (bArr != null) {
                 try {

@@ -74,7 +74,7 @@ public class nc8 extends b9<SystemHelpSettingActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) && view2 == this.a.h.getSwitchView()) {
                 boolean z = BdSwitchView.SwitchState.ON == switchState;
-                xt4 k = xt4.k();
+                yt4 k = yt4.k();
                 k.u("recnbar" + TbadkCoreApplication.getCurrentAccount(), !z);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921347, Boolean.valueOf(z)));
                 this.a.a.C1("recnbar", z ^ true);
@@ -145,10 +145,10 @@ public class nc8 extends b9<SystemHelpSettingActivity> {
         this.q = new a(this);
         new b(this, 2001303);
         this.a = systemHelpSettingActivity;
-        systemHelpSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d07f1);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f092437);
+        systemHelpSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d07fb);
+        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f092439);
         this.p = navigationBar;
-        navigationBar.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1354));
+        navigationBar.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1303));
         this.p.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090615);
         this.c = tbSettingTextTipView;
@@ -158,42 +158,42 @@ public class nc8 extends b9<SystemHelpSettingActivity> {
         this.d = tbSettingTextTipView2;
         tbSettingTextTipView2.c();
         this.d.setOnClickListener(this.a);
-        this.e = (BdSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f090f70);
+        this.e = (BdSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f090f69);
         pi.b(this.a.getPageContext().getPageActivity(), this.e, 10, 10, 10, 10);
         this.e.setOnSwitchStateChangeListener(this.a);
-        this.f = (BdSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f091d26);
+        this.f = (BdSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f091d2c);
         pi.b(this.a.getPageContext().getPageActivity(), this.f, 10, 10, 10, 10);
         this.f.setOnSwitchStateChangeListener(this.a);
-        this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09073b);
-        this.j = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091eb4);
-        this.k = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091eb6);
-        this.l = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091eb5);
-        this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f53);
-        this.m = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f54);
-        this.n = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091eb3);
-        if (tm4.h()) {
+        this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09073a);
+        this.j = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091eb8);
+        this.k = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091eba);
+        this.l = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091eb9);
+        this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f4c);
+        this.m = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f4d);
+        this.n = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091eb7);
+        if (um4.h()) {
             this.i.setVisibility(0);
         } else {
             this.i.setVisibility(8);
         }
         this.i.c();
         this.i.setOnClickListener(this.a);
-        this.b = this.a.findViewById(R.id.obfuscated_res_0x7f0916ba);
+        this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091695);
         if (TbadkCoreApplication.isLogin()) {
             this.d.setVisibility(0);
         } else {
             this.d.setVisibility(8);
         }
-        TbSettingTextNewDotView tbSettingTextNewDotView = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(R.id.obfuscated_res_0x7f091e70);
+        TbSettingTextNewDotView tbSettingTextNewDotView = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(R.id.obfuscated_res_0x7f091e74);
         this.g = tbSettingTextNewDotView;
         tbSettingTextNewDotView.setOnClickListener(this.a);
         this.g.setVisibility(0);
-        MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f091a7a);
+        MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f091a54);
         this.h = msgSettingItemView;
         msgSettingItemView.setLineVisibility(false);
-        this.h.setText(R.string.obfuscated_res_0x7f0f0edf);
+        this.h.setText(R.string.obfuscated_res_0x7f0f0ec8);
         this.h.setOnSwitchStateChangeListener(this.q);
-        xt4 k = xt4.k();
+        yt4 k = yt4.k();
         p(k.h("recnbar" + TbadkCoreApplication.getCurrentAccount(), false));
     }
 
@@ -243,12 +243,12 @@ public class nc8 extends b9<SystemHelpSettingActivity> {
             this.f.b();
             this.h.c(this.a.getPageContext(), i);
             SkinManager.setBackgroundResource(this.c, R.drawable.more_all);
-            ur4.d(this.j).v(R.color.CAM_X0205);
-            ur4.d(this.k).v(R.color.CAM_X0205);
-            ur4.d(this.l).v(R.color.CAM_X0105);
-            ur4.d(this.m).v(R.color.CAM_X0109);
-            ur4.d(this.n).v(R.color.CAM_X0108);
-            ur4.d(this.o).v(R.color.CAM_X0105);
+            vr4.d(this.j).v(R.color.CAM_X0205);
+            vr4.d(this.k).v(R.color.CAM_X0205);
+            vr4.d(this.l).v(R.color.CAM_X0105);
+            vr4.d(this.m).v(R.color.CAM_X0109);
+            vr4.d(this.n).v(R.color.CAM_X0108);
+            vr4.d(this.o).v(R.color.CAM_X0105);
         }
     }
 

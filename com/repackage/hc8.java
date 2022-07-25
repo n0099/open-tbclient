@@ -53,7 +53,7 @@ public class hc8 extends b9<AdSettingActivity> {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d.setText(R.string.obfuscated_res_0x7f0f0a9d);
+            this.d.setText(R.string.obfuscated_res_0x7f0f0a89);
             this.d.setOnSwitchStateChangeListener(this.a);
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             int i2 = 0;
@@ -78,16 +78,16 @@ public class hc8 extends b9<AdSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d006b);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f092439);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f00a8));
-            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f09143a);
+            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f091416);
             this.d = msgSettingItemView;
             msgSettingItemView.setLineVisibility(false);
-            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09143b);
+            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091417);
             this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0902a0);
-            this.b = this.a.findViewById(R.id.obfuscated_res_0x7f0916ba);
+            this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091695);
             a();
         }
     }

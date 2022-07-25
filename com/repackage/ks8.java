@@ -23,7 +23,7 @@ public class ks8 {
                 return;
             }
         }
-        xt4.k().l("nani_key_download_show_position", 3);
+        yt4.k().l("nani_key_download_show_position", 3);
         new HashSet();
     }
 }

@@ -16,16 +16,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y15;
+import com.repackage.z15;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class v86 extends y15 {
+public class v86 extends z15 {
     public static /* synthetic */ Interceptable $ic;
     public static v86 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<b25> a;
+    public LinkedList<c25> a;
     public final CustomMessageListener b;
 
     /* loaded from: classes7.dex */
@@ -36,12 +36,12 @@ public class v86 extends y15 {
 
         /* renamed from: com.repackage.v86$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0745a implements Runnable {
+        public class RunnableC0593a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0745a(a aVar) {
+            public RunnableC0593a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public class v86 extends y15 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 this.a.d();
-                new Thread(new RunnableC0745a(this)).start();
+                new Thread(new RunnableC0593a(this)).start();
             }
         }
     }
@@ -133,15 +133,15 @@ public class v86 extends y15 {
         return (v86) invokeV.objValue;
     }
 
-    @Override // com.repackage.y15
-    public void b(y15.a aVar) {
+    @Override // com.repackage.z15
+    public void b(z15.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD() && MemeDiyEnableSwitch.isOn()) {
-            LinkedList<b25> linkedList = this.a;
+            LinkedList<c25> linkedList = this.a;
             if (linkedList != null && !linkedList.isEmpty()) {
-                Iterator<b25> it = this.a.iterator();
+                Iterator<c25> it = this.a.iterator();
                 while (it.hasNext()) {
-                    b25 next = it.next();
+                    c25 next = it.next();
                     if (aVar != null) {
                         aVar.a(next);
                     }
@@ -157,7 +157,7 @@ public class v86 extends y15 {
         }
     }
 
-    @Override // com.repackage.y15
+    @Override // com.repackage.z15
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -167,7 +167,7 @@ public class v86 extends y15 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.y15
+    @Override // com.repackage.z15
     public void d() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
@@ -194,13 +194,13 @@ public class v86 extends y15 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            LinkedList<b25> linkedList = this.a;
+            LinkedList<c25> linkedList = this.a;
             if (linkedList == null) {
                 return false;
             }
-            Iterator<b25> it = linkedList.iterator();
+            Iterator<c25> it = linkedList.iterator();
             while (it.hasNext()) {
-                b25 next = it.next();
+                c25 next = it.next();
                 if (next instanceof u86) {
                     return ((u86) next).w(str);
                 }
@@ -217,9 +217,9 @@ public class v86 extends y15 {
                 if (this.a == null) {
                     return;
                 }
-                Iterator<b25> it = this.a.iterator();
+                Iterator<c25> it = this.a.iterator();
                 while (it.hasNext()) {
-                    b25 next = it.next();
+                    c25 next = it.next();
                     if (next instanceof u86) {
                         ((u86) next).y();
                     }

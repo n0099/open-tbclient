@@ -110,24 +110,24 @@ public class c28 extends jx5<p18> {
         }
         this.x = new a(this);
         View h = h();
-        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0920bc);
-        TextView textView = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091fd0);
+        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0920be);
+        TextView textView = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091fd4);
         this.k = textView;
         textView.setOnClickListener(this.x);
-        View findViewById = h.findViewById(R.id.obfuscated_res_0x7f09180d);
+        View findViewById = h.findViewById(R.id.obfuscated_res_0x7f0917e8);
         this.i = findViewById;
         findViewById.setOnClickListener(this.x);
-        this.l = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f090e67);
+        this.l = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f090e60);
         this.m = (TBSpecificationBtn) h.findViewById(R.id.obfuscated_res_0x7f090411);
-        this.n = h.findViewById(R.id.obfuscated_res_0x7f0908a8);
-        this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0908a9);
-        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092152);
+        this.n = h.findViewById(R.id.obfuscated_res_0x7f0908a6);
+        this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0908a7);
+        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092154);
         this.q = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0903dc);
         this.r = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090260);
         this.s = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0903b1);
         this.t = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090261);
-        this.u = h.findViewById(R.id.obfuscated_res_0x7f091abc);
-        this.v = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f090e96);
+        this.u = h.findViewById(R.id.obfuscated_res_0x7f091a96);
+        this.v = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f090e8f);
         j(g(), this.a);
     }
 
@@ -135,44 +135,44 @@ public class c28 extends jx5<p18> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06b4 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06be : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            ur4 d = ur4.d(this.i);
+            vr4 d = vr4.d(this.i);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0205);
-            ur4 d2 = ur4.d(this.j);
+            vr4 d2 = vr4.d(this.j);
             d2.v(R.color.CAM_X0105);
             d2.A(R.string.F_X02);
-            ur4 d3 = ur4.d(this.p);
+            vr4 d3 = vr4.d(this.p);
             d3.v(R.color.CAM_X0109);
             d3.A(R.string.F_X01);
-            ur4 d4 = ur4.d(this.q);
+            vr4 d4 = vr4.d(this.q);
             d4.v(R.color.CAM_X0109);
             d4.A(R.string.F_X01);
-            ur4 d5 = ur4.d(this.k);
+            vr4 d5 = vr4.d(this.k);
             d5.v(R.color.CAM_X0107);
             d5.A(R.string.F_X01);
-            ur4 d6 = ur4.d(this.r);
+            vr4 d6 = vr4.d(this.r);
             d6.v(R.color.CAM_X0105);
             d6.A(R.string.F_X02);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
             this.m.k();
-            ur4 d7 = ur4.d(this.n);
+            vr4 d7 = vr4.d(this.n);
             d7.n(R.string.J_X04);
             d7.l(R.dimen.L_X01);
             d7.k(R.color.CAM_X0321);
-            ur4 d8 = ur4.d(this.o);
+            vr4 d8 = vr4.d(this.o);
             d8.v(R.color.CAM_X0321);
             d8.A(R.string.F_X01);
-            ur4 d9 = ur4.d(this.t);
+            vr4 d9 = vr4.d(this.t);
             d9.v(R.color.CAM_X0109);
             d9.A(R.string.F_X01);
-            ur4 d10 = ur4.d(this.s);
+            vr4 d10 = vr4.d(this.s);
             d10.v(R.color.CAM_X0105);
             d10.A(R.string.F_X01);
         }

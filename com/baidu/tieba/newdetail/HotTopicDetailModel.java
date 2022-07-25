@@ -30,8 +30,8 @@ import com.repackage.d9;
 import com.repackage.g37;
 import com.repackage.ni;
 import com.repackage.om7;
-import com.repackage.op4;
 import com.repackage.pi;
+import com.repackage.pp4;
 import com.repackage.qm7;
 import com.repackage.y27;
 import com.repackage.za;
@@ -355,10 +355,10 @@ public class HotTopicDetailModel extends BdBaseModel {
         return invokeI.booleanValue;
     }
 
-    public boolean C(int i, op4 op4Var, long j) {
+    public boolean C(int i, pp4 pp4Var, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), op4Var, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), pp4Var, Long.valueOf(j)})) == null) {
             if (!ni.A() || this.c) {
                 return false;
             }
@@ -367,7 +367,7 @@ public class HotTopicDetailModel extends BdBaseModel {
             requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(this.e));
             requestGetTopicRelateThreadMessage.setTopicName(this.f);
             requestGetTopicRelateThreadMessage.setRn(10);
-            requestGetTopicRelateThreadMessage.setPageNo(Integer.valueOf(op4Var.a() + 1));
+            requestGetTopicRelateThreadMessage.setPageNo(Integer.valueOf(pp4Var.a() + 1));
             requestGetTopicRelateThreadMessage.setLastId(Long.valueOf(j));
             requestGetTopicRelateThreadMessage.setSort_type(Integer.valueOf(i));
             requestGetTopicRelateThreadMessage.setScrH(Integer.valueOf(this.k));

@@ -121,7 +121,7 @@ public class pe8 {
             this.a = ve8Var;
             we8 we8Var = new we8(ve8Var);
             this.b = new ze8(this.a, we8Var);
-            viewGroup.setBackgroundResource(R.drawable.obfuscated_res_0x7f080efb);
+            viewGroup.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f02);
             pg8.g().i(this.a.getUniqueId());
             MessageManager.getInstance().runTask(2921668, (Class) null);
             baseFragmentActivity.registerListener(new ue8(this.a, we8Var));
@@ -131,8 +131,8 @@ public class pe8 {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            boolean q = vc5.q(xt4.k().l("splash_ad_strategy_key", 0));
-            StatisticItem.make(TbadkCoreStatisticKey.REQUEST_AD_TIME).param("obj_type", "a064").param("tid", q ? 1 : 0).param(TiebaStatic.Params.BEAR_CONFIG, q ? 1 : 0).param(TiebaStatic.Params.PLG_CONFIG, xt4.k().l("splash_origin_ad_strategy_key", 1) != 0 ? 1 : 0).param("obj_param1", this.a.i() ? 2 : 1).param(TiebaStatic.Params.OBJ_PARAM2, this.a.i() ? 2 : 1).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.SPLASH_UNI, this.a.j()).eventStat();
+            boolean q = wc5.q(yt4.k().l("splash_ad_strategy_key", 0));
+            StatisticItem.make(TbadkCoreStatisticKey.REQUEST_AD_TIME).param("obj_type", "a064").param("tid", q ? 1 : 0).param(TiebaStatic.Params.BEAR_CONFIG, q ? 1 : 0).param(TiebaStatic.Params.PLG_CONFIG, yt4.k().l("splash_origin_ad_strategy_key", 1) != 0 ? 1 : 0).param("obj_param1", this.a.i() ? 2 : 1).param(TiebaStatic.Params.OBJ_PARAM2, this.a.i() ? 2 : 1).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.SPLASH_UNI, this.a.j()).eventStat();
             Looper.myQueue().addIdleHandler(new a(this));
             qg.a().post(new b(this));
             this.b.b();
@@ -164,7 +164,7 @@ public class pe8 {
             return;
         }
         re8Var.b(true);
-        y85 pageStayDurationItem = this.a.getActivity().getPageStayDurationItem();
+        z85 pageStayDurationItem = this.a.getActivity().getPageStayDurationItem();
         if (pageStayDurationItem != null) {
             pageStayDurationItem.r(this.a.getAdSource());
         }

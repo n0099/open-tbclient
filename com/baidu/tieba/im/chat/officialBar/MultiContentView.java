@@ -239,7 +239,7 @@ public class MultiContentView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, aVar, multiImageTextBottomView, view2) == null) || aVar == null || multiImageTextBottomView == null) {
             return;
         }
-        multiImageTextBottomView.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070245)));
+        multiImageTextBottomView.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070243)));
         multiImageTextBottomView.setData(tbPageContext, aVar, view2, this.k);
         this.c.addView(multiImageTextBottomView);
     }
@@ -269,9 +269,9 @@ public class MultiContentView extends LinearLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d0561, this);
+            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d056b, this);
             this.b = inflate;
-            this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092421);
+            this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092423);
             y47 y47Var = new y47();
             this.d = y47Var.f(this.a);
             this.e = y47Var.d(this.a);

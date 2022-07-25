@@ -113,8 +113,8 @@ public class VoteStatusCard extends LinearLayout {
             this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09029d);
             this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b3);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0924a9);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0919e8);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0919e7);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0919c2);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0919c1);
             this.n = findViewById(R.id.obfuscated_res_0x7f092498);
             this.m = (NewVoteCountDownView) findViewById(R.id.obfuscated_res_0x7f092499);
         }
@@ -148,7 +148,7 @@ public class VoteStatusCard extends LinearLayout {
             int f = pi.f(this.a, R.dimen.tbds56);
             int f2 = pi.f(this.a, R.dimen.tbds52);
             setPadding(f, f2, f, f2);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08b6, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08c0, (ViewGroup) this, true);
             b();
             c();
         }

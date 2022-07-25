@@ -3,68 +3,68 @@ package com.kwad.sdk.core.download;
 import com.kwad.sdk.service.ServiceProvider;
 /* loaded from: classes5.dex */
 public final class c {
-    public static final boolean a = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).j();
-
-    public static void a(String str) {
-        if (a) {
-            com.kwad.sdk.core.d.b.a("DownloadMonitor", "onDownloadStart(), id=" + str);
-        }
-        e.a().b(str);
-    }
+    public static final boolean DEBUG = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).isDebugLogEnable();
 
     public static void a(String str, int i, int i2, int i3) {
-        if (a) {
-            com.kwad.sdk.core.d.b.a("DownloadMonitor", "onProgressUpdate(), id=" + str + " progress=" + i + " soFarBytes=" + i2 + " totalBytes=" + i3);
+        if (DEBUG) {
+            com.kwad.sdk.core.e.b.d("DownloadMonitor", "onProgressUpdate(), id=" + str + " progress=" + i + " soFarBytes=" + i2 + " totalBytes=" + i3);
         }
-        e.a().a(str, i, i2, i3);
+        e.sV().a(str, i, i2, i3);
     }
 
-    public static void a(String str, int i, String str2) {
-        if (a) {
-            com.kwad.sdk.core.d.b.a("DownloadMonitor", "onDownloadFail(), id=" + str + " errorCode=0 errorMsg=" + str2);
+    public static void b(String str, int i, String str2) {
+        if (DEBUG) {
+            com.kwad.sdk.core.e.b.d("DownloadMonitor", "onDownloadFail(), id=" + str + " errorCode=0 errorMsg=" + str2);
         }
-        e.a().a(str, 0, str2);
+        e.sV().c(str, 0, str2);
     }
 
-    public static void a(String str, String str2) {
-        if (a) {
-            com.kwad.sdk.core.d.b.a("DownloadMonitor", "onDownloadFinished(), id=" + str + " filePath=" + str2);
+    public static void bE(String str) {
+        if (DEBUG) {
+            com.kwad.sdk.core.e.b.d("DownloadMonitor", "onDownloadStart(), id=" + str);
         }
-        e.a().a(str, str2);
+        e.sV().bE(str);
     }
 
-    public static void b(String str) {
-        if (a) {
-            com.kwad.sdk.core.d.b.a("DownloadMonitor", "onDownloadPaused(), id=" + str);
+    public static void bF(String str) {
+        if (DEBUG) {
+            com.kwad.sdk.core.e.b.d("DownloadMonitor", "onDownloadPaused(), id=" + str);
         }
-        e.a().c(str);
+        e.sV().bF(str);
     }
 
-    public static void c(String str) {
-        if (a) {
-            com.kwad.sdk.core.d.b.a("DownloadMonitor", "onDownloadResumed(), id=" + str);
+    public static void bG(String str) {
+        if (DEBUG) {
+            com.kwad.sdk.core.e.b.d("DownloadMonitor", "onDownloadResumed(), id=" + str);
         }
-        e.a().d(str);
+        e.sV().bG(str);
     }
 
-    public static void d(String str) {
-        if (a) {
-            com.kwad.sdk.core.d.b.a("DownloadMonitor", "onDownloadCanceled(), id=" + str);
+    public static void bH(String str) {
+        if (DEBUG) {
+            com.kwad.sdk.core.e.b.d("DownloadMonitor", "onDownloadCanceled(), id=" + str);
         }
-        e.a().e(str);
+        e.sV().bH(str);
     }
 
-    public static void e(String str) {
-        if (a) {
-            com.kwad.sdk.core.d.b.a("DownloadMonitor", "onLowStorage(), id=" + str);
+    public static void bI(String str) {
+        if (DEBUG) {
+            com.kwad.sdk.core.e.b.d("DownloadMonitor", "onLowStorage(), id=" + str);
         }
-        e.a().g(str);
+        e.sV().bI(str);
     }
 
-    public static void f(String str) {
-        if (a) {
-            com.kwad.sdk.core.d.b.a("DownloadMonitor", "onStartInstallApk(), id=" + str);
+    public static void bJ(String str) {
+        if (DEBUG) {
+            com.kwad.sdk.core.e.b.d("DownloadMonitor", "onStartInstallApk(), id=" + str);
         }
-        e.a().f(str);
+        e.sV().bJ(str);
+    }
+
+    public static void u(String str, String str2) {
+        if (DEBUG) {
+            com.kwad.sdk.core.e.b.d("DownloadMonitor", "onDownloadFinished(), id=" + str + " filePath=" + str2);
+        }
+        e.sV().u(str, str2);
     }
 }

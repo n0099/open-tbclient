@@ -60,16 +60,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c55;
 import com.repackage.c9;
-import com.repackage.cn4;
-import com.repackage.e45;
+import com.repackage.d55;
+import com.repackage.dn4;
 import com.repackage.f45;
+import com.repackage.g45;
 import com.repackage.jc8;
 import com.repackage.kc8;
 import com.repackage.r68;
-import com.repackage.st4;
-import com.repackage.xt4;
+import com.repackage.tt4;
+import com.repackage.yt4;
 import com.repackage.za;
 import java.util.ArrayList;
 import java.util.List;
@@ -123,16 +123,16 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.getError() == 0) {
                 boolean z = responsedMessage instanceof GetUserInfoHttpResponseMessage;
                 if (z || (responsedMessage instanceof GetUserInfoSocketResponseMessage)) {
-                    e45 e45Var = null;
+                    f45 f45Var = null;
                     if (z) {
-                        e45Var = ((GetUserInfoHttpResponseMessage) responsedMessage).getData();
+                        f45Var = ((GetUserInfoHttpResponseMessage) responsedMessage).getData();
                     } else if (responsedMessage instanceof GetUserInfoSocketResponseMessage) {
-                        e45Var = ((GetUserInfoSocketResponseMessage) responsedMessage).getData();
+                        f45Var = ((GetUserInfoSocketResponseMessage) responsedMessage).getData();
                     }
-                    if (e45Var == null || e45Var.a() == null) {
+                    if (f45Var == null || f45Var.a() == null) {
                         return;
                     }
-                    String portrait = e45Var.a().getPortrait();
+                    String portrait = f45Var.a().getPortrait();
                     this.a.a.E(HeadIconRefreshHelper.headPortraitFilter(portrait), false);
                     PersonChangeData A = this.a.b.A();
                     if (A != null) {
@@ -290,10 +290,10 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 }
             } else {
                 TbadkSettings.getInst().saveBoolean("is_exit_app_not_start_websocket", true);
-                c55.b(0, 0, 0, 2, 12);
+                d55.b(0, 0, 0, 2, 12);
                 BdSocketLinkService.close("exit app");
                 r68.d().b();
-                st4.g(this.a.getPageContext().getPageActivity(), 12, false);
+                tt4.g(this.a.getPageContext().getPageActivity(), 12, false);
             }
         }
     }
@@ -390,7 +390,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && obj != null && (obj instanceof MoreModel.TaskType)) {
                 if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
                     MoreActivity moreActivity = this.a;
-                    moreActivity.showToast(moreActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f08cd));
+                    moreActivity.showToast(moreActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f08b8));
                 }
                 this.a.closeLoadingDialog();
             }
@@ -490,7 +490,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if ((currentAccount == null || currentAccount.length() <= 0) && cn4.d() <= 0) {
+            if ((currentAccount == null || currentAccount.length() <= 0) && dn4.d() <= 0) {
                 TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(getPageContext().getPageActivity(), 11003)));
             } else {
                 sendMessage(new CustomMessage(2015006, new IntentConfig(getPageContext().getPageActivity())));
@@ -621,7 +621,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     public final void h2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            f45.d().h();
+            g45.d().h();
         }
     }
 
@@ -665,8 +665,8 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             }
         }
         if (view2 == this.a.B()) {
-            xt4.k().u("key_is_dark_mode_notify_shown", true);
-            xt4.k().u("key_is_follow_system_mode", BdSwitchView.SwitchState.ON == switchState);
+            yt4.k().u("key_is_dark_mode_notify_shown", true);
+            yt4.k().u("key_is_follow_system_mode", BdSwitchView.SwitchState.ON == switchState);
             if (TbadkCoreApplication.getInst().getSkinType() != 1) {
                 SkinManager.setDayOrDarkSkinTypeWithSystemMode(true, false);
             }

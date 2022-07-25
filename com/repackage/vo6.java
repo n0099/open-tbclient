@@ -24,7 +24,7 @@ public class vo6 {
     public ViewGroup b;
     public wo6 c;
     public ro6 d;
-    public v95 e;
+    public w95 e;
     public ro6.a f;
     public Runnable g;
 
@@ -61,7 +61,7 @@ public class vo6 {
                         return;
                     }
                     if (this.a.e == null) {
-                        this.a.e = new v95("anim_switch_trans_frs");
+                        this.a.e = new w95("anim_switch_trans_frs");
                     }
                     this.a.e.b();
                     BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(FrsActivityConfig.KEY_FPS_FRS_FROM, "frs", "tran");

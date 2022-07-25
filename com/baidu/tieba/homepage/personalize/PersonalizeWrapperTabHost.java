@@ -55,18 +55,18 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.repackage.fe5;
 import com.repackage.ju6;
 import com.repackage.jz6;
-import com.repackage.k05;
+import com.repackage.l05;
 import com.repackage.lu6;
 import com.repackage.mu6;
 import com.repackage.pi;
 import com.repackage.pu6;
 import com.repackage.su6;
 import com.repackage.sz6;
-import com.repackage.tm4;
-import com.repackage.tu4;
+import com.repackage.um4;
+import com.repackage.uu4;
 import com.repackage.vk8;
 import com.repackage.wz5;
-import com.repackage.xt4;
+import com.repackage.yt4;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Userlike.DataRes;
@@ -554,12 +554,12 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements mu6 
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (tm4.b() == 1) {
+                if (um4.b() == 1) {
                     if (WriteActivityConfig.isAsyncWriting()) {
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(this.a.b, new String[]{"http://fans.baidu.com/fanstest/wapindex?product_id=1002&version=12.11.0.11&client_type=android&contact_way=qq"});
-                } else if (tm4.b() == 2) {
+                } else if (um4.b() == 2) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921569));
                 }
             }
@@ -866,7 +866,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements mu6 
             return;
         }
         if (i2 == -1) {
-            pi.N(this.a, R.string.obfuscated_res_0x7f0f0c2b);
+            pi.N(this.a, R.string.obfuscated_res_0x7f0f0c17);
         }
         jz6.a("mPagerAdapterError");
         this.n.O(str, i2, i3);
@@ -1159,7 +1159,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements mu6 
     public final void v(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048615, this, str) == null) {
-            k05 f2 = sz6.f(str);
+            l05 f2 = sz6.f(str);
             if (f2 != null) {
                 TbadkApplication.getInst().setUseLuckyHeader(true);
                 sz6.d(f2);
@@ -1200,9 +1200,9 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements mu6 
         if (interceptable == null || interceptable.invokeL(1048617, this, context) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(4006);
             this.a = getContext();
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0745, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d074f, (ViewGroup) this, true);
             this.e = (AppBarLayout) findViewById(R.id.obfuscated_res_0x7f090294);
-            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f091cdc);
+            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f091ce2);
             this.d = pagerSlidingTabStrip;
             pagerSlidingTabStrip.setIsFromSecondtab(true);
             this.d.setTextNormalColor(R.color.CAM_X0107);
@@ -1210,25 +1210,25 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements mu6 
             this.d.A(pi.f(context, R.dimen.T_X07), pi.f(context, R.dimen.T_X07), pi.f(context, R.dimen.tbds0), false);
             this.d.setHorizontalFadingEdgeEnabled(true);
             this.d.setFadingEdgeLength(UtilHelper.getDimenPixelSize(R.dimen.M_W_X007));
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090d41);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090d3a);
             this.f = frameLayout;
             vk8.c(frameLayout, 5);
-            this.g = (NestedNoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f091ce5);
-            this.h = findViewById(R.id.obfuscated_res_0x7f0907d7);
-            this.i = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090d60);
+            this.g = (NestedNoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f091ceb);
+            this.h = findViewById(R.id.obfuscated_res_0x7f0907d5);
+            this.i = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090d59);
             this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0903c5);
-            if (tm4.b() == 1) {
-                tu4 tu4Var = new tu4();
-                this.i.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0867));
+            if (um4.b() == 1) {
+                uu4 uu4Var = new uu4();
+                this.i.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0852));
                 this.i.setTextSize(R.dimen.tbds42);
-                this.i.setConfig(tu4Var);
+                this.i.setConfig(uu4Var);
                 this.i.setOnClickListener(this.x);
                 this.i.setVisibility(0);
-            } else if (tm4.b() == 2) {
-                tu4 tu4Var2 = new tu4();
-                this.i.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0868));
+            } else if (um4.b() == 2) {
+                uu4 uu4Var2 = new uu4();
+                this.i.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0853));
                 this.i.setTextSize(R.dimen.tbds35);
-                this.i.setConfig(tu4Var2);
+                this.i.setConfig(uu4Var2);
                 this.i.setOnClickListener(this.x);
                 this.i.setVisibility(0);
             } else {
@@ -1275,10 +1275,10 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements mu6 
             this.d.setViewPager(this.g);
             this.d.setConcernTabIndex(this.n.n(0));
             new GestureDetector(this.a, new a(this));
-            if (xt4.k().h("key_home_page_first_dismiss_tab", false) && (appBarLayout = this.e) != null) {
+            if (yt4.k().h("key_home_page_first_dismiss_tab", false) && (appBarLayout = this.e) != null) {
                 appBarLayout.setExpanded(false, false);
             } else {
-                xt4.k().u("key_home_page_first_dismiss_tab", true);
+                yt4.k().u("key_home_page_first_dismiss_tab", true);
             }
         }
     }

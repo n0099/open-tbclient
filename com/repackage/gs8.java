@@ -57,7 +57,7 @@ public class gs8 implements fs8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 ei.a(this.a.w);
-                pi.O(this.b.c.getPageActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0446));
+                pi.O(this.b.c.getPageActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0445));
             }
         }
     }
@@ -136,7 +136,7 @@ public class gs8 implements fs8 {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (ds8Var = this.a) == null) {
             return;
         }
-        xt4.k().u(xt4.o(ds8Var.c()), false);
+        yt4.k().u(yt4.o(ds8Var.c()), false);
     }
 
     @Override // com.repackage.fs8

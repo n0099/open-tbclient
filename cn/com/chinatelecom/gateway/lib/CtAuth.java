@@ -3,9 +3,8 @@ package cn.com.chinatelecom.gateway.lib;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import cn.com.chinatelecom.gateway.lib.b.e;
-import cn.com.chinatelecom.gateway.lib.c.a;
-import cn.com.chinatelecom.gateway.lib.c.f;
+import cn.com.chinatelecom.gateway.lib.b.a;
+import cn.com.chinatelecom.gateway.lib.b.d;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,32 +53,24 @@ public final class CtAuth {
     }
 
     public static void a(Context context, String str, String str2, String str3, PreCodeListener preCodeListener) {
-        String str4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65538, null, context, str, str2, str3, preCodeListener) == null) {
             if (preCodeListener == null) {
                 mTraceLogger = null;
-                return;
-            }
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                str4 = "{\"result\":80106,\"msg\":\"请求参数异常\"}";
-            } else if (f.b(context)) {
-                if (f.c(context)) {
-                    new a().a(context, str, str2, str3, preCodeListener);
-                    return;
-                } else if (f.d(context)) {
-                    new a().b(context, str, str2, str3, preCodeListener);
-                    return;
-                } else {
-                    preCodeListener.onResult("{\"result\":80004,\"msg\":\"移动网络未开启\"}");
-                    mTraceLogger = null;
-                    return;
-                }
+            } else if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                preCodeListener.onResult("{\"result\":80106,\"msg\":\"请求参数异常\"}");
+                mTraceLogger = null;
+            } else if (!a.c(context)) {
+                preCodeListener.onResult("{\"result\":80003,\"msg\":\"网络无连接\"}");
+                mTraceLogger = null;
+            } else if (a.d(context)) {
+                new cn.com.chinatelecom.gateway.lib.c.a().a(context, str, str2, str3, preCodeListener);
+            } else if (a.e(context)) {
+                new cn.com.chinatelecom.gateway.lib.c.a().b(context, str, str2, str3, preCodeListener);
             } else {
-                str4 = "{\"result\":80003,\"msg\":\"网络无连接\"}";
+                preCodeListener.onResult("{\"result\":80004,\"msg\":\"移动网络未开启\"}");
+                mTraceLogger = null;
             }
-            preCodeListener.onResult(str4);
-            mTraceLogger = null;
         }
     }
 
@@ -114,17 +105,14 @@ public final class CtAuth {
             jSONObject.put("reqId", str2);
             preCodeListener.onResult(jSONObject.toString());
             String str3 = a;
-            StringBuilder sb = new StringBuilder();
-            sb.append("callback result : ");
-            sb.append(jSONObject.toString());
-            info(str3, sb.toString());
+            info(str3, "callback result : " + jSONObject.toString());
         } catch (Exception unused) {
             preCodeListener.onResult(str);
             String str4 = a;
             info(str4, "Exception callback result : " + str);
         }
         mTraceLogger = null;
-        e.a(context, str2);
+        d.a(context, str2);
     }
 
     public static void requestPreAuth(Context context, String str, String str2, PreCodeListener preCodeListener) {

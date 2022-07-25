@@ -1,10 +1,7 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,133 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ww3;
-import java.io.File;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class dv3 extends l32 {
+public class dv3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static volatile boolean a;
+    public static volatile boolean b;
+    public static volatile List<ja2> c;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public vu3 c;
-    @NonNull
-    public ev3 d;
-    public w74<g94> e;
-
-    /* loaded from: classes5.dex */
-    public class a extends t74<g94> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dv3 a;
-
-        public a(dv3 dv3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dv3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dv3Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74
-        /* renamed from: l */
-        public String d(g94 g94Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, g94Var)) == null) ? ww3.d.g().getPath() : (String) invokeL.objValue;
-        }
-
-        @Override // com.repackage.y74
-        @NonNull
-        public Bundle m(@NonNull Bundle bundle, Set<String> set) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bundle, set)) == null) ? this.a.m(bundle, set) : (Bundle) invokeLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.t74, com.repackage.w74
-        /* renamed from: o */
-        public void e(g94 g94Var, z84 z84Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048583, this, g94Var, z84Var) == null) {
-                super.e(g94Var, z84Var);
-                if (dv3.f) {
-                    Log.e("ConsoleJsDownload", "onDownloadError: " + z84Var.toString());
-                }
-                this.a.c.a(false);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.t74, com.repackage.w74
-        /* renamed from: p */
-        public void i(g94 g94Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, g94Var) == null) {
-                super.i(g94Var);
-                if (dv3.f) {
-                    Log.i("ConsoleJsDownload", "onDownloadFinish: " + g94Var.toString());
-                }
-                if (!ud3.a(new File(g94Var.a), g94Var.m)) {
-                    if (dv3.f) {
-                        Log.e("ConsoleJsDownload", "onDownloadFinish: 校验签名失败");
-                    }
-                    this.a.c.a(false);
-                    return;
-                }
-                File a = this.a.d.a();
-                if (a.exists()) {
-                    jg4.j(a);
-                } else {
-                    jg4.l(a);
-                }
-                boolean U = jg4.U(g94Var.a, a.getAbsolutePath());
-                if (U) {
-                    this.a.d.b(g94Var.j, g94Var.i);
-                }
-                jg4.k(g94Var.a);
-                this.a.c.a(U);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.t74, com.repackage.w74
-        /* renamed from: q */
-        public void c(g94 g94Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, g94Var) == null) {
-                super.c(g94Var);
-                if (dv3.f) {
-                    Log.i("ConsoleJsDownload", "onDownloadStart: " + g94Var.toString());
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.t74, com.repackage.w74
-        /* renamed from: r */
-        public void f(g94 g94Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, g94Var) == null) {
-                super.f(g94Var);
-                if (dv3.f) {
-                    Log.i("ConsoleJsDownload", "onDownloading: 其它地方正在下载此包");
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -153,79 +32,96 @@ public class dv3 extends l32 {
                 return;
             }
         }
-        f = rg1.a;
+        c = new ArrayList();
     }
 
-    public dv3(@NonNull ev3 ev3Var, @NonNull vu3 vu3Var) {
+    public dv3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ev3Var, vu3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.e = new a(this);
-        this.c = vu3Var;
-        this.d = ev3Var;
-    }
-
-    @Override // com.repackage.a84
-    public void C(z84 z84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, z84Var) == null) {
-            super.C(z84Var);
-            if (f) {
-                Log.e("ConsoleJsDownload", "onFetchError: " + z84Var.toString());
-            }
-            this.c.a(false);
-        }
-    }
-
-    @Override // com.repackage.a84
-    public void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.E();
-            if (f) {
-                Log.i("ConsoleJsDownload", "onFetchSuccess");
             }
         }
     }
 
-    @Override // com.repackage.a84
-    public void F() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.F();
-            if (f) {
-                Log.i("ConsoleJsDownload", "onNoPackage");
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a && !b) {
+            synchronized (dv3.class) {
+                if (c != null) {
+                    for (int i = 0; i < c.size(); i++) {
+                        vl2.U().m("console", c.get(i));
+                    }
+                    c.clear();
+                    c = null;
+                }
             }
-            this.c.a(false);
+            b = true;
         }
     }
 
-    @Override // com.repackage.a84
-    public void G(nd4 nd4Var) {
+    public static String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nd4Var) == null) {
-            super.G(nd4Var);
-            if (f) {
-                Log.i("ConsoleJsDownload", "onPrepareDownload");
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? i != 6 ? TbConfig.TMP_LOG_DIR_NAME : "debug" : "warn" : "error" : "info" : "debug" : (String) invokeI.objValue;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            synchronized (dv3.class) {
+                c = new ArrayList();
             }
+            b = false;
         }
     }
 
-    @Override // com.repackage.a84
-    public w74<g94> x() {
-        InterceptResult invokeV;
+    public static void d(int i, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (w74) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, str) == null) {
+            e(b(i), str);
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && a) {
+            f(xu3.t(str, str2));
+        }
+    }
+
+    public static void f(ja2 ja2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, ja2Var) == null) {
+            if (!b) {
+                synchronized (dv3.class) {
+                    if (c != null) {
+                        c.add(ja2Var);
+                        return;
+                    }
+                }
+            }
+            vl2.U().m("console", ja2Var);
+        }
+    }
+
+    public static void g(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && a) {
+            f(xu3.v(str, str2));
+        }
+    }
+
+    public static void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
+            a = z;
+            ix1.n(z);
+        }
     }
 }

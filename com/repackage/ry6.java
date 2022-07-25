@@ -16,7 +16,7 @@ import java.util.List;
 import tbclient.AlaLiveInfo;
 import tbclient.Personalized.UserFollowLive;
 /* loaded from: classes7.dex */
-public class ry6 extends nn4 {
+public class ry6 extends on4 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,17 +71,17 @@ public class ry6 extends nn4 {
         }
     }
 
-    @Override // com.repackage.nn4
-    public kp4 getNegFeedBackData() {
+    @Override // com.repackage.on4
+    public lp4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (kp4) invokeV.objValue;
+        return (lp4) invokeV.objValue;
     }
 
-    @Override // com.repackage.nn4
+    @Override // com.repackage.on4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

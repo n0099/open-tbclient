@@ -62,12 +62,12 @@ public class f17 extends an<j17, CardViewHolder<r17>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, j17Var, cardViewHolder})) == null) {
-            if (j17Var == null || cardViewHolder == null || cardViewHolder.c() == null) {
+            if (j17Var == null || cardViewHolder == null || cardViewHolder.b() == null) {
                 return null;
             }
-            cardViewHolder.c().i(j17Var);
-            cardViewHolder.c().j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            return cardViewHolder.b();
+            cardViewHolder.b().i(j17Var);
+            cardViewHolder.b().j(this.i, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

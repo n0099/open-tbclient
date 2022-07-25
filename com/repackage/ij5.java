@@ -40,9 +40,9 @@ public class ij5 {
     public View.OnClickListener C;
     public Context a;
     public TbPageContext b;
-    public lr4 c;
+    public mr4 c;
     public ViewGroup d;
-    public kp4 e;
+    public lp4 e;
     public SparseArray<String> f;
     public List<gj5.b> g;
     public gj5 h;
@@ -52,7 +52,7 @@ public class ij5 {
     public int l;
     public TextView m;
     public TBSpecificationBtn n;
-    public uu4 o;
+    public vu4 o;
     public LinearLayout p;
     public TextView q;
     public TextView r;
@@ -291,7 +291,7 @@ public class ij5 {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.j) {
             return;
         }
-        ur4 d2 = ur4.d(this.d);
+        vr4 d2 = vr4.d(this.d);
         d2.n(R.string.J_X14);
         d2.f(R.color.CAM_X0204);
         SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0105);
@@ -305,9 +305,9 @@ public class ij5 {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            lr4 lr4Var = this.c;
-            if (lr4Var != null) {
-                lr4Var.dismiss();
+            mr4 mr4Var = this.c;
+            if (mr4Var != null) {
+                mr4Var.dismiss();
                 this.c = null;
             }
             MessageManager.getInstance().unRegisterListener(this.y);
@@ -392,16 +392,16 @@ public class ij5 {
                 return null;
             }
             if (this.d == null) {
-                ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05f1, (ViewGroup) null);
+                ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05fb, (ViewGroup) null);
                 this.d = viewGroup;
-                this.m = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090cdd);
-                this.n = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f0922f1);
-                uu4 uu4Var = new uu4();
-                this.o = uu4Var;
-                uu4Var.r(R.color.CAM_X0304);
+                this.m = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090cd6);
+                this.n = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f0922f3);
+                vu4 vu4Var = new vu4();
+                this.o = vu4Var;
+                vu4Var.r(R.color.CAM_X0304);
                 this.n.setConfig(this.o);
                 this.n.setOnClickListener(this.C);
-                this.n.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c8e));
+                this.n.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c7a));
                 this.n.setTextSize(R.dimen.T_X08);
                 ViewGroup viewGroup2 = this.d;
                 int i = this.k;
@@ -412,12 +412,12 @@ public class ij5 {
                 this.d.addView(h);
             }
             if (this.p == null) {
-                LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05ef, (ViewGroup) null);
+                LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05f9, (ViewGroup) null);
                 this.p = linearLayout;
-                this.s = linearLayout.findViewById(R.id.obfuscated_res_0x7f092148);
-                this.r = (TextView) this.p.findViewById(R.id.obfuscated_res_0x7f090771);
-                this.q = (TextView) this.p.findViewById(R.id.obfuscated_res_0x7f090772);
-                View findViewById = this.p.findViewById(R.id.obfuscated_res_0x7f091486);
+                this.s = linearLayout.findViewById(R.id.obfuscated_res_0x7f09214a);
+                this.r = (TextView) this.p.findViewById(R.id.obfuscated_res_0x7f090770);
+                this.q = (TextView) this.p.findViewById(R.id.obfuscated_res_0x7f090771);
+                View findViewById = this.p.findViewById(R.id.obfuscated_res_0x7f091461);
                 this.t = findViewById;
                 findViewById.setVisibility(8);
                 this.q.setVisibility(8);
@@ -463,9 +463,9 @@ public class ij5 {
             }
         }
         h();
-        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f97);
+        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f80);
         if (j != null && "7".equals(j.optString("dislike_ids"))) {
-            string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0649);
+            string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0645);
         }
         pi.O(this.a, string);
         NEGFeedBackView.b bVar = this.u;
@@ -481,20 +481,20 @@ public class ij5 {
         }
     }
 
-    public void o(kp4 kp4Var) {
+    public void o(lp4 lp4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, kp4Var) == null) || kp4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, lp4Var) == null) || lp4Var == null) {
             return;
         }
-        this.e = kp4Var;
-        SparseArray<String> b2 = kp4Var.b();
+        this.e = lp4Var;
+        SparseArray<String> b2 = lp4Var.b();
         this.f = b2;
         if (b2 != null && b2.size() > 9) {
             for (int size = this.f.size() - 1; size >= 9; size--) {
                 this.f.removeAt(size);
             }
         }
-        this.h.j(kp4Var);
+        this.h.j(lp4Var);
     }
 
     public void p(NEGFeedBackView.b bVar) {
@@ -528,7 +528,7 @@ public class ij5 {
             ((ViewGroup) k.getParent()).removeView(k);
         }
         g();
-        this.c = new lr4(this.b);
+        this.c = new mr4(this.b);
         n();
         this.c.setContentView(k);
         this.c.show();

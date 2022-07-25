@@ -134,8 +134,8 @@ public class ix6 extends os6<qy5, ThreadCardViewHolder<qy5>> implements ck5 {
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, nnVar) == null) && (nnVar instanceof qy5) && (view2.getTag() instanceof ThreadCardViewHolder)) {
             qy5 qy5Var = (qy5) nnVar;
             qy5Var.f = 1;
-            ThreadCardUtils.jumpToPB((nn4) qy5Var, view2.getContext(), 2, false);
-            ((ThreadCardViewHolder) view2.getTag()).c().o(new ny.a(1));
+            ThreadCardUtils.jumpToPB((on4) qy5Var, view2.getContext(), 2, false);
+            ((ThreadCardViewHolder) view2.getTag()).b().o(new ny.a(1));
         }
     }
 
@@ -154,10 +154,10 @@ public class ix6 extends os6<qy5, ThreadCardViewHolder<qy5>> implements ck5 {
             bVar.n(new rw(this.k.getPageActivity()));
             bVar.h(new ax(this.k.getPageActivity()));
             ey eyVar = new ey(this.k.getPageActivity());
-            tn4 tn4Var = new tn4();
-            tn4Var.b = 1;
-            tn4Var.h = 1;
-            eyVar.w(tn4Var);
+            un4 un4Var = new un4();
+            un4Var.b = 1;
+            un4Var.h = 1;
+            eyVar.w(un4Var);
             eyVar.y(1);
             eyVar.D(3);
             eyVar.z(2);
@@ -167,7 +167,7 @@ public class ix6 extends os6<qy5, ThreadCardViewHolder<qy5>> implements ck5 {
             cy k = bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.n);
             k.r(2);
             ThreadCardViewHolder<qy5> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.k(this.j);
+            threadCardViewHolder.j(this.j);
             V(new b(this));
             return threadCardViewHolder;
         }
@@ -181,20 +181,20 @@ public class ix6 extends os6<qy5, ThreadCardViewHolder<qy5>> implements ck5 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qy5Var, threadCardViewHolder})) == null) {
-            if (qy5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null) {
+            if (qy5Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null) {
                 return null;
             }
             qy5Var.I(qy5Var.position + 1);
             qy5Var.a.statFloor = qy5Var.m();
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.c().b(this.l);
-            threadCardViewHolder.q(true).u(this.m);
-            threadCardViewHolder.m(qy5Var.showFollowBtn(), this.i);
-            threadCardViewHolder.g(qy5Var);
-            threadCardViewHolder.c().p(this.o);
-            threadCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().q(i);
+            threadCardViewHolder.b().b(this.l);
+            threadCardViewHolder.p(true).u(this.m);
+            threadCardViewHolder.l(qy5Var.showFollowBtn(), this.i);
+            threadCardViewHolder.f(qy5Var);
+            threadCardViewHolder.b().p(this.o);
+            threadCardViewHolder.b().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
             cy5.b().a(qy5Var.B());
-            return threadCardViewHolder.b();
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }
@@ -211,9 +211,9 @@ public class ix6 extends os6<qy5, ThreadCardViewHolder<qy5>> implements ck5 {
             return;
         }
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f09202a) {
+        if (id == R.id.obfuscated_res_0x7f09202e) {
             TiebaStatic.log(qy5Var.A());
-        } else if (id == R.id.obfuscated_res_0x7f09230c || id == R.id.obfuscated_res_0x7f09232d) {
+        } else if (id == R.id.obfuscated_res_0x7f09230e || id == R.id.obfuscated_res_0x7f09232f) {
             i = 2;
             if (i == 0) {
                 iz6.d(qy5Var.a, this.j, qy5Var.m(), i);

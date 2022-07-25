@@ -113,12 +113,12 @@ public class uz9 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(new ContextThemeWrapper(this.a, nz9.a.a(this.c))).inflate(getCount() <= 2 ? R.layout.obfuscated_res_0x7f0d0661 : R.layout.obfuscated_res_0x7f0d0662, (ViewGroup) null);
+                view2 = LayoutInflater.from(new ContextThemeWrapper(this.a, nz9.a.a(this.c))).inflate(getCount() <= 2 ? R.layout.obfuscated_res_0x7f0d066b : R.layout.obfuscated_res_0x7f0d066c, (ViewGroup) null);
                 aVar = new a(this);
-                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09223a);
-                aVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e84);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092263);
-                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a7);
+                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09223c);
+                aVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e7d);
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092265);
+                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a9);
                 view2.setTag(aVar);
             } else {
                 aVar = (a) view2.getTag();

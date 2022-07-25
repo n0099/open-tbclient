@@ -87,8 +87,8 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
             if (TextUtils.isEmpty(this.d)) {
                 BdTopToast bdTopToast = new BdTopToast(this, 2000);
                 bdTopToast.i(false);
-                bdTopToast.h(getString(R.string.obfuscated_res_0x7f0f0684));
-                bdTopToast.j((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091356));
+                bdTopToast.h(getString(R.string.obfuscated_res_0x7f0f0680));
+                bdTopToast.j((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091332));
                 return;
             }
             this.c.D(this.d, forumRuleBaseData, z);
@@ -103,7 +103,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.v85
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -134,7 +134,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
             BdTopToast bdTopToast = new BdTopToast(this, 2000);
             bdTopToast.i(false);
             bdTopToast.h(str);
-            bdTopToast.j((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091356));
+            bdTopToast.j((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091332));
         }
     }
 
@@ -206,10 +206,10 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
                 Intent intent = getIntent();
                 if (z) {
                     this.b.B();
-                    intent.putExtra("group_name", getString(R.string.obfuscated_res_0x7f0f1096));
+                    intent.putExtra("group_name", getString(R.string.obfuscated_res_0x7f0f1052));
                     intent.putExtra("from", true);
                 } else {
-                    intent.putExtra("group_name", getString(R.string.obfuscated_res_0x7f0f0687));
+                    intent.putExtra("group_name", getString(R.string.obfuscated_res_0x7f0f0683));
                     intent.putExtra("from", false);
                 }
                 setResult(-1, intent);
@@ -219,7 +219,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
             BdTopToast bdTopToast = new BdTopToast(this, 2000);
             bdTopToast.i(false);
             bdTopToast.h(str);
-            bdTopToast.j((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091356));
+            bdTopToast.j((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091332));
         }
     }
 }

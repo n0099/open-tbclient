@@ -57,8 +57,8 @@ public class cc6 extends an<lc6, CardViewHolder<oc6>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lc6Var, cardViewHolder})) == null) {
-            cardViewHolder.c().j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            return cardViewHolder.b();
+            cardViewHolder.b().j(this.i, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

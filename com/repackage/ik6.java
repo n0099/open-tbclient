@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class ik6 {
@@ -36,7 +36,7 @@ public class ik6 {
     public BdTypeListView f;
     public NoNetworkView g;
     public PbListView h;
-    public gu4 i;
+    public hu4 i;
     public String j;
     public String k;
 
@@ -140,16 +140,16 @@ public class ik6 {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0304, (ViewGroup) null);
             this.c = inflate;
-            this.g = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f092439);
-            this.d = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090c1c);
-            BdTypeListView bdTypeListView = (BdTypeListView) this.c.findViewById(R.id.obfuscated_res_0x7f090c1d);
+            this.g = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f09243b);
+            this.d = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090c15);
+            BdTypeListView bdTypeListView = (BdTypeListView) this.c.findViewById(R.id.obfuscated_res_0x7f090c16);
             this.f = bdTypeListView;
             bdTypeListView.setDivider(null);
-            gu4 gu4Var = new gu4(this.a);
-            this.i = gu4Var;
-            gu4Var.b0(this.a.getUniqueId());
+            hu4 hu4Var = new hu4(this.a);
+            this.i = hu4Var;
+            hu4Var.b0(this.a.getUniqueId());
             this.f.setPullRefresh(this.i);
-            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f092439);
             this.e = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
             this.e.showBottomLine();
@@ -193,7 +193,7 @@ public class ik6 {
         }
     }
 
-    public void l(fu4.g gVar) {
+    public void l(gu4.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, gVar) == null) {
             this.i.f(gVar);
@@ -236,7 +236,7 @@ public class ik6 {
         if (pbListView.b().getParent() == null) {
             this.f.setNextPage(this.h);
         }
-        this.h.C(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f09e7));
+        this.h.C(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f09d3));
         this.h.f();
     }
 }

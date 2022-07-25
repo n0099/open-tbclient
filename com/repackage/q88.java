@@ -140,7 +140,7 @@ public class q88 {
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:20:0x003d, code lost:
-            com.repackage.rl4.k(r0.get(r2));
+            com.repackage.sl4.k(r0.get(r2));
          */
         @Override // com.repackage.za
         /*
@@ -331,7 +331,7 @@ public class q88 {
                                 String b = vi.b(fileInputStream);
                                 if (StringUtils.isNull(b) || !b.toLowerCase().equals(this.e.toLowerCase())) {
                                     q88.h = 2;
-                                    mt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "md5 error");
+                                    nt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "md5 error");
                                     q88.m(this.a);
                                     qi.e(fileInputStream);
                                     return null;
@@ -342,14 +342,14 @@ public class q88 {
                                 qi.e(fileInputStream);
                                 str = q88.g + "bdtbWCacheTemp/" + this.a + "/" + this.d + "/";
                                 new File(str).mkdirs();
-                                if (!ft4.b(str2, str)) {
+                                if (!gt4.b(str2, str)) {
                                 }
                                 q88.m(this.a);
                                 r = q88.r(this.a, this.d);
                                 if (r == null) {
                                 }
                                 q88.h = 5;
-                                mt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "bundle incomplete");
+                                nt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "bundle incomplete");
                                 q88.q().k(this.a);
                                 return null;
                             }
@@ -371,21 +371,21 @@ public class q88 {
                     qi.e(fileInputStream);
                     str = q88.g + "bdtbWCacheTemp/" + this.a + "/" + this.d + "/";
                     new File(str).mkdirs();
-                    if (!ft4.b(str2, str)) {
+                    if (!gt4.b(str2, str)) {
                         String str3 = q88.g + "bdtbNWCache/" + this.a + "/" + this.d + "/";
                         new File(str3).mkdirs();
                         if (!FileHelper.CopyDir(str, str3, true)) {
                             q88.h = 4;
-                            mt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "write error");
+                            nt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "write error");
                         }
                     } else {
                         q88.h = 3;
-                        mt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "unzip error");
+                        nt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "unzip error");
                     }
                 } else {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_H5_OFFLINE_PACKAGE_DOWNLOAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", "2"));
                     q88.h = 1;
-                    mt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "download error");
+                    nt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "download error");
                 }
                 q88.m(this.a);
                 r = q88.r(this.a, this.d);
@@ -394,7 +394,7 @@ public class q88 {
                     return r;
                 }
                 q88.h = 5;
-                mt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "bundle incomplete");
+                nt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "bundle incomplete");
                 q88.q().k(this.a);
                 return null;
             }
@@ -493,7 +493,7 @@ public class q88 {
                         q88.l(r.c, str);
                     } else {
                         q88.h = 5;
-                        mt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", str, "hybridVersion", s, "hybridResult", "bundle incomplete");
+                        nt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", str, "hybridVersion", s, "hybridResult", "bundle incomplete");
                         this.a.k(str);
                     }
                 }
@@ -509,7 +509,7 @@ public class q88 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar) == null) {
                 if (gVar == null) {
-                    mt4.a("OfflineCache", -1L, -1, "readFile", -1, "read error", new Object[0]);
+                    nt4.a("OfflineCache", -1L, -1, "readFile", -1, "read error", new Object[0]);
                 } else {
                     r88.a().g(gVar.b);
                 }
@@ -648,7 +648,7 @@ public class q88 {
                     r88.a().f(true, str);
                     return;
                 }
-                mt4.a("OfflineCache", -1L, 0, "downloadCache", 0, "", "url", a2, "hybridVersion", c2, "lastVersion", s, "type", "start", "hybridName", str, "hybridResult", "success");
+                nt4.a("OfflineCache", -1L, 0, "downloadCache", 0, "", "url", a2, "hybridVersion", c2, "lastVersion", s, "type", "start", "hybridName", str, "hybridResult", "success");
                 new d(str, u88Var, true ^ d2).execute(new Void[0]);
                 return;
             }
@@ -914,7 +914,7 @@ public class q88 {
                     if (file2.exists()) {
                         FileHelper.deleteFileOrDir(file2);
                     }
-                    if (ft4.e(str2, str3)) {
+                    if (gt4.e(str2, str3)) {
                         NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_OFFLINE_PACK);
                         netWork.addPostData("offline_pack_version", s);
                         netWork.addPostData("mod_name", str);
@@ -979,7 +979,7 @@ public class q88 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             n();
-            xt4.k().y("pref_key_quick_webview_versions", "");
+            yt4.k().y("pref_key_quick_webview_versions", "");
             String str = g + "bdtbNWCache";
             File file = new File(str);
             if (!file.exists() || !file.isDirectory() || (list = file.list()) == null || list.length == 0) {
@@ -1008,7 +1008,7 @@ public class q88 {
             return;
         }
         j(str);
-        xt4.k().y("pref_key_quick_webview_versions", D());
+        yt4.k().y("pref_key_quick_webview_versions", D());
         File file = new File(g + "bdtbNWCache/" + str);
         if (file.exists() && file.isDirectory()) {
             FileHelper.deleteFileOrDir(file);
@@ -1062,7 +1062,7 @@ public class q88 {
             MessageManager.getInstance().registerListener(this.e);
             MessageManager.getInstance().registerListener(this.d);
             this.b = new File(g + "bdtbNWCache").getAbsolutePath();
-            w(xt4.k().q("pref_key_quick_webview_versions", ""));
+            w(yt4.k().q("pref_key_quick_webview_versions", ""));
         }
     }
 
@@ -1120,7 +1120,7 @@ public class q88 {
             if (TextUtils.isEmpty(D)) {
                 return;
             }
-            xt4.k().y("pref_key_quick_webview_versions", D);
+            yt4.k().y("pref_key_quick_webview_versions", D);
         }
     }
 }

@@ -97,25 +97,25 @@ public class tn8 {
         }
         this.i = 0;
         this.a = backgroundGroupActivity;
-        this.i = pi.f(backgroundGroupActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0702a0);
+        this.i = pi.f(backgroundGroupActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07029e);
         View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0127, (ViewGroup) null);
         this.b = inflate;
         this.a.setContentView(inflate);
         this.c = this.b.findViewById(R.id.obfuscated_res_0x7f090394);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092437);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092439);
         this.d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e57);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f092436);
+        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e40);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f092438);
         this.e = memberRecommendView;
         memberRecommendView.setFromType(4);
-        this.f = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f0912df);
+        this.f = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f0912bb);
         TextView textView = new TextView(this.a.getActivity());
         this.g = textView;
         textView.setHeight(pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
-        TextView textView2 = (TextView) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d052d, (ViewGroup) null);
+        TextView textView2 = (TextView) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0537, (ViewGroup) null);
         this.h = textView2;
-        textView2.setText(R.string.obfuscated_res_0x7f0f0ad4);
+        textView2.setText(R.string.obfuscated_res_0x7f0f0ac0);
         this.h.setOnClickListener(new a(this));
         this.j = new rn8(this.a.getPageContext(), un8Var);
         TextView textView3 = new TextView(this.a.getActivity());
@@ -179,9 +179,9 @@ public class tn8 {
         rn8 rn8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ga5.a(this.a.getPageContext(), this.b);
+            ha5.a(this.a.getPageContext(), this.b);
             this.a.getLayoutMode().j(this.h);
-            ur4.d(this.h).v(R.color.CAM_X0108);
+            vr4.d(this.h).v(R.color.CAM_X0108);
             NavigationBar navigationBar = this.d;
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
@@ -235,7 +235,7 @@ public class tn8 {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.c.setVisibility(8);
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
-            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c45);
+            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c31);
             this.a.setNetRefreshViewTopMargin(this.i);
             this.a.showNetRefreshView(this.b, string, false);
         }

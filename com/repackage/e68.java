@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tieba.play.OnStatusChangedListener;
 import com.baidu.tieba.play.TbVideoViewContainer;
 import com.baidu.tieba.play.cyberPlayer.TbVideoViewSet;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface e68 extends MediaController.MediaPlayerControl {
     void a(long j, long j2, long j3);
 

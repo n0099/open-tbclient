@@ -3,19 +3,19 @@ package com.repackage;
 public interface r3 {
     boolean a();
 
-    boolean b();
+    int b();
 
-    int c();
+    void c();
 
-    void d();
+    int d();
 
     int e();
-
-    int f();
 
     int getHeight();
 
     int getWidth();
+
+    boolean isPrepared();
 
     void prepare();
 }

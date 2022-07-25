@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class fm7 implements r75 {
+public class fm7 implements s75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -247,7 +247,7 @@ public class fm7 implements r75 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.p75
+    @Override // com.repackage.q75
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -292,7 +292,7 @@ public class fm7 implements r75 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.d : invokeV.longValue;
     }
 
-    @Override // com.repackage.r75
+    @Override // com.repackage.s75
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -323,7 +323,7 @@ public class fm7 implements r75 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.i : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.r75
+    @Override // com.repackage.s75
     public boolean r(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

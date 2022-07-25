@@ -31,8 +31,8 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            r.a(jSONObject, "key", this.key);
-            r.a(jSONObject, "value", this.value);
+            r.putValue(jSONObject, "key", this.key);
+            r.putValue(jSONObject, "value", this.value);
             return jSONObject;
         }
     }
@@ -59,10 +59,10 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            r.a(jSONObject, "type", this.type);
-            r.a(jSONObject, "message", this.message);
+            r.putValue(jSONObject, "type", this.type);
+            r.putValue(jSONObject, "message", this.message);
             r.a(jSONObject, "urlPackage", this.urlPackage);
-            r.a(jSONObject, "flag", this.flag);
+            r.putValue(jSONObject, "flag", this.flag);
             return jSONObject;
         }
     }
@@ -113,10 +113,10 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            r.a(jSONObject, "page", this.page);
-            r.a(jSONObject, "params", this.params);
-            r.a(jSONObject, "identity", this.identity);
-            r.a(jSONObject, "pageType", this.pageType);
+            r.putValue(jSONObject, "page", this.page);
+            r.putValue(jSONObject, "params", this.params);
+            r.putValue(jSONObject, "identity", this.identity);
+            r.putValue(jSONObject, "pageType", this.pageType);
             return jSONObject;
         }
     }
@@ -136,11 +136,11 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        r.a(jSONObject, "clientTimeStamp", this.clientTimeStamp);
-        r.a(jSONObject, "clientIncrementId", this.clientIncrementId);
-        r.a(jSONObject, "sessionId", this.sessionId);
+        r.putValue(jSONObject, "clientTimeStamp", this.clientTimeStamp);
+        r.putValue(jSONObject, "clientIncrementId", this.clientIncrementId);
+        r.putValue(jSONObject, "sessionId", this.sessionId);
         r.a(jSONObject, "statPackage", this.statPackage);
-        r.a(jSONObject, "timeZone", this.timeZone);
+        r.putValue(jSONObject, "timeZone", this.timeZone);
         return jSONObject;
     }
 }

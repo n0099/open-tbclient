@@ -130,9 +130,9 @@ public class pf8 extends BaseAdapter {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0132, viewGroup, false);
             inflate.setOnClickListener(this.c);
             b bVar = new b();
-            bVar.a = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091945);
-            bVar.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09155e);
-            bVar.c = (BestStringsFitTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090760);
+            bVar.a = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091920);
+            bVar.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091539);
+            bVar.c = (BestStringsFitTextView) inflate.findViewById(R.id.obfuscated_res_0x7f09075f);
             inflate.setTag(bVar);
             return inflate;
         }
@@ -244,7 +244,7 @@ public class pf8 extends BaseAdapter {
                 return view2;
             }
             TbadkCoreApplication.getInst().getSkinType();
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0906a0);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09069f);
             SkinManager.setBackgroundResource(findViewById, R.drawable.addresslist_item_bg);
             if (itemViewType == 2) {
                 if (getCount() > 1) {

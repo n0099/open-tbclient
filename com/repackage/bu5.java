@@ -237,16 +237,16 @@ public class bu5 extends jx5<xg8> implements hy5 {
         this.w = true;
         this.y = new b(this);
         this.z = new c(this);
-        this.i = (ForbidParentSwipeBackRelativeLayout) h().findViewById(R.id.obfuscated_res_0x7f091251);
-        this.n = h().findViewById(R.id.obfuscated_res_0x7f0907ca);
-        this.o = h().findViewById(R.id.obfuscated_res_0x7f0907d6);
-        this.j = (FrsAlaStageLiveViewPager) h().findViewById(R.id.obfuscated_res_0x7f090bb1);
-        this.l = (LinearLayout) h().findViewById(R.id.obfuscated_res_0x7f090bb0);
-        this.m = (IndicatorView) h().findViewById(R.id.obfuscated_res_0x7f090baf);
+        this.i = (ForbidParentSwipeBackRelativeLayout) h().findViewById(R.id.obfuscated_res_0x7f09122d);
+        this.n = h().findViewById(R.id.obfuscated_res_0x7f0907c8);
+        this.o = h().findViewById(R.id.obfuscated_res_0x7f0907d4);
+        this.j = (FrsAlaStageLiveViewPager) h().findViewById(R.id.obfuscated_res_0x7f090baa);
+        this.l = (LinearLayout) h().findViewById(R.id.obfuscated_res_0x7f090ba9);
+        this.m = (IndicatorView) h().findViewById(R.id.obfuscated_res_0x7f090ba8);
         vt5 vt5Var = new vt5(tbPageContext, this.i);
         this.s = vt5Var;
         vt5Var.d(f());
-        this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811a4);
+        this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811a8);
         this.j.setOnPageChangeListener(this.y);
         FrsAlaStageLiveViewItemAdapter frsAlaStageLiveViewItemAdapter = new FrsAlaStageLiveViewItemAdapter(this.b, f());
         this.k = frsAlaStageLiveViewItemAdapter;
@@ -290,10 +290,10 @@ public class bu5 extends jx5<xg8> implements hy5 {
         CustomMessage customMessage;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, threadData) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091251) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09122d) {
                 customMessage = new CustomMessage(2921018);
             } else if (view2.getId() != R.id.obfuscated_res_0x7f090524 && view2.getId() != R.id.obfuscated_res_0x7f090520) {
-                customMessage = view2.getId() == R.id.obfuscated_res_0x7f09238b ? new CustomMessage(2921019) : null;
+                customMessage = view2.getId() == R.id.obfuscated_res_0x7f09238d ? new CustomMessage(2921019) : null;
             } else {
                 customMessage = new CustomMessage(2921016);
             }

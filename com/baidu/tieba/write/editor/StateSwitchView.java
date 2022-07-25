@@ -114,7 +114,7 @@ public class StateSwitchView extends EditorInfoView {
                 if (drawable2 != null) {
                     drawable2.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
                     setCompoundDrawables(drawable2, null, null, null);
-                    setCompoundDrawablePadding(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070304));
+                    setCompoundDrawablePadding(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070302));
                 }
             } else if (i == 0) {
                 if (this.h && (absSvgType = this.i) != null) {
@@ -125,7 +125,7 @@ public class StateSwitchView extends EditorInfoView {
                 if (drawable != null) {
                     drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
                     setCompoundDrawables(drawable, null, null, null);
-                    setCompoundDrawablePadding(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070304));
+                    setCompoundDrawablePadding(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070302));
                 }
             }
         }

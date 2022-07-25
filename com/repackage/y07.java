@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class y07 implements ha5 {
+public class y07 implements ia5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -46,8 +46,8 @@ public class y07 implements ha5 {
     public EMTextView f;
     public RelativeLayout g;
     public BdTypeRecyclerView h;
-    public j55 i;
-    public k55 j;
+    public k55 i;
+    public l55 j;
     public View.OnClickListener k;
     public boolean l;
 
@@ -161,7 +161,7 @@ public class y07 implements ha5 {
         h();
     }
 
-    @Override // com.repackage.ha5
+    @Override // com.repackage.ia5
     public void D(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
@@ -169,7 +169,7 @@ public class y07 implements ha5 {
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean J0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -180,24 +180,24 @@ public class y07 implements ha5 {
     }
 
     public final void f() {
-        j55 j55Var;
+        k55 k55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.g == null || (j55Var = this.i) == null || !j55Var.isViewAttached()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.g == null || (k55Var = this.i) == null || !k55Var.isViewAttached()) {
             return;
         }
         this.i.dettachView(this.g);
     }
 
     public final void g() {
-        k55 k55Var;
+        l55 l55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.g == null || (k55Var = this.j) == null || !k55Var.isViewAttached()) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.g == null || (l55Var = this.j) == null || !l55Var.isViewAttached()) {
             return;
         }
         this.j.dettachView(this.g);
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -213,9 +213,9 @@ public class y07 implements ha5 {
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (tbPageContext = this.a) == null || this.b == null) {
             return;
         }
-        LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d049a, (ViewGroup) this.b, true);
-        this.g = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091380);
-        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.b.findViewById(R.id.obfuscated_res_0x7f091aba);
+        LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0499, (ViewGroup) this.b, true);
+        this.g = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09135c);
+        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.b.findViewById(R.id.obfuscated_res_0x7f091a94);
         this.h = bdTypeRecyclerView;
         bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity()));
         this.h.setFadingEdgeLength(0);
@@ -242,9 +242,9 @@ public class y07 implements ha5 {
             this.c.getContentLayout().getLayoutParams().height = pi.f(this.a.getPageActivity(), R.dimen.tbds161);
             this.c.getContentLayout().requestLayout();
         }
-        this.d = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d049b, this.c.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER), true);
-        this.e = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f09137f);
-        this.f = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f09137e);
+        this.d = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d049a, this.c.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER), true);
+        this.e = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f09135b);
+        this.f = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f09135a);
     }
 
     public final void j(b17 b17Var) {
@@ -268,7 +268,7 @@ public class y07 implements ha5 {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            p(this.a.getString(R.string.obfuscated_res_0x7f0f09e5), true);
+            p(this.a.getString(R.string.obfuscated_res_0x7f0f09cf), true);
             f();
             this.h.setVisibility(8);
         }
@@ -286,7 +286,7 @@ public class y07 implements ha5 {
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public void n(int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048587, this, i) == null) || this.a == null) {
@@ -300,13 +300,13 @@ public class y07 implements ha5 {
             pureDrawable.setBounds(0, 0, f, f);
             this.f.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, pureDrawable, (Drawable) null);
         }
-        j55 j55Var = this.i;
-        if (j55Var != null) {
-            j55Var.m(i);
-        }
-        k55 k55Var = this.j;
+        k55 k55Var = this.i;
         if (k55Var != null) {
-            k55Var.onChangeSkinType();
+            k55Var.m(i);
+        }
+        l55 l55Var = this.j;
+        if (l55Var != null) {
+            l55Var.onChangeSkinType();
         }
         BdTypeRecyclerView bdTypeRecyclerView = this.h;
         if (bdTypeRecyclerView == null || bdTypeRecyclerView.getAdapter() == null) {
@@ -320,10 +320,10 @@ public class y07 implements ha5 {
         if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.a == null || this.g == null) {
             return;
         }
-        j55 j55Var = this.i;
-        if (j55Var == null || !j55Var.isViewAttached()) {
+        k55 k55Var = this.i;
+        if (k55Var == null || !k55Var.isViewAttached()) {
             if (this.i == null) {
-                this.i = new j55(this.a.getPageActivity());
+                this.i = new k55(this.a.getPageActivity());
             }
             this.i.attachView(this.g);
         }
@@ -340,10 +340,10 @@ public class y07 implements ha5 {
         if (!(interceptable == null || interceptable.invokeLZ(1048590, this, str, z) == null) || this.a == null || this.g == null) {
             return;
         }
-        k55 k55Var = this.j;
-        if (k55Var == null || !k55Var.isViewAttached()) {
+        l55 l55Var = this.j;
+        if (l55Var == null || !l55Var.isViewAttached()) {
             if (this.j == null) {
-                this.j = new k55(this.a.getPageActivity(), this.k);
+                this.j = new l55(this.a.getPageActivity(), this.k);
             }
             if (z) {
                 this.j.i(R.drawable.new_pic_emotion_07);
@@ -390,7 +390,7 @@ public class y07 implements ha5 {
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

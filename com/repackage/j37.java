@@ -81,7 +81,7 @@ public class j37 extends my5 {
             return;
         }
         this.showTopDivider = true;
-        this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f90);
+        this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f79);
         this.a = new ArrayList();
         for (RelateForum relateForum : list) {
             if (!StringUtils.isNull(relateForum.forum_name)) {

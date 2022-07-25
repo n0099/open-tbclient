@@ -97,7 +97,7 @@ public class bb9 {
                 return;
             }
         }
-        this.a = cb9.h(context);
+        this.a = cb9.f(context);
         j(z);
     }
 
@@ -163,7 +163,7 @@ public class bb9 {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (cb9Var = this.a) == null) {
             return;
         }
-        cb9Var.c();
+        cb9Var.a();
     }
 
     public final void e() {
@@ -216,7 +216,7 @@ public class bb9 {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.i(this.f, this.e);
+            this.a.g(this.f, this.e);
             if (this.f.size() > 0) {
                 Iterator<String> it = this.f.iterator();
                 while (it.hasNext()) {
@@ -257,7 +257,7 @@ public class bb9 {
             if (this.a == null || (linkedList = this.e) == null || linkedList.size() == 0) {
                 return false;
             }
-            String e = this.a.e();
+            String c = this.a.c();
             ab9 ab9Var = null;
             Iterator<ab9> it = this.e.iterator();
             while (true) {
@@ -265,7 +265,7 @@ public class bb9 {
                     break;
                 }
                 ab9 next = it.next();
-                if (TextUtils.equals(e, next.j())) {
+                if (TextUtils.equals(c, next.j())) {
                     ab9Var = next;
                     break;
                 }
@@ -273,7 +273,7 @@ public class bb9 {
             if (ab9Var != null) {
                 this.e.remove(ab9Var);
             }
-            File file = new File(sa9.g().h(), e);
+            File file = new File(sa9.g().h(), c);
             if (file.exists()) {
                 file.delete();
                 this.d -= file.length();
@@ -325,7 +325,7 @@ public class bb9 {
         if (!(interceptable == null || interceptable.invokeL(1048586, this, ab9Var) == null) || ab9Var == null) {
             return;
         }
-        this.a.j(ab9Var);
+        this.a.h(ab9Var);
     }
 
     public final void l() {
@@ -353,7 +353,7 @@ public class bb9 {
         if (!(interceptable == null || interceptable.invokeL(1048589, this, ab9Var) == null) || ab9Var == null) {
             return;
         }
-        this.a.k(ab9Var);
+        this.a.i(ab9Var);
     }
 
     public void o(ab9 ab9Var) {
@@ -361,7 +361,7 @@ public class bb9 {
         if (!(interceptable == null || interceptable.invokeL(1048590, this, ab9Var) == null) || ab9Var == null) {
             return;
         }
-        this.a.l(ab9Var);
+        this.a.j(ab9Var);
     }
 
     public void p() {

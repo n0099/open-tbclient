@@ -34,7 +34,7 @@ public class we8 implements se8 {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            s95.b().l(System.currentTimeMillis());
+            t95.b().l(System.currentTimeMillis());
             xe8.g(this.a).b();
         }
     }

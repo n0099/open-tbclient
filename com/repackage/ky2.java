@@ -1,9 +1,7 @@
 package com.repackage;
 /* loaded from: classes6.dex */
 public interface ky2 {
-    int getHeight();
+    void handleHide();
 
-    void onSoftInputShowing(boolean z);
-
-    void refreshHeight(int i);
+    void handleShow();
 }

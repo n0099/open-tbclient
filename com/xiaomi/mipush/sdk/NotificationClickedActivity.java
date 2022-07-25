@@ -22,7 +22,7 @@ public final class NotificationClickedActivity extends Activity {
     public BroadcastReceiver a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Handler f765a;
+    public Handler f45a;
 
     public NotificationClickedActivity() {
         Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public final class NotificationClickedActivity extends Activity {
             attributes.gravity = BadgeDrawable.TOP_START;
             window.setAttributes(attributes);
             Handler handler = new Handler();
-            this.f765a = handler;
+            this.f45a = handler;
             handler.postDelayed(new ac(this), 3000L);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("action_clicked_activity_finish");
@@ -87,7 +87,7 @@ public final class NotificationClickedActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            this.f765a.removeCallbacksAndMessages(null);
+            this.f45a.removeCallbacksAndMessages(null);
             try {
                 unregisterReceiver(this.a);
             } catch (Exception unused) {

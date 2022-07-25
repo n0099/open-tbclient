@@ -100,7 +100,7 @@ public class cq5 {
                 }
                 if (!ListUtils.isEmpty(this.d)) {
                     or5 or5Var = new or5();
-                    or5Var.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a0c, Integer.valueOf(alaLiveTabMyConcernResponse.followCloseNum));
+                    or5Var.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f8, Integer.valueOf(alaLiveTabMyConcernResponse.followCloseNum));
                     arrayList.add(or5Var);
                 }
                 if (!ListUtils.isEmpty(this.d)) {
@@ -124,7 +124,7 @@ public class cq5 {
             }
             if (alaLiveTabMyConcernResponse.followStatus != 1) {
                 or5 or5Var = new or5();
-                or5Var.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a0d, Integer.valueOf(alaLiveTabMyConcernResponse.totalFollowCount));
+                or5Var.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f9, Integer.valueOf(alaLiveTabMyConcernResponse.totalFollowCount));
                 arrayList.add(or5Var);
             }
             if (!ListUtils.isEmpty(this.c)) {
@@ -146,7 +146,7 @@ public class cq5 {
             ArrayList arrayList = new ArrayList();
             if (!ListUtils.isEmpty(this.e)) {
                 or5 or5Var = new or5();
-                or5Var.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a11);
+                or5Var.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09fd);
                 arrayList.add(or5Var);
                 arrayList.addAll(g(this.e));
             }

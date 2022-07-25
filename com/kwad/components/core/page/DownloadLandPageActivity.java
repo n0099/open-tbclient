@@ -46,7 +46,7 @@ import com.kwad.sdk.core.page.widget.RoundAngleImageView;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.mvp.Presenter;
-import com.kwad.sdk.utils.ae;
+import com.kwad.sdk.utils.ag;
 import com.kwad.sdk.widget.DownloadProgressBar;
 import com.kwad.sdk.widget.KSLinearLayout;
 import com.kwad.sdk.widget.KSRelativeLayout;
@@ -64,7 +64,7 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
     public transient /* synthetic */ FieldHolder $fh;
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;
-    public com.kwad.components.core.c.a.b mApkDownloadHelper;
+    public com.kwad.components.core.c.a.c mApkDownloadHelper;
     public ImageView mBackIcon;
     public ImageView mCloseIcon;
     public Context mContext;
@@ -108,11 +108,11 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
 
     private void buildView(ComplianceTextView complianceTextView, KSLinearLayout kSLinearLayout, KsLogoView ksLogoView) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65544, this, complianceTextView, kSLinearLayout, ksLogoView) == null) || com.kwad.sdk.core.response.a.a.W(com.kwad.sdk.core.response.a.d.i(this.mAdTemplate))) {
+        if (!(interceptable == null || interceptable.invokeLLL(65544, this, complianceTextView, kSLinearLayout, ksLogoView) == null) || com.kwad.sdk.core.response.a.a.aB(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate))) {
             return;
         }
         ((FrameLayout.LayoutParams) complianceTextView.getLayoutParams()).gravity = 80;
-        if (!ae.e(this.mContext)) {
+        if (!ag.cB(this.mContext)) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) ksLogoView.getLayoutParams();
             marginLayoutParams.setMargins(0, 0, 0, com.kwad.sdk.b.kwai.a.a(this.mContext, 100.0f));
             ksLogoView.setLayoutParams(marginLayoutParams);
@@ -130,7 +130,7 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
             h hVar = new h(this) { // from class: com.kwad.components.core.page.DownloadLandPageActivity.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ DownloadLandPageActivity a;
+                public final /* synthetic */ DownloadLandPageActivity FF;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -147,29 +147,29 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
                             return;
                         }
                     }
-                    this.a = this;
+                    this.FF = this;
                 }
 
                 @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-                public final void a(int i, int i2) {
+                public final void onVideoPlayCompleted() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeII(1048576, this, i, i2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.FF.mVideoCover.setVisibility(0);
                     }
                 }
 
                 @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-                public final void c() {
+                public final void onVideoPlayError(int i, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.a.mVideoCover.setVisibility(8);
+                    if (interceptable2 == null || interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
                     }
                 }
 
                 @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-                public final void d() {
+                public final void onVideoPlayStart() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                        this.a.mVideoCover.setVisibility(0);
+                        this.FF.mVideoCover.setVisibility(8);
                     }
                 }
             };
@@ -186,7 +186,7 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
         return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? new f.a(this) { // from class: com.kwad.components.core.page.DownloadLandPageActivity.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ DownloadLandPageActivity a;
+            public final /* synthetic */ DownloadLandPageActivity FF;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -203,16 +203,16 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
                         return;
                     }
                 }
-                this.a = this;
+                this.FF = this;
             }
 
             @Override // com.kwad.components.core.page.kwai.f.a
-            public final void a(int i) {
+            public final void aj(int i) {
                 Interceptable interceptable2 = $ic;
                 if (!(interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) || i == 1) {
                     return;
                 }
-                this.a.initNativeLandPage();
+                this.FF.initNativeLandPage();
             }
         } : (f.a) invokeV.objValue;
     }
@@ -220,14 +220,14 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
     private void handleCloseBtn() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            long u = com.kwad.sdk.core.response.a.a.u(this.mAdInfo);
-            if (u == 0) {
+            long X = com.kwad.sdk.core.response.a.a.X(this.mAdInfo);
+            if (X == 0) {
                 this.mCloseIcon.setVisibility(0);
             } else {
                 this.mCloseIcon.postDelayed(new Runnable(this) { // from class: com.kwad.components.core.page.DownloadLandPageActivity.7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ DownloadLandPageActivity a;
+                    public final /* synthetic */ DownloadLandPageActivity FF;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -244,25 +244,25 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
                                 return;
                             }
                         }
-                        this.a = this;
+                        this.FF = this;
                     }
 
                     @Override // java.lang.Runnable
                     public final void run() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a.getActivity() == null || this.a.getActivity().isFinishing()) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.FF.getActivity() == null || this.FF.getActivity().isFinishing()) {
                             return;
                         }
-                        this.a.mCloseIcon.setVisibility(0);
-                        this.a.mCloseIcon.setAlpha(0.0f);
-                        this.a.mCloseIcon.animate().alpha(1.0f).setDuration(500L).start();
+                        this.FF.mCloseIcon.setVisibility(0);
+                        this.FF.mCloseIcon.setAlpha(0.0f);
+                        this.FF.mCloseIcon.animate().alpha(1.0f).setDuration(500L).start();
                     }
-                }, u);
+                }, X);
             }
             this.mCloseIcon.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.DownloadLandPageActivity.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ DownloadLandPageActivity a;
+                public final /* synthetic */ DownloadLandPageActivity FF;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -279,15 +279,15 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
                             return;
                         }
                     }
-                    this.a = this;
+                    this.FF = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        com.kwad.components.core.l.d.a().b();
-                        this.a.finish();
+                        com.kwad.components.core.m.d.oy().oz();
+                        this.FF.finish();
                     }
                 }
             });
@@ -306,10 +306,10 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
                     adTemplate.parseJson(new JSONObject(stringExtra));
                 }
                 this.mAdTemplate = adTemplate;
-                this.mAdInfo = com.kwad.sdk.core.response.a.d.i(adTemplate);
+                this.mAdInfo = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
                 return true;
             } catch (Throwable th) {
-                com.kwad.sdk.core.d.b.b(th);
+                com.kwad.sdk.core.e.b.printStackTraceOnly(th);
                 return false;
             }
         }
@@ -320,22 +320,22 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
     public void initNativeLandPage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            findViewById(R.id.obfuscated_res_0x7f090fe7).setVisibility(0);
-            ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09101a);
+            findViewById(R.id.obfuscated_res_0x7f090fde).setVisibility(0);
+            ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f091011);
             complianceTextView.setVisibility(0);
             complianceTextView.setAdTemplate(this.mAdTemplate);
-            RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f090fd9);
-            KSLinearLayout kSLinearLayout = (KSLinearLayout) findViewById(R.id.obfuscated_res_0x7f091052);
-            KsLogoView ksLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09107c);
-            DownloadProgressBar downloadProgressBar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f0911ef);
-            AdInfo i = com.kwad.sdk.core.response.a.d.i(this.mAdTemplate);
-            setAdTitle((TextView) findViewById(R.id.obfuscated_res_0x7f090fee), i);
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f090fe4)).setText(i.adBaseInfo.adDescription);
+            RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f090fd0);
+            KSLinearLayout kSLinearLayout = (KSLinearLayout) findViewById(R.id.obfuscated_res_0x7f091049);
+            KsLogoView ksLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091073);
+            DownloadProgressBar downloadProgressBar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f0911cb);
+            AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate);
+            setAdTitle((TextView) findViewById(R.id.obfuscated_res_0x7f090fe5), bQ);
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f090fdb)).setText(bQ.adBaseInfo.adDescription);
             roundAngleImageView.setRadius(32.0f);
-            if (!TextUtils.isEmpty(com.kwad.sdk.core.response.a.a.aE(i))) {
-                KSImageLoader.loadImage(roundAngleImageView, com.kwad.sdk.core.response.a.a.aE(i), this.mAdTemplate);
+            if (!TextUtils.isEmpty(com.kwad.sdk.core.response.a.a.bn(bQ))) {
+                KSImageLoader.loadImage(roundAngleImageView, com.kwad.sdk.core.response.a.a.bn(bQ), this.mAdTemplate);
             }
-            setAdkDownload(downloadProgressBar, i);
+            setAdkDownload(downloadProgressBar, bQ);
             buildView(complianceTextView, kSLinearLayout, ksLogoView);
         }
     }
@@ -343,20 +343,20 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            this.mRootContainer = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091182);
-            this.mKsadVideoContainer = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f0911c3);
-            this.mDetailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911da);
-            this.mVideoBlurBg = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911bf);
-            this.mBackIcon = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091003);
-            this.mCloseIcon = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091180);
-            this.mVideoCover = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911ce);
+            this.mRootContainer = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091160);
+            this.mKsadVideoContainer = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f09119f);
+            this.mDetailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911b6);
+            this.mVideoBlurBg = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09119b);
+            this.mBackIcon = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f090ffa);
+            this.mCloseIcon = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09115e);
+            this.mVideoCover = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911aa);
             if (this.mAdTemplate.adInfoList.size() > 0) {
-                loadBlurImage(com.kwad.sdk.core.response.a.a.k(this.mAdTemplate.adInfoList.get(0)), this.mVideoBlurBg);
+                loadBlurImage(com.kwad.sdk.core.response.a.a.K(this.mAdTemplate.adInfoList.get(0)), this.mVideoBlurBg);
             }
             this.mBackIcon.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.DownloadLandPageActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ DownloadLandPageActivity a;
+                public final /* synthetic */ DownloadLandPageActivity FF;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -373,19 +373,19 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
                             return;
                         }
                     }
-                    this.a = this;
+                    this.FF = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        com.kwad.sdk.core.report.a.k(this.a.mAdTemplate, 153);
-                        this.a.finish();
+                        com.kwad.sdk.core.report.a.r(this.FF.mAdTemplate, 153);
+                        this.FF.finish();
                     }
                 }
             });
-            if (com.kwad.sdk.core.response.a.a.W(com.kwad.sdk.core.response.a.d.i(this.mAdTemplate))) {
+            if (com.kwad.sdk.core.response.a.a.aB(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate))) {
                 setVideoData();
             }
             if (this.mIsRewardLandPage) {
@@ -397,7 +397,7 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
     public static void launch(@NonNull Context context, @NonNull AdTemplate adTemplate, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65551, null, context, adTemplate, z) == null) {
-            Class cls = ae.e(context) ? AdWebViewActivity.class : KsFullScreenLandScapeVideoActivity.class;
+            Class cls = ag.cB(context) ? AdWebViewActivity.class : KsFullScreenLandScapeVideoActivity.class;
             KsAdSDKImpl.putComponentProxy(cls, DownloadLandPageActivity.class);
             Intent intent = new Intent(context, cls);
             intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
@@ -416,7 +416,7 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
         KSImageLoader.loadImage(imageView, str, this.mAdTemplate, new DisplayImageOptionsCompat.Builder().setBlurRadius(50).build(), new SimpleImageLoadingListener(this) { // from class: com.kwad.components.core.page.DownloadLandPageActivity.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ DownloadLandPageActivity a;
+            public final /* synthetic */ DownloadLandPageActivity FF;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -433,7 +433,7 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
                         return;
                     }
                 }
-                this.a = this;
+                this.FF = this;
             }
 
             @Override // com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener, com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
@@ -463,13 +463,13 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
 
     private void setAdkDownload(DownloadProgressBar downloadProgressBar, AdInfo adInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65554, this, downloadProgressBar, adInfo) == null) && com.kwad.sdk.core.response.a.a.I(adInfo)) {
-            this.mApkDownloadHelper = new com.kwad.components.core.c.a.b(this.mAdTemplate, new com.kwad.sdk.core.download.kwai.a(this, downloadProgressBar, adInfo) { // from class: com.kwad.components.core.page.DownloadLandPageActivity.4
+        if ((interceptable == null || interceptable.invokeLL(65554, this, downloadProgressBar, adInfo) == null) && com.kwad.sdk.core.response.a.a.am(adInfo)) {
+            this.mApkDownloadHelper = new com.kwad.components.core.c.a.c(this.mAdTemplate, new com.kwad.sdk.core.download.kwai.a(this, downloadProgressBar, adInfo) { // from class: com.kwad.components.core.page.DownloadLandPageActivity.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ DownloadProgressBar a;
-                public final /* synthetic */ AdInfo b;
-                public final /* synthetic */ DownloadLandPageActivity c;
+                public final /* synthetic */ DownloadLandPageActivity FF;
+                public final /* synthetic */ DownloadProgressBar FG;
+                public final /* synthetic */ AdInfo pE;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -486,53 +486,53 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
                             return;
                         }
                     }
-                    this.c = this;
-                    this.a = downloadProgressBar;
-                    this.b = adInfo;
-                }
-
-                @Override // com.kwad.sdk.core.download.kwai.a
-                public final void a(int i) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
-                        this.a.setProgress(i);
-                        this.a.setText(com.kwad.sdk.core.response.a.a.b(i));
-                    }
+                    this.FF = this;
+                    this.FG = downloadProgressBar;
+                    this.pE = adInfo;
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public final void onDownloadFailed() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.a.setProgress(100.0f);
-                        this.a.setText(com.kwad.sdk.core.response.a.a.H(this.b));
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.FG.setProgress(100.0f);
+                        this.FG.setText(com.kwad.sdk.core.response.a.a.al(this.pE));
                     }
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public final void onDownloadFinished() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                        this.a.setProgress(100.0f);
-                        this.a.setText(com.kwad.sdk.core.response.a.a.a(this.c.mAdTemplate));
+                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                        this.FG.setProgress(100.0f);
+                        this.FG.setText(com.kwad.sdk.core.response.a.a.aJ(this.FF.mAdTemplate));
                     }
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public final void onIdle() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                        this.a.setProgress(100.0f);
-                        this.a.setText(com.kwad.sdk.core.response.a.a.H(this.b));
+                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                        this.FG.setProgress(100.0f);
+                        this.FG.setText(com.kwad.sdk.core.response.a.a.al(this.pE));
                     }
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public final void onInstalled() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                        this.a.setProgress(100.0f);
-                        this.a.setText(com.kwad.sdk.core.response.a.a.n(this.b));
+                    if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
+                        this.FG.setProgress(100.0f);
+                        this.FG.setText(com.kwad.sdk.core.response.a.a.P(this.pE));
+                    }
+                }
+
+                @Override // com.kwad.sdk.core.download.kwai.a
+                public final void onPaused(int i) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeI(1048580, this, i) == null) {
+                        this.FG.setProgress(i);
+                        this.FG.setText(com.kwad.sdk.core.response.a.a.aX(i));
                     }
                 }
 
@@ -540,15 +540,15 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
                 public final void onProgressUpdate(int i) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(1048581, this, i) == null) {
-                        this.a.setProgress(i);
-                        this.a.setText(com.kwad.sdk.core.response.a.a.a(i));
+                        this.FG.setProgress(i);
+                        this.FG.setText(com.kwad.sdk.core.response.a.a.aW(i));
                     }
                 }
             });
             downloadProgressBar.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.DownloadLandPageActivity.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ DownloadLandPageActivity a;
+                public final /* synthetic */ DownloadLandPageActivity FF;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -565,17 +565,17 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
                             return;
                         }
                     }
-                    this.a = this;
+                    this.FF = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        com.kwad.sdk.core.report.a.k(this.a.mAdTemplate, Cea708Decoder.COMMAND_DF0);
-                        this.a.mApkDownloadHelper.a(new a.C0507a(this.a.getActivity()).a(true).b(false).a(this.a.mAdTemplate).d(false));
-                        if (this.a.mIsRewardLandPage) {
-                            com.kwad.sdk.core.report.a.a(this.a.mAdTemplate, new com.kwad.sdk.core.report.f(), (JSONObject) null);
+                        com.kwad.sdk.core.report.a.r(this.FF.mAdTemplate, Cea708Decoder.COMMAND_DF0);
+                        this.FF.mApkDownloadHelper.m(new a.C0352a(this.FF.getActivity()).aj(true).ak(false).L(this.FF.mAdTemplate).am(false));
+                        if (this.FF.mIsRewardLandPage) {
+                            com.kwad.sdk.core.report.a.a(this.FF.mAdTemplate, new com.kwad.sdk.core.report.f(), (JSONObject) null);
                         }
                     }
                 }
@@ -587,29 +587,29 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
             ViewGroup.LayoutParams layoutParams = this.mKsadVideoContainer.getLayoutParams();
-            if (ae.e(this.mContext)) {
-                layoutParams.height = (com.kwad.sdk.b.kwai.a.c(this.mContext) * 9) / 16;
+            if (ag.cB(this.mContext)) {
+                layoutParams.height = (com.kwad.sdk.b.kwai.a.getScreenWidth(this.mContext) * 9) / 16;
                 layoutParams.width = -1;
-                this.mDetailVideoView.a(true);
+                this.mDetailVideoView.fixWidth(true);
             } else {
-                layoutParams.width = com.kwad.sdk.b.kwai.a.c(this.mContext) / 2;
+                layoutParams.width = com.kwad.sdk.b.kwai.a.getScreenWidth(this.mContext) / 2;
                 layoutParams.height = -1;
                 this.mDetailVideoView.setHorizontalVideo(true);
             }
             this.mKsadVideoContainer.setLayoutParams(layoutParams);
             this.mKsadVideoContainer.setVisibility(0);
-            KSImageLoader.loadImage(this.mVideoCover, com.kwad.sdk.core.response.a.a.ae(this.mAdInfo).a(), this.mAdTemplate);
+            KSImageLoader.loadImage(this.mVideoCover, com.kwad.sdk.core.response.a.a.aL(this.mAdInfo).getUrl(), this.mAdTemplate);
         }
     }
 
-    @Override // com.kwad.components.core.h.a
+    @Override // com.kwad.components.core.i.a
     public String getPageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TAG : (String) invokeV.objValue;
     }
 
-    @Override // com.kwad.components.core.h.a, com.kwad.sdk.api.proxy.IActivityProxy
+    @Override // com.kwad.components.core.i.a, com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
@@ -617,7 +617,7 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
             Context wrapContextIfNeed = Wrapper.wrapContextIfNeed(getActivity());
             this.mContext = wrapContextIfNeed;
             showingAdWebViewLandPage = true;
-            setContentView(ae.e(wrapContextIfNeed) ? R.layout.obfuscated_res_0x7f0d03f7 : R.layout.obfuscated_res_0x7f0d03fd);
+            setContentView(ag.cB(wrapContextIfNeed) ? R.layout.obfuscated_res_0x7f0d03f7 : R.layout.obfuscated_res_0x7f0d03fd);
             if (!initData()) {
                 finish();
                 return;
@@ -634,17 +634,17 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             com.kwad.components.core.page.kwai.d dVar = new com.kwad.components.core.page.kwai.d();
-            dVar.L = getActivity();
-            dVar.M = this.mContext;
+            dVar.EG = this;
+            dVar.mContext = this.mContext;
             AdTemplate adTemplate = this.mAdTemplate;
-            dVar.K = adTemplate;
-            if (com.kwad.sdk.core.response.a.a.W(com.kwad.sdk.core.response.a.d.i(adTemplate))) {
-                com.kwad.components.core.l.b.a(this.mContext).a(true);
+            dVar.mAdTemplate = adTemplate;
+            if (com.kwad.sdk.core.response.a.a.aB(com.kwad.sdk.core.response.a.d.bQ(adTemplate))) {
+                com.kwad.components.core.m.b.at(this.mContext).ay(true);
                 com.kwad.components.core.page.a.a aVar = new com.kwad.components.core.page.a.a(this.mAdTemplate, this.mDetailVideoView, new KsVideoPlayConfig.Builder().videoSoundEnable(true).build());
                 this.mPlayModule = aVar;
-                dVar.a = aVar;
+                dVar.mPlayModule = aVar;
                 aVar.a(getVideoPlayStateListener());
-                dVar.J.add(this.mPlayModule);
+                dVar.EF.add(this.mPlayModule);
             }
             return dVar;
         }
@@ -657,28 +657,28 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Presenter presenter = new Presenter();
-            if (com.kwad.sdk.core.response.a.a.W(com.kwad.sdk.core.response.a.d.i(this.mAdTemplate))) {
-                presenter.a((Presenter) new e());
+            if (com.kwad.sdk.core.response.a.a.aB(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate))) {
+                presenter.a(new e());
             }
-            presenter.a((Presenter) new f(getWebViewStateListener(), this.mIsRewardLandPage));
+            presenter.a(new f(getWebViewStateListener(), this.mIsRewardLandPage));
             return presenter;
         }
         return (Presenter) invokeV.objValue;
     }
 
-    @Override // com.kwad.components.core.g.b, com.kwad.components.core.h.a, com.kwad.sdk.api.proxy.IActivityProxy
+    @Override // com.kwad.components.core.g.b, com.kwad.components.core.i.a, com.kwad.sdk.api.proxy.IActivityProxy
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
             showingAdWebViewLandPage = false;
-            com.kwad.components.core.c.a.b bVar = this.mApkDownloadHelper;
-            if (bVar != null) {
-                bVar.i();
+            com.kwad.components.core.c.a.c cVar = this.mApkDownloadHelper;
+            if (cVar != null) {
+                cVar.clear();
             }
             com.kwad.components.core.page.a.a aVar = this.mPlayModule;
             if (aVar != null) {
-                aVar.a();
+                aVar.release();
             }
         }
     }

@@ -139,13 +139,13 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                             this.a.showToast(str);
                             return;
                         } else {
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                             return;
                         }
                     }
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
             }
         }
     }
@@ -251,7 +251,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                             MessageManager.getInstance().sendMessage(new CustomMessage(2902013, intentConfig));
                             return;
                         }
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f081d);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0819);
                         FacePackageData facePackageData = this.a.a.I().faces_list;
                         facePackageData.buy_status = 1;
                         facePackageData.can_download = 1;
@@ -264,11 +264,11 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                         this.a.showToast(str3);
                         return;
                     } else {
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                         return;
                     }
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
             }
         }
     }
@@ -438,7 +438,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
             DownloadData downloadData = new DownloadData(this.a.getPid());
             downloadData.setType(11);
             downloadData.setStatus(2);
-            downloadData.setStatusMsg(getResources().getString(R.string.obfuscated_res_0x7f0f0c2b));
+            downloadData.setStatusMsg(getResources().getString(R.string.obfuscated_res_0x7f0f0c17));
             this.c.setLoadDataCallBack(new c(this, downloadData));
         }
     }
@@ -478,7 +478,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             float f4 = f2 - this.e;
             float f5 = f3 - this.f;
-            return Math.sqrt((double) ((f4 * f4) + (f5 * f5))) > ((double) getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027b));
+            return Math.sqrt((double) ((f4 * f4) + (f5 * f5))) > ((double) getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070279));
         }
         return invokeCommon.booleanValue;
     }

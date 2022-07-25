@@ -225,8 +225,8 @@ public class om6 extends qm6 {
                 break;
             }
             nn next = it.next();
-            if (next instanceof qq4) {
-                ThreadData threadData = ((qq4) next).s;
+            if (next instanceof rq4) {
+                ThreadData threadData = ((rq4) next).s;
                 if (threadData == this.h) {
                     g(threadData, i);
                     this.h = null;

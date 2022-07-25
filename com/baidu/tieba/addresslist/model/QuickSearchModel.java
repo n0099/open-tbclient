@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.az4;
 import com.repackage.bl5;
+import com.repackage.bz4;
 import com.repackage.d9;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +45,7 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     }
 
     @SuppressLint({"DefaultLocale"})
-    public List<az4> A(String str) {
+    public List<bz4> A(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -54,27 +54,27 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
                 if (TextUtils.isEmpty(str)) {
                     return arrayList;
                 }
-                List<az4> c = this.a.c();
+                List<bz4> c = this.a.c();
                 if (c == null) {
                     return arrayList;
                 }
-                for (az4 az4Var : c) {
-                    String e = az4Var.e();
-                    String c2 = az4Var.c();
+                for (bz4 bz4Var : c) {
+                    String e = bz4Var.e();
+                    String c2 = bz4Var.c();
                     if (!TextUtils.isEmpty(e) && e.toLowerCase().startsWith(str.toLowerCase())) {
-                        arrayList.add(az4Var);
+                        arrayList.add(bz4Var);
                     } else if (!TextUtils.isEmpty(c2) && c2.toLowerCase().startsWith(str.toLowerCase())) {
-                        arrayList.add(az4Var);
+                        arrayList.add(bz4Var);
                     }
                 }
-                for (az4 az4Var2 : c) {
-                    String e2 = az4Var2.e();
-                    String c3 = az4Var2.c();
-                    if (!arrayList.contains(az4Var2)) {
+                for (bz4 bz4Var2 : c) {
+                    String e2 = bz4Var2.e();
+                    String c3 = bz4Var2.c();
+                    if (!arrayList.contains(bz4Var2)) {
                         if (!TextUtils.isEmpty(e2) && e2.toLowerCase().contains(str.toLowerCase())) {
-                            arrayList.add(az4Var2);
+                            arrayList.add(bz4Var2);
                         } else if (!TextUtils.isEmpty(c3) && c3.toLowerCase().contains(str.toLowerCase())) {
-                            arrayList.add(az4Var2);
+                            arrayList.add(bz4Var2);
                         }
                     }
                 }

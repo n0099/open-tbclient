@@ -30,7 +30,7 @@ public abstract class a19 extends OutputStream {
         }
     }
 
-    public void c() throws IOException {
+    public void a() throws IOException {
         IOException iOException;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (iOException = this.a) != null) {
@@ -38,35 +38,35 @@ public abstract class a19 extends OutputStream {
         }
     }
 
-    @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
+    public void c() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = true;
-        }
-    }
-
-    public void e() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (!this.c) {
                 if (this.b) {
                     throw new IOException("Stream has been closed.");
                 }
                 return;
             }
-            c();
+            a();
             throw new IOException("Writing after request completed.");
         }
     }
 
-    public abstract void f() throws IOException;
+    @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = true;
+        }
+    }
 
-    public abstract UploadDataProvider g();
+    public abstract void e() throws IOException;
 
-    public abstract void j() throws IOException;
+    public abstract UploadDataProvider f();
 
-    public void k(IOException iOException) {
+    public abstract void g() throws IOException;
+
+    public void h(IOException iOException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, iOException) == null) {
             this.a = iOException;

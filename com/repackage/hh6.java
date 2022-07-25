@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cy;
 /* loaded from: classes6.dex */
-public class hh6 extends cd6<qq4, ThreadCardViewHolder<ThreadData>> implements hy5, go6, ck5, iy5 {
+public class hh6 extends cd6<rq4, ThreadCardViewHolder<ThreadData>> implements hy5, go6, ck5, iy5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> t;
@@ -57,7 +57,7 @@ public class hh6 extends cd6<qq4, ThreadCardViewHolder<ThreadData>> implements h
         public void b(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                BdToast b = BdToast.b(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f151b));
+                BdToast b = BdToast.b(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f14ca));
                 b.f(BdToast.ToastIcon.FAILURE);
                 b.h();
             }
@@ -133,9 +133,9 @@ public class hh6 extends cd6<qq4, ThreadCardViewHolder<ThreadData>> implements h
             }
             bVar.n(ywVar);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.m));
-            threadCardViewHolder.k(this.e);
+            threadCardViewHolder.j(this.e);
             V(new a(this));
-            threadCardViewHolder.p(false);
+            threadCardViewHolder.o(false);
             return threadCardViewHolder;
         }
         return (ThreadCardViewHolder) invokeL.objValue;
@@ -144,30 +144,30 @@ public class hh6 extends cd6<qq4, ThreadCardViewHolder<ThreadData>> implements h
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.cd6, com.repackage.an
     /* renamed from: o0 */
-    public View S(int i, View view2, ViewGroup viewGroup, qq4 qq4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, rq4 rq4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qq4Var, threadCardViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rq4Var, threadCardViewHolder})) == null) {
             if (threadCardViewHolder == null) {
                 return null;
             }
-            if (qq4Var == null) {
-                return threadCardViewHolder.b();
+            if (rq4Var == null) {
+                return threadCardViewHolder.a();
             }
-            if (threadCardViewHolder.c() instanceof bk5) {
-                threadCardViewHolder.c().b(this.u);
+            if (threadCardViewHolder.b() instanceof bk5) {
+                threadCardViewHolder.b().b(this.u);
             }
-            super.S(i, view2, viewGroup, qq4Var, threadCardViewHolder);
-            bd6.i(threadCardViewHolder.c().f(), this.j);
-            threadCardViewHolder.c().q(i);
+            super.S(i, view2, viewGroup, rq4Var, threadCardViewHolder);
+            bd6.i(threadCardViewHolder.b().f(), this.j);
+            threadCardViewHolder.b().q(i);
             FrsViewData frsViewData = this.j;
             if (frsViewData != null && frsViewData.getForum() != null && !StringUtils.isNull(this.j.getForum().getTopic_special_icon()) && !StringUtils.isNull(this.j.getForum().getTopic_special_icon_right())) {
-                qq4Var.s.setSpecUrl(this.j.getForum().getTopic_special_icon(), this.j.getForum().getTopic_special_icon_right());
+                rq4Var.s.setSpecUrl(this.j.getForum().getTopic_special_icon(), this.j.getForum().getTopic_special_icon_right());
             }
-            threadCardViewHolder.g(qq4Var.s);
-            threadCardViewHolder.c().onChangeSkinType(this.t, TbadkCoreApplication.getInst().getSkinType());
-            qq4Var.s.updateShowStatus();
-            return threadCardViewHolder.b();
+            threadCardViewHolder.f(rq4Var.s);
+            threadCardViewHolder.b().onChangeSkinType(this.t, TbadkCoreApplication.getInst().getSkinType());
+            rq4Var.s.updateShowStatus();
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

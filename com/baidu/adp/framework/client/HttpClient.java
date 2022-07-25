@@ -257,7 +257,7 @@ public class HttpClient extends u9<HttpMessage, HttpMessageTask> {
                             j2 = j8;
                             j4 = j;
                             newInstance.setError(-1003);
-                            newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05aa));
+                            newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05a6));
                             BdLog.detailException(e);
                             if (this.a.getExtra() instanceof NetMessage) {
                             }
@@ -284,7 +284,7 @@ public class HttpClient extends u9<HttpMessage, HttpMessageTask> {
                     } catch (Exception e8) {
                         e = e8;
                         newInstance.setError(-1003);
-                        newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05aa));
+                        newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05a6));
                         BdLog.detailException(e);
                         if (this.a.getExtra() instanceof NetMessage) {
                         }

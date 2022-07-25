@@ -168,7 +168,7 @@ public class wz7 extends du7<PostData, PbInterviewLiveNormalItemViewHolder> impl
     }
 
     public final void d0(PbInterviewLiveNormalItemViewHolder pbInterviewLiveNormalItemViewHolder, PostData postData) {
-        oq4 taskInfoData;
+        pq4 taskInfoData;
         String str;
         String str2;
         long j;
@@ -230,7 +230,7 @@ public class wz7 extends du7<PostData, PbInterviewLiveNormalItemViewHolder> impl
         pbInterviewLiveNormalItemViewHolder.b.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
         pbInterviewLiveNormalItemViewHolder.b.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
         if (this.p) {
-            pbInterviewLiveNormalItemViewHolder.b.getLayoutStrategy().g(R.drawable.obfuscated_res_0x7f0811a4);
+            pbInterviewLiveNormalItemViewHolder.b.getLayoutStrategy().g(R.drawable.obfuscated_res_0x7f0811a8);
         } else {
             pbInterviewLiveNormalItemViewHolder.b.getLayoutStrategy().g(R.drawable.icon_click);
         }
@@ -270,7 +270,7 @@ public class wz7 extends du7<PostData, PbInterviewLiveNormalItemViewHolder> impl
     public PbInterviewLiveNormalItemViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, viewGroup)) == null) ? new PbInterviewLiveNormalItemViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0684, viewGroup, false), this.q, this.p, this.o, false) : (PbInterviewLiveNormalItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, viewGroup)) == null) ? new PbInterviewLiveNormalItemViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d068e, viewGroup, false), this.q, this.p, this.o, false) : (PbInterviewLiveNormalItemViewHolder) invokeL.objValue;
     }
 
     @Override // com.repackage.ys7

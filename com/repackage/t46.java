@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import com.repackage.j76;
 import com.repackage.m56;
 import com.repackage.tj8;
@@ -46,7 +46,7 @@ public class t46 extends BaseAdapter {
     public j76 c;
     public m56 d;
     public EnterForumModel e;
-    public List<lo4> f;
+    public List<mo4> f;
     public boolean g;
     public z46 h;
     public d76 i;
@@ -153,7 +153,7 @@ public class t46 extends BaseAdapter {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.b == null) {
                 return;
             }
-            this.a.b.dispatchMvcEvent(new x75(6, null, null, null));
+            this.a.b.dispatchMvcEvent(new y75(6, null, null, null));
         }
     }
 
@@ -187,7 +187,7 @@ public class t46 extends BaseAdapter {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.b == null) {
                 return;
             }
-            this.a.b.dispatchMvcEvent(new x75(6, null, null, null));
+            this.a.b.dispatchMvcEvent(new y75(6, null, null, null));
         }
     }
 
@@ -198,7 +198,7 @@ public class t46 extends BaseAdapter {
         public final /* synthetic */ t46 a;
 
         /* loaded from: classes7.dex */
-        public class a implements cr4.e {
+        public class a implements dr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
@@ -221,18 +221,18 @@ public class t46 extends BaseAdapter {
                 this.a = eVar;
             }
 
-            @Override // com.repackage.cr4.e
-            public void onClick(cr4 cr4Var) {
+            @Override // com.repackage.dr4.e
+            public void onClick(dr4 dr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                     tj8.b(NetWorkErr.ERROR_UEG_BIND_MOBILE, "", this.a.a.k);
-                    cr4Var.dismiss();
+                    dr4Var.dismiss();
                 }
             }
         }
 
         /* loaded from: classes7.dex */
-        public class b implements cr4.e {
+        public class b implements dr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -252,17 +252,17 @@ public class t46 extends BaseAdapter {
                 }
             }
 
-            @Override // com.repackage.cr4.e
-            public void onClick(cr4 cr4Var) {
+            @Override // com.repackage.dr4.e
+            public void onClick(dr4 dr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                    cr4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                    dr4Var.dismiss();
                 }
             }
         }
 
         /* loaded from: classes7.dex */
-        public class c implements cr4.e {
+        public class c implements dr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -282,11 +282,11 @@ public class t46 extends BaseAdapter {
                 }
             }
 
-            @Override // com.repackage.cr4.e
-            public void onClick(cr4 cr4Var) {
+            @Override // com.repackage.dr4.e
+            public void onClick(dr4 dr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                    cr4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                    dr4Var.dismiss();
                 }
             }
         }
@@ -316,7 +316,7 @@ public class t46 extends BaseAdapter {
                 TiebaStatic.log("c13379");
                 if (this.a.e.C()) {
                     if (this.a.b != null) {
-                        this.a.b.dispatchMvcEvent(new x75(14, null, null, null));
+                        this.a.b.dispatchMvcEvent(new y75(14, null, null, null));
                         return;
                     }
                     return;
@@ -327,24 +327,24 @@ public class t46 extends BaseAdapter {
                     int B = b2.B();
                     if (B == 220012) {
                         BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
-                        blockPopInfoData.block_info = oi.isEmpty(b2.A()) ? this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0467) : b2.A();
-                        blockPopInfoData.ahead_info = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0469);
-                        blockPopInfoData.ok_info = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f099e);
+                        blockPopInfoData.block_info = oi.isEmpty(b2.A()) ? this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0466) : b2.A();
+                        blockPopInfoData.ahead_info = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0468);
+                        blockPopInfoData.ok_info = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0989);
                         blockPopInfoData.ahead_url = "https://tieba.baidu.com/mo/q/userappeal";
                         AntiHelper.s(this.a.a.getPageActivity(), blockPopInfoData);
                     } else if (B == 2121002) {
-                        kz4.b(this.a.a, null, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f046b), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f1436), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f13cf), new a(this), new b(this)).show();
+                        lz4.b(this.a.a, null, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f046a), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f13e5), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f137e), new a(this), new b(this)).show();
                     }
                     z = true;
                 }
                 if (z) {
                     return;
                 }
-                String string = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0468);
+                String string = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0467);
                 if (b2 != null) {
-                    string = oi.isEmpty(b2.A()) ? this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0468) : b2.A();
+                    string = oi.isEmpty(b2.A()) ? this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0467) : b2.A();
                 }
-                kz4.b(this.a.a, null, string, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f099e), null, new c(this), null).show();
+                lz4.b(this.a.a, null, string, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0989), null, new c(this), null).show();
             }
         }
     }
@@ -530,7 +530,7 @@ public class t46 extends BaseAdapter {
         return invokeV.booleanValue;
     }
 
-    public List<lo4> g() {
+    public List<mo4> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (List) invokeV.objValue;
@@ -562,7 +562,7 @@ public class t46 extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            List<lo4> list = this.f;
+            List<mo4> list = this.f;
             if (list == null || (i2 < list.size() && i2 >= 0)) {
                 return i2;
             }
@@ -589,7 +589,7 @@ public class t46 extends BaseAdapter {
         InterceptResult invokeILL;
         i iVar;
         g76 g76Var;
-        lo4 lo4Var;
+        mo4 mo4Var;
         g gVar;
         h hVar;
         k76 k76Var;
@@ -612,9 +612,9 @@ public class t46 extends BaseAdapter {
                     } else {
                         view2 = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d026c, viewGroup, false);
                         iVar = new i(this, null);
-                        iVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920bc);
-                        iVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dce);
-                        iVar.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906a0);
+                        iVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920be);
+                        iVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dd4);
+                        iVar.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09069f);
                         view2.setTag(iVar);
                     }
                     if (this.f.get(i2) instanceof b56) {
@@ -645,7 +645,7 @@ public class t46 extends BaseAdapter {
                                 layoutParams.setMargins(pi.f(viewGroup.getContext(), b56Var.g), 0, pi.f(viewGroup.getContext(), b56Var.g), 0);
                             }
                             if (b56Var.i != -1) {
-                                ur4.d(iVar.a).z(b56Var.i);
+                                vr4.d(iVar.a).z(b56Var.i);
                             }
                             if (b56Var.h != -1) {
                                 layoutParams.height = pi.f(viewGroup.getContext(), b56Var.h);
@@ -668,8 +668,8 @@ public class t46 extends BaseAdapter {
                         g76Var = new g76(this.a, view2, this.b);
                         view2.setTag(g76Var);
                     }
-                    if ((this.f.get(i2) instanceof lo4) && (lo4Var = this.f.get(i2)) != null) {
-                        g76Var.f(lo4Var);
+                    if ((this.f.get(i2) instanceof mo4) && (mo4Var = this.f.get(i2)) != null) {
+                        g76Var.f(mo4Var);
                     }
                     g76Var.h(this.h);
                     return view2;
@@ -679,8 +679,8 @@ public class t46 extends BaseAdapter {
                     } else {
                         view2 = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d026b, (ViewGroup) null);
                         gVar = new g(this, null);
-                        gVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909ee);
-                        gVar.b = view2.findViewById(R.id.obfuscated_res_0x7f0906a0);
+                        gVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909e7);
+                        gVar.b = view2.findViewById(R.id.obfuscated_res_0x7f09069f);
                         view2.setTag(gVar);
                     }
                     View view3 = gVar.b;
@@ -695,22 +695,22 @@ public class t46 extends BaseAdapter {
                     } else {
                         view2 = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0269, (ViewGroup) null);
                         hVar = new h(this, null);
-                        hVar.a = view2.findViewById(R.id.obfuscated_res_0x7f091b5c);
-                        hVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e33);
-                        hVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d0d);
-                        hVar.d = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f0909ee);
-                        tu4 tu4Var = new tu4();
+                        hVar.a = view2.findViewById(R.id.obfuscated_res_0x7f091b36);
+                        hVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e2c);
+                        hVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d06);
+                        hVar.d = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f0909e7);
+                        uu4 uu4Var = new uu4();
                         hVar.d.setTextSize(R.dimen.tbds42);
-                        hVar.d.setConfig(tu4Var);
+                        hVar.d.setConfig(uu4Var);
                         view2.setTag(hVar);
                     }
                     if (!TbadkCoreApplication.isLogin()) {
-                        hVar.c.setText(R.string.obfuscated_res_0x7f0f056f);
+                        hVar.c.setText(R.string.obfuscated_res_0x7f0f056b);
                         hVar.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f03dc));
                         hVar.d.setTextHorizontalCenter(true);
                         SkinManager.setImageResource(hVar.b, R.drawable.new_pic_emotion_09);
                     } else {
-                        hVar.c.setText(R.string.obfuscated_res_0x7f0f06bf);
+                        hVar.c.setText(R.string.obfuscated_res_0x7f0f06bb);
                         hVar.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f03da));
                         SkinManager.setImageResource(hVar.b, R.drawable.new_pic_emotion_01);
                     }
@@ -753,8 +753,8 @@ public class t46 extends BaseAdapter {
                         view2 = o76Var.d();
                         view2.setTag(o76Var);
                     }
-                    if (this.f.get(i2) instanceof eq4) {
-                        o76Var.c((eq4) this.f.get(i2));
+                    if (this.f.get(i2) instanceof fq4) {
+                        o76Var.c((fq4) this.f.get(i2));
                     }
                     if (this.e.E() == null || this.e.E().e() == null || this.e.E().e().b() == null) {
                         return view2;
@@ -769,13 +769,13 @@ public class t46 extends BaseAdapter {
                         view2 = p76Var.k();
                         view2.setTag(p76Var);
                     }
-                    if (this.f.get(i2) instanceof cq4) {
-                        cq4 cq4Var = (cq4) this.f.get(i2);
-                        p76Var.g(cq4Var);
-                        if (this.i.Q().getGlobalVisibleRect(new Rect()) && view2.getGlobalVisibleRect(new Rect()) && !this.j.contains(Long.valueOf(cq4Var.i()))) {
+                    if (this.f.get(i2) instanceof dq4) {
+                        dq4 dq4Var = (dq4) this.f.get(i2);
+                        p76Var.g(dq4Var);
+                        if (this.i.Q().getGlobalVisibleRect(new Rect()) && view2.getGlobalVisibleRect(new Rect()) && !this.j.contains(Long.valueOf(dq4Var.i()))) {
                             StatisticItem statisticItem = new StatisticItem("c13642");
                             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                            statisticItem.param("fid", cq4Var.i());
+                            statisticItem.param("fid", dq4Var.i());
                             statisticItem.param("obj_locate", 1);
                             if (this.e.E() != null && this.e.E().e() != null && this.e.E().e().b() != null) {
                                 boolean z = this.e.E().e().b().size() > 0;
@@ -783,7 +783,7 @@ public class t46 extends BaseAdapter {
                                 p76Var.m(z);
                             }
                             TiebaStatic.log(statisticItem);
-                            this.j.add(Long.valueOf(cq4Var.i()));
+                            this.j.add(Long.valueOf(dq4Var.i()));
                             return view2;
                         }
                         return view2;
@@ -797,8 +797,8 @@ public class t46 extends BaseAdapter {
                         view2 = n76Var.c();
                         view2.setTag(n76Var);
                     }
-                    if (this.f.get(i2) instanceof dq4) {
-                        n76Var.b((dq4) this.f.get(i2));
+                    if (this.f.get(i2) instanceof eq4) {
+                        n76Var.b((eq4) this.f.get(i2));
                     }
                     StatisticItem statisticItem2 = new StatisticItem("c13641");
                     statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -835,7 +835,7 @@ public class t46 extends BaseAdapter {
                     if (view2 != null && (view2.getTag() instanceof f76)) {
                         f76Var = (f76) view2.getTag();
                     } else {
-                        view2 = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d04f8, viewGroup, false);
+                        view2 = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0502, viewGroup, false);
                         f76Var = new f76(this.a, view2, this.b, this.c, this.e);
                         view2.setTag(f76Var);
                     }
@@ -881,7 +881,7 @@ public class t46 extends BaseAdapter {
     public final int getViewTypeCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? lo4.c.length : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? mo4.c.length : invokeV.intValue;
     }
 
     public void h(int i2) {
@@ -933,7 +933,7 @@ public class t46 extends BaseAdapter {
         }
     }
 
-    public void m(List<lo4> list, boolean z) {
+    public void m(List<mo4> list, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048589, this, list, z) == null) {
             m56 m56Var = this.d;

@@ -1,89 +1,112 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class js1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755578199, "Lcom/repackage/js1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            int indexOf = str.indexOf("_dev");
-            if (indexOf > 0) {
-                return str.substring(0, indexOf);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755578199, "Lcom/repackage/js1;");
+                return;
             }
-            int indexOf2 = str.indexOf("_trial");
-            return indexOf2 > 0 ? str.substring(0, indexOf2) : str;
         }
-        return (String) invokeL.objValue;
+        a = sg1.a;
+        b = new String[]{"swan", "swanAPI", "utils"};
     }
 
-    public static int b(String str) {
-        InterceptResult invokeL;
+    @NonNull
+    public static Pair<Boolean, hs1> a(io1 io1Var, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, io1Var, str)) == null) {
+            is1 is1Var = new is1();
+            boolean b2 = b(str, io1Var.a().h());
+            if (b2) {
+                is1Var.b = 402;
             }
-            if (str.contains("_dev")) {
-                return 1;
-            }
-            if (str.endsWith("_trial")) {
-                return 3;
-            }
-            return str.contains("_trial") ? 2 : 0;
+            return new Pair<>(Boolean.valueOf(b2), is1Var);
         }
-        return invokeL.intValue;
+        return (Pair) invokeLL.objValue;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    @SuppressLint({"BDThrowableCheck"})
+    public static boolean b(String str, CallbackHandler callbackHandler) {
+        InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, callbackHandler)) == null) {
+            if (!(callbackHandler instanceof qm1)) {
+                if (a) {
+                    Log.d("SwanApiSafe", "intercept: false, handler is null or not WebSafeHolder");
+                }
+                return false;
+            } else if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    throw new RuntimeException("whitelistName is empty");
+                }
+                return false;
+            } else {
+                String d0 = ((qm1) callbackHandler).d0();
+                if ("ai_apps_widget".equals(d0)) {
+                    z = c(str);
+                } else if ("ai_apps_ad_landing".equals(d0)) {
+                    z = !z03.a(str);
+                } else {
+                    if (!"swan_app_alliance_login_widget".equals(d0) && !"swan_app_alliance_choose_address_widget".equals(d0) && a) {
+                        Log.d("SwanApiSafe", "intercept: false, source frame is not aiapps widget frame");
+                    }
+                    return false;
+                }
+                if (a) {
+                    Log.d("SwanApiSafe", "intercept: result=" + z + ", path=" + str);
+                }
+                return z;
             }
-            int lastIndexOf = str.lastIndexOf("_dev");
-            if (lastIndexOf >= 0 && lastIndexOf < str.length()) {
-                return str.substring(lastIndexOf);
-            }
-            int lastIndexOf2 = str.lastIndexOf("_trial");
-            return (lastIndexOf2 < 0 || lastIndexOf2 >= str.length()) ? "" : str.substring(lastIndexOf2);
         }
-        return (String) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static boolean d(el2 el2Var) {
+    public static boolean c(@NonNull String str) {
         InterceptResult invokeL;
+        String[] strArr;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, el2Var)) == null) ? el2Var != null && el2Var.getType() == 1 : invokeL.booleanValue;
-    }
-
-    public static boolean e(el2 el2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, el2Var)) == null) ? el2Var != null && el2Var.getType() == 0 : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? (TextUtils.isEmpty(str) || str.contains("_")) ? false : true : invokeL.booleanValue;
-    }
-
-    public static boolean g(el2 el2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, el2Var)) == null) ? el2Var != null && el2Var.getType() == 2 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            int indexOf = str.indexOf("/");
+            if (indexOf < 0) {
+                return true;
+            }
+            if (str.startsWith("swan")) {
+                String substring = str.substring(indexOf + 1);
+                for (String str2 : b) {
+                    if (z03.g(str2 + "/" + substring)) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return !z03.g(str);
+        }
+        return invokeL.booleanValue;
     }
 }

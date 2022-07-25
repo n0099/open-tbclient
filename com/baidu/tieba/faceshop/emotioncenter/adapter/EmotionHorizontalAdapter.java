@@ -49,7 +49,7 @@ public class EmotionHorizontalAdapter extends an<r96, EmotionGridViewHolder> {
             this.a = (EmotionHorizontalView) view2;
         }
 
-        public void c(r96 r96Var) {
+        public void b(r96 r96Var) {
             EmotionHorizontalView emotionHorizontalView;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, r96Var) == null) || (emotionHorizontalView = this.a) == null || r96Var == null) {
@@ -103,8 +103,8 @@ public class EmotionHorizontalAdapter extends an<r96, EmotionGridViewHolder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, r96Var, emotionGridViewHolder})) == null) {
-            emotionGridViewHolder.c(r96Var);
-            return emotionGridViewHolder.b();
+            emotionGridViewHolder.b(r96Var);
+            return emotionGridViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

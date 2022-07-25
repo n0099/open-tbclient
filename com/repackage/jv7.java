@@ -20,7 +20,7 @@ public class jv7 {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
     public boolean b;
-    public tp4 c;
+    public up4 c;
 
     public jv7(TbPageContext tbPageContext) {
         Uri uri;
@@ -45,9 +45,9 @@ public class jv7 {
         }
         String queryParameter = uri.getQueryParameter("tid");
         uri.getQueryParameter(TiebaStatic.Params.EQID);
-        tp4 tp4Var = new tp4();
-        this.c = tp4Var;
-        tp4Var.a = uri.getQueryParameter("tid");
+        up4 up4Var = new up4();
+        this.c = up4Var;
+        up4Var.a = uri.getQueryParameter("tid");
         this.c.b = uri.getQueryParameter(TiebaStatic.Params.EQID);
         if (TextUtils.isEmpty(queryParameter) || z8.g().h() > 3) {
             return;

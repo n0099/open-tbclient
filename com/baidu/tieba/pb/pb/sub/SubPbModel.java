@@ -82,21 +82,21 @@ public class SubPbModel extends DataModel {
     public String Y;
     public String Z;
     public int a;
+    public String a0;
     public String b;
+    public boolean b0;
     public String c;
+    public boolean c0;
     public String d;
+    public SubPbRequestMessage d0;
     public boolean e;
+    public za e0;
     public boolean f;
     public boolean g;
-    public String g0;
     public String h;
-    public boolean h0;
     public String i;
-    public boolean i0;
     public String j;
-    public SubPbRequestMessage j0;
     public boolean k;
-    public za k0;
     public String l;
     public String m;
     @Nullable
@@ -349,13 +349,13 @@ public class SubPbModel extends DataModel {
         this.I = 0;
         this.J = null;
         this.K = false;
-        this.k0 = new a(this, CmdConfigHttp.SubPb_HTTP_CMD, 302002);
+        this.e0 = new a(this, CmdConfigHttp.SubPb_HTTP_CMD, 302002);
         this.s = tbPageContext;
         this.A = new ArrayList<>();
         this.t = new zr7();
         setUniqueId(BdUniqueId.gen());
-        MessageManager.getInstance().unRegisterListener(this.k0);
-        registerListener(this.k0);
+        MessageManager.getInstance().unRegisterListener(this.e0);
+        registerListener(this.e0);
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
@@ -429,7 +429,7 @@ public class SubPbModel extends DataModel {
     public String E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.g0 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a0 : (String) invokeV.objValue;
     }
 
     public ConcurrentHashMap<String, ImageUrlData> E0() {
@@ -513,14 +513,14 @@ public class SubPbModel extends DataModel {
     public boolean J0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.i0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.c0 : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
     public boolean K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.h0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.b0 : invokeV.booleanValue;
     }
 
     public boolean K0() {
@@ -612,7 +612,7 @@ public class SubPbModel extends DataModel {
                 i0();
                 this.a = i;
                 SubPbRequestMessage g0 = g0();
-                this.j0 = g0;
+                this.d0 = g0;
                 sendMessage(g0);
                 return true;
             }
@@ -732,9 +732,9 @@ public class SubPbModel extends DataModel {
         bundle.putBoolean("key_is_tieba_plus", this.X);
         bundle.putString("key_tieba_plus_order_id", this.Y);
         bundle.putString("key_tieba_plus_token", this.Z);
-        bundle.putString("key_tieba_extra_param", this.g0);
-        bundle.putBoolean("key_tieba_plus_cant_delete", this.h0);
-        bundle.putBoolean(IntentConfig.KEY_FORCE_INTERCEPT_STIME_STAT, this.i0);
+        bundle.putString("key_tieba_extra_param", this.a0);
+        bundle.putBoolean("key_tieba_plus_cant_delete", this.b0);
+        bundle.putBoolean(IntentConfig.KEY_FORCE_INTERCEPT_STIME_STAT, this.c0);
     }
 
     public void b1(PbFakeFloorModel.b bVar) {
@@ -772,7 +772,7 @@ public class SubPbModel extends DataModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
             cancelMessage();
-            MessageManager.getInstance().unRegisterListener(this.k0);
+            MessageManager.getInstance().unRegisterListener(this.e0);
             PbFakeFloorModel pbFakeFloorModel = this.J;
             if (pbFakeFloorModel != null) {
                 pbFakeFloorModel.unRegisterListener();
@@ -912,9 +912,9 @@ public class SubPbModel extends DataModel {
                 int b2 = this.t.b();
                 for (int i2 = i - 1; i2 >= 0; i2--) {
                     SubPbRequestMessage h0 = h0(Integer.valueOf(b2 - i2));
-                    this.j0 = h0;
+                    this.d0 = h0;
                     h0.setTreatDelPage(true);
-                    sendMessage(this.j0);
+                    sendMessage(this.d0);
                 }
             }
             this.v = 0;
@@ -980,9 +980,9 @@ public class SubPbModel extends DataModel {
         this.X = bundle.getBoolean("key_is_tieba_plus");
         this.Y = bundle.getString("key_tieba_plus_order_id");
         this.Z = bundle.getString("key_tieba_plus_token");
-        this.g0 = bundle.getString("key_tieba_extra_param");
-        this.h0 = bundle.getBoolean("key_tieba_plus_cant_delete");
-        this.i0 = bundle.getBoolean(IntentConfig.KEY_FORCE_INTERCEPT_STIME_STAT);
+        this.a0 = bundle.getString("key_tieba_extra_param");
+        this.b0 = bundle.getBoolean("key_tieba_plus_cant_delete");
+        this.c0 = bundle.getBoolean(IntentConfig.KEY_FORCE_INTERCEPT_STIME_STAT);
     }
 
     public void initWithIntent(Intent intent) {
@@ -1046,9 +1046,9 @@ public class SubPbModel extends DataModel {
         this.X = intent.getBooleanExtra("key_is_tieba_plus", false);
         this.Y = intent.getStringExtra("key_tieba_plus_order_id");
         this.Z = intent.getStringExtra("key_tieba_plus_token");
-        this.g0 = intent.getStringExtra("key_tieba_extra_param");
-        this.h0 = intent.getBooleanExtra("key_tieba_plus_cant_delete", false);
-        this.i0 = intent.getBooleanExtra(IntentConfig.KEY_FORCE_INTERCEPT_STIME_STAT, false);
+        this.a0 = intent.getStringExtra("key_tieba_extra_param");
+        this.b0 = intent.getBooleanExtra("key_tieba_plus_cant_delete", false);
+        this.c0 = intent.getBooleanExtra(IntentConfig.KEY_FORCE_INTERCEPT_STIME_STAT, false);
     }
 
     public void j0(String str) {

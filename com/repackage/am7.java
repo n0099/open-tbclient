@@ -211,7 +211,7 @@ public class am7 extends BaseAdapter {
         public LinearLayout i;
         public LinearLayout j;
         public View k;
-        public yv4 l;
+        public zv4 l;
         public final /* synthetic */ am7 m;
 
         public e(am7 am7Var) {
@@ -270,7 +270,7 @@ public class am7 extends BaseAdapter {
                     this.g.setVisibility(8);
                 }
                 if (markData.is_deleted()) {
-                    this.f.setText(this.m.a.getString(R.string.obfuscated_res_0x7f0f0a8c));
+                    this.f.setText(this.m.a.getString(R.string.obfuscated_res_0x7f0f0a78));
                 } else {
                     this.f.setText(markData.getmState());
                 }
@@ -363,19 +363,19 @@ public class am7 extends BaseAdapter {
                     return;
                 }
             }
-            this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d47);
-            this.a = (ImageButton) view2.findViewById(R.id.obfuscated_res_0x7f091d48);
-            this.b = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d4d);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d4e);
-            this.d = (CommonUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091d4c);
-            this.l = new yv4(am7Var.a, this.d);
-            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d49);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d6a);
-            this.n = (OriginalThreadCardView) view2.findViewById(R.id.obfuscated_res_0x7f091d53);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d4b);
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d4f);
-            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d4a);
-            this.k = view2.findViewById(R.id.obfuscated_res_0x7f091d68);
+            this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d4d);
+            this.a = (ImageButton) view2.findViewById(R.id.obfuscated_res_0x7f091d4e);
+            this.b = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d53);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d54);
+            this.d = (CommonUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091d52);
+            this.l = new zv4(am7Var.a, this.d);
+            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d4f);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d70);
+            this.n = (OriginalThreadCardView) view2.findViewById(R.id.obfuscated_res_0x7f091d59);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d51);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d55);
+            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d50);
+            this.k = view2.findViewById(R.id.obfuscated_res_0x7f091d6e);
             b(this.b);
         }
 
@@ -422,20 +422,20 @@ public class am7 extends BaseAdapter {
                     return;
                 }
             }
-            this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d33);
-            this.b = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f091411);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091412);
-            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d36);
-            this.o = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d35);
-            this.d = (CommonUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091417);
-            this.l = new yv4(am7Var.a, this.d);
-            this.n = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091415);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091416);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091414);
-            this.a = (ImageButton) view2.findViewById(R.id.obfuscated_res_0x7f090d34);
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915bd);
-            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091413);
-            this.k = view2.findViewById(R.id.obfuscated_res_0x7f091fc4);
+            this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d2c);
+            this.b = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f0913ed);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913ee);
+            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d2f);
+            this.o = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d2e);
+            this.d = (CommonUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0913f3);
+            this.l = new zv4(am7Var.a, this.d);
+            this.n = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0913f1);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913f2);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913f0);
+            this.a = (ImageButton) view2.findViewById(R.id.obfuscated_res_0x7f090d2d);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091598);
+            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0913ef);
+            this.k = view2.findViewById(R.id.obfuscated_res_0x7f091fc8);
             b(this.b);
             this.n.setPlaceHolder(1);
         }
@@ -446,7 +446,7 @@ public class am7 extends BaseAdapter {
             if (interceptable == null || interceptable.invokeL(1048576, this, markData) == null) {
                 super.a(markData);
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.i.getLayoutParams();
-                if (zm4.c().g() && !StringUtils.isNull(markData.getPic_url())) {
+                if (an4.c().g() && !StringUtils.isNull(markData.getPic_url())) {
                     String pic_url = markData.getPic_url();
                     if (!StringUtils.isNull(pic_url)) {
                         this.n.setVisibility(0);
@@ -591,24 +591,24 @@ public class am7 extends BaseAdapter {
                 if (view2 != null && (view2.getTag() instanceof f)) {
                     fVar = (f) view2.getTag();
                 } else {
-                    view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0654, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d065e, (ViewGroup) null);
                     fVar = new f(this, null);
-                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916b6);
-                    fVar.b = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0919c7);
+                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091691);
+                    fVar.b = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0919a2);
                     view2.setTag(fVar);
                 }
                 fVar.a.setVisibility(0);
                 if (this.g) {
                     fVar.b.setVisibility(0);
-                    fVar.a.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0a2c));
+                    fVar.a.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0a18));
                     SkinManager.setViewTextColor(fVar.a, R.color.common_color_10039, 1);
                 } else if (!this.h) {
                     fVar.b.setVisibility(8);
-                    fVar.a.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0c5d));
+                    fVar.a.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0c49));
                     SkinManager.setViewTextColor(fVar.a, R.color.common_color_10005, 1);
                 } else {
                     fVar.b.setVisibility(8);
-                    fVar.a.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0a2c));
+                    fVar.a.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0a18));
                     SkinManager.setViewTextColor(fVar.a, R.color.common_color_10039, 1);
                 }
             } else if (itemViewType == 2) {

@@ -118,7 +118,7 @@ public class w97 extends b9<StrangerListActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.b.p.setVisibility(0);
-                this.b.d.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0634));
+                this.b.d.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0630));
                 this.b.q.setVisibility(0);
                 this.b.A(false);
                 this.b.y(false);
@@ -180,7 +180,7 @@ public class w97 extends b9<StrangerListActivity> {
         this.i = false;
         this.j = null;
         this.l = false;
-        strangerListActivity.setContentView(R.layout.obfuscated_res_0x7f0d07b4);
+        strangerListActivity.setContentView(R.layout.obfuscated_res_0x7f0d07be);
         this.e = strangerListActivity;
         v(strangerListActivity);
         w(strangerListActivity);
@@ -194,7 +194,7 @@ public class w97 extends b9<StrangerListActivity> {
             if (z) {
                 Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080353, SkinManager.getColor(R.color.CAM_X0304), null);
                 pureDrawable.setBounds(0, 0, f, f);
-                this.k.setText(this.e.getPageContext().getString(R.string.obfuscated_res_0x7f0f10ec));
+                this.k.setText(this.e.getPageContext().getString(R.string.obfuscated_res_0x7f0f10a8));
                 this.k.setCompoundDrawables(pureDrawable, null, null, null);
                 z(true);
                 this.l = true;
@@ -203,7 +203,7 @@ public class w97 extends b9<StrangerListActivity> {
             }
             Drawable pureDrawable2 = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080351, SkinManager.getColor(R.color.CAM_X0111), null);
             pureDrawable2.setBounds(0, 0, f, f);
-            this.k.setText(this.e.getPageContext().getString(R.string.obfuscated_res_0x7f0f10ec));
+            this.k.setText(this.e.getPageContext().getString(R.string.obfuscated_res_0x7f0f10a8));
             this.k.setCompoundDrawables(pureDrawable2, null, null, null);
             z(false);
             this.l = false;
@@ -237,7 +237,7 @@ public class w97 extends b9<StrangerListActivity> {
             this.d.onChangeSkinType(this.e.getPageContext(), i);
             this.g.d(this.e.getPageContext(), i);
             this.c.notifyDataSetChanged();
-            ur4 d = ur4.d(this.q);
+            vr4 d = vr4.d(this.q);
             d.n(R.string.J_X01);
             d.f(R.color.CAM_X0209);
             WebPManager.setPureDrawable(this.p, R.drawable.obfuscated_res_0x7f0809d4, R.color.CAM_X0105, null);
@@ -282,30 +282,30 @@ public class w97 extends b9<StrangerListActivity> {
     public final void u(StrangerListActivity strangerListActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, strangerListActivity) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) strangerListActivity.findViewById(R.id.obfuscated_res_0x7f0920a6);
+            RelativeLayout relativeLayout = (RelativeLayout) strangerListActivity.findViewById(R.id.obfuscated_res_0x7f0920aa);
             this.j = relativeLayout;
-            this.k = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091cf2);
+            this.k = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091cf8);
             int f = pi.f(this.e.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07026f);
             Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080351, SkinManager.getColor(R.color.CAM_X0111), null);
             pureDrawable.setBounds(0, 0, f, f);
-            this.k.setText(this.e.getPageContext().getString(R.string.obfuscated_res_0x7f0f10ec));
+            this.k.setText(this.e.getPageContext().getString(R.string.obfuscated_res_0x7f0f10a8));
             this.k.setCompoundDrawables(pureDrawable, null, null, null);
             this.k.setOnClickListener(new a(this));
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) strangerListActivity.findViewById(R.id.obfuscated_res_0x7f090477);
             this.m = tBSpecificationBtn;
             tBSpecificationBtn.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f036a));
             this.m.setTextSize(R.dimen.T_X07);
-            vu4 vu4Var = new vu4();
-            vu4Var.p(R.color.CAM_X0105);
-            this.m.setConfig(vu4Var);
+            wu4 wu4Var = new wu4();
+            wu4Var.p(R.color.CAM_X0105);
+            this.m.setConfig(wu4Var);
             this.m.setOnClickListener(new b(this, strangerListActivity));
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.j.findViewById(R.id.obfuscated_res_0x7f090752);
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.j.findViewById(R.id.obfuscated_res_0x7f090751);
             this.n = tBSpecificationBtn2;
-            tBSpecificationBtn2.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0633));
+            tBSpecificationBtn2.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f062f));
             this.n.setTextSize(R.dimen.T_X07);
-            vu4 vu4Var2 = new vu4();
-            vu4Var2.p(R.color.CAM_X0301);
-            this.n.setConfig(vu4Var2);
+            wu4 wu4Var2 = new wu4();
+            wu4Var2.p(R.color.CAM_X0301);
+            this.n.setConfig(wu4Var2);
             this.n.setOnClickListener(new c(this));
         }
     }
@@ -313,12 +313,12 @@ public class w97 extends b9<StrangerListActivity> {
     public final void v(StrangerListActivity strangerListActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, strangerListActivity) == null) {
-            NavigationBar navigationBar = (NavigationBar) strangerListActivity.findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) strangerListActivity.findViewById(R.id.obfuscated_res_0x7f092439);
             this.d = navigationBar;
-            navigationBar.setCenterTextTitle(strangerListActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0634));
+            navigationBar.setCenterTextTitle(strangerListActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0630));
             this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.d.showBottomLine();
-            ur4.d(this.d.getCenterText()).A(R.string.F_X02);
+            vr4.d(this.d.getCenterText()).A(R.string.F_X02);
             ImageView imageView = (ImageView) this.d.getCenterImgBox();
             this.q = imageView;
             imageView.setOnClickListener(this.e);
@@ -327,35 +327,35 @@ public class w97 extends b9<StrangerListActivity> {
             this.q.setPadding(f, f, f, f);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.q.getLayoutParams();
             layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
-            layoutParams.width = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702c2);
-            layoutParams.height = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702c2);
+            layoutParams.width = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702c0);
+            layoutParams.height = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702c0);
             this.q.setLayoutParams(layoutParams);
             TextView centerText = this.d.getCenterText();
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) centerText.getLayoutParams();
             layoutParams2.rightMargin = 0;
             centerText.setLayoutParams(layoutParams2);
-            ImageView imageView2 = (ImageView) this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d07b3, this.e);
+            ImageView imageView2 = (ImageView) this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d07bd, this.e);
             this.p = imageView2;
             WebPManager.setPureDrawable(imageView2, R.drawable.obfuscated_res_0x7f0809d4, R.color.CAM_X0105, null);
             WebPManager.setPureDrawable(this.q, R.drawable.obfuscated_res_0x7f0809ce, R.color.CAM_X0105, null);
-            LinearLayout linearLayout = (LinearLayout) strangerListActivity.findViewById(R.id.obfuscated_res_0x7f091b72);
+            LinearLayout linearLayout = (LinearLayout) strangerListActivity.findViewById(R.id.obfuscated_res_0x7f091b4c);
             this.f = linearLayout;
-            this.g = (NoNetworkView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091607);
+            this.g = (NoNetworkView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0915e2);
         }
     }
 
     public final void w(StrangerListActivity strangerListActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, strangerListActivity) == null) {
-            this.a = (FrameLayout) strangerListActivity.findViewById(R.id.obfuscated_res_0x7f0914c5);
-            BdListView bdListView = (BdListView) strangerListActivity.findViewById(R.id.obfuscated_res_0x7f0914c4);
+            this.a = (FrameLayout) strangerListActivity.findViewById(R.id.obfuscated_res_0x7f0914a0);
+            BdListView bdListView = (BdListView) strangerListActivity.findViewById(R.id.obfuscated_res_0x7f09149f);
             this.b = bdListView;
             bdListView.setOnItemClickListener(strangerListActivity);
             this.b.setOnItemLongClickListener(strangerListActivity);
             StrangerListAdapter strangerListAdapter = new StrangerListAdapter(strangerListActivity);
             this.c = strangerListAdapter;
             this.b.setAdapter((ListAdapter) strangerListAdapter);
-            this.h = NoDataViewFactory.a(strangerListActivity.getPageContext().getPageActivity(), this.f, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.CREATE), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c5a), null);
+            this.h = NoDataViewFactory.a(strangerListActivity.getPageContext().getPageActivity(), this.f, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.CREATE), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c46), null);
         }
     }
 

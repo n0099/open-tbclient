@@ -13,7 +13,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.ChannelListView;
 import com.baidu.poly.widget.PopupWindow;
 import com.baidu.poly.widget.toast.ToastLoadingView;
-import com.baidu.sofire.d.D;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -72,7 +71,7 @@ public class o91 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
                 this.e.f("2", str);
-                this.a.S(this.c.getString(R.string.obfuscated_res_0x7f0f15ff), null);
+                this.a.S(this.c.getString(R.string.obfuscated_res_0x7f0f15ae), null);
             }
         }
 
@@ -305,7 +304,7 @@ public class o91 {
                 }
                 Long valueOf = Long.valueOf(System.currentTimeMillis() - this.a);
                 if (valueOf.longValue() >= 0) {
-                    jSONObject.put(D.COLUMU_PLUGIN_DURATION, String.valueOf(valueOf));
+                    jSONObject.put("du", String.valueOf(valueOf));
                 }
                 w81 w81Var = new w81(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN);
                 w81Var.c(jSONObject);
@@ -347,7 +346,7 @@ public class o91 {
     public final void j(Context context, Bundle bundle, ChannelListView channelListView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, context, bundle, channelListView) == null) {
-            View inflate = View.inflate(channelListView.getContext(), R.layout.obfuscated_res_0x7f0d0657, null);
+            View inflate = View.inflate(channelListView.getContext(), R.layout.obfuscated_res_0x7f0d0661, null);
             PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
             this.c = popupWindow;
             popupWindow.w(false);
@@ -363,14 +362,14 @@ public class o91 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, channelListView) == null) {
             View inflate = View.inflate(channelListView.getContext(), R.layout.obfuscated_res_0x7f0d0209, null);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091942)).setText(R.string.obfuscated_res_0x7f0f0d5c);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091941)).setText(R.string.obfuscated_res_0x7f0f0d5d);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09191d)).setText(R.string.obfuscated_res_0x7f0f0d45);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09191c)).setText(R.string.obfuscated_res_0x7f0f0d46);
             PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
             this.d = popupWindow;
             popupWindow.w(false);
             this.d.B(false);
             this.d.v(new ColorDrawable(0));
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09193c)).setOnClickListener(new d(this));
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091917)).setOnClickListener(new d(this));
             this.d.A(new e(this, channelListView));
             this.d.D(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
         }

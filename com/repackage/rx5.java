@@ -232,7 +232,7 @@ public class rx5 extends ix5<uy5> implements bk5 {
         T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (zm4.c().g() && (t = this.k) != 0 && ((uy5) t).getThreadData() != null && ((uy5) this.k).getThreadData().getThreadAlaInfo() != null) {
+            if (an4.c().g() && (t = this.k) != 0 && ((uy5) t).getThreadData() != null && ((uy5) this.k).getThreadData().getThreadAlaInfo() != null) {
                 this.A.setPlaceHolder(3);
                 this.A.J(((uy5) this.k).getThreadData().getThreadAlaInfo().cover, 10, false);
                 this.z.setVisibility(0);
@@ -245,8 +245,8 @@ public class rx5 extends ix5<uy5> implements bk5 {
     public final void O(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            this.v = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091251);
-            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906b9);
+            this.v = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09122d);
+            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906b8);
             this.w = linearLayout;
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) linearLayout.getLayoutParams();
             layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X002);
@@ -255,9 +255,9 @@ public class rx5 extends ix5<uy5> implements bk5 {
             this.x = cardUserInfoLayout;
             cardUserInfoLayout.setPageContext(this.i);
             this.x.setPageUniqueId(this.j);
-            this.y = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fe1);
-            this.z = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a85);
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e4d);
+            this.y = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fe5);
+            this.z = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a7e);
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e46);
             this.A = tbImageView;
             tbImageView.setDrawCorner(true);
             this.A.setPlaceHolder(3);
@@ -274,9 +274,9 @@ public class rx5 extends ix5<uy5> implements bk5 {
             tBLottieAnimationView.loop(true);
             SkinManager.setLottieAnimation(this.B, R.raw.ala_live2);
             this.B.addOnAttachStateChangeListener(new a(this));
-            this.C = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918fe);
+            this.C = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918d9);
             this.D = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901ed);
-            this.F = view2.findViewById(R.id.obfuscated_res_0x7f0918ff);
+            this.F = view2.findViewById(R.id.obfuscated_res_0x7f0918da);
             this.q = (ForumEnterLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904dc);
             this.l = (ThreadCommentAndPraiseInfoLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904ab);
             this.m = (ThreadCardBottomOpSegmentWeightLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904ac);
@@ -287,7 +287,7 @@ public class rx5 extends ix5<uy5> implements bk5 {
             t(this.l);
             t(this.m);
             this.w.setOnClickListener(this);
-            HomeGroupUbsUIHelper.handleImgMask(view2.findViewById(R.id.obfuscated_res_0x7f090e34), R.color.transparent);
+            HomeGroupUbsUIHelper.handleImgMask(view2.findViewById(R.id.obfuscated_res_0x7f090e2d), R.color.transparent);
         }
     }
 
@@ -429,10 +429,10 @@ public class rx5 extends ix5<uy5> implements bk5 {
             return;
         }
         w(tbPageContext, i);
-        ur4 d = ur4.d(this.w);
+        vr4 d = vr4.d(this.w);
         d.n(R.string.J_X06);
         d.i(R.color.CAM_X0205, R.color.CAM_X0206);
-        ur4 d2 = ur4.d(this.z);
+        vr4 d2 = vr4.d(this.z);
         d2.l(R.dimen.L_X01);
         d2.k(R.color.CAM_X0401);
         d2.n(R.string.J_X05);

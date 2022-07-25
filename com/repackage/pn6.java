@@ -173,7 +173,7 @@ public abstract class pn6 implements rn6 {
             this.b = view2.getContext();
             this.c = view2;
             this.d = onClickListener;
-            NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f092439);
             this.e = navigationBar;
             navigationBar.getBarBgView().setAlpha(1.0f);
             i();

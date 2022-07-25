@@ -614,7 +614,7 @@ public class BannerView extends FrameLayout implements b90 {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0521, this);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d052b, this);
             this.o = t80.a(context, 8.0f);
             this.p = t80.a(context, 6.0f);
             this.q = t80.a(getContext(), 4.0f);

@@ -130,7 +130,7 @@ public class r58 extends jx5<q48> {
         if (interceptable == null || interceptable.invokeL(1048581, this, q48Var) == null) {
             if (q48Var != null && !ListUtils.isEmpty(q48Var.b)) {
                 this.i = q48Var.a;
-                this.k.setText(R.string.obfuscated_res_0x7f0f1542);
+                this.k.setText(R.string.obfuscated_res_0x7f0f14f1);
                 this.l.setData(u(q48Var.b));
                 this.m.b(this.n);
                 return;
@@ -148,13 +148,13 @@ public class r58 extends jx5<q48> {
                 return list;
             }
             List<nn> arrayList = new ArrayList<>(list);
-            int f = pi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0702d0);
+            int f = pi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0702ce);
             int f2 = pi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070207);
             if (count > 3) {
                 arrayList = arrayList.subList(0, 3);
                 l48 l48Var = new l48();
-                l48Var.a = pi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f07023e);
-                l48Var.b = pi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0702bc);
+                l48Var.a = pi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f07023c);
+                l48Var.b = pi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0702ba);
                 ListUtils.add(arrayList, l48Var);
             }
             f08 f08Var = new f08(f2, f);

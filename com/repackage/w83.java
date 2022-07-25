@@ -1,64 +1,73 @@
 package com.repackage;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.storage.swankv.AshmemFileDescriptor;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class w83 extends ProviderDelegation {
+public final class w83 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, q83> a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755247553, "Lcom/repackage/w83;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755247553, "Lcom/repackage/w83;");
+                return;
+            }
+        }
+        boolean z = sg1.a;
+        a = new HashMap();
+    }
 
     public w83() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Nullable
-    public static AshmemFileDescriptor c(@NonNull String str, int i) {
-        InterceptResult invokeLI;
+    public static q83 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("name", str);
-            bundle.putInt("size", i);
-            ww2 c = uw2.c(w83.class, bundle);
-            if (c.a()) {
-                c.a.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
-                return (AshmemFileDescriptor) c.a.getParcelable("result");
-            }
-            return null;
-        }
-        return (AshmemFileDescriptor) invokeLI.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b("searchbox_webapps_sp") : (q83) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
+    public static q83 b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            String string = bundle.getString("name", null);
-            int i = bundle.getInt("size", 0);
-            Bundle bundle2 = new Bundle();
-            bundle2.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
-            bundle2.putParcelable("result", b93.a(string, i));
-            return bundle2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            q83 q83Var = a.get(str);
+            if (q83Var == null) {
+                synchronized (w83.class) {
+                    q83Var = a.get(str);
+                    if (q83Var == null) {
+                        q83Var = new q83(str);
+                        a.put(str, q83Var);
+                    }
+                }
+            }
+            return q83Var;
         }
-        return (Bundle) invokeL.objValue;
+        return (q83) invokeL.objValue;
     }
 }

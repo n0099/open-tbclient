@@ -33,6 +33,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.p0.h;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -505,7 +506,7 @@ public class ShareStorage {
             } catch (Exception e) {
                 Log.e(ShareUtils.TAG, e.getMessage());
             }
-            if (!SapiUtils.checkRequestPermission("android.permission.READ_EXTERNAL_STORAGE", this.context)) {
+            if (!SapiUtils.checkRequestPermission(h.i, this.context)) {
                 Log.d(ShareUtils.TAG, "getSd is not has READ_EXTERNAL_STORAGE permission");
                 return null;
             }

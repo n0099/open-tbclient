@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import com.repackage.xk6;
 import com.repackage.yk6;
 import java.util.ArrayList;
@@ -62,13 +62,13 @@ public class HeaderComponentSingleView extends FrameLayout implements yk6 {
 
         /* renamed from: com.baidu.tieba.frs.headercomponent.HeaderComponentSingleView$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class View$OnClickListenerC0196a implements View.OnClickListener {
+        public class View$OnClickListenerC0210a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0196a(a aVar, int i) {
+            public View$OnClickListenerC0210a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,7 +121,7 @@ public class HeaderComponentSingleView extends FrameLayout implements yk6 {
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
                 HeadImageView headImageView = (HeadImageView) view2;
                 headImageView.J((String) this.a.i.get(i), 12, false);
-                headImageView.setOnClickListener(new View$OnClickListenerC0196a(this, i));
+                headImageView.setOnClickListener(new View$OnClickListenerC0210a(this, i));
             }
         }
 
@@ -239,11 +239,11 @@ public class HeaderComponentSingleView extends FrameLayout implements yk6 {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int childCount = this.d.getChildCount();
             for (int i = 0; i < childCount; i++) {
-                ur4 d = ur4.d((TextView) this.d.getChildAt(i));
+                vr4 d = vr4.d((TextView) this.d.getChildAt(i));
                 d.v(R.color.CAM_X0105);
                 d.A(R.string.F_X02);
             }
-            ur4.d(this.b).v(R.color.CAM_X0108);
+            vr4.d(this.b).v(R.color.CAM_X0108);
             i();
             if (!ListUtils.isEmpty(this.h.getChildViews())) {
                 for (View view2 : this.h.getChildViews()) {
@@ -253,7 +253,7 @@ public class HeaderComponentSingleView extends FrameLayout implements yk6 {
                 }
             }
             this.g.setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
-            ur4 d2 = ur4.d(this.f);
+            vr4 d2 = vr4.d(this.f);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0201);
         }
@@ -277,7 +277,7 @@ public class HeaderComponentSingleView extends FrameLayout implements yk6 {
                 textView.setLines(1);
                 textView.setEllipsize(TextUtils.TruncateAt.END);
                 textView.setText(list2.get(i));
-                ur4 d = ur4.d(textView);
+                vr4 d = vr4.d(textView);
                 d.v(R.color.CAM_X0105);
                 d.A(R.string.F_X02);
                 d.z(R.dimen.T_X06);
@@ -319,22 +319,22 @@ public class HeaderComponentSingleView extends FrameLayout implements yk6 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0311, this);
             this.a = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090674);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090673);
             this.e = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
             this.e.setDrawCorner(true);
             this.e.setRadiusById(R.string.J_X06);
             this.e.setPlaceHolder(2);
             this.e.setConrers(15);
-            this.f = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09067e);
-            this.d = (ViewFlipper) this.a.findViewById(R.id.obfuscated_res_0x7f090676);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090675);
-            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f090679);
+            this.f = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09067d);
+            this.d = (ViewFlipper) this.a.findViewById(R.id.obfuscated_res_0x7f090675);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090674);
+            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f090678);
             this.c = gifView;
             gifView.setScaleType(ImageView.ScaleType.FIT_XY);
             this.c.setShowStaticDrawable(false);
             this.c.setDrawerType(1);
-            HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09067c);
+            HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09067b);
             this.g = headImageView;
             headImageView.setPlaceHolder(1);
             this.g.setIsRound(true);
@@ -342,7 +342,7 @@ public class HeaderComponentSingleView extends FrameLayout implements yk6 {
             this.g.setBorderColor(R.color.CAM_X0402);
             this.g.setDrawBorder(true);
             this.g.setScaleType(ImageView.ScaleType.FIT_XY);
-            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f090678);
+            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f090677);
             this.h = tbImageAutoSwitch;
             int i = m;
             tbImageAutoSwitch.l(4, i, i, n);

@@ -8,7 +8,7 @@ import com.airbnb.lottie.utils.Logger;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.fun.ad.sdk.FunAdSdk;
-import com.kuaishou.weapon.p0.C0400;
+import com.kuaishou.weapon.p0.u;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.IOException;
 /* loaded from: classes.dex */
@@ -51,7 +51,7 @@ public class ContentModelParser {
         }
         switch (str.hashCode()) {
             case 3239:
-                if (str.equals(C0400.f421)) {
+                if (str.equals(u.s)) {
                     c = 7;
                     break;
                 }

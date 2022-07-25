@@ -36,7 +36,7 @@ public class b98 implements li5 {
     public static final Pattern j;
     public transient /* synthetic */ FieldHolder $fh;
     public BannerView a;
-    public uo4 b;
+    public vo4 b;
     public boolean c;
     public ui5 d;
     public TbPageContext e;
@@ -258,8 +258,8 @@ public class b98 implements li5 {
     @Override // com.repackage.li5
     public void c(Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, obj) == null) && (obj instanceof uo4)) {
-            this.b = (uo4) obj;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, obj) == null) && (obj instanceof vo4)) {
+            this.b = (vo4) obj;
         }
     }
 
@@ -284,10 +284,10 @@ public class b98 implements li5 {
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.e == null || this.f == null) {
             return;
         }
-        uo4 uo4Var = this.b;
-        if (uo4Var == null) {
+        vo4 vo4Var = this.b;
+        if (vo4Var == null) {
             A();
-        } else if (!uo4Var.e()) {
+        } else if (!vo4Var.e()) {
             A();
         } else {
             if (!this.c) {
@@ -325,12 +325,12 @@ public class b98 implements li5 {
     }
 
     public final void y() {
-        uo4 uo4Var;
+        vo4 vo4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (uo4Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (vo4Var = this.b) == null) {
             return;
         }
-        String d = uo4Var.d();
+        String d = vo4Var.d();
         String c2 = this.b.c();
         if (this.b.a() == 1) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this.e.getPageActivity(), d, false, "frs_banner")));

@@ -68,7 +68,7 @@ public class fp5 extends an<jp5, OfficialRecommendLiveViewHolder> {
             }
             nq5Var.i(jp5Var);
             officialRecommendLiveViewHolder.a.j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            return officialRecommendLiveViewHolder.b();
+            return officialRecommendLiveViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

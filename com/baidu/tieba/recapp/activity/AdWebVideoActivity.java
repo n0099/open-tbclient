@@ -147,7 +147,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d05f5, (ViewGroup) null, false);
+            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d05ff, (ViewGroup) null, false);
             this.E = (WebViewContainer) frameLayout.findViewById(R.id.obfuscated_res_0x7f0924c7);
             this.t = (TBAdWebView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0924c9);
             O1();

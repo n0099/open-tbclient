@@ -112,15 +112,15 @@ public class yn6 {
         }
         if (this.c != null) {
             if (i > 0) {
-                string = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f85), Integer.valueOf(i));
+                string = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6e), Integer.valueOf(i));
             } else {
-                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11bf);
+                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f116e);
             }
             this.c.setText(string);
         }
         SkinManager.setBackgroundResource(this.c, R.color.CAM_X0302);
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0112);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702df));
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702dd));
         if (this.b == null) {
             this.b = new we6();
         }

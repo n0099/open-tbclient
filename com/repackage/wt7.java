@@ -44,7 +44,7 @@ public class wt7 extends ov7 {
     public void c(vt7 vt7Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, vt7Var) == null) {
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dd1);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dca);
             this.c = textView;
             textView.setVisibility(8);
         }
@@ -76,8 +76,8 @@ public class wt7 extends ov7 {
             return;
         }
         if (z) {
-            textView.setText(R.string.obfuscated_res_0x7f0f0f2f);
-            SkinManager.setViewTextColor(this.c, (int) R.drawable.obfuscated_res_0x7f080f3c);
+            textView.setText(R.string.obfuscated_res_0x7f0f0f18);
+            SkinManager.setViewTextColor(this.c, (int) R.drawable.obfuscated_res_0x7f080f43);
             SkinManager.setBackgroundResource(this.c, R.drawable.push_bg_selector);
             this.c.setClickable(true);
         } else {

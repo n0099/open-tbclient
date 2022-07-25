@@ -210,7 +210,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
     public void onClick(View view2) {
         mu0 mu0Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09237d && (mu0Var = this.y) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09237f && (mu0Var = this.y) != null) {
             mu0Var.P(8);
             this.y.N();
             this.y.F(lr0.w("layer_event_ad_finish"));
@@ -226,12 +226,12 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             s(false);
             setAlsHandler(new a(this));
-            this.x = findViewById(R.id.obfuscated_res_0x7f09237d);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f09237c);
-            this.s = findViewById(R.id.obfuscated_res_0x7f09237e);
-            this.t = (ImageView) findViewById(R.id.obfuscated_res_0x7f092379);
-            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f09237a);
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09237b);
+            this.x = findViewById(R.id.obfuscated_res_0x7f09237f);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f09237e);
+            this.s = findViewById(R.id.obfuscated_res_0x7f092380);
+            this.t = (ImageView) findViewById(R.id.obfuscated_res_0x7f09237b);
+            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f09237c);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09237d);
             this.s.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080db6));
             this.t.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080db5));
             this.x.setOnClickListener(this);
@@ -255,22 +255,22 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.c.getLayoutParams();
             LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f.getLayoutParams();
             if (z) {
-                layoutParams.width = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07057b);
-                layoutParams.height = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07057b);
-                layoutParams.bottomMargin = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070579);
-                layoutParams2.bottomMargin = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07057d);
-                layoutParams3.width = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070581);
-                layoutParams3.height = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07057f);
+                layoutParams.width = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070579);
+                layoutParams.height = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070579);
+                layoutParams.bottomMargin = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070577);
+                layoutParams2.bottomMargin = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07057b);
+                layoutParams3.width = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07057f);
+                layoutParams3.height = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07057d);
                 this.c.setTextSize(14.0f);
                 this.d.setTextSize(13.0f);
                 this.e.setTextSize(q01.c.a(getContext(), 13.0f));
             } else {
-                layoutParams.width = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07057a);
-                layoutParams.height = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07057a);
-                layoutParams.bottomMargin = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070578);
-                layoutParams2.bottomMargin = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07057c);
-                layoutParams3.width = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070580);
-                layoutParams3.height = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07057e);
+                layoutParams.width = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070578);
+                layoutParams.height = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070578);
+                layoutParams.bottomMargin = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070576);
+                layoutParams2.bottomMargin = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07057a);
+                layoutParams3.width = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07057e);
+                layoutParams3.height = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07057c);
                 this.c.setTextSize(17.0f);
                 this.d.setTextSize(14.0f);
                 this.e.setTextSize(14);
@@ -371,7 +371,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
                 if (layoutParams instanceof FrameLayout.LayoutParams) {
                     FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
                     layoutParams2.gravity = BadgeDrawable.BOTTOM_START;
-                    layoutParams2.setMargins(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070537), 0, 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070532));
+                    layoutParams2.setMargins(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070535), 0, 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070530));
                     this.x.setLayoutParams(layoutParams2);
                 }
                 this.w.setGravity(8388629);
@@ -384,7 +384,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
             if (layoutParams3 instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams4 = (FrameLayout.LayoutParams) layoutParams3;
                 layoutParams4.gravity = BadgeDrawable.TOP_END;
-                layoutParams4.setMargins(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070532), getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070537), 0);
+                layoutParams4.setMargins(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070530), getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070535), 0);
                 this.x.setLayoutParams(layoutParams3);
             }
             this.w.setGravity(17);

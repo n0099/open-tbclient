@@ -59,7 +59,7 @@ public class vv7 extends du7<er7, b> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.p == null || this.a.p.a == null || gd5.a()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.p == null || this.a.p.a == null || hd5.a()) {
                 return;
             }
             if (!TbadkCoreApplication.isLogin()) {
@@ -126,14 +126,14 @@ public class vv7 extends du7<er7, b> {
             this(view2);
         }
 
-        public final void e(Context context, fr7 fr7Var) {
+        public final void d(Context context, fr7 fr7Var) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, fr7Var) == null) || fr7Var == null) {
                 return;
             }
             this.e.setText(fr7Var.c);
             this.b.J(fr7Var.b, 38, false);
-            this.a.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0da2, fr7Var.d) + "%");
+            this.a.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0d8b, fr7Var.d) + "%");
             int e = ng.e(fr7Var.d, 0);
             if (e > 100) {
                 e = 100;
@@ -142,25 +142,25 @@ public class vv7 extends du7<er7, b> {
             }
             this.d.setProgress(e);
             if (fr7Var.a()) {
-                this.c.setText(R.string.obfuscated_res_0x7f0f0da0);
+                this.c.setText(R.string.obfuscated_res_0x7f0f0d89);
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
                 SkinManager.setBackgroundResource(this.c, R.drawable.btn_pb_ad_card_gift_get);
                 this.c.setClickable(true);
             } else if (fr7Var.b()) {
-                this.c.setText(R.string.obfuscated_res_0x7f0f0da7);
+                this.c.setText(R.string.obfuscated_res_0x7f0f0d90);
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
                 SkinManager.setBackgroundResource(this.c, R.drawable.obfuscated_res_0x7f0803bc);
                 this.c.setClickable(true);
             } else {
-                this.c.setText(R.string.obfuscated_res_0x7f0f0da1);
+                this.c.setText(R.string.obfuscated_res_0x7f0f0d8a);
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
-                this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811a4);
+                this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811a8);
                 this.c.setClickable(false);
             }
-            f();
+            e();
         }
 
-        public final void f() {
+        public final void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 SkinManager.setBackgroundResource(this.f, R.drawable.bg_pb_ad_card_gift);
@@ -170,7 +170,7 @@ public class vv7 extends du7<er7, b> {
             }
         }
 
-        public void g(View.OnClickListener onClickListener) {
+        public void f(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
                 this.g = onClickListener;
@@ -196,12 +196,12 @@ public class vv7 extends du7<er7, b> {
                 }
             }
             this.f = view2.findViewById(R.id.obfuscated_res_0x7f09035f);
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e64);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922ba);
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e5d);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922bc);
             this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903ff);
-            this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0919ca);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922be);
-            this.b.setRadius(pi.f(b().getContext(), R.dimen.tbds20));
+            this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0919a4);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922c0);
+            this.b.setRadius(pi.f(a().getContext(), R.dimen.tbds20));
             this.b.setConrers(5);
             this.b.setDefaultBgResource(R.color.cp_atp_a);
             this.b.setDrawCorner(true);
@@ -261,8 +261,8 @@ public class vv7 extends du7<er7, b> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            b bVar = new b(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0672, viewGroup, false), null);
-            bVar.g(this.r);
+            b bVar = new b(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d067c, viewGroup, false), null);
+            bVar.f(this.r);
             return bVar;
         }
         return (b) invokeL.objValue;
@@ -277,7 +277,7 @@ public class vv7 extends du7<er7, b> {
                 er7Var.b = i + 1;
                 this.p = er7Var;
                 h0(er7Var);
-                bVar.e(this.a, er7Var.a);
+                bVar.d(this.a, er7Var.a);
             }
             return view2;
         }

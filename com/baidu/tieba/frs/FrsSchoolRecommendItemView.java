@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
 import com.repackage.t27;
 import com.repackage.te6;
-import com.repackage.yv4;
+import com.repackage.zv4;
 /* loaded from: classes3.dex */
 public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +34,7 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public TextView c;
     public TextView d;
     public EntelechyUserLikeButton e;
-    public yv4 f;
+    public zv4 f;
     public BdUniqueId g;
     public te6 h;
     public int i;
@@ -71,7 +71,7 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.h == null || oi.isEmpty(this.a.h.a.getUserName()) || oi.isEmpty(this.a.h.a.getUserId())) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.b().getContext(), this.a.h.a.getUserId(), this.a.h.a.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.a().getContext(), this.a.h.a.getUserId(), this.a.h.a.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
         }
     }
 
@@ -97,22 +97,22 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         this.k = new a(this);
         this.g = bdUniqueId;
         this.j = tbPageContext;
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a6c);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a46);
         this.b = headImageView;
         headImageView.setPageId(this.g);
         this.b.setIsRound(true);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a6b);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a69);
-        EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091a6a);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a45);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a43);
+        EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091a44);
         this.e = entelechyUserLikeButton;
-        yv4 yv4Var = new yv4(tbPageContext, entelechyUserLikeButton);
-        this.f = yv4Var;
-        yv4Var.m("1");
+        zv4 zv4Var = new zv4(tbPageContext, entelechyUserLikeButton);
+        this.f = zv4Var;
+        zv4Var.m("1");
         this.f.l(bdUniqueId);
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void c(t27 t27Var) {
+    public void b(t27 t27Var) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, t27Var) == null) && (t27Var instanceof te6)) {
             te6 te6Var = (te6) t27Var;
@@ -124,21 +124,21 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
             String cutStringWithEllipsis = StringHelper.cutStringWithEllipsis(this.h.a.getUserName(), 5);
             this.d.setText(StringHelper.cutStringWithEllipsis(this.h.a.getGodUserData().getIntro(), 6));
             this.c.setText(cutStringWithEllipsis);
-            b().setOnClickListener(this.k);
+            a().setOnClickListener(this.k);
             this.f.n(this.h.a);
-            e(TbadkCoreApplication.getInst().getSkinType());
+            d(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public ItemViewHolder d(View view2) {
+    public ItemViewHolder c(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) ? new FrsSchoolRecommendItemView(view2, this.j, this.g) : (ItemViewHolder) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void e(int i) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             if (this.i != i) {

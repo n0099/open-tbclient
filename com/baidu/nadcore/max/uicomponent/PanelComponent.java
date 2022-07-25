@@ -567,7 +567,7 @@ public final class PanelComponent extends AbsComponentPlugin {
                 if (view2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("panelRoot");
                 }
-                i51Var = (i51) view2.findViewById(R.id.obfuscated_res_0x7f091425);
+                i51Var = (i51) view2.findViewById(R.id.obfuscated_res_0x7f091401);
                 this.o = i51Var;
                 if (i51Var != null) {
                     View view3 = this.g;
@@ -618,7 +618,7 @@ public final class PanelComponent extends AbsComponentPlugin {
         view2 = this.g;
         if (view2 == null) {
         }
-        i51Var = (i51) view2.findViewById(R.id.obfuscated_res_0x7f091425);
+        i51Var = (i51) view2.findViewById(R.id.obfuscated_res_0x7f091401);
         this.o = i51Var;
         if (i51Var != null) {
         }
@@ -776,7 +776,7 @@ public final class PanelComponent extends AbsComponentPlugin {
             gm0 a2 = hm0.a();
             Intrinsics.checkNotNullExpressionValue(a2, "NadMaxRuntime.getUIProvider()");
             a2.c();
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05bc, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05c6, (ViewGroup) null);
             Intrinsics.checkNotNullExpressionValue(inflate, "LayoutInflater.from(cont…).inflate(layoutId, null)");
             this.g = inflate;
             if (inflate == null) {

@@ -247,7 +247,7 @@ public class ya8 extends xa8 {
                     return;
                 }
                 HashMap<String, Object> hashMap = new HashMap<>();
-                if (view2.getId() == R.id.obfuscated_res_0x7f090e35) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090e2e) {
                     u = this.a.t(view2);
                     str = NativeConstants.ID_BUTTON;
                 } else if (view2.getId() == R.id.obfuscated_res_0x7f0903bd) {
@@ -306,7 +306,7 @@ public class ya8 extends xa8 {
                 } else if (this.a.c == null || di5.a().f() || sh8.a((Activity) this.a.c)) {
                     return false;
                 } else {
-                    pi.N((Activity) this.a.c, R.string.obfuscated_res_0x7f0f15d5);
+                    pi.N((Activity) this.a.c, R.string.obfuscated_res_0x7f0f1584);
                     return false;
                 }
             }
@@ -399,36 +399,36 @@ public class ya8 extends xa8 {
         layoutParams.addRule(13);
         this.g.setLayoutParams(layoutParams);
         this.g.setAdjustViewBounds(true);
-        NadDragView nadDragView = (NadDragView) this.f.findViewById(R.id.obfuscated_res_0x7f090807);
+        NadDragView nadDragView = (NadDragView) this.f.findViewById(R.id.obfuscated_res_0x7f090805);
         this.m = nadDragView;
         nadDragView.setDragView(this.g);
-        this.h = (TBSpecificationBtn) this.f.findViewById(R.id.obfuscated_res_0x7f090e35);
-        uu4 uu4Var = new uu4();
-        uu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-        this.h.setConfig(uu4Var);
+        this.h = (TBSpecificationBtn) this.f.findViewById(R.id.obfuscated_res_0x7f090e2e);
+        vu4 vu4Var = new vu4();
+        vu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+        this.h.setConfig(vu4Var);
         this.h.setTextHorizontalCenter(true);
         this.i = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0900f0);
         this.j = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090091);
         this.k = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0900e8);
         this.o = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0900ae);
         this.p = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0903bd);
-        ImageView imageView = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f092378);
+        ImageView imageView = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09237a);
         this.q = imageView;
         imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), null));
         this.r = (FrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0900cd);
         View findViewById = this.f.findViewById(R.id.obfuscated_res_0x7f0900e0);
         this.s = findViewById;
-        ur4.d(findViewById).p(new int[]{R.color.black_alpha40, R.color.black_alpha0}, Direction.RIGHT);
+        vr4.d(findViewById).p(new int[]{R.color.black_alpha40, R.color.black_alpha0}, Direction.RIGHT);
         TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.f.findViewById(R.id.obfuscated_res_0x7f0900ce);
         this.t = tBLottieAnimationView;
         SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f110000);
         this.t.setRepeatCount(3);
         this.t.addOnAttachStateChangeListener(new a(this));
-        ApkDownloadView apkDownloadView = (ApkDownloadView) this.f.findViewById(R.id.obfuscated_res_0x7f090e3a);
+        ApkDownloadView apkDownloadView = (ApkDownloadView) this.f.findViewById(R.id.obfuscated_res_0x7f090e33);
         this.v = apkDownloadView;
         apkDownloadView.setTextSize(R.dimen.tbds39);
         this.v.setTextColorInitSkin(R.color.CAM_X0101);
-        this.v.setBackgroundSkin(R.drawable.obfuscated_res_0x7f080edf);
+        this.v.setBackgroundSkin(R.drawable.obfuscated_res_0x7f080ee6);
         this.v.c();
         D(this.x);
     }

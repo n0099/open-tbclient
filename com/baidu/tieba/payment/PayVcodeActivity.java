@@ -122,12 +122,12 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                         }
                         String errorString = responsePayNewVcodeInfoMessage.getErrorString();
                         if (StringUtils.isNull(errorString)) {
-                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d93);
+                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d7c);
                         }
                         this.a.showToast(errorString);
                         return;
                     }
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                 }
             }
         };
@@ -272,7 +272,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                         if (i == 1) {
                             this.a.W1();
                         } else if (i == 2) {
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f0d92);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f0d7b);
                         } else if (i != 3) {
                         } else {
                             this.a.Y1();

@@ -11,7 +11,7 @@ public final class af implements com.kwad.sdk.core.d<AdMatrixInfo.AggregationCar
         }
         aggregationCardInfo.changeTime = jSONObject.optInt("changeTime");
         aggregationCardInfo.maxTimesPerDay = jSONObject.optInt("maxTimesPerDay");
-        aggregationCardInfo.intervalTime = jSONObject.optLong("intervalTime");
+        aggregationCardInfo.intervalTime = jSONObject.optLong("intervalTime", new Long("1200").longValue());
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
@@ -19,9 +19,15 @@ public final class af implements com.kwad.sdk.core.d<AdMatrixInfo.AggregationCar
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "changeTime", aggregationCardInfo.changeTime);
-        com.kwad.sdk.utils.r.a(jSONObject, "maxTimesPerDay", aggregationCardInfo.maxTimesPerDay);
-        com.kwad.sdk.utils.r.a(jSONObject, "intervalTime", aggregationCardInfo.intervalTime);
+        int i = aggregationCardInfo.changeTime;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "changeTime", i);
+        }
+        int i2 = aggregationCardInfo.maxTimesPerDay;
+        if (i2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "maxTimesPerDay", i2);
+        }
+        com.kwad.sdk.utils.r.putValue(jSONObject, "intervalTime", aggregationCardInfo.intervalTime);
         return jSONObject;
     }
 

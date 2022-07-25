@@ -150,10 +150,10 @@ public class nx5 extends jx5<b36> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
             this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904df);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ad0);
-            this.k = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090acf);
-            this.r = view2.findViewById(R.id.obfuscated_res_0x7f0907cb);
-            this.s = view2.findViewById(R.id.obfuscated_res_0x7f0907cc);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ac9);
+            this.k = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ac8);
+            this.r = view2.findViewById(R.id.obfuscated_res_0x7f0907c9);
+            this.s = view2.findViewById(R.id.obfuscated_res_0x7f0907ca);
             int dimensionPixelSize = this.c.getResources().getDimensionPixelSize(R.dimen.tbds44);
             if (this.l == null) {
                 this.l = new lx5(this.b, null, null);

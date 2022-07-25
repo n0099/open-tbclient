@@ -1,27 +1,82 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Matrix;
-import android.util.Base64;
-import android.view.View;
-import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gv1 extends ev1 {
+public class gv1 extends fv1 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, Class<? extends ot1>> m;
     public transient /* synthetic */ FieldHolder $fh;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
+    public List<ot1> k;
+    public boolean l;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755664689, "Lcom/repackage/gv1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755664689, "Lcom/repackage/gv1;");
+                return;
+            }
+        }
+        HashMap hashMap = new HashMap();
+        m = hashMap;
+        hashMap.put("setFillStyle", lu1.class);
+        m.put("fillRect", au1.class);
+        m.put("setStrokeStyle", uu1.class);
+        m.put("strokeStyle", bv1.class);
+        m.put("setLineCap", ou1.class);
+        m.put("setLineJoin", qu1.class);
+        m.put("setLineWidth", ru1.class);
+        m.put("setLineDash", pu1.class);
+        m.put("setMiterLimit", su1.class);
+        m.put("strokeRect", av1.class);
+        m.put("moveTo", eu1.class);
+        m.put("lineTo", du1.class);
+        m.put("stroke", zu1.class);
+        m.put("fill", zt1.class);
+        m.put("beginPath", rt1.class);
+        m.put("rect", gu1.class);
+        m.put("clearRect", tt1.class);
+        m.put("closePath", vt1.class);
+        m.put("arc", qt1.class);
+        m.put("bezierCurveTo", st1.class);
+        m.put("quadraticCurveTo", fu1.class);
+        m.put("scale", ku1.class);
+        m.put("rotate", iu1.class);
+        m.put("translate", ev1.class);
+        m.put("transform", dv1.class);
+        m.put("setTransform", xu1.class);
+        m.put("font", cu1.class);
+        m.put("setFontSize", mu1.class);
+        m.put("setTextAlign", vu1.class);
+        m.put("setTextBaseline", wu1.class);
+        m.put("fillText", bu1.class);
+        m.put("strokeText", cv1.class);
+        m.put("clip", ut1.class);
+        m.put("drawImage", yt1.class);
+        m.put("save", ju1.class);
+        m.put("restore", hu1.class);
+        m.put("setShadow", tu1.class);
+        m.put("setGlobalAlpha", nu1.class);
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gv1(String str) {
@@ -31,111 +86,57 @@ public class gv1 extends ev1 {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.k = new ArrayList();
+        this.l = false;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.k = yd3.g((float) jSONObject.optDouble("x"));
-            this.l = yd3.g((float) jSONObject.optDouble("y"));
-            this.m = yd3.g((float) jSONObject.optDouble("width"));
-            this.n = yd3.g((float) jSONObject.optDouble("height"));
+            JSONArray jSONArray = new JSONArray(jSONObject.optString(NotificationCompat.WearableExtender.KEY_ACTIONS));
+            int length = jSONArray.length();
+            for (int i3 = 0; i3 < length; i3++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i3);
+                String optString = optJSONObject.optString("method");
+                JSONArray optJSONArray = optJSONObject.optJSONArray("data");
+                Class<? extends ot1> cls = m.get(optString);
+                if (cls != null) {
+                    ot1 newInstance = cls.newInstance();
+                    newInstance.b(optJSONArray);
+                    this.k.add(newInstance);
+                }
+            }
+            this.l = jSONObject.optInt("reserve") != 0;
         } catch (Exception e) {
-            hx1.d("canvasGetImageData", "CanvasGetImageData meets json exception", e);
+            if (sg1.a) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public final byte[] h(@NonNull Bitmap bitmap) {
-        InterceptResult invokeL;
+    public List<ot1> h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            int i = width * height;
-            int[] iArr = new int[i];
-            bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
-            byte[] bArr = new byte[i * 4];
-            for (int i2 = 0; i2 < i; i2++) {
-                int i3 = iArr[i2];
-                int i4 = i2 * 4;
-                bArr[i4] = (byte) Color.red(i3);
-                bArr[i4 + 1] = (byte) Color.green(i3);
-                bArr[i4 + 2] = (byte) Color.blue(i3);
-                bArr[i4 + 3] = (byte) Color.alpha(i3);
-            }
-            return bArr;
-        }
-        return (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k : (List) invokeV.objValue;
     }
 
-    public JSONObject i(@NonNull View view2) {
-        InterceptResult invokeL;
-        String str;
-        int i;
+    public boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            int measuredWidth = view2.getMeasuredWidth();
-            int measuredHeight = view2.getMeasuredHeight();
-            int i2 = 0;
-            if (measuredWidth > 0 && measuredHeight > 0) {
-                int i3 = this.k;
-                this.k = (i3 < 0 || i3 >= measuredWidth) ? 0 : 0;
-                int i4 = this.l;
-                this.l = (i4 < 0 || i4 >= measuredHeight) ? 0 : 0;
-                int i5 = this.m;
-                if (i5 <= 0 || this.k + i5 > measuredWidth) {
-                    i5 = measuredWidth - this.k;
-                }
-                this.m = i5;
-                int i6 = this.n;
-                if (i6 <= 0 || this.l + i6 > measuredHeight) {
-                    i6 = measuredHeight - this.l;
-                }
-                this.n = i6;
-                Bitmap createBitmap = Bitmap.createBitmap(this.m, i6, Bitmap.Config.ARGB_4444);
-                Canvas canvas = new Canvas(createBitmap);
-                canvas.drawARGB(0, 0, 0, 0);
-                canvas.translate(-this.k, -this.l);
-                view2.draw(canvas);
-                Bitmap j = j(createBitmap);
-                str = Base64.encodeToString(h(j), 2);
-                i2 = j.getWidth();
-                i = j.getHeight();
-            } else {
-                hx1.b("canvasGetImageData", "canvas size is invalid.");
-                str = "";
-                i = 0;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("width", i2);
-                jSONObject.put("height", i);
-                jSONObject.put("data", str);
-            } catch (Exception e) {
-                hx1.d("canvasGetImageData", "CanvasGetImageData meets json exception", e);
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : invokeV.booleanValue;
     }
 
-    @NonNull
-    public final Bitmap j(@NonNull Bitmap bitmap) {
-        InterceptResult invokeL;
+    @Override // com.repackage.fv1, com.repackage.yv1, com.repackage.hq2
+    public boolean isValid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) {
-            float l = 1.0f / yd3.l(oj2.c());
-            Matrix matrix = new Matrix();
-            matrix.postScale(l, l);
-            return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-        }
-        return (Bitmap) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.isValid() : invokeV.booleanValue;
     }
 }

@@ -1,133 +1,102 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class gx1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Map<String, mm1> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755662767, "Lcom/repackage/gx1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends v83 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* loaded from: classes6.dex */
+        public static final class a {
+            public static /* synthetic */ Interceptable $ic;
+            public static final b a;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1603531446, "Lcom/repackage/gx1$b$a;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(1603531446, "Lcom/repackage/gx1$b$a;");
+                        return;
+                    }
+                }
+                a = new b(null);
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        public static b d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (b) invokeV.objValue;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b() {
+            super("searchbox_sconsole_sp");
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755662767, "Lcom/repackage/gx1;");
-                return;
-            }
-        }
-        a = rg1.a;
-        b = new HashMap(2);
-    }
-
-    public static mm1 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a) {
-                Log.d("ConsoleCache", "create new sConsole");
-            }
-            hx1.n(true);
-            return b72.U().f0().b(AppRuntime.getAppContext());
-        }
-        return (mm1) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:15:0x002d A[Catch: all -> 0x006f, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000d, B:11:0x0018, B:13:0x001f, B:15:0x002d, B:17:0x003d, B:18:0x0053, B:20:0x0057), top: B:30:0x0007 }] */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0057 A[Catch: all -> 0x006f, TRY_LEAVE, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000d, B:11:0x0018, B:13:0x001f, B:15:0x002d, B:17:0x003d, B:18:0x0053, B:20:0x0057), top: B:30:0x0007 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static synchronized mm1 b() {
-        InterceptResult invokeV;
-        String str;
-        mm1 mm1Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (gx1.class) {
-                h03 b0 = h03.b0();
-                if (b0 != null && !TextUtils.isEmpty(b0.getAppId())) {
-                    str = b0.getAppId();
-                    String a2 = js1.a(str);
-                    mm1Var = b.get(a2);
-                    if (mm1Var == null) {
-                        e();
-                        mm1Var = a();
-                        b.put(a2, mm1Var);
-                        if (a) {
-                            Log.d("ConsoleCache", "can not find sconsole for appId - " + str);
-                        }
-                    }
-                    if (a) {
-                        Log.d("ConsoleCache", "get sconsole for appId - " + str);
-                    }
-                }
-                str = "_no_id_";
-                String a22 = js1.a(str);
-                mm1Var = b.get(a22);
-                if (mm1Var == null) {
-                }
-                if (a) {
-                }
-            }
-            return mm1Var;
-        }
-        return (mm1) invokeV.objValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            h03 b0 = h03.b0();
-            if (b0 != null && !TextUtils.isEmpty(b0.b)) {
-                return fx1.b(js1.a(b0.b));
-            }
-            if (a) {
-                Log.w("ConsoleCache", "swanApp is null or appId is empty");
-                return false;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && c()) {
-            b();
-        }
-    }
-
-    public static synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            synchronized (gx1.class) {
-                if (b.size() > 0) {
-                    for (String str : b.keySet()) {
-                        mm1 mm1Var = b.get(str);
-                        if (mm1Var != null) {
-                            mm1Var.F();
-                        }
-                    }
-                    b.clear();
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
         }
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return "consoleSwitch" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? !TextUtils.isEmpty(str) && b.d().getBoolean(a(str), false) : invokeL.booleanValue;
+    }
+
+    public static void c(boolean z) {
+        i03 M;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(65538, null, z) == null) || (M = i03.M()) == null) {
+            return;
+        }
+        b.d().putBoolean(a(M.O()), z);
     }
 }

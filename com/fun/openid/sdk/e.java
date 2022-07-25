@@ -82,18 +82,7 @@ public class e implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String string = this.a.getSharedPreferences("openid_sdk_oaid_spf", 0).getString("key_oaid", null);
-            if (TextUtils.isEmpty(string)) {
-                a();
-                return;
-            }
-            if (FunOpenIDSdk.isLogEnabled()) {
-                Log.e(FunOpenIDSdk.TAG, "==========在缓存中查找到oaid，直接返回 oaid = " + string);
-            }
-            OnGetOaidListener onGetOaidListener = this.b;
-            if (onGetOaidListener != null) {
-                onGetOaidListener.onGetOaid(string);
-            }
+            a();
         }
     }
 
@@ -105,7 +94,6 @@ public class e implements Runnable {
             if (FunOpenIDSdk.isLogEnabled()) {
                 Log.e(FunOpenIDSdk.TAG, "==========getOAID 结果 oaid = " + str + ", this = " + this);
             }
-            this.a.getSharedPreferences("openid_sdk_oaid_spf", 0).edit().putString("key_oaid", str).apply();
             if (TextUtils.isEmpty(str) && z) {
                 int i = this.a.getSharedPreferences("openid_sdk_oaid_spf", 0).getInt("key_retry_count", 0);
                 if (FunOpenIDSdk.isLogEnabled()) {

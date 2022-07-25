@@ -3,11 +3,11 @@ package com.kwad.sdk.service.kwai;
 import java.io.InputStream;
 /* loaded from: classes5.dex */
 public interface h {
-    InputStream a(InputStream inputStream);
+    boolean ln();
 
-    boolean a();
+    int lo();
 
-    int b();
+    int lp();
 
-    int c();
+    InputStream wrapInputStream(InputStream inputStream);
 }

@@ -13,18 +13,18 @@ import java.util.List;
 public final class b implements Comparable<b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public long d;
-    public boolean e;
-    public String f;
-    public boolean g;
-    public boolean h;
-    public HashMap<String, String> i;
-    public List<String> j;
-    public List<String> k;
-    public ClassLoader l;
+    public boolean Dv;
+    public String ayA;
+    public long ayB;
+    public String ayC;
+    public boolean ayD;
+    public boolean ayE;
+    public HashMap<String, String> ayF;
+    public List<String> ayG;
+    public List<String> ayH;
+    public ClassLoader ayI;
+    public String ayz;
+    public String version;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -39,26 +39,26 @@ public final class b implements Comparable<b> {
                 return;
             }
         }
-        this.g = false;
-        this.h = true;
-        this.i = new HashMap<>(10);
+        this.ayD = false;
+        this.ayE = true;
+        this.ayF = new HashMap<>(10);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: private */
     @Override // java.lang.Comparable
-    /* renamed from: a */
+    /* renamed from: c */
     public int compareTo(@NonNull b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, bVar)) == null) ? -this.b.compareTo(bVar.b) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, bVar)) == null) ? -this.version.compareTo(bVar.version) : invokeL.intValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "RemotePluginInfo{pluginId='" + this.a + "', version='" + this.b + "', downloadUrl='" + this.c + "', fileSize=" + this.d + ", enable=" + this.e + ", md5sum='" + this.f + "', onlyWifiDownload=" + this.g + ", onlyWifiRetryDownload=" + this.h + ", soMd5s=" + this.i + ", hostPackages=" + this.j + ", hostInterfaces=" + this.k + '}';
+            return "RemotePluginInfo{pluginId='" + this.ayz + "', version='" + this.version + "', downloadUrl='" + this.ayA + "', fileSize=" + this.ayB + ", enable=" + this.Dv + ", md5sum='" + this.ayC + "', onlyWifiDownload=" + this.ayD + ", onlyWifiRetryDownload=" + this.ayE + ", soMd5s=" + this.ayF + ", hostPackages=" + this.ayG + ", hostInterfaces=" + this.ayH + '}';
         }
         return (String) invokeV.objValue;
     }

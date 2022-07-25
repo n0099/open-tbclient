@@ -92,7 +92,7 @@ public class lc8 extends b9<MsgRemindActivity> {
                         }
                     }
                 }
-                if (py4.d().m() != z) {
+                if (qy4.d().m() != z) {
                     this.a.p.setSwitchStateNoCallback(z);
                 }
             }
@@ -121,24 +121,24 @@ public class lc8 extends b9<MsgRemindActivity> {
         this.k = null;
         this.m = true;
         this.n = msgRemindActivity;
-        msgRemindActivity.setContentView(R.layout.obfuscated_res_0x7f0d0565);
+        msgRemindActivity.setContentView(R.layout.obfuscated_res_0x7f0d056f);
     }
 
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.setSwitchStateNoCallback(py4.d().x());
-            this.b.setSwitchStateNoCallback(py4.d().A());
-            this.c.setSwitchStateNoCallback(py4.d().s());
-            this.d.setSwitchStateNoCallback(py4.d().v());
-            this.q.setSwitchStateNoCallback(py4.d().p());
+            this.a.setSwitchStateNoCallback(qy4.d().x());
+            this.b.setSwitchStateNoCallback(qy4.d().A());
+            this.c.setSwitchStateNoCallback(qy4.d().s());
+            this.d.setSwitchStateNoCallback(qy4.d().v());
+            this.q.setSwitchStateNoCallback(qy4.d().p());
         }
     }
 
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (py4.d().B()) {
+            if (qy4.d().B()) {
                 this.i.g();
             } else {
                 this.i.e();
@@ -149,7 +149,7 @@ public class lc8 extends b9<MsgRemindActivity> {
     public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (py4.d().C()) {
+            if (qy4.d().C()) {
                 this.e.f();
                 this.f.setVisibility(0);
                 I();
@@ -163,51 +163,51 @@ public class lc8 extends b9<MsgRemindActivity> {
     public void D(MsgRemindActivity msgRemindActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, msgRemindActivity) == null) {
-            this.j = msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0916ba);
-            NavigationBar navigationBar = (NavigationBar) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092437);
+            this.j = msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091695);
+            NavigationBar navigationBar = (NavigationBar) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092439);
             this.k = navigationBar;
-            navigationBar.setCenterTextTitle(msgRemindActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f36));
+            navigationBar.setCenterTextTitle(msgRemindActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f1f));
             this.k.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.l = msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f090a8f);
-            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091ae7);
+            this.l = msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f090a88);
+            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091ac1);
             this.a = msgSettingItemView;
-            msgSettingItemView.setText(R.string.obfuscated_res_0x7f0f0fbd);
+            msgSettingItemView.setText(R.string.obfuscated_res_0x7f0f0fa6);
             MsgSettingItemView msgSettingItemView2 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092564);
             this.b = msgSettingItemView2;
             msgSettingItemView2.setVisibility(0);
             this.b.setText(R.string.obfuscated_res_0x7f0f0089);
             MsgSettingItemView msgSettingItemView3 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0902b2);
             this.c = msgSettingItemView3;
-            msgSettingItemView3.setText(R.string.obfuscated_res_0x7f0f0ab5);
-            MsgSettingItemView msgSettingItemView4 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0915b8);
+            msgSettingItemView3.setText(R.string.obfuscated_res_0x7f0f0aa1);
+            MsgSettingItemView msgSettingItemView4 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091593);
             this.d = msgSettingItemView4;
-            msgSettingItemView4.setText(R.string.obfuscated_res_0x7f0f0c2f);
-            MsgSettingItemView msgSettingItemView5 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091d8e);
+            msgSettingItemView4.setText(R.string.obfuscated_res_0x7f0f0c1b);
+            MsgSettingItemView msgSettingItemView5 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091d94);
             this.e = msgSettingItemView5;
-            msgSettingItemView5.setText(R.string.obfuscated_res_0x7f0f1199);
-            this.f = (LinearLayout) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091d8c);
-            this.g = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091d8f);
-            this.h = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091d91);
-            MsgSettingItemView msgSettingItemView6 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0915fc);
+            msgSettingItemView5.setText(R.string.obfuscated_res_0x7f0f1148);
+            this.f = (LinearLayout) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091d92);
+            this.g = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091d95);
+            this.h = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091d97);
+            MsgSettingItemView msgSettingItemView6 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0915d7);
             this.i = msgSettingItemView6;
-            msgSettingItemView6.setText(R.string.obfuscated_res_0x7f0f0c47);
-            this.i.setTipText(R.string.obfuscated_res_0x7f0f0c48);
-            this.r = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092243);
-            this.s = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f09228c);
-            this.t = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f09221c);
-            MsgSettingItemView msgSettingItemView7 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091508);
+            msgSettingItemView6.setText(R.string.obfuscated_res_0x7f0f0c33);
+            this.i.setTipText(R.string.obfuscated_res_0x7f0f0c34);
+            this.r = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092245);
+            this.s = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f09228e);
+            this.t = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f09221e);
+            MsgSettingItemView msgSettingItemView7 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0914e3);
             this.q = msgSettingItemView7;
-            msgSettingItemView7.setText(R.string.obfuscated_res_0x7f0f0b34);
-            this.q.setTipText(R.string.obfuscated_res_0x7f0f0b35);
-            MsgSettingItemView msgSettingItemView8 = (MsgSettingItemView) this.n.findViewById(R.id.obfuscated_res_0x7f090f7f);
+            msgSettingItemView7.setText(R.string.obfuscated_res_0x7f0f0b20);
+            this.q.setTipText(R.string.obfuscated_res_0x7f0f0b21);
+            MsgSettingItemView msgSettingItemView8 = (MsgSettingItemView) this.n.findViewById(R.id.obfuscated_res_0x7f090f78);
             this.o = msgSettingItemView8;
-            msgSettingItemView8.setText(R.string.obfuscated_res_0x7f0f0f66);
+            msgSettingItemView8.setText(R.string.obfuscated_res_0x7f0f0f4f);
             this.o.setOnSwitchStateChangeListener(this.n);
             this.o.setLineVisibility(false);
             y();
-            MsgSettingItemView msgSettingItemView9 = (MsgSettingItemView) this.n.findViewById(R.id.obfuscated_res_0x7f090f82);
+            MsgSettingItemView msgSettingItemView9 = (MsgSettingItemView) this.n.findViewById(R.id.obfuscated_res_0x7f090f7b);
             this.p = msgSettingItemView9;
-            msgSettingItemView9.setText(R.string.obfuscated_res_0x7f0f0cc1);
+            msgSettingItemView9.setText(R.string.obfuscated_res_0x7f0f0cad);
             this.p.setOnSwitchStateChangeListener(this.n);
             this.p.setLineVisibility(false);
             E();
@@ -220,7 +220,7 @@ public class lc8 extends b9<MsgRemindActivity> {
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (msgSettingItemView = this.p) == null) {
             return;
         }
-        msgSettingItemView.setSwitchStateNoCallback(py4.d().m());
+        msgSettingItemView.setSwitchStateNoCallback(qy4.d().m());
         new OfficialAccountPushModel(new a(this)).B();
     }
 
@@ -249,7 +249,7 @@ public class lc8 extends b9<MsgRemindActivity> {
         if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (msgRemindActivity = this.n) == null) {
             return;
         }
-        sy4.c().k(this.n.getActivity(), (ViewGroup) msgRemindActivity.findViewById(16908290));
+        ty4.c().k(this.n.getActivity(), (ViewGroup) msgRemindActivity.findViewById(16908290));
     }
 
     public void I() {
@@ -257,9 +257,9 @@ public class lc8 extends b9<MsgRemindActivity> {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (py4.d().C()) {
-                int j = py4.d().j();
-                int k = py4.d().k();
+            if (qy4.d().C()) {
+                int j = qy4.d().j();
+                int k = qy4.d().k();
                 if (j > 9) {
                     str = String.valueOf(j);
                 } else {
@@ -270,7 +270,7 @@ public class lc8 extends b9<MsgRemindActivity> {
                 } else {
                     str2 = "0" + k;
                 }
-                this.g.setText(this.n.getString(R.string.obfuscated_res_0x7f0f119a, new Object[]{str, str2}));
+                this.g.setText(this.n.getString(R.string.obfuscated_res_0x7f0f1149, new Object[]{str, str2}));
                 this.f.setVisibility(0);
                 if (this.e.b()) {
                     return;
@@ -290,7 +290,7 @@ public class lc8 extends b9<MsgRemindActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.c.setOnSwitchStateChangeListener(null);
-            this.c.setSwitchStateNoCallback(py4.d().s());
+            this.c.setSwitchStateNoCallback(qy4.d().s());
             this.c.setOnSwitchStateChangeListener(this.n);
         }
     }
@@ -299,7 +299,7 @@ public class lc8 extends b9<MsgRemindActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.d.setOnSwitchStateChangeListener(null);
-            this.d.setSwitchStateNoCallback(py4.d().v());
+            this.d.setSwitchStateNoCallback(qy4.d().v());
             this.d.setOnSwitchStateChangeListener(this.n);
         }
     }
@@ -308,7 +308,7 @@ public class lc8 extends b9<MsgRemindActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.i.setOnSwitchStateChangeListener(null);
-            this.i.setSwitchStateNoCallback(py4.d().B());
+            this.i.setSwitchStateNoCallback(qy4.d().B());
             this.i.setOnSwitchStateChangeListener(this.n);
         }
     }
@@ -317,7 +317,7 @@ public class lc8 extends b9<MsgRemindActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             this.a.setOnSwitchStateChangeListener(null);
-            this.a.setSwitchStateNoCallback(py4.d().x());
+            this.a.setSwitchStateNoCallback(qy4.d().x());
             this.a.setOnSwitchStateChangeListener(this.n);
         }
     }
@@ -326,7 +326,7 @@ public class lc8 extends b9<MsgRemindActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.b.setOnSwitchStateChangeListener(null);
-            this.b.setSwitchStateNoCallback(py4.d().A());
+            this.b.setSwitchStateNoCallback(qy4.d().A());
             this.b.setOnSwitchStateChangeListener(this.n);
         }
     }
@@ -335,7 +335,7 @@ public class lc8 extends b9<MsgRemindActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             this.q.setOnSwitchStateChangeListener(null);
-            this.q.setSwitchStateNoCallback(py4.d().p());
+            this.q.setSwitchStateNoCallback(qy4.d().p());
             this.q.setOnSwitchStateChangeListener(this.n);
         }
     }
@@ -394,9 +394,9 @@ public class lc8 extends b9<MsgRemindActivity> {
         if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
             SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
             this.k.onChangeSkinType(this.n.getPageContext(), i);
-            ur4.d(this.r).v(R.color.CAM_X0109);
-            ur4.d(this.s).v(R.color.CAM_X0109);
-            ur4.d(this.t).v(R.color.CAM_X0109);
+            vr4.d(this.r).v(R.color.CAM_X0109);
+            vr4.d(this.s).v(R.color.CAM_X0109);
+            vr4.d(this.t).v(R.color.CAM_X0109);
             this.a.c(this.n.getPageContext(), i);
             this.b.c(this.n.getPageContext(), i);
             this.c.c(this.n.getPageContext(), i);
@@ -410,7 +410,7 @@ public class lc8 extends b9<MsgRemindActivity> {
             this.q.c(this.n.getPageContext(), i);
             this.i.c(this.n.getPageContext(), i);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(null, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091d8d), R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091d93), R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 
@@ -480,7 +480,7 @@ public class lc8 extends b9<MsgRemindActivity> {
         if (!(interceptable == null || interceptable.invokeV(1048608, this) == null) || (msgSettingItemView = this.o) == null) {
             return;
         }
-        msgSettingItemView.setSwitchStateNoCallback(py4.d().n());
+        msgSettingItemView.setSwitchStateNoCallback(qy4.d().n());
     }
 
     public final void z(MsgRemindActivity msgRemindActivity) {

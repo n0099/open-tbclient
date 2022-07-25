@@ -1,5 +1,6 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -9,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ec5;
+import com.repackage.fc5;
 /* loaded from: classes5.dex */
-public class dc5 extends ac5<j55, ec5.d> {
+public class dc5 extends bc5<l55, fc5.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> e;
@@ -35,23 +36,28 @@ public class dc5 extends ac5<j55, ec5.d> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ac5
+    @Override // com.repackage.bc5
     /* renamed from: g */
-    public void d(ViewType viewType, j55 j55Var, ec5.d dVar) {
+    public void d(ViewType viewType, l55 l55Var, fc5.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, j55Var, dVar) == null) {
-            j55Var.s(dVar.b);
-            j55Var.k().setText(dVar.a);
-            j55Var.onChangeSkinType();
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, l55Var, bVar) == null) {
+            l55Var.m((!bVar.b || TextUtils.isEmpty(bVar.a)) ? bVar.g : bVar.a);
+            l55Var.k(bVar.d);
+            l55Var.i(bVar.c);
+            l55Var.n(bVar.f);
+            l55Var.g(bVar.e);
+            l55Var.p();
+            l55Var.onChangeSkinType();
+            l55Var.c().setOnClickListener(bVar.h);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ac5
+    @Override // com.repackage.bc5
     /* renamed from: h */
-    public j55 f(ViewType viewType, ViewGroup viewGroup) {
+    public l55 f(ViewType viewType, ViewGroup viewGroup) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) ? new j55(this.e.getPageActivity()) : (j55) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) ? new l55(this.e.getPageActivity(), null) : (l55) invokeLL.objValue;
     }
 }

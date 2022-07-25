@@ -98,10 +98,10 @@ public class vu6 extends an<wy5, AutoVideoCardViewHolder<wy5>> {
                 wy5 wy5Var = (wy5) nnVar;
                 wy5Var.f = 1;
                 if (this.a.n != null) {
-                    this.a.n.a(threadCardViewHolder.b(), wy5Var);
+                    this.a.n.a(threadCardViewHolder.a(), wy5Var);
                 }
                 fv6.b(wy5Var, view2.getContext(), 18, false, uw.a((tn) viewGroup, view2, i));
-                threadCardViewHolder.c().o(new ny.a(1));
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -166,7 +166,7 @@ public class vu6 extends an<wy5, AutoVideoCardViewHolder<wy5>> {
         }
         if (view2.getId() == this.l.p().getMainView().getId()) {
             fv6.d(wy5Var, this.m);
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f09202a) {
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f09202e) {
             fv6.d(wy5Var, this.m);
         }
     }
@@ -187,7 +187,7 @@ public class vu6 extends an<wy5, AutoVideoCardViewHolder<wy5>> {
             bVar.n(this.l);
             cy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.k);
             AutoVideoCardViewHolder<wy5> autoVideoCardViewHolder = new AutoVideoCardViewHolder<>(k);
-            autoVideoCardViewHolder.k(this.j);
+            autoVideoCardViewHolder.j(this.j);
             k.p(this.n);
             k.r(18);
             V(new b(this));
@@ -204,19 +204,19 @@ public class vu6 extends an<wy5, AutoVideoCardViewHolder<wy5>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wy5Var, autoVideoCardViewHolder})) == null) {
             if (wy5Var == null) {
-                return autoVideoCardViewHolder.b();
+                return autoVideoCardViewHolder.a();
             }
             if (autoVideoCardViewHolder == null) {
                 return null;
             }
             wy5Var.I(wy5Var.position + 1);
-            autoVideoCardViewHolder.c().q(i);
+            autoVideoCardViewHolder.b().q(i);
             fv6.c(wy5Var, this.m);
-            autoVideoCardViewHolder.w(b0(wy5Var));
-            autoVideoCardViewHolder.g(wy5Var);
-            autoVideoCardViewHolder.c().onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
-            autoVideoCardViewHolder.c().p(this.n);
-            return autoVideoCardViewHolder.b();
+            autoVideoCardViewHolder.v(b0(wy5Var));
+            autoVideoCardViewHolder.f(wy5Var);
+            autoVideoCardViewHolder.b().onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
+            autoVideoCardViewHolder.b().p(this.n);
+            return autoVideoCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

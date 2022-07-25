@@ -36,8 +36,8 @@ public class uy6 {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            br4.f();
-            te<byte[]> e = br4.e("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
+            cr4.f();
+            te<byte[]> e = cr4.e("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
             if (e != null) {
                 e.e("0", new byte[0], 0L);
             }
@@ -49,8 +49,8 @@ public class uy6 {
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            br4.f();
-            te<byte[]> e = br4.e("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
+            cr4.f();
+            te<byte[]> e = cr4.e("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
             if (e != null && (bArr = e.get("0")) != null && bArr.length != 0) {
                 try {
                     return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);

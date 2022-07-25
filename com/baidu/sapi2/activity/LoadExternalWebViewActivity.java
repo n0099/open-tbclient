@@ -21,6 +21,7 @@ import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.enums.AccountType;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -246,7 +247,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04e1);
+                setContentView(R.layout.obfuscated_res_0x7f0d04eb);
                 this.w = CoreViewRouter.getInstance().getOneKeyLoginCallback();
                 CoreViewRouter.getInstance().releaseOneKeyLoginCallback();
                 init();
@@ -562,7 +563,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                         return;
                     }
                     ExtendSysWebViewMethodResult extendSysWebViewMethodResult = new ExtendSysWebViewMethodResult();
-                    extendSysWebViewMethodResult.params.put("result", str);
+                    extendSysWebViewMethodResult.params.put(TiebaStatic.LogFields.RESULT, str);
                     CoreViewRouter.getInstance().getExtendSysWebViewMethodCallback().onFinish(extendSysWebViewMethodResult);
                 }
             });

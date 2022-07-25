@@ -18,28 +18,28 @@ public final class e {
             this();
         }
 
-        public abstract Object a();
+        public abstract void println(Object obj);
 
-        public abstract void a(Object obj);
+        public abstract Object wY();
     }
 
     /* loaded from: classes5.dex */
     public static class b extends a {
-        public final PrintWriter a;
+        public final PrintWriter aij;
 
         public b(PrintWriter printWriter) {
             super((byte) 0);
-            this.a = printWriter;
+            this.aij = printWriter;
         }
 
         @Override // com.kwad.sdk.crash.utils.e.a
-        public final Object a() {
-            return this.a;
+        public final void println(Object obj) {
+            this.aij.println(obj);
         }
 
         @Override // com.kwad.sdk.crash.utils.e.a
-        public final void a(Object obj) {
-            this.a.println(obj);
+        public final Object wY() {
+            return this.aij;
         }
     }
 
@@ -47,10 +47,10 @@ public final class e {
         StackTraceElement[] stackTrace;
         Set newSetFromMap = Collections.newSetFromMap(new IdentityHashMap());
         newSetFromMap.add(th);
-        synchronized (aVar.a()) {
-            aVar.a(th);
+        synchronized (aVar.wY()) {
+            aVar.println(th);
             for (StackTraceElement stackTraceElement : th.getStackTrace()) {
-                aVar.a("\tat " + stackTraceElement);
+                aVar.println("\tat " + stackTraceElement);
             }
             if (Build.VERSION.SDK_INT >= 19) {
                 for (Throwable th2 : th.getSuppressed()) {
@@ -68,9 +68,9 @@ public final class e {
         while (!set.contains(th)) {
             set.add(th);
             StackTraceElement[] stackTrace = th.getStackTrace();
-            aVar.a(str2 + str + th);
+            aVar.println(str2 + str + th);
             for (StackTraceElement stackTraceElement : stackTrace) {
-                aVar.a(str2 + "\tat " + stackTraceElement);
+                aVar.println(str2 + "\tat " + stackTraceElement);
             }
             if (Build.VERSION.SDK_INT >= 19) {
                 for (Throwable th2 : th.getSuppressed()) {
@@ -83,7 +83,7 @@ public final class e {
             }
             str = "Caused by: ";
         }
-        aVar.a("\t[CIRCULAR REFERENCE:" + th + PreferencesUtil.RIGHT_MOUNT);
+        aVar.println("\t[CIRCULAR REFERENCE:" + th + PreferencesUtil.RIGHT_MOUNT);
     }
 
     public static void a(Throwable th, PrintWriter printWriter) {

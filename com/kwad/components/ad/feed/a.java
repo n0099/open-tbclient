@@ -30,33 +30,33 @@ public class a extends com.kwad.sdk.components.d implements com.kwad.components.
         }
     }
 
-    @Override // com.kwad.components.ad.a.c
-    public final void a(KsScene ksScene, @NonNull KsLoadManager.FeedAdListener feedAdListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, ksScene, feedAdListener) == null) {
-            e.a(ksScene, feedAdListener, !com.kwad.components.ad.feed.kwai.b.c());
-        }
-    }
-
-    @Override // com.kwad.components.ad.a.c
-    public final void b(KsScene ksScene, @NonNull KsLoadManager.FeedAdListener feedAdListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ksScene, feedAdListener) == null) {
-            e.a(ksScene, feedAdListener, true);
-        }
-    }
-
     @Override // com.kwad.sdk.components.a
     public Class getComponentsType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.components.ad.a.c.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwad.components.ad.a.c.class : (Class) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.components.a
     public void init(Context context, SdkConfig sdkConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, sdkConfig) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sdkConfig) == null) {
+        }
+    }
+
+    @Override // com.kwad.components.ad.a.c
+    public final void loadConfigFeedAd(KsScene ksScene, @NonNull KsLoadManager.FeedAdListener feedAdListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ksScene, feedAdListener) == null) {
+            e.a(ksScene, feedAdListener, true);
+        }
+    }
+
+    @Override // com.kwad.components.ad.a.c
+    public final void loadFeedAd(KsScene ksScene, @NonNull KsLoadManager.FeedAdListener feedAdListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, ksScene, feedAdListener) == null) {
+            e.a(ksScene, feedAdListener, !com.kwad.components.ad.feed.kwai.b.be());
         }
     }
 }

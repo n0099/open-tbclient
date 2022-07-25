@@ -152,12 +152,12 @@ public abstract class jw8 {
 
         /* renamed from: com.repackage.jw8$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0660b implements View.OnClickListener {
+        public class View$OnClickListenerC0508b implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public View$OnClickListenerC0660b(b bVar) {
+            public View$OnClickListenerC0508b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -380,44 +380,44 @@ public abstract class jw8 {
                     return;
                 }
             }
-            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f092417);
-            this.f = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0922d5);
-            this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09205c);
-            this.m = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09205d);
-            this.s = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09205e);
-            this.h = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09204f);
-            this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092050);
-            this.t = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092053);
-            this.i = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092067);
-            this.o = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092068);
-            this.u = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09206a);
+            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f092419);
+            this.f = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0922d7);
+            this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092060);
+            this.m = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092061);
+            this.s = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092062);
+            this.h = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092053);
+            this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092054);
+            this.t = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092057);
+            this.i = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09206b);
+            this.o = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09206c);
+            this.u = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09206e);
             d();
-            this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09201a);
-            this.p = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09201b);
-            this.v = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09201c);
+            this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09201e);
+            this.p = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09201f);
+            this.v = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092020);
             this.j.setVisibility(TbSingleton.getInstance().isShowStartLiveEntry() ? 0 : 8);
             this.j.setVisibility(TbSingleton.getInstance().isAuditPackageSwitchOn() ? 0 : 8);
-            this.k = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092071);
-            this.q = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092072);
-            this.w = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092073);
-            this.l = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092074);
-            this.r = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092075);
-            this.x = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092076);
-            this.y = this.a.findViewById(R.id.obfuscated_res_0x7f0912b5);
-            this.z = this.a.findViewById(R.id.obfuscated_res_0x7f0912b6);
-            this.A = this.a.findViewById(R.id.obfuscated_res_0x7f0912b7);
-            this.B = this.a.findViewById(R.id.obfuscated_res_0x7f0912b8);
-            this.C = this.a.findViewById(R.id.obfuscated_res_0x7f0912b9);
+            this.k = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092075);
+            this.q = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092076);
+            this.w = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092077);
+            this.l = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092078);
+            this.r = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092079);
+            this.x = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09207a);
+            this.y = this.a.findViewById(R.id.obfuscated_res_0x7f091291);
+            this.z = this.a.findViewById(R.id.obfuscated_res_0x7f091292);
+            this.A = this.a.findViewById(R.id.obfuscated_res_0x7f091293);
+            this.B = this.a.findViewById(R.id.obfuscated_res_0x7f091294);
+            this.C = this.a.findViewById(R.id.obfuscated_res_0x7f091295);
             this.B.setVisibility(TbSingleton.getInstance().isShowStartLiveEntry() ? 0 : 8);
-            this.s.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f075d));
-            this.t.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0863));
-            this.u.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0864));
+            this.s.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0759));
+            this.t.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f084e));
+            this.u.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f084f));
             this.v.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0221));
-            this.w.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f075f));
-            this.x.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f05b4));
+            this.w.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f075b));
+            this.x.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f05b0));
             this.e.setOnClickListener(this.d);
             this.g.setOnClickListener(new a(this));
-            this.h.setOnClickListener(new View$OnClickListenerC0660b(this));
+            this.h.setOnClickListener(new View$OnClickListenerC0508b(this));
             this.i.setOnClickListener(new c(this));
             this.j.setOnClickListener(new d(this));
             this.k.setOnClickListener(new e(this));
@@ -473,12 +473,12 @@ public abstract class jw8 {
         public final void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.E = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09206e);
-                this.F = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09206f);
-                this.G = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092070);
-                this.H = this.a.findViewById(R.id.obfuscated_res_0x7f0912c5);
+                this.E = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092072);
+                this.F = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092073);
+                this.G = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092074);
+                this.H = this.a.findViewById(R.id.obfuscated_res_0x7f0912a1);
                 e(TbSingleton.getInstance().getVoiceRoomConfig().a());
-                this.G.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0866));
+                this.G.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0851));
                 this.E.setOnClickListener(new g(this));
             }
         }
@@ -601,12 +601,12 @@ public abstract class jw8 {
 
         /* renamed from: com.repackage.jw8$c$c  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0661c implements View.OnClickListener {
+        public class View$OnClickListenerC0509c implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
 
-            public View$OnClickListenerC0661c(c cVar) {
+            public View$OnClickListenerC0509c(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -779,15 +779,15 @@ public abstract class jw8 {
         public class h implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ gy4 a;
+            public final /* synthetic */ hy4 a;
             public final /* synthetic */ c b;
 
-            public h(c cVar, gy4 gy4Var) {
+            public h(c cVar, hy4 hy4Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar, gy4Var};
+                    Object[] objArr = {cVar, hy4Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -798,7 +798,7 @@ public abstract class jw8 {
                     }
                 }
                 this.b = cVar;
-                this.a = gy4Var;
+                this.a = hy4Var;
             }
 
             @Override // android.view.View.OnClickListener
@@ -876,39 +876,39 @@ public abstract class jw8 {
                 return;
             }
             e();
-            this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d4d);
-            this.k = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d4e);
-            this.l = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090d4f);
-            this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d56);
-            this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d57);
-            this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090d58);
-            this.m = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d4a);
-            this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d4b);
-            this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090d4c);
-            this.p = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d53);
-            this.q = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d54);
-            this.r = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090d55);
+            this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d46);
+            this.k = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d47);
+            this.l = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090d48);
+            this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d4f);
+            this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d50);
+            this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090d51);
+            this.m = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d43);
+            this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d44);
+            this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090d45);
+            this.p = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d4c);
+            this.q = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d4d);
+            this.r = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090d4e);
             this.p.setVisibility(TbSingleton.getInstance().isShowStartLiveEntry() ? 0 : 8);
             d(pw8Var);
-            this.x = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d5c);
-            this.y = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d5d);
-            this.z = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090d5e);
+            this.x = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d55);
+            this.y = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d56);
+            this.z = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090d57);
             ((LinearLayout.LayoutParams) this.y.getLayoutParams()).topMargin = TbSingleton.getInstance().isShowStartLiveEntry() ? ((LinearLayout.LayoutParams) this.y.getLayoutParams()).topMargin : 0;
-            this.A = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d59);
-            this.B = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d5a);
-            this.C = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090d5b);
-            this.D = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d50);
-            this.E = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d51);
-            this.F = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090d52);
+            this.A = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d52);
+            this.B = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d53);
+            this.C = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090d54);
+            this.D = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d49);
+            this.E = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d4a);
+            this.F = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090d4b);
             this.G = (OvalActionButton) this.a.findViewById(R.id.obfuscated_res_0x7f092522);
             pw8 pw8Var2 = this.c;
             if (pw8Var2 != null && "frs".equals(pw8Var2.i())) {
                 this.G.setIsCircle(true);
                 this.G.setHasShadow(false);
             }
-            this.f = this.a.findViewById(R.id.obfuscated_res_0x7f092419);
-            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f092418);
-            GridLayout gridLayout = (GridLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0922d5);
+            this.f = this.a.findViewById(R.id.obfuscated_res_0x7f09241b);
+            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f09241a);
+            GridLayout gridLayout = (GridLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0922d7);
             this.H = gridLayout;
             gridLayout.setMeasureAllChild(true);
             this.H.setVerNum(2);
@@ -920,7 +920,7 @@ public abstract class jw8 {
             this.e.setClickable(true);
             this.k.setOnClickListener(new a(this));
             this.h.setOnClickListener(new b(this));
-            this.n.setOnClickListener(new View$OnClickListenerC0661c(this));
+            this.n.setOnClickListener(new View$OnClickListenerC0509c(this));
             this.q.setOnClickListener(new d(this));
             this.x.setOnClickListener(new e(this));
             this.A.setOnClickListener(new f(this));
@@ -1007,7 +1007,7 @@ public abstract class jw8 {
                 SkinManager.setViewTextColor(this.z, (int) R.color.CAM_X0107);
                 SkinManager.setViewTextColor(this.C, (int) R.color.CAM_X0107);
                 SkinManager.setViewTextColor(this.F, (int) R.color.CAM_X0107);
-                ur4 d2 = ur4.d(this.t);
+                vr4 d2 = vr4.d(this.t);
                 d2.v(R.color.CAM_X0101);
                 d2.A(R.string.F_X01);
                 d2.n(R.string.J_X01);
@@ -1022,9 +1022,9 @@ public abstract class jw8 {
         public final void d(@NonNull pw8 pw8Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, pw8Var) == null) {
-                this.u = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d47);
-                this.v = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d48);
-                this.w = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090d49);
+                this.u = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d40);
+                this.v = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d41);
+                this.w = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090d42);
                 boolean a2 = pw8Var.j().a();
                 this.u.setVisibility(a2 ? 0 : 8);
                 if (a2) {
@@ -1038,7 +1038,7 @@ public abstract class jw8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 this.s = (FrsAnomalyImg) this.a.findViewById(R.id.obfuscated_res_0x7f09253b);
-                this.t = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0922ae);
+                this.t = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0922b0);
                 FrsAnomalyImg.b bVar = new FrsAnomalyImg.b();
                 bVar.a(40);
                 bVar.b(640);
@@ -1047,7 +1047,7 @@ public abstract class jw8 {
                 FrsAnomalyImg frsAnomalyImg = this.s;
                 frsAnomalyImg.o(33);
                 frsAnomalyImg.p(bVar);
-                gy4 videoEventsConfig = TbSingleton.getInstance().getVideoEventsConfig();
+                hy4 videoEventsConfig = TbSingleton.getInstance().getVideoEventsConfig();
                 if (videoEventsConfig == null) {
                     return;
                 }

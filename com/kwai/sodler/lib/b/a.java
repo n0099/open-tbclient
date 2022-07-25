@@ -30,20 +30,20 @@ public final class a extends b<com.kwai.sodler.lib.kwai.a> {
         }
     }
 
-    public static com.kwai.sodler.lib.kwai.a i(String str) {
+    public static com.kwai.sodler.lib.kwai.a fd(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new com.kwai.sodler.lib.kwai.a(str) : (com.kwai.sodler.lib.kwai.a) invokeL.objValue;
     }
 
     @Override // com.kwai.sodler.lib.b.b, com.kwai.sodler.lib.a.f
-    public final /* synthetic */ com.kwai.sodler.lib.a.a g(String str) {
-        return i(str);
+    public final /* synthetic */ com.kwai.sodler.lib.a.a fb(String str) {
+        return fd(str);
     }
 
     /* JADX DEBUG: Return type fixed from 'com.kwai.sodler.lib.g' to match base method */
     @Override // com.kwai.sodler.lib.b.b
-    public final /* synthetic */ com.kwai.sodler.lib.kwai.a h(String str) {
-        return i(str);
+    public final /* synthetic */ com.kwai.sodler.lib.kwai.a fe(String str) {
+        return fd(str);
     }
 }

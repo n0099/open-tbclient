@@ -64,7 +64,7 @@ public abstract class MsgCommonItemAdapter<T> extends an<ChatMessage, MsgViewHol
             this.a = t;
         }
 
-        public T c() {
+        public T b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (T) invokeV.objValue;

@@ -177,7 +177,7 @@ public class fz7 {
                                         }
                                         nn next = it.next();
                                         if ((next instanceof PostData) && p.getPostId() == ng.g(((PostData) next).J(), 0L)) {
-                                            fy7.b(this.a.a.F().R1(), (PostData) next, ((PostData) next).h0, 8, 3);
+                                            fy7.b(this.a.a.F().R1(), (PostData) next, ((PostData) next).b0, 8, 3);
                                             break;
                                         }
                                     }
@@ -295,16 +295,16 @@ public class fz7 {
                 AbsVideoPbFragment absVideoPbFragment = this.a.b;
                 if (absVideoPbFragment != null && absVideoPbFragment.isAdded()) {
                     if (view2 != null) {
-                        if (view2.getId() == R.id.obfuscated_res_0x7f091b17) {
+                        if (view2.getId() == R.id.obfuscated_res_0x7f091af1) {
                             AbsVideoPbFragment absVideoPbFragment2 = this.a.b;
                             if (absVideoPbFragment2 != null && absVideoPbFragment2.f5(view2)) {
                                 return true;
                             }
-                        } else if (view2.getId() == R.id.obfuscated_res_0x7f09172b) {
-                            if (view2.getTag(R.id.obfuscated_res_0x7f091f00) instanceof SparseArray) {
-                                this.a.o((SparseArray) view2.getTag(R.id.obfuscated_res_0x7f091f00));
+                        } else if (view2.getId() == R.id.obfuscated_res_0x7f091706) {
+                            if (view2.getTag(R.id.obfuscated_res_0x7f091f04) instanceof SparseArray) {
+                                this.a.o((SparseArray) view2.getTag(R.id.obfuscated_res_0x7f091f04));
                             }
-                        } else if ((view2 instanceof TbRichTextView) || view2.getId() == R.id.obfuscated_res_0x7f091784) {
+                        } else if ((view2 instanceof TbRichTextView) || view2.getId() == R.id.obfuscated_res_0x7f09175f) {
                             SparseArray sparseArray = view2.getTag() instanceof SparseArray ? (SparseArray) view2.getTag() : null;
                             if (sparseArray == null) {
                                 return false;
@@ -671,7 +671,7 @@ public class fz7 {
     public final void o(SparseArray<Object> sparseArray) {
         PostData postData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, sparseArray) == null) || !this.a.checkUpIsLogin() || sparseArray == null || !(sparseArray.get(R.id.obfuscated_res_0x7f091eed) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f091eed)) == null || this.a.F() == null || this.a.F().R1() == null || postData.B() == 1) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, sparseArray) == null) || !this.a.checkUpIsLogin() || sparseArray == null || !(sparseArray.get(R.id.obfuscated_res_0x7f091ef1) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f091ef1)) == null || this.a.F() == null || this.a.F().R1() == null || postData.B() == 1) {
             return;
         }
         String j2 = this.a.F().j2();

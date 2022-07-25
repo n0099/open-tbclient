@@ -19,9 +19,9 @@ public class uz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BaseFragmentActivity a;
-    public cr4 b;
-    public cr4 c;
-    public cr4 d;
+    public dr4 b;
+    public dr4 c;
+    public dr4 d;
     public int e;
     public View.OnClickListener f;
 
@@ -54,34 +54,34 @@ public class uz5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f09199f || id == R.id.obfuscated_res_0x7f092548) {
+                if (id == R.id.obfuscated_res_0x7f09197a || id == R.id.obfuscated_res_0x7f092548) {
                     if (this.a.b != null && this.a.b.isShowing()) {
                         this.a.b.dismiss();
                         SmartLaunchStats.onConfirmPrivacy();
                         af8.a("1", "1");
-                        is4.l("logoController", false);
+                        js4.l("logoController", false);
                     }
                     if (this.a.c != null && this.a.c.isShowing()) {
                         this.a.c.dismiss();
                         af8.a("2", "1");
-                        is4.l("logoController", false);
+                        js4.l("logoController", false);
                     }
                     if (this.a.d != null && this.a.d.isShowing()) {
                         this.a.d.dismiss();
                         af8.a("3", "1");
-                        is4.l("logoController", false);
+                        js4.l("logoController", false);
                     }
-                    xt4.k().x("key_first_enter_app_timestamp", System.currentTimeMillis());
+                    yt4.k().x("key_first_enter_app_timestamp", System.currentTimeMillis());
                     PermissionUtil.setIsAgreePrivacyPolicy(true);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921639, 2));
-                } else if (id == R.id.obfuscated_res_0x7f09199a) {
+                } else if (id == R.id.obfuscated_res_0x7f091975) {
                     if (this.a.b.isShowing()) {
                         this.a.b.dismiss();
                         af8.a("1", "2");
                     }
                     if (this.a.c == null) {
                         uz5 uz5Var = this.a;
-                        uz5Var.c = rj5.a(uz5Var.a.getPageContext(), this.a.f, R.string.obfuscated_res_0x7f0f0ee7, R.string.obfuscated_res_0x7f0f10e7);
+                        uz5Var.c = rj5.a(uz5Var.a.getPageContext(), this.a.f, R.string.obfuscated_res_0x7f0f0ed0, R.string.obfuscated_res_0x7f0f10a3);
                     }
                     this.a.c.show();
                     af8.b("2");
@@ -92,7 +92,7 @@ public class uz5 {
                         af8.a("2", "2");
                         if (this.a.d == null) {
                             uz5 uz5Var2 = this.a;
-                            uz5Var2.d = rj5.a(uz5Var2.a.getPageContext(), this.a.f, R.string.obfuscated_res_0x7f0f0ee8, R.string.obfuscated_res_0x7f0f10dc);
+                            uz5Var2.d = rj5.a(uz5Var2.a.getPageContext(), this.a.f, R.string.obfuscated_res_0x7f0f0ed1, R.string.obfuscated_res_0x7f0f1098);
                             this.a.d.show();
                             af8.b("3");
                         }
@@ -136,17 +136,17 @@ public class uz5 {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            cr4 cr4Var = this.b;
-            if (cr4Var != null) {
-                cr4Var.dismiss();
+            dr4 dr4Var = this.b;
+            if (dr4Var != null) {
+                dr4Var.dismiss();
             }
-            cr4 cr4Var2 = this.c;
-            if (cr4Var2 != null) {
-                cr4Var2.dismiss();
+            dr4 dr4Var2 = this.c;
+            if (dr4Var2 != null) {
+                dr4Var2.dismiss();
             }
-            cr4 cr4Var3 = this.d;
-            if (cr4Var3 != null) {
-                cr4Var3.dismiss();
+            dr4 dr4Var3 = this.d;
+            if (dr4Var3 != null) {
+                dr4Var3.dismiss();
             }
         }
     }
@@ -154,7 +154,7 @@ public class uz5 {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            cr4 b = rj5.b(this.a.getPageContext(), this.f);
+            dr4 b = rj5.b(this.a.getPageContext(), this.f);
             this.b = b;
             b.show();
             TbSingleton.getInstance().setExceptInsertAdDiaShow(true);

@@ -13,8 +13,8 @@ public class v07 {
     public int b;
     public boolean c;
     public int d;
-    public bo4 e;
-    public zo4 f;
+    public co4 e;
+    public ap4 f;
 
     public v07() {
         Interceptable interceptable = $ic;

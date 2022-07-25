@@ -66,7 +66,7 @@ public class lb7 implements IAdBaseAsyncController.a, ImagePagerAdapter.a {
             this.d = fa8Var;
             fa8Var.h(tbPageContext, hVar, z);
         } catch (ClassCastException e) {
-            if (tm4.e()) {
+            if (um4.e()) {
                 throw new RuntimeException(e);
             }
         }
@@ -281,10 +281,10 @@ public class lb7 implements IAdBaseAsyncController.a, ImagePagerAdapter.a {
             this.h = false;
             this.g = y88Var;
             this.d.l();
-            wc5 wc5Var = new wc5();
-            wc5Var.c = this.a;
-            wc5Var.d = this.b;
-            this.d.g(wc5Var);
+            xc5 xc5Var = new xc5();
+            xc5Var.c = this.a;
+            xc5Var.d = this.b;
+            this.d.g(xc5Var);
         }
     }
 

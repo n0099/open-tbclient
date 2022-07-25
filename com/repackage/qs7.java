@@ -62,14 +62,14 @@ public class qs7 extends ns7<CustomDialogData> implements View.OnClickListener {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = (TbImageView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f090783);
-            this.f = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f090792);
-            this.g = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f090770);
+            this.e = (TbImageView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f090782);
+            this.f = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f090790);
+            this.g = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f09076f);
             this.h = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f092547);
-            this.i = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0915f1);
+            this.i = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0915cc);
             this.j = getViewGroup().findViewById(R.id.obfuscated_res_0x7f09033c);
-            this.k = getViewGroup().findViewById(R.id.obfuscated_res_0x7f0907e3);
-            this.l = (LinearLayout) getViewGroup().findViewById(R.id.obfuscated_res_0x7f091a64);
+            this.k = getViewGroup().findViewById(R.id.obfuscated_res_0x7f0907e1);
+            this.l = (LinearLayout) getViewGroup().findViewById(R.id.obfuscated_res_0x7f091a3e);
             this.h.setOnClickListener(this);
             this.i.setOnClickListener(this);
             SkinManager.setBackgroundResource(this.h, R.drawable.dialog_single_button_bg_selector);

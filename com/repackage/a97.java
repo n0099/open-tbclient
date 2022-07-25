@@ -74,20 +74,20 @@ public class a97 {
                     return null;
                 }
                 if (optString.equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT)) {
-                    return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f099d);
+                    return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0988);
                 }
                 if (!optString.equals(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP) && !optString.equals(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP_WARN)) {
                     if (optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN)) {
                         String optString3 = optJSONObject.optString("userId");
                         String optString4 = optJSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
                         if (optString3.equals(TbadkCoreApplication.getCurrentAccount())) {
-                            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0999);
+                            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0984);
                         }
-                        return optString4 + TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0998);
+                        return optString4 + TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0983);
                     } else if (optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT)) {
-                        return optJSONObject.optString("userId").equals(TbadkCoreApplication.getCurrentAccount()) ? TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f099d) : optString2;
+                        return optJSONObject.optString("userId").equals(TbadkCoreApplication.getCurrentAccount()) ? TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0988) : optString2;
                     } else if (optString.equals(TbEnum.SystemMessage.EVENT_ID_APPLY_SUC)) {
-                        return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0999);
+                        return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0984);
                     } else {
                         if (!optString.equals(TbEnum.SystemMessage.EVENT_ID_INVITE_GROUP) && !optString.equals(TbEnum.SystemMessage.EVENT_ID_COMMON) && !optString.equals(TbEnum.SystemMessage.EVENT_ID_STRANGER_FIRST_MSG) && optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_ACTIVITYS_IN_CHAT)) {
                         }
@@ -223,7 +223,7 @@ public class a97 {
                 if (jSONArray.length() >= 2) {
                     String optString = jSONArray.optString(0);
                     if (1 == jSONArray.optInt(1)) {
-                        sb.append(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09c1));
+                        sb.append(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09ad));
                     }
                     if (optString != null) {
                         sb.append(optString);
@@ -347,7 +347,7 @@ public class a97 {
                 if (optString.equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT)) {
                     SystemMsgData systemMsgData = new SystemMsgData();
                     systemMsgData.setIsSelf(true);
-                    systemMsgData.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f099d));
+                    systemMsgData.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0988));
                     return systemMsgData;
                 }
                 if (!optString.equals(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP) && !optString.equals(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP_WARN)) {
@@ -357,10 +357,10 @@ public class a97 {
                         SystemMsgData systemMsgData2 = new SystemMsgData();
                         if (optString3.equals(TbadkCoreApplication.getCurrentAccount())) {
                             systemMsgData2.setIsSelf(true);
-                            systemMsgData2.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0999));
+                            systemMsgData2.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0984));
                         } else {
                             systemMsgData2.setIsSelf(false);
-                            systemMsgData2.setContent(optString4 + TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0998));
+                            systemMsgData2.setContent(optString4 + TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0983));
                         }
                         return systemMsgData2;
                     } else if (optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT)) {
@@ -368,7 +368,7 @@ public class a97 {
                         SystemMsgData systemMsgData3 = new SystemMsgData();
                         if (optString5.equals(TbadkCoreApplication.getCurrentAccount())) {
                             systemMsgData3.setIsSelf(true);
-                            systemMsgData3.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f099d));
+                            systemMsgData3.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0988));
                         } else {
                             systemMsgData3.setIsSelf(false);
                             systemMsgData3.setContent(optString2);
@@ -378,7 +378,7 @@ public class a97 {
                         if (optString.equals(TbEnum.SystemMessage.EVENT_ID_APPLY_SUC)) {
                             SystemMsgData systemMsgData4 = new SystemMsgData();
                             systemMsgData4.setIsSelf(true);
-                            systemMsgData4.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0999));
+                            systemMsgData4.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0984));
                         } else if (optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_ACTIVITYS_IN_CHAT)) {
                             SystemMsgData systemMsgData5 = new SystemMsgData();
                             systemMsgData5.setIsSelf(true);
@@ -570,25 +570,25 @@ public class a97 {
             }
             return str;
         } else if (i == 2) {
-            return TbadkCoreApplication.getInst().getApp().getString((DataExt.toMapList(str).get(0).get("meme_id") != null ? 1 : 0) != 0 ? R.string.obfuscated_res_0x7f0f09c0 : R.string.obfuscated_res_0x7f0f09c4);
+            return TbadkCoreApplication.getInst().getApp().getString((DataExt.toMapList(str).get(0).get("meme_id") != null ? 1 : 0) != 0 ? R.string.obfuscated_res_0x7f0f09ac : R.string.obfuscated_res_0x7f0f09b0);
         } else if (i == 3) {
-            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09c8);
+            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09b4);
         } else {
             if (i == 32) {
-                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09c7);
+                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09b3);
             }
             if (i == 33) {
-                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09c2);
+                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09ae);
             }
             if (i == 11) {
                 return a(str);
             }
             if (i == 23) {
-                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09c6);
+                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09b2);
             }
             if (i != 4) {
                 if (i == 5) {
-                    return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09c3);
+                    return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09af);
                 }
                 if (i == 6) {
                     try {
@@ -598,7 +598,7 @@ public class a97 {
                         return "";
                     }
                 } else if (i == 7) {
-                    String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09c5);
+                    String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09b1);
                     if (TextUtils.isEmpty(str)) {
                         return string;
                     }
@@ -624,7 +624,7 @@ public class a97 {
                     }
                     return null;
                 } else if (TextUtils.isEmpty(str)) {
-                    return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f07e9);
+                    return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f07e5);
                 } else {
                     try {
                         JSONArray jSONArray2 = new JSONArray(str);
@@ -635,14 +635,14 @@ public class a97 {
                             int optInt = optJSONObject.optInt("remind_count");
                             int optInt2 = optJSONObject.optInt("msg_type");
                             if (optInt2 == 1) {
-                                return String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f07ea), optString, optString2);
+                                return String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f07e6), optString, optString2);
                             }
-                            return optInt2 == 3 ? String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f14e4), Integer.valueOf(optInt)) : optString2;
+                            return optInt2 == 3 ? String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1493), Integer.valueOf(optInt)) : optString2;
                         }
                         return "";
                     } catch (JSONException e3) {
                         e3.printStackTrace();
-                        return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f07e9);
+                        return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f07e5);
                     }
                 }
             }

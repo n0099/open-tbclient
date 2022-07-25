@@ -35,7 +35,7 @@ public class cq implements bg.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.e();
-            if (bg.a().m1573a() <= 0) {
+            if (bg.a().m635a() <= 0) {
                 XMPushService xMPushService = this.a;
                 xMPushService.a(new XMPushService.g(xMPushService, 12, null));
             }

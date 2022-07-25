@@ -1,43 +1,16 @@
 package com.kwad.sdk;
 
-import android.content.Context;
-import com.kwad.components.offline.api.core.api.ILoggerReporter;
-import com.kwad.sdk.commercial.model.SDKInitMsg;
-import com.kwad.sdk.core.report.k;
-import com.kwai.adclient.kscommerciallogger.model.d;
-import java.util.Random;
+import java.util.Arrays;
+import java.util.List;
 /* loaded from: classes5.dex */
 public final class c {
-    public static Boolean a;
-    public static int b;
+    public static String QO = "kwrules.csv";
+    public static String QP = "";
+    public static String QQ = "adEcDistribution";
 
-    public static void a(Context context, long j) {
-        if (a(context)) {
-            return;
-        }
-        long currentTimeMillis = j > 0 ? System.currentTimeMillis() - j : -1L;
-        b++;
-        k.a(ILoggerReporter.Category.APM_LOG, com.kwai.adclient.kscommerciallogger.model.a.i, new SDKInitMsg(context).setLaunchIntervalTime(currentTimeMillis).setInitCount(b).setInitStatus(0).toJson());
-    }
-
-    public static void a(Context context, d dVar, String str) {
-        if (a(context)) {
-            return;
-        }
-        k.a(ILoggerReporter.Category.ERROR_LOG, dVar, new SDKInitMsg(context).setInitCount(b).setErrorReason(str).setInitStatus(2).toJson());
-    }
-
-    public static boolean a(Context context) {
-        if (a == null) {
-            a = Boolean.valueOf(com.kwad.sdk.core.config.d.d(context) > new Random().nextFloat());
-        }
-        return !a.booleanValue();
-    }
-
-    public static void b(Context context, long j) {
-        if (a(context)) {
-            return;
-        }
-        k.a(ILoggerReporter.Category.APM_LOG, com.kwai.adclient.kscommerciallogger.model.a.i, new SDKInitMsg(context).setTotalDurationTime(j).setInitCount(b).setInitStatus(1).toJson());
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static List<String> QR = Arrays.asList("ksadsdk_pref", "ksadsdk_reward_reflow_config", "ksadsdk_rep", "ksadsdk_seq", "ksadsdk_mplogseq", "ksadsdk_splash_preload_id_list", "ksadsdk_notification_download_complete", "ksadsdk_download_package_md5", "ksadsdk_download_package_length", "ksadsdk_api_path", "ksadsdk_egid", "ksadsdk_config_request", "ksadsdk_gidExpireTimeMs", "ksadsdk_device_sig", "ksadsdk_model", "ksadsdk_wallpaper_path", "ksadsdk_JS_CONFIG", "ksadsdk_data_flow_auto_start", "ksadsdk_splash_daily_show_count", "ksadsdk_interstitial_daily_show_count", "ksadsdk_interstitial_aggregate_daily_show_count", "ksadsdk_local_ad_task_info", "ksadsdk_reward_full_ad_jump_direct", "ksadsdk_splash_local_rotate_active_count", "ksadsdk_reward_auto_call_app_card_show_count", "ksadsdk_local_ad_force_active", "ksadsdk_local_ad_force_active_data", "ksadsdk_so_load_times", "ksadsdk_solder", "ksadsdk_idc", "ksadsdk_fullscreen_local_ad_count");
+        public static List<String> QS = Arrays.asList("ksadsdk_pref", "ksadsdk_idc", "ksadsdk_config_request", "ksadsdk_model", "ksadsdk_egid", "ksadsdk_solder", "ksadsdk_gidExpireTimeMs", "ksadsdk_device_sig", "ksadsdk_splash_local_ad_force_active");
     }
 }

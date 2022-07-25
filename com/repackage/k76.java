@@ -46,9 +46,9 @@ public class k76 implements View.OnClickListener {
         }
         View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d026a, (ViewGroup) null);
         this.a = inflate;
-        this.b = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0906f3);
-        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090f93);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0906fa);
+        this.b = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0906f2);
+        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090f8c);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0906f9);
         this.e = pi.f(tbPageContext.getPageActivity(), R.dimen.tbds52);
         this.b.setOnClickListener(this);
         this.c.setOnClickListener(this);

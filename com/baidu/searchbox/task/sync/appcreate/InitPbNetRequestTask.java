@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ls4;
+import com.repackage.ms4;
 import com.repackage.ts7;
 import com.repackage.us7;
 import com.repackage.vs7;
@@ -35,12 +35,12 @@ public class InitPbNetRequestTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (ts7.a().c() && ls4.a().c == 1) {
-                new vs7().i(ls4.a().d);
+            if (ts7.a().c() && ms4.a().c == 1) {
+                new vs7().i(ms4.a().d);
             }
-            if (ts7.a().c() && ls4.a().c == 2) {
+            if (ts7.a().c() && ms4.a().c == 2) {
                 try {
-                    String str = ls4.a().d;
+                    String str = ms4.a().d;
                     us7.l(new String[]{new JSONObject(str.substring(str.indexOf("tbyunpushnotifybody=") + 20)).getString("jump_scheme")});
                 } catch (Exception e) {
                     e.printStackTrace();

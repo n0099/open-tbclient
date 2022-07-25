@@ -2,6 +2,7 @@ package com.baidu.sapi2.utils;
 
 import android.util.Base64;
 import com.baidu.pass.http.ReqPriority;
+import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.httpwrap.HttpClientWrap;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class GetTplStokenStat {
+public class GetTplStokenStat implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTO_STATISTIC = "auto_statistic";
     public static final String KEY_GET_STOKEN = "key_get_stoken";

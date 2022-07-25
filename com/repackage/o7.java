@@ -268,11 +268,11 @@ public class o7 {
             Class<?> cls = obj.getClass();
             y7<String, a> f = f(cls);
             for (JsonValue jsonValue2 = jsonValue.f; jsonValue2 != null; jsonValue2 = jsonValue2.h) {
-                a c2 = f.c(jsonValue2.H().replace(" ", "_"));
+                a c2 = f.c(jsonValue2.G().replace(" ", "_"));
                 if (c2 == null) {
                     if (!jsonValue2.e.equals(this.a) && !this.b && !g(cls, jsonValue2.e)) {
                         SerializationException serializationException = new SerializationException("Field not found: " + jsonValue2.e + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
-                        serializationException.addTrace(jsonValue2.R());
+                        serializationException.addTrace(jsonValue2.Q());
                         throw serializationException;
                     }
                 } else if (!this.c || this.d || !c2.c) {
@@ -286,7 +286,7 @@ public class o7 {
                         throw new SerializationException("Error accessing field: " + v8Var.d() + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX, e2);
                     } catch (RuntimeException e3) {
                         SerializationException serializationException2 = new SerializationException(e3);
-                        serializationException2.addTrace(jsonValue2.R());
+                        serializationException2.addTrace(jsonValue2.Q());
                         serializationException2.addTrace(v8Var.d() + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
                         throw serializationException2;
                     }
@@ -348,14 +348,14 @@ public class o7 {
             if (r2 == 0) {
                 return null;
             }
-            if (jsonValue.D()) {
+            if (jsonValue.C()) {
                 String str = this.a;
-                String s = str == null ? null : r2.s(str, null);
-                if (s != null) {
-                    Class e = e(s);
+                String r = str == null ? null : r2.r(str, null);
+                if (r != null) {
+                    Class e = e(r);
                     if (e == null) {
                         try {
-                            cls5 = t8.a(s);
+                            cls5 = t8.a(r);
                         } catch (ReflectionException e2) {
                             throw new SerializationException(e2);
                         }
@@ -369,7 +369,7 @@ public class o7 {
                     ?? r0 = this.g;
                     return r0 != 0 ? (T) r0.a(this, r2, cls5) : r2;
                 } else if (this.a != null && t8.f(Collection.class, cls5)) {
-                    ?? r22 = (T) r2.m("items");
+                    ?? r22 = (T) r2.l("items");
                     jsonValue2 = r22;
                     cls3 = cls5;
                     if (r22 == 0) {
@@ -403,32 +403,32 @@ public class o7 {
                                 return r33;
                             } else if (t instanceof x7) {
                                 ?? r34 = (T) ((x7) t);
-                                for (JsonValue n = r2.n(SavedStateHandle.VALUES); n != null; n = n.h) {
-                                    r34.add(k(cls6, null, n));
+                                for (JsonValue m = r2.m(SavedStateHandle.VALUES); m != null; m = m.h) {
+                                    r34.add(k(cls6, null, m));
                                 }
                                 return r34;
                             } else if (t instanceof m7) {
                                 ?? r35 = (T) ((m7) t);
                                 for (JsonValue jsonValue7 = r2.f; jsonValue7 != null; jsonValue7 = jsonValue7.h) {
-                                    r35.f(Integer.parseInt(jsonValue7.e), k(cls6, null, jsonValue7));
+                                    r35.e(Integer.parseInt(jsonValue7.e), k(cls6, null, jsonValue7));
                                 }
                                 return r35;
                             } else if (t instanceof s7) {
                                 ?? r36 = (T) ((s7) t);
                                 for (JsonValue jsonValue8 = r2.f; jsonValue8 != null; jsonValue8 = jsonValue8.h) {
-                                    r36.g(Long.parseLong(jsonValue8.e), k(cls6, null, jsonValue8));
+                                    r36.f(Long.parseLong(jsonValue8.e), k(cls6, null, jsonValue8));
                                 }
                                 return r36;
                             } else if (t instanceof n7) {
                                 ?? r37 = (T) ((n7) t);
-                                for (JsonValue n2 = r2.n(SavedStateHandle.VALUES); n2 != null; n2 = n2.h) {
-                                    r37.a(n2.g());
+                                for (JsonValue m2 = r2.m(SavedStateHandle.VALUES); m2 != null; m2 = m2.h) {
+                                    r37.a(m2.f());
                                 }
                                 return r37;
                             } else if (t instanceof b7) {
                                 ?? r38 = (T) ((b7) t);
                                 for (JsonValue jsonValue9 = r2.f; jsonValue9 != null; jsonValue9 = jsonValue9.h) {
-                                    r38.f(jsonValue9.e, k(cls6, null, jsonValue9));
+                                    r38.e(jsonValue9.e, k(cls6, null, jsonValue9));
                                 }
                                 return r38;
                             } else if (t instanceof Map) {
@@ -464,7 +464,7 @@ public class o7 {
                 }
             }
             int i = 0;
-            if (jsonValue2.v()) {
+            if (jsonValue2.u()) {
                 Class cls7 = cls3 != null ? cls3 : a7.class;
                 if (t8.f(a7.class, cls7)) {
                     T t3 = cls7 == a7.class ? (T) new a7() : (T) ((a7) h(cls7));
@@ -502,35 +502,35 @@ public class o7 {
                     throw new SerializationException("Unable to convert value to required type: " + jsonValue2 + " (" + cls7.getName() + SmallTailInfo.EMOTION_SUFFIX);
                 }
             }
-            boolean B = jsonValue2.B();
+            boolean A = jsonValue2.A();
             JsonValue jsonValue15 = jsonValue2;
-            if (B) {
+            if (A) {
                 if (cls3 != null) {
                     if (cls3 != Float.TYPE && cls3 != Float.class) {
                         if (cls3 != Integer.TYPE && cls3 != Integer.class) {
                             if (cls3 != Long.TYPE && cls3 != Long.class) {
                                 if (cls3 != Double.TYPE && cls3 != Double.class) {
                                     if (cls3 == String.class) {
-                                        return (T) jsonValue2.k();
+                                        return (T) jsonValue2.j();
                                     }
                                     if (cls3 != Short.TYPE && cls3 != Short.class) {
                                         if (cls3 == Byte.TYPE || cls3 == Byte.class) {
-                                            return (T) Byte.valueOf(jsonValue2.c());
+                                            return (T) Byte.valueOf(jsonValue2.b());
                                         }
-                                        jsonValue15 = new JsonValue(jsonValue2.k());
+                                        jsonValue15 = new JsonValue(jsonValue2.j());
                                     }
-                                    return (T) Short.valueOf(jsonValue2.i());
+                                    return (T) Short.valueOf(jsonValue2.h());
                                 }
-                                return (T) Double.valueOf(jsonValue2.d());
+                                return (T) Double.valueOf(jsonValue2.c());
                             }
-                            return (T) Long.valueOf(jsonValue2.h());
+                            return (T) Long.valueOf(jsonValue2.g());
                         }
-                        return (T) Integer.valueOf(jsonValue2.g());
+                        return (T) Integer.valueOf(jsonValue2.f());
                     }
                 }
-                return (T) Float.valueOf(jsonValue2.e());
+                return (T) Float.valueOf(jsonValue2.d());
             }
-            if (jsonValue15.w()) {
+            if (jsonValue15.v()) {
                 if (cls3 != null) {
                     try {
                         if (cls3 != Boolean.TYPE) {
@@ -542,20 +542,20 @@ public class o7 {
                 }
                 cls4 = Boolean.class;
                 try {
-                    return (T) Boolean.valueOf(jsonValue15.b());
+                    return (T) Boolean.valueOf(jsonValue15.a());
                 } catch (NumberFormatException unused2) {
-                    jsonValue3 = new JsonValue(jsonValue15.k());
-                    if (jsonValue3.E()) {
+                    jsonValue3 = new JsonValue(jsonValue15.j());
+                    if (jsonValue3.D()) {
                     }
                 }
             } else {
                 cls4 = Boolean.class;
                 jsonValue3 = jsonValue15;
             }
-            if (jsonValue3.E()) {
+            if (jsonValue3.D()) {
                 return null;
             }
-            ?? r12 = (T) jsonValue3.k();
+            ?? r12 = (T) jsonValue3.j();
             if (cls3 == null || cls3 == String.class) {
                 return r12;
             }
@@ -605,21 +605,21 @@ public class o7 {
     public <T> T l(String str, Class<T> cls, JsonValue jsonValue) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, str, cls, jsonValue)) == null) ? (T) k(cls, null, jsonValue.m(str)) : (T) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, str, cls, jsonValue)) == null) ? (T) k(cls, null, jsonValue.l(str)) : (T) invokeLLL.objValue;
     }
 
     public <T> T m(String str, Class<T> cls, Class cls2, JsonValue jsonValue) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, str, cls, cls2, jsonValue)) == null) ? (T) k(cls, cls2, jsonValue.m(str)) : (T) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, str, cls, cls2, jsonValue)) == null) ? (T) k(cls, cls2, jsonValue.l(str)) : (T) invokeLLLL.objValue;
     }
 
     public <T> T n(String str, Class<T> cls, T t, JsonValue jsonValue) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048589, this, str, cls, t, jsonValue)) == null) {
-            JsonValue m = jsonValue.m(str);
-            return m == null ? t : (T) k(cls, null, m);
+            JsonValue l = jsonValue.l(str);
+            return l == null ? t : (T) k(cls, null, l);
         }
         return (T) invokeLLLL.objValue;
     }

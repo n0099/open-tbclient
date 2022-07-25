@@ -1,246 +1,175 @@
 package com.kwad.components.ad.reward;
 
-import android.os.SystemClock;
-import android.text.TextUtils;
+import android.app.Activity;
+import android.content.Context;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.ad.KsAdLoadManager;
-import com.kwad.components.core.j.kwai.a;
-import com.kwad.components.core.response.model.AdResultData;
-import com.kwad.sdk.api.KsLoadManager;
+import com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy;
+import com.kwad.sdk.api.KsInnerAd;
 import com.kwad.sdk.api.KsRewardVideoAd;
-import com.kwad.sdk.api.KsScene;
+import com.kwad.sdk.api.KsVideoPlayConfig;
+import com.kwad.sdk.api.model.AdExposureFailedReason;
+import com.kwad.sdk.components.DevelopMangerComponents;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.internal.api.SceneImpl;
-import com.kwad.sdk.utils.az;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public final class g {
+public final class g implements com.kwad.components.core.internal.api.a, KsRewardVideoAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public com.kwad.components.ad.reward.c.c kJ;
+    public final AdInfo mAdInfo;
+    @NonNull
+    public final AdTemplate mAdTemplate;
+    public KsRewardVideoAd.RewardAdInteractionListener ma;
+    public KsRewardVideoAd.RewardAdInteractionListener mb;
+    public int rewardType;
 
-    public static void a(KsScene ksScene, @NonNull KsLoadManager.RewardVideoAdListener rewardVideoAdListener) {
+    public g(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, ksScene, rewardVideoAdListener) == null) {
-            long elapsedRealtime = SystemClock.elapsedRealtime();
-            com.kwad.components.ad.reward.monitor.a.a(true, elapsedRealtime);
-            boolean a = com.kwad.components.core.l.m.a().a(ksScene, "loadRewardVideoAd");
-            ksScene.setAdStyle(2);
-            KsAdLoadManager.a();
-            KsAdLoadManager.a(new a.C0512a().a(new com.kwad.components.core.j.kwai.b(ksScene)).b(a).a(new com.kwad.components.core.j.c(rewardVideoAdListener, ksScene, elapsedRealtime) { // from class: com.kwad.components.ad.reward.g.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ KsLoadManager.RewardVideoAdListener a;
-                public final /* synthetic */ KsScene b;
-                public final /* synthetic */ long c;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {adTemplate};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.rewardType = 1;
+        this.mAdTemplate = adTemplate;
+        this.mAdInfo = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
+    }
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {rewardVideoAdListener, ksScene, Long.valueOf(elapsedRealtime)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = rewardVideoAdListener;
-                    this.b = ksScene;
-                    this.c = elapsedRealtime;
-                }
-
-                @Override // com.kwad.components.core.j.c, com.kwad.components.core.j.g
-                public final void a(int i, String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
-                        com.kwad.components.ad.reward.monitor.a.a(true, i, str);
-                        az.a(new Runnable(this, i, str) { // from class: com.kwad.components.ad.reward.g.1.1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ int a;
-                            public final /* synthetic */ String b;
-                            public final /* synthetic */ AnonymousClass1 c;
-
-                            {
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, Integer.valueOf(i), str};
-                                    interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable3.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.c = this;
-                                this.a = i;
-                                this.b = str;
-                            }
-
-                            @Override // java.lang.Runnable
-                            public final void run() {
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    com.kwad.sdk.core.d.b.a("KsAdRewardLoadManager", "onError:" + String.format("code:%s__msg:%s", Integer.valueOf(this.a), this.b));
-                                    this.c.a.onError(this.a, this.b);
-                                }
-                            }
-                        });
-                    }
-                }
-
-                @Override // com.kwad.components.core.j.c, com.kwad.components.core.j.b
-                public final void a(@NonNull AdResultData adResultData, boolean z) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adResultData, z) == null) {
-                        List<AdTemplate> b = g.b(this.b, adResultData.getProceedTemplateList());
-                        if (b.isEmpty()) {
-                            com.kwad.sdk.core.network.f fVar = com.kwad.sdk.core.network.f.f;
-                            a(fVar.p, fVar.q);
-                            return;
-                        }
-                        long elapsedRealtime2 = SystemClock.elapsedRealtime();
-                        ArrayList<KsRewardVideoAd> arrayList = new ArrayList();
-                        for (AdTemplate adTemplate : b) {
-                            arrayList.add(new h(adTemplate));
-                            adTemplate.mLoadDataTime = elapsedRealtime2;
-                            adTemplate.mLoadFromCache = z;
-                        }
-                        com.kwad.components.ad.reward.monitor.a.a(true, (AdTemplate) b.get(0), b.size(), this.c);
-                        az.a(new Runnable(this, arrayList) { // from class: com.kwad.components.ad.reward.g.1.2
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ List a;
-                            public final /* synthetic */ AnonymousClass1 b;
-
-                            {
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, arrayList};
-                                    interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i = newInitContext.flag;
-                                    if ((i & 1) != 0) {
-                                        int i2 = i & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable3.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.b = this;
-                                this.a = arrayList;
-                            }
-
-                            @Override // java.lang.Runnable
-                            public final void run() {
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    try {
-                                        this.b.a.onRewardVideoResult(this.a);
-                                    } catch (Throwable unused) {
-                                    }
-                                    try {
-                                        com.kwad.sdk.utils.q.a((Object) this.b.a, "onRequestResult", Integer.valueOf(this.a.size()));
-                                    } catch (Throwable unused2) {
-                                    }
-                                }
-                            }
-                        });
-                        ArrayList arrayList2 = new ArrayList();
-                        boolean z2 = false;
-                        for (KsRewardVideoAd ksRewardVideoAd : arrayList) {
-                            AdTemplate a2 = ((h) ksRewardVideoAd).a();
-                            if (com.kwad.sdk.core.response.a.a.aB(com.kwad.sdk.core.response.a.d.i(a2))) {
-                                arrayList2.add(ksRewardVideoAd);
-                                z2 = true;
-                            } else if (com.kwad.components.ad.b.a.a(a2, true)) {
-                                arrayList2.add(ksRewardVideoAd);
-                            }
-                        }
-                        if (z2 || !arrayList2.isEmpty()) {
-                            com.kwad.components.ad.reward.monitor.a.b(true, (AdTemplate) b.get(0), b.size(), this.c);
-                            az.a(new Runnable(this, arrayList2) { // from class: com.kwad.components.ad.reward.g.1.3
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ List a;
-                                public final /* synthetic */ AnonymousClass1 b;
-
-                                {
-                                    Interceptable interceptable3 = $ic;
-                                    if (interceptable3 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this, arrayList2};
-                                        interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i = newInitContext.flag;
-                                        if ((i & 1) != 0) {
-                                            int i2 = i & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable3.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.b = this;
-                                    this.a = arrayList2;
-                                }
-
-                                @Override // java.lang.Runnable
-                                public final void run() {
-                                    Interceptable interceptable3 = $ic;
-                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.b.a.onRewardVideoAdLoad(this.a);
-                                    }
-                                }
-                            });
-                            return;
-                        }
-                        com.kwad.sdk.core.network.f fVar2 = com.kwad.sdk.core.network.f.g;
-                        a(fVar2.p, fVar2.q);
-                    }
-                }
-            }).a());
+    private void a(Context context, KsVideoPlayConfig ksVideoPlayConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, this, context, ksVideoPlayConfig) == null) {
+            if (!isAdEnable()) {
+                com.kwad.sdk.core.e.b.i("KsRewardVideoAdControl", "isAdEnable is false");
+                return;
+            }
+            if (ksVideoPlayConfig == null) {
+                ksVideoPlayConfig = new KsVideoPlayConfig.Builder().build();
+            }
+            KsVideoPlayConfig ksVideoPlayConfig2 = ksVideoPlayConfig;
+            com.kwad.sdk.components.c.f(DevelopMangerComponents.class);
+            com.kwad.sdk.components.c.f(DevelopMangerComponents.class);
+            fg();
+            if (com.kwad.sdk.core.response.a.a.bk(this.mAdInfo)) {
+                AdRewardPreviewActivityProxy.launch(context, this.mAdTemplate, com.kwad.sdk.core.response.a.a.ar(this.mAdInfo), this.ma);
+            } else {
+                KSRewardVideoActivityProxy.launch(context, this.mAdTemplate, ksVideoPlayConfig2, this.ma, this.mb, this.kJ, this.rewardType);
+            }
         }
     }
 
-    @NonNull
-    public static List<AdTemplate> b(KsScene ksScene, List<AdTemplate> list) {
-        InterceptResult invokeLL;
+    private void fg() {
+        AdInfo adInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, ksScene, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (list.isEmpty()) {
-                return arrayList;
-            }
-            for (AdTemplate adTemplate : list) {
-                if (adTemplate != null) {
-                    if (adTemplate.mAdScene == null && (ksScene instanceof SceneImpl)) {
-                        adTemplate.mAdScene = (SceneImpl) ksScene;
-                    }
-                    AdInfo i = com.kwad.sdk.core.response.a.d.i(adTemplate);
-                    if (com.kwad.sdk.core.response.a.a.aB(i) || !TextUtils.isEmpty(com.kwad.sdk.core.response.a.a.b(i))) {
-                        arrayList.add(adTemplate);
-                    }
-                }
-            }
-            return arrayList;
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || com.kwad.components.ad.reward.b.c.a(this.ma) || (adInfo = this.mAdInfo) == null) {
+            return;
         }
-        return (List) invokeLL.objValue;
+        adInfo.adBaseInfo.extraClickReward = false;
+    }
+
+    @Override // com.kwad.components.core.internal.api.a
+    public final AdTemplate getAdTemplate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAdTemplate : (AdTemplate) invokeV.objValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd
+    public final int getECPM() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.kwad.sdk.core.response.a.a.aq(this.mAdInfo) : invokeV.intValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd
+    public final int getInteractionType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.response.a.a.ap(this.mAdInfo) : invokeV.intValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd
+    public final int getMaterialType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? com.kwad.sdk.core.response.a.a.aD(this.mAdInfo) : invokeV.intValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd
+    public final boolean isAdEnable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (com.kwad.sdk.core.config.d.sc() >= 0) {
+                return true;
+            }
+            return com.kwad.components.core.video.f.h(this.mAdTemplate);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd
+    public final void reportAdExposureFailed(int i, AdExposureFailedReason adExposureFailedReason) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, adExposureFailedReason) == null) {
+            com.kwad.sdk.core.report.a.a(this.mAdTemplate, i, adExposureFailedReason);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd
+    public final void setBidEcpm(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            AdTemplate adTemplate = this.mAdTemplate;
+            adTemplate.mBidEcpm = i;
+            com.kwad.sdk.core.report.a.aA(adTemplate);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd
+    public final void setInnerAdInteractionListener(KsInnerAd.KsInnerAdInteractionListener ksInnerAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, ksInnerAdInteractionListener) == null) {
+            this.kJ = new com.kwad.components.ad.reward.c.c(ksInnerAdInteractionListener);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd
+    public final void setRewardAdInteractionListener(KsRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rewardAdInteractionListener) == null) {
+            this.ma = rewardAdInteractionListener;
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd
+    public final void setRewardPlayAgainInteractionListener(KsRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, rewardAdInteractionListener) == null) {
+            this.mb = rewardAdInteractionListener;
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd
+    public final void showRewardVideoAd(Activity activity, KsVideoPlayConfig ksVideoPlayConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, activity, ksVideoPlayConfig) == null) {
+            com.kwad.components.ad.reward.monitor.a.a(true, this.mAdTemplate);
+            a(activity, ksVideoPlayConfig);
+        }
     }
 }

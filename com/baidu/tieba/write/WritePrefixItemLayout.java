@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.ur4;
+import com.repackage.vr4;
 /* loaded from: classes4.dex */
 public class WritePrefixItemLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -52,15 +52,15 @@ public class WritePrefixItemLayout extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0702, this);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d070c, this);
             setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             setOrientation(1);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09197d);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09197c);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091976);
-            this.e = findViewById(R.id.obfuscated_res_0x7f09197a);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091958);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091957);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091951);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091955);
             this.b.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-            ur4.d(this.c).v(R.color.CAM_X0109);
+            vr4.d(this.c).v(R.color.CAM_X0109);
             this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a1, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
             SkinManager.setBackgroundResource(this, R.drawable.addresslist_item_bg);

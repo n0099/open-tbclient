@@ -43,9 +43,9 @@ public class i28 extends jx5<u18> {
             }
         }
         View h = h();
-        this.i = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091658);
-        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09181c);
-        this.j = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09181d);
+        this.i = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091633);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0917f7);
+        this.j = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0917f8);
         j(g(), this.a);
     }
 
@@ -53,7 +53,7 @@ public class i28 extends jx5<u18> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06b7 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06c1 : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5
@@ -64,13 +64,13 @@ public class i28 extends jx5<u18> {
             SkinManager.setBackgroundColor(this.i, R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
             SkinManager.setBackgroundColor(this.j, R.color.CAM_X0205);
-            ur4 d = ur4.d(this.i);
+            vr4 d = vr4.d(this.i);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0205);
-            ur4 d2 = ur4.d(this.k);
+            vr4 d2 = vr4.d(this.k);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
-            ur4 d3 = ur4.d(this.j);
+            vr4 d3 = vr4.d(this.j);
             d3.n(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
             int childCount = this.j.getChildCount();

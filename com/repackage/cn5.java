@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qt3;
+import com.repackage.rt3;
 import java.util.HashMap;
 @Singleton
 @Service
 /* loaded from: classes5.dex */
-public class cn5 extends ActivityDelegation implements nx3 {
+public class cn5 extends ActivityDelegation implements ox3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,10 +31,10 @@ public class cn5 extends ActivityDelegation implements nx3 {
     public class a implements SapiCallback<CheckUserFaceIdResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qt3.d a;
+        public final /* synthetic */ rt3.d a;
         public final /* synthetic */ cn5 b;
 
-        public a(cn5 cn5Var, qt3.d dVar) {
+        public a(cn5 cn5Var, rt3.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,9 +96,9 @@ public class cn5 extends ActivityDelegation implements nx3 {
     public class b extends AccountRealNameCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qt3.d a;
+        public final /* synthetic */ rt3.d a;
 
-        public b(cn5 cn5Var, qt3.d dVar) {
+        public b(cn5 cn5Var, rt3.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,7 +131,7 @@ public class cn5 extends ActivityDelegation implements nx3 {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements qt3.d {
+    public class c implements rt3.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ cn5 a;
@@ -154,7 +154,7 @@ public class cn5 extends ActivityDelegation implements nx3 {
             this.a = cn5Var;
         }
 
-        @Override // com.repackage.qt3.d
+        @Override // com.repackage.rt3.d
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -163,7 +163,7 @@ public class cn5 extends ActivityDelegation implements nx3 {
             }
         }
 
-        @Override // com.repackage.qt3.d
+        @Override // com.repackage.rt3.d
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -187,8 +187,8 @@ public class cn5 extends ActivityDelegation implements nx3 {
         }
     }
 
-    @Override // com.repackage.nx3
-    public void b(qt3.d dVar) {
+    @Override // com.repackage.ox3
+    public void b(rt3.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
             if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
@@ -202,7 +202,7 @@ public class cn5 extends ActivityDelegation implements nx3 {
         }
     }
 
-    public final void f(Context context, String str, qt3.d dVar) {
+    public final void f(Context context, String str, rt3.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, dVar) == null) {
             if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
@@ -213,7 +213,7 @@ public class cn5 extends ActivityDelegation implements nx3 {
             realNameDTO.bduss = SapiAccountManager.getInstance().getSession().bduss;
             realNameDTO.scene = "baidugame";
             realNameDTO.needCbKey = true;
-            PassportSDK.getInstance().loadAccountRealName(ul2.U().getActivity(), new b(this, dVar), realNameDTO);
+            PassportSDK.getInstance().loadAccountRealName(vl2.U().getActivity(), new b(this, dVar), realNameDTO);
         }
     }
 
@@ -222,7 +222,7 @@ public class cn5 extends ActivityDelegation implements nx3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            f(getAgent(), gd3.g(this.mParams, "swanAppId"), new c(this));
+            f(getAgent(), hd3.g(this.mParams, "swanAppId"), new c(this));
             return false;
         }
         return invokeV.booleanValue;

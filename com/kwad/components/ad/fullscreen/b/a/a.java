@@ -5,7 +5,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.ad.reward.presenter.a.a.b;
-import com.kwad.sdk.mvp.Presenter;
 /* loaded from: classes5.dex */
 public final class a extends com.kwad.components.ad.reward.presenter.a.a {
     public static /* synthetic */ Interceptable $ic;
@@ -26,11 +25,11 @@ public final class a extends com.kwad.components.ad.reward.presenter.a.a {
     }
 
     @Override // com.kwad.components.ad.reward.presenter.a.a
-    public final void f() {
+    public final void bY() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a((Presenter) new com.kwad.components.ad.reward.presenter.a.a.a());
-            a((Presenter) new b());
+            a(new com.kwad.components.ad.reward.presenter.a.a.a());
+            a(new b());
         }
     }
 }

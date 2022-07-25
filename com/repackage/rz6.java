@@ -17,7 +17,7 @@ import tbclient.ExcFrsPage.DataRes;
 import tbclient.ExcFrsPage.ExcFrsPageResIdl;
 import tbclient.ExcFrsPage.ExcellentTagInfo;
 /* loaded from: classes7.dex */
-public class rz6 implements o75, u75 {
+public class rz6 implements p75, v75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<Object> a;
@@ -37,7 +37,7 @@ public class rz6 implements o75, u75 {
         }
     }
 
-    @Override // com.repackage.p75
+    @Override // com.repackage.q75
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class rz6 implements o75, u75 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.o75
+    @Override // com.repackage.p75
     public boolean initByByteArray(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -63,14 +63,14 @@ public class rz6 implements o75, u75 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.u75
+    @Override // com.repackage.v75
     public void initByJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
         }
     }
 
-    @Override // com.repackage.u75
+    @Override // com.repackage.v75
     public void initByProtobuf(Message message) {
         ExcFrsPageResIdl excFrsPageResIdl;
         Error error;
@@ -96,7 +96,7 @@ public class rz6 implements o75, u75 {
         }
     }
 
-    @Override // com.repackage.o75
+    @Override // com.repackage.p75
     public byte[] toCacheByteArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ap4;
+import com.repackage.bp4;
 import com.repackage.d9;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -303,7 +303,7 @@ public class ForumManageModel extends BdBaseModel {
         public String c;
         public String d;
         public int e;
-        public ArrayList<ap4> f;
+        public ArrayList<bp4> f;
         public String g;
         public final /* synthetic */ ForumManageModel h;
 
@@ -367,9 +367,9 @@ public class ForumManageModel extends BdBaseModel {
                         try {
                             JSONArray optJSONArray = new JSONObject(postNetData).optJSONArray("cates");
                             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                ap4 ap4Var = new ap4();
-                                ap4Var.c(optJSONArray.optJSONObject(i2));
-                                this.f.add(ap4Var);
+                                bp4 bp4Var = new bp4();
+                                bp4Var.c(optJSONArray.optJSONObject(i2));
+                                this.f.add(bp4Var);
                             }
                         } catch (Exception e) {
                             BdLog.e(e.getMessage());
@@ -428,7 +428,7 @@ public class ForumManageModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
         public String b;
-        public ArrayList<ap4> c;
+        public ArrayList<bp4> c;
 
         public g(ForumManageModel forumManageModel) {
             Interceptable interceptable = $ic;

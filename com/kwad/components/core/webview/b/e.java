@@ -1,67 +1,41 @@
 package com.kwad.components.core.webview.b;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.widget.FrameLayout;
+import com.kwad.components.core.webview.b.a.q;
+import com.kwad.components.core.webview.b.kwai.i;
+import com.kwad.components.core.webview.b.kwai.j;
+import com.kwad.components.core.webview.jshandler.aa;
+import com.kwad.components.core.webview.jshandler.k;
+import com.kwad.sdk.components.h;
 /* loaded from: classes5.dex */
-public final class e implements com.kwad.sdk.core.webview.kwai.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+public interface e {
+    void a(q qVar);
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a();
-    }
+    void a(i iVar);
 
-    public e() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void a(j jVar);
 
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
-    public final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "clickGift" : (String) invokeV.objValue;
-    }
+    void a(aa aaVar);
 
-    public final void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
+    void a(h hVar, com.kwad.sdk.core.webview.b bVar);
 
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) || (aVar = this.a) == null) {
-            return;
-        }
-        aVar.a();
-    }
+    void b(com.kwad.components.core.webview.b.a.i iVar);
 
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a = null;
-        }
-    }
+    void b(k.a aVar);
+
+    String bZ();
+
+    FrameLayout ca();
+
+    void cb();
+
+    com.kwad.sdk.widget.e dD();
+
+    void dE();
+
+    void dF();
+
+    void dI();
+
+    com.kwad.sdk.core.webview.a.kwai.a getClickListener();
 }

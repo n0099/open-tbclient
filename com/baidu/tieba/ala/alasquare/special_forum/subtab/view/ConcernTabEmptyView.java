@@ -49,8 +49,8 @@ public class ConcernTabEmptyView extends jx5<mr5> {
                 }
             }
             this.a = view2;
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092227);
-            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f09076d);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092229);
+            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f09076c);
         }
     }
 
@@ -81,7 +81,7 @@ public class ConcernTabEmptyView extends jx5<mr5> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0787 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0791 : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5

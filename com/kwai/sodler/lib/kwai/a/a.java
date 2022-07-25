@@ -22,20 +22,20 @@ import java.util.Map;
 /* loaded from: classes5.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, Resources> a;
-    public static final Object b;
+    public static Map<String, Resources> axH;
+    public static final Object axI;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwai.sodler.lib.kwai.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C0570a {
+    public static final class C0418a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         public static Resources b(Resources resources, AssetManager assetManager) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, resources, assetManager)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, resources, assetManager)) == null) {
                 try {
                     Resources resources2 = (Resources) q.a(resources.getClass(), assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
                     if (resources2 != null) {
@@ -58,13 +58,13 @@ public final class a {
         public static Resources b(Resources resources, AssetManager assetManager) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, resources, assetManager)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, resources, assetManager)) == null) {
                 try {
-                    return c(resources, assetManager);
+                    return d(resources, assetManager);
                 } catch (Exception e) {
                     e.printStackTrace();
                     try {
-                        return C0570a.b(resources, assetManager);
+                        return C0418a.b(resources, assetManager);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
@@ -74,11 +74,11 @@ public final class a {
             return (Resources) invokeLL.objValue;
         }
 
-        public static Resources c(Resources resources, AssetManager assetManager) {
+        public static Resources d(Resources resources, AssetManager assetManager) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, resources, assetManager)) == null) {
-                Resources resources2 = (Resources) q.a("android.content.res.HwResources", assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, resources, assetManager)) == null) {
+                Resources resources2 = (Resources) q.b("android.content.res.HwResources", assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
                 if (resources2 != null) {
                     return resources2;
                 }
@@ -96,13 +96,13 @@ public final class a {
         public static Resources b(Resources resources, AssetManager assetManager) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, resources, assetManager)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, resources, assetManager)) == null) {
                 try {
-                    return c(resources, assetManager);
+                    return f(resources, assetManager);
                 } catch (Exception e) {
                     e.printStackTrace();
                     try {
-                        return C0570a.b(resources, assetManager);
+                        return C0418a.b(resources, assetManager);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
@@ -112,11 +112,11 @@ public final class a {
             return (Resources) invokeLL.objValue;
         }
 
-        public static Resources c(Resources resources, AssetManager assetManager) {
+        public static Resources f(Resources resources, AssetManager assetManager) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, resources, assetManager)) == null) {
-                Resources resources2 = (Resources) q.a("android.content.res.MiuiResourcesImpl", assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, resources, assetManager)) == null) {
+                Resources resources2 = (Resources) q.b("android.content.res.MiuiResourcesImpl", assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
                 if (resources2 != null) {
                     return resources2;
                 }
@@ -134,13 +134,13 @@ public final class a {
         public static Resources b(Resources resources, AssetManager assetManager) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, resources, assetManager)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, resources, assetManager)) == null) {
                 try {
-                    return c(resources, assetManager);
+                    return h(resources, assetManager);
                 } catch (Exception e) {
                     e.printStackTrace();
                     try {
-                        return C0570a.b(resources, assetManager);
+                        return C0418a.b(resources, assetManager);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
@@ -150,11 +150,11 @@ public final class a {
             return (Resources) invokeLL.objValue;
         }
 
-        public static Resources c(Resources resources, AssetManager assetManager) {
+        public static Resources h(Resources resources, AssetManager assetManager) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, resources, assetManager)) == null) {
-                Resources resources2 = (Resources) q.a("android.content.res.MiuiResources", assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, resources, assetManager)) == null) {
+                Resources resources2 = (Resources) q.b("android.content.res.MiuiResources", assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
                 if (resources2 != null) {
                     return resources2;
                 }
@@ -172,13 +172,13 @@ public final class a {
         public static Resources b(Resources resources, AssetManager assetManager) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, resources, assetManager)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, resources, assetManager)) == null) {
                 try {
-                    return c(resources, assetManager);
+                    return j(resources, assetManager);
                 } catch (Exception e) {
                     e.printStackTrace();
                     try {
-                        return C0570a.b(resources, assetManager);
+                        return C0418a.b(resources, assetManager);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
@@ -188,11 +188,11 @@ public final class a {
             return (Resources) invokeLL.objValue;
         }
 
-        public static Resources c(Resources resources, AssetManager assetManager) {
+        public static Resources j(Resources resources, AssetManager assetManager) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, resources, assetManager)) == null) {
-                Resources resources2 = (Resources) q.a("android.content.res.NubiaResources", assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, resources, assetManager)) == null) {
+                Resources resources2 = (Resources) q.b("android.content.res.NubiaResources", assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
                 if (resources2 != null) {
                     return resources2;
                 }
@@ -207,16 +207,16 @@ public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static Resources b(Context context, Resources resources, AssetManager assetManager) {
+        public static Resources c(Context context, Resources resources, AssetManager assetManager) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, resources, assetManager)) == null) {
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, resources, assetManager)) == null) {
                 try {
-                    return c(context, resources, assetManager);
+                    return d(context, resources, assetManager);
                 } catch (Exception e) {
                     e.printStackTrace();
                     try {
-                        return C0570a.b(resources, assetManager);
+                        return C0418a.b(resources, assetManager);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
@@ -226,21 +226,21 @@ public final class a {
             return (Resources) invokeLLL.objValue;
         }
 
-        public static Resources c(Context context, Resources resources, AssetManager assetManager) {
+        public static Resources d(Context context, Resources resources, AssetManager assetManager) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, resources, assetManager)) == null) {
-                Resources resources2 = (Resources) q.a("android.content.res.VivoResources", assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, resources, assetManager)) == null) {
+                Resources resources2 = (Resources) q.b("android.content.res.VivoResources", assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
                 if (resources2 != null) {
                     try {
                         q.b((Object) resources2, "init", context.getPackageName());
                     } catch (Exception e) {
-                        com.kwai.sodler.lib.a.a("ResourcesManager", "createVivoResources init failed", e);
+                        com.kwai.sodler.lib.a.e("ResourcesManager", "createVivoResources init failed", e);
                     }
                     try {
-                        q.b(resources2, "mThemeValues", q.b(resources, "mThemeValues"));
+                        q.b(resources2, "mThemeValues", q.d(resources, "mThemeValues"));
                     } catch (Exception e2) {
-                        com.kwai.sodler.lib.a.a("ResourcesManager", "createVivoResources set mThemeValues failed", e2);
+                        com.kwai.sodler.lib.a.e("ResourcesManager", "createVivoResources set mThemeValues failed", e2);
                     }
                     return resources2;
                 }
@@ -263,8 +263,8 @@ public final class a {
                 return;
             }
         }
-        a = new HashMap();
-        b = new Object();
+        axH = new HashMap();
+        axI = new Object();
     }
 
     public static Resources a(Context context, AssetManager assetManager, DisplayMetrics displayMetrics, Configuration configuration) {
@@ -272,33 +272,18 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, context, assetManager, displayMetrics, configuration)) == null) {
             Resources resources = context.getResources();
-            return a(resources) ? d.b(resources, assetManager) : b(resources) ? c.b(resources, assetManager) : e(resources) ? b.b(resources, assetManager) : c(resources) ? f.b(context, resources, assetManager) : d(resources) ? e.b(resources, assetManager) : f(resources) ? C0570a.b(resources, assetManager) : new Resources(assetManager, displayMetrics, configuration);
+            return a(resources) ? d.b(resources, assetManager) : b(resources) ? c.b(resources, assetManager) : e(resources) ? b.b(resources, assetManager) : c(resources) ? f.c(context, resources, assetManager) : d(resources) ? e.b(resources, assetManager) : f(resources) ? C0418a.b(resources, assetManager) : new Resources(assetManager, displayMetrics, configuration);
         }
         return (Resources) invokeLLLL.objValue;
     }
 
-    @NonNull
-    public static Resources a(Context context, Resources resources, String str) {
-        InterceptResult invokeLLL;
-        Resources resources2;
+    public static boolean a(Resources resources) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, resources, str)) == null) {
-            synchronized (b) {
-                resources2 = a.get(str);
-                if (resources2 == null) {
-                    resources2 = b(context, resources, str);
-                    if (resources2 == null) {
-                        throw new RuntimeException("Can not createResources for " + str);
-                    }
-                    a.put(str, resources);
-                }
-            }
-            return resources2;
-        }
-        return (Resources) invokeLLL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, resources)) == null) ? "android.content.res.MiuiResources".equals(resources.getClass().getName()) : invokeL.booleanValue;
     }
 
-    public static void a(AssetManager assetManager, String str) {
+    public static void b(AssetManager assetManager, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, assetManager, str) == null) {
             try {
@@ -309,13 +294,13 @@ public final class a {
         }
     }
 
-    public static boolean a(Resources resources) {
+    public static boolean b(Resources resources) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources)) == null) ? "android.content.res.MiuiResources".equals(resources.getClass().getName()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources)) == null) ? "android.content.res.MiuiResourcesImpl".equals(resources.getClass().getName()) : invokeL.booleanValue;
     }
 
-    public static int b(AssetManager assetManager, String str) {
+    public static int c(AssetManager assetManager, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, assetManager, str)) == null) {
@@ -333,23 +318,50 @@ public final class a {
         return invokeLL.intValue;
     }
 
-    public static Resources b(Context context, Resources resources, String str) {
+    @NonNull
+    public static Resources c(Context context, Resources resources, String str) {
+        InterceptResult invokeLLL;
+        Resources resources2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, resources, str)) == null) {
+            synchronized (axI) {
+                resources2 = axH.get(str);
+                if (resources2 == null) {
+                    resources2 = d(context, resources, str);
+                    if (resources2 == null) {
+                        throw new RuntimeException("Can not createResources for " + str);
+                    }
+                    axH.put(str, resources);
+                }
+            }
+            return resources2;
+        }
+        return (Resources) invokeLLL.objValue;
+    }
+
+    public static boolean c(Resources resources) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, resources)) == null) ? "android.content.res.VivoResources".equals(resources.getClass().getName()) : invokeL.booleanValue;
+    }
+
+    public static Resources d(Context context, Resources resources, String str) {
         InterceptResult invokeLLL;
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, resources, str)) == null) {
-            AssetManager assetManager = (AssetManager) q.a(AssetManager.class);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, resources, str)) == null) {
+            AssetManager assetManager = (AssetManager) q.g(AssetManager.class);
             q.b((Object) assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, str);
             if (Build.VERSION.SDK_INT >= 21) {
                 ApplicationInfo applicationInfo = context.getApplicationInfo();
                 try {
-                    Object a2 = q.a(applicationInfo, "resourceDirs");
-                    if (a2 != null && a2.getClass().isArray()) {
-                        Object[] objArr = (Object[]) a2;
+                    Object c2 = q.c(applicationInfo, "resourceDirs");
+                    if (c2 != null && c2.getClass().isArray()) {
+                        Object[] objArr = (Object[]) c2;
                         if (objArr.length > 0) {
                             for (Object obj : objArr) {
                                 if (obj instanceof String) {
-                                    a(assetManager, (String) obj);
+                                    b(assetManager, (String) obj);
                                 }
                             }
                         }
@@ -361,7 +373,7 @@ public final class a {
                     if (applicationInfo.sharedLibraryFiles != null && applicationInfo.sharedLibraryFiles.length > 0) {
                         for (String str2 : applicationInfo.sharedLibraryFiles) {
                             if (str2 != null && str2.endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX)) {
-                                b(assetManager, str2);
+                                c(assetManager, str2);
                             }
                         }
                     }
@@ -372,18 +384,6 @@ public final class a {
             return a(context, assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
         }
         return (Resources) invokeLLL.objValue;
-    }
-
-    public static boolean b(Resources resources) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, resources)) == null) ? "android.content.res.MiuiResourcesImpl".equals(resources.getClass().getName()) : invokeL.booleanValue;
-    }
-
-    public static boolean c(Resources resources) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, resources)) == null) ? "android.content.res.VivoResources".equals(resources.getClass().getName()) : invokeL.booleanValue;
     }
 
     public static boolean d(Resources resources) {

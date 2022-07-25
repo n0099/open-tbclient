@@ -1,51 +1,82 @@
 package com.kwad.components.ad.reward.d;
 
-import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.core.playable.PlayableSource;
-import com.kwad.components.core.webview.jshandler.ae;
-import com.kwad.sdk.core.response.model.AdTemplate;
 /* loaded from: classes5.dex */
-public final class b extends ae implements ae.a {
+public class b implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PlayableSource b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(Context context, AdTemplate adTemplate, PlayableSource playableSource) {
-        super(context, adTemplate);
+    public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, adTemplate, playableSource};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AdTemplate) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = playableSource;
-        a(this);
     }
 
-    @Override // com.kwad.components.core.webview.jshandler.ae.a
-    public final boolean j_() {
-        InterceptResult invokeV;
+    @Override // com.kwad.components.ad.reward.d.a
+    public void bB() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            com.kwad.components.ad.reward.b.a().a(this.b, new a(this.a));
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return invokeV.booleanValue;
+    }
+
+    @Override // com.kwad.components.ad.reward.d.a
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        }
+    }
+
+    @Override // com.kwad.components.ad.reward.d.a
+    public void onRewardVerify() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.kwad.components.ad.reward.d.a
+    public void onSkippedVideo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    @Override // com.kwad.components.ad.reward.d.a
+    public void onVideoPlayEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.kwad.components.ad.reward.d.a
+    public void onVideoPlayError(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+        }
+    }
+
+    @Override // com.kwad.components.ad.reward.d.a
+    public void onVideoPlayStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    @Override // com.kwad.components.ad.reward.d.a
+    public void onVideoSkipToEnd(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+        }
     }
 }

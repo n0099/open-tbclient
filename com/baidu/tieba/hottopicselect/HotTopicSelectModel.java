@@ -254,7 +254,7 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
                 if (z) {
                     this.b.f0("");
                 } else {
-                    this.b.j0(this.a.getString(R.string.obfuscated_res_0x7f0f0c2b));
+                    this.b.j0(this.a.getString(R.string.obfuscated_res_0x7f0f0c17));
                 }
             } else if (z) {
                 this.b.f0("");

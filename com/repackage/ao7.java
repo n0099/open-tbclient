@@ -59,9 +59,9 @@ public class ao7 extends BaseAdapter {
             if (view2 == null) {
                 return;
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921cd);
-            this.b = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f0921ca);
-            this.c = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0909fc);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921cf);
+            this.b = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f0921cc);
+            this.c = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0909f5);
         }
 
         public void a() {
@@ -174,7 +174,7 @@ public class ao7 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
             a aVar = null;
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04e5, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04ef, (ViewGroup) null);
                 aVar = new a(view2);
                 view2.setTag(aVar);
             } else {

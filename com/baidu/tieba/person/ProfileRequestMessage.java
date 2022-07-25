@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.an4;
 import com.repackage.d08;
 import com.repackage.pi;
-import com.repackage.td5;
-import com.repackage.zm4;
+import com.repackage.ud5;
 import tbclient.Profile.DataReq;
 import tbclient.Profile.ProfileReqIdl;
 /* loaded from: classes3.dex */
@@ -76,13 +76,13 @@ public class ProfileRequestMessage extends NetMessage {
                 builder.page = getPage();
                 int k = pi.k(TbadkCoreApplication.getInst().getApp());
                 int i = pi.i(TbadkCoreApplication.getInst().getApp());
-                int e = zm4.c().e();
+                int e = an4.c().e();
                 builder.scr_w = Integer.valueOf(k);
                 builder.scr_h = Integer.valueOf(i);
                 builder.scr_dip = Double.valueOf(pi.h(TbadkCoreApplication.getInst().getApp()));
                 builder.q_type = Integer.valueOf(e);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    td5.a(builder, true);
+                    ud5.a(builder, true);
                 }
                 ProfileReqIdl.Builder builder2 = new ProfileReqIdl.Builder();
                 builder2.data = builder.build(false);

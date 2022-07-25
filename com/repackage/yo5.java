@@ -494,7 +494,7 @@ public class yo5 {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (tbPageContext = this.a) == null) {
             return;
         }
-        this.b = (FrameLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0608, (ViewGroup) null);
+        this.b = (FrameLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0612, (ViewGroup) null);
         this.i = pi.k(this.a.getPageActivity());
         int i = pi.i(this.a.getPageActivity());
         this.j = i;
@@ -503,7 +503,7 @@ public class yo5 {
         int i3 = (int) ((i2 / 4.0d) * 3.0d);
         this.l = i3;
         this.p = (int) ((i / 3.0d) - (i3 / 2.0d));
-        this.c = (AlaSquareLiveVideoMask) this.b.findViewById(R.id.obfuscated_res_0x7f0923b6);
+        this.c = (AlaSquareLiveVideoMask) this.b.findViewById(R.id.obfuscated_res_0x7f0923b8);
         this.b.setOnClickListener(this.s);
         o();
     }

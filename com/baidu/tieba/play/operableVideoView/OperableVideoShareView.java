@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a78;
-import com.repackage.gd5;
+import com.repackage.hd5;
 import com.repackage.oi;
 import com.repackage.pi;
 import java.text.MessageFormat;
@@ -80,7 +80,7 @@ public class OperableVideoShareView extends LinearLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || gd5.a()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || hd5.a()) {
                 return;
             }
             if (view2 == this.a.b) {
@@ -192,22 +192,22 @@ public class OperableVideoShareView extends LinearLayout {
     public int getLayoutR() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d064f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d0659 : invokeV.intValue;
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             LinearLayout.inflate(getContext(), getLayoutR(), this);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091d70);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d71);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091d72);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d73);
-            this.f = findViewById(R.id.obfuscated_res_0x7f091d55);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d56);
-            this.h = findViewById(R.id.obfuscated_res_0x7f0907ca);
-            this.i = findViewById(R.id.obfuscated_res_0x7f0923d9);
-            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ad6);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091d76);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d77);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091d78);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d79);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091d5b);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d5c);
+            this.h = findViewById(R.id.obfuscated_res_0x7f0907c8);
+            this.i = findViewById(R.id.obfuscated_res_0x7f0923db);
+            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ab0);
             this.b.setOnClickListener(this.m);
             this.d.setOnClickListener(this.m);
             this.f.setOnClickListener(this.m);
@@ -239,7 +239,7 @@ public class OperableVideoShareView extends LinearLayout {
         String f = f(this.k);
         Uri parse = f == null ? null : Uri.parse(f);
         String str2 = this.k.getAbstract();
-        String format = MessageFormat.format(getResources().getString(R.string.obfuscated_res_0x7f0f1144), title, str2);
+        String format = MessageFormat.format(getResources().getString(R.string.obfuscated_res_0x7f0f10f3), title, str2);
         ShareItem shareItem = new ShareItem();
         shareItem.u = title;
         shareItem.v = format;

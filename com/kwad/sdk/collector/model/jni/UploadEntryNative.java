@@ -20,26 +20,11 @@ public class UploadEntryNative extends NativeObject implements e {
         return AppStatusNative.uploadEntryGetPackageName(uploadEntryNative);
     }
 
-    private String b() {
+    private String rx() {
         try {
             String uploadEntryGetPackageName = AppStatusNative.uploadEntryGetPackageName(this);
             String uploadEntryGetOriginFilePath = AppStatusNative.uploadEntryGetOriginFilePath(this);
             return uploadEntryGetOriginFilePath.substring(uploadEntryGetOriginFilePath.indexOf(uploadEntryGetPackageName)).replaceFirst(uploadEntryGetPackageName, "");
-        } catch (Throwable unused) {
-            return null;
-        }
-    }
-
-    @Override // com.kwad.sdk.collector.model.e
-    @Nullable
-    @WorkerThread
-    public final JSONObject a() {
-        try {
-            JSONObject jSONObject = new JSONObject();
-            r.a(jSONObject, "packageName", AppStatusNative.uploadEntryGetPackageName(this));
-            r.a(jSONObject, "content", com.kwad.sdk.collector.e.a(AppStatusNative.uploadEntryGetOriginFilePath(this)));
-            r.a(jSONObject, "fileName", b());
-            return jSONObject;
         } catch (Throwable unused) {
             return null;
         }
@@ -93,11 +78,26 @@ public class UploadEntryNative extends NativeObject implements e {
         AppStatusNative.uploadEntrySetOriginFilePath(this, optString2);
     }
 
+    @Override // com.kwad.sdk.collector.model.e
+    @Nullable
+    @WorkerThread
+    public final JSONObject rv() {
+        try {
+            JSONObject jSONObject = new JSONObject();
+            r.putValue(jSONObject, "packageName", AppStatusNative.uploadEntryGetPackageName(this));
+            r.putValue(jSONObject, "content", com.kwad.sdk.collector.e.bi(AppStatusNative.uploadEntryGetOriginFilePath(this)));
+            r.putValue(jSONObject, "fileName", rx());
+            return jSONObject;
+        } catch (Throwable unused) {
+            return null;
+        }
+    }
+
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        r.a(jSONObject, "packageName", AppStatusNative.uploadEntryGetPackageName(this));
-        r.a(jSONObject, "originFilePath", AppStatusNative.uploadEntryGetOriginFilePath(this));
+        r.putValue(jSONObject, "packageName", AppStatusNative.uploadEntryGetPackageName(this));
+        r.putValue(jSONObject, "originFilePath", AppStatusNative.uploadEntryGetOriginFilePath(this));
         return jSONObject;
     }
 

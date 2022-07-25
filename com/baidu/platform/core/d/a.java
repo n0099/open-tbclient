@@ -15,6 +15,7 @@ import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
 import com.baidu.mapapi.search.route.SuggestAddrInfo;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -141,7 +142,7 @@ public class a extends com.baidu.platform.base.d {
                         }
                         return false;
                     }
-                    JSONObject optJSONObject2 = jSONObject.optJSONObject("result");
+                    JSONObject optJSONObject2 = jSONObject.optJSONObject(TiebaStatic.LogFields.RESULT);
                     if (optJSONObject2 == null) {
                         return false;
                     }
@@ -298,7 +299,7 @@ public class a extends com.baidu.platform.base.d {
                 JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
                 if (jSONObject2 != null) {
                     CityInfo cityInfo = new CityInfo();
-                    cityInfo.num = jSONObject2.optInt("number");
+                    cityInfo.num = jSONObject2.optInt(com.baidu.sapi2.views.logindialog.view.a.k);
                     cityInfo.city = jSONObject2.optString("name");
                     arrayList.add(cityInfo);
                 }

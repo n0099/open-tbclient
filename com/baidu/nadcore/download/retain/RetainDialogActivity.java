@@ -76,8 +76,8 @@ public class RetainDialogActivity extends NadDialogActivity {
             if (intent != null) {
                 this.C = intent.getIntExtra("percent", 50);
             }
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0b91);
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f091558)).setText(String.format(string, this.C + "%"), TextView.BufferType.NORMAL);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0b7d);
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f091533)).setText(String.format(string, this.C + "%"), TextView.BufferType.NORMAL);
         }
     }
 
@@ -113,13 +113,13 @@ public class RetainDialogActivity extends NadDialogActivity {
     public String p1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? getResources().getString(R.string.obfuscated_res_0x7f0f0b8c) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? getResources().getString(R.string.obfuscated_res_0x7f0f0b78) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
     public String q1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? getResources().getString(R.string.obfuscated_res_0x7f0f0b90) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? getResources().getString(R.string.obfuscated_res_0x7f0f0b7c) : (String) invokeV.objValue;
     }
 }

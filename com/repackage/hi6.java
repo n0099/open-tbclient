@@ -88,24 +88,24 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
     public Handler X;
     public x68 Y;
     public VideoLoadingProgressView.c Z;
-    public String g0;
-    public TbImageView.g h0;
+    public String a0;
+    public TbImageView.g b0;
+    public ViewTreeObserver.OnGlobalLayoutListener c0;
+    public Runnable d0;
+    public Runnable e0;
+    public TbVideoViewContainer.a f0;
+    public View.OnClickListener g0;
+    public final View.OnClickListener h0;
     public ThreadCommentAndPraiseInfoLayout i;
-    public ViewTreeObserver.OnGlobalLayoutListener i0;
+    public final View.OnClickListener i0;
     public ThreadSourceShareAndPraiseLayout j;
-    public Runnable j0;
+    public f68.b j0;
     public ThreadUserInfoLayout k;
-    public Runnable k0;
     public ThreadGodReplyLayout l;
-    public TbVideoViewContainer.a l0;
     public HeadPendantClickableView m;
-    public View.OnClickListener m0;
     public View n;
-    public final View.OnClickListener n0;
     public TextView o;
-    public final View.OnClickListener o0;
     public FrameLayout p;
-    public f68.b p0;
     public LinearLayout q;
     public Animation.AnimationListener q0;
     public ThreadSkinView r;
@@ -150,7 +150,7 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                rl4.x(TbadkCoreApplication.getInst().getApplicationContext(), false, this.h);
+                sl4.x(TbadkCoreApplication.getInst().getApplicationContext(), false, this.h);
                 TiebaStatic.log(new StatisticItem("c12841").param("obj_source", "2"));
             }
         }
@@ -298,8 +298,8 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.w.getPageActivity()).createNormalCfg(this.a.G.getForum_name(), FrsActivityConfig.FRS_FROM_RECOMMEND)));
-            if (this.a.o0 != null) {
-                this.a.o0.onClick(view2);
+            if (this.a.i0 != null) {
+                this.a.i0.onClick(view2);
             }
         }
     }
@@ -796,7 +796,7 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (frameLayout = this.a.p) == null) {
                 return;
             }
-            frameLayout.getViewTreeObserver().addOnGlobalLayoutListener(this.a.i0);
+            frameLayout.getViewTreeObserver().addOnGlobalLayoutListener(this.a.c0);
         }
 
         @Override // android.view.View.OnAttachStateChangeListener
@@ -806,7 +806,7 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || (frameLayout = this.a.p) == null) {
                 return;
             }
-            frameLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this.a.i0);
+            frameLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this.a.c0);
         }
     }
 
@@ -1023,24 +1023,24 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
         this.X = new j(this, Looper.getMainLooper());
         this.Y = new k(this);
         this.Z = new l(this);
-        this.h0 = new p(this);
-        this.i0 = new q(this);
-        this.j0 = new b(this);
-        this.k0 = new c(this);
-        this.l0 = new d(this);
-        this.m0 = new e(this);
-        this.n0 = new f(this);
-        this.o0 = new g(this);
-        this.p0 = new h(this);
+        this.b0 = new p(this);
+        this.c0 = new q(this);
+        this.d0 = new b(this);
+        this.e0 = new c(this);
+        this.f0 = new d(this);
+        this.g0 = new e(this);
+        this.h0 = new f(this);
+        this.i0 = new g(this);
+        this.j0 = new h(this);
         this.q0 = new i(this);
         o(bdUniqueId);
         this.h = 3;
         this.w = tbPageContext;
         View h2 = h();
-        this.u = h2.findViewById(R.id.obfuscated_res_0x7f0907ca);
-        this.x = (RelativeLayout) h2.findViewById(R.id.obfuscated_res_0x7f091251);
-        this.R = (TbImageView) h2.findViewById(R.id.obfuscated_res_0x7f090b78);
-        this.y = (LinearLayout) h2.findViewById(R.id.obfuscated_res_0x7f092387);
+        this.u = h2.findViewById(R.id.obfuscated_res_0x7f0907c8);
+        this.x = (RelativeLayout) h2.findViewById(R.id.obfuscated_res_0x7f09122d);
+        this.R = (TbImageView) h2.findViewById(R.id.obfuscated_res_0x7f090b71);
+        this.y = (LinearLayout) h2.findViewById(R.id.obfuscated_res_0x7f092389);
         this.x.setOnClickListener(this);
         HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) this.x.findViewById(R.id.obfuscated_res_0x7f090528);
         this.m = headPendantClickableView;
@@ -1055,21 +1055,21 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
             this.m.getPendantView().setIsRound(true);
             this.m.getPendantView().setDrawBorder(false);
         }
-        TextView textView = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f09203d);
+        TextView textView = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f092041);
         this.o = textView;
         textView.setVisibility(8);
-        this.o.setOnClickListener(this.m0);
+        this.o.setOnClickListener(this.g0);
         p68 p68Var = new p68((ViewGroup) h2.findViewById(R.id.obfuscated_res_0x7f0902e4));
         this.F = p68Var;
         p68Var.f(this.Z);
-        this.z = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f091fe1);
-        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) h2.findViewById(R.id.obfuscated_res_0x7f091fb9);
+        this.z = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f091fe5);
+        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) h2.findViewById(R.id.obfuscated_res_0x7f091fbd);
         this.i = threadCommentAndPraiseInfoLayout;
-        threadCommentAndPraiseInfoLayout.setForumAfterClickListener(this.o0);
+        threadCommentAndPraiseInfoLayout.setForumAfterClickListener(this.i0);
         ThreadUserInfoLayout threadUserInfoLayout = (ThreadUserInfoLayout) h2.findViewById(R.id.obfuscated_res_0x7f090510);
         this.k = threadUserInfoLayout;
         threadUserInfoLayout.setFrom(3);
-        this.n = h2.findViewById(R.id.obfuscated_res_0x7f0907be);
+        this.n = h2.findViewById(R.id.obfuscated_res_0x7f0907bc);
         if (this.i.getLayoutParams() instanceof LinearLayout.LayoutParams) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.i.getLayoutParams();
             layoutParams.rightMargin = 0;
@@ -1086,7 +1086,7 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
         this.i.setStType("frs_page");
         this.i.setFrom(2);
         this.i.Q = 3;
-        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h2.findViewById(R.id.obfuscated_res_0x7f091fbc);
+        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h2.findViewById(R.id.obfuscated_res_0x7f091fc0);
         this.j = threadSourceShareAndPraiseLayout;
         threadSourceShareAndPraiseLayout.b.setOnClickListener(this);
         this.j.setFrom(2);
@@ -1094,51 +1094,51 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
         this.j.setSourceFromForPb(3);
         this.j.setStType("frs_page");
         this.j.setHideBarName(true);
-        FrameLayout frameLayout = (FrameLayout) h2.findViewById(R.id.obfuscated_res_0x7f090a85);
+        FrameLayout frameLayout = (FrameLayout) h2.findViewById(R.id.obfuscated_res_0x7f090a7e);
         this.p = frameLayout;
         frameLayout.setOnClickListener(this);
         this.p.addOnAttachStateChangeListener(new m(this));
-        TbImageView tbImageView = (TbImageView) h2.findViewById(R.id.obfuscated_res_0x7f090e4d);
+        TbImageView tbImageView = (TbImageView) h2.findViewById(R.id.obfuscated_res_0x7f090e46);
         this.A = tbImageView;
         tbImageView.setPageId(f());
         this.A.setDrawCorner(true);
         this.A.setPlaceHolder(3);
-        this.A.setEvent(this.h0);
+        this.A.setEvent(this.b0);
         this.A.setGifIconSupport(false);
-        this.B = (ImageView) h2.findViewById(R.id.obfuscated_res_0x7f090e4e);
+        this.B = (ImageView) h2.findViewById(R.id.obfuscated_res_0x7f090e47);
         TbVideoViewContainer tbVideoViewContainer = new TbVideoViewContainer(getContext());
         this.C = tbVideoViewContainer;
         tbVideoViewContainer.getControl().setStageType("2003");
         Y();
         this.C.getControl().setContinuePlayEnable(true);
         this.C.getControl().setOperableVideoContainer(this.Y);
-        this.C.getControl().setOnSurfaceDestroyedListener(this.l0);
+        this.C.getControl().setOnSurfaceDestroyedListener(this.f0);
         f68 f68Var = new f68();
         this.O = f68Var;
         f68Var.l(this.C.getControl());
-        this.O.i(this.p0);
+        this.O.i(this.j0);
         this.H = h2.findViewById(R.id.obfuscated_res_0x7f0902e1);
         this.D = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f0902e3);
         this.E = h2.findViewById(R.id.obfuscated_res_0x7f0902e2);
-        this.q = (LinearLayout) h2.findViewById(R.id.obfuscated_res_0x7f092387);
-        this.r = (ThreadSkinView) h2.findViewById(R.id.obfuscated_res_0x7f090bbd);
+        this.q = (LinearLayout) h2.findViewById(R.id.obfuscated_res_0x7f092389);
+        this.r = (ThreadSkinView) h2.findViewById(R.id.obfuscated_res_0x7f090bb6);
         Animation loadAnimation = AnimationUtils.loadAnimation(this.w.getPageActivity(), R.anim.obfuscated_res_0x7f010066);
         this.P = loadAnimation;
         loadAnimation.setAnimationListener(this.q0);
-        this.s = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f091fe6);
-        this.I = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f091fe7);
-        this.t = (LinearLayout) h2.findViewById(R.id.obfuscated_res_0x7f090819);
+        this.s = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f091fea);
+        this.I = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f091feb);
+        this.t = (LinearLayout) h2.findViewById(R.id.obfuscated_res_0x7f090817);
         bq6 bq6Var = new bq6(tbPageContext, this.x);
         this.Q = bq6Var;
         bq6Var.d(f());
         ThreadGodReplyLayout threadGodReplyLayout = (ThreadGodReplyLayout) h2.findViewById(R.id.obfuscated_res_0x7f09050c);
         this.l = threadGodReplyLayout;
         threadGodReplyLayout.setOnClickListener(this);
-        View findViewById = h2.findViewById(R.id.obfuscated_res_0x7f09204a);
+        View findViewById = h2.findViewById(R.id.obfuscated_res_0x7f09204e);
         this.V = findViewById;
         findViewById.setOnClickListener(new n(this));
         this.i.setOnSelectStatusChangeListener(new o(this));
-        this.v = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f091567);
+        this.v = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f091542);
     }
 
     public int G(int i2) {
@@ -1169,7 +1169,7 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
         VideoItemData videoItemData = new VideoItemData();
         videoItemData.buildWithThreadData(this.G);
         arrayList.add(videoItemData);
-        pd5.d(this.b.getPageActivity(), arrayList, this.G.getBaijiahaoData() != null ? this.G.getBaijiahaoData().oriUgcNid : null, false, 0, rect, "from_nani_video", "frs_page", null, str, "", false, this.G.isJumpToFrsVideoTabPlay);
+        qd5.d(this.b.getPageActivity(), arrayList, this.G.getBaijiahaoData() != null ? this.G.getBaijiahaoData().oriUgcNid : null, false, 0, rect, "from_nani_video", "frs_page", null, str, "", false, this.G.isJumpToFrsVideoTabPlay);
     }
 
     public final void L() {
@@ -1218,7 +1218,7 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
             }
             if (view2 == this.p) {
                 if (!ni.z()) {
-                    pi.N(this.w.getPageActivity(), R.string.obfuscated_res_0x7f0f0c64);
+                    pi.N(this.w.getPageActivity(), R.string.obfuscated_res_0x7f0f0c50);
                 } else {
                     J(ThreadCardUtils.computeViewArea(this.p));
                 }
@@ -1233,7 +1233,7 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
                 e().a(view2, this.G);
             }
             if (!ni.z()) {
-                pi.N(this.w.getPageActivity(), R.string.obfuscated_res_0x7f0f0c64);
+                pi.N(this.w.getPageActivity(), R.string.obfuscated_res_0x7f0f0c50);
             } else {
                 J(ThreadCardUtils.computeViewArea(this.p));
             }
@@ -1292,7 +1292,7 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
                     this.w.sendMessage(new CustomMessage(2004001, createHistoryCfg));
                     return;
                 }
-                PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.w.getPageActivity()).createFromThreadCfg(this.G, this.g0, "frs_page", 18003, true, false, false);
+                PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.w.getPageActivity()).createFromThreadCfg(this.G, this.a0, "frs_page", 18003, true, false, false);
                 if (this.W == 501) {
                     str2 = "frs_tab";
                 } else if (!this.G.isFloor5Video()) {
@@ -1322,7 +1322,7 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
             if (this.A == null || this.p == null || (tbVideoViewContainer = this.C) == null || tbVideoViewContainer.getControl() == null) {
                 return;
             }
-            if (zm4.c().g() && (threadData = this.G) != null && threadData.getThreadVideoInfo() != null) {
+            if (an4.c().g() && (threadData = this.G) != null && threadData.getThreadVideoInfo() != null) {
                 this.p.setVisibility(0);
                 this.A.setPlaceHolder(3);
                 this.A.J(this.G.getThreadVideoInfo().thumbnail_url, 10, false);
@@ -1372,7 +1372,7 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
                 this.G.parserSpecTitleForFrsAndPb(false, true);
                 SpannableStringBuilder span_str = this.G.getSpan_str();
                 if (this.G.canShowNaniTail() && !StringUtils.isNull(this.G.getTid())) {
-                    String str = xt4.k().q("nani_key_pre_h5_link", TbConfig.NANI_DEFAULT_H5_PREFIX) + "/" + this.G.getTid();
+                    String str = yt4.k().q("nani_key_pre_h5_link", TbConfig.NANI_DEFAULT_H5_PREFIX) + "/" + this.G.getTid();
                     span_str.append((CharSequence) this.G.generateNaniTail(new a(this, 2, str, str)));
                 }
                 this.z.setOnTouchListener(new bu8(span_str));
@@ -1397,10 +1397,10 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.i.getLayoutParams();
                 layoutParams.rightMargin = 0;
                 this.i.setLayoutParams(layoutParams);
-                this.k.setUserAfterClickListener(this.n0);
+                this.k.setUserAfterClickListener(this.h0);
                 b0(G(1));
                 this.s.setText(StringHelper.stringForVideoTime(this.G.getThreadVideoInfo().video_duration.intValue() * 1000));
-                this.I.setText(String.format(this.w.getResources().getString(R.string.obfuscated_res_0x7f0f0e71), StringHelper.numFormatOverWan(this.G.getThreadVideoInfo().play_count.intValue())));
+                this.I.setText(String.format(this.w.getResources().getString(R.string.obfuscated_res_0x7f0f0e5a), StringHelper.numFormatOverWan(this.G.getThreadVideoInfo().play_count.intValue())));
                 this.l.setData(this.G.getTopAgreePost());
                 this.l.k();
                 if (ux5.k(this.G.getId())) {
@@ -1452,8 +1452,8 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
     public final void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            qg.a().removeCallbacks(this.j0);
-            qg.a().removeCallbacks(this.k0);
+            qg.a().removeCallbacks(this.d0);
+            qg.a().removeCallbacks(this.e0);
         }
     }
 
@@ -1501,8 +1501,8 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
         }
         if (z || this.L != i2) {
             this.L = i2;
-            qg.a().removeCallbacks(this.k0);
-            qg.a().removeCallbacks(this.j0);
+            qg.a().removeCallbacks(this.e0);
+            qg.a().removeCallbacks(this.d0);
             if (i2 == 2) {
                 this.B.setVisibility(8);
                 this.P.cancel();
@@ -1513,7 +1513,7 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
                 this.F.g();
                 this.E.setVisibility(8);
                 this.D.setVisibility(8);
-                qg.a().postDelayed(this.k0, 60000L);
+                qg.a().postDelayed(this.e0, 60000L);
             } else if (i2 == 3) {
                 this.B.setVisibility(8);
                 this.A.startAnimation(this.P);
@@ -1536,7 +1536,7 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
                 this.F.b();
                 this.E.setVisibility(0);
                 this.D.setVisibility(0);
-                qg.a().postDelayed(this.j0, 2000L);
+                qg.a().postDelayed(this.d0, 2000L);
             } else {
                 this.B.setVisibility(0);
                 this.t.setVisibility(0);
@@ -1555,7 +1555,7 @@ public class hi6 extends jx5<ThreadData> implements hy5, Object {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.g0 = str;
+            this.a0 = str;
         }
     }
 

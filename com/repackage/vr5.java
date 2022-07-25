@@ -65,7 +65,7 @@ public class vr5 extends ur5 {
             this.f = new FrameLayout(this.c.getPageActivity());
             this.g = new TbImageView(this.c.getPageActivity());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.a, this.b);
-            this.g.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080ed1);
+            this.g.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080ed8);
             this.g.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.g.setLayoutParams(layoutParams);
             this.f.addView(this.g);

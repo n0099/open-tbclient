@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.C0294;
+import com.kuaishou.weapon.p0.k1;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -258,7 +258,7 @@ public class q {
         }
         try {
             try {
-                inputStreamReader = new InputStreamReader(new FileInputStream(C0294.f19), Charset.forName(IMAudioTransRequest.CHARSET));
+                inputStreamReader = new InputStreamReader(new FileInputStream(k1.a), Charset.forName(IMAudioTransRequest.CHARSET));
             } catch (Throwable th2) {
                 th = th2;
             }

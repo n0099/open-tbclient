@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.td5;
+import com.repackage.ud5;
 import tbclient.PushThread.DataReq;
 import tbclient.PushThread.PushThreadReqIdl;
 /* loaded from: classes3.dex */
@@ -58,7 +58,7 @@ public class PbPushRequestMessage extends NetMessage {
             builder.push_type = Integer.valueOf(this.mPushType);
             builder.user_id = Long.valueOf(this.mUserId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                td5.a(builder, true);
+                ud5.a(builder, true);
             }
             PushThreadReqIdl.Builder builder2 = new PushThreadReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -313,17 +313,17 @@ public class ag7 {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092439);
             this.c = navigationBar;
             navigationBar.showBottomLine();
-            View addCustomView = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d07ac, (View.OnClickListener) null);
+            View addCustomView = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d07b6, (View.OnClickListener) null);
             this.u = addCustomView;
-            this.g = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091c9e);
-            this.d = (EditText) this.u.findViewById(R.id.obfuscated_res_0x7f090d2f);
-            this.e = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f090d1f);
-            this.f = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f090d1e);
-            this.h = (LinearLayout) this.u.findViewById(R.id.obfuscated_res_0x7f091357);
-            this.i = (RelativeLayout) this.u.findViewById(R.id.obfuscated_res_0x7f091b69);
+            this.g = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091ca4);
+            this.d = (EditText) this.u.findViewById(R.id.obfuscated_res_0x7f090d28);
+            this.e = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f090d18);
+            this.f = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f090d17);
+            this.h = (LinearLayout) this.u.findViewById(R.id.obfuscated_res_0x7f091333);
+            this.i = (RelativeLayout) this.u.findViewById(R.id.obfuscated_res_0x7f091b43);
             this.e.setOnClickListener(new c(this));
             r(false);
             this.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f036a));
@@ -333,17 +333,17 @@ public class ag7 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            QuickWebView quickWebView = (QuickWebView) this.b.findViewById(R.id.obfuscated_res_0x7f091cb6);
+            QuickWebView quickWebView = (QuickWebView) this.b.findViewById(R.id.obfuscated_res_0x7f091cbc);
             this.o = quickWebView;
             quickWebView.l(true);
-            this.p = this.b.findViewById(R.id.obfuscated_res_0x7f091cd6);
+            this.p = this.b.findViewById(R.id.obfuscated_res_0x7f091cdc);
         }
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            QuickWebView quickWebView = (QuickWebView) this.b.findViewById(R.id.obfuscated_res_0x7f091cc7);
+            QuickWebView quickWebView = (QuickWebView) this.b.findViewById(R.id.obfuscated_res_0x7f091ccd);
             this.n = quickWebView;
             quickWebView.l(true);
         }
@@ -352,7 +352,7 @@ public class ag7 {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.b.findViewById(R.id.obfuscated_res_0x7f090d38);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.b.findViewById(R.id.obfuscated_res_0x7f090d31);
             this.r = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a));
             this.r.setOnScrollListener(this.t);
@@ -373,11 +373,11 @@ public class ag7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             h();
-            LinearLayoutDetectsSoftKeyboard linearLayoutDetectsSoftKeyboard = (LinearLayoutDetectsSoftKeyboard) this.b.findViewById(R.id.obfuscated_res_0x7f091ca5);
+            LinearLayoutDetectsSoftKeyboard linearLayoutDetectsSoftKeyboard = (LinearLayoutDetectsSoftKeyboard) this.b.findViewById(R.id.obfuscated_res_0x7f091cab);
             this.k = linearLayoutDetectsSoftKeyboard;
             linearLayoutDetectsSoftKeyboard.setOnTouchListener(new b(this));
-            this.l = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090a82);
-            NoDataView a2 = NoDataViewFactory.a(this.a, null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f07026e)), null, null);
+            this.l = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090a7b);
+            NoDataView a2 = NoDataViewFactory.a(this.a, null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f07026c)), null, null);
             this.m = a2;
             this.l.addView(a2, 0);
             i();
@@ -425,7 +425,7 @@ public class ag7 {
             if (quickWebView2 != null) {
                 quickWebView2.onChangeSkinType();
             }
-            ur4 d = ur4.d(this.h);
+            vr4 d = vr4.d(this.h);
             d.v(R.color.CAM_X0109);
             d.n(R.string.J_X01);
             d.f(R.color.CAM_X0210);

@@ -390,7 +390,7 @@ public class jy6 {
             this.e = new gx6(this.d);
             this.f = new hy6(this.d);
             this.g = new hx6(this.d, ry6.b);
-            this.h = new tx6(this.d, vy5.o0);
+            this.h = new tx6(this.d, vy5.i0);
             this.i = new ey6(this.d, vy5.z0);
             this.j = new nx6(this.d, vy5.H0);
             this.k = new ox6(this.d, vy5.A0);
@@ -412,10 +412,10 @@ public class jy6 {
             this.A = new by6(this.d, vy5.s0);
             this.B = new dy6(this.d, vy5.u0);
             this.C = new ay6(this.d, vy5.t0);
-            this.D = new tx6(this.d, vy5.p0);
+            this.D = new tx6(this.d, vy5.j0);
             this.E = new wx6(this.d, vy5.v0);
             this.F = new xx6(this.d, vy5.w0);
-            this.G = new zx6(this.d, v17.j0);
+            this.G = new zx6(this.d, v17.d0);
             this.H = new ix6(this.d, qy5.N0);
             this.v = new jx6(this.d, vy5.E0);
             this.J = new yt6(this.d, vy5.x0, (byte) 3);

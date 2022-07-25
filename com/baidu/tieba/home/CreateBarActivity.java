@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fy4;
+import com.repackage.gy4;
 import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
@@ -348,14 +348,14 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                     this.a.addPostData("tid", "0");
                     String postNetData = this.a.postNetData();
                     if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                        fy4 fy4Var = new fy4();
-                        fy4Var.e(postNetData);
-                        if (fy4Var.c() != null && fy4Var.c().length() > 0) {
-                            this.c.n = fy4Var.b();
+                        gy4 gy4Var = new gy4();
+                        gy4Var.e(postNetData);
+                        if (gy4Var.c() != null && gy4Var.c().length() > 0) {
+                            this.c.n = gy4Var.b();
                             if (this.b) {
                                 return null;
                             }
-                            NetWork netWork2 = new NetWork(fy4Var.c());
+                            NetWork netWork2 = new NetWork(gy4Var.c());
                             this.a = netWork2;
                             return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                         }
@@ -461,43 +461,43 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.l = new a(this);
             this.m = new b(this);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092439);
             this.u = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.u.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f045f));
-            this.p = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906a0);
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa9);
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f092156)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0908da);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ec4);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906f2);
+            this.u.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f045e));
+            this.p = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09069f);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f091fae);
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f092158)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0908d8);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ebd);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906f1);
             this.e = relativeLayout;
             relativeLayout.setOnClickListener(this.l);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090ec5);
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f09082a);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090ebe);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090828);
             this.c = editText;
             editText.addTextChangedListener(this.m);
-            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f090839);
+            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f090837);
             this.d = editText2;
             editText2.addTextChangedListener(this.m);
             if (this.t) {
-                this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c7a));
+                this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c66));
                 this.c.setText(this.s);
             } else {
                 this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f02ea));
             }
-            this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906f2);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090e37);
+            this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906f1);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090e30);
             this.f = frameLayout;
             frameLayout.setOnClickListener(this.l);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e33);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e2c);
             this.e.setEnabled(false);
-            this.h = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0919c7);
-            this.i = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0919cf);
+            this.h = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0919a2);
+            this.i = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0919a9);
             if (this.t) {
                 this.d.requestFocus();
             }
-            findViewById(R.id.obfuscated_res_0x7f091d81).setOnTouchListener(new c(this));
+            findViewById(R.id.obfuscated_res_0x7f091d87).setOnTouchListener(new c(this));
         }
     }
 

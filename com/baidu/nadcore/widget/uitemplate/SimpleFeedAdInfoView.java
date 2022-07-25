@@ -54,9 +54,9 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
             super.a(attributeSet);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091547);
-            this.j = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f091548);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091549);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091522);
+            this.j = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f091523);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091524);
             c();
             setRatingBarViewLP(R.drawable.obfuscated_res_0x7f080d49);
         }

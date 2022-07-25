@@ -28,54 +28,54 @@ public final class a {
     }
 
     @Nullable
-    public static b d(f fVar) {
+    public static b n(f fVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fVar)) == null) ? fVar.n() : (b) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fVar)) == null) ? fVar.Fs() : (b) invokeL.objValue;
     }
 
-    public final void a(f fVar) {
-        b d;
+    public final void c(f fVar, com.kwai.sodler.lib.a.a aVar) {
+        b n;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) || (d = d(fVar)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, fVar, aVar) == null) || (n = n(fVar)) == null) {
             return;
         }
-        d.a(fVar);
+        n.a((b) fVar, (f) aVar);
     }
 
-    public final void a(f fVar, com.kwai.sodler.lib.a.a aVar) {
-        b d;
+    public final void c(f fVar, PluginError pluginError) {
+        b n;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar, aVar) == null) || (d = d(fVar)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar, pluginError) == null) || (n = n(fVar)) == null) {
             return;
         }
-        d.a((b) fVar, (f) aVar);
+        n.a((b) fVar, pluginError);
     }
 
-    public final void a(f fVar, PluginError pluginError) {
-        b d;
+    public final void o(f fVar) {
+        b n;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fVar, pluginError) == null) || (d = d(fVar)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) || (n = n(fVar)) == null) {
             return;
         }
-        d.a((b) fVar, pluginError);
+        n.a(fVar);
     }
 
-    public final void b(f fVar) {
-        b d;
+    public final void p(f fVar) {
+        b n;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) || (d = d(fVar)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) || (n = n(fVar)) == null) {
             return;
         }
-        d.c(fVar);
+        n.c(fVar);
     }
 
-    public final void c(f fVar) {
-        b d;
+    public final void q(f fVar) {
+        b n;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) || (d = d(fVar)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) || (n = n(fVar)) == null) {
             return;
         }
-        d.b(fVar);
+        n.b(fVar);
     }
 }

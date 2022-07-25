@@ -14,17 +14,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.db8;
-import com.repackage.td5;
-import com.repackage.wc5;
+import com.repackage.ud5;
 import com.repackage.ws6;
-import com.repackage.xt4;
+import com.repackage.xc5;
+import com.repackage.yt4;
 import tbclient.Userlike.DataReq;
 import tbclient.Userlike.UserlikeReqIdl;
 /* loaded from: classes3.dex */
 public class ConcernPageRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wc5 adInfo;
+    public xc5 adInfo;
     public String pageTag;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -55,9 +55,9 @@ public class ConcernPageRequestMessage extends NetMessage {
             String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
             String str = "";
             String d = isEmpty ? "" : db8.f().d("CONCERN");
-            wc5 wc5Var = this.adInfo;
-            if (wc5Var != null && !isEmpty) {
-                str = wc5Var.b;
+            xc5 xc5Var = this.adInfo;
+            if (xc5Var != null && !isEmpty) {
+                str = xc5Var.b;
             }
             AdExtParam.a b = AdExtParam.a.b();
             b.g(e);
@@ -84,11 +84,11 @@ public class ConcernPageRequestMessage extends NetMessage {
                         builder.page_tag = ws6.u();
                     }
                 }
-                builder.last_req_unix = Long.valueOf(xt4.k().m(xt4.o("concern_data_res_request_time"), 0L));
+                builder.last_req_unix = Long.valueOf(yt4.k().m(yt4.o("concern_data_res_request_time"), 0L));
                 int i = 1;
-                builder.follow_type = Integer.valueOf(UbsABTestHelper.isConcernForumCardShow() ? xt4.k().l("key_home_concern_all_status", 0) : 1);
+                builder.follow_type = Integer.valueOf(UbsABTestHelper.isConcernForumCardShow() ? yt4.k().l("key_home_concern_all_status", 0) : 1);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    td5.a(builder, true);
+                    ud5.a(builder, true);
                 }
                 if (!TextUtils.isEmpty(this.pageTag)) {
                     i = 2;
@@ -111,10 +111,10 @@ public class ConcernPageRequestMessage extends NetMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pageTag : (String) invokeV.objValue;
     }
 
-    public void setAdInfo(wc5 wc5Var) {
+    public void setAdInfo(xc5 xc5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wc5Var) == null) {
-            this.adInfo = wc5Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xc5Var) == null) {
+            this.adInfo = xc5Var;
         }
     }
 

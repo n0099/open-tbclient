@@ -43,16 +43,16 @@ public class vy5 extends ny5 {
     public static String X = "";
     public static String Y = "";
     public static String Z = "";
+    public static String a0 = "";
+    public static String b0 = "";
+    public static String c0 = "";
+    public static String d0 = "";
+    public static String e0 = "";
+    public static String f0 = "";
     public static String g0 = "";
     public static String h0 = "";
-    public static String i0 = "";
-    public static String j0 = "";
-    public static String k0 = "";
-    public static String l0 = "";
-    public static String m0 = "";
-    public static String n0 = "";
-    public static final BdUniqueId o0;
-    public static final BdUniqueId p0;
+    public static final BdUniqueId i0;
+    public static final BdUniqueId j0;
     public static final BdUniqueId q0;
     public static final BdUniqueId r0;
     public static final BdUniqueId s0;
@@ -78,8 +78,8 @@ public class vy5 extends ny5 {
                 return;
             }
         }
-        o0 = BdUniqueId.gen();
-        p0 = BdUniqueId.gen();
+        i0 = BdUniqueId.gen();
+        j0 = BdUniqueId.gen();
         q0 = BdUniqueId.gen();
         r0 = BdUniqueId.gen();
         s0 = BdUniqueId.gen();
@@ -153,7 +153,7 @@ public class vy5 extends ny5 {
             if (V()) {
                 s = s(X);
             } else if (U()) {
-                StatisticItem s2 = s(j0);
+                StatisticItem s2 = s(d0);
                 if (s2 != null && getThreadData() != null && (smartApp = getThreadData().getSmartApp()) != null) {
                     TiebaStatic.deleteParamByKey(s2, "obj_type");
                     s2.param("obj_type", smartApp.id);
@@ -207,7 +207,7 @@ public class vy5 extends ny5 {
                 }
                 return s;
             } else if (U()) {
-                StatisticItem s2 = s(i0);
+                StatisticItem s2 = s(c0);
                 if (s2 != null) {
                     s2.setPosition(this.position);
                     if (getThreadData() != null && (smartApp = getThreadData().getSmartApp()) != null) {
@@ -275,7 +275,7 @@ public class vy5 extends ny5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StatisticItem u = u(k0, true);
+            StatisticItem u = u(e0, true);
             if (getThreadData() != null) {
                 ThreadData threadData = getThreadData();
                 if (threadData.getBaijiahaoData() != null) {
@@ -336,7 +336,7 @@ public class vy5 extends ny5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (V()) {
-                return s(g0);
+                return s(a0);
             }
             StatisticItem s = s(V);
             if (s != null) {
@@ -380,7 +380,7 @@ public class vy5 extends ny5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (wy5.R(this.a)) {
-                StatisticItem u = u(l0, true);
+                StatisticItem u = u(f0, true);
                 if (u != null && getThreadData() != null) {
                     ThreadData threadData = getThreadData();
                     if (threadData.getBaijiahaoData() != null) {
@@ -438,7 +438,7 @@ public class vy5 extends ny5 {
     public StatisticItem T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? s(h0) : (StatisticItem) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? s(b0) : (StatisticItem) invokeV.objValue;
     }
 
     public boolean U() {
@@ -519,7 +519,7 @@ public class vy5 extends ny5 {
         return (StatisticItem) invokeL.objValue;
     }
 
-    @Override // com.repackage.ny5, com.repackage.nn4
+    @Override // com.repackage.ny5, com.repackage.on4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -547,7 +547,7 @@ public class vy5 extends ny5 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             ThreadData threadData = this.a;
             if (threadData == null) {
-                return o0;
+                return i0;
             }
             if (this.B && ny5.Q.length > 1) {
                 BdUniqueId type = threadData.getType();
@@ -650,7 +650,7 @@ public class vy5 extends ny5 {
                 return s(Y);
             }
             if (wy5.R(this.a)) {
-                StatisticItem u = u(m0, true);
+                StatisticItem u = u(g0, true);
                 if (u != null && getThreadData() != null) {
                     ThreadData threadData = getThreadData();
                     if (threadData.getBaijiahaoData() != null) {

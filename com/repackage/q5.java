@@ -57,32 +57,25 @@ public class q5 implements TextureData {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : invokeV.booleanValue;
-    }
-
-    @Override // com.badlogic.gdx.graphics.TextureData
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
-    public void c(int i) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             throw new GdxRuntimeException("This TextureData implementation does not upload data itself");
         }
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
-    public Pixmap d() {
+    public Pixmap c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.g) {
                 this.g = false;
                 Pixmap pixmap = this.e;
@@ -95,17 +88,27 @@ public class q5 implements TextureData {
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
-    public Pixmap.Format e() {
+    public Pixmap.Format d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (Pixmap.Format) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (Pixmap.Format) invokeV.objValue;
+    }
+
+    @Override // com.badlogic.gdx.graphics.TextureData
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : invokeV.booleanValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
@@ -130,13 +133,10 @@ public class q5 implements TextureData {
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
-    public boolean h() {
+    public boolean isPrepared() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.g : invokeV.booleanValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData

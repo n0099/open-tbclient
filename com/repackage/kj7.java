@@ -149,24 +149,24 @@ public class kj7 extends BaseAdapter {
             if (view2 != null && (view2.getTag() instanceof a)) {
                 aVar = (a) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(this.b.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0546, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.b.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0550, (ViewGroup) null);
                 aVar = new a(this);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f7a);
-                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f7b);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f7c);
-                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907ca);
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f7e);
+                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f7f);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f80);
+                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907c8);
             }
             hj7 item = getItem(i);
             if (item != null) {
                 aVar.a.setText(item.f());
                 aVar.b.setText(a(String.valueOf(item.a()), item.b()));
                 if (item.d()) {
-                    aVar.c.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f08e8), TextView.BufferType.EDITABLE);
+                    aVar.c.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f08d3), TextView.BufferType.EDITABLE);
                     aVar.c.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
                     aVar.c.setBackgroundDrawable(null);
                     aVar.c.setOnClickListener(null);
                 } else {
-                    aVar.c.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f0488), TextView.BufferType.EDITABLE);
+                    aVar.c.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f0487), TextView.BufferType.EDITABLE);
                     SkinManager.setViewTextColor(aVar.c, (int) R.color.member_center_task_btn_textcolor);
                     aVar.c.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.item_blue_btn_selector));
                     aVar.c.setTag(item);

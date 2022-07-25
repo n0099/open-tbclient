@@ -53,16 +53,16 @@ public class ConcernTipAdapter extends an<bu6, ConcernTipViewHolder> {
                 }
             }
             this.c = 3;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090686);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090685);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090685);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090684);
         }
 
-        public void c(int i) {
+        public void b(int i) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.c == i) {
                 return;
             }
-            SkinManager.setBackgroundColor(b(), R.color.CAM_X0205);
+            SkinManager.setBackgroundColor(a(), R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
             SkinManager.setBackgroundResource(this.b, R.color.CAM_X0205);
         }
@@ -126,8 +126,8 @@ public class ConcernTipAdapter extends an<bu6, ConcernTipViewHolder> {
                 layoutParams.height = i;
             }
             concernTipViewHolder.a.setLayoutParams(layoutParams);
-            concernTipViewHolder.c(TbadkCoreApplication.getInst().getSkinType());
-            return concernTipViewHolder.b();
+            concernTipViewHolder.b(TbadkCoreApplication.getInst().getSkinType());
+            return concernTipViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

@@ -82,7 +82,7 @@ public class fk5 implements View.OnClickListener {
                     return;
                 }
                 if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                    errorString = this.a.a.getString(R.string.obfuscated_res_0x7f0f0c2b);
+                    errorString = this.a.a.getString(R.string.obfuscated_res_0x7f0f0c17);
                 } else {
                     errorString = responsedMessage.getErrorString();
                 }
@@ -115,7 +115,7 @@ public class fk5 implements View.OnClickListener {
         if (ni.z()) {
             g();
         } else {
-            this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+            this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
         }
     }
 
@@ -165,7 +165,7 @@ public class fk5 implements View.OnClickListener {
             if (view2.getId() == R.id.obfuscated_res_0x7f090323) {
                 TiebaStatic.log("c10013");
                 if (!ni.z()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                 } else {
                     UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
                 }

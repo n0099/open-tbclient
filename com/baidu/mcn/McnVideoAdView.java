@@ -239,10 +239,10 @@ public class McnVideoAdView extends FrameLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d053a, this);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090de4);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090de6);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090de5);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0544, this);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ddd);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090ddf);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090dde);
             this.b.setConrers(5);
             this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080ce1);
             this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080ce1);

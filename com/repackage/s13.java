@@ -1,196 +1,36 @@
 package com.repackage;
 
+import android.content.ComponentName;
 import android.content.Context;
-import android.net.Uri;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.repackage.be3;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import org.json.JSONArray;
+import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class s13 extends e23 {
+public class s13 extends f23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a implements af3<h53> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ Context d;
-        public final /* synthetic */ JSONObject e;
-        public final /* synthetic */ String f;
-        public final /* synthetic */ s13 g;
-
-        public a(s13 s13Var, CallbackHandler callbackHandler, String str, String str2, Context context, JSONObject jSONObject, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s13Var, callbackHandler, str, str2, context, jSONObject, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.g = s13Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = str2;
-            this.d = context;
-            this.e = jSONObject;
-            this.f = str3;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.af3
-        /* renamed from: b */
-        public void a(h53 h53Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h53Var) == null) {
-                if (h53Var != null && !h53Var.d) {
-                    if (this.g.m(h53Var, this.c)) {
-                        this.g.l(this.d, this.e, this.a, this.b, this.f);
-                        return;
-                    } else {
-                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1003, "打开APP失败，打开App条件未满足").toString());
-                        return;
-                    }
-                }
-                if (e23.b) {
-                    Log.i("OpenAppAction", "no configuration of authority");
-                }
-                f53.o(10005, this.a, this.b);
-                a73.r(10005, h53Var);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements be3.g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-
-        public b(s13 s13Var, CallbackHandler callbackHandler, String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s13Var, callbackHandler, str, str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = str2;
-            this.d = str3;
-        }
-
-        @Override // com.repackage.be3.g
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(z ? 0 : 1001, z ? "打开APP成功" : "打开APP失败，本地没有安装").toString());
-                c.a("open", this.c, "confirm", this.d);
-            }
-        }
-
-        @Override // com.repackage.be3.g
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1004, "取消打开APP").toString());
-                c.a("open", this.c, "cancel", this.d);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static void a(String str, String str2, String str3, String str4) {
-            String str5;
-            String str6;
-            String str7;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(65536, null, str, str2, str3, str4) == null) {
-                j73 j73Var = new j73();
-                h03 b0 = h03.b0();
-                String str8 = "";
-                if (b0 != null) {
-                    str8 = a73.n(b0.k());
-                    str6 = b0.getAppId();
-                    str7 = b0.Z();
-                    str5 = b0.W().T();
-                } else {
-                    str5 = "";
-                    str6 = str5;
-                    str7 = str6;
-                }
-                String a = oj2.n().a();
-                j73Var.a = str8;
-                j73Var.b = str;
-                j73Var.e = str2;
-                j73Var.f = str6;
-                j73Var.c = str5;
-                j73Var.a("appName", str7);
-                j73Var.a("hostName", a);
-                j73Var.a("hostVersion", be3.D());
-                j73Var.a(PushConstants.CLICK_TYPE, str3);
-                try {
-                    str4 = URLDecoder.decode(str4, "UTF-8");
-                } catch (UnsupportedEncodingException unused) {
-                }
-                j73Var.a("scheme", str4);
-                o63.i("2572", "90", j73Var.f());
-                if (e23.b) {
-                    Log.d("OpenAppAction", String.format("ubcId=%s && ceresId=%s , content:%s ", "2572", "90", j73Var.f()));
-                }
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s13(e13 e13Var) {
-        super(e13Var, "/swanAPI/openApp");
+    public s13(f13 f13Var) {
+        super(f13Var, "/swanAPI/openApp4Ad");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e13Var};
+            Object[] objArr = {f13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -204,147 +44,91 @@ public class s13 extends e23 {
         }
     }
 
-    @Override // com.repackage.e23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+    public static ResolveInfo j(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str)) {
+                return null;
+            }
+            Intent intent = new Intent("android.intent.action.MAIN");
+            intent.addCategory("android.intent.category.LAUNCHER");
+            intent.setPackage(str);
+            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+            if (queryIntentActivities == null || queryIntentActivities.size() <= 0) {
+                return null;
+            }
+            return queryIntentActivities.iterator().next();
+        }
+        return (ResolveInfo) invokeLL.objValue;
+    }
+
+    public static void k(Context context, ResolveInfo resolveInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, context, resolveInfo) == null) || context == null || resolveInfo == null) {
+            return;
+        }
+        Intent intent = new Intent("android.intent.action.MAIN");
+        intent.addCategory("android.intent.category.LAUNCHER");
+        ActivityInfo activityInfo = resolveInfo.activityInfo;
+        intent.setComponent(new ComponentName(activityInfo.packageName, activityInfo.name));
+        intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+        try {
+            pj2.a().b(context, intent, h03.K().q().O(), null, resolveInfo.activityInfo.packageName);
+        } catch (Exception e) {
+            if (f23.b) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.repackage.f23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
-            if (!oj2.a().d()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
+            JSONObject a = f23.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
+                ix1.i("OpenAdAppAction", "params parse error");
                 return false;
-            } else if (h03Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
+            } else if (!pj2.a().d()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1003, "Host denied");
+                ix1.i("OpenAdAppAction", "Host denied");
                 return false;
             } else {
-                JSONObject a2 = e23.a(unitedSchemeEntity, "params");
-                if (a2 == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "invalid params");
+                String optString = a.optString("name");
+                String optString2 = a.optString("url");
+                if (TextUtils.isEmpty(optString) && TextUtils.isEmpty(optString2)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty params: Must contain 'url' or 'name' parameter");
+                    ix1.i("OpenAdAppAction", "empty params: Must contain 'url' or 'name' parameter");
                     return false;
                 }
-                String optString = a2.optString("cb");
-                if (e23.b) {
-                    Log.i("OpenAppAction", "params is " + a2.toString());
-                }
-                String optString2 = a2.optString("open", "");
-                String optString3 = a2.optString("invokeFrom", "");
-                c.a("invoke", optString3, null, optString2);
-                if (optString2.startsWith(BaseWebViewActivity.SHOUBAI_SCHEME)) {
-                    if (!oj2.a().c()) {
-                        zz2.f(context, R.string.obfuscated_res_0x7f0f1240).G();
-                        return false;
+                if (!TextUtils.isEmpty(optString2)) {
+                    if (ce3.W(context, optString2)) {
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                        return true;
                     }
-                    l(context, a2, callbackHandler, optString, optString3);
-                } else {
-                    h03Var.e0().e("scope_open_app", new a(this, callbackHandler, optString, optString2, context, a2, optString3));
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "deeplink launch failed");
+                    ix1.i("OpenAdAppAction", "deeplink launch failed");
                 }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
+                if (!TextUtils.isEmpty(optString)) {
+                    ResolveInfo j = j(context, optString);
+                    if (j != null) {
+                        k(context, j);
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                        return true;
+                    }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "app not installed");
+                    ix1.i("OpenAdAppAction", "app not installed");
+                }
+                if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "launch failed");
+                    ix1.i("OpenAdAppAction", "launch failed");
+                }
+                return false;
             }
         }
         return invokeLLLL.booleanValue;
-    }
-
-    public final void l(Context context, JSONObject jSONObject, CallbackHandler callbackHandler, String str, String str2) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, callbackHandler, str, str2) == null) {
-            String optString = jSONObject.optString("open");
-            if (TextUtils.isEmpty(optString)) {
-                z = false;
-            } else {
-                optString = Uri.decode(optString);
-                oj2.P().a(optString, jSONObject.optJSONObject("extraParams"));
-                if (e23.b) {
-                    Log.i("OpenAppAction", "openUrl:" + optString);
-                }
-                z = o(context, optString, callbackHandler, str, str2);
-            }
-            boolean optBoolean = jSONObject.optBoolean("isNeedDownload", true);
-            if (e23.b) {
-                Log.i("OpenAppAction", "open app result=" + z + "\nisNeedDownload=" + optBoolean);
-            }
-            if (!optBoolean) {
-                if (z) {
-                    return;
-                }
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1002, "打开APP失败，本地没有安装").toString());
-            } else if (z) {
-            } else {
-                boolean e = be3.e(context, jSONObject.optString("download"));
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(e ? 0 : 1001, e ? "下载APP成功" : "下载APP失败").toString());
-                c.a("download", str2, null, optString);
-            }
-        }
-    }
-
-    public final boolean m(h53 h53Var, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, h53Var, str)) == null) {
-            if (h53Var != null && !TextUtils.isEmpty(str)) {
-                String T = g03.K().q().W().T();
-                if (TextUtils.isEmpty(T)) {
-                    T = "NA";
-                }
-                JSONObject jSONObject = h53Var.o;
-                if (jSONObject != null && jSONObject.keys() != null) {
-                    if (e23.b) {
-                        Log.i("OpenAppAction", "source: " + T + " openUrl:" + str + " 配置数据:" + jSONObject);
-                    }
-                    JSONArray optJSONArray = jSONObject.optJSONArray("scene");
-                    JSONArray optJSONArray2 = jSONObject.optJSONArray("package_name");
-                    int length = optJSONArray == null ? 0 : optJSONArray.length();
-                    if (length > 0) {
-                        boolean z = false;
-                        for (int i = 0; i < length; i++) {
-                            if (T.equals(optJSONArray.optString(i))) {
-                                z = true;
-                            }
-                        }
-                        return z && n(str, optJSONArray2);
-                    }
-                    return n(str, optJSONArray2);
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean n(String str, JSONArray jSONArray) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, jSONArray)) == null) {
-            int length = jSONArray == null ? 0 : jSONArray.length();
-            if (length > 0 && !TextUtils.isEmpty(str)) {
-                for (int i = 0; i < length; i++) {
-                    String optString = jSONArray.optString(i);
-                    if (!TextUtils.isEmpty(optString)) {
-                        String decode = Uri.decode(optString);
-                        int indexOf = decode.indexOf(":");
-                        if (indexOf > 0) {
-                            decode = decode.substring(0, indexOf);
-                        }
-                        if (str.startsWith(decode)) {
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean o(Context context, String str, CallbackHandler callbackHandler, String str2, String str3) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, context, str, callbackHandler, str2, str3)) == null) {
-            if (context == null || TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return be3.Z(context, str, new b(this, callbackHandler, str2, str3, str));
-        }
-        return invokeLLLLL.booleanValue;
     }
 }

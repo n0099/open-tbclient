@@ -140,6 +140,7 @@ public class EcommerceRouter implements NoProguard {
                 this.addressManageCallback = null;
                 this.invoiceBuildCallback = null;
                 PassportViewManager.getInstance().release();
+                instance.context = null;
                 instance = null;
             }
         }

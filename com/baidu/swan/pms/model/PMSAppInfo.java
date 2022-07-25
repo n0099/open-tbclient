@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e94;
 import com.repackage.f94;
+import com.repackage.g94;
 /* loaded from: classes2.dex */
 public class PMSAppInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -166,28 +166,28 @@ public class PMSAppInfo implements Parcelable {
         }
     }
 
-    public void copyMainPkgInfo(e94 e94Var) {
+    public void copyMainPkgInfo(f94 f94Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e94Var) == null) || e94Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f94Var) == null) || f94Var == null) {
             return;
         }
-        this.appId = e94Var.g;
-        this.versionCode = e94Var.i;
-        this.versionName = e94Var.j;
-        this.type = e94Var.o;
-        this.pkgSize = e94Var.k;
-    }
-
-    public void copySubPkgInfo(f94 f94Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, f94Var) == null) || f94Var == null) {
-            return;
-        }
-        this.appId = f94Var.o;
+        this.appId = f94Var.g;
         this.versionCode = f94Var.i;
         this.versionName = f94Var.j;
-        this.type = f94Var.q;
+        this.type = f94Var.o;
         this.pkgSize = f94Var.k;
+    }
+
+    public void copySubPkgInfo(g94 g94Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, g94Var) == null) || g94Var == null) {
+            return;
+        }
+        this.appId = g94Var.o;
+        this.versionCode = g94Var.i;
+        this.versionName = g94Var.j;
+        this.type = g94Var.q;
+        this.pkgSize = g94Var.k;
     }
 
     public void countLaunch(long j) {

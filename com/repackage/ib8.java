@@ -208,12 +208,12 @@ public class ib8 extends kb8 {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b.setOnClickListener(new a(this));
             this.h = (RelativeLayout) a(R.id.obfuscated_res_0x7f090094);
-            this.i = (RoundTbImageView) a(R.id.obfuscated_res_0x7f092316);
-            this.j = (TextView) a(R.id.obfuscated_res_0x7f09232d);
-            this.k = (TextView) a(R.id.obfuscated_res_0x7f092313);
-            this.l = (TextView) a(R.id.obfuscated_res_0x7f0921c4);
-            this.m = (TextView) a(R.id.obfuscated_res_0x7f091ad5);
-            this.n = (CountDownTextView) a(R.id.obfuscated_res_0x7f0906d3);
+            this.i = (RoundTbImageView) a(R.id.obfuscated_res_0x7f092318);
+            this.j = (TextView) a(R.id.obfuscated_res_0x7f09232f);
+            this.k = (TextView) a(R.id.obfuscated_res_0x7f092315);
+            this.l = (TextView) a(R.id.obfuscated_res_0x7f0921c6);
+            this.m = (TextView) a(R.id.obfuscated_res_0x7f091aaf);
+            this.n = (CountDownTextView) a(R.id.obfuscated_res_0x7f0906d2);
         }
     }
 }

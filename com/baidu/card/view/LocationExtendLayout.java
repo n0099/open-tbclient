@@ -66,7 +66,7 @@ public class LocationExtendLayout extends LinearLayout implements hx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(0);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d049c, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d049b, (ViewGroup) this, true);
             this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905ca);
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0905c7);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0905c8);

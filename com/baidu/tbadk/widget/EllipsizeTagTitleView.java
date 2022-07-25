@@ -306,7 +306,7 @@ public class EllipsizeTagTitleView extends View implements hx {
     public final void k(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04060e, R.attr.obfuscated_res_0x7f04060f, R.attr.obfuscated_res_0x7f040610, R.attr.obfuscated_res_0x7f040611, R.attr.obfuscated_res_0x7f040612, R.attr.obfuscated_res_0x7f040613, R.attr.obfuscated_res_0x7f040614, R.attr.obfuscated_res_0x7f040615, R.attr.obfuscated_res_0x7f040616, R.attr.obfuscated_res_0x7f040617, R.attr.obfuscated_res_0x7f040618, R.attr.obfuscated_res_0x7f040619});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040610, R.attr.obfuscated_res_0x7f040611, R.attr.obfuscated_res_0x7f040612, R.attr.obfuscated_res_0x7f040613, R.attr.obfuscated_res_0x7f040614, R.attr.obfuscated_res_0x7f040615, R.attr.obfuscated_res_0x7f040616, R.attr.obfuscated_res_0x7f040617, R.attr.obfuscated_res_0x7f040618, R.attr.obfuscated_res_0x7f040619, R.attr.obfuscated_res_0x7f04061a, R.attr.obfuscated_res_0x7f04061b});
             this.c = obtainStyledAttributes.getInt(9, CAM_X0105);
             this.b = obtainStyledAttributes.getInt(11, 0);
             this.a = obtainStyledAttributes.getDimensionPixelSize(10, B);

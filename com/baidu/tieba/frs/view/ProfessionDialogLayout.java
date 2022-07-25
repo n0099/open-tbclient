@@ -140,11 +140,11 @@ public class ProfessionDialogLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.c = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0709, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0713, this);
             setOrientation(1);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e6c);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e65);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f090758), (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f090759), (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f09075a), (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f090457), (int) R.color.CAM_X0302);
             setImageAttribute(tbImageView);
             SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080ba0);

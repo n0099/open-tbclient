@@ -21,11 +21,20 @@ public final class x implements com.kwad.sdk.core.d<AdInfo.AdRewardInfo> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "skipShowTime", adRewardInfo.skipShowTime);
-        com.kwad.sdk.utils.r.a(jSONObject, "rewardTime", adRewardInfo.rewardTime);
-        com.kwad.sdk.utils.r.a(jSONObject, "showLandingPage", adRewardInfo.showLandingPage);
-        com.kwad.sdk.utils.r.a(jSONObject, "rewardVideoEndCardSwitch", adRewardInfo.rewardVideoEndCardSwitch);
-        com.kwad.sdk.utils.r.a(jSONObject, "recommendAggregateSwitch", adRewardInfo.recommendAggregateSwitch);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "skipShowTime", adRewardInfo.skipShowTime);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "rewardTime", adRewardInfo.rewardTime);
+        int i = adRewardInfo.showLandingPage;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "showLandingPage", i);
+        }
+        boolean z = adRewardInfo.rewardVideoEndCardSwitch;
+        if (z) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "rewardVideoEndCardSwitch", z);
+        }
+        boolean z2 = adRewardInfo.recommendAggregateSwitch;
+        if (z2) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "recommendAggregateSwitch", z2);
+        }
         return jSONObject;
     }
 

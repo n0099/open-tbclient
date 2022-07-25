@@ -19,10 +19,10 @@ import com.repackage.bk7;
 import com.repackage.ck7;
 import com.repackage.dk7;
 import com.repackage.fk7;
-import com.repackage.j15;
-import com.repackage.v15;
+import com.repackage.k15;
+import com.repackage.w15;
 /* loaded from: classes3.dex */
-public class TailEditColorToolHost extends NoPressedLinearLayout implements v15 {
+public class TailEditColorToolHost extends NoPressedLinearLayout implements w15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -65,7 +65,7 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements v15 
             }
             this.a.c.c(ck7Var.b());
             this.a.b.notifyDataSetChanged();
-            this.a.e.A(new j15(26, -1, ck7Var.b()));
+            this.a.e.A(new k15(26, -1, ck7Var.b()));
         }
     }
 
@@ -92,27 +92,27 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements v15 
         f(tbPageContext, str);
     }
 
-    @Override // com.repackage.k15
-    public void C(j15 j15Var) {
+    @Override // com.repackage.l15
+    public void C(k15 k15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, j15Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, k15Var) == null) {
         }
     }
 
-    @Override // com.repackage.v15
-    public void L(j15 j15Var) {
+    @Override // com.repackage.w15
+    public void L(k15 k15Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j15Var) == null) || (editorTools = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k15Var) == null) || (editorTools = this.e) == null) {
             return;
         }
-        editorTools.A(j15Var);
+        editorTools.A(k15Var);
     }
 
     public final void f(TbPageContext<?> tbPageContext, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, str) == null) {
-            LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0807, (ViewGroup) this, true);
+            LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0811, (ViewGroup) this, true);
             this.d = new fk7(this);
             dk7 dk7Var = new dk7(tbPageContext);
             this.c = dk7Var;
@@ -123,14 +123,14 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements v15 
         }
     }
 
-    @Override // com.repackage.v15
+    @Override // com.repackage.w15
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    @Override // com.repackage.v15
+    @Override // com.repackage.w15
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -138,21 +138,21 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements v15 
         }
     }
 
-    @Override // com.repackage.v15
+    @Override // com.repackage.w15
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    @Override // com.repackage.v15
+    @Override // com.repackage.w15
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.v15
+    @Override // com.repackage.w15
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -160,7 +160,7 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements v15 
         }
     }
 
-    @Override // com.repackage.v15
+    @Override // com.repackage.w15
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
@@ -168,7 +168,7 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements v15 
         }
     }
 
-    @Override // com.repackage.v15
+    @Override // com.repackage.w15
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {

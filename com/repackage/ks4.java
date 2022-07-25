@@ -25,11 +25,11 @@ public class ks4 implements AppLaunchInfoFetcher.a {
     }
 
     @Override // com.baidu.tbadk.util.AppLaunchInfoFetcher.a
-    public void onFinish(qd5 qd5Var) {
+    public void onFinish(rd5 rd5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, qd5Var) == null) || qd5Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, rd5Var) == null) || rd5Var == null) {
             return;
         }
-        ls4.a().c(qd5Var.b);
+        js4.u(rd5Var.a, rd5Var.b);
     }
 }

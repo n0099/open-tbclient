@@ -42,7 +42,7 @@ public class ae extends al.a {
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo1145a() {
+    public String mo207a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "2" : (String) invokeV.objValue;
@@ -57,7 +57,7 @@ public class ae extends al.a {
             ibVar.a(bb.a(a, hp.a));
             ibVar.b(bb.a(a, hp.b));
             ii iiVar = new ii("-1", false);
-            iiVar.c(ht.p.f1225a);
+            iiVar.c(ht.p.f505a);
             iiVar.a(it.a(ibVar));
             ao.a(this.a).a((ao) iiVar, hj.i, (hw) null);
         }

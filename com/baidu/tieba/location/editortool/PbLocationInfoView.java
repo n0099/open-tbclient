@@ -94,12 +94,12 @@ public class PbLocationInfoView extends TextView {
             this.a = i;
             if (i == 1) {
                 if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a42);
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a2e);
                 }
                 setText(str);
             } else {
                 if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a3f);
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a2b);
                 }
                 setText(str);
             }

@@ -1,18 +1,18 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.SavedStateHandle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.lo1;
 import java.util.Collection;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,19 +20,199 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class jq1 extends iq1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile hg4 f;
-    public static long g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    public class a implements lo1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jq1 a;
 
-        public a() {
+        public a(jq1 jq1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jq1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jq1Var;
+        }
+
+        @Override // com.repackage.lo1.a
+        public is1 a(i03 i03Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, i03Var, jSONObject, str)) == null) {
+                String Q = jq1.Q(jSONObject);
+                if (Q == null) {
+                    return new is1(202);
+                }
+                if (r73.b(Q)) {
+                    return new is1(1001, "exceed storage key max length");
+                }
+                String P = jq1.P(jSONObject);
+                if (P == null) {
+                    return new is1(202);
+                }
+                if (r73.c(P)) {
+                    return new is1(1001, "exceed storage item max length");
+                }
+                if (this.a.N(i03Var, Q, P)) {
+                    return new is1(1003, "exceed storage max length");
+                }
+                jq1 jq1Var = this.a;
+                jq1Var.q("#setStorageImpl dataKey=" + Q + " dataValue=" + P, false);
+                this.a.F(i03Var).putString(Q, P);
+                this.a.X();
+                return is1.f();
+            }
+            return (is1) invokeLLL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements lo1.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jq1 a;
+
+        public b(jq1 jq1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jq1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jq1Var;
+        }
+
+        @Override // com.repackage.lo1.a
+        public is1 a(i03 i03Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, i03Var, jSONObject, str)) == null) {
+                this.a.q("#clearStorageImpl clear", false);
+                this.a.F(i03Var).edit().clear().apply();
+                this.a.X();
+                return is1.f();
+            }
+            return (is1) invokeLLL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements lo1.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jq1 a;
+
+        public c(jq1 jq1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jq1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jq1Var;
+        }
+
+        @Override // com.repackage.lo1.a
+        public is1 a(i03 i03Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, i03Var, jSONObject, str)) == null) {
+                String Q = jq1.Q(jSONObject);
+                if (Q == null) {
+                    return new is1(202);
+                }
+                jq1 jq1Var = this.a;
+                jq1Var.q("#removeStorageImpl dataKey=" + Q, false);
+                this.a.F(i03Var).remove(Q);
+                this.a.X();
+                return is1.f();
+            }
+            return (is1) invokeLLL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements lo1.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jq1 a;
+
+        public d(jq1 jq1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jq1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jq1Var;
+        }
+
+        @Override // com.repackage.lo1.a
+        public is1 a(i03 i03Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, i03Var, jSONObject, str)) == null) {
+                String Q = jq1.Q(jSONObject);
+                if (Q == null) {
+                    return new is1(202);
+                }
+                JSONObject O = jq1.O(this.a.F(i03Var).getString(Q, null));
+                if (O == null) {
+                    return new is1(202, "JSONException");
+                }
+                return new is1(0, O);
+            }
+            return (is1) invokeLLL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements lo1.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e(jq1 jq1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jq1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,234 +223,352 @@ public class jq1 extends iq1 {
             }
         }
 
+        @Override // com.repackage.lo1.a
+        public is1 a(i03 i03Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, i03Var, jSONObject, str)) == null) {
+                r73 f0 = i03Var.f0();
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put(SavedStateHandle.KEYS, new JSONArray((Collection) f0.g().a()));
+                    jSONObject2.put("currentSize", f0.e() / 1024);
+                    jSONObject2.put("limitSize", f0.n() / 1024);
+                    return new is1(0, jSONObject2);
+                } catch (JSONException unused) {
+                    return new is1(202, "JSONException");
+                }
+            }
+            return (is1) invokeLLL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class f implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ lo1.a b;
+        public final /* synthetic */ i03 c;
+        public final /* synthetic */ JSONObject d;
+        public final /* synthetic */ jq1 e;
+
+        public f(jq1 jq1Var, String str, lo1.a aVar, i03 i03Var, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jq1Var, str, aVar, i03Var, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = jq1Var;
+            this.a = str;
+            this.b = aVar;
+            this.c = i03Var;
+            this.d = jSONObject;
+        }
+
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long unused = jq1.g = jq1.f.c();
+                jq1 jq1Var = this.e;
+                String str = this.a;
+                jq1Var.d(str, this.b.a(this.c, this.d, str));
             }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755580121, "Lcom/repackage/jq1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755580121, "Lcom/repackage/jq1;");
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jq1(@NonNull io1 io1Var) {
-        super(io1Var);
+    public jq1(@NonNull jo1 jo1Var) {
+        super(jo1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {io1Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {jo1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((io1) newInitContext.callArgs[0]);
+                super((jo1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        synchronized (jq1.class) {
-            if (f == null) {
-                a0();
-            }
-        }
     }
 
-    public static synchronized void a0() {
+    @Nullable
+    public static JSONObject O(@Nullable String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            synchronized (jq1.class) {
-                if (f == null) {
-                    try {
-                        f = new y83("swan_js_global_storage", 2, dj2.g().getAbsolutePath());
-                    } catch (NoClassDefFoundError | UnsatisfiedLinkError unused) {
-                        f = new pg4("swan_js_global_storage");
-                        z83.i(1, "swan_js_global_storage");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (jSONObject.has("key")) {
+                        jSONObject.remove("key");
                     }
-                    b0();
+                    return jSONObject;
+                } catch (JSONException unused) {
                 }
             }
+            JSONObject jSONObject2 = new JSONObject();
+            if (str == null) {
+                str = "";
+            }
+            try {
+                jSONObject2.put("data", str);
+                return jSONObject2;
+            } catch (JSONException unused2) {
+                return null;
+            }
         }
+        return (JSONObject) invokeL.objValue;
     }
 
-    public static void b0() {
+    @Nullable
+    public static String P(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || f == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject.isNull("data")) {
+                return null;
+            }
+            return jSONObject.optString("data");
         }
-        bd3.f().execute(new a());
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.repackage.iq1
-    public hs1 A() {
+    @Nullable
+    public static String Q(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            if (jSONObject.isNull("key")) {
+                return null;
+            }
+            return jSONObject.optString("key");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public is1 A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             q("#clearStorage", false);
-            return super.A();
+            return B(null, true);
         }
-        return (hs1) invokeV.objValue;
+        return (is1) invokeV.objValue;
     }
 
-    @Override // com.repackage.iq1
-    public hs1 C() {
+    public is1 B(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) ? L(str, z, new b(this)) : (is1) invokeLZ.objValue;
+    }
+
+    public is1 C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             q("#clearStorageSync", false);
-            return super.C();
+            return B(null, false);
         }
-        return (hs1) invokeV.objValue;
+        return (is1) invokeV.objValue;
     }
 
-    @Override // com.repackage.iq1
-    public hs1 D(String str) {
+    public is1 D(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             q("#getStorage", false);
-            return super.D(str);
+            return E(str, true);
         }
-        return (hs1) invokeL.objValue;
+        return (is1) invokeL.objValue;
     }
 
-    @Override // com.repackage.iq1
-    public hg4 F(@NonNull h03 h03Var) {
+    public is1 E(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) ? L(str, z, new d(this)) : (is1) invokeLZ.objValue;
+    }
+
+    public ig4 F(@NonNull i03 i03Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, h03Var)) == null) ? f : (hg4) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, i03Var)) == null) ? i03Var.f0().g() : (ig4) invokeL.objValue;
     }
 
-    @Override // com.repackage.iq1
-    public hs1 G() {
+    public is1 G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             q("#getStorageInfo", false);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(SavedStateHandle.KEYS, new JSONArray((Collection) f.a()));
-                jSONObject.put("currentSize", g / 1024);
-                jSONObject.put("limitSize", 10240);
-                return new hs1(0, jSONObject);
-            } catch (JSONException unused) {
-                return new hs1(202, "JSONException");
-            }
+            return I(null, true);
         }
-        return (hs1) invokeV.objValue;
+        return (is1) invokeV.objValue;
     }
 
-    @Override // com.repackage.iq1
-    public hs1 J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            q("#getStorageInfoSync", false);
-            return G();
-        }
-        return (hs1) invokeV.objValue;
-    }
-
-    @Override // com.repackage.iq1
-    public hs1 K(String str) {
+    public is1 H(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            q("#getStorageSync", false);
-            return super.K(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            q("#getStorageInfoAsync", false);
+            return I(str, true);
         }
-        return (hs1) invokeL.objValue;
+        return (is1) invokeL.objValue;
     }
 
-    @Override // com.repackage.iq1
+    public is1 I(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z)) == null) ? L(str, z, new e(this)) : (is1) invokeLZ.objValue;
+    }
+
+    public is1 J() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            q("#getStorageInfoSync", false);
+            return I(null, false);
+        }
+        return (is1) invokeV.objValue;
+    }
+
+    public is1 K(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            q("#getStorageSync", false);
+            return E(str, false);
+        }
+        return (is1) invokeL.objValue;
+    }
+
+    public final is1 L(@Nullable String str, boolean z, @NonNull lo1.a aVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, Boolean.valueOf(z), aVar})) == null) {
+            i03 M = i03.M();
+            if (M() && M == null) {
+                return new is1(1001, "swan app is null");
+            }
+            if (TextUtils.isEmpty(str)) {
+                return aVar.a(M, new JSONObject(), null);
+            }
+            Pair<is1, JSONObject> s = s(str);
+            is1 is1Var = (is1) s.first;
+            if (is1Var.isSuccess()) {
+                JSONObject jSONObject = (JSONObject) s.second;
+                String optString = z ? jSONObject.optString("cb") : null;
+                if (z && !TextUtils.isEmpty(optString)) {
+                    cd3.k(new f(this, optString, aVar, M, jSONObject), "StorageApi");
+                    return is1.f();
+                }
+                return aVar.a(M, jSONObject, null);
+            }
+            return is1Var;
+        }
+        return (is1) invokeCommon.objValue;
+    }
+
     public boolean M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.iq1
-    public boolean N(@Nullable h03 h03Var, @NonNull String str, @NonNull String str2) {
+    public boolean N(@Nullable i03 i03Var, @NonNull String str, @NonNull String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h03Var, str, str2)) == null) ? (g - ((long) f.getString(str, "").length())) + ((long) str2.length()) > Config.FULL_TRACE_LOG_LIMIT : invokeLLL.booleanValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, i03Var, str, str2)) == null) {
+            if (i03Var == null) {
+                return false;
+            }
+            return i03Var.f0().m(str, str2);
+        }
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.repackage.iq1
-    public hs1 R(String str) {
+    public is1 R(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
             q("#removeStorage", false);
-            return super.R(str);
+            return S(str, true);
         }
-        return (hs1) invokeL.objValue;
+        return (is1) invokeL.objValue;
     }
 
-    @Override // com.repackage.iq1
-    public hs1 T(String str) {
+    public is1 S(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048591, this, str, z)) == null) ? L(str, z, new c(this)) : (is1) invokeLZ.objValue;
+    }
+
+    public is1 T(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
             q("#removeStorageSync", false);
-            return super.T(str);
+            return S(str, false);
         }
-        return (hs1) invokeL.objValue;
+        return (is1) invokeL.objValue;
     }
 
-    @Override // com.repackage.iq1
-    public hs1 U(String str) {
+    public is1 U(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
             q("#setStorage", false);
-            return super.U(str);
+            if (str != null && str.length() > 3145728) {
+                return new is1(1001, "exceed storage item max length");
+            }
+            return V(str, true);
         }
-        return (hs1) invokeL.objValue;
+        return (is1) invokeL.objValue;
     }
 
-    @Override // com.repackage.iq1
-    public hs1 W(String str) {
+    public final is1 V(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048594, this, str, z)) == null) ? L(str, z, new a(this)) : (is1) invokeLZ.objValue;
+    }
+
+    public is1 W(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
             q("#setStorageSync", false);
-            return super.W(str);
+            return V(str, false);
         }
-        return (hs1) invokeL.objValue;
+        return (is1) invokeL.objValue;
     }
 
-    @Override // com.repackage.iq1
     public void X() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            b0();
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            ec3.h.update();
         }
     }
 
-    @Override // com.repackage.iq1, com.repackage.ko1
+    @Override // com.repackage.lo1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? "SwanGlobalStorageApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? "StorageApi" : (String) invokeV.objValue;
     }
 }

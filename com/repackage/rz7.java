@@ -89,16 +89,16 @@ public class rz7 extends bn {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d052b, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0535, (ViewGroup) null);
             this.a = inflate;
-            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f09139a);
-            tu4 tu4Var = new tu4();
+            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f091376);
+            uu4 uu4Var = new uu4();
             BaseFragment baseFragment = this.b;
             if (baseFragment != null && baseFragment.getContext() != null) {
-                this.d.setText(this.b.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a56));
+                this.d.setText(this.b.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a42));
             }
             this.d.setTextSize(R.dimen.tbds42);
-            this.d.setConfig(tu4Var);
+            this.d.setConfig(uu4Var);
             this.d.setOnClickListener(this.e);
             f(TbadkCoreApplication.getInst().getSkinType());
             return this.a;
@@ -116,7 +116,7 @@ public class rz7 extends bn {
     public void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            ga5.a(this.b.getPageContext(), this.a);
+            ha5.a(this.b.getPageContext(), this.a);
             TBSpecificationBtn tBSpecificationBtn = this.d;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.k();

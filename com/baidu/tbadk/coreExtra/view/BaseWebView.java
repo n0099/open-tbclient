@@ -30,11 +30,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.am4;
 import com.repackage.cj8;
 import com.repackage.ej8;
-import com.repackage.rl4;
 import com.repackage.sg;
-import com.repackage.zl4;
+import com.repackage.sl4;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 /* loaded from: classes3.dex */
@@ -130,7 +130,7 @@ public class BaseWebView extends WebView {
                     return true;
                 }
                 try {
-                    rl4.l(this.a.mContext, str);
+                    sl4.l(this.a.mContext, str);
                 } catch (Exception e) {
                     BdLog.e(e.toString());
                 }
@@ -225,7 +225,7 @@ public class BaseWebView extends WebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, renderProcessGoneDetail)) == null) {
-                zl4.a("BaseWebView", webView);
+                am4.a("BaseWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -427,7 +427,7 @@ public class BaseWebView extends WebView {
             getSettings().setCacheMode(2);
             getSettings().setUseWideViewPort(true);
             getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + SkinManager.getCurrentSkinTypeString());
-            rl4.a(getSettings());
+            sl4.a(getSettings());
             this.mWebViewClient = new c(this);
             this.mWebChromeClient = new k(this, null);
             this.mJsBridge = new cj8();
@@ -438,7 +438,7 @@ public class BaseWebView extends WebView {
                 removeJavascriptInterface("accessibility");
                 removeJavascriptInterface("accessibilityTraversal");
             }
-            rl4.g(getContext());
+            sl4.g(getContext());
             if (Build.VERSION.SDK_INT >= 21) {
                 setAcceptThirdPartyCookies(true);
                 getSettings().setMixedContentMode(0);

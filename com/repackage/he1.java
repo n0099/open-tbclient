@@ -41,7 +41,7 @@ public class he1 {
         this.b = context.getSharedPreferences("once_login_config", 0);
         context.getSharedPreferences("leroadcfg", 0);
         this.c = this.b.edit();
-        this.d = context;
+        this.d = context.getApplicationContext();
     }
 
     public static he1 f(Context context) {
@@ -96,7 +96,7 @@ public class he1 {
     public long E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? e("ky_cfo_t", sf1.f) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? e("ky_cfo_t", tf1.f) : invokeV.longValue;
     }
 
     public void F(long j) {
@@ -137,7 +137,7 @@ public class he1 {
             String K = K("xyus", "");
             this.a = K;
             if (TextUtils.isEmpty(K)) {
-                String b = wf1.b(UUID.randomUUID().toString());
+                String b = xf1.b(UUID.randomUUID().toString());
                 this.a = b;
                 R("xyus", b);
             }
@@ -326,7 +326,7 @@ public class he1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048613, this, str, str2)) == null) {
             String string = this.b.getString(str, str2);
-            return !TextUtils.isEmpty(string) ? uf1.a(this.d, string) : "";
+            return !TextUtils.isEmpty(string) ? vf1.a(this.d, string) : "";
         }
         return (String) invokeLL.objValue;
     }
@@ -426,7 +426,7 @@ public class he1 {
                         }
                     }
                 } catch (Throwable th) {
-                    sf1.d(th);
+                    tf1.d(th);
                 }
             }
             return false;
@@ -516,7 +516,7 @@ public class he1 {
         if (!(interceptable == null || interceptable.invokeLL(1048638, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
-        this.c.putString(str, uf1.b(this.d, str2.getBytes()));
+        this.c.putString(str, vf1.b(this.d, str2.getBytes()));
         this.c.commit();
     }
 
@@ -538,7 +538,7 @@ public class he1 {
     public long x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? e("k_a_itl", rf1.b * 24) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? e("k_a_itl", sf1.b * 24) : invokeV.longValue;
     }
 
     public void y(int i) {

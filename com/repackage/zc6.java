@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zc6 implements zr4 {
+public class zc6 implements as4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -30,14 +30,14 @@ public class zc6 implements zr4 {
         this.a = str;
     }
 
-    @Override // com.repackage.zr4
+    @Override // com.repackage.as4
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.zr4
+    @Override // com.repackage.as4
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

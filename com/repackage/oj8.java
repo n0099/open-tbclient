@@ -176,60 +176,60 @@ public class oj8 {
             try {
                 cursor = mainDBDatabaseManager.j("select * from setting where account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
                 if (cursor != null && cursor.moveToFirst()) {
-                    py4.d().J(cursor.getInt(cursor.getColumnIndex("frequency")));
-                    py4.d().L(cursor.getInt(cursor.getColumnIndex("fans_switch")) == 1);
+                    qy4.d().J(cursor.getInt(cursor.getColumnIndex("frequency")));
+                    qy4.d().L(cursor.getInt(cursor.getColumnIndex("fans_switch")) == 1);
                     if (cursor.getInt(cursor.getColumnIndex("reply_me_switch")) == 0) {
-                        py4.d().M(false);
+                        qy4.d().M(false);
                     } else {
-                        py4.d().M(true);
+                        qy4.d().M(true);
                     }
                     if (cursor.getInt(cursor.getColumnIndex("at_me_switch")) == 0) {
-                        py4.d().H(false);
+                        qy4.d().H(false);
                     } else {
-                        py4.d().H(true);
+                        qy4.d().H(true);
                     }
                     if (cursor.getInt(cursor.getColumnIndex("zan_me_switch")) == 0) {
-                        py4.d().P(false);
+                        qy4.d().P(false);
                     } else {
-                        py4.d().P(true);
+                        qy4.d().P(true);
                     }
-                    py4.d().a(cursor.getInt(cursor.getColumnIndex("remind_tone")));
+                    qy4.d().a(cursor.getInt(cursor.getColumnIndex("remind_tone")));
                     if (cursor.getInt(cursor.getColumnIndex("msg_chat_switch")) == 0) {
-                        py4.d().I(false);
+                        qy4.d().I(false);
                     } else {
-                        py4.d().I(true);
+                        qy4.d().I(true);
                     }
                     if (cursor.getInt(cursor.getColumnIndex("nodisturb_switch")) == 0) {
-                        py4.d().R(false);
+                        qy4.d().R(false);
                     } else {
-                        py4.d().R(true);
+                        qy4.d().R(true);
                     }
-                    py4.d().S(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
-                    py4.d().Q(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                    qy4.d().S(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                    qy4.d().Q(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
                     if (cursor.getInt(cursor.getColumnIndex("remind_light")) == 0) {
-                        py4.d().K(false);
+                        qy4.d().K(false);
                     } else {
-                        py4.d().K(true);
+                        qy4.d().K(true);
                     }
                     if (cursor.getInt(cursor.getColumnIndex("stranger_chat_switch")) == 0) {
-                        py4.d().X(false);
+                        qy4.d().X(false);
                     } else {
-                        py4.d().X(true);
+                        qy4.d().X(true);
                     }
                 } else {
-                    py4.d().J(300);
-                    py4.d().L(true);
-                    py4.d().M(true);
-                    py4.d().H(true);
-                    py4.d().P(true);
-                    py4.d().N(true);
-                    py4.d().O(false);
-                    py4.d().K(true);
-                    py4.d().X(false);
-                    py4.d().I(true);
-                    py4.d().R(false);
-                    py4.d().S(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
-                    py4.d().Q(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                    qy4.d().J(300);
+                    qy4.d().L(true);
+                    qy4.d().M(true);
+                    qy4.d().H(true);
+                    qy4.d().P(true);
+                    qy4.d().N(true);
+                    qy4.d().O(false);
+                    qy4.d().K(true);
+                    qy4.d().X(false);
+                    qy4.d().I(true);
+                    qy4.d().R(false);
+                    qy4.d().S(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                    qy4.d().Q(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
                 }
             } catch (Exception e) {
                 mainDBDatabaseManager.i(e, "getSettingData");
@@ -280,6 +280,6 @@ public class oj8 {
         }
         j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         mainDBDatabaseManager.e("delete from setting where account=?", new Object[]{TbadkCoreApplication.getCurrentAccount()});
-        mainDBDatabaseManager.e("Insert into setting(account,frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone,msg_chat_switch,nodisturb_switch,nodisturb_start_time,nodisturb_end_time,remind_light,stranger_chat_switch,zan_me_switch) values(?,?,?,?,?,?,?,?,?,?,?,?,?)", new Object[]{TbadkCoreApplication.getCurrentAccount(), Integer.valueOf(py4.d().f()), Integer.valueOf(py4.d().v() ? 1 : 0), Integer.valueOf(py4.d().x() ? 1 : 0), Integer.valueOf(py4.d().s() ? 1 : 0), Integer.valueOf(py4.d().c()), Integer.valueOf(py4.d().t() ? 1 : 0), Integer.valueOf(py4.d().B() ? 1 : 0), py4.d().h(), py4.d().g(), Integer.valueOf(py4.d().u() ? 1 : 0), Integer.valueOf(py4.d().D() ? 1 : 0), Integer.valueOf(py4.d().A() ? 1 : 0)});
+        mainDBDatabaseManager.e("Insert into setting(account,frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone,msg_chat_switch,nodisturb_switch,nodisturb_start_time,nodisturb_end_time,remind_light,stranger_chat_switch,zan_me_switch) values(?,?,?,?,?,?,?,?,?,?,?,?,?)", new Object[]{TbadkCoreApplication.getCurrentAccount(), Integer.valueOf(qy4.d().f()), Integer.valueOf(qy4.d().v() ? 1 : 0), Integer.valueOf(qy4.d().x() ? 1 : 0), Integer.valueOf(qy4.d().s() ? 1 : 0), Integer.valueOf(qy4.d().c()), Integer.valueOf(qy4.d().t() ? 1 : 0), Integer.valueOf(qy4.d().B() ? 1 : 0), qy4.d().h(), qy4.d().g(), Integer.valueOf(qy4.d().u() ? 1 : 0), Integer.valueOf(qy4.d().D() ? 1 : 0), Integer.valueOf(qy4.d().A() ? 1 : 0)});
     }
 }

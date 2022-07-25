@@ -9,18 +9,18 @@ import java.util.UUID;
 /* loaded from: classes5.dex */
 public final class a {
     public static void a(ExceptionMessage exceptionMessage) {
-        com.kwad.sdk.core.d.b.a("ExceptionCollector", "upload msg=" + exceptionMessage);
+        com.kwad.sdk.core.e.b.d("ExceptionCollector", "upload msg=" + exceptionMessage);
         ArrayList arrayList = new ArrayList(1);
-        arrayList.add(com.kwad.sdk.crash.report.request.c.a(exceptionMessage));
+        arrayList.add(com.kwad.sdk.crash.report.request.c.c(exceptionMessage));
         new com.kwad.sdk.crash.report.request.b().a(arrayList, null);
     }
 
-    public static void a(@NonNull Throwable th) {
+    public static void j(@NonNull Throwable th) {
         CaughtExceptionMessage caughtExceptionMessage = new CaughtExceptionMessage();
         caughtExceptionMessage.mLogUUID = UUID.randomUUID().toString();
         caughtExceptionMessage.mCrashDetail = th.toString();
         caughtExceptionMessage.mCrashSource = 1;
-        f.a(th, caughtExceptionMessage, com.kwad.sdk.crash.d.a().g());
+        f.b(th, caughtExceptionMessage, com.kwad.sdk.crash.d.wz().getContext());
         f.a(caughtExceptionMessage, 2);
         a(caughtExceptionMessage);
     }

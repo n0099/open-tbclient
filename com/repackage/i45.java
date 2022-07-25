@@ -1,90 +1,115 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.growth.ActivityChangeSchemeModel;
+import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubc.UBCManager;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class i45 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "before_request");
-                jSONObject.put("value", "1");
-                uBCManager.onEvent("4509", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+    /* loaded from: classes6.dex */
+    public static class a extends de5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-                jSONObject.put("value", "0");
-                JSONObject jSONObject2 = new JSONObject();
-                if (StringUtils.isNull(str)) {
-                    str = "";
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                jSONObject2.put("scheme", str);
-                jSONObject.put("ext", jSONObject2);
-                uBCManager.onEvent("4509", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.repackage.de5
+        public Boolean doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(ni4.D().F()) : (Boolean) invokeV.objValue;
         }
     }
 
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-                jSONObject.put("value", "1");
-                JSONObject jSONObject2 = new JSONObject();
-                if (StringUtils.isNull(str)) {
-                    str = "";
+    /* loaded from: classes6.dex */
+    public static class b implements kd5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                jSONObject2.put("scheme", str);
-                jSONObject.put("ext", jSONObject2);
-                uBCManager.onEvent("4509", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.kd5
+        /* renamed from: a */
+        public void onReturnDataInUI(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, bool) == null) || bool == null || bool.booleanValue()) {
+                return;
+            }
+            i45.c();
         }
     }
 
-    public static void d(boolean z, JSONObject jSONObject) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755668409, "Lcom/repackage/i45;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755668409, "Lcom/repackage/i45;");
+        }
+    }
+
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(65539, null, z, jSONObject) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("type", "request");
-                jSONObject2.put("value", z ? "1" : "0");
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("slog", jSONObject != null ? jSONObject : "");
-                jSONObject2.put("ext", jSONObject3);
-                uBCManager.onEvent("4509", jSONObject2);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || a) {
+            return;
+        }
+        if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
+            he5.b(new a(), new b());
+        } else if (ni4.D().F()) {
+        } else {
+            c();
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && ni.z()) {
+            ActivityChangeSchemeModel activityChangeSchemeModel = new ActivityChangeSchemeModel();
+            j45.a();
+            activityChangeSchemeModel.request();
         }
     }
 }

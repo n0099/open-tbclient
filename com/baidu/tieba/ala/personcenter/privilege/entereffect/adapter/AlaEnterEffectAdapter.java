@@ -65,23 +65,23 @@ public class AlaEnterEffectAdapter extends an<AlaEnterEffectData, ViewHolder> {
                     return;
                 }
             }
-            c();
+            b();
         }
 
-        public final void c() {
+        public final void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                TbImageView tbImageView = (TbImageView) b().findViewById(R.id.obfuscated_res_0x7f0901cb);
+                TbImageView tbImageView = (TbImageView) a().findViewById(R.id.obfuscated_res_0x7f0901cb);
                 this.a = tbImageView;
                 tbImageView.setAutoChangeStyle(false);
-                this.b = (TextView) b().findViewById(R.id.obfuscated_res_0x7f0901d1);
-                this.c = (TextView) b().findViewById(R.id.obfuscated_res_0x7f0901d2);
-                this.d = (TextView) b().findViewById(R.id.obfuscated_res_0x7f0901d3);
-                this.e = (ImageView) b().findViewById(R.id.obfuscated_res_0x7f0901c8);
-                this.f = (ProgressBar) b().findViewById(R.id.obfuscated_res_0x7f0901cf);
-                this.g = b().findViewById(R.id.obfuscated_res_0x7f0901da);
-                this.h = b().findViewById(R.id.obfuscated_res_0x7f0901cc);
-                this.i = (TextView) b().findViewById(R.id.obfuscated_res_0x7f0901c5);
+                this.b = (TextView) a().findViewById(R.id.obfuscated_res_0x7f0901d1);
+                this.c = (TextView) a().findViewById(R.id.obfuscated_res_0x7f0901d2);
+                this.d = (TextView) a().findViewById(R.id.obfuscated_res_0x7f0901d3);
+                this.e = (ImageView) a().findViewById(R.id.obfuscated_res_0x7f0901c8);
+                this.f = (ProgressBar) a().findViewById(R.id.obfuscated_res_0x7f0901cf);
+                this.g = a().findViewById(R.id.obfuscated_res_0x7f0901da);
+                this.h = a().findViewById(R.id.obfuscated_res_0x7f0901cc);
+                this.i = (TextView) a().findViewById(R.id.obfuscated_res_0x7f0901c5);
             }
         }
     }
@@ -114,7 +114,7 @@ public class AlaEnterEffectAdapter extends an<AlaEnterEffectData, ViewHolder> {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewHolder) == null) || viewHolder == null) {
             return;
         }
-        SkinManager.setBackgroundResource(viewHolder.b(), R.color.CAM_X0201);
+        SkinManager.setBackgroundResource(viewHolder.a(), R.color.CAM_X0201);
         SkinManager.setViewTextColor(viewHolder.d, R.color.CAM_X0109, 1, this.j);
         SkinManager.setViewTextColor(viewHolder.b, R.color.CAM_X0105, 1, this.j);
         if (this.j == 1) {
@@ -185,7 +185,7 @@ public class AlaEnterEffectAdapter extends an<AlaEnterEffectData, ViewHolder> {
                 viewHolder.i.setCompoundDrawables(null, null, null, null);
             }
             Z(viewHolder);
-            return viewHolder.b();
+            return viewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

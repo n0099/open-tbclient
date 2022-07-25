@@ -25,8 +25,8 @@ public class lx7 implements uo8 {
     public Context a;
     public BdUniqueId b;
     public mx7 c;
-    public au4 d;
-    public cu4 e;
+    public bu4 d;
+    public du4 e;
     public HttpMessageListener f;
 
     /* loaded from: classes6.dex */
@@ -105,7 +105,7 @@ public class lx7 implements uo8 {
                 }
                 String errorString = uEGReportResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString)) {
-                    errorString = this.a.a.getString(R.string.obfuscated_res_0x7f0f0c2b);
+                    errorString = this.a.a.getString(R.string.obfuscated_res_0x7f0f0c17);
                 }
                 this.a.e.b(errorString);
             }
@@ -130,9 +130,9 @@ public class lx7 implements uo8 {
         this.f = new b(this, CmdConfigHttp.CMD_UEG_REPORT);
         this.a = context;
         this.c = new mx7();
-        cu4 cu4Var = new cu4();
-        this.e = cu4Var;
-        cu4Var.a = 1000L;
+        du4 du4Var = new du4();
+        this.e = du4Var;
+        du4Var.a = 1000L;
     }
 
     @Override // com.repackage.uo8
@@ -168,7 +168,7 @@ public class lx7 implements uo8 {
     public final void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a, this.a.getString(R.string.obfuscated_res_0x7f0f0df1), str, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a, this.a.getString(R.string.obfuscated_res_0x7f0f0dda), str, true)));
         }
     }
 
@@ -181,9 +181,9 @@ public class lx7 implements uo8 {
                 if (tbPageContext == null) {
                     return;
                 }
-                au4 au4Var = new au4(tbPageContext);
-                this.d = au4Var;
-                au4Var.e(new a(this));
+                bu4 bu4Var = new bu4(tbPageContext);
+                this.d = bu4Var;
+                bu4Var.e(new a(this));
             }
             this.d.h(true);
         }

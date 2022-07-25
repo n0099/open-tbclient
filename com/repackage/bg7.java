@@ -95,7 +95,7 @@ public class bg7 implements yf7 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-                mt4.a("search", -1L, 0, "OverrideUrl", 0, "", "requesturl", str);
+                nt4.a("search", -1L, 0, "OverrideUrl", 0, "", "requesturl", str);
                 if (!TbadkCoreApplication.isLogin() && str != null && ce5.e(str) && ce5.a()) {
                     LoginDialogData loginDialogData = new LoginDialogData(this.a.a, LoginDialogData.SEARCH_RESULT_PAGE);
                     loginDialogData.setUrl(str);
@@ -488,7 +488,7 @@ public class bg7 implements yf7 {
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                mt4.a("search", -1L, 0, "PageFinished", 0, "", "requesturl", str);
+                nt4.a("search", -1L, 0, "PageFinished", 0, "", "requesturl", str);
             }
         }
     }
@@ -518,7 +518,7 @@ public class bg7 implements yf7 {
         public void a(WebView webView, int i, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, webView, i, str, str2) == null) {
-                mt4.a("search", -1L, 0, "ReceivedError", 0, "", "requesturl", str2, "receiveerror", Integer.valueOf(i), "description", str);
+                nt4.a("search", -1L, 0, "ReceivedError", 0, "", "requesturl", str2, "receiveerror", Integer.valueOf(i), "description", str);
             }
         }
     }
@@ -550,7 +550,7 @@ public class bg7 implements yf7 {
             if (!(interceptable == null || interceptable.invokeLLL(1048576, this, webView, sslErrorHandler, sslError) == null) || sslError == null) {
                 return;
             }
-            mt4.a("search", -1L, 0, "ReceivedSslError", 0, "", "requesturl", sslError.getUrl(), "receiveerror", sslError.toString());
+            nt4.a("search", -1L, 0, "ReceivedSslError", 0, "", "requesturl", sslError.getUrl(), "receiveerror", sslError.toString());
         }
     }
 
@@ -601,7 +601,7 @@ public class bg7 implements yf7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             if (!ni.z()) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
             } else if (StringUtils.isNull(str)) {
             } else {
                 Matcher matcher = Pattern.compile("^@(.*)@给你分享了贴吧号#(\\d+)#\\s?整段复制后打开贴吧即可找到Ta$", 2).matcher(str);
@@ -690,7 +690,7 @@ public class bg7 implements yf7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             try {
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05fd, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0607, (ViewGroup) null);
                 this.c = inflate;
                 this.a.setContentView(inflate);
             } catch (Exception e2) {
@@ -702,7 +702,7 @@ public class bg7 implements yf7 {
                     for (String str : a2.keySet()) {
                         xf7.b(str);
                         try {
-                            View inflate2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05fd, (ViewGroup) null);
+                            View inflate2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0607, (ViewGroup) null);
                             this.c = inflate2;
                             this.a.setContentView(inflate2);
                             break;
@@ -813,11 +813,11 @@ public class bg7 implements yf7 {
             HotSearchInfoData hotSearchInfoData = this.e;
             if (hotSearchInfoData == null) {
                 BaseActivity baseActivity = this.a;
-                baseActivity.showToast(baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f15d9));
+                baseActivity.showToast(baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1588));
                 return;
             }
             if (hotSearchInfoData.getType() != 0 && this.e.getType() != 2) {
-                if (this.e.getType() == 1 && !id5.b(this.a.getPageContext())) {
+                if (this.e.getType() == 1 && !jd5.b(this.a.getPageContext())) {
                     this.a.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.a.getPageContext().getPageActivity()).createNormalConfig(String.valueOf(this.e.getId()), this.e.getName(), "4")));
                 }
             } else {
@@ -835,7 +835,7 @@ public class bg7 implements yf7 {
         }
         HotSearchInfoData hotSearchInfoData = this.e;
         if (hotSearchInfoData == null) {
-            ag7Var.z(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f10be));
+            ag7Var.z(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f107a));
         } else {
             ag7Var.z(hotSearchInfoData.A());
         }

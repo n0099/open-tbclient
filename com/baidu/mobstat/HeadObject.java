@@ -4,7 +4,6 @@ import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -74,8 +73,8 @@ public class HeadObject {
                 if (this.a) {
                     return;
                 }
-                bo.e(context, PermissionChecker.READ_PHONE_STATE);
-                bo.e(context, PermissionChecker.INTERNET);
+                bo.e(context, com.kuaishou.weapon.p0.h.c);
+                bo.e(context, com.kuaishou.weapon.p0.h.a);
                 bo.e(context, "android.permission.ACCESS_NETWORK_STATE");
                 bo.e(context, "android.permission.WRITE_SETTINGS");
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
@@ -232,7 +231,7 @@ public class HeadObject {
                     jSONObject.put(Config.OPERATOR, this.m == null ? "" : this.m);
                     jSONObject.put("m", this.n == null ? "" : this.n);
                     jSONObject.put(Config.MANUFACTURER, this.o == null ? "" : this.o);
-                    jSONObject.put("cl", this.p);
+                    jSONObject.put(Config.CELL_LOCATION, this.p);
                     jSONObject.put(Config.GPS_LOCATION, this.q == null ? "" : this.q);
                     jSONObject.put("l", this.r == null ? "" : this.r);
                     jSONObject.put("t", System.currentTimeMillis());

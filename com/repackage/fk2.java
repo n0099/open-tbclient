@@ -1,18 +1,7 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import java.util.Map;
+import android.content.Context;
 /* loaded from: classes6.dex */
 public interface fk2 {
-    void a(e13 e13Var);
-
-    @Nullable
-    Map<String, Object> b(@NonNull io1 io1Var);
-
-    @Nullable
-    Map<String, Object> c(@NonNull io1 io1Var);
-
-    @Nullable
-    Map<Class, Object> d();
+    void a(Context context, String str, String str2, bh1 bh1Var);
 }

@@ -69,11 +69,15 @@ public final class ab implements com.kwad.sdk.core.d<AdTemplate> {
         adTemplate.isPlayAgainData = jSONObject.optBoolean("isPlayAgainData");
         adTemplate.inPlayAgain = jSONObject.optBoolean("inPlayAgain");
         adTemplate.watched = jSONObject.optBoolean("watched");
+        adTemplate.converted = jSONObject.optBoolean("converted");
         adTemplate.fromCache = jSONObject.optBoolean("fromCache", new Boolean("false").booleanValue());
         adTemplate.loadDataTime = jSONObject.optLong("loadDataTime");
         adTemplate.checkDataTime = jSONObject.optLong("checkDataTime");
         adTemplate.showStartTime = jSONObject.optLong("showStartTime");
         adTemplate.notNetworkRequest = jSONObject.optBoolean("notNetworkRequest");
+        adTemplate.downloadDuration = jSONObject.optLong("downloadDuration");
+        adTemplate.adLoadTotalTime = jSONObject.optLong("adLoadTotalTime");
+        adTemplate.adShowStartTimeStamp = jSONObject.optLong("adShowStartTimeStamp");
         adTemplate.mLoadFromCache = jSONObject.optBoolean("mLoadFromCache");
         adTemplate.mLoadDataTime = jSONObject.optLong("mLoadDataTime");
         adTemplate.mDownloadFinishTime = jSONObject.optLong("mDownloadFinishTime");
@@ -86,43 +90,149 @@ public final class ab implements com.kwad.sdk.core.d<AdTemplate> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "mOriginJString", adTemplate.mOriginJString);
-        com.kwad.sdk.utils.r.a(jSONObject, "posId", adTemplate.posId);
-        com.kwad.sdk.utils.r.a(jSONObject, "adStyle", adTemplate.adStyle);
-        com.kwad.sdk.utils.r.a(jSONObject, "type", adTemplate.type);
-        com.kwad.sdk.utils.r.a(jSONObject, CameraActivityConfig.KEY_CONTENT_TYPE, adTemplate.contentType);
-        com.kwad.sdk.utils.r.a(jSONObject, "adInfo", adTemplate.adInfoList);
-        com.kwad.sdk.utils.r.a(jSONObject, "impAdExtra", adTemplate.impAdExtra);
-        com.kwad.sdk.utils.r.a(jSONObject, "llsid", adTemplate.llsid);
-        com.kwad.sdk.utils.r.a(jSONObject, "mIsFromContent", adTemplate.mIsFromContent);
-        com.kwad.sdk.utils.r.a(jSONObject, "extra", adTemplate.extra);
-        com.kwad.sdk.utils.r.a(jSONObject, "mUniqueId", adTemplate.mUniqueId);
-        com.kwad.sdk.utils.r.a(jSONObject, "mBidEcpm", adTemplate.mBidEcpm);
+        String str = adTemplate.mOriginJString;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "mOriginJString", adTemplate.mOriginJString);
+        }
+        long j = adTemplate.posId;
+        if (j != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "posId", j);
+        }
+        int i = adTemplate.adStyle;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "adStyle", i);
+        }
+        int i2 = adTemplate.type;
+        if (i2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "type", i2);
+        }
+        int i3 = adTemplate.contentType;
+        if (i3 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, CameraActivityConfig.KEY_CONTENT_TYPE, i3);
+        }
+        com.kwad.sdk.utils.r.putValue(jSONObject, "adInfo", adTemplate.adInfoList);
+        String str2 = adTemplate.impAdExtra;
+        if (str2 != null && !str2.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "impAdExtra", adTemplate.impAdExtra);
+        }
+        long j2 = adTemplate.llsid;
+        if (j2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "llsid", j2);
+        }
+        boolean z = adTemplate.mIsFromContent;
+        if (z) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "mIsFromContent", z);
+        }
+        String str3 = adTemplate.extra;
+        if (str3 != null && !str3.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "extra", adTemplate.extra);
+        }
+        String str4 = adTemplate.mUniqueId;
+        if (str4 != null && !str4.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "mUniqueId", adTemplate.mUniqueId);
+        }
+        int i4 = adTemplate.mBidEcpm;
+        if (i4 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "mBidEcpm", i4);
+        }
         com.kwad.sdk.utils.r.a(jSONObject, "mAdScene", adTemplate.mAdScene);
-        com.kwad.sdk.utils.r.a(jSONObject, "realShowType", adTemplate.realShowType);
-        com.kwad.sdk.utils.r.a(jSONObject, "mInitVoiceStatus", adTemplate.mInitVoiceStatus);
-        com.kwad.sdk.utils.r.a(jSONObject, "mMediaPlayerType", adTemplate.mMediaPlayerType);
+        int i5 = adTemplate.realShowType;
+        if (i5 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "realShowType", i5);
+        }
+        int i6 = adTemplate.mInitVoiceStatus;
+        if (i6 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "mInitVoiceStatus", i6);
+        }
+        int i7 = adTemplate.mMediaPlayerType;
+        if (i7 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "mMediaPlayerType", i7);
+        }
         com.kwad.sdk.utils.r.a(jSONObject, "mVideoPlayerStatus", adTemplate.mVideoPlayerStatus);
-        com.kwad.sdk.utils.r.a(jSONObject, "mOutClickTimeParam", adTemplate.mOutClickTimeParam);
-        com.kwad.sdk.utils.r.a(jSONObject, "mVisibleTimeParam", adTemplate.mVisibleTimeParam);
-        com.kwad.sdk.utils.r.a(jSONObject, "mIsLeftSlipStatus", adTemplate.mIsLeftSlipStatus);
-        com.kwad.sdk.utils.r.a(jSONObject, "mPhotoResponseType", adTemplate.mPhotoResponseType);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "mOutClickTimeParam", adTemplate.mOutClickTimeParam);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "mVisibleTimeParam", adTemplate.mVisibleTimeParam);
+        int i8 = adTemplate.mIsLeftSlipStatus;
+        if (i8 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "mIsLeftSlipStatus", i8);
+        }
+        int i9 = adTemplate.mPhotoResponseType;
+        if (i9 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "mPhotoResponseType", i9);
+        }
         com.kwad.sdk.utils.r.a(jSONObject, "mPageInfo", adTemplate.mPageInfo);
-        com.kwad.sdk.utils.r.a(jSONObject, "mRewardVerifyCalled", adTemplate.mRewardVerifyCalled);
-        com.kwad.sdk.utils.r.a(jSONObject, "isWebViewDownload", adTemplate.isWebViewDownload);
-        com.kwad.sdk.utils.r.a(jSONObject, "isPlayAgainData", adTemplate.isPlayAgainData);
-        com.kwad.sdk.utils.r.a(jSONObject, "inPlayAgain", adTemplate.inPlayAgain);
-        com.kwad.sdk.utils.r.a(jSONObject, "watched", adTemplate.watched);
-        com.kwad.sdk.utils.r.a(jSONObject, "fromCache", adTemplate.fromCache);
-        com.kwad.sdk.utils.r.a(jSONObject, "loadDataTime", adTemplate.loadDataTime);
-        com.kwad.sdk.utils.r.a(jSONObject, "checkDataTime", adTemplate.checkDataTime);
-        com.kwad.sdk.utils.r.a(jSONObject, "showStartTime", adTemplate.showStartTime);
-        com.kwad.sdk.utils.r.a(jSONObject, "notNetworkRequest", adTemplate.notNetworkRequest);
-        com.kwad.sdk.utils.r.a(jSONObject, "mLoadFromCache", adTemplate.mLoadFromCache);
-        com.kwad.sdk.utils.r.a(jSONObject, "mLoadDataTime", adTemplate.mLoadDataTime);
-        com.kwad.sdk.utils.r.a(jSONObject, "mDownloadFinishTime", adTemplate.mDownloadFinishTime);
-        com.kwad.sdk.utils.r.a(jSONObject, "mDownloadType", adTemplate.mDownloadType);
-        com.kwad.sdk.utils.r.a(jSONObject, "mDownloadSize", adTemplate.mDownloadSize);
+        boolean z2 = adTemplate.mRewardVerifyCalled;
+        if (z2) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "mRewardVerifyCalled", z2);
+        }
+        boolean z3 = adTemplate.isWebViewDownload;
+        if (z3) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "isWebViewDownload", z3);
+        }
+        boolean z4 = adTemplate.isPlayAgainData;
+        if (z4) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "isPlayAgainData", z4);
+        }
+        boolean z5 = adTemplate.inPlayAgain;
+        if (z5) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "inPlayAgain", z5);
+        }
+        boolean z6 = adTemplate.watched;
+        if (z6) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "watched", z6);
+        }
+        boolean z7 = adTemplate.converted;
+        if (z7) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "converted", z7);
+        }
+        com.kwad.sdk.utils.r.putValue(jSONObject, "fromCache", adTemplate.fromCache);
+        long j3 = adTemplate.loadDataTime;
+        if (j3 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "loadDataTime", j3);
+        }
+        long j4 = adTemplate.checkDataTime;
+        if (j4 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "checkDataTime", j4);
+        }
+        long j5 = adTemplate.showStartTime;
+        if (j5 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "showStartTime", j5);
+        }
+        boolean z8 = adTemplate.notNetworkRequest;
+        if (z8) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "notNetworkRequest", z8);
+        }
+        long j6 = adTemplate.downloadDuration;
+        if (j6 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "downloadDuration", j6);
+        }
+        long j7 = adTemplate.adLoadTotalTime;
+        if (j7 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "adLoadTotalTime", j7);
+        }
+        long j8 = adTemplate.adShowStartTimeStamp;
+        if (j8 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "adShowStartTimeStamp", j8);
+        }
+        boolean z9 = adTemplate.mLoadFromCache;
+        if (z9) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "mLoadFromCache", z9);
+        }
+        long j9 = adTemplate.mLoadDataTime;
+        if (j9 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "mLoadDataTime", j9);
+        }
+        long j10 = adTemplate.mDownloadFinishTime;
+        if (j10 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "mDownloadFinishTime", j10);
+        }
+        int i10 = adTemplate.mDownloadType;
+        if (i10 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "mDownloadType", i10);
+        }
+        long j11 = adTemplate.mDownloadSize;
+        if (j11 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "mDownloadSize", j11);
+        }
         return jSONObject;
     }
 

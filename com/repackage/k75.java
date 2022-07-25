@@ -1,15 +1,16 @@
 package com.repackage;
 
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestDataManager;
-import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class k75 implements l65<SyncDataEvent> {
+public class k75 implements m65<SoLoaderEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,18 +29,21 @@ public class k75 implements l65<SyncDataEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.l65
+    @Override // com.repackage.m65
     /* renamed from: a */
-    public boolean onEvent(SyncDataEvent syncDataEvent) {
+    public boolean onEvent(SoLoaderEvent soLoaderEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, syncDataEvent)) == null) {
-            if (syncDataEvent == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, soLoaderEvent)) == null) {
+            if (soLoaderEvent == null || StringUtils.isNull(soLoaderEvent.name)) {
                 return false;
             }
-            TbSingleton.getInstance().setSampleId(syncDataEvent.sampleId);
-            uc5.d().f(syncDataEvent.abtestExtraData);
-            UbsABTestDataManager.getInstance().parseJSONArrayByStr(syncDataEvent.ubsABTest);
+            if (gm.a(BdBaseApplication.getInst().getContext(), em.a(soLoaderEvent.name))) {
+                ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
+                String str = soLoaderEvent.name;
+                resHashMap.put(str, em.a(str));
+                return true;
+            }
             return true;
         }
         return invokeL.booleanValue;

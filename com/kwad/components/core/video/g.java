@@ -1,23 +1,23 @@
 package com.kwad.components.core.video;
 /* loaded from: classes5.dex */
 public interface g {
-    void a();
+    void onVideoPlayBufferingPaused();
 
-    void a(int i, int i2);
+    void onVideoPlayBufferingPlaying();
 
-    void a(long j, long j2);
+    void onVideoPlayCompleted();
 
-    void b();
+    void onVideoPlayError(int i, int i2);
 
-    void c();
+    void onVideoPlayPaused();
 
-    void d();
+    void onVideoPlayProgress(long j, long j2);
 
-    void e();
+    void onVideoPlayStart();
 
-    void f();
+    void onVideoPlaying();
 
-    void g();
+    void onVideoPrepared();
 
-    void h();
+    void onVideoPreparing();
 }

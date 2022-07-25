@@ -48,10 +48,10 @@ public class rc6 extends jx5<mc6> {
             }
         }
         this.m = 3;
-        this.i = (BarImageView) h().findViewById(R.id.obfuscated_res_0x7f0909fc);
-        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090a3f);
-        this.k = (TextView) h().findViewById(R.id.obfuscated_res_0x7f0909fa);
-        this.l = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090a67);
+        this.i = (BarImageView) h().findViewById(R.id.obfuscated_res_0x7f0909f5);
+        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090a38);
+        this.k = (TextView) h().findViewById(R.id.obfuscated_res_0x7f0909f3);
+        this.l = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090a60);
         h().setOnClickListener(this);
         j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
@@ -102,8 +102,8 @@ public class rc6 extends jx5<mc6> {
         this.n = mc6Var;
         this.i.J(mc6Var.c(), 10, false);
         this.j.setText(s(mc6Var.i(), mc6Var.o()));
-        this.k.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f041a), mc6Var.d()));
-        this.l.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f10c0), mc6Var.m()));
+        this.k.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f0419), mc6Var.d()));
+        this.l.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f107c), mc6Var.m()));
         j(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 

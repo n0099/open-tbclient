@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.at5;
 import com.repackage.dt5;
 import com.repackage.et5;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import com.repackage.je6;
 import com.repackage.mo5;
 import com.repackage.ng;
@@ -65,7 +65,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     public int l;
     public AlaFrsLiveModel.b m;
     public mo5 n;
-    public fu4.g o;
+    public gu4.g o;
     public BdMultiColumnListView.OnScrollToBottomListener p;
     public et5 q;
 
@@ -156,7 +156,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
                 }
                 this.a.h = false;
                 AlaFrsLiveFragment alaFrsLiveFragment2 = this.a;
-                alaFrsLiveFragment2.showNetRefreshView(alaFrsLiveFragment2.f.k(), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f06e4), null, this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f06e2), false, this.a.getNetRefreshListener());
+                alaFrsLiveFragment2.showNetRefreshView(alaFrsLiveFragment2.f.k(), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f06e0), null, this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f06de), false, this.a.getNetRefreshListener());
                 return;
             }
             AlaFrsLiveFragment alaFrsLiveFragment3 = this.a;
@@ -221,7 +221,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     /* loaded from: classes3.dex */
-    public class d implements fu4.g {
+    public class d implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsLiveFragment a;
@@ -244,7 +244,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
             this.a = alaFrsLiveFragment;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.e == null) {
@@ -454,7 +454,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
             return;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(UtilHelper.getFixedBarText(this.b, 5, true, true) + getResources().getString(R.string.obfuscated_res_0x7f0f0650));
+        sb.append(UtilHelper.getFixedBarText(this.b, 5, true, true) + getResources().getString(R.string.obfuscated_res_0x7f0f064c));
         this.f.j().setCenterTextTitle(sb.toString());
     }
 
@@ -616,7 +616,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
                     this.e.Q();
                     dt5 dt5Var = this.f;
                     if (dt5Var != null) {
-                        showLoadingView(dt5Var.k(), false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070290));
+                        showLoadingView(dt5Var.k(), false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07028e));
                     }
                     AlaSquareRefreshManager alaSquareRefreshManager = new AlaSquareRefreshManager();
                     this.j = alaSquareRefreshManager;

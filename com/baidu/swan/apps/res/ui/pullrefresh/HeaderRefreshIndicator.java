@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oj2;
-import com.repackage.yd3;
+import com.repackage.pj2;
+import com.repackage.zd3;
 /* loaded from: classes2.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
     public static /* synthetic */ Interceptable $ic;
@@ -45,10 +45,10 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
             return;
         }
         this.n = true;
-        this.o = oj2.M().a();
+        this.o = pj2.M().a();
         j();
         setTextSize(1, 11.0f);
-        setCompoundDrawablePadding(yd3.f(getContext(), 5.0f));
+        setCompoundDrawablePadding(zd3.f(getContext(), 5.0f));
         b(0);
     }
 
@@ -57,14 +57,14 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801b8));
             setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603d7));
-            c(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801b9), 0, yd3.f(getContext(), 11.0f), yd3.f(getContext(), 11.0f));
+            c(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801b9), 0, zd3.f(getContext(), 11.0f), zd3.f(getContext(), 11.0f));
         }
     }
 
     public void k() {
         boolean a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.o == (a = oj2.M().a())) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.o == (a = pj2.M().a())) {
             return;
         }
         j();

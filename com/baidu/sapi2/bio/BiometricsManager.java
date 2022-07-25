@@ -3,6 +3,7 @@ package com.baidu.sapi2.bio;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
+import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ClickableSpan;
@@ -22,6 +23,7 @@ import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.SapiAccountService;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.Log;
@@ -38,6 +40,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -109,16 +112,17 @@ public class BiometricsManager implements NoProguard {
     public class b extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ BiometricsManager c;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ Activity b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ BiometricsManager d;
 
-        public b(BiometricsManager biometricsManager, Activity activity, String str) {
+        public b(BiometricsManager biometricsManager, boolean z, Activity activity, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {biometricsManager, activity, str};
+                Object[] objArr = {biometricsManager, Boolean.valueOf(z), activity, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -128,19 +132,32 @@ public class BiometricsManager implements NoProguard {
                     return;
                 }
             }
-            this.c = biometricsManager;
-            this.a = activity;
-            this.b = str;
+            this.d = biometricsManager;
+            this.a = z;
+            this.b = activity;
+            this.c = str;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view2) {
+            SapiAccountManager sapiAccountManager;
+            SapiAccountService accountService;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                String explainCameraDeatilUrl = SapiAccountManager.getInstance().getAccountService().getExplainCameraDeatilUrl();
-                CoreViewRouter.getInstance().loadRemoteProcessWebViewActivity(this.a, BiometricsManager.a, explainCameraDeatilUrl + "&notLogin=1");
-                SapiStatUtil.statExplainCamera("seeDetail", this.b);
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (sapiAccountManager = SapiAccountManager.getInstance()) == null || (accountService = sapiAccountManager.getAccountService()) == null) {
+                return;
             }
+            String str = accountService.getExplainCameraDeatilUrl() + "&notLogin=1";
+            if (sapiAccountManager.getConfignation() == null) {
+                return;
+            }
+            if (this.a) {
+                Log.e("eeeee", "当前进程");
+                CoreViewRouter.getInstance().loadCurrentProcessWebviewActivity(this.b, BiometricsManager.a, str);
+            } else {
+                Log.e("eeeee", "独立进程");
+                CoreViewRouter.getInstance().loadRemoteProcessWebViewActivity(this.b, BiometricsManager.a, str);
+            }
+            SapiStatUtil.statExplainCamera("seeDetail", this.c);
         }
     }
 
@@ -329,9 +346,93 @@ public class BiometricsManager implements NoProguard {
         return (BiometricsManager) invokeV.objValue;
     }
 
-    public void livenessRecognize(Activity activity, PassFaceRecogType passFaceRecogType, String str, Map<String, String> map, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, boolean z, PassFaceRecogCallback passFaceRecogCallback) {
+    public void livenessRecognize(Activity activity, PassFaceRecogType passFaceRecogType, String str, Map<String, String> map, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, boolean z, boolean z2, PassFaceRecogCallback passFaceRecogCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, passFaceRecogType, str, map, str2, str3, str4, str5, str6, str7, str8, str9, Boolean.valueOf(z), passFaceRecogCallback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, passFaceRecogType, str, map, str2, str3, str4, str5, str6, str7, str8, str9, Boolean.valueOf(z), Boolean.valueOf(z2), passFaceRecogCallback}) == null) {
+            livenessRecognize(activity, passFaceRecogType, str, map, str2, str3, str4, str5, str6, str7, str8, str9, z, z2, null, passFaceRecogCallback);
+        }
+    }
+
+    public void livenessRecognizeWithFaceLive(Activity activity, PassFaceRecogType passFaceRecogType, int i, boolean z, PassFaceRecogCallback passFaceRecogCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, passFaceRecogType, Integer.valueOf(i), Boolean.valueOf(z), passFaceRecogCallback}) == null) {
+            PassBiometric biometric = PassBiometricFactory.getDefaultFactory().getBiometric(4);
+            PassFaceRecogDTO passFaceRecogDTO = new PassFaceRecogDTO();
+            PassFaceOperation passFaceOperation = new PassFaceOperation();
+            passFaceOperation.operationType = PassFaceOperation.OperationType.RECOGNIZE;
+            passFaceRecogDTO.extraParamsMap.put(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, "pp");
+            passFaceRecogDTO.extraParamsMap.put("cuid", SapiUtils.getClientId(activity));
+            passFaceRecogDTO.livenessType = passFaceRecogType;
+            passFaceRecogDTO.passProductId = "pp";
+            passFaceRecogDTO.quality = i;
+            if (a(activity, passFaceRecogCallback, biometric, passFaceOperation, passFaceRecogDTO, "pp", z)) {
+                return;
+            }
+            a(biometric, passFaceOperation, passFaceRecogCallback, passFaceRecogDTO, activity);
+        }
+    }
+
+    public void recogWithAuthToken(Activity activity, String str, Map<String, String> map, String str2, String str3, PassFaceRecogCallback passFaceRecogCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{activity, str, map, str2, str3, passFaceRecogCallback}) == null) {
+            livenessRecognize(activity, PassFaceRecogType.RECOG_TYPE_AUTHTOKEN, str, map, str2, "", "", str3, "", "", "", "", false, false, passFaceRecogCallback);
+        }
+    }
+
+    public void recogWithBduss(Activity activity, String str, Map<String, String> map, String str2, String str3, String str4, PassFaceRecogCallback passFaceRecogCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{activity, str, map, str2, str3, str4, passFaceRecogCallback}) == null) {
+            livenessRecognize(activity, PassFaceRecogType.RECOG_TYPE_BDUSS, str, map, str2, str3, str4, "", "", "", "", "", false, false, passFaceRecogCallback);
+        }
+    }
+
+    public void recogWithCertInfo(Activity activity, String str, Map<String, String> map, String str2, String str3, String str4, boolean z, String str5, PassFaceRecogCallback passFaceRecogCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{activity, str, map, str2, str3, str4, Boolean.valueOf(z), str5, passFaceRecogCallback}) == null) {
+            livenessRecognize(activity, PassFaceRecogType.RECOG_TYPE_CERTINFO, str, map, str2, "", "", "", "", str3, str4, str5, z, false, passFaceRecogCallback);
+        }
+    }
+
+    public void recogWithFaceDetect(Activity activity, String str, Map<String, String> map, String str2, String str3, String str4, PassFaceRecogCallback passFaceRecogCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{activity, str, map, str2, str3, str4, passFaceRecogCallback}) == null) {
+            HashMap hashMap = map == null ? new HashMap() : map;
+            if (!TextUtils.isEmpty(str4)) {
+                hashMap.put("authsid", str4);
+            }
+            livenessRecognize(activity, PassFaceRecogType.RECOG_TYPE_FACEDETECT, str, hashMap, str2, "", "", "", str3, "", "", "", false, false, passFaceRecogCallback);
+        }
+    }
+
+    public void recogWithFaceLive(Activity activity, int i, PassFaceRecogCallback passFaceRecogCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048585, this, activity, i, passFaceRecogCallback) == null) {
+            livenessRecognizeWithFaceLive(activity, PassFaceRecogType.RECOG_TYPE_FACEIMAGE, i, false, passFaceRecogCallback);
+        }
+    }
+
+    public void recogWithFaceOuter(Activity activity, String str, Map<String, String> map, String str2, String str3, PassFaceRecogCallback passFaceRecogCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{activity, str, map, str2, str3, passFaceRecogCallback}) == null) {
+            livenessRecognize(activity, PassFaceRecogType.RECOG_TYPE_OUTER, str, map, str2, "", "", "", str3, "", "", "", false, false, passFaceRecogCallback);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(PassBiometric passBiometric, PassFaceOperation passFaceOperation, PassFaceRecogCallback passFaceRecogCallback, PassFaceRecogDTO passFaceRecogDTO, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65538, this, passBiometric, passFaceOperation, passFaceRecogCallback, passFaceRecogDTO, context) == null) {
+            String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.FACE_CERT);
+            if (!TextUtils.isEmpty(deviceInfo)) {
+                passFaceRecogDTO.di = deviceInfo;
+            }
+            passBiometric.execute(passFaceOperation, new a(this, passFaceRecogCallback), passFaceRecogDTO, context);
+        }
+    }
+
+    public void livenessRecognize(Activity activity, PassFaceRecogType passFaceRecogType, String str, Map<String, String> map, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, boolean z, boolean z2, Bundle bundle, PassFaceRecogCallback passFaceRecogCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, passFaceRecogType, str, map, str2, str3, str4, str5, str6, str7, str8, str9, Boolean.valueOf(z), Boolean.valueOf(z2), bundle, passFaceRecogCallback}) == null) {
             PassBiometric biometric = PassBiometricFactory.getDefaultFactory().getBiometric(4);
             PassFaceRecogDTO passFaceRecogDTO = new PassFaceRecogDTO();
             PassFaceOperation passFaceOperation = new PassFaceOperation();
@@ -363,99 +464,48 @@ public class BiometricsManager implements NoProguard {
                 passFaceRecogDTO.exUid = str6;
             }
             passFaceRecogDTO.passProductId = str;
+            passFaceRecogDTO.extraParams = bundle;
             if (!TextUtils.isEmpty(str) && (str.contains(b) || str.contains(c))) {
                 Log.e(TAG, "scene:certlogin and scene:uncertlogin");
             }
-            if (a(activity, passFaceRecogCallback, biometric, passFaceOperation, passFaceRecogDTO, str)) {
+            if (a(activity, passFaceRecogCallback, biometric, passFaceOperation, passFaceRecogDTO, str, z2)) {
                 return;
             }
             a(biometric, passFaceOperation, passFaceRecogCallback, passFaceRecogDTO, activity);
         }
     }
 
-    public void livenessRecognizeWithFaceLive(Activity activity, PassFaceRecogType passFaceRecogType, int i, PassFaceRecogCallback passFaceRecogCallback) {
+    public void recogWithBduss(Activity activity, String str, Map<String, String> map, String str2, String str3, String str4, boolean z, PassFaceRecogCallback passFaceRecogCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, passFaceRecogType, i, passFaceRecogCallback) == null) {
-            PassBiometric biometric = PassBiometricFactory.getDefaultFactory().getBiometric(4);
-            PassFaceRecogDTO passFaceRecogDTO = new PassFaceRecogDTO();
-            PassFaceOperation passFaceOperation = new PassFaceOperation();
-            passFaceOperation.operationType = PassFaceOperation.OperationType.RECOGNIZE;
-            passFaceRecogDTO.extraParamsMap.put(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, "pp");
-            passFaceRecogDTO.extraParamsMap.put("cuid", SapiUtils.getClientId(activity));
-            passFaceRecogDTO.livenessType = passFaceRecogType;
-            passFaceRecogDTO.passProductId = "pp";
-            passFaceRecogDTO.quality = i;
-            if (a(activity, passFaceRecogCallback, biometric, passFaceOperation, passFaceRecogDTO, "pp")) {
-                return;
-            }
-            a(biometric, passFaceOperation, passFaceRecogCallback, passFaceRecogDTO, activity);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{activity, str, map, str2, str3, str4, Boolean.valueOf(z), passFaceRecogCallback}) == null) {
+            livenessRecognize(activity, PassFaceRecogType.RECOG_TYPE_BDUSS, str, map, str2, str3, str4, "", "", "", "", "", false, z, passFaceRecogCallback);
         }
     }
 
-    public void recogWithAuthToken(Activity activity, String str, Map<String, String> map, String str2, String str3, PassFaceRecogCallback passFaceRecogCallback) {
+    public void recogWithFaceOuter(Activity activity, String str, Map<String, String> map, String str2, String str3, boolean z, PassFaceRecogCallback passFaceRecogCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, str, map, str2, str3, passFaceRecogCallback}) == null) {
-            livenessRecognize(activity, PassFaceRecogType.RECOG_TYPE_AUTHTOKEN, str, map, str2, "", "", str3, "", "", "", "", false, passFaceRecogCallback);
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{activity, str, map, str2, str3, Boolean.valueOf(z), passFaceRecogCallback}) == null) {
+            livenessRecognize(activity, PassFaceRecogType.RECOG_TYPE_OUTER, str, map, str2, "", "", "", str3, "", "", "", false, z, passFaceRecogCallback);
         }
     }
 
-    public void recogWithBduss(Activity activity, String str, Map<String, String> map, String str2, String str3, String str4, PassFaceRecogCallback passFaceRecogCallback) {
+    public void recogWithFaceDetect(Activity activity, String str, Map<String, String> map, String str2, String str3, String str4, boolean z, PassFaceRecogCallback passFaceRecogCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{activity, str, map, str2, str3, str4, passFaceRecogCallback}) == null) {
-            livenessRecognize(activity, PassFaceRecogType.RECOG_TYPE_BDUSS, str, map, str2, str3, str4, "", "", "", "", "", false, passFaceRecogCallback);
-        }
-    }
-
-    public void recogWithCertInfo(Activity activity, String str, Map<String, String> map, String str2, String str3, String str4, boolean z, String str5, PassFaceRecogCallback passFaceRecogCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{activity, str, map, str2, str3, str4, Boolean.valueOf(z), str5, passFaceRecogCallback}) == null) {
-            livenessRecognize(activity, PassFaceRecogType.RECOG_TYPE_CERTINFO, str, map, str2, "", "", "", "", str3, str4, str5, z, passFaceRecogCallback);
-        }
-    }
-
-    public void recogWithFaceDetect(Activity activity, String str, Map<String, String> map, String str2, String str3, String str4, PassFaceRecogCallback passFaceRecogCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{activity, str, map, str2, str3, str4, passFaceRecogCallback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{activity, str, map, str2, str3, str4, Boolean.valueOf(z), passFaceRecogCallback}) == null) {
             HashMap hashMap = map == null ? new HashMap() : map;
             if (!TextUtils.isEmpty(str4)) {
                 hashMap.put("authsid", str4);
             }
-            livenessRecognize(activity, PassFaceRecogType.RECOG_TYPE_FACEDETECT, str, hashMap, str2, "", "", "", str3, "", "", "", false, passFaceRecogCallback);
+            livenessRecognize(activity, PassFaceRecogType.RECOG_TYPE_FACEDETECT, str, hashMap, str2, "", "", "", str3, "", "", "", false, z, passFaceRecogCallback);
         }
     }
 
-    public void recogWithFaceLive(Activity activity, int i, PassFaceRecogCallback passFaceRecogCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048582, this, activity, i, passFaceRecogCallback) == null) {
-            livenessRecognizeWithFaceLive(activity, PassFaceRecogType.RECOG_TYPE_FACEIMAGE, i, passFaceRecogCallback);
-        }
-    }
-
-    public void recogWithFaceOuter(Activity activity, String str, Map<String, String> map, String str2, String str3, PassFaceRecogCallback passFaceRecogCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{activity, str, map, str2, str3, passFaceRecogCallback}) == null) {
-            livenessRecognize(activity, PassFaceRecogType.RECOG_TYPE_OUTER, str, map, str2, "", "", "", str3, "", "", "", false, passFaceRecogCallback);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(PassBiometric passBiometric, PassFaceOperation passFaceOperation, PassFaceRecogCallback passFaceRecogCallback, PassFaceRecogDTO passFaceRecogDTO, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65538, this, passBiometric, passFaceOperation, passFaceRecogCallback, passFaceRecogDTO, context) == null) {
-            String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.FACE_CERT);
-            if (!TextUtils.isEmpty(deviceInfo)) {
-                passFaceRecogDTO.di = deviceInfo;
-            }
-            passBiometric.execute(passFaceOperation, new a(this, passFaceRecogCallback), passFaceRecogDTO, context);
-        }
-    }
-
-    private boolean a(Activity activity, PassFaceRecogCallback passFaceRecogCallback, PassBiometric passBiometric, PassFaceOperation passFaceOperation, PassFaceRecogDTO passFaceRecogDTO, String str) {
+    private boolean a(Activity activity, PassFaceRecogCallback passFaceRecogCallback, PassBiometric passBiometric, PassFaceOperation passFaceOperation, PassFaceRecogDTO passFaceRecogDTO, String str, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{activity, passFaceRecogCallback, passBiometric, passFaceOperation, passFaceRecogDTO, str})) == null) {
-            boolean z = false;
-            if (SapiUtils.checkRequestPermission("android.permission.CAMERA", activity) || SapiContext.getInstance().getIsAlreadyShowExplainCamera()) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{activity, passFaceRecogCallback, passBiometric, passFaceOperation, passFaceRecogDTO, str, Boolean.valueOf(z)})) == null) {
+            boolean z2 = false;
+            if (SapiUtils.checkRequestPermission(PermissionRequest.RESOURCE_VIDEO_CAPTURE, activity) || SapiContext.getInstance().getIsAlreadyShowExplainCamera()) {
                 return false;
             }
             if (activity == null) {
@@ -464,10 +514,10 @@ public class BiometricsManager implements NoProguard {
                 passFaceRecogCallback.onFailure(passFaceRecogResult);
                 return true;
             } else if (!activity.isFinishing() && (Build.VERSION.SDK_INT < 17 || !activity.isDestroyed())) {
-                String string = activity.getResources().getString(R.string.obfuscated_res_0x7f0f1048);
+                String string = activity.getResources().getString(R.string.obfuscated_res_0x7f0f1024);
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(string);
-                spannableStringBuilder.setSpan(new b(this, activity, str), 89, string.length(), 33);
-                new CommonDialog.Builder(activity).setDarkMode((SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) ? true : true).setTitle(activity.getResources().getString(R.string.obfuscated_res_0x7f0f104b)).setMessage(spannableStringBuilder).setNegativeButton(activity.getResources().getString(R.string.obfuscated_res_0x7f0f1049), new d(this, passFaceRecogCallback, str)).setPositiveBtn(activity.getResources().getString(R.string.obfuscated_res_0x7f0f1047), new c(this, passBiometric, passFaceOperation, passFaceRecogCallback, passFaceRecogDTO, activity, str)).build().show();
+                spannableStringBuilder.setSpan(new b(this, z, activity, str), 89, string.length(), 33);
+                new CommonDialog.Builder(activity).setDarkMode((SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) ? true : true).setTitle(activity.getResources().getString(R.string.obfuscated_res_0x7f0f1026)).setMessage(spannableStringBuilder).setNegativeButton(activity.getResources().getString(R.string.obfuscated_res_0x7f0f1025), new d(this, passFaceRecogCallback, str)).setPositiveBtn(activity.getResources().getString(R.string.obfuscated_res_0x7f0f1023), new c(this, passBiometric, passFaceOperation, passFaceRecogCallback, passFaceRecogDTO, activity, str)).build().show();
                 return true;
             } else {
                 PassFaceRecogResult passFaceRecogResult2 = new PassFaceRecogResult();

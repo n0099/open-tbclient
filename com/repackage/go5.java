@@ -8,6 +8,7 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Singleton
 @Service
 /* loaded from: classes6.dex */
-public class go5 implements ok2 {
+public class go5 implements pk2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,7 +41,7 @@ public class go5 implements ok2 {
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? TbadkCoreApplication.getInst().getZid(context, null, 0, null) : (String) invokeL.objValue;
     }
 
-    @Override // com.repackage.ok2
+    @Override // com.repackage.pk2
     public String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -58,7 +59,7 @@ public class go5 implements ok2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, fo5.class, null);
-            return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
+            return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString(TiebaStatic.LogFields.RESULT, "") : "";
         }
         return (String) invokeL.objValue;
     }

@@ -3,9 +3,9 @@ package com.kwad.sdk.pngencrypt.chunk;
 import com.kwad.sdk.pngencrypt.PngjException;
 /* loaded from: classes5.dex */
 public final class l extends p {
-    public long h;
-    public long i;
-    public int j;
+    public long alY;
+    public long alZ;
+    public int ama;
 
     public l(com.kwad.sdk.pngencrypt.k kVar) {
         super("oFFs", kVar);
@@ -13,19 +13,19 @@ public final class l extends p {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public final void a(d dVar) {
-        if (dVar.a != 9) {
+        if (dVar.len != 9) {
             throw new PngjException("bad chunk length " + dVar);
         }
-        long c = com.kwad.sdk.pngencrypt.n.c(dVar.d, 0);
-        this.h = c;
-        if (c < 0) {
-            this.h = c + 4294967296L;
+        long g = com.kwad.sdk.pngencrypt.n.g(dVar.data, 0);
+        this.alY = g;
+        if (g < 0) {
+            this.alY = g + 4294967296L;
         }
-        long c2 = com.kwad.sdk.pngencrypt.n.c(dVar.d, 4);
-        this.i = c2;
-        if (c2 < 0) {
-            this.i = c2 + 4294967296L;
+        long g2 = com.kwad.sdk.pngencrypt.n.g(dVar.data, 4);
+        this.alZ = g2;
+        if (g2 < 0) {
+            this.alZ = g2 + 4294967296L;
         }
-        this.j = com.kwad.sdk.pngencrypt.n.a(dVar.d, 8);
+        this.ama = com.kwad.sdk.pngencrypt.n.e(dVar.data, 8);
     }
 }

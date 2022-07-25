@@ -17,11 +17,31 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class g extends d {
-    public static final Pattern c = Pattern.compile("(.*)\\s\\(tid=(\\d+), index=(\\d+)*");
-    public static final Pattern d = Pattern.compile("\\sd+\\spc");
+    public static final Pattern ahF = Pattern.compile("(.*)\\s\\(tid=(\\d+), index=(\\d+)*");
+    public static final Pattern ahG = Pattern.compile("\\sd+\\spc");
+
+    private NativeExceptionMessage A(File file) {
+        String str;
+        try {
+            str = o.S(file);
+        } catch (IOException e) {
+            this.mErrorMessage += e + "\n";
+            str = null;
+        }
+        NativeExceptionMessage nativeExceptionMessage = new NativeExceptionMessage();
+        if (str != null) {
+            try {
+                nativeExceptionMessage.parseJson(new JSONObject(str));
+            } catch (Exception e2) {
+                this.mErrorMessage += e2 + "\n";
+            }
+        }
+        o.P(file);
+        return nativeExceptionMessage;
+    }
 
     private void a(NativeExceptionMessage nativeExceptionMessage, File file) {
-        nativeExceptionMessage.mLogUUID = com.kwad.sdk.crash.utils.f.a(file.getName());
+        nativeExceptionMessage.mLogUUID = com.kwad.sdk.crash.utils.f.df(file.getName());
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
@@ -47,7 +67,7 @@ public final class g extends d {
                     z = true;
                 }
             } catch (IOException e) {
-                this.b += e + "\n";
+                this.mErrorMessage += e + "\n";
             }
         }
         if (sb.length() > 1) {
@@ -76,8 +96,8 @@ public final class g extends d {
             if (str.startsWith("signal ")) {
                 String[] split = str.split("\\s+");
                 if (split.length >= 9) {
-                    nativeExceptionMessage.mSignal = com.kwad.sdk.crash.utils.f.b(split[2]);
-                    nativeExceptionMessage.mCode = com.kwad.sdk.crash.utils.f.b(split[5]);
+                    nativeExceptionMessage.mSignal = com.kwad.sdk.crash.utils.f.dg(split[2]);
+                    nativeExceptionMessage.mCode = com.kwad.sdk.crash.utils.f.dg(split[5]);
                     nativeExceptionMessage.mFaultAddr = split[split.length - 1];
                     nativeExceptionMessage.mManuallyKill = "--------".equals(split[split.length + (-1)]) ? "True" : "False";
                 }
@@ -129,26 +149,6 @@ public final class g extends d {
         }
     }
 
-    private NativeExceptionMessage b(File file) {
-        String str;
-        try {
-            str = o.h(file);
-        } catch (IOException e) {
-            this.b += e + "\n";
-            str = null;
-        }
-        NativeExceptionMessage nativeExceptionMessage = new NativeExceptionMessage();
-        if (str != null) {
-            try {
-                nativeExceptionMessage.parseJson(new JSONObject(str));
-            } catch (Exception e2) {
-                this.b += e2 + "\n";
-            }
-        }
-        o.e(file);
-        return nativeExceptionMessage;
-    }
-
     public static void c(File file, ExceptionMessage exceptionMessage) {
         try {
             MemoryInfo memoryInfo = new MemoryInfo(exceptionMessage.mMemoryInfo);
@@ -163,14 +163,14 @@ public final class g extends d {
                     } else if (readLine.isEmpty()) {
                         arrayList.add(threadInfo);
                         threadInfo = new ThreadInfo();
-                    } else if (d.matcher(readLine).matches()) {
+                    } else if (ahG.matcher(readLine).matches()) {
                         if (threadInfo.mTrace != null) {
                             readLine = threadInfo.mTrace + readLine;
                         }
                         threadInfo.mTrace = readLine;
                         threadInfo.mTrace += "\n";
                     } else {
-                        Matcher matcher = c.matcher(readLine);
+                        Matcher matcher = ahF.matcher(readLine);
                         if (matcher.lookingAt()) {
                             threadInfo.mName = matcher.group(1);
                             threadInfo.mTid = Integer.parseInt(matcher.group(2));
@@ -181,35 +181,35 @@ public final class g extends d {
                 memoryInfo.mNativeThreads = arrayList;
                 exceptionMessage.mMemoryInfo = memoryInfo.toJson().toString();
             } catch (IOException e) {
-                com.kwad.sdk.core.d.b.b(e);
+                com.kwad.sdk.core.e.b.printStackTraceOnly(e);
             }
-            com.kwad.sdk.crash.utils.b.a(bufferedReader);
+            com.kwad.sdk.crash.utils.b.closeQuietly(bufferedReader);
         } catch (Exception e2) {
-            com.kwad.sdk.core.d.b.b(e2);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e2);
         }
     }
 
     @Override // com.kwad.sdk.crash.report.d
     public final ExceptionMessage a(@NonNull File file, File file2, File file3, String str) {
         File file4 = new File(str + ".jtrace");
-        NativeExceptionMessage b = b(file2);
+        NativeExceptionMessage A = A(file2);
         try {
-            a(b, file);
-            b(file3, b);
-            d.a(file4, b);
-            c(new File(str + ".ntrace"), b);
-            com.kwad.sdk.crash.utils.f.a(file, (CharSequence) b.toString(), true);
-            com.kwad.sdk.crash.utils.f.a(file3, file);
+            a(A, file);
+            b(file3, A);
+            d.a(file4, A);
+            c(new File(str + ".ntrace"), A);
+            com.kwad.sdk.crash.utils.f.a(file, (CharSequence) A.toString(), true);
+            com.kwad.sdk.crash.utils.f.b(file3, file);
             file.renameTo(file3);
-            new StringBuilder("------ Native Crash Report Begin ------\n").append(b);
-            b.mDumpsys = o.h(new File(str + ".minfo"));
+            new StringBuilder("------ Native Crash Report Begin ------\n").append(A);
+            A.mDumpsys = o.S(new File(str + ".minfo"));
         } catch (Exception e) {
-            com.kwad.sdk.core.d.b.b(e);
-            this.b += e + "\n";
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
+            this.mErrorMessage += e + "\n";
         }
-        if (!TextUtils.isEmpty(this.b)) {
-            b.mErrorMessage += this.b;
+        if (!TextUtils.isEmpty(this.mErrorMessage)) {
+            A.mErrorMessage += this.mErrorMessage;
         }
-        return b;
+        return A;
     }
 }

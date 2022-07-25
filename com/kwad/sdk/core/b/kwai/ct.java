@@ -1,37 +1,41 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.AdMatrixInfo;
+import com.kwad.sdk.core.config.item.InstallActivateReminderConfigItem;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ct implements com.kwad.sdk.core.d<AdMatrixInfo.InterstitialCardInfo> {
+public final class ct implements com.kwad.sdk.core.d<InstallActivateReminderConfigItem.InstallActivateReminderConfig> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(AdMatrixInfo.InterstitialCardInfo interstitialCardInfo, JSONObject jSONObject) {
+    public static void a2(InstallActivateReminderConfigItem.InstallActivateReminderConfig installActivateReminderConfig, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        AdMatrixInfo.AdInteractionInfo adInteractionInfo = new AdMatrixInfo.AdInteractionInfo();
-        interstitialCardInfo.interactionInfo = adInteractionInfo;
-        adInteractionInfo.parseJson(jSONObject.optJSONObject("interactionInfo"));
+        installActivateReminderConfig.noticeTotalCount = jSONObject.optInt("noticeTotalCount", new Integer("3").intValue());
+        installActivateReminderConfig.perAppNoticeCount = jSONObject.optInt("perAppNoticeCount", new Integer("2").intValue());
+        installActivateReminderConfig.noticeAppearTime = jSONObject.optInt("noticeAppearTime", new Integer("15000").intValue());
+        installActivateReminderConfig.noticeContinueTime = jSONObject.optInt("noticeContinueTime", new Integer("15000").intValue());
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(AdMatrixInfo.InterstitialCardInfo interstitialCardInfo, JSONObject jSONObject) {
+    public static JSONObject b2(InstallActivateReminderConfigItem.InstallActivateReminderConfig installActivateReminderConfig, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "interactionInfo", interstitialCardInfo.interactionInfo);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "noticeTotalCount", installActivateReminderConfig.noticeTotalCount);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "perAppNoticeCount", installActivateReminderConfig.perAppNoticeCount);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "noticeAppearTime", installActivateReminderConfig.noticeAppearTime);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "noticeContinueTime", installActivateReminderConfig.noticeContinueTime);
         return jSONObject;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(AdMatrixInfo.InterstitialCardInfo interstitialCardInfo, JSONObject jSONObject) {
-        a2(interstitialCardInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(InstallActivateReminderConfigItem.InstallActivateReminderConfig installActivateReminderConfig, JSONObject jSONObject) {
+        a2(installActivateReminderConfig, jSONObject);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(AdMatrixInfo.InterstitialCardInfo interstitialCardInfo, JSONObject jSONObject) {
-        return b2(interstitialCardInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(InstallActivateReminderConfigItem.InstallActivateReminderConfig installActivateReminderConfig, JSONObject jSONObject) {
+        return b2(installActivateReminderConfig, jSONObject);
     }
 }

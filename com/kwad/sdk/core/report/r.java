@@ -1,9 +1,9 @@
 package com.kwad.sdk.core.report;
 /* loaded from: classes5.dex */
 public interface r {
-    int a();
+    boolean h(long j);
 
-    boolean a(long j);
+    int lr();
 
-    int b();
+    int ls();
 }

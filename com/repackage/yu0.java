@@ -122,12 +122,12 @@ public class yu0 extends qu0 {
         public void b(@NonNull BdVideoSeries bdVideoSeries) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdVideoSeries) == null) {
-                String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0bb5);
+                String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ba1);
                 int a2 = nv0.a(bdVideoSeries);
                 ClarityUrlList clarityList = bdVideoSeries.getClarityList();
                 if (a2 >= 0 && clarityList != null && clarityList.size() > 0) {
-                    String string2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0bf4, String.valueOf(clarityList.get(0).k()));
-                    this.c.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0bf0) + m01.a(a2, false));
+                    String string2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0be0, String.valueOf(clarityList.get(0).k()));
+                    this.c.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0bdc) + m01.a(a2, false));
                     this.d.setText(string2);
                     this.e.setVisibility(0);
                     this.d.setVisibility(0);
@@ -152,12 +152,12 @@ public class yu0 extends qu0 {
         public final void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0597, (ViewGroup) null);
+                ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05a1, (ViewGroup) null);
                 this.b = viewGroup;
-                this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092260);
-                this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092261);
-                this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091557);
-                this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092262);
+                this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092262);
+                this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092263);
+                this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091532);
+                this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092264);
                 this.g = (Button) this.b.findViewById(R.id.obfuscated_res_0x7f0903ec);
             }
         }
@@ -186,7 +186,7 @@ public class yu0 extends qu0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             String h1 = u().h1();
-            StringBuilder sb = new StringBuilder(t().getString(R.string.obfuscated_res_0x7f0f0bc1));
+            StringBuilder sb = new StringBuilder(t().getString(R.string.obfuscated_res_0x7f0f0bad));
             if (!h1.isEmpty()) {
                 sb.append("，\n");
                 sb.append(str);
@@ -299,7 +299,7 @@ public class yu0 extends qu0 {
             BdNetUtils.NetStatus a2 = BdNetUtils.a();
             if (a2 == BdNetUtils.NetStatus.NET_MOBILE && !BdNetUtils.h() && this.h != BdNetUtils.NetStatus.NET_MOBILE) {
                 if (u().Y() && u().r() > 0 && u().S()) {
-                    L(this.c.getString(R.string.obfuscated_res_0x7f0f0bf3));
+                    L(this.c.getString(R.string.obfuscated_res_0x7f0f0bdf));
                 }
             } else {
                 BdNetUtils.NetStatus netStatus = BdNetUtils.NetStatus.NET_WIFI;
@@ -313,7 +313,7 @@ public class yu0 extends qu0 {
                         } else {
                             u().l0();
                         }
-                        yz0.a().b(t(), R.string.obfuscated_res_0x7f0f0bc3);
+                        yz0.a().b(t(), R.string.obfuscated_res_0x7f0f0baf);
                     }
                 }
             }

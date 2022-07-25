@@ -1,219 +1,133 @@
 package com.repackage;
 
-import android.content.Context;
-import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.storage.PathType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder;
-import com.facebook.drawee.controller.AbstractDraweeController;
-import com.facebook.drawee.controller.BaseControllerListener;
-import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
-import com.facebook.drawee.generic.RoundingParams;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.image.ImageInfo;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import com.repackage.qv1;
-import java.io.File;
-import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class pv1<V extends SimpleDraweeView, M extends qv1> extends uv1<V, M> {
+public class pv1 extends uv1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-86649783, "Lcom/repackage/pv1$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-86649783, "Lcom/repackage/pv1$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[PathType.values().length];
-            a = iArr;
-            try {
-                iArr[PathType.BD_FILE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[PathType.RELATIVE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[PathType.NETWORK.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[PathType.ERROR.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-        }
-    }
+    public int D;
+    public int E;
+    public int F;
+    public int G;
+    public int H;
+    public String I;
+    public boolean J;
+    public int K;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pv1(@Nullable Context context, @NonNull M m) {
-        super(context, m);
+    public pv1(String str, @NonNull String str2) {
+        super(str, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, m};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (vv1) objArr2[1]);
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.I = "";
     }
 
-    public static Uri W(@NonNull String str) {
+    private void i() {
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (jSONObject = this.j) == null) {
+            return;
+        }
+        this.u = SwanAppConfigData.t(jSONObject.optString("color"));
+        this.v = true;
+    }
+
+    @Override // com.repackage.uv1, com.repackage.wv1, com.repackage.yv1, com.repackage.hq2
+    public void a(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        this.D = jSONObject.optInt("maxLength");
+        this.E = k(jSONObject);
+        this.F = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR);
+        this.G = jSONObject.optInt("selectionStart");
+        this.H = jSONObject.optInt("selectionEnd");
+        this.I = jSONObject.optString("confirmType");
+        this.J = jSONObject.optInt(com.baidu.sapi2.views.logindialog.view.a.m) == 1;
+        i();
+    }
+
+    @Override // com.repackage.uv1, com.repackage.wv1, com.repackage.yv1
+    public void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            super.g(jSONObject);
+            if (!TextUtils.isEmpty(jSONObject.optString("cursorSpacing"))) {
+                this.E = k(jSONObject);
+            }
+            this.D = jSONObject.optInt("maxLength", this.D);
+            this.F = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR, this.F);
+            this.G = jSONObject.optInt("selectionStart", this.G);
+            this.H = jSONObject.optInt("selectionEnd", this.H);
+            this.I = jSONObject.optString("confirmType", this.I);
+            this.J = jSONObject.optInt(com.baidu.sapi2.views.logindialog.view.a.m, this.J ? 1 : 0) == 1;
+            this.t = jSONObject.optString("value", this.t);
+            i();
+        }
+    }
+
+    public final int k(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
-        String str2;
-        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            PathType s = p73.s(str);
-            h03 M = h03.M();
-            if (M != null) {
-                str2 = M.b;
-                str3 = M.k0();
-            } else {
-                str2 = null;
-                str3 = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            String optString = jSONObject.optString("cursorSpacing");
+            if (TextUtils.isEmpty(optString)) {
+                return 0;
             }
-            if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-                return null;
+            if (optString.endsWith("rpx")) {
+                try {
+                    return zd3.g(Integer.parseInt(optString.replace("rpx", "")));
+                } catch (NumberFormatException unused) {
+                    return 0;
+                }
             }
-            int i = a.a[s.ordinal()];
-            if (i == 1) {
-                String M2 = p73.M(str, str2);
-                if (TextUtils.isEmpty(M2)) {
-                    return null;
-                }
-                return Uri.fromFile(new File(M2));
-            } else if (i != 2) {
-                if (i != 3) {
-                    return null;
-                }
-                return Uri.parse(str);
-            } else {
-                File file = new File(str);
-                if (file.exists()) {
-                    return Uri.fromFile(file);
-                }
-                String L = p73.L(str, M, str3);
-                if (TextUtils.isEmpty(L)) {
-                    return null;
-                }
-                return Uri.fromFile(new File(L));
+            try {
+                return Integer.parseInt(optString.replace("px", ""));
+            } catch (NumberFormatException unused2) {
+                return 0;
             }
         }
-        return (Uri) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.uv1, com.repackage.wv1
-    @NonNull
-    /* renamed from: S */
-    public zw1 k(@NonNull M m, @NonNull M m2) {
-        InterceptResult invokeLL;
+    public void l(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, m, m2)) == null) {
-            zw1 k = super.k(m, m2);
-            if (!TextUtils.equals(m.t, m2.t)) {
-                k.b(9);
-            }
-            return k;
-        }
-        return (zw1) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.uv1
-    /* renamed from: T */
-    public void O(@NonNull V v, @NonNull M m, @NonNull zw1 zw1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, v, m, zw1Var) == null) {
-            super.C(v, m, zw1Var);
-            if (zw1Var.a(9)) {
-                U(v, m);
-            }
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            this.G = i;
+            this.H = i2;
         }
     }
 
-    public void U(@NonNull V v, @NonNull M m) {
+    public void m(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
-            V(v, m, null);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.K = i;
         }
-    }
-
-    public final void V(@NonNull V v, @NonNull M m, @Nullable BaseControllerListener<ImageInfo> baseControllerListener) {
-        Uri W;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, v, m, baseControllerListener) == null) || m.j == null) {
-            return;
-        }
-        if (wv1.h) {
-            Log.d("Component-SimpleDrawee", "renderImageStyle");
-        }
-        String str = m.t;
-        if (TextUtils.isEmpty(str) || (W = W(str)) == null) {
-            return;
-        }
-        hx1.i("Component-SimpleDrawee", "Image Uri:" + W);
-        PipelineDraweeControllerBuilder oldController = Fresco.newDraweeControllerBuilder().setOldController(v.getController());
-        if (baseControllerListener != null) {
-            oldController.setControllerListener(baseControllerListener);
-        }
-        HashMap hashMap = new HashMap();
-        String g0 = b72.U().g0();
-        if (!TextUtils.isEmpty(g0)) {
-            hashMap.put("User-Agent", g0);
-        }
-        String b = od3.b();
-        if (!TextUtils.isEmpty(b) && od3.c(W.toString())) {
-            hashMap.put("Referer", b);
-        }
-        bl1 C = oj2.C();
-        ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(W);
-        C.e(newBuilderWithSource, hashMap);
-        oldController.setImageRequest(newBuilderWithSource.build());
-        AbstractDraweeController build = oldController.build();
-        RoundingParams roundingParams = new RoundingParams();
-        roundingParams.setCornersRadius(m.n);
-        GenericDraweeHierarchy build2 = new GenericDraweeHierarchyBuilder(v.getResources()).build();
-        build2.setRoundingParams(roundingParams);
-        build2.setActualImageScaleType(ScalingUtils.ScaleType.FIT_XY);
-        v.setHierarchy(build2);
-        v.setController(build);
     }
 }

@@ -124,7 +124,7 @@ public final class zq0 extends er0 {
             TextView textView = new TextView(getContext());
             Context context = textView.getContext();
             Intrinsics.checkNotNullExpressionValue(context, "context");
-            textView.setTextSize(0, context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0705cc));
+            textView.setTextSize(0, context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0705ca));
             textView.setTextColor(-1);
             textView.setBackground(ContextCompat.getDrawable(textView.getContext(), R.drawable.obfuscated_res_0x7f080da8));
             textView.setGravity(16);

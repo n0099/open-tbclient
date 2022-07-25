@@ -139,8 +139,8 @@ public class i58 extends jx5<g48> {
         this.l = new b(this, null);
         this.i = tbPageContext;
         View h = h();
-        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09066b);
-        this.o = (ListViewPager) h.findViewById(R.id.obfuscated_res_0x7f09066c);
+        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09066a);
+        this.o = (ListViewPager) h.findViewById(R.id.obfuscated_res_0x7f09066b);
         if ("NX40X".equals(Build.MODEL)) {
             h.setLayerType(2, null);
             if (h instanceof ViewGroup) {
@@ -154,7 +154,7 @@ public class i58 extends jx5<g48> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06c7 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06d1 : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5
@@ -239,7 +239,7 @@ public class i58 extends jx5<g48> {
             if (w(g48Var)) {
                 this.k = g48Var;
                 if (ListUtils.getCount(g48Var.a) <= 2) {
-                    this.o.getLayoutParams().height = pi.f(this.i.getPageActivity(), R.dimen.obfuscated_res_0x7f070249);
+                    this.o.getLayoutParams().height = pi.f(this.i.getPageActivity(), R.dimen.obfuscated_res_0x7f070247);
                 }
                 this.o.setAdapter(this.l);
             }

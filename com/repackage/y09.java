@@ -157,10 +157,10 @@ public class y09 extends HttpURLConnection {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, iOException) == null) {
                 if (this.a.e != null) {
-                    this.a.e.f(iOException);
+                    this.a.e.d(iOException);
                 }
                 if (this.a.f != null) {
-                    this.a.f.k(iOException);
+                    this.a.f.h(iOException);
                 }
                 this.a.j = true;
                 this.a.b.quit();
@@ -229,11 +229,11 @@ public class y09 extends HttpURLConnection {
             }
             a19 a19Var = this.f;
             if (a19Var != null) {
-                builder.k(a19Var.g(), this.b);
+                builder.k(a19Var.f(), this.b);
                 if (getRequestProperty("Content-Length") == null && !z()) {
-                    addRequestProperty("Content-Length", Long.toString(this.f.g().c()));
+                    addRequestProperty("Content-Length", Long.toString(this.f.f().a()));
                 }
-                this.f.j();
+                this.f.g();
             } else if (getRequestProperty("Content-Length") == null) {
                 addRequestProperty("Content-Length", "0");
             }
@@ -614,7 +614,7 @@ public class y09 extends HttpURLConnection {
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             a19 a19Var = this.f;
             if (a19Var != null) {
-                a19Var.f();
+                a19Var.e();
                 if (z()) {
                     this.f.close();
                 }

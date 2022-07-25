@@ -89,15 +89,15 @@ public class tt5 implements View.OnClickListener {
         this.l = new a(this);
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02f0, (ViewGroup) null);
         this.a = inflate;
-        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091251);
+        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09122d);
         ThreadUserInfoLayout threadUserInfoLayout = (ThreadUserInfoLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0904dd);
         this.c = threadUserInfoLayout;
         threadUserInfoLayout.setFrom(3);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091fe1);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091fe5);
         this.g = (AlaVideoContainer) this.a.findViewById(R.id.obfuscated_res_0x7f090221);
-        this.f = this.a.findViewById(R.id.obfuscated_res_0x7f0907be);
-        this.e = (ThreadCommentAndPraiseInfoLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091fb9);
-        this.h = this.a.findViewById(R.id.obfuscated_res_0x7f0907ca);
+        this.f = this.a.findViewById(R.id.obfuscated_res_0x7f0907bc);
+        this.e = (ThreadCommentAndPraiseInfoLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091fbd);
+        this.h = this.a.findViewById(R.id.obfuscated_res_0x7f0907c8);
         this.b.setOnClickListener(this);
         this.e.setOnClickListener(this);
         this.e.getCommentContainer().setOnClickListener(this);
@@ -192,7 +192,7 @@ public class tt5 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             if (view2 != this.b && view2 != this.e.getCommentContainer()) {
-                if (view2.getId() != R.id.obfuscated_res_0x7f09238b || (xt5Var = this.k) == null) {
+                if (view2.getId() != R.id.obfuscated_res_0x7f09238d || (xt5Var = this.k) == null) {
                     return;
                 }
                 xt5Var.a(view2, this.i);

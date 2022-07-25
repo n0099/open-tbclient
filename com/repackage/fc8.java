@@ -158,7 +158,7 @@ public class fc8 extends b9<SecretSettingActivity> {
         this.a = null;
         this.x = new a(this);
         this.l = secretSettingActivity;
-        secretSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d075a);
+        secretSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d0764);
         w(secretSettingActivity);
     }
 
@@ -184,13 +184,13 @@ public class fc8 extends b9<SecretSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
             if (i2 == 3 && i == 3) {
-                this.f.setTip(this.l.getString(R.string.obfuscated_res_0x7f0f0a8f));
+                this.f.setTip(this.l.getString(R.string.obfuscated_res_0x7f0f0a7b));
             } else if (i2 == 3) {
-                this.f.setTip(this.l.getString(R.string.obfuscated_res_0x7f0f0a8e));
+                this.f.setTip(this.l.getString(R.string.obfuscated_res_0x7f0f0a7a));
             } else if (i == 3) {
-                this.f.setTip(this.l.getString(R.string.obfuscated_res_0x7f0f0a90));
+                this.f.setTip(this.l.getString(R.string.obfuscated_res_0x7f0f0a7c));
             } else {
-                this.f.setTip(this.l.getString(R.string.obfuscated_res_0x7f0f0a8d));
+                this.f.setTip(this.l.getString(R.string.obfuscated_res_0x7f0f0a79));
             }
         }
     }
@@ -217,7 +217,7 @@ public class fc8 extends b9<SecretSettingActivity> {
                 }
             } else if (TextUtils.equals(str, PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE) || TextUtils.equals(str, PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE)) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                B(xt4.k().l(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, 0), xt4.k().l(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE + currentAccount, 0));
+                B(yt4.k().l(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, 0), yt4.k().l(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE + currentAccount, 0));
             }
         }
     }
@@ -258,10 +258,10 @@ public class fc8 extends b9<SecretSettingActivity> {
             this.l.getLayoutMode().k(i == 1);
             this.l.getLayoutMode().j(this.b);
             this.a.onChangeSkinType(this.l.getPageContext(), i);
-            ur4.d(this.s).v(R.color.CAM_X0108);
-            ur4.d(this.t).v(R.color.CAM_X0108);
-            ur4.d(this.u).v(R.color.CAM_X0108);
-            ur4.d(this.r).f(R.color.CAM_X0204);
+            vr4.d(this.s).v(R.color.CAM_X0108);
+            vr4.d(this.t).v(R.color.CAM_X0108);
+            vr4.d(this.u).v(R.color.CAM_X0108);
+            vr4.d(this.r).f(R.color.CAM_X0204);
             SkinManager.setBackgroundColor(this.j, R.color.CAM_X0205);
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0205);
             SkinManager.setBackgroundColor(this.g, R.color.CAM_X0205);
@@ -305,37 +305,37 @@ public class fc8 extends b9<SecretSettingActivity> {
     public final void w(SecretSettingActivity secretSettingActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, secretSettingActivity) == null) {
-            this.b = (LinearLayout) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f0916ba);
-            NavigationBar navigationBar = (NavigationBar) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f092437);
+            this.b = (LinearLayout) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091695);
+            NavigationBar navigationBar = (NavigationBar) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f092439);
             this.a = navigationBar;
             this.c = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setCenterTextTitle(secretSettingActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f10d6));
+            this.a.setCenterTextTitle(secretSettingActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f1092));
             this.d = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f09037f);
-            this.e = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091988);
-            this.f = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f09140c);
-            this.k = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091989);
-            this.g = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f09198a);
-            this.h = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091990);
-            this.j = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f092055);
-            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.l.findViewById(R.id.obfuscated_res_0x7f090f80);
+            this.e = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091963);
+            this.f = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f0913e8);
+            this.k = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091964);
+            this.g = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091965);
+            this.h = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f09196b);
+            this.j = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f092059);
+            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.l.findViewById(R.id.obfuscated_res_0x7f090f79);
             this.v = msgSettingItemView;
-            msgSettingItemView.setText(R.string.obfuscated_res_0x7f0f06c4);
+            msgSettingItemView.setText(R.string.obfuscated_res_0x7f0f06c0);
             this.v.setOnSwitchStateChangeListener(this.l);
             this.v.setTextSize(0, pi.f(this.l, R.dimen.obfuscated_res_0x7f0702b7));
             MsgSettingItemView msgSettingItemView2 = this.v;
             msgSettingItemView2.setPadding(msgSettingItemView2.getPaddingLeft() + 10, this.v.getPaddingTop() + 10, this.v.getPaddingRight() + 10, this.v.getPaddingBottom() + 10);
-            MsgSettingItemView msgSettingItemView3 = (MsgSettingItemView) this.l.findViewById(R.id.obfuscated_res_0x7f090f81);
+            MsgSettingItemView msgSettingItemView3 = (MsgSettingItemView) this.l.findViewById(R.id.obfuscated_res_0x7f090f7a);
             this.w = msgSettingItemView3;
-            msgSettingItemView3.setText(R.string.obfuscated_res_0x7f0f121c);
+            msgSettingItemView3.setText(R.string.obfuscated_res_0x7f0f11cb);
             this.w.setTextSize(0, pi.f(this.l, R.dimen.obfuscated_res_0x7f0702b7));
             MsgSettingItemView msgSettingItemView4 = this.w;
             msgSettingItemView4.setPadding(msgSettingItemView4.getPaddingLeft() + 10, this.w.getPaddingTop() + 10, this.w.getPaddingRight() + 10, this.w.getPaddingBottom() + 10);
             this.w.setOnSwitchStateChangeListener(this.l);
-            this.i = secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f0906ad);
-            this.r = (ScrollView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f0913df);
-            this.s = (TextView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091ced);
-            this.t = (TextView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091cee);
-            this.u = (TextView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091cef);
+            this.i = secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f0906ac);
+            this.r = (ScrollView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f0913bb);
+            this.s = (TextView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091cf3);
+            this.t = (TextView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091cf4);
+            this.u = (TextView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091cf5);
             this.c.setOnClickListener(this.x);
             this.d.setOnClickListener(this.x);
             this.k.setOnClickListener(this.x);
@@ -344,23 +344,23 @@ public class fc8 extends b9<SecretSettingActivity> {
             this.g.setOnClickListener(this.x);
             this.h.setOnClickListener(this.x);
             this.j.setOnClickListener(this.x);
-            this.m = this.l.findViewById(R.id.obfuscated_res_0x7f091991);
-            this.n = this.l.getResources().getStringArray(R.array.obfuscated_res_0x7f030013);
+            this.m = this.l.findViewById(R.id.obfuscated_res_0x7f09196c);
+            this.n = this.l.getResources().getStringArray(R.array.obfuscated_res_0x7f030012);
             if (TbadkCoreApplication.getInst().appResponseToIntentClass(PersonGroupActivityConfig.class)) {
                 this.k.setVisibility(0);
             } else {
                 this.k.setVisibility(8);
             }
-            TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f09198f);
+            TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f09196a);
             this.o = tbSettingTextTipView;
             tbSettingTextTipView.setOnClickListener(this.x);
-            TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091987);
+            TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091962);
             this.p = tbSettingTextTipView2;
             tbSettingTextTipView2.setOnClickListener(this.x);
-            TbSettingTextTipView tbSettingTextTipView3 = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f09198b);
+            TbSettingTextTipView tbSettingTextTipView3 = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091966);
             this.q = tbSettingTextTipView3;
             tbSettingTextTipView3.setOnClickListener(this.x);
-            UserData e = f45.d().e();
+            UserData e = g45.d().e();
             if (e != null && e.getBazhuGradeData() != null && !StringUtils.isNull(e.getBazhuGradeData().getDesc()) && !StringUtils.isNull(e.getBazhuGradeData().getLevel())) {
                 this.f.setVisibility(0);
             } else {

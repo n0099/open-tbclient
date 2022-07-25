@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rg1;
+import com.repackage.sg1;
 /* loaded from: classes2.dex */
 public class PictureCropView extends PictureView {
     public static /* synthetic */ Interceptable $ic;
@@ -198,7 +198,7 @@ public class PictureCropView extends PictureView {
                 return;
             }
         }
-        o = rg1.a;
+        o = sg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -232,7 +232,7 @@ public class PictureCropView extends PictureView {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             this.m.setColor(this.l);
             this.m.setStyle(Paint.Style.FILL);
-            this.j = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810c4);
+            this.j = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810c8);
             ZoomImageView zoomImageView = (ZoomImageView) getImageView();
             zoomImageView.setDoubleTapEnabled(true);
             zoomImageView.setCalcBaseMatrix(false);

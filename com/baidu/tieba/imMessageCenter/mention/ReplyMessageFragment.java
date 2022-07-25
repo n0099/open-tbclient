@@ -607,7 +607,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
                 if (!StringUtils.isNull(errorData.error_msg)) {
                     showToast(errorData.error_msg);
                 } else {
-                    showToast(R.string.obfuscated_res_0x7f0f08bb);
+                    showToast(R.string.obfuscated_res_0x7f0f08a6);
                 }
             }
             ka7 ka7Var = this.b;
@@ -667,7 +667,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
             replyMeModelController.D(bundle);
             this.a.setUniqueId(getUniqueId());
             Q1();
-            this.c = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0737, viewGroup, false);
+            this.c = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0741, viewGroup, false);
             ka7 ka7Var = new ka7(this);
             this.b = ka7Var;
             ka7Var.U(this.c);

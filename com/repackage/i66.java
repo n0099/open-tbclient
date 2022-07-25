@@ -104,7 +104,7 @@ public class i66 {
             this.n = k66Var;
             k66Var.e0(this.b);
             this.p.add(this.n);
-            w66 w66Var = new w66(this.a.getPageContext(), jq4.d, this.a.getUniqueId(), this.a.u1());
+            w66 w66Var = new w66(this.a.getPageContext(), kq4.d, this.a.getUniqueId(), this.a.u1());
             this.o = w66Var;
             w66Var.c0(this.b);
             this.p.add(this.o);

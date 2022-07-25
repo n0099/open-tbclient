@@ -22,7 +22,7 @@ public class lz6 {
             StringBuilder sb = new StringBuilder();
             sb.append("key_card_interest_close_click_num_");
             sb.append(currentAccount);
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_RECOMMEND_CARD_INTEREST_CLICK).param("uid", currentAccount).param("obj_param1", xt4.k().l(sb.toString(), 0) != 0 ? 2 : 1).param("obj_locate", i));
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_RECOMMEND_CARD_INTEREST_CLICK).param("uid", currentAccount).param("obj_param1", yt4.k().l(sb.toString(), 0) != 0 ? 2 : 1).param("obj_locate", i));
         }
     }
 
@@ -33,27 +33,27 @@ public class lz6 {
             StringBuilder sb = new StringBuilder();
             sb.append("key_card_interest_close_click_num_");
             sb.append(currentAccount);
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_RECOMMEND_CARD_INTEREST_SHOW).param("uid", currentAccount).param("obj_param1", xt4.k().l(sb.toString(), 0) != 0 ? 2 : 1));
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_RECOMMEND_CARD_INTEREST_SHOW).param("uid", currentAccount).param("obj_param1", yt4.k().l(sb.toString(), 0) != 0 ? 2 : 1));
         }
     }
 
-    public static boolean c(ox4 ox4Var, String str) {
+    public static boolean c(px4 px4Var, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, ox4Var, str)) == null) {
-            long m = xt4.k().m("key_card_interest_close_click_time_" + str, 0L);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, px4Var, str)) == null) {
+            long m = yt4.k().m("key_card_interest_close_click_time_" + str, 0L);
             if (m != 0) {
-                return ox4Var.a() != -1 && ((int) (((((System.currentTimeMillis() - m) / 1000) / 60) / 60) / 24)) >= ox4Var.a();
+                return px4Var.a() != -1 && ((int) (((((System.currentTimeMillis() - m) / 1000) / 60) / 60) / 24)) >= px4Var.a();
             }
             return false;
         }
         return invokeLL.booleanValue;
     }
 
-    public static boolean d(ox4 ox4Var) {
+    public static boolean d(px4 px4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ox4Var)) == null) ? ox4Var.c() == 1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, px4Var)) == null) ? px4Var.c() == 1 : invokeL.booleanValue;
     }
 
     public static boolean e() {
@@ -62,14 +62,14 @@ public class lz6 {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (UbsABTestHelper.isRecommendCardInterestABTestA() && h()) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                ox4 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
+                px4 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
                 if (homepageInterestConfig == null) {
                     return false;
                 }
                 if (d(homepageInterestConfig)) {
                     return true;
                 }
-                if (xt4.k().l("key_card_interest_close_click_num_" + currentAccount, 0) != 0) {
+                if (yt4.k().l("key_card_interest_close_click_num_" + currentAccount, 0) != 0) {
                     if (c(homepageInterestConfig, currentAccount)) {
                         return true;
                     }
@@ -89,12 +89,12 @@ public class lz6 {
         if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
             if (h()) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                ox4 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
+                px4 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
                 if (homepageInterestConfig != null && i2 > 0) {
                     if (d(homepageInterestConfig)) {
                         return true;
                     }
-                    if (xt4.k().l("key_card_interest_close_click_num_" + currentAccount, 0) != 0) {
+                    if (yt4.k().l("key_card_interest_close_click_num_" + currentAccount, 0) != 0) {
                         if (c(homepageInterestConfig, currentAccount) && i == 0) {
                             return true;
                         }
@@ -110,10 +110,10 @@ public class lz6 {
         return invokeII.booleanValue;
     }
 
-    public static boolean g(ox4 ox4Var) {
+    public static boolean g(px4 px4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, ox4Var)) == null) ? ox4Var.d() == 1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, px4Var)) == null) ? px4Var.d() == 1 : invokeL.booleanValue;
     }
 
     public static boolean h() {
@@ -122,14 +122,14 @@ public class lz6 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             if (TbadkCoreApplication.isLogin()) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                ox4 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
+                px4 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
                 if (homepageInterestConfig == null) {
                     return false;
                 }
                 StringBuilder sb = new StringBuilder();
                 sb.append("key_card_interest_close_click_num_");
                 sb.append(currentAccount);
-                return xt4.k().l(sb.toString(), 0) < homepageInterestConfig.b();
+                return yt4.k().l(sb.toString(), 0) < homepageInterestConfig.b();
             }
             return false;
         }
@@ -140,9 +140,9 @@ public class lz6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            xt4.k().x("key_card_interest_close_click_time_" + currentAccount, System.currentTimeMillis());
+            yt4.k().x("key_card_interest_close_click_time_" + currentAccount, System.currentTimeMillis());
             String str = "key_card_interest_close_click_num_" + currentAccount;
-            xt4.k().w(str, xt4.k().l(str, 0) + 1);
+            yt4.k().w(str, yt4.k().l(str, 0) + 1);
         }
     }
 }

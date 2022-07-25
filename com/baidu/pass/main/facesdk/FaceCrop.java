@@ -260,29 +260,20 @@ public class FaceCrop {
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    Callback callback2;
-                    String str;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long index = this.this$0.bdFaceInstance.getIndex();
-                        int i = -1;
                         if (index == 0) {
-                            callback2 = this.val$callback;
-                            str = "抠图能力加载失败 instanceIndex=0";
-                        } else {
-                            try {
-                                i = this.this$0.nativeCropImageInit(index);
-                            } catch (Throwable th) {
-                                th.printStackTrace();
-                            }
-                            callback2 = this.val$callback;
-                            if (i == 0) {
-                                callback2.onResponse(i, "抠图能力加载成功");
-                                return;
-                            }
-                            str = "抠图能力加载失败: " + i;
+                            this.val$callback.onResponse(-1, "抠图能力加载失败 instanceIndex=0");
+                            return;
                         }
-                        callback2.onResponse(i, str);
+                        int nativeCropImageInit = this.this$0.nativeCropImageInit(index);
+                        Callback callback2 = this.val$callback;
+                        if (nativeCropImageInit == 0) {
+                            callback2.onResponse(nativeCropImageInit, "抠图能力加载成功");
+                            return;
+                        }
+                        callback2.onResponse(nativeCropImageInit, "抠图能力加载失败: " + nativeCropImageInit);
                     }
                 }
             });
@@ -309,11 +300,7 @@ public class FaceCrop {
             if (index == 0) {
                 return -1;
             }
-            try {
-                return nativeUnInitCropImage(index);
-            } catch (Throwable unused) {
-                return -1;
-            }
+            return nativeUnInitCropImage(index);
         }
         return invokeV.intValue;
     }

@@ -57,7 +57,7 @@ public class su7 extends du7<pr7, PbLoadMoreItemViewHolder> {
     public PbLoadMoreItemViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbLoadMoreItemViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0603, viewGroup, false), this.o) : (PbLoadMoreItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbLoadMoreItemViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d060d, viewGroup, false), this.o) : (PbLoadMoreItemViewHolder) invokeL.objValue;
     }
 
     public View c0(int i, View view2, ViewGroup viewGroup, pr7 pr7Var, PbLoadMoreItemViewHolder pbLoadMoreItemViewHolder) {
@@ -66,12 +66,12 @@ public class su7 extends du7<pr7, PbLoadMoreItemViewHolder> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pr7Var, pbLoadMoreItemViewHolder})) == null) {
             super.S(i, view2, viewGroup, pr7Var, pbLoadMoreItemViewHolder);
             if (pr7Var.b) {
-                pbLoadMoreItemViewHolder.g(pr7Var.a);
+                pbLoadMoreItemViewHolder.f(pr7Var.a);
             } else {
-                pbLoadMoreItemViewHolder.f(pr7Var.a, this.q);
+                pbLoadMoreItemViewHolder.e(pr7Var.a, this.q);
             }
-            pbLoadMoreItemViewHolder.e(this.p);
-            pbLoadMoreItemViewHolder.d();
+            pbLoadMoreItemViewHolder.d(this.p);
+            pbLoadMoreItemViewHolder.c();
             return view2;
         }
         return (View) invokeCommon.objValue;

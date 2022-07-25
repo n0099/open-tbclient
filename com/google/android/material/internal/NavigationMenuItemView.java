@@ -139,7 +139,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
             return;
         }
         if (this.actionArea == null) {
-            this.actionArea = (FrameLayout) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f090765)).inflate();
+            this.actionArea = (FrameLayout) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f090764)).inflate();
         }
         this.actionArea.removeAllViews();
         this.actionArea.addView(view2);
@@ -429,8 +429,8 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
         };
         setOrientation(0);
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d021a, (ViewGroup) this, true);
-        setIconSize(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020e));
-        CheckedTextView checkedTextView = (CheckedTextView) findViewById(R.id.obfuscated_res_0x7f090766);
+        setIconSize(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020c));
+        CheckedTextView checkedTextView = (CheckedTextView) findViewById(R.id.obfuscated_res_0x7f090765);
         this.textView = checkedTextView;
         checkedTextView.setDuplicateParentStateEnabled(true);
         ViewCompat.setAccessibilityDelegate(this.textView, this.accessibilityDelegate);

@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class w66 extends an<jq4, CardViewHolder<b>> {
+public class w66 extends an<kq4, CardViewHolder<b>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> i;
@@ -68,7 +68,7 @@ public class w66 extends an<jq4, CardViewHolder<b>> {
     }
 
     /* loaded from: classes7.dex */
-    public static class b extends jx5<jq4> {
+    public static class b extends jx5<kq4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TbPageContext<?> i;
@@ -95,7 +95,7 @@ public class w66 extends an<jq4, CardViewHolder<b>> {
                 }
             }
             this.i = tbPageContext;
-            TbImageView tbImageView = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f090e33);
+            TbImageView tbImageView = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f090e2c);
             this.j = tbImageView;
             tbImageView.setOnClickListener(this);
             this.j.setConrers(15);
@@ -139,14 +139,14 @@ public class w66 extends an<jq4, CardViewHolder<b>> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.repackage.jx5
         /* renamed from: s */
-        public void i(jq4 jq4Var) {
+        public void i(kq4 kq4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, jq4Var) == null) {
-                if (jq4Var != null) {
-                    this.k = jq4Var.b;
+            if (interceptable == null || interceptable.invokeL(1048581, this, kq4Var) == null) {
+                if (kq4Var != null) {
+                    this.k = kq4Var.b;
                     this.j.setScaleType(ImageView.ScaleType.FIT_XY);
                     this.j.setPlaceHolder(2);
-                    this.j.J(jq4Var.a, 10, false);
+                    this.j.J(kq4Var.a, 10, false);
                 }
                 j(this.i, TbadkCoreApplication.getInst().getSkinType());
             }
@@ -193,20 +193,20 @@ public class w66 extends an<jq4, CardViewHolder<b>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.an
     /* renamed from: b0 */
-    public View S(int i, View view2, ViewGroup viewGroup, jq4 jq4Var, CardViewHolder<b> cardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, kq4 kq4Var, CardViewHolder<b> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jq4Var, cardViewHolder})) == null) {
-            if (jq4Var == null || cardViewHolder == null || cardViewHolder.c() == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, kq4Var, cardViewHolder})) == null) {
+            if (kq4Var == null || cardViewHolder == null || cardViewHolder.b() == null) {
                 return null;
             }
-            cardViewHolder.c().i(jq4Var);
+            cardViewHolder.b().i(kq4Var);
             StatisticItem statisticItem = new StatisticItem("c13646");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             statisticItem.param("obj_id", B(i) + 1);
             statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.j);
             TiebaStatic.log(statisticItem);
-            return cardViewHolder.c().h();
+            return cardViewHolder.b().h();
         }
         return (View) invokeCommon.objValue;
     }

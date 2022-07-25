@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.l86;
-import com.repackage.lx4;
 import com.repackage.m86;
+import com.repackage.mx4;
 /* loaded from: classes3.dex */
 public class PbFullScreenEditorInputView extends SpanGroupEditText {
     public static /* synthetic */ Interceptable $ic;
@@ -183,13 +183,13 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         }
     }
 
-    public void m(lx4 lx4Var) {
+    public void m(mx4 mx4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, lx4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, mx4Var) == null) {
             if (l86.a(getText().toString()) >= 10) {
-                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1444);
+                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f13f3);
             } else {
-                m86.b(getContext(), lx4Var, this);
+                m86.b(getContext(), mx4Var, this);
             }
         }
     }

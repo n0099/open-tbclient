@@ -3,14 +3,14 @@ package com.kwad.sdk.pngencrypt.chunk;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 /* loaded from: classes5.dex */
 public abstract class PngChunk {
-    public final String a;
-    public final boolean b;
-    public final boolean c;
-    public final boolean d;
-    public final com.kwad.sdk.pngencrypt.k e;
-    public d f;
-    public boolean h = false;
-    public int g = -1;
+    public final com.kwad.sdk.pngencrypt.k akJ;
+    public final String alB;
+    public final boolean alK;
+    public final boolean alL;
+    public final boolean alM;
+    public d alN;
+    public boolean alO = false;
+    public int alP = -1;
 
     /* loaded from: classes5.dex */
     public enum ChunkOrderingConstraint {
@@ -47,40 +47,40 @@ public abstract class PngChunk {
     }
 
     public PngChunk(String str, com.kwad.sdk.pngencrypt.k kVar) {
-        this.a = str;
-        this.e = kVar;
-        this.b = b.b(str);
-        this.c = b.c(str);
-        this.d = b.d(str);
+        this.alB = str;
+        this.akJ = kVar;
+        this.alK = b.dr(str);
+        this.alL = b.ds(str);
+        this.alM = b.dt(str);
     }
 
-    private int a() {
-        d dVar = this.f;
+    private long yG() {
+        d dVar = this.alN;
         if (dVar != null) {
-            return dVar.a;
-        }
-        return -1;
-    }
-
-    private long b() {
-        d dVar = this.f;
-        if (dVar != null) {
-            return dVar.b();
+            return dVar.yG();
         }
         return -1L;
     }
 
-    public final void a(int i) {
-        this.g = i;
+    private int yI() {
+        d dVar = this.alN;
+        if (dVar != null) {
+            return dVar.len;
+        }
+        return -1;
     }
 
     public abstract void a(d dVar);
 
     public final void b(d dVar) {
-        this.f = dVar;
+        this.alN = dVar;
+    }
+
+    public final void br(int i) {
+        this.alP = i;
     }
 
     public String toString() {
-        return "chunk id= " + this.a + " (len=" + a() + " offset=" + b() + SmallTailInfo.EMOTION_SUFFIX;
+        return "chunk id= " + this.alB + " (len=" + yI() + " offset=" + yG() + SmallTailInfo.EMOTION_SUFFIX;
     }
 }

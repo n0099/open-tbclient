@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class qc7 implements nk4 {
+public class qc7 implements ok4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,17 +32,17 @@ public class qc7 implements nk4 {
         }
     }
 
-    @Override // com.repackage.nk4
+    @Override // com.repackage.ok4
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.LIKE_ADDRESS : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.nk4
-    public void b(HashMap<String, String> hashMap, ok4 ok4Var) {
+    @Override // com.repackage.ok4
+    public void b(HashMap<String, String> hashMap, pk4 pk4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, ok4Var) == null) || ok4Var == null || hashMap == null || hashMap.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, pk4Var) == null) || pk4Var == null || hashMap == null || hashMap.isEmpty()) {
             return;
         }
         String str = hashMap.get("fid");

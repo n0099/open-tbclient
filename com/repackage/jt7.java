@@ -25,7 +25,7 @@ import com.repackage.xu7;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class jt7 implements v85 {
+public class jt7 implements w85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -40,7 +40,7 @@ public class jt7 implements v85 {
     public View.OnLongClickListener j;
     public ls7 k;
     public final MoreGodReplyModel l;
-    public y85 m;
+    public z85 m;
     public long n;
     public BdListView.p o;
     public AbsListView.OnScrollListener p;
@@ -424,14 +424,14 @@ public class jt7 implements v85 {
         this.d = new lt7(this);
     }
 
-    @Override // com.repackage.v85
+    @Override // com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a053" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.v85
+    @Override // com.repackage.w85
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -445,7 +445,7 @@ public class jt7 implements v85 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.v85
+    @Override // com.repackage.w85
     public List<String> getNextPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -473,14 +473,14 @@ public class jt7 implements v85 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.v85
-    public w85 getPageStayFilter() {
+    @Override // com.repackage.w85
+    public x85 getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return null;
         }
-        return (w85) invokeV.objValue;
+        return (x85) invokeV.objValue;
     }
 
     public void h() {
@@ -503,21 +503,21 @@ public class jt7 implements v85 {
                 this.c.r(new d(this, runnable));
             }
             if (this.n != 0) {
-                y85 j = j();
+                z85 j = j();
                 j.y(System.currentTimeMillis() - this.n);
-                z85.b().k(this.b.getContext(), j, getPageStayFilter());
+                a95.b().k(this.b.getContext(), j, getPageStayFilter());
             }
         }
     }
 
-    public y85 j() {
+    public z85 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (this.m == null) {
-                y85 y85Var = new y85();
-                this.m = y85Var;
-                y85Var.x(getCurrentPageSourceKeyList());
+                z85 z85Var = new z85();
+                this.m = z85Var;
+                z85Var.x(getCurrentPageSourceKeyList());
                 this.m.s(getCurrentPageKey());
                 PbModel F = this.b.F();
                 if (F != null) {
@@ -527,7 +527,7 @@ public class jt7 implements v85 {
             }
             return this.m;
         }
-        return (y85) invokeV.objValue;
+        return (z85) invokeV.objValue;
     }
 
     public mt7 k() {
@@ -666,7 +666,7 @@ public class jt7 implements v85 {
         t(e2);
         w(R1);
         e2.setData(new ArrayList(H));
-        this.c.g().setCenterTextTitle(String.format(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0ad9), StringHelper.numFormatOver10000(R1.T().b.size())));
+        this.c.g().setCenterTextTitle(String.format(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0ac5), StringHelper.numFormatOver10000(R1.T().b.size())));
         this.c.b(this.l.J());
         if (e2.getAdapter2() instanceof en) {
             e2.getAdapter2().notifyDataSetChanged();

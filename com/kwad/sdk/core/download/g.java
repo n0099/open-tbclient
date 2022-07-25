@@ -4,14 +4,10 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 /* loaded from: classes5.dex */
 public class g implements f {
-    public AdInfo a;
+    public AdInfo mAdInfo;
 
     public g(AdTemplate adTemplate) {
-        this.a = com.kwad.sdk.core.response.a.d.i(adTemplate);
-    }
-
-    @Override // com.kwad.sdk.core.download.f
-    public final void a(String str) {
+        this.mAdInfo = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
     }
 
     @Override // com.kwad.sdk.core.download.f
@@ -35,17 +31,11 @@ public class g implements f {
     }
 
     @Override // com.kwad.sdk.core.download.f
-    public final String b() {
-        return this.a.downloadId;
+    public final void al(String str) {
     }
 
     @Override // com.kwad.sdk.core.download.f
     public final void b(String str, h hVar) {
-    }
-
-    @Override // com.kwad.sdk.core.download.f
-    public final String c() {
-        return this.a.adBaseInfo.appPackageName;
     }
 
     @Override // com.kwad.sdk.core.download.f
@@ -58,5 +48,15 @@ public class g implements f {
 
     @Override // com.kwad.sdk.core.download.f
     public final void e(String str, h hVar) {
+    }
+
+    @Override // com.kwad.sdk.core.download.f
+    public final String mJ() {
+        return this.mAdInfo.downloadId;
+    }
+
+    @Override // com.kwad.sdk.core.download.f
+    public final String mK() {
+        return this.mAdInfo.adBaseInfo.appPackageName;
     }
 }

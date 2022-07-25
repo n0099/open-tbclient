@@ -20,7 +20,7 @@ import tbclient.ItemPage.DataRes;
 import tbclient.RecentUpdate;
 import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
-public class cl6 implements u75 {
+public class cl6 implements v75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ItemInfo a;
@@ -112,14 +112,14 @@ public class cl6 implements u75 {
         this.c.add(xl6Var);
     }
 
-    @Override // com.repackage.u75
+    @Override // com.repackage.v75
     public void initByJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
         }
     }
 
-    @Override // com.repackage.u75
+    @Override // com.repackage.v75
     public void initByProtobuf(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {

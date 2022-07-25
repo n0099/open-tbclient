@@ -48,7 +48,7 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public abstract class wc1 implements hd1, AdView.a, SensorEventListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final String h0;
+    public static final String b0;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
     public boolean B;
@@ -77,13 +77,13 @@ public abstract class wc1 implements hd1, AdView.a, SensorEventListener {
     public int Y;
     public float Z;
     public Context a;
+    public int a0;
     public int b;
     public ImageView c;
     public ImageView d;
     public AbsCountDownView e;
     public boolean f;
     public boolean g;
-    public int g0;
     public tc1 h;
     public JSONObject i;
     public JSONObject j;
@@ -704,7 +704,7 @@ public abstract class wc1 implements hd1, AdView.a, SensorEventListener {
                 return;
             }
         }
-        h0 = wc1.class.getSimpleName();
+        b0 = wc1.class.getSimpleName();
     }
 
     public wc1(Context context, JSONObject jSONObject) {
@@ -888,8 +888,8 @@ public abstract class wc1 implements hd1, AdView.a, SensorEventListener {
                 return;
             }
             this.Z = f2;
-            int i2 = this.g0 + 1;
-            this.g0 = i2;
+            int i2 = this.a0 + 1;
+            this.a0 = i2;
             if (i2 >= F()) {
                 if (xe0.a) {
                     yz0.a().a(this.k.getContext(), "摇一摇 *3.0*");

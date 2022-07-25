@@ -103,10 +103,10 @@ public class kt6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
                 vy5 vy5Var = (vy5) nnVar;
                 vy5Var.f = 1;
                 if (this.a.n != null) {
-                    this.a.n.a(threadCardViewHolder.b(), vy5Var);
+                    this.a.n.a(threadCardViewHolder.a(), vy5Var);
                 }
-                ThreadCardUtils.jumpToPB((nn4) vy5Var, view2.getContext(), 1, false);
-                threadCardViewHolder.c().o(new ny.a(1));
+                ThreadCardUtils.jumpToPB((on4) vy5Var, view2.getContext(), 1, false);
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -150,7 +150,7 @@ public class kt6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
             cy k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.m);
             k.r(1);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.k(this.i);
+            threadCardViewHolder.j(this.i);
             V(new b(this));
             return threadCardViewHolder;
         }
@@ -164,19 +164,19 @@ public class kt6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vy5Var, threadCardViewHolder})) == null) {
-            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || vy5Var.a == null) {
+            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || vy5Var.a == null) {
                 return null;
             }
             vy5Var.I(vy5Var.position + 1);
             cy5.b().a(new StatisticItem("c13424"));
-            threadCardViewHolder.c().q(i);
-            if (threadCardViewHolder.c() instanceof bk5) {
-                threadCardViewHolder.c().b(this.k);
+            threadCardViewHolder.b().q(i);
+            if (threadCardViewHolder.b() instanceof bk5) {
+                threadCardViewHolder.b().b(this.k);
             }
-            threadCardViewHolder.g(vy5Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.n);
-            return threadCardViewHolder.b();
+            threadCardViewHolder.f(vy5Var);
+            threadCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().p(this.n);
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }
@@ -185,9 +185,9 @@ public class kt6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, view2, vy5Var) == null) {
             int id = view2.getId();
-            if (view2.getId() == R.id.obfuscated_res_0x7f09202a) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09202e) {
                 vs6.b(view2, vy5Var, 2);
-            } else if (id == R.id.obfuscated_res_0x7f090c84) {
+            } else if (id == R.id.obfuscated_res_0x7f090c7d) {
                 StatisticItem statisticItem = new StatisticItem("c13423");
                 statisticItem.param("obj_locate", 4);
                 if (vy5Var != null) {
@@ -198,7 +198,7 @@ public class kt6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
                     }
                 }
                 TiebaStatic.log(statisticItem);
-            } else if (id == R.id.obfuscated_res_0x7f090c7f) {
+            } else if (id == R.id.obfuscated_res_0x7f090c78) {
                 StatisticItem statisticItem2 = new StatisticItem("c13423");
                 statisticItem2.param("obj_locate", 2);
                 if (vy5Var != null) {
@@ -209,7 +209,7 @@ public class kt6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
                     }
                 }
                 TiebaStatic.log(statisticItem2);
-            } else if (id == R.id.obfuscated_res_0x7f090c82 || id == R.id.obfuscated_res_0x7f090c83) {
+            } else if (id == R.id.obfuscated_res_0x7f090c7b || id == R.id.obfuscated_res_0x7f090c7c) {
                 StatisticItem statisticItem3 = new StatisticItem("c13423");
                 statisticItem3.param("obj_locate", 1);
                 if (vy5Var != null) {
@@ -220,7 +220,7 @@ public class kt6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
                     }
                 }
                 TiebaStatic.log(statisticItem3);
-            } else if (id == R.id.obfuscated_res_0x7f090c7e) {
+            } else if (id == R.id.obfuscated_res_0x7f090c77) {
                 StatisticItem statisticItem4 = new StatisticItem("c13423");
                 statisticItem4.param("obj_locate", 5);
                 if (vy5Var != null) {
@@ -231,7 +231,7 @@ public class kt6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
                     }
                 }
                 TiebaStatic.log(statisticItem4);
-            } else if ((view2 instanceof TbImageView) && (view2.getTag(R.id.obfuscated_res_0x7f090c80) instanceof Integer)) {
+            } else if ((view2 instanceof TbImageView) && (view2.getTag(R.id.obfuscated_res_0x7f090c79) instanceof Integer)) {
                 StatisticItem statisticItem5 = new StatisticItem("c13423");
                 statisticItem5.param("obj_locate", 3);
                 if (vy5Var != null) {

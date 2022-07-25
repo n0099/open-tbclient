@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.td5;
+import com.repackage.ud5;
 import tbclient.DecryptCode.DataReq;
 import tbclient.DecryptCode.DecryptCodeReqIdl;
 /* loaded from: classes2.dex */
@@ -44,7 +44,7 @@ public class DecryptCodeReqMsg extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.tieba_code = this.code;
-                td5.c(builder, true, true, true);
+                ud5.c(builder, true, true, true);
                 DecryptCodeReqIdl.Builder builder2 = new DecryptCodeReqIdl.Builder();
                 builder2.data = builder.build(true);
                 return builder2.build(true);

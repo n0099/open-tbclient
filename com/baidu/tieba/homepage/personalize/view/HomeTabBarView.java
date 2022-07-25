@@ -39,7 +39,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ig;
 import com.repackage.jg;
-import com.repackage.k05;
+import com.repackage.l05;
 import com.repackage.pi;
 import com.repackage.sg8;
 import com.repackage.sz6;
@@ -109,11 +109,11 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
                 super.onLoaded((a) ymVar, str, i);
                 if (ymVar == null || ymVar.p() == null || ymVar.p().isRecycled()) {
                     this.b.b.setImageResource(R.drawable.icon_use_gold_n);
-                    this.b.b.setTag(R.id.obfuscated_res_0x7f090d5f, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
+                    this.b.b.setTag(R.id.obfuscated_res_0x7f090d58, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
                     return;
                 }
                 this.b.b.setImageBitmap(ymVar.p());
-                this.b.b.setTag(R.id.obfuscated_res_0x7f090d5f, this.a);
+                this.b.b.setTag(R.id.obfuscated_res_0x7f090d58, this.a);
             }
         }
     }
@@ -197,10 +197,10 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             this.g = getContext().getResources().getDimensionPixelSize(R.dimen.tbds264);
             this.e = this.f;
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0392, (ViewGroup) this, true);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d3c);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d35);
             this.a = imageView;
             imageView.setClickable(false);
-            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090d3e);
+            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090d37);
             this.c = pagerSlidingTabStrip;
             pagerSlidingTabStrip.A(pi.f(context, R.dimen.T_X06), pi.f(context, R.dimen.T_X04), pi.f(context, R.dimen.tbds10), true);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, UtilHelper.getDimenPixelSize(R.dimen.tbds104));
@@ -209,8 +209,8 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             this.c.setExpandedTabLayoutParams(layoutParams);
             this.c.setHorizontalFadingEdgeEnabled(true);
             this.c.setFadingEdgeLength(UtilHelper.getDimenPixelSize(R.dimen.tbds70));
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090d3d);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d3b);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090d36);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d34);
             this.b = tbImageView;
             tbImageView.setClickable(false);
             this.a.setOnClickListener(this);
@@ -287,7 +287,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
     public final void k(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
-            k05 f2 = sz6.f(TbadkApplication.getInst().getHomeBarShowTabName());
+            l05 f2 = sz6.f(TbadkApplication.getInst().getHomeBarShowTabName());
             if (f2 != null) {
                 setBackgroundColor(sg8.a(sg8.f(sz6.d(f2)), f));
             } else {
@@ -359,7 +359,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
                 jg.h().m(missionEntranceIcon, 10, new a(this, missionEntranceUrl), null);
                 return;
             }
-            this.b.setTag(R.id.obfuscated_res_0x7f090d5f, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
+            this.b.setTag(R.id.obfuscated_res_0x7f090d58, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
             this.b.setImageResource(R.drawable.icon_use_gold_n);
         }
     }
@@ -375,7 +375,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             }
             TbImageView tbImageView = this.b;
             if (view2 == tbImageView) {
-                Object tag = tbImageView.getTag(R.id.obfuscated_res_0x7f090d5f);
+                Object tag = tbImageView.getTag(R.id.obfuscated_res_0x7f090d58);
                 if (tag instanceof String) {
                     String str = (String) tag;
                     if (TextUtils.isEmpty(str)) {

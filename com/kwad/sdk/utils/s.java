@@ -13,20 +13,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class s {
-    public static <T> List<T> a(String str) {
+    public static <T> List<T> dD(String str) {
         ArrayList arrayList = new ArrayList();
         if (TextUtils.isEmpty(str)) {
             return arrayList;
         }
         try {
-            return a(new JSONArray(str));
+            return f(new JSONArray(str));
         } catch (Throwable th) {
-            com.kwad.sdk.core.d.b.a(th);
+            com.kwad.sdk.core.e.b.printStackTrace(th);
             return arrayList;
         }
     }
 
-    public static <T> List<T> a(JSONArray jSONArray) {
+    public static <T> List<T> f(JSONArray jSONArray) {
         ArrayList arrayList = new ArrayList();
         if (jSONArray == null) {
             return arrayList;
@@ -38,103 +38,13 @@ public final class s {
                     arrayList.add(obj);
                 }
             } catch (Throwable th) {
-                com.kwad.sdk.core.d.b.a(th);
+                com.kwad.sdk.core.e.b.printStackTrace(th);
             }
         }
         return arrayList;
     }
 
-    public static JSONArray a(@NonNull List<String> list) {
-        JSONArray jSONArray = new JSONArray();
-        for (String str : list) {
-            jSONArray.put(str);
-        }
-        return jSONArray;
-    }
-
-    public static JSONObject a(Map<String, String> map) {
-        JSONObject jSONObject = new JSONObject();
-        if (map != null && !map.isEmpty()) {
-            try {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                }
-            } catch (Exception unused) {
-            }
-        }
-        return jSONObject;
-    }
-
-    public static void a(JSONObject jSONObject, String str, byte b) {
-        try {
-            jSONObject.put(str, (int) b);
-        } catch (Throwable unused) {
-        }
-    }
-
-    public static void a(JSONObject jSONObject, String str, double d) {
-        try {
-            jSONObject.put(str, d);
-        } catch (Throwable unused) {
-        }
-    }
-
-    public static void a(JSONObject jSONObject, String str, float f) {
-        try {
-            jSONObject.put(str, f);
-        } catch (Throwable unused) {
-        }
-    }
-
-    public static void a(JSONObject jSONObject, String str, int i) {
-        try {
-            jSONObject.put(str, i);
-        } catch (Throwable unused) {
-        }
-    }
-
-    public static void a(JSONObject jSONObject, String str, long j) {
-        try {
-            jSONObject.put(str, j);
-        } catch (Throwable unused) {
-        }
-    }
-
-    public static void a(JSONObject jSONObject, String str, String str2) {
-        try {
-            jSONObject.put(str, str2);
-        } catch (Throwable unused) {
-        }
-    }
-
-    public static void a(JSONObject jSONObject, String str, JSONArray jSONArray) {
-        if (jSONArray != null && jSONArray.length() != 0 && jSONObject != null && !TextUtils.isEmpty(str)) {
-            try {
-                jSONObject.put(str, jSONArray);
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public static void a(JSONObject jSONObject, String str, JSONObject jSONObject2) {
-        if (jSONObject2 != null && jSONObject != null && !TextUtils.isEmpty(str)) {
-            try {
-                jSONObject.put(str, jSONObject2);
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public static void a(JSONObject jSONObject, String str, boolean z) {
-        if (jSONObject != null && !TextUtils.isEmpty(str)) {
-            try {
-                jSONObject.put(str, z);
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public static void a(JSONObject jSONObject, JSONObject jSONObject2) {
+    public static void merge(JSONObject jSONObject, JSONObject jSONObject2) {
         if (jSONObject == null || jSONObject2 == null) {
             return;
         }
@@ -151,7 +61,7 @@ public final class s {
         }
     }
 
-    public static Map<String, String> b(String str) {
+    public static Map<String, String> parseJSON2MapString(String str) {
         HashMap hashMap = new HashMap();
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -167,5 +77,95 @@ public final class s {
         } catch (JSONException unused) {
         }
         return hashMap;
+    }
+
+    public static JSONObject parseMap2JSON(Map<String, String> map) {
+        JSONObject jSONObject = new JSONObject();
+        if (map != null && !map.isEmpty()) {
+            try {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                }
+            } catch (Exception unused) {
+            }
+        }
+        return jSONObject;
+    }
+
+    public static void putValue(JSONObject jSONObject, String str, byte b) {
+        try {
+            jSONObject.put(str, (int) b);
+        } catch (Throwable unused) {
+        }
+    }
+
+    public static void putValue(JSONObject jSONObject, String str, double d) {
+        try {
+            jSONObject.put(str, d);
+        } catch (Throwable unused) {
+        }
+    }
+
+    public static void putValue(JSONObject jSONObject, String str, float f) {
+        try {
+            jSONObject.put(str, f);
+        } catch (Throwable unused) {
+        }
+    }
+
+    public static void putValue(JSONObject jSONObject, String str, int i) {
+        try {
+            jSONObject.put(str, i);
+        } catch (Throwable unused) {
+        }
+    }
+
+    public static void putValue(JSONObject jSONObject, String str, long j) {
+        try {
+            jSONObject.put(str, j);
+        } catch (Throwable unused) {
+        }
+    }
+
+    public static void putValue(JSONObject jSONObject, String str, String str2) {
+        try {
+            jSONObject.put(str, str2);
+        } catch (Throwable unused) {
+        }
+    }
+
+    public static void putValue(JSONObject jSONObject, String str, JSONArray jSONArray) {
+        if (jSONArray != null && jSONArray.length() != 0 && jSONObject != null && !TextUtils.isEmpty(str)) {
+            try {
+                jSONObject.put(str, jSONArray);
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public static void putValue(JSONObject jSONObject, String str, JSONObject jSONObject2) {
+        if (jSONObject2 != null && jSONObject != null && !TextUtils.isEmpty(str)) {
+            try {
+                jSONObject.put(str, jSONObject2);
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public static void putValue(JSONObject jSONObject, String str, boolean z) {
+        if (jSONObject != null && !TextUtils.isEmpty(str)) {
+            try {
+                jSONObject.put(str, z);
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public static JSONArray toJsonArray(@NonNull List<String> list) {
+        JSONArray jSONArray = new JSONArray();
+        for (String str : list) {
+            jSONArray.put(str);
+        }
+        return jSONArray;
     }
 }

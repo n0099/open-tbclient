@@ -170,7 +170,7 @@ public class kl8 {
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (al8Var = this.b) == null || al8Var.B() == null) {
             return;
         }
-        String string = this.a.getString(R.string.obfuscated_res_0x7f0f13fc);
+        String string = this.a.getString(R.string.obfuscated_res_0x7f0f13ab);
         FragmentTabWidget fragmentTabWidget = this.b.B().getFragmentTabWidget();
         if (fragmentTabWidget.getChildCount() < 4) {
             return;
@@ -197,7 +197,7 @@ public class kl8 {
             return;
         }
         wz5 wz5Var2 = this.e;
-        String string = this.a.getString(R.string.obfuscated_res_0x7f0f057b);
+        String string = this.a.getString(R.string.obfuscated_res_0x7f0f0577);
         wz5Var2.k0(string, "first_like_forum_enterforumtab_tips" + TbadkCoreApplication.getCurrentAccount());
     }
 }

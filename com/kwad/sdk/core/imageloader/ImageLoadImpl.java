@@ -21,31 +21,31 @@ import com.kwad.sdk.core.imageloader.core.display.CircleBitmapDisplayer;
 import com.kwad.sdk.core.imageloader.core.display.RoundedBitmapDisplayer;
 import com.kwad.sdk.core.imageloader.core.download.BaseImageDownloader;
 import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
-import com.kwad.sdk.core.network.n;
-import com.kwad.sdk.core.network.p;
+import com.kwad.sdk.core.network.o;
+import com.kwad.sdk.core.network.q;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.threads.b;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.service.kwai.d;
-import com.kwad.sdk.utils.ap;
+import com.kwad.sdk.utils.as;
 import java.net.HttpURLConnection;
 import java.net.URL;
 /* loaded from: classes5.dex */
 public class ImageLoadImpl implements IImageLoader {
     private DisplayImageOptions adapter(DisplayImageOptionsCompat displayImageOptionsCompat) {
         BitmapDisplayer roundedBitmapDisplayer;
-        Context a = ((d) ServiceProvider.a(d.class)).a();
-        Resources resources = a.getResources();
+        Context context = ((d) ServiceProvider.get(d.class)).getContext();
+        Resources resources = context.getResources();
         DisplayImageOptions.Builder bitmapConfig = new DisplayImageOptions.Builder().showImageOnLoading(displayImageOptionsCompat.getImageOnLoading(resources)).showImageForEmptyUri(displayImageOptionsCompat.getImageForEmptyUri(resources)).showImageOnFail(displayImageOptionsCompat.getImageOnFail(resources)).cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565);
         if (displayImageOptionsCompat.getStrokeWidth() <= 0.0f) {
             if (displayImageOptionsCompat.isCircle()) {
                 bitmapConfig.displayer(new CircleBitmapDisplayer());
             } else if (displayImageOptionsCompat.getCornerRound() > 0) {
-                roundedBitmapDisplayer = new RoundedBitmapDisplayer(a.a(a, displayImageOptionsCompat.getCornerRound()));
+                roundedBitmapDisplayer = new RoundedBitmapDisplayer(a.a(context, displayImageOptionsCompat.getCornerRound()));
             }
             return bitmapConfig.build();
         }
-        roundedBitmapDisplayer = new CircleBitmapDisplayer(Integer.valueOf(displayImageOptionsCompat.getStrokeColor()), a.a(a, displayImageOptionsCompat.getStrokeWidth()));
+        roundedBitmapDisplayer = new CircleBitmapDisplayer(Integer.valueOf(displayImageOptionsCompat.getStrokeColor()), a.a(context, displayImageOptionsCompat.getStrokeWidth()));
         bitmapConfig.displayer(roundedBitmapDisplayer);
         return bitmapConfig.build();
     }
@@ -65,22 +65,22 @@ public class ImageLoadImpl implements IImageLoader {
     @Override // com.kwad.sdk.core.imageloader.IImageLoader
     public void init(Context context) {
         ImageLoaderConfiguration.Builder builder = new ImageLoaderConfiguration.Builder(context.getApplicationContext());
-        builder.taskExecutor(b.b());
-        builder.taskExecutorForCachedImages(b.c());
-        builder.setTaskDistributor(b.d());
+        builder.taskExecutor(b.vi());
+        builder.taskExecutorForCachedImages(b.vj());
+        builder.setTaskDistributor(b.vk());
         builder.denyCacheImageMultipleSizesInMemory();
         builder.diskCacheFileNameGenerator(new Md5FileNameGenerator());
         builder.diskCacheSize(20971520);
         builder.tasksProcessingOrder(QueueProcessingType.LIFO);
-        builder.cacheParentDir(ap.b(context).getPath());
+        builder.cacheParentDir(as.cY(context).getPath());
         builder.imageDownloader(new BaseImageDownloader(context) { // from class: com.kwad.sdk.core.imageloader.ImageLoadImpl.1
             @Override // com.kwad.sdk.core.imageloader.core.download.BaseImageDownloader
             public HttpURLConnection createConnection(String str, Object obj) {
                 HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(Uri.encode(str, BaseImageDownloader.ALLOWED_URI_CHARS)).openConnection();
-                p.a(httpURLConnection);
-                httpURLConnection.setRequestProperty("User-Agent", n.c());
-                httpURLConnection.setRequestProperty("BrowserUa", n.d());
-                httpURLConnection.setRequestProperty("SystemUa", n.a());
+                q.wrapHttpURLConnection(httpURLConnection);
+                httpURLConnection.setRequestProperty("User-Agent", o.getUserAgent());
+                httpURLConnection.setRequestProperty("BrowserUa", o.tD());
+                httpURLConnection.setRequestProperty("SystemUa", o.tC());
                 httpURLConnection.setConnectTimeout(this.connectTimeout);
                 httpURLConnection.setReadTimeout(this.readTimeout);
                 return httpURLConnection;

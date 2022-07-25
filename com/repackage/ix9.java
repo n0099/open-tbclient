@@ -4,7 +4,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +18,7 @@ public class ix9 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
-                String str = (String) cls.getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, "ro.build.hw_emui_api_level");
+                String str = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, "ro.build.hw_emui_api_level");
                 if (TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str)) {
                     return 0;
                 }
@@ -61,7 +60,7 @@ public class ix9 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
-                return (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class).invoke(cls, str, str2);
+                return (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, str2);
             } catch (Exception unused) {
                 return str2;
             }

@@ -33,7 +33,7 @@ public class ad {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m1100a() {
+    public static boolean m162a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
@@ -70,6 +70,6 @@ public class ad {
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (b() || c() || m1100a()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (b() || c() || m162a()) ? false : true : invokeV.booleanValue;
     }
 }

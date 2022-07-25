@@ -193,9 +193,9 @@ public class aj0 {
             String str2 = si0Var.p.h;
             String str3 = "";
             if (TextUtils.equals(str, "notify_type_pause")) {
-                str3 = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0b8d);
+                str3 = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0b79);
             } else if (TextUtils.equals(str, "notify_type_stop")) {
-                str3 = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0b93);
+                str3 = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0b7f);
             }
             NotificationCompat.Builder c = c();
             c.setTicker(str2 + str3);
@@ -218,7 +218,7 @@ public class aj0 {
             b();
             Context b2 = hh0.b();
             String str = si0Var.p.h;
-            String string = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0b94);
+            String string = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0b80);
             NotificationCompat.Builder c = c();
             c.setTicker(string);
             c.setContentTitle(str);
@@ -243,7 +243,7 @@ public class aj0 {
             this.a.cancel(-1276312226);
             Context b2 = hh0.b();
             String str = si0Var.p.h;
-            String string = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0b95);
+            String string = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0b81);
             int i = (int) (si0Var.i * 100.0f);
             if (this.b == null) {
                 NotificationCompat.Builder c = c();

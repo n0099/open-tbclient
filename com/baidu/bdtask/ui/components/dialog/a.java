@@ -202,7 +202,7 @@ public abstract class a extends Activity {
         if (!TextUtils.isEmpty(str)) {
             textView.setVisibility(0);
             imageView.setVisibility(8);
-            textView.setTextColor(ev.a.a(str2, resources.getColor(R.color.obfuscated_res_0x7f060abc)));
+            textView.setTextColor(ev.a.a(str2, resources.getColor(R.color.obfuscated_res_0x7f060aac)));
             textView.setText(str);
             textView.setOnClickListener(new b(function0));
             c(str3, textView);
@@ -287,13 +287,13 @@ public abstract class a extends Activity {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090773);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090772);
             frameLayout.removeAllViews();
             getLayoutInflater().inflate(e(), frameLayout);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f09077b);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09077a);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "findViewById(R.id.dialog_content_img)");
             this.b = (ImageView) findViewById;
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090778);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090777);
             Intrinsics.checkExpressionValueIsNotNull(findViewById2, "findViewById(R.id.dialog_close)");
             this.a = findViewById2;
             if (findViewById2 == null) {
@@ -339,7 +339,7 @@ public abstract class a extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0748);
+            setContentView(R.layout.obfuscated_res_0x7f0d0752);
             getWindow().setLayout(-1, -1);
             j();
             LogUtil.logActivity(this, "onCreate");

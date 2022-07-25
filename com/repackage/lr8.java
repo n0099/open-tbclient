@@ -228,10 +228,10 @@ public class lr8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, list, list2)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return new ir8(-1L, 1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08b1));
+                return new ir8(-1L, 1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f089c));
             }
             if (!new File(str).exists()) {
-                return new ir8(-1L, 2, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0609));
+                return new ir8(-1L, 2, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0605));
             }
             long j = 0;
             try {
@@ -392,7 +392,7 @@ public class lr8 {
                     BdLog.e("mixingVideoByAudio cost = " + (System.currentTimeMillis() - currentTimeMillis));
                 }
             }
-            return new mr8(217, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08b1));
+            return new mr8(217, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f089c));
         }
         return (mr8) invokeLL.objValue;
     }
@@ -506,7 +506,7 @@ public class lr8 {
                 str4 = "mixingVideoByAudio cost = ";
             }
         } else {
-            return new mr8(209, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08b1));
+            return new mr8(209, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f089c));
         }
     }
 
@@ -538,7 +538,7 @@ public class lr8 {
                 BdLog.e("mixingVideoByVideo videoList length = " + list.size() + " cost = " + (System.currentTimeMillis() - currentTimeMillis));
                 return new mr8(0, "");
             }
-            return new mr8(10, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08b1));
+            return new mr8(10, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f089c));
         }
         return (mr8) invokeLLZ.objValue;
     }

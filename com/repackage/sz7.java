@@ -45,13 +45,13 @@ public class sz7 {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
         int b = b(R.dimen.obfuscated_res_0x7f070207);
         if (z2 && z3) {
-            layoutParams.setMargins(b, b(R.dimen.obfuscated_res_0x7f070304), b, b(R.dimen.obfuscated_res_0x7f070262));
+            layoutParams.setMargins(b, b(R.dimen.obfuscated_res_0x7f070302), b, b(R.dimen.obfuscated_res_0x7f07025f));
         } else if (z) {
-            layoutParams.setMargins(0, b(R.dimen.obfuscated_res_0x7f070304), 0, 0);
+            layoutParams.setMargins(0, b(R.dimen.obfuscated_res_0x7f070302), 0, 0);
         } else if (!z2) {
-            layoutParams.setMargins(b(R.dimen.obfuscated_res_0x7f070234), b(R.dimen.obfuscated_res_0x7f070304), b(R.dimen.obfuscated_res_0x7f07020f), b(R.dimen.obfuscated_res_0x7f0701b2));
+            layoutParams.setMargins(b(R.dimen.obfuscated_res_0x7f070231), b(R.dimen.obfuscated_res_0x7f070302), b(R.dimen.obfuscated_res_0x7f07020f), b(R.dimen.obfuscated_res_0x7f0701b2));
         } else {
-            layoutParams.setMargins(b, b(R.dimen.obfuscated_res_0x7f070304), b, b(R.dimen.obfuscated_res_0x7f0701b2));
+            layoutParams.setMargins(b, b(R.dimen.obfuscated_res_0x7f070302), b, b(R.dimen.obfuscated_res_0x7f0701b2));
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) "icon");

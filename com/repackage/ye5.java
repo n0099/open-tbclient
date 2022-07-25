@@ -89,12 +89,12 @@ public class ye5 {
         this.a.setColor(color2);
         this.a.setTextSize(this.i);
         this.a.setAntiAlias(true);
-        this.a.setTypeface(sr4.H(sr4.E(R.string.F_X02)));
+        this.a.setTypeface(tr4.H(tr4.E(R.string.F_X02)));
         this.e = pi.f(getContext(), R.dimen.tbds16);
         this.f = pi.f(getContext(), R.dimen.tbds16);
         this.j = pi.f(getContext(), R.dimen.tbds22);
         this.k = pi.f(getContext(), R.dimen.tbds40);
-        this.l = sr4.y(R.string.J_X01)[0];
+        this.l = tr4.y(R.string.J_X01)[0];
         int dimension = (int) getContext().getResources().getDimension(R.dimen.tbfontsize26);
         this.q = dimension;
         this.c.setTextSize(dimension);
@@ -140,7 +140,7 @@ public class ye5 {
         Paint.FontMetrics fontMetrics = this.a.getFontMetrics();
         if (z) {
             if (this.u == null) {
-                this.u = sr4.B(R.array.S_O_X001);
+                this.u = tr4.B(R.array.S_O_X001);
             }
             float[] fArr = this.u;
             if (fArr == null || fArr.length < 4) {

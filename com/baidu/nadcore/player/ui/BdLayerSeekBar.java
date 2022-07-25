@@ -97,10 +97,10 @@ public class BdLayerSeekBar extends FrameLayout implements View.OnClickListener,
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d059a, this);
-            this.c = (BdTextProgressView) findViewById(R.id.obfuscated_res_0x7f091541);
-            this.d = (BdTextProgressView) findViewById(R.id.obfuscated_res_0x7f091540);
-            BdThumbSeekBar bdThumbSeekBar = (BdThumbSeekBar) findViewById(R.id.obfuscated_res_0x7f0913ea);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05a4, this);
+            this.c = (BdTextProgressView) findViewById(R.id.obfuscated_res_0x7f09151c);
+            this.d = (BdTextProgressView) findViewById(R.id.obfuscated_res_0x7f09151b);
+            BdThumbSeekBar bdThumbSeekBar = (BdThumbSeekBar) findViewById(R.id.obfuscated_res_0x7f0913c6);
             this.b = bdThumbSeekBar;
             bdThumbSeekBar.setOnSeekBarChangeListener(this);
         }

@@ -61,7 +61,7 @@ public class i71 implements k71 {
     public void a(Activity activity, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
-            oj2.S().a(activity, str, str2);
+            pj2.S().a(activity, str, str2);
         }
     }
 
@@ -69,7 +69,7 @@ public class i71 implements k71 {
     public void aLiAuth(Activity activity, String str, q71<JSONObject> q71Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, q71Var) == null) {
-            oj2.S().f(activity, str, q71Var);
+            pj2.S().f(activity, str, q71Var);
         }
     }
 
@@ -77,14 +77,14 @@ public class i71 implements k71 {
     public boolean b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? oj2.S().b(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? pj2.S().b(context) : invokeL.booleanValue;
     }
 
     @Override // com.repackage.k71
     public void c(Activity activity, String str, f71 f71Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, str, f71Var) == null) {
-            oj2.S().c(activity, str, f71Var);
+            pj2.S().c(activity, str, f71Var);
         }
     }
 
@@ -92,7 +92,7 @@ public class i71 implements k71 {
     public void d(Context context, JSONObject jSONObject, f71 f71Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, context, jSONObject, f71Var) == null) {
-            oj2.S().d(context, jSONObject, f71Var);
+            pj2.S().d(context, jSONObject, f71Var);
         }
     }
 
@@ -100,7 +100,7 @@ public class i71 implements k71 {
     public void e(Activity activity, String str, f71 f71Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, str, f71Var) == null) {
-            oj2.S().e(activity, str, f71Var);
+            pj2.S().e(activity, str, f71Var);
         }
     }
 
@@ -126,16 +126,16 @@ public class i71 implements k71 {
     public void g(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            String str = vs2.b().a;
+            String str = ws2.b().a;
             if (TextUtils.isEmpty(str)) {
                 c71.a(bundle);
                 return;
             }
-            xw2 e = xw2.e();
-            zw2 zw2Var = new zw2(119, bundle);
-            zw2Var.c(str);
-            zw2Var.p(true);
-            e.h(zw2Var);
+            yw2 e = yw2.e();
+            ax2 ax2Var = new ax2(119, bundle);
+            ax2Var.c(str);
+            ax2Var.p(true);
+            e.h(ax2Var);
         }
     }
 
@@ -143,7 +143,7 @@ public class i71 implements k71 {
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            vs2.b().a = str;
+            ws2.b().a = str;
         }
     }
 
@@ -158,6 +158,6 @@ public class i71 implements k71 {
     public String j(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) ? oj2.G0().a(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) ? pj2.G0().a(context) : (String) invokeL.objValue;
     }
 }

@@ -53,9 +53,9 @@ public class if7 {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, ef7Var, i)) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0759, (ViewGroup) null);
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091fdc);
-            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e49);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0763, (ViewGroup) null);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091fe0);
+            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e42);
             if (ef7Var != null) {
                 int c = ef7Var.c();
                 imageView.setVisibility(0);
@@ -64,7 +64,7 @@ public class if7 {
                 textView.setText(e(ef7Var.b(), 8));
                 linearLayout.setTag(ef7Var);
             } else {
-                textView.setText(R.string.obfuscated_res_0x7f0f0870);
+                textView.setText(R.string.obfuscated_res_0x7f0f085b);
                 textView.setTextColor(SkinManager.getColor(R.color.CAM_X0302));
                 imageView.setVisibility(8);
             }
@@ -77,7 +77,7 @@ public class if7 {
     public final void b(View view2, int i, TableLayout tableLayout, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Integer.valueOf(i), tableLayout, Integer.valueOf(i2)}) == null) {
-            TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ac), -2);
+            TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702aa), -2);
             if (i % i2 == 0) {
                 TableRow tableRow = new TableRow(this.a.getPageActivity());
                 tableRow.addView(view2, layoutParams);
@@ -102,15 +102,15 @@ public class if7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0758, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0762, (ViewGroup) null);
             this.c = inflate;
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0920c2);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0920c4);
             this.e = findViewById;
             findViewById.setVisibility(0);
-            this.b = (TableLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091cd0);
-            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091e11);
+            this.b = (TableLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091cd6);
+            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091e17);
             this.d = textView;
-            textView.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f089a));
+            textView.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0885));
             return this.c;
         }
         return (View) invokeV.objValue;
@@ -127,7 +127,7 @@ public class if7 {
                 return str;
             }
             String substring = str.substring(0, i - 1);
-            return substring + this.a.getString(R.string.obfuscated_res_0x7f0f0537);
+            return substring + this.a.getString(R.string.obfuscated_res_0x7f0f0533);
         }
         return (String) invokeLI.objValue;
     }
@@ -184,7 +184,7 @@ public class if7 {
         if (!StringUtils.isNull(str)) {
             this.d.setText(str);
         } else {
-            this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f089a));
+            this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0885));
         }
     }
 

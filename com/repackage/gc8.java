@@ -256,31 +256,31 @@ public class gc8 extends b9<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d001c);
-            this.d = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0916ba);
-            this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090e41);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f092437);
+            this.d = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091695);
+            this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090e3a);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f092439);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1506));
-            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091fe5);
+            this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f14b5));
+            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091fe9);
             this.f = (SettingTextTestNewView) this.a.findViewById(R.id.obfuscated_res_0x7f090022);
             TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090020);
             this.h = tbSettingTextTipView;
             tbSettingTextTipView.c();
-            TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09207f);
+            TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092083);
             this.i = tbSettingTextTipView2;
             tbSettingTextTipView2.c();
-            TbSettingTextTipView tbSettingTextTipView3 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09207e);
+            TbSettingTextTipView tbSettingTextTipView3 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092082);
             this.j = tbSettingTextTipView3;
             tbSettingTextTipView3.c();
-            this.k = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092080);
+            this.k = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092084);
             if (CurrencySwitchUtil.isYyIsConvert()) {
-                this.k.setText(R.string.obfuscated_res_0x7f0f1605);
+                this.k.setText(R.string.obfuscated_res_0x7f0f15b4);
             } else {
-                this.k.setText(R.string.obfuscated_res_0x7f0f13bf);
+                this.k.setText(R.string.obfuscated_res_0x7f0f136e);
             }
             this.k.c();
-            TbSettingTextTipView tbSettingTextTipView4 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092017);
+            TbSettingTextTipView tbSettingTextTipView4 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09201b);
             this.l = tbSettingTextTipView4;
             tbSettingTextTipView4.c();
             this.n = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f090021);
@@ -288,7 +288,7 @@ public class gc8 extends b9<AboutActivity> {
             if (TbConfig.getVersionType() == 1 && !oi.isEmpty(TbConfig.getSubVersion())) {
                 version = version + "." + TbConfig.getSubVersion();
             }
-            String str = this.a.getPageContext().getString(TbadkCoreApplication.getInst().getApplicationInfo().labelRes) + this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1137) + " " + version;
+            String str = this.a.getPageContext().getString(TbadkCoreApplication.getInst().getApplicationInfo().labelRes) + this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f10e6) + " " + version;
             if (TbadkCoreApplication.getInst().isDebugMode()) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(str);
@@ -303,10 +303,10 @@ public class gc8 extends b9<AboutActivity> {
             } else {
                 this.e.setText(str);
             }
-            this.m = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091fe4);
+            this.m = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091fe8);
             z(TbadkCoreApplication.getInst().getSkinType());
             this.h.setVisibility(8);
-            if (xt4.k().h("debug_plugin_switcher", false)) {
+            if (yt4.k().h("debug_plugin_switcher", false)) {
                 y(0);
             }
             this.m.setOnLongClickListener(new a(this));
@@ -315,7 +315,7 @@ public class gc8 extends b9<AboutActivity> {
 
     public final void w() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && tm4.f()) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && um4.f()) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a, "ToolsSwitchPage", new HashMap())));
         }
     }
@@ -332,7 +332,7 @@ public class gc8 extends b9<AboutActivity> {
     public final void y(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.a.findViewById(R.id.obfuscated_res_0x7f0912b1).setVisibility(i);
+            this.a.findViewById(R.id.obfuscated_res_0x7f09128d).setVisibility(i);
         }
     }
 

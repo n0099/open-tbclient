@@ -16,16 +16,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.an4;
+import com.repackage.bn4;
 /* loaded from: classes5.dex */
-public class aq7 extends an4 {
+public class aq7 extends bn4 {
     public static /* synthetic */ Interceptable $ic;
     public static aq7 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final an4.a b;
+    public final bn4.a b;
 
     /* loaded from: classes5.dex */
-    public class a implements an4.a {
+    public class a implements bn4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,7 +45,7 @@ public class aq7 extends an4 {
             }
         }
 
-        @Override // com.repackage.an4.a
+        @Override // com.repackage.bn4.a
         public void a(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) && i == 1) {
@@ -53,14 +53,14 @@ public class aq7 extends an4 {
             }
         }
 
-        @Override // com.repackage.an4.a
+        @Override // com.repackage.bn4.a
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             }
         }
 
-        @Override // com.repackage.an4.a
+        @Override // com.repackage.bn4.a
         public void c(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
@@ -112,21 +112,21 @@ public class aq7 extends an4 {
         return (aq7) invokeV.objValue;
     }
 
-    @Override // com.repackage.an4
-    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, an4.a aVar) {
+    @Override // com.repackage.bn4
+    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, bn4.a aVar) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, aVar)) == null) ? al7.a(str, str2, str3, str4, aVar) : (BdAsyncTask) invokeLLLLL.objValue;
     }
 
-    @Override // com.repackage.an4
-    public an4.b c(String str) {
+    @Override // com.repackage.bn4
+    public bn4.b c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) != null) {
-            return (an4.b) invokeL.objValue;
+            return (bn4.b) invokeL.objValue;
         }
-        an4.b bVar = null;
+        bn4.b bVar = null;
         if (str == null) {
             return null;
         }
@@ -135,7 +135,7 @@ public class aq7 extends an4 {
             if (split == null || split.length < 1) {
                 return null;
             }
-            an4.b bVar2 = new an4.b();
+            bn4.b bVar2 = new bn4.b();
             try {
                 bVar2.a = split[0];
                 if (split.length >= 2) {
@@ -153,20 +153,20 @@ public class aq7 extends an4 {
         }
     }
 
-    @Override // com.repackage.an4
+    @Override // com.repackage.bn4
     public void d() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && ni.z()) {
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                an4.b c2 = c(currentAccountObj.getBDUSS());
+                bn4.b c2 = c(currentAccountObj.getBDUSS());
                 if (c2 != null) {
                     al7.a(currentAccountObj.getAccount(), c2.a, c2.b, currentAccountObj.getStoken(), this.b);
                     return;
                 }
                 return;
             }
-            mt4.a(DI.ACCOUNT, -1L, 0, "main_tab_has_no_cache_account", 0, "", new Object[0]);
+            nt4.a(DI.ACCOUNT, -1L, 0, "main_tab_has_no_cache_account", 0, "", new Object[0]);
         }
     }
 }

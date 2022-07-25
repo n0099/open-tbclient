@@ -89,9 +89,9 @@ public class zd7 {
         this.i = new a(this);
         this.b = view2;
         this.e = context;
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ed8);
-        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ed6);
-        this.d = (SlidingTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ed7);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091edc);
+        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091eda);
+        this.d = (SlidingTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f091edb);
     }
 
     public void d() {

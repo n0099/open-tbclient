@@ -6,14 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class xu2 implements zu2 {
+public class xu2 implements av2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Long> a;
+    public long a;
     public long b;
 
     public xu2() {
@@ -29,25 +26,29 @@ public class xu2 implements zu2 {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.a = -1L;
         this.b = -1L;
     }
 
-    @Override // com.repackage.zu2
+    @Override // com.repackage.av2
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<Long> list = this.a;
-            if (list == null || list.size() <= 0 || this.b < 0) {
-                return -1L;
+            long j = this.a;
+            if (j >= 0) {
+                long j2 = this.b;
+                if (j2 < 0) {
+                    return -1L;
+                }
+                return j2 - j;
             }
-            return this.b - ((Long) Collections.min(this.a)).longValue();
+            return -1L;
         }
         return invokeV.longValue;
     }
 
-    @Override // com.repackage.zu2
+    @Override // com.repackage.av2
     public void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -55,20 +56,18 @@ public class xu2 implements zu2 {
         }
     }
 
-    @Override // com.repackage.zu2
+    @Override // com.repackage.av2
     public void c(long j) {
-        List<Long> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || (list = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.a = j;
         }
-        list.add(Long.valueOf(j));
     }
 
-    @Override // com.repackage.zu2
+    @Override // com.repackage.av2
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "PageUpdateRender" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "PageSwitchCost" : (String) invokeV.objValue;
     }
 }

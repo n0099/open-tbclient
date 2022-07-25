@@ -50,13 +50,13 @@ public class li7 extends b9<BubbleChooseActivity> {
         BubbleChooseActivity orignalPage = tbPageContext.getOrignalPage();
         this.f = orignalPage;
         orignalPage.setContentView(R.layout.obfuscated_res_0x7f0d015f);
-        NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.obfuscated_res_0x7f091217);
+        NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.obfuscated_res_0x7f0911f3);
         this.a = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a.setTitleText(R.string.obfuscated_res_0x7f0f0533);
+        this.a.setTitleText(R.string.obfuscated_res_0x7f0f052f);
         this.d = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0160, this.f);
-        this.b = (ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f0906a0);
-        this.c = (GridView) this.f.findViewById(R.id.obfuscated_res_0x7f090cba);
+        this.b = (ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f09069f);
+        this.c = (GridView) this.f.findViewById(R.id.obfuscated_res_0x7f090cb3);
         ki7 ki7Var = new ki7(tbPageContext);
         this.e = ki7Var;
         this.c.setAdapter((ListAdapter) ki7Var);

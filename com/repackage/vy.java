@@ -278,7 +278,7 @@ public class vy {
             if (b == null) {
                 b = uy.a(l("com.baidu.deviceid.v2"));
             }
-            boolean e = e("android.permission.READ_EXTERNAL_STORAGE");
+            boolean e = e(com.kuaishou.weapon.p0.h.i);
             if (b == null && e) {
                 b = f();
             }

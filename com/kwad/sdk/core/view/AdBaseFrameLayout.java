@@ -9,38 +9,38 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.MainThread;
 import androidx.annotation.UiThread;
-import com.kwad.sdk.core.d.b;
+import com.kwad.sdk.core.e.b;
 import com.kwad.sdk.service.a;
-import com.kwad.sdk.utils.y;
+import com.kwad.sdk.utils.aa;
 import com.kwad.sdk.widget.e;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class AdBaseFrameLayout extends FrameLayout implements e {
-    public static final y.a b = new y.a();
-    public List<View.OnTouchListener> a;
+    public static final aa.a afd = new aa.a();
+    public List<View.OnTouchListener> afc;
 
     public AdBaseFrameLayout(Context context) {
         super(context);
-        this.a = new ArrayList();
+        this.afc = new ArrayList();
     }
 
     public AdBaseFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = new ArrayList();
+        this.afc = new ArrayList();
     }
 
     public AdBaseFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = new ArrayList();
+        this.afc = new ArrayList();
     }
 
     @UiThread
     public final void a(View.OnTouchListener onTouchListener) {
-        if (this.a.contains(onTouchListener)) {
+        if (this.afc.contains(onTouchListener)) {
             return;
         }
-        this.a.add(onTouchListener);
+        this.afc.add(onTouchListener);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -48,8 +48,8 @@ public class AdBaseFrameLayout extends FrameLayout implements e {
         try {
             super.dispatchRestoreInstanceState(sparseArray);
         } catch (Throwable th) {
-            b.a(th);
-            a.a(th);
+            b.printStackTrace(th);
+            a.gatherException(th);
         }
     }
 
@@ -59,25 +59,25 @@ public class AdBaseFrameLayout extends FrameLayout implements e {
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (!this.a.isEmpty()) {
-            for (View.OnTouchListener onTouchListener : this.a) {
+        if (!this.afc.isEmpty()) {
+            for (View.OnTouchListener onTouchListener : this.afc) {
                 onTouchListener.onTouch(this, motionEvent);
             }
         }
         int action = motionEvent.getAction();
         if (action == 0) {
-            b.a(getWidth(), getHeight());
-            b.a(motionEvent.getX(), motionEvent.getY());
+            afd.q(getWidth(), getHeight());
+            afd.e(motionEvent.getX(), motionEvent.getY());
         } else if (action == 1) {
-            b.b(motionEvent.getX(), motionEvent.getY());
+            afd.f(motionEvent.getX(), motionEvent.getY());
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // com.kwad.sdk.widget.e
     @MainThread
-    public y.a getTouchCoords() {
-        return b;
+    public aa.a getTouchCoords() {
+        return afd;
     }
 
     @Override // android.view.View

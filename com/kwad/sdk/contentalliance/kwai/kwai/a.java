@@ -9,35 +9,35 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class a {
-    public long a;
-    public long b;
-    public long c;
-    public int d;
+    public long adStyle;
+    public long clickTime;
+    public int contentType;
+    public long photoId;
 
     public a() {
-        this.b = -1L;
+        this.clickTime = -1L;
     }
 
     public a(@NonNull AdTemplate adTemplate, long j) {
-        this.b = -1L;
-        this.a = d.n(adTemplate);
-        this.b = j;
-        this.c = d.d(adTemplate);
-        this.d = d.e(adTemplate);
+        this.clickTime = -1L;
+        this.photoId = d.bV(adTemplate);
+        this.clickTime = j;
+        this.adStyle = d.bL(adTemplate);
+        this.contentType = d.bM(adTemplate);
     }
 
     @NonNull
-    public static a a(@NonNull AdTemplate adTemplate) {
-        return new a(adTemplate, k.d(adTemplate));
+    public static a al(@NonNull AdTemplate adTemplate) {
+        return new a(adTemplate, k.ck(adTemplate));
     }
 
-    public final String a() {
+    public final String rB() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(CameraActivityConfig.KEY_CONTENT_TYPE, this.d);
-            jSONObject.put("adStyle", this.c);
+            jSONObject.put(CameraActivityConfig.KEY_CONTENT_TYPE, this.contentType);
+            jSONObject.put("adStyle", this.adStyle);
         } catch (JSONException e) {
-            com.kwad.sdk.core.d.b.a(e);
+            com.kwad.sdk.core.e.b.printStackTrace(e);
         }
         return jSONObject.toString();
     }

@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface q21 {
     public static final ServiceReference a = new ServiceReference("nad.core", "webViewInit");
     public static final q21 b = new a();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a implements q21 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public interface q21 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a();
     }

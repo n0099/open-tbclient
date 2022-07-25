@@ -113,7 +113,7 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                pi.N(this.a.i.getPageActivity(), R.string.obfuscated_res_0x7f0f04f7);
+                pi.N(this.a.i.getPageActivity(), R.string.obfuscated_res_0x7f0f04f3);
                 this.a.e.setEnabled(true);
             }
         }
@@ -123,9 +123,9 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 if (i > 0 && i < 100) {
-                    pi.L(this.a.i.getPageActivity(), gj.a(R.string.obfuscated_res_0x7f0f0d19));
+                    pi.L(this.a.i.getPageActivity(), gj.a(R.string.obfuscated_res_0x7f0f0d05));
                 } else if (i >= 100) {
-                    pi.K(this.a.i.getPageActivity(), R.string.obfuscated_res_0x7f0f04f2);
+                    pi.K(this.a.i.getPageActivity(), R.string.obfuscated_res_0x7f0f04ee);
                 }
             }
         }
@@ -134,7 +134,7 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                pi.N(this.a.i.getPageActivity(), R.string.obfuscated_res_0x7f0f04f2);
+                pi.N(this.a.i.getPageActivity(), R.string.obfuscated_res_0x7f0f04ee);
                 this.a.e.setText(R.string.obfuscated_res_0x7f0f0275);
                 SkinManager.setViewTextColor(this.a.e, (int) R.color.CAM_X0109);
                 this.a.e.setBackgroundDrawable(null);
@@ -179,9 +179,9 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
                 }
                 this.a = view2;
                 view2.setEnabled(false);
-                this.b = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090861);
-                this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090885);
-                View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f09084e);
+                this.b = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09085f);
+                this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090883);
+                View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f09084c);
                 this.d = findViewById;
                 findViewById.setVisibility(8);
             }
@@ -339,17 +339,17 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d024e, this);
-            this.a = (HListView) findViewById(R.id.obfuscated_res_0x7f090862);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09088c);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090856);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090884);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090857);
-            this.f = findViewById(R.id.obfuscated_res_0x7f0912b0);
+            this.a = (HListView) findViewById(R.id.obfuscated_res_0x7f090860);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09088a);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090854);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090882);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090855);
+            this.f = findViewById(R.id.obfuscated_res_0x7f09128c);
             this.e.setOnClickListener(this);
             setOnClickListener(this);
             this.a.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5));
             this.a.setOnItemClickListener(new a(this));
-            this.a.setSelector(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811a4));
+            this.a.setSelector(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811a8));
             c cVar = new c(this.i);
             this.g = cVar;
             this.a.setAdapter((ListAdapter) cVar);
@@ -400,8 +400,8 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
             } else {
                 this.b.setText(this.h.name);
             }
-            this.c.setText(String.format(gj.a(R.string.obfuscated_res_0x7f0f0d10), StringHelper.numberUniform(this.h.download)));
-            this.d.setText(String.format(gj.a(R.string.obfuscated_res_0x7f0f0d15), StringHelper.numberUniform(this.h.share)));
+            this.c.setText(String.format(gj.a(R.string.obfuscated_res_0x7f0f0cfc), StringHelper.numberUniform(this.h.download)));
+            this.d.setText(String.format(gj.a(R.string.obfuscated_res_0x7f0f0d01), StringHelper.numberUniform(this.h.share)));
             q86 c2 = q86.c();
             if (c2.e("" + this.h.id)) {
                 this.e.setText(R.string.obfuscated_res_0x7f0f0275);
@@ -414,7 +414,7 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
             int i = this.h.status;
             if (i != 0) {
                 if (i == 1) {
-                    this.e.setText(R.string.obfuscated_res_0x7f0f04f3);
+                    this.e.setText(R.string.obfuscated_res_0x7f0f04ef);
                     SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0302);
                     SkinManager.setBackgroundResource(this.e, R.drawable.bg_emotion_download);
                     this.e.setEnabled(true);
@@ -430,12 +430,12 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
                     }
                     this.e.setBackgroundDrawable(null);
                     SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
-                    this.e.setText(R.string.obfuscated_res_0x7f0f05ee);
+                    this.e.setText(R.string.obfuscated_res_0x7f0f05ea);
                     this.e.setEnabled(false);
                     return;
                 }
             }
-            this.e.setText(R.string.obfuscated_res_0x7f0f04f3);
+            this.e.setText(R.string.obfuscated_res_0x7f0f04ef);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0302);
             SkinManager.setBackgroundResource(this.e, R.drawable.bg_emotion_download);
             this.e.setEnabled(true);

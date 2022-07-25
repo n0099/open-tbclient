@@ -45,16 +45,16 @@ public class hl5 {
         return (List) invokeV.objValue;
     }
 
-    public final boolean b(List<ll5> list, az4 az4Var) {
+    public final boolean b(List<ll5> list, bz4 bz4Var) {
         InterceptResult invokeLL;
-        List<az4> a;
+        List<bz4> a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, az4Var)) == null) {
-            if (list != null && az4Var != null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, bz4Var)) == null) {
+            if (list != null && bz4Var != null) {
                 for (ll5 ll5Var : list) {
                     if (ll5Var != null && (a = ll5Var.a()) != null) {
-                        for (az4 az4Var2 : a) {
-                            if (az4Var2 != null && az4Var2.d() == az4Var.d()) {
+                        for (bz4 bz4Var2 : a) {
+                            if (bz4Var2 != null && bz4Var2.d() == bz4Var.d()) {
                                 return true;
                             }
                         }
@@ -96,11 +96,11 @@ public class hl5 {
                         ll5 ll5Var2 = new ll5();
                         ll5Var2.c(listdata);
                         if (ll5Var2.a() != null) {
-                            for (az4 az4Var : ll5Var2.a()) {
-                                if (b(this.b, az4Var)) {
-                                    az4Var.q(1);
+                            for (bz4 bz4Var : ll5Var2.a()) {
+                                if (b(this.b, bz4Var)) {
+                                    bz4Var.q(1);
                                 } else {
-                                    az4Var.q(0);
+                                    bz4Var.q(0);
                                 }
                             }
                         }

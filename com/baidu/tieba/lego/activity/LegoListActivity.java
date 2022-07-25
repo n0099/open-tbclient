@@ -355,7 +355,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             }
             super.setHideStatusImmersiveStyle(this.h);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d04f3);
+            setContentView(R.layout.obfuscated_res_0x7f0d04fd);
             registerListener(this.u);
             yd7 yd7Var = new yd7();
             yd7Var.a = this.e;
@@ -367,10 +367,10 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             this.w = u0;
             u0.onCreate(getPageContext());
             this.c = new kc7(this);
-            this.m = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0909a4);
-            this.t = (LegoBottomView) findViewById(R.id.obfuscated_res_0x7f091287);
-            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091574);
-            nd7 nd7Var = new nd7(getPageContext(), findViewById(R.id.obfuscated_res_0x7f091238));
+            this.m = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09099d);
+            this.t = (LegoBottomView) findViewById(R.id.obfuscated_res_0x7f091263);
+            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09154f);
+            nd7 nd7Var = new nd7(getPageContext(), findViewById(R.id.obfuscated_res_0x7f091214));
             this.s = nd7Var;
             nd7Var.C0(this);
             this.s.h0();
@@ -382,7 +382,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
                 this.b.N1(this.e);
                 this.b.L1(this.g);
                 this.b.setPrimary(true);
-                beginTransaction.replace(R.id.obfuscated_res_0x7f09099d, this.b);
+                beginTransaction.replace(R.id.obfuscated_res_0x7f090996, this.b);
             } else {
                 LegoListFragment.f2();
                 LegoListFragment legoListFragment = new LegoListFragment();
@@ -399,7 +399,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
                 this.a.l2(this.i);
                 this.a.p2(this.j);
                 this.a.setFrom(this.q);
-                beginTransaction.replace(R.id.obfuscated_res_0x7f09099d, this.a);
+                beginTransaction.replace(R.id.obfuscated_res_0x7f090996, this.a);
             }
             if (this.h) {
                 this.c.d();

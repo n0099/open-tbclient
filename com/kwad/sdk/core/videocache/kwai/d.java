@@ -21,24 +21,24 @@ public final class d {
             this();
         }
 
-        public static int a(long j, long j2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: private */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(File file, File file2) {
+            return compareLong(file.lastModified(), file2.lastModified());
+        }
+
+        public static int compareLong(long j, long j2) {
             int i = (j > j2 ? 1 : (j == j2 ? 0 : -1));
             if (i < 0) {
                 return -1;
             }
             return i == 0 ? 0 : 1;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: private */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(File file, File file2) {
-            return a(file.lastModified(), file2.lastModified());
-        }
     }
 
-    public static void a(File file) {
+    public static void r(File file) {
         if (!file.exists()) {
             if (!file.mkdirs()) {
                 throw new IOException(String.format("Directory %s can't be created", file.getAbsolutePath()));
@@ -49,7 +49,7 @@ public final class d {
         }
     }
 
-    public static List<File> b(File file) {
+    public static List<File> s(File file) {
         LinkedList linkedList = new LinkedList();
         File[] listFiles = file.listFiles();
         if (listFiles != null) {
@@ -60,25 +60,25 @@ public final class d {
         return linkedList;
     }
 
-    public static void c(File file) {
+    public static void t(File file) {
         if (file.exists()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (file.setLastModified(currentTimeMillis)) {
                 return;
             }
-            d(file);
+            u(file);
             if (file.lastModified() < currentTimeMillis) {
-                com.kwad.sdk.core.d.b.d("Files", String.format("Last modified date %s is not set for file %s", new Date(file.lastModified()), file.getAbsolutePath()));
+                com.kwad.sdk.core.e.b.w("Files", String.format("Last modified date %s is not set for file %s", new Date(file.lastModified()), file.getAbsolutePath()));
             }
         }
     }
 
-    public static void d(File file) {
+    public static void u(File file) {
         RandomAccessFile randomAccessFile;
         long j;
         long length = file.length();
         if (length == 0) {
-            e(file);
+            v(file);
             return;
         }
         RandomAccessFile randomAccessFile2 = null;
@@ -97,21 +97,21 @@ public final class d {
             byte readByte = randomAccessFile.readByte();
             randomAccessFile.seek(j);
             randomAccessFile.write(readByte);
-            com.kwad.sdk.crash.utils.b.a(randomAccessFile);
+            com.kwad.sdk.crash.utils.b.closeQuietly(randomAccessFile);
         } catch (IOException e2) {
             e = e2;
             randomAccessFile2 = randomAccessFile;
-            com.kwad.sdk.core.d.b.b(e);
-            com.kwad.sdk.crash.utils.b.a(randomAccessFile2);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
+            com.kwad.sdk.crash.utils.b.closeQuietly(randomAccessFile2);
         } catch (Throwable th2) {
             th = th2;
             randomAccessFile2 = randomAccessFile;
-            com.kwad.sdk.crash.utils.b.a(randomAccessFile2);
+            com.kwad.sdk.crash.utils.b.closeQuietly(randomAccessFile2);
             throw th;
         }
     }
 
-    public static void e(File file) {
+    public static void v(File file) {
         if (file.delete() && file.createNewFile()) {
             return;
         }

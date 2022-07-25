@@ -1,188 +1,375 @@
 package com.kwad.sdk.kwai.kwai;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
-import android.view.LayoutInflater;
+import android.content.DialogInterface;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.animation.PathInterpolatorCompat;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.R;
-import com.kwad.sdk.core.imageloader.KSImageLoader;
-import com.kwad.sdk.core.response.a.d;
+import androidx.annotation.MainThread;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
+import com.kwad.sdk.KsAdSDKImpl;
+import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.api.loader.Wrapper;
+import com.kwad.sdk.core.report.f;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
+import com.kwad.sdk.kwai.kwai.b;
 import com.kwad.sdk.service.ServiceProvider;
-import com.kwad.sdk.utils.af;
-import com.kwad.sdk.utils.av;
+import com.kwad.sdk.utils.ai;
+import com.kwad.sdk.utils.bd;
+import com.kwad.sdk.utils.g;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class c implements View.OnClickListener {
-    @NonNull
-    public final Context a;
-    @NonNull
-    public final AdTemplate b;
-    public final AdInfo c;
-    public final boolean d;
-    public final boolean e;
-    @NonNull
-    public View f = b();
-    public View g;
-    public ImageView h;
-    public TextView i;
-    public Button j;
-    public int k;
-    public int l;
+public class c {
+    public static c Rj;
+    public d Rk;
+    public final Map<String, Integer> Rl = new HashMap();
+    public final Map<String, Integer> Rm = new HashMap();
+    public final Stack<AdTemplate> Rn = new Stack<>();
+    public volatile boolean Ro = false;
+    public volatile boolean Rp = false;
+    public volatile boolean Rq = false;
 
-    public c(@NonNull Context context, @NonNull AdTemplate adTemplate, boolean z, boolean z2) {
-        this.a = context;
-        this.b = adTemplate;
-        this.c = d.i(adTemplate);
-        this.d = z;
-        this.e = z2;
-        c();
-    }
-
-    private Animator a(View view2) {
-        ObjectAnimator ofFloat = (this.d && this.e) ? ObjectAnimator.ofFloat(view2, View.TRANSLATION_X, 0.0f, this.l) : ObjectAnimator.ofFloat(view2, View.TRANSLATION_Y, 0.0f, -this.k);
-        ofFloat.setInterpolator(PathInterpolatorCompat.create(0.0f, 0.42f, 0.85f, 0.64f));
-        ofFloat.setDuration(260L);
-        return ofFloat;
-    }
-
-    @SuppressLint({"InflateParams"})
-    private View b() {
-        LayoutInflater from;
-        int i;
-        if (this.d && this.e) {
-            from = LayoutInflater.from(this.a);
-            i = R.layout.obfuscated_res_0x7f0d0429;
-        } else {
-            from = LayoutInflater.from(this.a);
-            i = R.layout.obfuscated_res_0x7f0d0428;
-        }
-        this.f = from.inflate(i, (ViewGroup) null);
-        ViewCompat.setElevation(this.f, this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f07036f));
-        this.g = this.f.findViewById(R.id.obfuscated_res_0x7f091055);
-        this.h = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091057);
-        this.i = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091056);
-        this.j = (Button) this.f.findViewById(R.id.obfuscated_res_0x7f091058);
-        return this.f;
-    }
-
-    private void b(FrameLayout frameLayout) {
-        int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070370);
-        int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070371);
-        this.k = dimensionPixelSize + dimensionPixelSize2;
-        ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
-        FrameLayout.LayoutParams layoutParams2 = layoutParams instanceof FrameLayout.LayoutParams ? (FrameLayout.LayoutParams) layoutParams : new FrameLayout.LayoutParams(-1, dimensionPixelSize);
-        layoutParams2.gravity = 48;
-        layoutParams2.leftMargin = dimensionPixelSize2;
-        layoutParams2.rightMargin = dimensionPixelSize2;
-        layoutParams2.topMargin = dimensionPixelSize2;
-        this.f.setTranslationY(-this.k);
-        frameLayout.addView(this.f, layoutParams2);
-        d();
-    }
-
-    private void c() {
-        this.j.setText(this.d ? "安装" : "打开");
-        this.g.setOnClickListener(this);
-        this.j.setOnClickListener(this);
-        KSImageLoader.loadAppIcon(this.h, com.kwad.sdk.core.response.a.a.aE(d.i(this.b)), this.b, 8);
-        String A = com.kwad.sdk.core.response.a.a.A(d.i(this.b));
-        if (A.length() >= 8) {
-            A = A.substring(0, 7) + StringHelper.STRING_MORE;
-        }
-        this.i.setText(this.a.getString(this.d ? R.string.obfuscated_res_0x7f0f09a9 : R.string.obfuscated_res_0x7f0f09aa, A));
-    }
-
-    private void c(FrameLayout frameLayout) {
-        int k = av.k(this.a);
-        int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07036e);
-        int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07036d);
-        int dimensionPixelOffset = this.a.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07036c);
-        this.l = k - dimensionPixelSize;
-        ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
-        FrameLayout.LayoutParams layoutParams2 = layoutParams instanceof FrameLayout.LayoutParams ? (FrameLayout.LayoutParams) layoutParams : new FrameLayout.LayoutParams(-1, dimensionPixelOffset);
-        layoutParams2.gravity = 80;
-        layoutParams2.leftMargin = dimensionPixelSize;
-        layoutParams2.rightMargin = 0;
-        layoutParams2.bottomMargin = dimensionPixelSize2;
-        this.f.setTranslationX(this.l);
-        frameLayout.addView(this.f, layoutParams2);
-        d();
-    }
-
-    private void d() {
-        ObjectAnimator ofFloat = (this.d && this.e) ? ObjectAnimator.ofFloat(this.f, View.TRANSLATION_X, this.l, 0.0f) : ObjectAnimator.ofFloat(this.f, View.TRANSLATION_Y, -this.k, 0.0f);
-        ofFloat.setInterpolator(PathInterpolatorCompat.create(0.25f, 0.1f, 0.27f, 0.87f));
-        ofFloat.setDuration(300L);
-        ofFloat.start();
-    }
-
-    public final void a() {
-        if (this.f.getParent() == null) {
+    @MainThread
+    private void a(AdTemplate adTemplate, DialogInterface.OnDismissListener onDismissListener, DialogInterface.OnClickListener onClickListener) {
+        if (a.mq()) {
             return;
         }
-        final ViewGroup viewGroup = (ViewGroup) this.f.getParent();
-        Animator a = a(this.f);
-        a.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.kwai.kwai.c.2
-            @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-            public final void onAnimationEnd(Animator animator) {
-                viewGroup.removeView(c.this.f);
+        com.kwad.sdk.core.c.b.tp();
+        Activity currentActivity = com.kwad.sdk.core.c.b.getCurrentActivity();
+        if (currentActivity != null && a.a(currentActivity, adTemplate, null, onClickListener)) {
+            a(adTemplate, true, true);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    @MainThread
+    public void a(AdTemplate adTemplate, boolean z, int i, boolean z2) {
+        if (this.Rk != null || com.kwad.components.core.c.kwai.b.mq()) {
+            return;
+        }
+        boolean z3 = true;
+        a(adTemplate, z, (z && i == 1) ? false : false, z2);
+    }
+
+    private void a(AdTemplate adTemplate, boolean z, boolean z2) {
+        int i;
+        String valueOf = String.valueOf(com.kwad.sdk.core.response.a.d.ca(adTemplate));
+        if (!z) {
+            com.kwad.sdk.core.report.a.d(adTemplate, 93, (JSONObject) null);
+            a(this.Rm, valueOf);
+            return;
+        }
+        a(this.Rl, valueOf);
+        f fVar = new f();
+        if (z2) {
+            fVar.aP(23);
+            i = 191;
+        } else {
+            i = 92;
+        }
+        fVar.aK(i);
+        com.kwad.sdk.core.report.a.d(adTemplate, (JSONObject) null, fVar);
+    }
+
+    @UiThread
+    private void a(final AdTemplate adTemplate, boolean z, boolean z2, boolean z3) {
+        Context context;
+        Context wrapContextIfNeed;
+        com.kwad.sdk.core.c.b.tp();
+        Activity currentActivity = com.kwad.sdk.core.c.b.getCurrentActivity();
+        if (currentActivity == null || (context = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext()) == null || (wrapContextIfNeed = Wrapper.wrapContextIfNeed(context)) == null) {
+            return;
+        }
+        d dVar = new d(wrapContextIfNeed, adTemplate, z, z2, z3);
+        View findViewById = currentActivity.getWindow().getDecorView().findViewById(16908290);
+        if (findViewById instanceof FrameLayout) {
+            dVar.a((FrameLayout) findViewById);
+            this.Rk = dVar;
+            a(adTemplate, z, z3);
+        }
+        if (z3) {
+            com.kwad.sdk.core.c.b.tp();
+            com.kwad.sdk.kwai.kwai.kwai.b.I(com.kwad.sdk.core.c.b.getCurrentActivity());
+            bd.runOnUiThreadDelay(new Runnable() { // from class: com.kwad.sdk.kwai.kwai.c.9
+                @Override // java.lang.Runnable
+                public final void run() {
+                    if (c.this.Rk != null) {
+                        c.this.Rk.dismiss();
+                        c.this.Rk = null;
+                        c cVar = c.this;
+                        c.f(adTemplate, 2);
+                    }
+                }
+            }, 5000L);
+        }
+    }
+
+    public static void a(Map<String, Integer> map, String str) {
+        map.put(str, map.containsKey(str) ? Integer.valueOf(map.get(str).intValue() + 1) : 1);
+    }
+
+    public static boolean ae(AdTemplate adTemplate) {
+        String w;
+        if (adTemplate == null) {
+            return false;
+        }
+        AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
+        Context context = KsAdSDKImpl.get().getContext();
+        if (context == null || ai.U(context, com.kwad.sdk.core.response.a.a.ag(bQ)) || (w = com.kwad.sdk.core.download.a.w(bQ)) == null || TextUtils.isEmpty(w)) {
+            return false;
+        }
+        return new File(w).exists();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aj(final AdTemplate adTemplate) {
+        a(adTemplate, (DialogInterface.OnDismissListener) null, new DialogInterface.OnClickListener() { // from class: com.kwad.sdk.kwai.kwai.c.7
+            @Override // android.content.DialogInterface.OnClickListener
+            public final void onClick(DialogInterface dialogInterface, int i) {
+                if (i != -1) {
+                    if (i == -2) {
+                        c cVar = c.this;
+                        c.f(adTemplate, 1);
+                        return;
+                    }
+                    return;
+                }
+                f fVar = new f();
+                fVar.aK(29);
+                fVar.aP(23);
+                com.kwad.sdk.core.report.a.a(adTemplate, fVar);
+                a.qY();
             }
         });
-        a.start();
-        b.a().c();
-    }
-
-    public final void a(FrameLayout frameLayout) {
-        if (this.f.getParent() != null) {
-            return;
-        }
-        if (this.d && this.e) {
-            c(frameLayout);
-        } else {
-            b(frameLayout);
-        }
-        this.f.postDelayed(new Runnable() { // from class: com.kwad.sdk.kwai.kwai.c.1
+        bd.runOnUiThreadDelay(new Runnable() { // from class: com.kwad.sdk.kwai.kwai.c.8
             @Override // java.lang.Runnable
             public final void run() {
-                c.this.a();
-            }
-        }, 10000L);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view2) {
-        a();
-        if (view2.getId() != R.id.obfuscated_res_0x7f091058) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091055) {
-                if (this.d) {
-                    com.kwad.sdk.core.report.a.j(this.b, 46);
-                } else {
-                    com.kwad.sdk.core.report.a.i(this.b, 48);
+                if (a.qY()) {
+                    c cVar = c.this;
+                    c.f(adTemplate, 2);
                 }
             }
-        } else if (this.d) {
-            if (af.d(((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).a(), this.c.downloadFilePath)) {
-                com.kwad.sdk.core.report.a.b(this.b, 1);
-            }
-            com.kwad.sdk.core.report.a.j(this.b, 45);
-        } else {
-            if (af.c(this.a, com.kwad.sdk.core.response.a.a.C(this.c))) {
-                com.kwad.sdk.core.report.a.e(this.b);
-            }
-            com.kwad.sdk.core.report.a.i(this.b, 47);
+        }, 5000L);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    @MainThread
+    public void ak(AdTemplate adTemplate) {
+        if (a.mq()) {
+            return;
         }
+        com.kwad.sdk.core.c.b.tp();
+        Activity currentActivity = com.kwad.sdk.core.c.b.getCurrentActivity();
+        if (currentActivity != null && a.a(currentActivity, adTemplate, null, null)) {
+            a(adTemplate, true, false);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d(final AdTemplate adTemplate, final boolean z) {
+        bd.runOnUiThread(new Runnable() { // from class: com.kwad.sdk.kwai.kwai.c.3
+            @Override // java.lang.Runnable
+            public final void run() {
+                int rQ = com.kwad.sdk.core.config.d.rQ();
+                if (z && rQ == 2) {
+                    c.this.ak(adTemplate);
+                } else {
+                    c.this.a(adTemplate, z, rQ, false);
+                }
+            }
+        });
+    }
+
+    public static void f(AdTemplate adTemplate, int i) {
+        com.kwad.sdk.core.report.a.a(adTemplate, new f().aK(69).aP(23).aT(i));
+    }
+
+    public static c rd() {
+        if (Rj == null) {
+            synchronized (c.class) {
+                if (Rj == null) {
+                    Rj = new c();
+                }
+            }
+        }
+        return Rj;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void rh() {
+        if (!this.Rp && com.kwad.sdk.kwai.kwai.kwai.b.cp() <= 0) {
+            bd.runOnUiThread(new Runnable() { // from class: com.kwad.sdk.kwai.kwai.c.6
+                @Override // java.lang.Runnable
+                @SuppressLint({"WrongConstant"})
+                public final void run() {
+                    try {
+                        AdTemplate rb = b.ra().rb();
+                        if (rb == null) {
+                            return;
+                        }
+                        int rR = com.kwad.sdk.core.config.d.rR();
+                        c.this.Rp = true;
+                        if (rR == 1) {
+                            com.kwad.sdk.core.c.b.tp();
+                            com.kwad.sdk.kwai.kwai.kwai.b.I(com.kwad.sdk.core.c.b.getCurrentActivity());
+                            c.this.aj(rb);
+                        } else if (rR == 2) {
+                            c.this.a(rb, true, 1, true);
+                        }
+                    } catch (Throwable th) {
+                        com.kwad.components.core.b.a.b(th);
+                    }
+                }
+            });
+        }
+    }
+
+    public final void aI(boolean z) {
+        this.Ro = z;
+    }
+
+    public final void af(AdTemplate adTemplate) {
+        if (ae(adTemplate)) {
+            this.Rn.add(adTemplate);
+        }
+    }
+
+    public final void ag(AdTemplate adTemplate) {
+        if (adTemplate == null) {
+            return;
+        }
+        this.Rn.remove(adTemplate);
+    }
+
+    public final void ah(final AdTemplate adTemplate) {
+        int rP = com.kwad.sdk.core.config.d.rP();
+        if (adTemplate == null || rP <= 0) {
+            return;
+        }
+        final AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
+        if (adTemplate.mAdScene.getAdStyle() == 0) {
+            return;
+        }
+        String valueOf = String.valueOf(com.kwad.sdk.core.response.a.d.ca(adTemplate));
+        int i = 0;
+        if (this.Rl.containsKey(valueOf)) {
+            i = this.Rl.get(valueOf).intValue();
+            this.Rl.put(valueOf, Integer.valueOf(i));
+        }
+        if (i > 0) {
+            return;
+        }
+        g.schedule(new Runnable() { // from class: com.kwad.sdk.kwai.kwai.c.1
+            @Override // java.lang.Runnable
+            public final void run() {
+                int i2 = bQ.status;
+                if (i2 == 12 || i2 == 10) {
+                    return;
+                }
+                c.this.d(adTemplate, true);
+            }
+        }, rP, TimeUnit.SECONDS);
+    }
+
+    public final void ai(final AdTemplate adTemplate) {
+        int rY = com.kwad.sdk.core.config.d.rY();
+        if (rY < 0) {
+            return;
+        }
+        final AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
+        String valueOf = String.valueOf(bQ.adBaseInfo.creativeId);
+        int i = 0;
+        if (this.Rm.containsKey(valueOf)) {
+            i = this.Rm.get(valueOf).intValue();
+            this.Rm.put(valueOf, Integer.valueOf(i));
+        }
+        if (i > 0) {
+            return;
+        }
+        g.schedule(new Runnable() { // from class: com.kwad.sdk.kwai.kwai.c.2
+            @Override // java.lang.Runnable
+            public final void run() {
+                if (ai.V(KsAdSDK.getContext(), com.kwad.sdk.core.response.a.a.ag(bQ)) == 1) {
+                    return;
+                }
+                c.this.d(adTemplate, false);
+            }
+        }, rY, TimeUnit.SECONDS);
+    }
+
+    public final void dismiss() {
+        a.qY();
+        d dVar = this.Rk;
+        if (dVar != null) {
+            dVar.dismiss();
+            this.Rk = null;
+        }
+    }
+
+    @Nullable
+    public final AdTemplate re() {
+        AdTemplate adTemplate = null;
+        while (!this.Rn.isEmpty()) {
+            AdTemplate pop = this.Rn.pop();
+            if (ae(pop)) {
+                adTemplate = pop;
+            }
+        }
+        if (adTemplate != null) {
+            this.Rn.add(0, adTemplate);
+        }
+        return adTemplate;
+    }
+
+    @SuppressLint({"WrongConstant"})
+    public final void rf() {
+        if (com.kwad.sdk.core.config.d.rR() != 0 && com.kwad.sdk.kwai.kwai.kwai.b.cp() <= 0) {
+            b.ra().a(new b.a() { // from class: com.kwad.sdk.kwai.kwai.c.4
+                @Override // com.kwad.sdk.kwai.kwai.b.a
+                public final void fT() {
+                    bd.runOnUiThreadDelay(new Runnable() { // from class: com.kwad.sdk.kwai.kwai.c.4.1
+                        @Override // java.lang.Runnable
+                        public final void run() {
+                            if (c.this.Ro) {
+                                c.this.Rq = true;
+                            } else {
+                                c.this.rh();
+                            }
+                        }
+                    }, com.kwad.sdk.core.config.d.rS());
+                }
+
+                @Override // com.kwad.sdk.kwai.kwai.b.a
+                public final void rc() {
+                    com.kwad.sdk.core.e.b.d("InstallTipsManager", "showInitDelayDialog failed");
+                }
+            });
+        }
+    }
+
+    public final void rg() {
+        aI(false);
+        if (this.Rp || !this.Rq) {
+            return;
+        }
+        bd.runOnUiThreadDelay(new Runnable() { // from class: com.kwad.sdk.kwai.kwai.c.5
+            @Override // java.lang.Runnable
+            public final void run() {
+                c.this.rh();
+            }
+        }, 5000L);
+    }
+
+    public final void ri() {
+        this.Rk = null;
     }
 }

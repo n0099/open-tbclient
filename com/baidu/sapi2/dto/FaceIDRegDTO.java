@@ -10,6 +10,7 @@ public class FaceIDRegDTO extends FaceBaseDTO {
     public transient /* synthetic */ FieldHolder $fh;
     public String authWidgetURL;
     public String authsid;
+    public boolean isCurrentProcessShowAgreement;
     public String livingUname;
 
     public FaceIDRegDTO() {

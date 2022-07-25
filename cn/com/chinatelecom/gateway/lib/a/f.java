@@ -11,10 +11,8 @@ import com.baidu.webkit.internal.Base64;
 import java.nio.charset.Charset;
 /* loaded from: classes.dex */
 public class f {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "f";
-    public static byte[] b;
-    public static final Charset c;
+    public static /* synthetic */ Interceptable $ic;
+    public static byte[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,8 +28,8 @@ public class f {
                 return;
             }
         }
-        b = new byte[]{68, 64, 94, 49, 69, Base64.INTERNAL_PADDING, 50, 83};
-        c = Charset.forName("UTF-8");
+        a = new byte[]{68, 64, 94, 49, 69, Base64.INTERNAL_PADDING, 50, 83};
+        Charset.forName("UTF-8");
     }
 
     public f() {
@@ -57,8 +55,8 @@ public class f {
                 byte[] bArr2 = new byte[length];
                 for (int i = 0; i < length; i++) {
                     bArr2[i] = bArr[i];
-                    for (byte b2 : b) {
-                        bArr2[i] = (byte) (b2 ^ bArr2[i]);
+                    for (byte b : a) {
+                        bArr2[i] = (byte) (b ^ bArr2[i]);
                     }
                 }
                 return new String(bArr2);

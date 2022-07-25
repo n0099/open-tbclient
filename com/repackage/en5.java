@@ -8,7 +8,6 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public class en5 extends ActivityDelegation implements tg1 {
+public class en5 extends ActivityDelegation implements ug1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
@@ -62,11 +61,11 @@ public class en5 extends ActivityDelegation implements tg1 {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof f95) {
-                f95 f95Var = (f95) data;
-                if (getTag() == f95Var.a || f95Var.g) {
-                    this.a.mResult.putInt("result_code", f95Var.b);
-                    this.a.mResult.putString(AbstractThirdPartyService.EXTRA_RESULT_MSG, f95Var.c);
+            if (data instanceof g95) {
+                g95 g95Var = (g95) data;
+                if (getTag() == g95Var.a || g95Var.g) {
+                    this.a.mResult.putInt("result_code", g95Var.b);
+                    this.a.mResult.putString("result_msg", g95Var.c);
                     if (this.a.b != null) {
                         this.a.b.a(this.a.mResult);
                     }
@@ -126,39 +125,39 @@ public class en5 extends ActivityDelegation implements tg1 {
             MessageManager.getInstance().registerListener(this.e);
             int i = this.mParams.getInt("type");
             String string = this.mParams.getString("orderInfo");
-            f95 f95Var = new f95();
-            f95Var.a = this.a;
-            f95Var.b = i;
-            f95Var.c = string;
-            f95Var.e = (Map) this.mParams.getSerializable("params");
-            f95Var.f = this.d;
+            g95 g95Var = new g95();
+            g95Var.a = this.a;
+            g95Var.b = i;
+            g95Var.c = string;
+            g95Var.e = (Map) this.mParams.getSerializable("params");
+            g95Var.f = this.d;
             if (getAgent() != null) {
-                f95Var.d = getAgent();
+                g95Var.d = getAgent();
             } else {
                 Activity activity = this.c;
                 if (activity != null) {
-                    f95Var.d = activity;
+                    g95Var.d = activity;
                 } else {
-                    f95Var.d = TbadkCoreApplication.getInst().getCurrentActivity();
+                    g95Var.d = TbadkCoreApplication.getInst().getCurrentActivity();
                 }
             }
-            CustomMessage customMessage = new CustomMessage(2921393, f95Var);
+            CustomMessage customMessage = new CustomMessage(2921393, g95Var);
             customMessage.setTag(this.a);
             boolean sendMessage = MessageManager.getInstance().sendMessage(customMessage);
             this.mResult.putInt("result_code", sendMessage ? 0 : 1);
             Bundle bundle = this.mResult;
-            bundle.putString(AbstractThirdPartyService.EXTRA_RESULT_MSG, "" + sendMessage);
+            bundle.putString("result_msg", "" + sendMessage);
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.tg1
+    @Override // com.repackage.ug1
     public void onResult(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.mResult.putInt("result_code", i);
-            this.mResult.putString(AbstractThirdPartyService.EXTRA_RESULT_MSG, "");
+            this.mResult.putString("result_msg", "");
             finish();
         }
     }

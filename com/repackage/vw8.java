@@ -34,8 +34,8 @@ public class vw8 {
     public BaseWebView e;
     public View f;
     public TextView g;
-    public au4 h;
-    public cu4 i;
+    public bu4 h;
+    public du4 i;
     public boolean j;
     public float k;
     public Runnable l;
@@ -186,7 +186,7 @@ public class vw8 {
             if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i, str, str2) == null) {
                 super.onReceivedError(webView, i, str, str2);
                 this.a.p(false);
-                this.a.b.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                this.a.b.showToast(R.string.obfuscated_res_0x7f0f0c17);
                 this.a.b.finish();
             }
         }
@@ -330,12 +330,12 @@ public class vw8 {
             findViewById.setOnClickListener(new c(this));
             View findViewById2 = accountAccessActivity.findViewById(R.id.obfuscated_res_0x7f09001f);
             this.f = findViewById2;
-            TextView textView = (TextView) findViewById2.findViewById(R.id.obfuscated_res_0x7f09071c);
+            TextView textView = (TextView) findViewById2.findViewById(R.id.obfuscated_res_0x7f09071b);
             this.g = textView;
-            textView.setText(accountAccessActivity.getResources().getString(R.string.obfuscated_res_0x7f0f111c));
-            cu4 cu4Var = new cu4();
-            this.i = cu4Var;
-            cu4Var.a = 1000L;
+            textView.setText(accountAccessActivity.getResources().getString(R.string.obfuscated_res_0x7f0f10d8));
+            du4 du4Var = new du4();
+            this.i = du4Var;
+            du4Var.a = 1000L;
             this.a = pi.k(accountAccessActivity.getBaseContext()) / pi.i(accountAccessActivity.getBaseContext());
             if (this.e == null) {
                 try {
@@ -405,9 +405,9 @@ public class vw8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             if (this.h == null) {
-                au4 au4Var = new au4(this.b.getPageContext());
-                this.h = au4Var;
-                au4Var.e(new e(this));
+                bu4 bu4Var = new bu4(this.b.getPageContext());
+                this.h = bu4Var;
+                bu4Var.e(new e(this));
             }
             this.h.h(z);
         }

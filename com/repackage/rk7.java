@@ -46,13 +46,13 @@ public class rk7 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0811, (ViewGroup) null);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d081b, (ViewGroup) null);
             this.a = inflate;
             this.b = context;
             inflate.setTag(this);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f6f);
-            this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091f6e);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091f6d);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f73);
+            this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091f72);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091f71);
             this.f = findViewById;
             findViewById.setTag(this);
             return this.a;

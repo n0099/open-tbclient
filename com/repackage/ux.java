@@ -161,9 +161,9 @@ public class ux extends sw implements gx<ThreadData>, hx {
         this.m = align;
     }
 
-    public void n(nn4 nn4Var) {
+    public void n(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nn4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, on4Var) == null) {
             m(Align.ALIGN_RIGHT_TOP);
         }
     }

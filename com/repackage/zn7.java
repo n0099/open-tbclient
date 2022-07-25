@@ -83,7 +83,7 @@ public class zn7 extends BaseAdapter {
                         this.b.e.i();
                         return;
                     }
-                    BdToast.b(this.b.a, this.b.a.getText(R.string.obfuscated_res_0x7f0f05dc)).h();
+                    BdToast.b(this.b.a, this.b.a.getText(R.string.obfuscated_res_0x7f0f05d8)).h();
                 }
             }
         }
@@ -126,7 +126,7 @@ public class zn7 extends BaseAdapter {
             }
             for (String str : this.a.c) {
                 if (!TextUtils.isEmpty(str) && !hashSet.contains(str)) {
-                    l45.k().h(str);
+                    m45.k().h(str);
                 }
             }
         }
@@ -192,7 +192,7 @@ public class zn7 extends BaseAdapter {
         this.h = i;
         this.c = new HashSet();
         this.d = new LinkedHashMap<>();
-        this.g = pi.f(this.a, R.dimen.obfuscated_res_0x7f07023b);
+        this.g = pi.f(this.a, R.dimen.obfuscated_res_0x7f070239);
         this.f = (int) (((pi.k(this.a) - pi.f(this.a, R.dimen.obfuscated_res_0x7f070253)) - (this.g * 4)) * 0.333d);
     }
 
@@ -252,11 +252,11 @@ public class zn7 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
                 c cVar2 = new c(this);
-                View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d04fe, (ViewGroup) null);
-                cVar2.a = (PickEmotionView) inflate.findViewById(R.id.obfuscated_res_0x7f09088f);
-                cVar2.b = (PickEmotionView) inflate.findViewById(R.id.obfuscated_res_0x7f090890);
-                cVar2.c = (PickEmotionView) inflate.findViewById(R.id.obfuscated_res_0x7f090891);
-                cVar2.d = (PickEmotionView) inflate.findViewById(R.id.obfuscated_res_0x7f090892);
+                View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0508, (ViewGroup) null);
+                cVar2.a = (PickEmotionView) inflate.findViewById(R.id.obfuscated_res_0x7f09088d);
+                cVar2.b = (PickEmotionView) inflate.findViewById(R.id.obfuscated_res_0x7f09088e);
+                cVar2.c = (PickEmotionView) inflate.findViewById(R.id.obfuscated_res_0x7f09088f);
+                cVar2.d = (PickEmotionView) inflate.findViewById(R.id.obfuscated_res_0x7f090890);
                 cVar2.a();
                 n(cVar2.b, this.f);
                 n(cVar2.c, this.f);

@@ -147,7 +147,7 @@ public abstract class RichTextMaker<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.j.c(view2, this.h, this.i);
-                view2.setTag(R.id.obfuscated_res_0x7f091ef7, Boolean.TRUE);
+                view2.setTag(R.id.obfuscated_res_0x7f091efb, Boolean.TRUE);
             }
         }
     }

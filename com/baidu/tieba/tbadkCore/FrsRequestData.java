@@ -13,17 +13,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab8;
 import com.repackage.db8;
 import com.repackage.fr6;
-import com.repackage.q75;
-import com.repackage.t75;
-import com.repackage.td5;
-import com.repackage.vc5;
-import com.repackage.yc5;
+import com.repackage.r75;
+import com.repackage.u75;
+import com.repackage.ud5;
+import com.repackage.wc5;
+import com.repackage.zc5;
 import java.util.HashMap;
 import tbclient.FrsPage.AdParam;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
 /* loaded from: classes4.dex */
-public class FrsRequestData extends OrmObject implements t75, q75 {
+public class FrsRequestData extends OrmObject implements u75, r75 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CATEGORY_ID_KEY = "categoryid";
     public static final int FRS_SMARTLOAD_TYPE_BY_REFRESH = 1;
@@ -335,7 +335,7 @@ public class FrsRequestData extends OrmObject implements t75, q75 {
         }
     }
 
-    @Override // com.repackage.p75
+    @Override // com.repackage.q75
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -357,7 +357,7 @@ public class FrsRequestData extends OrmObject implements t75, q75 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    @Override // com.repackage.v75
+    @Override // com.repackage.w75
     public Object h(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -393,9 +393,9 @@ public class FrsRequestData extends OrmObject implements t75, q75 {
             builder.hot_thread_id = Long.valueOf(this.F);
             String d = fr6.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = vc5.g(d, vc5.f());
-            builder.ad_bear_sid_price = Double.valueOf(vc5.i());
-            builder.has_ad_bear = Integer.valueOf(vc5.n(builder.ad_bear_sid) ? 1 : 0);
+            builder.ad_bear_context = wc5.g(d, wc5.f());
+            builder.ad_bear_sid_price = Double.valueOf(wc5.i());
+            builder.has_ad_bear = Integer.valueOf(wc5.n(builder.ad_bear_sid) ? 1 : 0);
             AdParam.Builder builder2 = new AdParam.Builder();
             builder2.refresh_count = Integer.valueOf(this.z);
             builder2.load_count = Integer.valueOf(this.y);
@@ -408,8 +408,8 @@ public class FrsRequestData extends OrmObject implements t75, q75 {
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.J);
             builder.ad_ext_params = b.a();
-            builder.app_transmit_data = yc5.b();
-            td5.c(builder, true, false, true);
+            builder.app_transmit_data = zc5.b();
+            ud5.c(builder, true, false, true);
             FrsPageReqIdl.Builder builder3 = new FrsPageReqIdl.Builder();
             builder3.data = builder.build(false);
             return builder3.build(false);
@@ -423,7 +423,7 @@ public class FrsRequestData extends OrmObject implements t75, q75 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.b : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.q75
+    @Override // com.repackage.r75
     public boolean isNeedUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -433,7 +433,7 @@ public class FrsRequestData extends OrmObject implements t75, q75 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.q75
+    @Override // com.repackage.r75
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -485,7 +485,7 @@ public class FrsRequestData extends OrmObject implements t75, q75 {
         }
     }
 
-    @Override // com.repackage.s75
+    @Override // com.repackage.t75
     public HashMap<String, Object> w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -495,14 +495,14 @@ public class FrsRequestData extends OrmObject implements t75, q75 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.s75
+    @Override // com.repackage.t75
     public HashMap<String, String> y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.E : (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.q75
+    @Override // com.repackage.r75
     public String z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

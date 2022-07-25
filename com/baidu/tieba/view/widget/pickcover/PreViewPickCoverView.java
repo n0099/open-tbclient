@@ -149,7 +149,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
         public CoverStyleViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new CoverStyleViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0703, viewGroup, false)) : (CoverStyleViewHolder) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new CoverStyleViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d070d, viewGroup, false)) : (CoverStyleViewHolder) invokeLI.objValue;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -202,9 +202,9 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
                     return;
                 }
             }
-            this.d = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f4b);
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0906ec);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0906ed);
+            this.d = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f44);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0906eb);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0906ec);
             this.a.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER);
             this.d.setTag(this);
         }
@@ -228,7 +228,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
                     }
                     this.b.setVisibility(0);
                     this.b.setRotation(0.0f);
-                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f0811ba);
+                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f0811be);
                 } else {
                     this.b.setVisibility(4);
                 }
@@ -247,7 +247,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
                 if (this.c.isRunning()) {
                     return;
                 }
-                this.b.setImageResource(R.drawable.obfuscated_res_0x7f0811b9);
+                this.b.setImageResource(R.drawable.obfuscated_res_0x7f0811bd);
                 this.c.start();
             }
         }
@@ -537,10 +537,10 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.d = (PickCoverLayout) findViewById(R.id.obfuscated_res_0x7f092369);
-            this.i = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0918df);
-            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0923c9);
-            this.h = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090e46);
+            this.d = (PickCoverLayout) findViewById(R.id.obfuscated_res_0x7f09236b);
+            this.i = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0918ba);
+            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0923cb);
+            this.h = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090e3f);
             p();
             TextEditToolView textEditToolView = new TextEditToolView(getContext());
             this.b = textEditToolView;
@@ -559,7 +559,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
             f(i);
         } else if (!styleBackgroudInfoEntity.isNeedDown() && !styleBackgroudInfoEntity.isLoaded()) {
             if (!ni.z()) {
-                e99.a(R.string.obfuscated_res_0x7f0f14a6);
+                e99.a(R.string.obfuscated_res_0x7f0f1455);
                 return;
             }
             String str = styleBackgroudInfoEntity.mBackgroudImageUrl;
@@ -801,7 +801,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
         this.a = 1;
         this.l = true;
         this.f = context;
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d085a, this);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0864, this);
         j();
         i();
     }

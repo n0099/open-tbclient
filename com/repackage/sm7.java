@@ -56,7 +56,7 @@ public class sm7 extends an<in7, a> {
             this.c = view3;
         }
 
-        public void c(in7 in7Var) {
+        public void b(in7 in7Var) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, in7Var) == null) || in7Var == null) {
                 return;
@@ -65,7 +65,7 @@ public class sm7 extends an<in7, a> {
             this.c.setVisibility(in7Var.b ? 0 : 8);
         }
 
-        public void d(int i) {
+        public void c(int i) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.a == i) {
                 return;
@@ -120,7 +120,7 @@ public class sm7 extends an<in7, a> {
             textView.setPadding(0, pi.f(viewGroup.getContext(), R.dimen.tbds48), 0, 0);
             linearLayout.addView(textView, new LinearLayout.LayoutParams(-2, -2));
             a aVar = new a(linearLayout, textView, view2);
-            aVar.d(TbadkCoreApplication.getInst().getSkinType());
+            aVar.c(TbadkCoreApplication.getInst().getSkinType());
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -136,9 +136,9 @@ public class sm7 extends an<in7, a> {
             if (in7Var == null || aVar == null) {
                 return null;
             }
-            aVar.c(in7Var);
-            aVar.d(TbadkCoreApplication.getInst().getSkinType());
-            return aVar.b();
+            aVar.b(in7Var);
+            aVar.c(TbadkCoreApplication.getInst().getSkinType());
+            return aVar.a();
         }
         return (View) invokeCommon.objValue;
     }

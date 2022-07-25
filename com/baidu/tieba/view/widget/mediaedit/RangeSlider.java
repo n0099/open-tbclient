@@ -596,7 +596,7 @@ public class RangeSlider extends ViewGroup {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403e4, R.attr.obfuscated_res_0x7f0403e5, R.attr.obfuscated_res_0x7f0403ed, R.attr.obfuscated_res_0x7f0403ee, R.attr.obfuscated_res_0x7f040448, R.attr.obfuscated_res_0x7f040449, R.attr.obfuscated_res_0x7f040543, R.attr.obfuscated_res_0x7f040544, R.attr.obfuscated_res_0x7f0405ad, R.attr.obfuscated_res_0x7f040677, R.attr.obfuscated_res_0x7f04067c, R.attr.obfuscated_res_0x7f0406bc, R.attr.obfuscated_res_0x7f0406c5, R.attr.obfuscated_res_0x7f0406c6}, 0, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403e4, R.attr.obfuscated_res_0x7f0403e5, R.attr.obfuscated_res_0x7f0403ed, R.attr.obfuscated_res_0x7f0403ee, R.attr.obfuscated_res_0x7f040448, R.attr.obfuscated_res_0x7f040449, R.attr.obfuscated_res_0x7f040543, R.attr.obfuscated_res_0x7f040544, R.attr.obfuscated_res_0x7f0405af, R.attr.obfuscated_res_0x7f040679, R.attr.obfuscated_res_0x7f04067e, R.attr.obfuscated_res_0x7f0406be, R.attr.obfuscated_res_0x7f0406c7, R.attr.obfuscated_res_0x7f0406c8}, 0, 0);
         this.p = obtainStyledAttributes.getDimensionPixelOffset(10, 7);
         this.q = obtainStyledAttributes.getDimensionPixelOffset(9, 70);
         this.a = obtainStyledAttributes.getDimensionPixelOffset(12, 2);

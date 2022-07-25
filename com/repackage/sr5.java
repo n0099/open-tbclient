@@ -235,7 +235,7 @@ public class sr5 {
                     this.a.o.a(this.a.l, this.a.m, this.a.n);
                     return;
                 }
-                pi.L(this.a.b.getPageActivity(), this.a.b.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c64));
+                pi.L(this.a.b.getPageActivity(), this.a.b.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c50));
             }
         }
     }
@@ -268,18 +268,18 @@ public class sr5 {
         this.b = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0106, (ViewGroup) null, false);
         this.c = inflate;
-        this.d = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e5e);
-        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0921ed);
-        this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0921ec);
-        this.g = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091b46);
-        this.h = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0921f9);
-        this.i = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09222c);
+        this.d = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e57);
+        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0921ef);
+        this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0921ee);
+        this.g = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091b20);
+        this.h = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0921fb);
+        this.i = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09222e);
         this.j = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0905bc);
         this.c.setOnClickListener(this.z);
         this.d.setBorderSurroundContent(true);
         this.d.setDrawBorder(true);
-        this.k = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09131c);
-        this.v = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091325);
+        this.k = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0912f8);
+        this.v = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091301);
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         this.r = alphaAnimation;
         alphaAnimation.setDuration(200L);
@@ -348,7 +348,7 @@ public class sr5 {
                 } else {
                     this.v.setVisibility(8);
                 }
-                this.f.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11f0, StringHelper.numberUniformFormatExtra(this.n.getThreadAlaInfo().audience_count)));
+                this.f.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f119f, StringHelper.numberUniformFormatExtra(this.n.getThreadAlaInfo().audience_count)));
                 if (this.n.getAuthor() != null) {
                     String name_show = this.n.getAuthor().getName_show();
                     if (je5.d(name_show) > 10) {

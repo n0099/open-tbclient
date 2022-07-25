@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.iy0;
 import com.repackage.pi;
-import com.repackage.pn4;
+import com.repackage.qn4;
 import com.repackage.t98;
 /* loaded from: classes3.dex */
 public class AdAppInfoView extends FrameLayout {
@@ -41,7 +41,7 @@ public class AdAppInfoView extends FrameLayout {
     public TextView f;
     public TextView g;
     public RelativeLayout h;
-    public pn4 i;
+    public qn4 i;
     public AdvertAppInfo j;
     public int k;
     public int l;
@@ -90,7 +90,7 @@ public class AdAppInfoView extends FrameLayout {
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0900da);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0900d7);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0900e8);
-            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0907ef);
+            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0907ed);
             this.e.setOnClickListener(this.m);
             this.f.setOnClickListener(this.m);
         }
@@ -193,60 +193,60 @@ public class AdAppInfoView extends FrameLayout {
         }
     }
 
-    public void setAppInfo(pn4 pn4Var) {
+    public void setAppInfo(qn4 qn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, pn4Var) == null) {
-            if (pn4Var != null && pn4.c(pn4Var)) {
-                this.i = pn4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, qn4Var) == null) {
+            if (qn4Var != null && qn4.c(qn4Var)) {
+                this.i = qn4Var;
                 if (this.a != null) {
-                    if (!TextUtils.isEmpty(pn4Var.c)) {
+                    if (!TextUtils.isEmpty(qn4Var.c)) {
                         this.a.setVisibility(0);
-                        this.a.setText(pn4Var.c);
+                        this.a.setText(qn4Var.c);
                     } else {
                         this.a.setVisibility(8);
                     }
                 }
                 AdStarRatingBar adStarRatingBar = this.b;
                 if (adStarRatingBar != null) {
-                    float f = pn4Var.e;
+                    float f = qn4Var.e;
                     if (f >= 0.0f && f <= 5.0f) {
                         adStarRatingBar.setVisibility(0);
-                        this.b.setRating(pn4Var.e);
+                        this.b.setRating(qn4Var.e);
                     } else {
                         this.b.setVisibility(8);
                     }
                 }
                 if (this.c != null) {
-                    if (!TextUtils.isEmpty(pn4Var.f)) {
+                    if (!TextUtils.isEmpty(qn4Var.f)) {
                         this.c.setVisibility(0);
-                        this.c.setText(pn4Var.f);
+                        this.c.setText(qn4Var.f);
                     } else {
                         this.c.setVisibility(8);
                     }
                 }
                 if (this.d != null) {
-                    if (!TextUtils.isEmpty(pn4Var.d)) {
+                    if (!TextUtils.isEmpty(qn4Var.d)) {
                         this.d.setVisibility(0);
-                        this.d.setText(pn4Var.d);
+                        this.d.setText(qn4Var.d);
                         c();
                     } else {
                         this.d.setVisibility(8);
                     }
                 }
                 if (this.e != null) {
-                    pn4.b bVar = pn4Var.g;
-                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(pn4Var.g.a)) {
+                    qn4.b bVar = qn4Var.g;
+                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(qn4Var.g.a)) {
                         this.e.setVisibility(0);
-                        this.e.setText(pn4Var.g.a);
+                        this.e.setText(qn4Var.g.a);
                     } else {
                         this.e.setVisibility(8);
                     }
                 }
                 if (this.e != null) {
-                    pn4.a aVar = pn4Var.h;
-                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(pn4Var.h.a)) {
+                    qn4.a aVar = qn4Var.h;
+                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(qn4Var.h.a)) {
                         this.f.setVisibility(0);
-                        this.f.setText(pn4Var.h.a);
+                        this.f.setText(qn4Var.h.a);
                     } else {
                         this.f.setVisibility(8);
                     }
@@ -353,7 +353,7 @@ public class AdAppInfoView extends FrameLayout {
                 int id = view2.getId();
                 String str3 = "";
                 if (id == R.id.obfuscated_res_0x7f0900da) {
-                    pn4.b bVar = this.a.i.g;
+                    qn4.b bVar = this.a.i.g;
                     if (bVar != null) {
                         str3 = bVar.b;
                         str = bVar.c;
@@ -363,7 +363,7 @@ public class AdAppInfoView extends FrameLayout {
                     str2 = str;
                 } else {
                     if (id == R.id.obfuscated_res_0x7f0900d7) {
-                        pn4.a aVar = this.a.i.h;
+                        qn4.a aVar = this.a.i.h;
                         if (aVar != null) {
                             str3 = aVar.b;
                             str = aVar.c;

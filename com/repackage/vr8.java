@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import com.repackage.ur8;
 import java.io.File;
 import java.util.ArrayList;
@@ -110,19 +110,19 @@ public class vr8 {
                     this.a.K();
                 } else if (i != 2) {
                     if (i == 3 && this.a.a != null) {
-                        pi.N(this.a.a, R.string.obfuscated_res_0x7f0f04e7);
+                        pi.N(this.a.a, R.string.obfuscated_res_0x7f0f04e3);
                         if (this.a.u != null) {
-                            this.a.u.b(2, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f04e7));
+                            this.a.u.b(2, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f04e3));
                         }
                         this.a.a.finish();
                     }
                 } else if (this.a.a != null) {
                     if (!"OD103".equals(Build.MODEL)) {
-                        pi.N(this.a.a, R.string.obfuscated_res_0x7f0f04e8);
+                        pi.N(this.a.a, R.string.obfuscated_res_0x7f0f04e4);
                         if (this.a.u != null) {
                             Object obj = message.obj;
                             if (!(obj instanceof String)) {
-                                string = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f04e8);
+                                string = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f04e4);
                             } else {
                                 string = (String) obj;
                             }
@@ -139,7 +139,7 @@ public class vr8 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Activity a;
@@ -162,18 +162,18 @@ public class vr8 {
             this.a = activity;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 this.a.finish();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c implements cr4.e {
+    public class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Activity a;
@@ -196,11 +196,11 @@ public class vr8 {
             this.a = activity;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 Intent intent = new Intent();
                 intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
@@ -347,7 +347,7 @@ public class vr8 {
     }
 
     /* loaded from: classes7.dex */
-    public class g implements cr4.e {
+    public class g implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vr8 a;
@@ -370,11 +370,11 @@ public class vr8 {
             this.a = vr8Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 if (this.a.a != null) {
                     this.a.a.finish();
                 }
@@ -383,7 +383,7 @@ public class vr8 {
     }
 
     /* loaded from: classes7.dex */
-    public class h implements cr4.e {
+    public class h implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -403,11 +403,11 @@ public class vr8 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -664,13 +664,13 @@ public class vr8 {
         if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (recordVideoActivity = this.a) == null) {
             return;
         }
-        cr4 cr4Var = new cr4(recordVideoActivity.getPageContext().getPageActivity());
-        cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f1534);
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04e5, new g(this));
-        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f04e0, new h(this));
-        cr4Var.setCancelable(true);
-        cr4Var.create(this.a.getPageContext());
-        cr4Var.show();
+        dr4 dr4Var = new dr4(recordVideoActivity.getPageContext().getPageActivity());
+        dr4Var.setMessageId(R.string.obfuscated_res_0x7f0f14e3);
+        dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04e1, new g(this));
+        dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f04dc, new h(this));
+        dr4Var.setCancelable(true);
+        dr4Var.create(this.a.getPageContext());
+        dr4Var.show();
     }
 
     public void K() {
@@ -1030,12 +1030,12 @@ public class vr8 {
     public void x(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, activity) == null) {
-            cr4 cr4Var = new cr4(activity);
-            cr4Var.setCanceledOnTouchOutside(false);
-            cr4Var.setTitle(R.string.obfuscated_res_0x7f0f0fdd);
-            cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0fd9);
-            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f097e, new c(this, activity)).setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(this, activity)).create(h9.a(activity));
-            cr4Var.show();
+            dr4 dr4Var = new dr4(activity);
+            dr4Var.setCanceledOnTouchOutside(false);
+            dr4Var.setTitle(R.string.obfuscated_res_0x7f0f0fc6);
+            dr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0fc2);
+            dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0969, new c(this, activity)).setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(this, activity)).create(h9.a(activity));
+            dr4Var.show();
         }
     }
 

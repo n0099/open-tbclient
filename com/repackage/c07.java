@@ -64,11 +64,11 @@ public class c07 extends an<s07, AdapterViewHolder<HomeLocalCompleteInfoLayout>>
             if (s07Var == null || adapterViewHolder == null) {
                 return null;
             }
-            HomeLocalCompleteInfoLayout c = adapterViewHolder.c();
-            c.onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
-            c.setCloseClickListener(this.j);
+            HomeLocalCompleteInfoLayout b = adapterViewHolder.b();
+            b.onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
+            b.setCloseClickListener(this.j);
             uz6.q();
-            return adapterViewHolder.b();
+            return adapterViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

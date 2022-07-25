@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.rr6;
 import com.repackage.vr6;
-import com.repackage.xo4;
 import com.repackage.yo4;
+import com.repackage.zo4;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,10 +30,10 @@ public class DefaultGiftListSocketResponseMessage extends SocketResponsedMessage
     public ArrayList<rr6> categoryList;
     public int currencyType;
     public int freeChance;
-    public ArrayList<xo4> giftList;
+    public ArrayList<yo4> giftList;
     public ArrayList<vr6> numberList;
     public long sceneId;
-    public yo4 urlTitleData;
+    public zo4 urlTitleData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DefaultGiftListSocketResponseMessage() {
@@ -74,36 +74,36 @@ public class DefaultGiftListSocketResponseMessage extends SocketResponsedMessage
                 this.freeChance = dataRes.free_chance.intValue();
                 this.sceneId = getGiftListResIdl.data.scene_id.intValue();
                 this.currencyType = getGiftListResIdl.data.currency_type.intValue();
-                yo4 yo4Var = new yo4();
-                this.urlTitleData = yo4Var;
+                zo4 zo4Var = new zo4();
+                this.urlTitleData = zo4Var;
                 DataRes dataRes2 = getGiftListResIdl.data;
                 UrlTitle urlTitle = dataRes2.currency_txt;
-                yo4Var.a = urlTitle.name;
-                yo4Var.b = urlTitle.url;
+                zo4Var.a = urlTitle.name;
+                zo4Var.b = urlTitle.url;
                 List<PresentGiftList1> list = dataRes2.gift_list;
                 if (list != null && list.size() > 0) {
                     this.giftList = new ArrayList<>();
                     for (PresentGiftList1 presentGiftList1 : getGiftListResIdl.data.gift_list) {
                         if (presentGiftList1 != null) {
-                            xo4 xo4Var = new xo4();
-                            xo4Var.a = presentGiftList1.gift_id.intValue();
-                            xo4Var.b = presentGiftList1.gift_name;
-                            xo4Var.c = presentGiftList1.price.intValue();
-                            xo4Var.d = presentGiftList1.thumbnail_url;
+                            yo4 yo4Var = new yo4();
+                            yo4Var.a = presentGiftList1.gift_id.intValue();
+                            yo4Var.b = presentGiftList1.gift_name;
+                            yo4Var.c = presentGiftList1.price.intValue();
+                            yo4Var.d = presentGiftList1.thumbnail_url;
                             presentGiftList1.ios_price.intValue();
-                            xo4Var.e = presentGiftList1.gift_desc;
-                            xo4Var.f = presentGiftList1.activity_type.intValue();
-                            xo4Var.g = presentGiftList1.mark_url;
-                            xo4Var.h = presentGiftList1.begin_time.intValue();
-                            xo4Var.i = presentGiftList1.end_time.intValue();
-                            xo4Var.j = presentGiftList1.discount.intValue();
+                            yo4Var.e = presentGiftList1.gift_desc;
+                            yo4Var.f = presentGiftList1.activity_type.intValue();
+                            yo4Var.g = presentGiftList1.mark_url;
+                            yo4Var.h = presentGiftList1.begin_time.intValue();
+                            yo4Var.i = presentGiftList1.end_time.intValue();
+                            yo4Var.j = presentGiftList1.discount.intValue();
                             presentGiftList1.ios_discount.intValue();
                             presentGiftList1.proportion.intValue();
                             presentGiftList1.pitch_on.intValue();
-                            xo4Var.k = presentGiftList1.gift_count.intValue();
-                            xo4Var.q = presentGiftList1.currency_unit.intValue();
-                            xo4Var.s = presentGiftList1.currency.intValue();
-                            this.giftList.add(xo4Var);
+                            yo4Var.k = presentGiftList1.gift_count.intValue();
+                            yo4Var.q = presentGiftList1.currency_unit.intValue();
+                            yo4Var.s = presentGiftList1.currency.intValue();
+                            this.giftList.add(yo4Var);
                         }
                     }
                 }
@@ -153,7 +153,7 @@ public class DefaultGiftListSocketResponseMessage extends SocketResponsedMessage
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.freeChance : invokeV.intValue;
     }
 
-    public ArrayList<xo4> getGiftList() {
+    public ArrayList<yo4> getGiftList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.giftList : (ArrayList) invokeV.objValue;

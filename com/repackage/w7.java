@@ -60,7 +60,7 @@ public class w7<K, V> implements Iterable<b<K, V>> {
             this.f = new b<>();
         }
 
-        public a<K, V> d() {
+        public a<K, V> c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (a) invokeV.objValue;
@@ -68,7 +68,7 @@ public class w7<K, V> implements Iterable<b<K, V>> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
-        /* renamed from: e */
+        /* renamed from: d */
         public b<K, V> next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public class w7<K, V> implements Iterable<b<K, V>> {
                         bVar.a = kArr[i];
                         bVar.b = w7Var.c[i];
                         this.d = i;
-                        b();
+                        a();
                         return this.f;
                     }
                     throw new GdxRuntimeException("#iterator() cannot be used nested.");
@@ -107,7 +107,7 @@ public class w7<K, V> implements Iterable<b<K, V>> {
 
         @Override // java.lang.Iterable
         public /* bridge */ /* synthetic */ Iterator iterator() {
-            d();
+            c();
             return this;
         }
     }
@@ -168,19 +168,19 @@ public class w7<K, V> implements Iterable<b<K, V>> {
             }
         }
 
-        public c<K> d() {
+        public c<K> c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (c) invokeV.objValue;
         }
 
-        public a7<K> e() {
+        public a7<K> d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f(new a7<>(true, this.b.a)) : (a7) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? e(new a7<>(true, this.b.a)) : (a7) invokeV.objValue;
         }
 
-        public a7<K> f(a7<K> a7Var) {
+        public a7<K> e(a7<K> a7Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a7Var)) == null) {
@@ -207,7 +207,7 @@ public class w7<K, V> implements Iterable<b<K, V>> {
 
         @Override // java.lang.Iterable
         public /* bridge */ /* synthetic */ Iterator iterator() {
-            d();
+            c();
             return this;
         }
 
@@ -222,7 +222,7 @@ public class w7<K, V> implements Iterable<b<K, V>> {
                         int i = this.c;
                         K k = kArr[i];
                         this.d = i;
-                        b();
+                        a();
                         return k;
                     }
                     throw new GdxRuntimeException("#iterator() cannot be used nested.");
@@ -260,10 +260,10 @@ public class w7<K, V> implements Iterable<b<K, V>> {
             }
             this.e = true;
             this.b = w7Var;
-            c();
+            b();
         }
 
-        public void b() {
+        public void a() {
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -281,12 +281,12 @@ public class w7<K, V> implements Iterable<b<K, V>> {
             }
         }
 
-        public void c() {
+        public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.d = -1;
                 this.c = -1;
-                b();
+                a();
             }
         }
 
@@ -355,7 +355,7 @@ public class w7<K, V> implements Iterable<b<K, V>> {
             }
         }
 
-        public e<V> d() {
+        public e<V> c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (e) invokeV.objValue;
@@ -376,7 +376,7 @@ public class w7<K, V> implements Iterable<b<K, V>> {
 
         @Override // java.lang.Iterable
         public /* bridge */ /* synthetic */ Iterator iterator() {
-            d();
+            c();
             return this;
         }
 
@@ -391,7 +391,7 @@ public class w7<K, V> implements Iterable<b<K, V>> {
                         int i = this.c;
                         V v = vArr[i];
                         this.d = i;
-                        b();
+                        a();
                         return v;
                     }
                     throw new GdxRuntimeException("#iterator() cannot be used nested.");
@@ -456,13 +456,13 @@ public class w7<K, V> implements Iterable<b<K, V>> {
             }
             a aVar = this.h;
             if (!aVar.e) {
-                aVar.c();
+                aVar.b();
                 a<K, V> aVar2 = this.h;
                 aVar2.e = true;
                 this.i.e = false;
                 return aVar2;
             }
-            this.i.c();
+            this.i.b();
             a<K, V> aVar3 = this.i;
             aVar3.e = true;
             this.h.e = false;
@@ -565,13 +565,13 @@ public class w7<K, V> implements Iterable<b<K, V>> {
             }
             c cVar = this.l;
             if (!cVar.e) {
-                cVar.c();
+                cVar.b();
                 c<K> cVar2 = this.l;
                 cVar2.e = true;
                 this.m.e = false;
                 return cVar2;
             }
-            this.m.c();
+            this.m.b();
             c<K> cVar3 = this.m;
             cVar3.e = true;
             this.l.e = false;
@@ -808,13 +808,13 @@ public class w7<K, V> implements Iterable<b<K, V>> {
             }
             e eVar = this.j;
             if (!eVar.e) {
-                eVar.c();
+                eVar.b();
                 e<V> eVar2 = this.j;
                 eVar2.e = true;
                 this.k.e = false;
                 return eVar2;
             }
-            this.k.c();
+            this.k.b();
             e<V> eVar3 = this.k;
             eVar3.e = true;
             this.j.e = false;

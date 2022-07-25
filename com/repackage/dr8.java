@@ -304,7 +304,7 @@ public class dr8 {
                     } else if (path.contains(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION) && DefaultHlsExtractorFactory.MP4_FILE_EXTENSION.equals(path.substring(path.lastIndexOf(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION))) && (b = b(file.getPath())) != null && file.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT && b.a() >= 1000 && c(b.c())) {
                         list.add(b);
                     }
-                } else if (file.isDirectory() && !path.contains("/.") && z) {
+                } else if (file.isDirectory() && !path.contains(com.kuaishou.weapon.p0.i1.j) && z) {
                     d(path, list, z);
                 }
             }

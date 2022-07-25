@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br4;
-import com.repackage.q75;
+import com.repackage.cr4;
 import com.repackage.r75;
 import com.repackage.rf;
+import com.repackage.s75;
 import com.repackage.te;
-import com.repackage.u75;
+import com.repackage.v75;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class MvcJsonHttpResponsedMessage<D extends u75> extends MvcHttpResponsedMessage<D> {
+public class MvcJsonHttpResponsedMessage<D extends v75> extends MvcHttpResponsedMessage<D> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -48,7 +48,7 @@ public class MvcJsonHttpResponsedMessage<D extends u75> extends MvcHttpResponsed
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048580, this, i, jSONObject) == null) && (getOrginalMessage() instanceof MvcHttpMessage)) {
             Object createData = createData(((MvcHttpMessage) getOrginalMessage()).getResponseDataClass());
-            if (createData instanceof u75) {
+            if (createData instanceof v75) {
                 D d = (D) createData;
                 this.data = d;
                 d.initByJson(jSONObject);
@@ -82,7 +82,7 @@ public class MvcJsonHttpResponsedMessage<D extends u75> extends MvcHttpResponsed
                     errorData.parserJson(str);
                     setError(errorData.getError_code());
                     if (getError() == -1) {
-                        setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05aa));
+                        setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05a6));
                     } else if (getError() != 0) {
                         setErrorString(errorData.getError_msg());
                     }
@@ -91,7 +91,7 @@ public class MvcJsonHttpResponsedMessage<D extends u75> extends MvcHttpResponsed
                     e = e2;
                     jSONObject2 = jSONObject;
                     BdLog.e(e.getMessage());
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05aa));
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05a6));
                     return jSONObject2;
                 }
             }
@@ -108,24 +108,24 @@ public class MvcJsonHttpResponsedMessage<D extends u75> extends MvcHttpResponsed
             super.afterDispatchInBackGround(i, (int) bArr);
             if (getError() == 0 && (getOrginalMessage() instanceof MvcHttpMessage) && bArr != null) {
                 MvcHttpMessage mvcHttpMessage = (MvcHttpMessage) getOrginalMessage();
-                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof q75)) {
-                    q75 q75Var = (q75) mvcHttpMessage.getRequestData();
-                    String cacheKey = q75Var.getCacheKey();
-                    String z = q75Var.z();
-                    String currentAccount = q75Var.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
+                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof r75)) {
+                    r75 r75Var = (r75) mvcHttpMessage.getRequestData();
+                    String cacheKey = r75Var.getCacheKey();
+                    String z = r75Var.z();
+                    String currentAccount = r75Var.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
                     if (cacheKey == null || TextUtils.isEmpty(z) || bArr == null) {
                         return;
                     }
-                    if (q75Var.p()) {
-                        br4.f();
-                        te<byte[]> e = br4.e(z, currentAccount);
+                    if (r75Var.p()) {
+                        cr4.f();
+                        te<byte[]> e = cr4.e(z, currentAccount);
                         if (e == null) {
                             return;
                         }
                         e.g(cacheKey, bArr);
-                    } else if (mvcHttpMessage.getRequestData() instanceof r75) {
-                        br4.f();
-                        te<String> h = br4.h(z, currentAccount);
+                    } else if (mvcHttpMessage.getRequestData() instanceof s75) {
+                        cr4.f();
+                        te<String> h = cr4.h(z, currentAccount);
                         if (h == null) {
                             return;
                         }

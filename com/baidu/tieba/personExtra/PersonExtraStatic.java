@@ -56,18 +56,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f65;
+import com.repackage.g65;
 import com.repackage.m28;
-import com.repackage.ma5;
+import com.repackage.na5;
 import com.repackage.ng;
 import com.repackage.pi;
 import com.repackage.r78;
 import com.repackage.se5;
-import com.repackage.uk4;
 import com.repackage.vk4;
 import com.repackage.wh8;
 import com.repackage.wk4;
-import com.repackage.y55;
+import com.repackage.xk4;
+import com.repackage.z55;
 /* loaded from: classes3.dex */
 public class PersonExtraStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -224,7 +224,7 @@ public class PersonExtraStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class e implements wk4 {
+    public static class e implements xk4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -242,16 +242,16 @@ public class PersonExtraStatic {
             }
         }
 
-        @Override // com.repackage.wk4
+        @Override // com.repackage.xk4
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = vk4.a(context);
+                TextView a = wk4.a(context);
                 if (a != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     SkinManager.setViewTextColor(a, (int) R.color.CAM_X0302);
-                    layoutParams.setMargins(pi.f(context, R.dimen.obfuscated_res_0x7f070304), 0, pi.f(context, R.dimen.obfuscated_res_0x7f070304), 0);
+                    layoutParams.setMargins(pi.f(context, R.dimen.obfuscated_res_0x7f070302), 0, pi.f(context, R.dimen.obfuscated_res_0x7f070302), 0);
                     layoutParams.gravity = 16;
                     a.setLayoutParams(layoutParams);
                 }
@@ -322,11 +322,11 @@ public class PersonExtraStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
         UrlManager.getInstance().addListener(new b());
         l();
-        ma5 ma5Var = new ma5(107129);
-        ma5Var.setResponsedClass(ResponseGetLivableForumList.class);
-        ma5Var.h(false);
-        ma5Var.setParallel(TiebaIMConfig.getParallel());
-        MessageManager.getInstance().registerTask(ma5Var);
+        na5 na5Var = new na5(107129);
+        na5Var.setResponsedClass(ResponseGetLivableForumList.class);
+        na5Var.h(false);
+        na5Var.setParallel(TiebaIMConfig.getParallel());
+        MessageManager.getInstance().registerTask(na5Var);
         j();
         n();
         m();
@@ -341,7 +341,7 @@ public class PersonExtraStatic {
         h();
         i();
         k();
-        y55.a(f65.b, new m28());
+        z55.a(g65.b, new m28());
     }
 
     public PersonExtraStatic() {
@@ -361,7 +361,7 @@ public class PersonExtraStatic {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            uk4.b().c(7, new e());
+            vk4.b().c(7, new e());
         }
     }
 

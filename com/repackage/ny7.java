@@ -71,7 +71,7 @@ public class ny7 {
             StatisticItem statisticItem = new StatisticItem("c13313");
             statisticItem.param("tid", this.b);
             TiebaStatic.log(statisticItem);
-            rl4.x(TbadkCoreApplication.getInst().getApplicationContext(), false, this.a);
+            sl4.x(TbadkCoreApplication.getInst().getApplicationContext(), false, this.a);
         }
     }
 

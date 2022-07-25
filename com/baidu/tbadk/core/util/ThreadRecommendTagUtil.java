@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nv4;
+import com.repackage.ov4;
 import com.repackage.sg8;
 import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
@@ -87,7 +87,7 @@ public class ThreadRecommendTagUtil {
         int color2 = getColor(threadRecommendTagData.getBackgroundColor());
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
         int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
-        nv4.b bVar = new nv4.b();
+        ov4.b bVar = new ov4.b();
         bVar.n(UtilHelper.getDimenPixelSize(R.dimen.tbds10));
         bVar.q(R.dimen.T_X10);
         bVar.o(dimenPixelSize);

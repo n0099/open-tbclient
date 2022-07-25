@@ -2,7 +2,6 @@ package com.baidu.searchbox.dns.c;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.rp.service.Service;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,7 +25,7 @@ public class a {
 
     /* renamed from: com.baidu.searchbox.dns.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0141a {
+    public static class C0147a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long A;
@@ -36,7 +35,7 @@ public class a {
         public final com.baidu.searchbox.dns.d.a x;
         public final com.baidu.searchbox.dns.d.a.a z;
 
-        public C0141a(long j, com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2) {
+        public C0147a(long j, com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -82,7 +81,7 @@ public class a {
                             if (j2 - j > i) {
                                 return new a(this.x, null, 1003, null);
                             }
-                            if (j2 - j >= Service.TRIGGER_INTERVAL) {
+                            if (j2 - j >= 180000) {
                                 com.baidu.searchbox.dns.d.a aVar = this.x;
                                 if (aVar != null) {
                                     return new a(aVar, this.z, 1001, null);

@@ -59,7 +59,7 @@ public class xs5 extends an<at5, AlaGameFrsLiveNormalCardView.AlaGameFrsNormalVi
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, at5Var, alaGameFrsNormalViewHolder})) == null) {
             alaGameFrsNormalViewHolder.a.i(at5Var);
             alaGameFrsNormalViewHolder.a.t(this.j);
-            return alaGameFrsNormalViewHolder.b();
+            return alaGameFrsNormalViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

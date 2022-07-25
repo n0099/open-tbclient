@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.uu4;
-import com.repackage.xv4;
+import com.repackage.vu4;
+import com.repackage.yv4;
 /* loaded from: classes3.dex */
-public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements xv4 {
+public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements yv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,17 +45,17 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements x
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                uu4 uu4Var = new uu4();
-                uu4Var.t(R.color.CAM_X0109);
-                setConfig(uu4Var);
+                vu4 vu4Var = new vu4();
+                vu4Var.t(R.color.CAM_X0109);
+                setConfig(vu4Var);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9e));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f87));
             } else {
-                uu4 uu4Var2 = new uu4();
-                uu4Var2.r(R.color.CAM_X0302);
-                uu4Var2.i(R.drawable.obfuscated_res_0x7f0808e2, 0, TBSpecificationButtonConfig.IconType.SVG);
-                uu4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
-                setConfig(uu4Var2);
+                vu4 vu4Var2 = new vu4();
+                vu4Var2.r(R.color.CAM_X0302);
+                vu4Var2.i(R.drawable.obfuscated_res_0x7f0808e2, 0, TBSpecificationButtonConfig.IconType.SVG);
+                vu4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
+                setConfig(vu4Var2);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a7));
             }

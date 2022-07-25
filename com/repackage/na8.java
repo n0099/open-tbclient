@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.s55;
+import com.repackage.t55;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class na8 extends wc7 {
@@ -26,7 +26,7 @@ public class na8 extends wc7 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements s55.a {
+    public class a implements t55.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -49,7 +49,7 @@ public class na8 extends wc7 {
             this.a = tbPageContext;
         }
 
-        @Override // com.repackage.s55.a
+        @Override // com.repackage.t55.a
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class na8 extends wc7 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements s55.a {
+    public class b implements t55.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -81,7 +81,7 @@ public class na8 extends wc7 {
             this.a = tbPageContext;
         }
 
-        @Override // com.repackage.s55.a
+        @Override // com.repackage.t55.a
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class na8 extends wc7 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements s55.a {
+    public class c implements t55.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -115,7 +115,7 @@ public class na8 extends wc7 {
             this.b = i;
         }
 
-        @Override // com.repackage.s55.a
+        @Override // com.repackage.t55.a
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -202,7 +202,7 @@ public class na8 extends wc7 {
                 if (i2 != 2) {
                     if (i2 != 14) {
                         if (i2 == 6) {
-                            return (AdCardMultiPicView) s55.e().d(1102, new b(this, tbPageContext));
+                            return (AdCardMultiPicView) t55.e().d(1102, new b(this, tbPageContext));
                         }
                         if (i2 != 7) {
                             if (i2 != 8) {
@@ -210,11 +210,11 @@ public class na8 extends wc7 {
                             }
                         }
                     }
-                    AdCardVideoView adCardVideoView = (AdCardVideoView) s55.e().d(PackageInfo.CODE_HOST_VERSION, new c(this, tbPageContext, i));
+                    AdCardVideoView adCardVideoView = (AdCardVideoView) t55.e().d(PackageInfo.CODE_HOST_VERSION, new c(this, tbPageContext, i));
                     adCardVideoView.setBusinessType(i);
                     return adCardVideoView;
                 }
-                return (AdCardSinglePicView) s55.e().d(1101, new a(this, tbPageContext));
+                return (AdCardSinglePicView) t55.e().d(1101, new a(this, tbPageContext));
             }
             return null;
         }

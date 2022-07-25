@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import com.repackage.lv5;
 /* loaded from: classes6.dex */
 public class nv5 extends Dialog {
@@ -272,7 +272,7 @@ public class nv5 extends Dialog {
     }
 
     /* loaded from: classes6.dex */
-    public class f implements cr4.e {
+    public class f implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nv5 a;
@@ -295,11 +295,11 @@ public class nv5 extends Dialog {
             this.a = nv5Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 this.a.j.setEnabled(false);
                 this.a.q();
             }
@@ -307,7 +307,7 @@ public class nv5 extends Dialog {
     }
 
     /* loaded from: classes6.dex */
-    public class g implements cr4.e {
+    public class g implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nv5 a;
@@ -330,11 +330,11 @@ public class nv5 extends Dialog {
             this.a = nv5Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -419,24 +419,24 @@ public class nv5 extends Dialog {
             this.b = inflate;
             setContentView(inflate);
             this.b.setOnClickListener(new c(this));
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091403);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0913df);
             this.c = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080ecb);
-            this.d = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091404);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09140f);
-            this.f = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091401);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091400);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091410);
-            MarkLevelGroup markLevelGroup = (MarkLevelGroup) this.b.findViewById(R.id.obfuscated_res_0x7f091409);
+            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080ed2);
+            this.d = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0913e0);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0913eb);
+            this.f = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0913dd);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0913dc);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0913ec);
+            MarkLevelGroup markLevelGroup = (MarkLevelGroup) this.b.findViewById(R.id.obfuscated_res_0x7f0913e5);
             this.i = markLevelGroup;
             markLevelGroup.setCallback(new d(this));
-            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09140b);
-            this.p = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09140a);
-            this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09140d);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f09140e);
-            this.q = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09234b);
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09234c);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0913e7);
+            this.p = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0913e6);
+            this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913e9);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0913ea);
+            this.q = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09234d);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09234e);
         }
     }
 
@@ -479,14 +479,14 @@ public class nv5 extends Dialog {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            cr4 cr4Var = new cr4(this.a.getPageActivity());
-            cr4Var.setMessageShowCenter(true);
-            cr4Var.setCanceledOnTouchOutside(false);
-            cr4Var.setTitle(R.string.obfuscated_res_0x7f0f01f4);
-            cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f01f3);
-            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04e5, new f(this));
-            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f04e0, new g(this));
-            cr4Var.create(this.a).show();
+            dr4 dr4Var = new dr4(this.a.getPageActivity());
+            dr4Var.setMessageShowCenter(true);
+            dr4Var.setCanceledOnTouchOutside(false);
+            dr4Var.setTitle(R.string.obfuscated_res_0x7f0f01f4);
+            dr4Var.setMessageId(R.string.obfuscated_res_0x7f0f01f3);
+            dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04e1, new f(this));
+            dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f04dc, new g(this));
+            dr4Var.create(this.a).show();
         }
     }
 
@@ -504,7 +504,7 @@ public class nv5 extends Dialog {
                 Drawable normalSkinMoneyIcon = CurrencySwitchUtil.getNormalSkinMoneyIcon();
                 int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
                 normalSkinMoneyIcon.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
-                this.o.setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070304));
+                this.o.setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070302));
                 this.o.setCompoundDrawables(normalSkinMoneyIcon, null, null, null);
                 this.o.setText(AlaStringHelper.formatLowercasekDou((float) this.k.n));
                 this.r.setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
@@ -531,7 +531,7 @@ public class nv5 extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
             if (StringUtils.isNull(str)) {
-                this.c.J(String.valueOf((int) R.drawable.obfuscated_res_0x7f080ecb), 24, false);
+                this.c.J(String.valueOf((int) R.drawable.obfuscated_res_0x7f080ed2), 24, false);
             } else {
                 this.c.J(str, 10, false);
             }
@@ -573,7 +573,7 @@ public class nv5 extends Dialog {
                                 this.j.setText(R.string.obfuscated_res_0x7f0f0234);
                                 this.j.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0603f2));
                             } else {
-                                this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811a4);
+                                this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811a8);
                                 this.j.setTextSize(0, u);
                                 this.j.setText(R.string.obfuscated_res_0x7f0f01ed);
                                 this.j.setTextColor(getContext().getResources().getColor(R.color.cp_bg_line_d_alpha60));
@@ -625,7 +625,7 @@ public class nv5 extends Dialog {
                 this.j.setText(R.string.obfuscated_res_0x7f0f0234);
                 this.j.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0603f2));
             } else {
-                this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811a4);
+                this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811a8);
                 this.j.setTextSize(0, u);
                 this.j.setText(R.string.obfuscated_res_0x7f0f01ef);
                 this.j.setTextColor(getContext().getResources().getColor(R.color.cp_bg_line_d_alpha60));

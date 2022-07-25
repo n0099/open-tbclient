@@ -28,15 +28,36 @@ public final class q implements com.kwad.sdk.core.d<AdInfo.AdInsertScreenInfo> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "cycleAggregateSwitch", adInsertScreenInfo.cycleAggregateSwitch);
-        com.kwad.sdk.utils.r.a(jSONObject, "cycleAggregateDailyShowCount", adInsertScreenInfo.cycleAggregateDailyShowCount);
-        com.kwad.sdk.utils.r.a(jSONObject, "cycleAggregateStyle", adInsertScreenInfo.cycleAggregateStyle);
-        com.kwad.sdk.utils.r.a(jSONObject, "cycleAggregateInterval", adInsertScreenInfo.cycleAggregateInterval);
-        com.kwad.sdk.utils.r.a(jSONObject, "autoCloseTime", adInsertScreenInfo.autoCloseTime);
-        com.kwad.sdk.utils.r.a(jSONObject, "retainWindowStyle", adInsertScreenInfo.retainWindowStyle);
-        com.kwad.sdk.utils.r.a(jSONObject, "retainWindowText", adInsertScreenInfo.retainWindowText);
-        com.kwad.sdk.utils.r.a(jSONObject, "retainWindowBasedAdShowCount", adInsertScreenInfo.retainWindowBasedAdShowCount);
-        com.kwad.sdk.utils.r.a(jSONObject, "retainWindowDailyShowCount", adInsertScreenInfo.retainWindowDailyShowCount);
+        boolean z = adInsertScreenInfo.cycleAggregateSwitch;
+        if (z) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "cycleAggregateSwitch", z);
+        }
+        com.kwad.sdk.utils.r.putValue(jSONObject, "cycleAggregateDailyShowCount", adInsertScreenInfo.cycleAggregateDailyShowCount);
+        int i = adInsertScreenInfo.cycleAggregateStyle;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "cycleAggregateStyle", i);
+        }
+        com.kwad.sdk.utils.r.putValue(jSONObject, "cycleAggregateInterval", adInsertScreenInfo.cycleAggregateInterval);
+        int i2 = adInsertScreenInfo.autoCloseTime;
+        if (i2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "autoCloseTime", i2);
+        }
+        int i3 = adInsertScreenInfo.retainWindowStyle;
+        if (i3 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "retainWindowStyle", i3);
+        }
+        String str = adInsertScreenInfo.retainWindowText;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "retainWindowText", adInsertScreenInfo.retainWindowText);
+        }
+        int i4 = adInsertScreenInfo.retainWindowBasedAdShowCount;
+        if (i4 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "retainWindowBasedAdShowCount", i4);
+        }
+        int i5 = adInsertScreenInfo.retainWindowDailyShowCount;
+        if (i5 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "retainWindowDailyShowCount", i5);
+        }
         return jSONObject;
     }
 

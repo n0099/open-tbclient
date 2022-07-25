@@ -70,10 +70,8 @@ public class FaceSDKManager {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.g = new FaceConfig();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -421,7 +419,13 @@ public class FaceSDKManager {
     public FaceConfig getFaceConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : (FaceConfig) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.g == null) {
+                this.g = new FaceConfig();
+            }
+            return this.g;
+        }
+        return (FaceConfig) invokeV.objValue;
     }
 
     public boolean getInitFlag() {
@@ -448,17 +452,17 @@ public class FaceSDKManager {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) ? "" : (String) invokeL.objValue;
     }
 
-    public String imageSec(BDFaceImageInstance bDFaceImageInstance) {
-        InterceptResult invokeL;
+    public String imageSec(BDFaceImageInstance bDFaceImageInstance, boolean z, int i) {
+        InterceptResult invokeCommon;
         String message;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, bDFaceImageInstance)) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{bDFaceImageInstance, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
             try {
                 if (this.b == null) {
                     return "";
                 }
                 this.b.getClassLoader().loadClass("com.baidu.sofire.utility.WbEncryptUtil");
-                return bDFaceImageInstance.getSec(this.b);
+                return bDFaceImageInstance.getSec(this.b, z, i);
             } catch (ClassNotFoundException unused) {
                 message = "no sec";
                 Log.e("sec-error", message);
@@ -472,7 +476,7 @@ public class FaceSDKManager {
                 return "";
             }
         }
-        return (String) invokeL.objValue;
+        return (String) invokeCommon.objValue;
     }
 
     public void initialize(Context context, String str, IInitCallback iInitCallback) {

@@ -10,6 +10,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.sapi2.CoreViewRouter;
+import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.callback.NormalizeGuestAccountCallback;
 import com.baidu.sapi2.callback.WebBindWidgetCallback;
@@ -20,6 +21,7 @@ import com.baidu.sapi2.result.NormalizeGuestAccountResult;
 import com.baidu.sapi2.result.WebBindWidgetResult;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
+import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -80,7 +82,19 @@ public class BindVerifyActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             WebBindWidgetDTO webBindWidgetDTO = new WebBindWidgetDTO();
             webBindWidgetDTO.bindWidgetAction = BindWidgetAction.BIND_MOBILE;
-            webBindWidgetDTO.bduss = SapiAccountManager.getInstance().getSession().bduss;
+            SapiAccountManager sapiAccountManager = SapiAccountManager.getInstance();
+            if (sapiAccountManager == null) {
+                a(305);
+                finish();
+                return;
+            }
+            SapiAccount session = sapiAccountManager.getSession();
+            if (sapiAccountManager.getSession() == null) {
+                a(305);
+                finish();
+                return;
+            }
+            webBindWidgetDTO.bduss = session.bduss;
             CoreViewRouter.getInstance().loadBindWidget(new WebBindWidgetCallback(this) { // from class: com.baidu.sapi2.activity.BindVerifyActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -185,6 +199,11 @@ public class BindVerifyActivity extends Activity {
                 public void onSuccess(WebAuthResult webAuthResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, webAuthResult) == null) {
+                        try {
+                            SapiAccountManager.getGlobalCallback().onLoginStatusChange();
+                        } catch (Exception unused) {
+                            Log.e(Log.TAG, new Object[0]);
+                        }
                         this.a.a(200);
                         this.a.finish();
                     }
@@ -197,7 +216,19 @@ public class BindVerifyActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             NormalizeGuestAccountDTO normalizeGuestAccountDTO = new NormalizeGuestAccountDTO();
-            normalizeGuestAccountDTO.bduss = SapiAccountManager.getInstance().getSession().bduss;
+            SapiAccountManager sapiAccountManager = SapiAccountManager.getInstance();
+            if (sapiAccountManager == null) {
+                a(405);
+                finish();
+                return;
+            }
+            SapiAccount session = sapiAccountManager.getSession();
+            if (sapiAccountManager.getSession() == null) {
+                a(405);
+                finish();
+                return;
+            }
+            normalizeGuestAccountDTO.bduss = session.bduss;
             CoreViewRouter.getInstance().startNormalizeGuestAccount(this, new NormalizeGuestAccountCallback(this) { // from class: com.baidu.sapi2.activity.BindVerifyActivity.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

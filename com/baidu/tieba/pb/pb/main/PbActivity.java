@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.is4;
-import com.repackage.ls4;
+import com.repackage.js4;
+import com.repackage.ms4;
 import com.repackage.nv7;
 import com.repackage.qn;
 /* loaded from: classes3.dex */
@@ -119,7 +119,7 @@ public class PbActivity extends AbsPbActivity {
     public int F0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0687 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0691 : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
@@ -147,15 +147,15 @@ public class PbActivity extends AbsPbActivity {
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DRAW_DISPATCH_STAMP_KEY);
-                int i3 = ls4.a().c == 1 ? 8 : -1;
-                if (ls4.a().c == 2) {
+                int i3 = ms4.a().c == 1 ? 8 : -1;
+                if (ms4.a().c == 2) {
                     i3 = 9;
                 }
-                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, ls4.a().d);
+                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, ms4.a().d);
             }
             long currentTimeMillis = System.currentTimeMillis() - G0();
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_OPTIMIZE_LOAD_DURATION);
-            statisticItem.addParam("obj_type", i2).addParam("obj_locate", i).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, is4.e());
+            statisticItem.addParam("obj_type", i2).addParam("obj_locate", i).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, js4.e());
             TiebaStatic.log(statisticItem);
         }
     }

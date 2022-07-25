@@ -106,7 +106,7 @@ public class eg5 implements bg5 {
             if (i4 > 0) {
                 i2 = i3 + i;
                 List<MediaData> subList = ListUtils.subList(list, i, i2);
-                constrainImageLayout.setExtraCenterText(this.d ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0434, new Object[]{Integer.valueOf(i4)}) : null);
+                constrainImageLayout.setExtraCenterText(this.d ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0433, new Object[]{Integer.valueOf(i4)}) : null);
                 constrainImageLayout.setUrls(subList, i, true, this.d);
             } else {
                 constrainImageLayout.setUrls(ListUtils.subList(list, i, count), i);

@@ -12,6 +12,7 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
 import com.baidu.tieba.quickWebView.message.QuickWebViewHttpReqMsg;
@@ -137,7 +138,7 @@ public class p88 {
                 sb.append("}");
                 if (z) {
                     LinkedHashMap linkedHashMap = new LinkedHashMap();
-                    linkedHashMap.put("result", sb.toString());
+                    linkedHashMap.put(TiebaStatic.LogFields.RESULT, sb.toString());
                     linkedHashMap.put("NotificationKey", str2);
                     this.a.c.i(this.a.a, "RequestByNativeToH5", linkedHashMap);
                 } else if (StringUtils.isNull(str5)) {
@@ -188,7 +189,7 @@ public class p88 {
             k(str, remove);
         } else if (!StringUtils.isNull(remove) && z) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("result", remove);
+            linkedHashMap.put(TiebaStatic.LogFields.RESULT, remove);
             linkedHashMap.put("NotificationKey", quickWebViewBridgeData.url);
             this.c.i(this.a, "RequestByNativeToH5", linkedHashMap);
         } else if (this.d.contains(quickWebViewBridgeData.url) && !z) {

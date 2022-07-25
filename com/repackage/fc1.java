@@ -147,7 +147,7 @@ public class fc1 {
             c("tbBaseEmotion", "EmotionService", j46.class);
             c("tbadkcore", "IHttpsExperiment", HttpsExperimentFetcher.class);
             c("tbadkcore", "INetExperiment", NetExperimentFetcher.class);
-            c("tbadkcore", "ISoProcess", i75.class);
+            c("tbadkcore", "ISoProcess", j75.class);
             c(UBCCloudControlProcessor.UBC_KEY, UBC.TAG, i29.class);
             c("voyager", StatConstants.VALUE_TYPE_UPLOAD, za9.class);
             c("yaLog", "yaLogConfig", wb9.class);

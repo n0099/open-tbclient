@@ -1,14 +1,15 @@
 package com.repackage;
 
-import android.content.Context;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.imagepipeline.listener.RequestListener;
 @Service
 /* loaded from: classes5.dex */
-public class dm3 implements ll1 {
+public class dm3 implements u42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,11 +27,10 @@ public class dm3 implements ll1 {
         }
     }
 
-    @Override // com.repackage.ll1
-    public void a(String str, iq2 iq2Var, Context context) {
+    @Override // com.repackage.u42
+    public RequestListener a(v42 v42Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, iq2Var, context) == null) {
-            qs2.e().a(str, iq2Var, context);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v42Var)) == null) ? new cm3(v42Var) : (RequestListener) invokeL.objValue;
     }
 }

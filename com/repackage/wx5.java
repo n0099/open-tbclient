@@ -73,7 +73,7 @@ public class wx5 extends jx5<zy5> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || id5.b(this.a.g())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || jd5.b(this.a.g())) {
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotRanklistActivityConfig(this.a.g().getPageActivity()).createNormalConfig("homepage", "all")));
@@ -148,7 +148,7 @@ public class wx5 extends jx5<zy5> {
                 return;
             }
             TiebaStatic.log(new StatisticItem(this.z).param("obj_locate", String.valueOf(this.y.f)).param("obj_name", this.y.d.get(e).b));
-            if (e >= 0 && !id5.b(g())) {
+            if (e >= 0 && !jd5.b(g())) {
                 g().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(g().getPageActivity()).createNormalConfig(String.valueOf(this.y.d.get(e).a), this.y.d.get(e).b, "")));
             }
         }
@@ -157,22 +157,22 @@ public class wx5 extends jx5<zy5> {
     public final void r(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090d22);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d2c);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d29);
-            this.l = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d26);
-            this.m = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d28);
-            this.n = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d27);
-            this.o = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d25);
-            this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d2a);
-            this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d2d);
-            this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d2b);
-            this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d24);
-            this.t = view2.findViewById(R.id.obfuscated_res_0x7f090d44);
-            this.u = view2.findViewById(R.id.obfuscated_res_0x7f090d45);
-            this.v = view2.findViewById(R.id.obfuscated_res_0x7f090d46);
-            this.w = view2.findViewById(R.id.obfuscated_res_0x7f090d23);
-            this.x = view2.findViewById(R.id.obfuscated_res_0x7f090d21);
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090d1b);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d25);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d22);
+            this.l = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d1f);
+            this.m = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d21);
+            this.n = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d20);
+            this.o = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d1e);
+            this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d23);
+            this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d26);
+            this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d24);
+            this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d1d);
+            this.t = view2.findViewById(R.id.obfuscated_res_0x7f090d3d);
+            this.u = view2.findViewById(R.id.obfuscated_res_0x7f090d3e);
+            this.v = view2.findViewById(R.id.obfuscated_res_0x7f090d3f);
+            this.w = view2.findViewById(R.id.obfuscated_res_0x7f090d1c);
+            this.x = view2.findViewById(R.id.obfuscated_res_0x7f090d1a);
             this.l.setOnClickListener(this);
             this.m.setOnClickListener(this);
             this.n.setOnClickListener(this);

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br4;
+import com.repackage.cr4;
 import com.repackage.d9;
 import com.repackage.kf8;
 import com.repackage.te;
@@ -74,8 +74,8 @@ public class SquareModel extends BdBaseModel<Object> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
                 this.a = new kf8();
-                br4.f();
-                te<String> g = br4.g("tb.square");
+                cr4.f();
+                te<String> g = cr4.g("tb.square");
                 this.c = g;
                 String str = null;
                 if (this.b == 0) {

@@ -27,8 +27,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class e76 extends e85<x46, z46> {
+/* loaded from: classes6.dex */
+public class e76 extends f85<x46, z46> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext f;
@@ -40,7 +40,7 @@ public class e76 extends e85<x46, z46> {
     public List<w46> l;
     public boolean m;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,14 +75,14 @@ public class e76 extends e85<x46, z46> {
                     return;
                 }
                 HashMap hashMap = new HashMap();
-                hashMap.put(this.a.f.getString(R.string.obfuscated_res_0x7f0f06b1), list.get(i).b());
+                hashMap.put(this.a.f.getString(R.string.obfuscated_res_0x7f0f06ad), list.get(i).b());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921678, hashMap));
                 TiebaStatic.log(new StatisticItem("c14583").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_type", i + 1));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(List<w46> list, int i);
     }
@@ -108,10 +108,10 @@ public class e76 extends e85<x46, z46> {
         }
         this.m = false;
         this.f = tbPageContext;
-        this.i = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0920bc);
+        this.i = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0920be);
         this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902a5);
         this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090469);
-        RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091aba);
+        RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091a94);
         this.h = recyclerView;
         recyclerView.setNestedScrollingEnabled(false);
         this.h.setLayoutManager(new GridLayoutManager(getContext(), 5));
@@ -130,13 +130,13 @@ public class e76 extends e85<x46, z46> {
             if (this.m) {
                 if (this.l.size() >= 14) {
                     List<w46> subList = arrayList.subList(0, 14);
-                    subList.add(new w46(this.f.getString(R.string.obfuscated_res_0x7f0f0632), R.drawable.obfuscated_res_0x7f0807c5));
+                    subList.add(new w46(this.f.getString(R.string.obfuscated_res_0x7f0f062e), R.drawable.obfuscated_res_0x7f0807c5));
                     return subList;
                 }
                 return arrayList;
             } else if (this.l.size() >= 9) {
                 List<w46> subList2 = arrayList.subList(0, 9);
-                subList2.add(new w46(this.f.getString(R.string.obfuscated_res_0x7f0f0ad3), R.drawable.obfuscated_res_0x7f08080a));
+                subList2.add(new w46(this.f.getString(R.string.obfuscated_res_0x7f0f0abf), R.drawable.obfuscated_res_0x7f08080a));
                 return subList2;
             } else {
                 return arrayList;
@@ -151,10 +151,10 @@ public class e76 extends e85<x46, z46> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i)) == null) {
             SkinManager.setBackgroundColor(this.h, R.color.CAM_X0201);
-            ur4 d = ur4.d(this.g);
+            vr4 d = vr4.d(this.g);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0205);
-            ur4 d2 = ur4.d(this.i);
+            vr4 d2 = vr4.d(this.i);
             d2.A(R.string.F_X02);
             d2.z(R.dimen.T_X07);
             d2.v(R.color.CAM_X0105);
@@ -165,7 +165,7 @@ public class e76 extends e85<x46, z46> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.h85
+    @Override // com.repackage.i85
     /* renamed from: p */
     public void f(x46 x46Var) {
         Interceptable interceptable = $ic;

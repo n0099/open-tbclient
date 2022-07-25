@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f55;
+import com.repackage.g55;
 import com.repackage.ie6;
 import com.repackage.kd6;
 import com.repackage.ke6;
@@ -44,7 +44,7 @@ import com.repackage.ni;
 import com.repackage.nn;
 import com.repackage.oi;
 import com.repackage.pi;
-import com.repackage.rl4;
+import com.repackage.sl4;
 import com.repackage.uf6;
 import com.repackage.wf6;
 import com.repackage.xn;
@@ -66,7 +66,7 @@ public class FrsADFragment extends BaseFragment implements ie6, BdListView.p, ke
     public boolean i;
     public List<wf6> j;
     public ArrayList<nn> k;
-    public f55 l;
+    public g55 l;
     public int m;
     public int n;
     public CustomMessageListener o;
@@ -347,7 +347,7 @@ public class FrsADFragment extends BaseFragment implements ie6, BdListView.p, ke
             }
             ArrayList arrayList = new ArrayList();
             arrayList.add(new Pair(BaseWebViewActivity.KEY_SHOW_FRS_TAB_AD, "1"));
-            UrlManager.getInstance().dealOneLink(this.a.d, new String[]{rl4.d(wf6Var.i(), arrayList)});
+            UrlManager.getInstance().dealOneLink(this.a.d, new String[]{sl4.d(wf6Var.i(), arrayList)});
             if (oi.isEmpty(wf6Var.d())) {
                 return;
             }
@@ -399,8 +399,8 @@ public class FrsADFragment extends BaseFragment implements ie6, BdListView.p, ke
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.k(true);
             this.a.m(true);
-            f55 f55Var = this.l;
-            if (f55Var == null || !f55Var.isViewAttached()) {
+            g55 g55Var = this.l;
+            if (g55Var == null || !g55Var.isViewAttached()) {
                 return;
             }
             this.l.dettachView(this.a.b());
@@ -492,7 +492,7 @@ public class FrsADFragment extends BaseFragment implements ie6, BdListView.p, ke
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.a.k(false);
-            showLoadingView(this.a.b(), true, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07028a));
+            showLoadingView(this.a.b(), true, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070288));
         }
     }
 
@@ -505,9 +505,9 @@ public class FrsADFragment extends BaseFragment implements ie6, BdListView.p, ke
             this.a.a().getData().clear();
             this.a.f();
             if (this.l == null) {
-                f55 f55Var = new f55(getPageContext().getContext(), getNetRefreshListener());
-                this.l = f55Var;
-                f55Var.e(null);
+                g55 g55Var = new g55(getPageContext().getContext(), getNetRefreshListener());
+                this.l = g55Var;
+                g55Var.e(null);
                 this.l.d(null);
                 this.l.c(null);
                 this.l.f();
@@ -580,8 +580,8 @@ public class FrsADFragment extends BaseFragment implements ie6, BdListView.p, ke
             if (yf6Var != null) {
                 yf6Var.g(i);
             }
-            f55 f55Var = this.l;
-            if (f55Var == null || !f55Var.isViewAttached()) {
+            g55 g55Var = this.l;
+            if (g55Var == null || !g55Var.isViewAttached()) {
                 return;
             }
             this.l.onChangeSkinType();

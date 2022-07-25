@@ -47,7 +47,7 @@ public class uv6 extends lv6<aw6, a> {
             this.a = hotTopicTabThreadItem;
         }
 
-        public void c(aw6 aw6Var) {
+        public void b(aw6 aw6Var) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, aw6Var) == null) || aw6Var == null) {
                 return;
@@ -55,7 +55,7 @@ public class uv6 extends lv6<aw6, a> {
             this.a.c(aw6Var);
         }
 
-        public void d(int i) {
+        public void c(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 this.a.f(i);
@@ -95,7 +95,7 @@ public class uv6 extends lv6<aw6, a> {
             hotTopicTabThreadItem.setOnItemCoverListener(this.l);
             hotTopicTabThreadItem.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
             a aVar = new a(hotTopicTabThreadItem);
-            aVar.d(TbadkCoreApplication.getInst().getSkinType());
+            aVar.c(TbadkCoreApplication.getInst().getSkinType());
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -111,9 +111,9 @@ public class uv6 extends lv6<aw6, a> {
             if (aw6Var == null || aVar == null) {
                 return null;
             }
-            aVar.c(aw6Var);
-            aVar.d(TbadkCoreApplication.getInst().getSkinType());
-            return aVar.b();
+            aVar.b(aw6Var);
+            aVar.c(TbadkCoreApplication.getInst().getSkinType());
+            return aVar.a();
         }
         return (View) invokeCommon.objValue;
     }

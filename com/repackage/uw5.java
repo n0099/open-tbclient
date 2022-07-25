@@ -34,9 +34,9 @@ public class uw5 {
             }
         }
         this.a = tbPageContext;
-        ma5 ma5Var = new ma5(309641);
-        ma5Var.setResponsedClass(CandidateSearchSocketResMsg.class);
-        MessageManager.getInstance().registerTask(ma5Var);
+        na5 na5Var = new na5(309641);
+        na5Var.setResponsedClass(CandidateSearchSocketResMsg.class);
+        MessageManager.getInstance().registerTask(na5Var);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CANDIDATE_SEARCH, wh8.a(TbConfig.URL_CANDIDATE_SEARCH, 309641));
         tbHttpMessageTask.setResponsedClass(CandidateSearchHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

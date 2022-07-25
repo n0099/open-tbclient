@@ -1,11 +1,11 @@
 package com.kwad.sdk.core.response.a;
 /* loaded from: classes5.dex */
 public interface e {
-    String a();
+    String uW();
 
-    String b();
+    String uX();
 
-    long c();
+    long uY();
 
-    int d();
+    int uZ();
 }

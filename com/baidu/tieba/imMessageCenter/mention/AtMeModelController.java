@@ -30,8 +30,8 @@ import com.repackage.d9;
 import com.repackage.da7;
 import com.repackage.h9;
 import com.repackage.nn;
-import com.repackage.ny4;
 import com.repackage.oa7;
+import com.repackage.oy4;
 import com.repackage.x97;
 import com.repackage.y97;
 import java.util.ArrayList;
@@ -212,7 +212,7 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.c<y97
                 z = false;
                 z2 = false;
             }
-            ny4.f0().j();
+            oy4.f0().j();
             if (!TbadkCoreApplication.isLogin()) {
                 this.f.a().clear();
             }
@@ -301,7 +301,7 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.c<y97
                     r0 = mvcNetMessage.getRequestData();
                 }
             } else {
-                ny4.f0().Y(0);
+                oy4.f0().Y(0);
                 y97Var = null;
             }
             if (r0 == null || y97Var == null || !F(r0, y97Var, Boolean.FALSE)) {
@@ -345,7 +345,7 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.c<y97
                     r0 = mvcNetMessage.getRequestData();
                 }
             } else {
-                ny4.f0().Y(0);
+                oy4.f0().Y(0);
                 y97Var = null;
             }
             if (r0 == null || y97Var == null || !F(r0, y97Var, Boolean.FALSE)) {

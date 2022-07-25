@@ -66,7 +66,7 @@ public abstract class OfflineCompoRequest implements IOfflineCompoRequest {
                 this.this$0 = this;
             }
 
-            @Override // com.kwad.sdk.core.network.b
+            @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
             @Nullable
             public SceneImpl getScene() {
                 InterceptResult invokeV;
@@ -137,7 +137,7 @@ public abstract class OfflineCompoRequest implements IOfflineCompoRequest {
     public String getRequestHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? b.a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? b.qJ() : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.components.offline.api.core.network.IOfflineCompoRequest

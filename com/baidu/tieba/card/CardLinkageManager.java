@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.nn;
 import com.repackage.tn;
-import com.repackage.ur4;
-import com.repackage.vc5;
+import com.repackage.vr4;
+import com.repackage.wc5;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -122,7 +122,7 @@ public final class CardLinkageManager {
                             boolean isSupportFull = baseCardInfo2.isSupportFull();
                             int i3 = R.color.CAM_X0206;
                             if (isSupportFull) {
-                                ur4 d = ur4.d(findViewByPosition);
+                                vr4 d = vr4.d(findViewByPosition);
                                 d.m(0);
                                 d.n(R.string.J_X06);
                                 if (!z) {
@@ -130,7 +130,7 @@ public final class CardLinkageManager {
                                 }
                                 d.f(i3);
                             } else if (baseCardInfo2.isSupportTop()) {
-                                ur4 d2 = ur4.d(findViewByPosition);
+                                vr4 d2 = vr4.d(findViewByPosition);
                                 d2.m(1);
                                 d2.n(R.string.J_X06);
                                 if (!z) {
@@ -138,7 +138,7 @@ public final class CardLinkageManager {
                                 }
                                 d2.f(i3);
                             } else if (baseCardInfo2.isSupportBottom()) {
-                                ur4 d3 = ur4.d(findViewByPosition);
+                                vr4 d3 = vr4.d(findViewByPosition);
                                 d3.m(2);
                                 d3.n(R.string.J_X06);
                                 if (!z) {
@@ -177,7 +177,7 @@ public final class CardLinkageManager {
             BaseCardInfo baseCardInfo = (BaseCardInfo) item;
             for (int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition(); firstVisiblePosition <= lastVisiblePosition; firstVisiblePosition++) {
                 Object item2 = ListUtils.getItem(data, firstVisiblePosition - headerViewsCount);
-                if (!vc5.p(item2)) {
+                if (!wc5.p(item2)) {
                     if (!(item2 instanceof BaseCardInfo)) {
                         if ((item2 instanceof nn) && (findViewByPosition2 = layoutManager.findViewByPosition(firstVisiblePosition)) != null) {
                             findViewByPosition2.setTranslationY(f);

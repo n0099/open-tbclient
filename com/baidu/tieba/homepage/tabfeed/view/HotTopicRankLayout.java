@@ -21,11 +21,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gx;
 import com.repackage.hx;
-import com.repackage.jm4;
+import com.repackage.km4;
 import com.repackage.pi;
 import com.repackage.u07;
-import com.repackage.ur4;
 import com.repackage.uz6;
+import com.repackage.vr4;
 import com.repackage.yv6;
 /* loaded from: classes3.dex */
 public class HotTopicRankLayout extends LinearLayout implements hx, gx<u07>, View.OnClickListener {
@@ -41,10 +41,10 @@ public class HotTopicRankLayout extends LinearLayout implements hx, gx<u07>, Vie
     public View h;
     public LinearLayout i;
     public String j;
-    public jm4<yv6> k;
+    public km4<yv6> k;
 
     /* loaded from: classes3.dex */
-    public class a implements jm4<yv6> {
+    public class a implements km4<yv6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotTopicRankLayout a;
@@ -68,7 +68,7 @@ public class HotTopicRankLayout extends LinearLayout implements hx, gx<u07>, Vie
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: a */
         public void d(View view2, yv6 yv6Var, int i, long j) {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class HotTopicRankLayout extends LinearLayout implements hx, gx<u07>, Vie
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: b */
         public void c(View view2, yv6 yv6Var, int i, long j) {
             Interceptable interceptable = $ic;
@@ -118,13 +118,13 @@ public class HotTopicRankLayout extends LinearLayout implements hx, gx<u07>, Vie
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d037d, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0922a1);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fa5);
-            this.e = findViewById(R.id.obfuscated_res_0x7f09123f);
-            this.g = findViewById(R.id.obfuscated_res_0x7f0907d5);
-            this.h = findViewById(R.id.obfuscated_res_0x7f0907cf);
-            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906ae);
-            this.c = findViewById(R.id.obfuscated_res_0x7f0920d5);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0922a3);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f9e);
+            this.e = findViewById(R.id.obfuscated_res_0x7f09121b);
+            this.g = findViewById(R.id.obfuscated_res_0x7f0907d3);
+            this.h = findViewById(R.id.obfuscated_res_0x7f0907cd);
+            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906ad);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0920d7);
             int f = pi.f(getContext(), R.dimen.M_H_X004);
             int f2 = pi.f(getContext(), R.dimen.M_H_X004);
             int f3 = pi.f(getContext(), R.dimen.M_W_X005);
@@ -173,14 +173,14 @@ public class HotTopicRankLayout extends LinearLayout implements hx, gx<u07>, Vie
         if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) || this.a == i) {
             return;
         }
-        ur4 d = ur4.d(this.d);
+        vr4 d = vr4.d(this.d);
         d.v(R.color.CAM_X0105);
         d.z(R.dimen.T_X07);
         d.A(R.string.F_X02);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f08092f, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         HomeGroupUbsUIHelper.handleLineColor(this.g);
         this.a = i;
-        ur4 d2 = ur4.d(this.i);
+        vr4 d2 = vr4.d(this.i);
         d2.n(R.string.J_X06);
         d2.f(R.color.CAM_X0205);
     }

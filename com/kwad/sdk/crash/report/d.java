@@ -24,33 +24,29 @@ import java.util.concurrent.CountDownLatch;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public abstract class d {
-    public e a;
-    public String b = "";
-
-    public static String a(String str) {
-        return (str == null || !str.contains("-")) ? str : str.substring(0, str.lastIndexOf(45));
-    }
+    public String mErrorMessage = "";
+    public e mUploader;
 
     private void a(ExceptionMessage exceptionMessage, @NonNull List<File> list, @Nullable CountDownLatch countDownLatch) {
-        com.kwad.sdk.core.d.b.a("ExceptionCollector", "compressAndUpload");
-        File a = this.a.a();
-        if (!a.exists()) {
-            a.mkdir();
+        com.kwad.sdk.core.e.b.d("ExceptionCollector", "compressAndUpload");
+        File wv = this.mUploader.wv();
+        if (!wv.exists()) {
+            wv.mkdir();
         }
-        File file = new File(a, exceptionMessage.mLogUUID + ".zip");
+        File file = new File(wv, exceptionMessage.mLogUUID + ".zip");
         StringBuilder sb = new StringBuilder("compressAndUpload zipFile=");
         sb.append(file.getPath());
-        com.kwad.sdk.core.d.b.a("ExceptionCollector", sb.toString());
+        com.kwad.sdk.core.e.b.d("ExceptionCollector", sb.toString());
         if (!file.exists()) {
             try {
                 file.createNewFile();
             } catch (Exception e) {
-                com.kwad.sdk.core.d.b.b(e);
+                com.kwad.sdk.core.e.b.printStackTraceOnly(e);
             }
         }
         l.a((File[]) list.toArray(new File[0]), file.getPath());
         if (file.length() <= 0) {
-            o.e(file);
+            o.P(file);
             return;
         }
         HashMap hashMap = new HashMap();
@@ -102,22 +98,22 @@ public abstract class d {
                 }
                 memoryInfo.mJavaThreads = arrayList;
                 exceptionMessage.mMemoryInfo = memoryInfo.toJson().toString();
-                com.kwad.sdk.crash.utils.b.a(bufferedReader);
+                com.kwad.sdk.crash.utils.b.closeQuietly(bufferedReader);
                 bufferedReader2 = readLine;
             } catch (IOException e2) {
                 e = e2;
                 bufferedReader2 = bufferedReader;
-                com.kwad.sdk.core.d.b.b(e);
-                com.kwad.sdk.crash.utils.b.a(bufferedReader2);
+                com.kwad.sdk.core.e.b.printStackTraceOnly(e);
+                com.kwad.sdk.crash.utils.b.closeQuietly(bufferedReader2);
                 bufferedReader2 = bufferedReader2;
             } catch (Throwable th2) {
                 th = th2;
                 bufferedReader2 = bufferedReader;
-                com.kwad.sdk.crash.utils.b.a(bufferedReader2);
+                com.kwad.sdk.crash.utils.b.closeQuietly(bufferedReader2);
                 throw th;
             }
         } catch (Exception e3) {
-            com.kwad.sdk.core.d.b.b(e3);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e3);
         }
     }
 
@@ -126,87 +122,75 @@ public abstract class d {
         com.kwad.sdk.crash.report.upload.d.a(file, true, countDownLatch);
     }
 
+    public static String db(String str) {
+        return (str == null || !str.contains("-")) ? str : str.substring(0, str.lastIndexOf(45));
+    }
+
     public abstract ExceptionMessage a(@NonNull File file, File file2, File file3, String str);
 
     public final void a(e eVar) {
-        this.a = eVar;
-    }
-
-    @SuppressLint({"CheckResult"})
-    public final void a(File file) {
-        com.kwad.sdk.core.d.b.a("ExceptionCollector", "reportException dir =" + file);
-        File[] listFiles = file.listFiles(new FileFilter() { // from class: com.kwad.sdk.crash.report.d.1
-            @Override // java.io.FileFilter
-            public final boolean accept(File file2) {
-                return file2.getName().endsWith(".dump");
-            }
-        });
-        if (listFiles != null) {
-            for (File file2 : listFiles) {
-                a(file2, (CountDownLatch) null);
-            }
-        }
+        this.mUploader = eVar;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, CHECK_CAST, INVOKE, INVOKE, GOTO, INVOKE, MOVE_EXCEPTION, SGET, INVOKE, IF, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
     public final void a(File file, @Nullable CountDownLatch countDownLatch) {
         File[] listFiles;
-        String a = com.kwad.sdk.crash.utils.f.a(file.getPath());
-        File file2 = new File(a + ".msg");
-        File file3 = new File(a + ".log");
-        File file4 = new File(a + ".blog");
-        File file5 = new File(a + ".jtrace");
-        File file6 = new File(a + ".minfo");
+        String df = com.kwad.sdk.crash.utils.f.df(file.getPath());
+        File file2 = new File(df + ".msg");
+        File file3 = new File(df + ".log");
+        File file4 = new File(df + ".blog");
+        File file5 = new File(df + ".jtrace");
+        File file6 = new File(df + ".minfo");
         ArrayList<File> arrayList = new ArrayList();
         try {
-            ExceptionMessage a2 = a(file, file2, file3, a);
-            if (a2 == null) {
+            ExceptionMessage a = a(file, file2, file3, df);
+            if (a == null) {
                 try {
-                    o.d(file.getPath());
-                    o.d(file3.getPath());
-                    o.d(file4.getPath());
-                    o.d(file2.getPath());
-                    o.d(file5.getPath());
-                    o.d(file6.getPath());
+                    o.delete(file.getPath());
+                    o.delete(file3.getPath());
+                    o.delete(file4.getPath());
+                    o.delete(file2.getPath());
+                    o.delete(file5.getPath());
+                    o.delete(file6.getPath());
                     for (File file7 : arrayList) {
-                        o.d(file7.getPath());
+                        o.delete(file7.getPath());
                     }
-                    com.kwad.sdk.crash.utils.f.b(com.kwad.sdk.crash.handler.b.sBackupDir);
+                    com.kwad.sdk.crash.utils.f.C(com.kwad.sdk.crash.handler.b.sBackupDir);
                     return;
                 } catch (Throwable th) {
-                    com.kwad.sdk.core.d.b.b(th);
+                    com.kwad.sdk.core.e.b.printStackTraceOnly(th);
                     return;
                 }
             }
-            com.kwad.sdk.core.d.b.a("ExceptionCollector", "message.mCrashSource=" + a2.mCrashSource);
-            if (a2.mCrashSource == 2) {
+            com.kwad.sdk.core.e.b.d("ExceptionCollector", "message.mCrashSource=" + a.mCrashSource);
+            if (a.mCrashSource == 2) {
                 try {
-                    o.d(file.getPath());
-                    o.d(file3.getPath());
-                    o.d(file4.getPath());
-                    o.d(file2.getPath());
-                    o.d(file5.getPath());
-                    o.d(file6.getPath());
+                    o.delete(file.getPath());
+                    o.delete(file3.getPath());
+                    o.delete(file4.getPath());
+                    o.delete(file2.getPath());
+                    o.delete(file5.getPath());
+                    o.delete(file6.getPath());
                     for (File file8 : arrayList) {
-                        o.d(file8.getPath());
+                        o.delete(file8.getPath());
                     }
-                    com.kwad.sdk.crash.utils.f.b(com.kwad.sdk.crash.handler.b.sBackupDir);
+                    com.kwad.sdk.crash.utils.f.C(com.kwad.sdk.crash.handler.b.sBackupDir);
                     return;
                 } catch (Throwable th2) {
-                    com.kwad.sdk.core.d.b.b(th2);
+                    com.kwad.sdk.core.e.b.printStackTraceOnly(th2);
                     return;
                 }
             }
-            this.a.a(a2, countDownLatch);
+            this.mUploader.a(a, countDownLatch);
             if (this instanceof f) {
-                com.kwad.sdk.core.d.b.a("ExceptionCollector", " java crash 不上传文件");
+                com.kwad.sdk.core.e.b.d("ExceptionCollector", " java crash 不上传文件");
                 try {
                     return;
                 } catch (Throwable th3) {
                     return;
                 }
             }
-            com.kwad.sdk.crash.utils.f.a(file4);
+            com.kwad.sdk.crash.utils.f.B(file4);
             List<File> arrayList2 = new ArrayList<>();
             Collections.addAll(arrayList2, file3, file4);
             Iterator<File> it = arrayList2.iterator();
@@ -218,59 +202,59 @@ public abstract class d {
             File file9 = new File(file.getParentFile().getParent(), "custom");
             if (file9.exists()) {
                 for (File file10 : file9.listFiles()) {
-                    if (!file10.isDirectory() && (file10.getName().startsWith(a2.mLogUUID) || file10.getName().startsWith(a(a2.mLogUUID)))) {
+                    if (!file10.isDirectory() && (file10.getName().startsWith(a.mLogUUID) || file10.getName().startsWith(db(a.mLogUUID)))) {
                         arrayList.add(file10);
                     }
                 }
                 arrayList2.addAll(arrayList);
             }
-            a(a2, arrayList2, countDownLatch);
+            a(a, arrayList2, countDownLatch);
             try {
-                o.d(file.getPath());
-                o.d(file3.getPath());
-                o.d(file4.getPath());
-                o.d(file2.getPath());
-                o.d(file5.getPath());
-                o.d(file6.getPath());
+                o.delete(file.getPath());
+                o.delete(file3.getPath());
+                o.delete(file4.getPath());
+                o.delete(file2.getPath());
+                o.delete(file5.getPath());
+                o.delete(file6.getPath());
                 for (File file11 : arrayList) {
-                    o.d(file11.getPath());
+                    o.delete(file11.getPath());
                 }
-                com.kwad.sdk.crash.utils.f.b(com.kwad.sdk.crash.handler.b.sBackupDir);
+                com.kwad.sdk.crash.utils.f.C(com.kwad.sdk.crash.handler.b.sBackupDir);
             } catch (Throwable th4) {
-                com.kwad.sdk.core.d.b.b(th4);
+                com.kwad.sdk.core.e.b.printStackTraceOnly(th4);
             }
         } catch (Throwable th5) {
             try {
-                com.kwad.sdk.core.d.b.b(th5);
-                com.kwad.sdk.crash.utils.f.a(th5);
+                com.kwad.sdk.core.e.b.printStackTraceOnly(th5);
+                com.kwad.sdk.crash.utils.f.l(th5);
                 try {
-                    o.d(file.getPath());
-                    o.d(file3.getPath());
-                    o.d(file4.getPath());
-                    o.d(file2.getPath());
-                    o.d(file5.getPath());
-                    o.d(file6.getPath());
+                    o.delete(file.getPath());
+                    o.delete(file3.getPath());
+                    o.delete(file4.getPath());
+                    o.delete(file2.getPath());
+                    o.delete(file5.getPath());
+                    o.delete(file6.getPath());
                     for (File file12 : arrayList) {
-                        o.d(file12.getPath());
+                        o.delete(file12.getPath());
                     }
-                    com.kwad.sdk.crash.utils.f.b(com.kwad.sdk.crash.handler.b.sBackupDir);
+                    com.kwad.sdk.crash.utils.f.C(com.kwad.sdk.crash.handler.b.sBackupDir);
                 } catch (Throwable th6) {
-                    com.kwad.sdk.core.d.b.b(th6);
+                    com.kwad.sdk.core.e.b.printStackTraceOnly(th6);
                 }
             } finally {
                 try {
-                    o.d(file.getPath());
-                    o.d(file3.getPath());
-                    o.d(file4.getPath());
-                    o.d(file2.getPath());
-                    o.d(file5.getPath());
-                    o.d(file6.getPath());
+                    o.delete(file.getPath());
+                    o.delete(file3.getPath());
+                    o.delete(file4.getPath());
+                    o.delete(file2.getPath());
+                    o.delete(file5.getPath());
+                    o.delete(file6.getPath());
                     for (File file13 : arrayList) {
-                        o.d(file13.getPath());
+                        o.delete(file13.getPath());
                     }
-                    com.kwad.sdk.crash.utils.f.b(com.kwad.sdk.crash.handler.b.sBackupDir);
+                    com.kwad.sdk.crash.utils.f.C(com.kwad.sdk.crash.handler.b.sBackupDir);
                 } catch (Throwable th32) {
-                    com.kwad.sdk.core.d.b.b(th32);
+                    com.kwad.sdk.core.e.b.printStackTraceOnly(th32);
                 }
             }
         }
@@ -291,7 +275,7 @@ public abstract class d {
                     try {
                         String readLine = bufferedReader2.readLine();
                         if (readLine == null) {
-                            com.kwad.sdk.crash.utils.b.a(bufferedReader2);
+                            com.kwad.sdk.crash.utils.b.closeQuietly(bufferedReader2);
                             return;
                         } else if (z || !readLine.contains("JNI DETECTED ERROR IN APPLICATION")) {
                             if (!readLine.contains("Waiting for a blocking GC ") && !readLine.contains("WaitForGcToComplete")) {
@@ -363,19 +347,19 @@ public abstract class d {
                     } catch (FileNotFoundException e) {
                         e = e;
                         bufferedReader = bufferedReader2;
-                        this.b += e + "\n";
-                        com.kwad.sdk.crash.utils.b.a(bufferedReader);
+                        this.mErrorMessage += e + "\n";
+                        com.kwad.sdk.crash.utils.b.closeQuietly(bufferedReader);
                         return;
                     } catch (IOException e2) {
                         e = e2;
                         bufferedReader = bufferedReader2;
-                        this.b += e + "\n";
-                        com.kwad.sdk.crash.utils.b.a(bufferedReader);
+                        this.mErrorMessage += e + "\n";
+                        com.kwad.sdk.crash.utils.b.closeQuietly(bufferedReader);
                         return;
                     } catch (Throwable th) {
                         th = th;
                         bufferedReader = bufferedReader2;
-                        com.kwad.sdk.crash.utils.b.a(bufferedReader);
+                        com.kwad.sdk.crash.utils.b.closeQuietly(bufferedReader);
                         throw th;
                     }
                 }
@@ -386,6 +370,22 @@ public abstract class d {
             e = e3;
         } catch (IOException e4) {
             e = e4;
+        }
+    }
+
+    @SuppressLint({"CheckResult"})
+    public final void z(File file) {
+        com.kwad.sdk.core.e.b.d("ExceptionCollector", "reportException dir =" + file);
+        File[] listFiles = file.listFiles(new FileFilter() { // from class: com.kwad.sdk.crash.report.d.1
+            @Override // java.io.FileFilter
+            public final boolean accept(File file2) {
+                return file2.getName().endsWith(".dump");
+            }
+        });
+        if (listFiles != null) {
+            for (File file2 : listFiles) {
+                a(file2, (CountDownLatch) null);
+            }
         }
     }
 }

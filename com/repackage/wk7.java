@@ -78,15 +78,15 @@ public class wk7 {
         }
     }
 
-    public void b(BdBaseActivity<?> bdBaseActivity, EditText editText, lx4 lx4Var) {
+    public void b(BdBaseActivity<?> bdBaseActivity, EditText editText, mx4 mx4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, bdBaseActivity, editText, lx4Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, bdBaseActivity, editText, mx4Var) == null) {
             if (((ImageSpan[]) editText.getText().getSpans(0, editText.getText().length(), ImageSpan.class)).length >= 10) {
-                Toast.makeText(bdBaseActivity.getPageContext().getPageActivity(), (int) R.string.obfuscated_res_0x7f0f1444, 0).show();
+                Toast.makeText(bdBaseActivity.getPageContext().getPageActivity(), (int) R.string.obfuscated_res_0x7f0f13f3, 0).show();
                 return;
             }
-            String d = lx4Var.d();
-            EmotionGroupType type = lx4Var.getType();
+            String d = mx4Var.d();
+            EmotionGroupType type = mx4Var.getType();
             if (d != null) {
                 jg.h().k(d, 20, new a(this, editText, new SpannableStringBuilder(d), editText.getSelectionStart(), type), 0, 0, bdBaseActivity.getUniqueId(), null, d, Boolean.FALSE, null);
             }

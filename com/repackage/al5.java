@@ -28,7 +28,7 @@ public class al5 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public List<az4> b;
+    public List<bz4> b;
     public int c;
     public int d;
     public int e;
@@ -132,12 +132,12 @@ public class al5 extends BaseAdapter {
         }
     }
 
-    public al5(Context context, rm4 rm4Var) {
+    public al5(Context context, sm4 sm4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, rm4Var};
+            Object[] objArr = {context, sm4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -193,7 +193,7 @@ public class al5 extends BaseAdapter {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: d */
-    public az4 getItem(int i) {
+    public bz4 getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -203,10 +203,10 @@ public class al5 extends BaseAdapter {
             }
             return this.b.get(i - i2);
         }
-        return (az4) invokeI.objValue;
+        return (bz4) invokeI.objValue;
     }
 
-    public void e(List<az4> list) {
+    public void e(List<bz4> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.b = list;
@@ -227,7 +227,7 @@ public class al5 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             int i = this.j ? 3 : 2;
-            List<az4> list = this.b;
+            List<bz4> list = this.b;
             return list == null ? i : list.size() + i;
         }
         return invokeV.intValue;
@@ -245,7 +245,7 @@ public class al5 extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            az4 item = getItem(i);
+            bz4 item = getItem(i);
             if (i == 0) {
                 return 0;
             }
@@ -306,7 +306,7 @@ public class al5 extends BaseAdapter {
                 }
                 SkinManager.setImageResource(dVar2.a, R.drawable.icon_add_friend);
                 SkinManager.setViewTextColor(dVar2.b, this.d, 1);
-                dVar2.b.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0622));
+                dVar2.b.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f061e));
                 SkinManager.setBackgroundResource(dVar2.c, R.color.CAM_X0204);
                 SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
                 ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f090137)).setVisibility(8);
@@ -326,7 +326,7 @@ public class al5 extends BaseAdapter {
                 SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
                 return view2;
             } else {
-                az4 item = getItem(i);
+                bz4 item = getItem(i);
                 if (getItemViewType(i) == 2) {
                     if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof c)) {
                         cVar = (c) view2.getTag();
@@ -351,8 +351,8 @@ public class al5 extends BaseAdapter {
                         view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0078, (ViewGroup) null);
                         bVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09012e);
                         bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09012f);
-                        bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090768);
-                        bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090769);
+                        bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090767);
+                        bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090768);
                         bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f09012d);
                         view2.setTag(bVar);
                     }
@@ -365,7 +365,7 @@ public class al5 extends BaseAdapter {
                         if (item.b().b() == 1) {
                             bVar.d.setVisibility(0);
                             SkinManager.setViewTextColor(bVar.d, this.f, 1);
-                            bVar.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0437));
+                            bVar.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0436));
                             bVar.d.setCompoundDrawables(null, null, null, null);
                             bVar.e.setVisibility(8);
                         } else if (item.b().b() == 0) {
@@ -400,7 +400,7 @@ public class al5 extends BaseAdapter {
                     }
                     SkinManager.setViewTextColor(bVar.b, this.d, 1);
                     String a2 = item.a();
-                    az4 item2 = getItem(i + 1);
+                    bz4 item2 = getItem(i + 1);
                     if ((TextUtils.isEmpty(a2) || item2 == null || a2.equals(item2.a())) ? false : true) {
                         bVar.c.setVisibility(4);
                     } else {

@@ -1,6 +1,5 @@
 package cn.com.chinatelecom.gateway.lib.a;
 
-import androidx.core.view.InputDeviceCompat;
 import cn.com.chinatelecom.gateway.lib.CtAuth;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -97,20 +96,6 @@ public class b {
 
     public static byte[] a(String str) {
         InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                return b(str);
-            } catch (Throwable th) {
-                CtAuth.warn(a, "When decode() ,throws exception", th);
-                return new byte[0];
-            }
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] b(String str) {
-        InterceptResult invokeL;
         int i;
         byte b2;
         int i2;
@@ -120,70 +105,77 @@ public class b {
         int i4;
         byte b5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            byte[] bytes = str.getBytes("US-ASCII");
-            int length = bytes.length;
-            int i5 = 0;
-            loop0: while (i5 < length) {
-                while (true) {
-                    i = i5 + 1;
-                    b2 = c[bytes[i5]];
-                    if (i >= length || b2 != -1) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            try {
+                StringBuffer stringBuffer = new StringBuffer();
+                byte[] bytes = str.getBytes("US-ASCII");
+                int length = bytes.length;
+                int i5 = 0;
+                while (i5 < length) {
+                    while (true) {
+                        i = i5 + 1;
+                        b2 = c[bytes[i5]];
+                        if (i >= length || b2 != -1) {
+                            break;
+                        }
+                        i5 = i;
+                    }
+                    if (b2 == -1) {
                         break;
                     }
-                    i5 = i;
-                }
-                if (b2 == -1) {
-                    break;
-                }
-                while (true) {
-                    i2 = i + 1;
-                    b3 = c[bytes[i]];
-                    if (i2 >= length || b3 != -1) {
+                    while (true) {
+                        i2 = i + 1;
+                        b3 = c[bytes[i]];
+                        if (i2 >= length || b3 != -1) {
+                            break;
+                        }
+                        i = i2;
+                    }
+                    if (b3 == -1) {
                         break;
                     }
-                    i = i2;
-                }
-                if (b3 == -1) {
-                    break;
-                }
-                stringBuffer.append((char) ((b2 << 2) | ((b3 & 48) >>> 4)));
-                while (true) {
-                    i3 = i2 + 1;
-                    byte b6 = bytes[i2];
-                    if (b6 == 61) {
-                        break loop0;
+                    stringBuffer.append((char) ((b2 << 2) | ((b3 & 48) >>> 4)));
+                    while (true) {
+                        i3 = i2 + 1;
+                        byte b6 = bytes[i2];
+                        if (b6 != 61) {
+                            b4 = c[b6];
+                            if (i3 >= length || b4 != -1) {
+                                break;
+                            }
+                            i2 = i3;
+                        } else {
+                            return stringBuffer.toString().getBytes("iso8859-1");
+                        }
                     }
-                    b4 = c[b6];
-                    if (i3 >= length || b4 != -1) {
+                    if (b4 == -1) {
                         break;
                     }
-                    i2 = i3;
-                }
-                if (b4 == -1) {
-                    break;
-                }
-                stringBuffer.append((char) (((b3 & 15) << 4) | ((b4 & 60) >>> 2)));
-                while (true) {
-                    i4 = i3 + 1;
-                    byte b7 = bytes[i3];
-                    if (b7 == 61) {
-                        break loop0;
+                    stringBuffer.append((char) (((b3 & 15) << 4) | ((b4 & 60) >>> 2)));
+                    while (true) {
+                        i4 = i3 + 1;
+                        byte b7 = bytes[i3];
+                        if (b7 != 61) {
+                            b5 = c[b7];
+                            if (i4 >= length || b5 != -1) {
+                                break;
+                            }
+                            i3 = i4;
+                        } else {
+                            return stringBuffer.toString().getBytes("iso8859-1");
+                        }
                     }
-                    b5 = c[b7];
-                    if (i4 >= length || b5 != -1) {
+                    if (b5 == -1) {
                         break;
                     }
-                    i3 = i4;
+                    stringBuffer.append((char) (b5 | ((b4 & 3) << 6)));
+                    i5 = i4;
                 }
-                if (b5 == -1) {
-                    break;
-                }
-                stringBuffer.append((char) (b5 | ((b4 & 3) << 6)));
-                i5 = i4;
+                return stringBuffer.toString().getBytes("iso8859-1");
+            } catch (Throwable th) {
+                CtAuth.warn(a, "When decode() ,throws exception", th);
+                return new byte[0];
             }
-            return stringBuffer.toString().getBytes("iso8859-1");
         }
         return (byte[]) invokeL.objValue;
     }

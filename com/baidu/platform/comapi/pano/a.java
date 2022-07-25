@@ -6,6 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapapi.http.AsyncHttpClient;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +23,7 @@ public class a {
 
     /* renamed from: com.baidu.platform.comapi.pano.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0124a<T> {
+    public interface InterfaceC0125a<T> {
         void a(HttpClient.HttpStateError httpStateError);
 
         void a(T t);
@@ -54,7 +55,7 @@ public class a {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                JSONObject optJSONObject = jSONObject.optJSONObject("result");
+                JSONObject optJSONObject = jSONObject.optJSONObject(TiebaStatic.LogFields.RESULT);
                 if (optJSONObject == null) {
                     return new c(PanoStateError.c);
                 }
@@ -103,9 +104,9 @@ public class a {
         builder.appendQueryParameter(str, str2);
     }
 
-    public void a(String str, InterfaceC0124a<c> interfaceC0124a) {
+    public void a(String str, InterfaceC0125a<c> interfaceC0125a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, interfaceC0124a) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, interfaceC0125a) == null) {
             Uri.Builder builder = new Uri.Builder();
             builder.scheme(HttpClient.isHttpsEnable ? "https" : "http");
             builder.encodedAuthority("api.map.baidu.com");
@@ -115,11 +116,11 @@ public class a {
             a(builder, "action", "0");
             String authToken = HttpClient.getAuthToken();
             if (authToken == null) {
-                interfaceC0124a.a((InterfaceC0124a<c>) new c(PanoStateError.d));
+                interfaceC0125a.a((InterfaceC0125a<c>) new c(PanoStateError.d));
                 return;
             }
             a(builder, "token", authToken);
-            this.a.get(a(builder), new b(this, interfaceC0124a));
+            this.a.get(a(builder), new b(this, interfaceC0125a));
         }
     }
 }

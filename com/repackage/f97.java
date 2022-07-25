@@ -22,12 +22,12 @@ public class f97 {
 
         /* renamed from: com.repackage.f97$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0632a extends de5<Integer> {
+        public class C0474a extends de5<Integer> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ boolean a;
 
-            public C0632a(a aVar, boolean z) {
+            public C0474a(a aVar, boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,7 +62,7 @@ public class f97 {
         }
 
         /* loaded from: classes6.dex */
-        public class b implements jd5<Integer> {
+        public class b implements kd5<Integer> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -83,7 +83,7 @@ public class f97 {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.jd5
+            @Override // com.repackage.kd5
             /* renamed from: a */
             public void onReturnDataInUI(Integer num) {
                 Interceptable interceptable = $ic;
@@ -122,18 +122,18 @@ public class f97 {
             }
             boolean isNull = StringUtils.isNull(((AccountData) customResponsedMessage.getData()).getAccount());
             if (!isNull) {
-                ny4.f0().e0(new yy4());
-                ny4.f0().a0(0);
-                ny4.f0().Y(0);
-                ny4.f0().X(0);
-                ny4.f0().b0(0);
-                ny4.f0().c0(0);
-                ny4.f0().a();
+                oy4.f0().e0(new zy4());
+                oy4.f0().a0(0);
+                oy4.f0().Y(0);
+                oy4.f0().X(0);
+                oy4.f0().b0(0);
+                oy4.f0().c0(0);
+                oy4.f0().a();
                 he5.a();
                 f67.v().q();
                 d67.v().q();
             }
-            he5.c(new C0632a(this, isNull), new b(this));
+            he5.c(new C0474a(this, isNull), new b(this));
         }
     }
 

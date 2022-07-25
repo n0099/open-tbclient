@@ -52,12 +52,12 @@ public class ConcernEmotionTipAdapter extends an<bu6, ConcernEmotionTipViewHolde
                 }
             }
             this.d = 3;
-            this.a = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f09134d);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f90);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092216);
+            this.a = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091329);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f89);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092218);
         }
 
-        public void c(int i, int i2) {
+        public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
                 if (this.d != i) {
@@ -112,18 +112,18 @@ public class ConcernEmotionTipAdapter extends an<bu6, ConcernEmotionTipViewHolde
             }
             if (bu6Var.getType() == bu6.f) {
                 if (bu6Var.a == 2) {
-                    concernEmotionTipViewHolder.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0420));
-                } else {
                     concernEmotionTipViewHolder.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f041f));
+                } else {
+                    concernEmotionTipViewHolder.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f041e));
                 }
             }
             int i2 = bu6Var.a;
             if (i2 == 2) {
-                concernEmotionTipViewHolder.c(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
+                concernEmotionTipViewHolder.b(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
             } else if (i2 == 3) {
-                concernEmotionTipViewHolder.c(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_06);
+                concernEmotionTipViewHolder.b(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_06);
             }
-            return concernEmotionTipViewHolder.b();
+            return concernEmotionTipViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

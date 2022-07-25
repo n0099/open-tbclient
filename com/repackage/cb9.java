@@ -77,7 +77,7 @@ public class cb9 extends SQLiteOpenHelper {
         this.a = new ReentrantReadWriteLock(true);
     }
 
-    public static cb9 h(Context context) {
+    public static cb9 f(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
@@ -93,7 +93,7 @@ public class cb9 extends SQLiteOpenHelper {
         return (cb9) invokeL.objValue;
     }
 
-    public boolean c() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -130,7 +130,7 @@ public class cb9 extends SQLiteOpenHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String e() {
+    public String c() {
         InterceptResult invokeV;
         Cursor cursor;
         String string;
@@ -189,7 +189,7 @@ public class cb9 extends SQLiteOpenHelper {
         }
     }
 
-    public final ContentValues f(ab9 ab9Var) {
+    public final ContentValues d(ab9 ab9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ab9Var)) == null) {
@@ -230,7 +230,7 @@ public class cb9 extends SQLiteOpenHelper {
         return (ContentValues) invokeL.objValue;
     }
 
-    public final String g(ArrayList<String> arrayList) {
+    public final String e(ArrayList<String> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, arrayList)) == null) {
@@ -258,7 +258,7 @@ public class cb9 extends SQLiteOpenHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void i(@NonNull ArrayList<String> arrayList, @NonNull LinkedList<ab9> linkedList) {
+    public void g(@NonNull ArrayList<String> arrayList, @NonNull LinkedList<ab9> linkedList) {
         SQLiteDatabase writableDatabase;
         Cursor cursor;
         long j;
@@ -350,7 +350,7 @@ public class cb9 extends SQLiteOpenHelper {
                             if (arrayList.size() != 0) {
                                 return;
                             }
-                            writableDatabase.delete("task", "task_id IN ( " + g(arrayList) + " )", null);
+                            writableDatabase.delete("task", "task_id IN ( " + e(arrayList) + " )", null);
                             return;
                         }
                     } catch (Throwable th) {
@@ -374,18 +374,18 @@ public class cb9 extends SQLiteOpenHelper {
         }
     }
 
-    public boolean j(ab9 ab9Var) {
+    public boolean h(ab9 ab9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ab9Var)) == null) {
             if (ab9Var != null && !TextUtils.isEmpty(ab9Var.j()) && !TextUtils.isEmpty(ab9Var.a())) {
                 this.a.writeLock().lock();
                 try {
-                    ContentValues f = f(ab9Var);
+                    ContentValues d2 = d(ab9Var);
                     SQLiteDatabase writableDatabase = getWritableDatabase();
                     writableDatabase.beginTransactionNonExclusive();
                     try {
-                        long insert = writableDatabase.insert("task", null, f);
+                        long insert = writableDatabase.insert("task", null, d2);
                         if (b) {
                             Log.d("VoyagerDBHelper", "insert task data into table task, rowId = " + insert);
                         }
@@ -411,7 +411,7 @@ public class cb9 extends SQLiteOpenHelper {
         return invokeL.booleanValue;
     }
 
-    public void k(ab9 ab9Var) {
+    public void i(ab9 ab9Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, ab9Var) == null) {
             if (ab9Var != null && !TextUtils.isEmpty(ab9Var.j()) && !TextUtils.isEmpty(ab9Var.a())) {
@@ -436,14 +436,14 @@ public class cb9 extends SQLiteOpenHelper {
         }
     }
 
-    public void l(ab9 ab9Var) {
+    public void j(ab9 ab9Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, ab9Var) == null) {
             if (ab9Var != null && !TextUtils.isEmpty(ab9Var.j()) && !TextUtils.isEmpty(ab9Var.a())) {
                 this.a.writeLock().lock();
                 try {
                     try {
-                        long update = getWritableDatabase().update("task", f(ab9Var), null, null);
+                        long update = getWritableDatabase().update("task", d(ab9Var), null, null);
                         if (b) {
                             Log.d("VoyagerDBHelper", "update data into table task, update count = " + update);
                         }

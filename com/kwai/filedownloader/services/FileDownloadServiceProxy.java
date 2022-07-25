@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
 import com.kwad.sdk.api.proxy.app.FileDownloadService;
-import com.kwad.sdk.utils.ak;
+import com.kwad.sdk.utils.an;
 import java.lang.ref.WeakReference;
 @KsAdSdkDynamicImpl(FileDownloadService.class)
 @Keep
 @SuppressLint({"Registered"})
 /* loaded from: classes5.dex */
-public class FileDownloadServiceProxy extends com.kwad.sdk.h.a {
+public class FileDownloadServiceProxy extends com.kwad.sdk.g.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "filedownloader";
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,13 +49,13 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.h.a {
             }
         }
 
-        @Override // com.kwai.filedownloader.services.FileDownloadServiceProxy, com.kwad.sdk.h.a, com.kwad.sdk.api.proxy.IServiceProxy
+        @Override // com.kwai.filedownloader.services.FileDownloadServiceProxy, com.kwad.sdk.g.a, com.kwad.sdk.api.proxy.IServiceProxy
         public void onCreate(Service service) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, service) == null) {
                 if (Build.VERSION.SDK_INT >= 28) {
                     try {
-                        WebView.setDataDirectorySuffix(ak.a(service.getApplicationContext()));
+                        WebView.setDataDirectorySuffix(an.getProcessName(service.getApplicationContext()));
                     } catch (Exception unused) {
                     }
                 }
@@ -85,7 +85,7 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.h.a {
             }
         }
 
-        @Override // com.kwai.filedownloader.services.FileDownloadServiceProxy, com.kwad.sdk.h.a, com.kwad.sdk.api.proxy.IServiceProxy
+        @Override // com.kwai.filedownloader.services.FileDownloadServiceProxy, com.kwad.sdk.g.a, com.kwad.sdk.api.proxy.IServiceProxy
         public void onCreate(Service service) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, service) == null) {
@@ -108,45 +108,45 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.h.a {
         }
     }
 
-    @Override // com.kwad.sdk.h.a, com.kwad.sdk.api.proxy.IServiceProxy
+    @Override // com.kwad.sdk.g.a, com.kwad.sdk.api.proxy.IServiceProxy
     public IBinder onBind(Service service, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, service, intent)) == null) ? this.handler.f() : (IBinder) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, service, intent)) == null) ? this.handler.ED() : (IBinder) invokeLL.objValue;
     }
 
-    @Override // com.kwad.sdk.h.a, com.kwad.sdk.api.proxy.IServiceProxy
+    @Override // com.kwad.sdk.g.a, com.kwad.sdk.api.proxy.IServiceProxy
     public void onCreate(Service service) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, service) == null) || service == null) {
             return;
         }
         this.context = service;
-        com.kwai.filedownloader.e.c.a(service);
+        com.kwai.filedownloader.e.c.D(service);
         try {
-            com.kwai.filedownloader.e.f.a(com.kwai.filedownloader.e.e.a().a);
-            com.kwai.filedownloader.e.f.a(com.kwai.filedownloader.e.e.a().b);
+            com.kwai.filedownloader.e.f.cF(com.kwai.filedownloader.e.e.EL().awM);
+            com.kwai.filedownloader.e.f.ac(com.kwai.filedownloader.e.e.EL().awN);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
         g gVar = new g();
-        this.handler = com.kwai.filedownloader.e.e.a().d ? new e(new WeakReference(this), gVar) : new d(new WeakReference(this), gVar);
+        this.handler = com.kwai.filedownloader.e.e.EL().awP ? new e(new WeakReference(this), gVar) : new d(new WeakReference(this), gVar);
     }
 
-    @Override // com.kwad.sdk.h.a, com.kwad.sdk.api.proxy.IServiceProxy
+    @Override // com.kwad.sdk.g.a, com.kwad.sdk.api.proxy.IServiceProxy
     public void onDestroy(Service service) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, service) == null) {
-            this.handler.g();
+            this.handler.onDestroy();
         }
     }
 
-    @Override // com.kwad.sdk.h.a, com.kwad.sdk.api.proxy.IServiceProxy
+    @Override // com.kwad.sdk.g.a, com.kwad.sdk.api.proxy.IServiceProxy
     public int onStartCommand(Service service, Intent intent, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, service, intent, i, i2)) == null) {
-            this.handler.e();
+            this.handler.EC();
             return 1;
         }
         return invokeLLII.intValue;

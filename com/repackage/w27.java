@@ -58,7 +58,7 @@ public class w27 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 ei.a(this.a.w);
-                pi.O(this.b.a.getActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0446));
+                pi.O(this.b.a.getActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0445));
             }
         }
     }
@@ -97,7 +97,7 @@ public class w27 {
                 sb.append(StringUtils.lineSeparator);
             }
             if (j > 0) {
-                sb.append(this.a.getActivity().getString(R.string.obfuscated_res_0x7f0f1457));
+                sb.append(this.a.getActivity().getString(R.string.obfuscated_res_0x7f0f1406));
                 sb.append(StringHelper.numFormatOver10000(j));
             }
             shareItem.E0 = sb.toString();
@@ -133,7 +133,7 @@ public class w27 {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6, Boolean.valueOf(z), Long.valueOf(j)}) == null) {
             if (TextUtils.isEmpty(str) && z) {
                 BaseActivity<?> baseActivity = this.a;
-                baseActivity.showToast(baseActivity.getActivity().getString(R.string.obfuscated_res_0x7f0f0c55));
+                baseActivity.showToast(baseActivity.getActivity().getString(R.string.obfuscated_res_0x7f0f0c41));
                 return;
             }
             if (StringUtils.isNull(str3)) {

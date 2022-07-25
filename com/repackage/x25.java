@@ -1,77 +1,32 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class x25 extends l15 {
+public class x25 extends o15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final p25 a;
 
-    public x25(p25 p25Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x25(EditorTools editorTools) {
+        super(editorTools);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p25Var};
+            Object[] objArr = {editorTools};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((EditorTools) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-        this.a = p25Var;
-    }
-
-    @Override // com.repackage.l15
-    public n15 b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EditorTools editorTools = new EditorTools(context);
-            editorTools.setBarLauncherType(6);
-            editorTools.setBackgroundColorId(R.color.CAM_X0602);
-            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
-            editorTools.setMoreDeskBgColorId(R.color.CAM_X0206);
-            editorTools.D(false);
-            return new w25(editorTools);
-        }
-        return (n15) invokeL.objValue;
-    }
-
-    @Override // com.repackage.l15
-    public void c(n15 n15Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n15Var) == null) {
-        }
-    }
-
-    @Override // com.repackage.l15
-    public void d(n15 n15Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n15Var) == null) {
-            EditorTools a = n15Var.a();
-            a.setHideBigEmotion(true);
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(5);
-            a.h(arrayList);
-            a.d(new y25(a.getContext(), this.a));
-            u15 n = a.n(5);
-            n.d = 0;
-            n.e(false);
-            a.setClearEbPadding(true);
-            a.f();
         }
     }
 }

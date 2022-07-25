@@ -240,13 +240,13 @@ public class x78 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06fd, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0707, (ViewGroup) null);
                 b bVar = new b(null);
-                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920e7);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906bd);
-                bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911fe);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09232d);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092093);
+                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920e9);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906bc);
+                bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911da);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09232f);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092097);
                 view2.setTag(bVar);
             }
             b bVar2 = (b) view2.getTag();
@@ -261,15 +261,15 @@ public class x78 extends BaseAdapter {
             bVar2.e.setText(StringHelper.getFormatTime(aVar.c));
             bVar2.c.setVisibility(0);
             if (aVar.g == 1) {
-                bVar2.c.setText(R.string.obfuscated_res_0x7f0f0630);
+                bVar2.c.setText(R.string.obfuscated_res_0x7f0f062c);
             } else if (aVar.h == 1) {
-                bVar2.c.setText(R.string.obfuscated_res_0x7f0f0fc6);
+                bVar2.c.setText(R.string.obfuscated_res_0x7f0f0faf);
             } else {
                 bVar2.c.setVisibility(8);
             }
             view2.setOnClickListener(new a(this, aVar));
             SkinManager.setBackgroundColor(view2, R.color.CAM_X0201);
-            ga5.a(this.a, view2);
+            ha5.a(this.a, view2);
             h(aVar);
             return view2;
         }

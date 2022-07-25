@@ -273,8 +273,8 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
                 this.a = obj2 instanceof VideoItemModel ? (VideoItemModel) obj2 : null;
                 this.d = arguments.getInt(VideoPlayActivityConfig.CURRENT_TYPE);
             }
-            View inflate = inflater.inflate(R.layout.obfuscated_res_0x7f0d0872, viewGroup, false);
-            AttentionNotLoginLayout attentionNotLoginLayout = (AttentionNotLoginLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091627);
+            View inflate = inflater.inflate(R.layout.obfuscated_res_0x7f0d087c, viewGroup, false);
+            AttentionNotLoginLayout attentionNotLoginLayout = (AttentionNotLoginLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091602);
             this.c = attentionNotLoginLayout;
             if (attentionNotLoginLayout != null) {
                 attentionNotLoginLayout.setOnAttentionLogin(new b(this));

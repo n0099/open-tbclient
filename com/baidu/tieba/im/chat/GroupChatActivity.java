@@ -31,9 +31,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d47;
 import com.repackage.de5;
 import com.repackage.he5;
-import com.repackage.jd5;
-import com.repackage.ny4;
+import com.repackage.kd5;
 import com.repackage.oi;
+import com.repackage.oy4;
 import com.repackage.q77;
 /* loaded from: classes3.dex */
 public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity> {
@@ -77,7 +77,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
     }
 
     /* loaded from: classes3.dex */
-    public class b implements jd5<Boolean> {
+    public class b implements kd5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GroupData a;
@@ -103,7 +103,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             GroupData groupData;
@@ -338,7 +338,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
             super.onResume();
             ChatStatusManager.getInst().setIsOpen(2, true);
             String curId = ChatStatusManager.getInst().getCurId(2);
-            ny4.f0().d(curId);
+            oy4.f0().d(curId);
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(curId, 1)));
         }
     }

@@ -118,8 +118,8 @@ public class p41 extends l41 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d05e2, viewGroup, false);
-            this.i = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091e17);
+            View inflate = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d05ec, viewGroup, false);
+            this.i = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091e1d);
             n();
             return inflate;
         }

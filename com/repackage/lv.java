@@ -103,7 +103,7 @@ public final class lv {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, bArr2, bArr3)) == null) {
             SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
+            Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
             cipher.init(2, secretKeySpec, new IvParameterSpec(bArr));
             return cipher.doFinal(bArr3);
         }

@@ -117,7 +117,7 @@ public class h5<T> implements o7.c {
             w7<String, b> w7Var = (w7) o7Var.l("unique", w7.class, jsonValue);
             this.a = w7Var;
             w7.a<String, b> b2 = w7Var.b();
-            b2.d();
+            b2.c();
             while (b2.hasNext()) {
                 ((b) b2.next().b).b = this;
             }

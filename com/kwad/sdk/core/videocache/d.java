@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.videocache;
 
 import android.text.TextUtils;
-import com.kwad.sdk.utils.aj;
+import com.kwad.sdk.utils.am;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -9,29 +9,21 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
 public final class d {
-    public static final Pattern d = Pattern.compile("[R,r]ange:[ ]?bytes=(\\d*)-");
-    public static final Pattern e = Pattern.compile("GET /(.*) HTTP");
-    public final String a;
-    public final long b;
-    public final boolean c;
+    public static final Pattern aem = Pattern.compile("[R,r]ange:[ ]?bytes=(\\d*)-");
+    public static final Pattern aen = Pattern.compile("GET /(.*) HTTP");
+    public final long aeo;
+    public final boolean aep;
+    public final String uri;
 
     public d(String str) {
-        aj.a(str);
-        long a = a(str);
-        this.b = Math.max(0L, a);
-        this.c = a >= 0;
-        this.a = b(str);
+        am.dQ(str);
+        long cy = cy(str);
+        this.aeo = Math.max(0L, cy);
+        this.aep = cy >= 0;
+        this.uri = cz(str);
     }
 
-    public static long a(String str) {
-        Matcher matcher = d.matcher(str);
-        if (matcher.find()) {
-            return Long.parseLong(matcher.group(1));
-        }
-        return -1L;
-    }
-
-    public static d a(InputStream inputStream) {
+    public static d c(InputStream inputStream) {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
         StringBuilder sb = new StringBuilder();
         while (true) {
@@ -44,8 +36,16 @@ public final class d {
         }
     }
 
-    public static String b(String str) {
-        Matcher matcher = e.matcher(str);
+    public static long cy(String str) {
+        Matcher matcher = aem.matcher(str);
+        if (matcher.find()) {
+            return Long.parseLong(matcher.group(1));
+        }
+        return -1L;
+    }
+
+    public static String cz(String str) {
+        Matcher matcher = aen.matcher(str);
         if (matcher.find()) {
             return matcher.group(1);
         }
@@ -53,6 +53,6 @@ public final class d {
     }
 
     public final String toString() {
-        return "GetRequest{rangeOffset=" + this.b + ", partial=" + this.c + ", uri='" + this.a + "'}";
+        return "GetRequest{rangeOffset=" + this.aeo + ", partial=" + this.aep + ", uri='" + this.uri + "'}";
     }
 }

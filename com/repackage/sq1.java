@@ -1,37 +1,78 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Pair;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m53;
+import com.repackage.ha3;
+import com.repackage.lo1;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sq1 extends nq1 {
+public class sq1 extends oq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements af3<k53<m53.e>> {
+    public class a implements lo1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ sq1 c;
+        public final /* synthetic */ sq1 a;
 
-        public a(sq1 sq1Var, Context context, String str) {
+        /* renamed from: com.repackage.sq1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0577a implements ha3.c {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ar1 a;
+            public final /* synthetic */ a b;
+
+            public C0577a(a aVar, ar1 ar1Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, ar1Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = ar1Var;
+            }
+
+            @Override // com.repackage.ha3.c
+            public void a(float f, int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("direction", f);
+                        jSONObject.put("accuracy", ha3.h(i));
+                        this.a.d(this.b.a, jSONObject);
+                    } catch (JSONException e) {
+                        ix1.c("CompassApi", "handle compass,json error，" + e.toString());
+                        this.a.f(this.b.a, "Json error");
+                    }
+                }
+            }
+        }
+
+        public a(sq1 sq1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sq1Var, context, str};
+                Object[] objArr = {sq1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,41 +82,40 @@ public class sq1 extends nq1 {
                     return;
                 }
             }
-            this.c = sq1Var;
-            this.a = context;
-            this.b = str;
+            this.a = sq1Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.af3
-        /* renamed from: b */
-        public void a(k53<m53.e> k53Var) {
+        @Override // com.repackage.lo1.a
+        public is1 a(i03 i03Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k53Var) == null) {
-                if (f53.h(k53Var)) {
-                    this.c.d(this.b, new hs1(0, this.c.z(this.a)));
-                    return;
-                }
-                int b = k53Var.b();
-                f53.f(b);
-                this.c.d(this.b, new hs1(b, f53.f(b)));
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, i03Var, jSONObject, str)) == null) {
+                ar1 ar1Var = new ar1("compassChange", jSONObject, str);
+                ha3 i = ha3.i();
+                i.l(this.a.getContext());
+                i.o(new C0577a(this, ar1Var));
+                ix1.i("CompassApi", "start listen compass");
+                i.p();
+                ar1Var.b(this.a);
+                return is1.f();
             }
+            return (is1) invokeLLL.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sq1(@NonNull io1 io1Var) {
-        super(io1Var);
+    public sq1(@NonNull jo1 jo1Var) {
+        super(jo1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {io1Var};
+            Object[] objArr = {jo1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((io1) newInitContext.callArgs[0]);
+                super((jo1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -83,51 +123,31 @@ public class sq1 extends nq1 {
         }
     }
 
-    @Override // com.repackage.ko1
+    @Override // com.repackage.lo1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "DeviceInfoApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CompassApi" : (String) invokeV.objValue;
     }
 
-    public hs1 y(String str) {
+    public is1 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#getDeviceInfo", false);
-            h03 b0 = h03.b0();
-            if (b0 == null) {
-                return new hs1(1001, "swan app is null");
-            }
-            Pair<hs1, JSONObject> s = s(str);
-            hs1 hs1Var = (hs1) s.first;
-            if (hs1Var.isSuccess()) {
-                String optString = ((JSONObject) s.second).optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    return new hs1(202, "cb is empty");
-                }
-                Context context = getContext();
-                b0.e0().g(context, "scope_get_device_info", new a(this, context, optString));
-                return hs1.f();
-            }
-            return hs1Var;
+            q("#startCompass", true);
+            return l(str, true, new a(this));
         }
-        return (hs1) invokeL.objValue;
+        return (is1) invokeL.objValue;
     }
 
-    public final JSONObject z(Context context) {
-        InterceptResult invokeL;
+    public is1 z() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("oaid", ll3.b.b(context));
-                jSONObject.put("androidId", ll3.b.a(context));
-            } catch (JSONException e) {
-                p("#getDeviceInfo json put data fail", e, false);
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            q("#stopCompass", true);
+            ha3.i().q();
+            return is1.f();
         }
-        return (JSONObject) invokeL.objValue;
+        return (is1) invokeV.objValue;
     }
 }

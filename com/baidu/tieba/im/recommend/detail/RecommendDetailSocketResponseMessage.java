@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br4;
+import com.repackage.cr4;
 import com.repackage.te;
 import com.squareup.wire.Wire;
 import tbclient.Bigvip.BigvipResIdl;
@@ -67,8 +67,8 @@ public class RecommendDetailSocketResponseMessage extends SocketResponsedMessage
         UserInfoBigVip userInfoBigVip;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            br4.f();
-            te<byte[]> d = br4.d("tb.im_recommend_detail");
+            cr4.f();
+            te<byte[]> d = cr4.d("tb.im_recommend_detail");
             if (d == null || bArr == null || (userInfoBigVip = this.mDetailInfo) == null || userInfoBigVip.user_id == null) {
                 return;
             }

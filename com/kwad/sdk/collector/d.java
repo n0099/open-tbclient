@@ -10,30 +10,25 @@ import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
 public final class d {
-    public static final AtomicBoolean a = new AtomicBoolean(false);
+    public static final AtomicBoolean ISLOADED = new AtomicBoolean(false);
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a();
+        void bg(String str);
 
-        void a(String str);
+        void onLoaded();
     }
 
     public static void a(Context context, final a aVar) {
-        com.kwad.sdk.service.kwai.d dVar;
         String str;
         String str2;
         String str3;
-        if (a.get() || (dVar = (com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)) == null) {
+        if (ISLOADED.get() || ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)) == null) {
             return;
         }
-        if (dVar.d()) {
-            b(aVar);
-            return;
-        }
-        a.set(true);
+        ISLOADED.set(true);
         HashMap<String, String> hashMap = new HashMap<>();
-        if (AbiUtil.b(context)) {
+        if (AbiUtil.isArm64(context)) {
             hashMap.put("libkwappstatus.so", "40eb0d1d346cab7ced4d02a3065b7a94");
             str = "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/ks_so-appStatusArm64v8aRelease-3.3.14.apk";
             str2 = "kwappstatus-v8a";
@@ -45,68 +40,67 @@ public final class d {
             str3 = "b9c0eff152a62bd5062844255107f3e0";
         }
         com.kwai.sodler.lib.c.b bVar = new com.kwai.sodler.lib.c.b();
-        bVar.c = com.kwad.sdk.core.network.idc.a.a().a(str);
-        bVar.e = true;
-        bVar.a = str2;
-        bVar.b = "3";
-        bVar.g = false;
-        bVar.f = str3;
-        bVar.i = hashMap;
+        bVar.ayA = com.kwad.sdk.core.network.idc.a.tH().bZ(str);
+        bVar.Dv = true;
+        bVar.ayz = str2;
+        bVar.version = "3";
+        bVar.ayD = false;
+        bVar.ayC = str3;
+        bVar.ayF = hashMap;
         com.kwai.sodler.kwai.a.a(context, bVar, new b.c() { // from class: com.kwad.sdk.collector.d.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0567b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0415b, com.kwai.sodler.lib.ext.b
             public void a(com.kwai.sodler.lib.b.c cVar) {
                 super.a((AnonymousClass1) cVar);
                 a aVar2 = a.this;
                 if (aVar2 != null) {
-                    aVar2.a("load canceled");
+                    aVar2.bg("load canceled");
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0567b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0415b, com.kwai.sodler.lib.ext.b
             public void a(com.kwai.sodler.lib.b.c cVar, PluginError pluginError) {
                 super.a((AnonymousClass1) cVar, pluginError);
                 if (a.this != null) {
-                    a.this.a(pluginError == null ? "load error" : pluginError.toString());
+                    a.this.bg(pluginError == null ? "load error" : pluginError.toString());
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0567b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0415b, com.kwai.sodler.lib.ext.b
             public void a(com.kwai.sodler.lib.b.c cVar, com.kwai.sodler.lib.h hVar) {
                 super.a((AnonymousClass1) cVar, (com.kwai.sodler.lib.b.c) hVar);
-                d.b(a.this);
+                d.a(a.this);
             }
         });
     }
 
-    public static boolean a() {
-        com.kwad.sdk.service.kwai.d dVar = (com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class);
-        if (dVar == null) {
-            return false;
-        }
-        return a.get() || dVar.d();
-    }
-
-    public static void b(a aVar) {
+    public static void a(a aVar) {
         try {
             System.loadLibrary("kwappstatus");
             if (aVar != null) {
-                aVar.a();
+                aVar.onLoaded();
             }
         } catch (Throwable th) {
             if (aVar != null) {
-                aVar.a(Log.getStackTraceString(th));
+                aVar.bg(Log.getStackTraceString(th));
             }
-            com.kwad.sdk.core.d.b.b(th);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(th);
             if (th instanceof UnsatisfiedLinkError) {
                 return;
             }
-            com.kwad.sdk.service.a.a(th);
+            com.kwad.sdk.service.a.gatherException(th);
         }
+    }
+
+    public static boolean rr() {
+        if (((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)) == null) {
+            return false;
+        }
+        return ISLOADED.get();
     }
 }

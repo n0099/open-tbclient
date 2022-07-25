@@ -99,14 +99,14 @@ public class iy6 extends an<ty6, CardViewHolder<b>> {
                     return;
                 }
             }
-            TbImageView tbImageView = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f091a45);
+            TbImageView tbImageView = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f091a1f);
             this.i = tbImageView;
             tbImageView.setAutoChangeStyle(true);
             this.i.setRadiusById(R.string.J_X06);
             this.i.setConrers(15);
             this.i.setScaleType(ImageView.ScaleType.FIT_XY);
             this.i.setPlaceHolder(2);
-            this.k = h().findViewById(R.id.obfuscated_res_0x7f090634);
+            this.k = h().findViewById(R.id.obfuscated_res_0x7f090633);
             this.j = (ImageView) h().findViewById(R.id.obfuscated_res_0x7f090627);
             this.k.setOnClickListener(this);
             h().setOnClickListener(this);
@@ -232,12 +232,12 @@ public class iy6 extends an<ty6, CardViewHolder<b>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ty6Var, cardViewHolder})) == null) {
-            if (ty6Var == null || cardViewHolder == null || cardViewHolder.c() == null) {
+            if (ty6Var == null || cardViewHolder == null || cardViewHolder.b() == null) {
                 return null;
             }
             TiebaStatic.log(new StatisticItem("c12884"));
-            cardViewHolder.c().i(ty6Var);
-            return cardViewHolder.c().h();
+            cardViewHolder.b().i(ty6Var);
+            return cardViewHolder.b().h();
         }
         return (View) invokeCommon.objValue;
     }

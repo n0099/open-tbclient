@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.vu4;
+import com.repackage.wu4;
 /* loaded from: classes4.dex */
 public class EBusinessProtocolView extends Dialog {
     public static /* synthetic */ Interceptable $ic;
@@ -293,7 +293,7 @@ public class EBusinessProtocolView extends Dialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EBusinessProtocolView(@NonNull Context context, WindowType windowType) {
-        super(context, R.style.obfuscated_res_0x7f1003ab);
+        super(context, R.style.obfuscated_res_0x7f1003ae);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -334,12 +334,12 @@ public class EBusinessProtocolView extends Dialog {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919e5);
-            this.d = (WebView) this.b.findViewById(R.id.obfuscated_res_0x7f0919e0);
+            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919bf);
+            this.d = (WebView) this.b.findViewById(R.id.obfuscated_res_0x7f0919ba);
             this.f = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090158);
             this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090475);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920a1);
-            this.h = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0920ae);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920a5);
+            this.h = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0920b2);
             h();
             f();
         }
@@ -355,11 +355,11 @@ public class EBusinessProtocolView extends Dialog {
                 this.h.setVisibility(0);
                 setCanceledOnTouchOutside(true);
                 this.g.setText(this.k);
-                this.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f141a));
-                vu4 vu4Var = new vu4();
-                vu4Var.p(R.color.CAM_X0302);
+                this.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13c9));
+                wu4 wu4Var = new wu4();
+                wu4Var.p(R.color.CAM_X0302);
                 this.h.setTextSize(R.dimen.T_X08);
-                this.h.setConfig(vu4Var);
+                this.h.setConfig(wu4Var);
             } else if (i != 2) {
             } else {
                 n();
@@ -367,17 +367,17 @@ public class EBusinessProtocolView extends Dialog {
                 this.f.setVisibility(0);
                 this.e.setVisibility(0);
                 this.d.loadUrl(this.l);
-                vu4 vu4Var2 = new vu4();
-                vu4Var2.p(R.color.CAM_X0107);
-                this.e.setConfig(vu4Var2);
+                wu4 wu4Var2 = new wu4();
+                wu4Var2.p(R.color.CAM_X0107);
+                this.e.setConfig(wu4Var2);
                 this.e.setTextSize(R.dimen.tbds42);
-                this.e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f16));
+                this.e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0eff));
                 this.f.setTextSize(R.dimen.tbds42);
-                vu4 vu4Var3 = new vu4();
-                vu4Var3.p(R.color.CAM_X0302);
-                this.f.setConfig(vu4Var3);
+                wu4 wu4Var3 = new wu4();
+                wu4Var3.p(R.color.CAM_X0302);
+                this.f.setConfig(wu4Var3);
                 this.f.setTextSize(R.dimen.tbds42);
-                this.f.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f15));
+                this.f.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0efe));
             }
         }
     }

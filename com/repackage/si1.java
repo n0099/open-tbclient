@@ -1,13 +1,17 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import androidx.annotation.Nullable;
+import android.app.Activity;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.repackage.qd2;
 /* loaded from: classes7.dex */
 public class si1 implements xk1 {
     public static /* synthetic */ Interceptable $ic;
@@ -28,13 +32,64 @@ public class si1 implements xk1 {
     }
 
     @Override // com.repackage.xk1
-    @Nullable
-    public List<ContentValues> a() {
-        InterceptResult invokeV;
+    public boolean a(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+            return false;
         }
-        return (List) invokeV.objValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.xk1
+    public void b(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+        }
+    }
+
+    @Override // com.repackage.xk1
+    public void c(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
+
+    @Override // com.repackage.xk1
+    public void d(@NonNull CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, callbackHandler) == null) {
+            callbackHandler.handleSchemeDispatchCallback("", "");
+        }
+    }
+
+    @Override // com.repackage.xk1
+    public void e(i03 i03Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, i03Var) == null) {
+        }
+    }
+
+    @Override // com.repackage.xk1
+    public String f(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? context.getString(R.string.obfuscated_res_0x7f0f0158) : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.xk1
+    public void g(i03 i03Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, i03Var) == null) {
+        }
+    }
+
+    @Override // com.repackage.xk1
+    public void h(@NonNull Activity activity, String str, String str2, pd2 pd2Var, qd2.b bVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLLL(1048583, this, activity, str, str2, pd2Var, bVar) == null) || bVar == null) {
+            return;
+        }
+        bVar.a();
     }
 }

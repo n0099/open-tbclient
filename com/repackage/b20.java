@@ -383,7 +383,7 @@ public class b20 extends x10 {
                     }
                 }
             }
-            if (context.checkPermission("android.permission.READ_EXTERNAL_STORAGE", Process.myPid(), Process.myUid()) == 0) {
+            if (context.checkPermission(com.kuaishou.weapon.p0.h.i, Process.myPid(), Process.myUid()) == 0) {
                 a aVar = new a(this);
                 if (aVar.e(str)) {
                     if (fVar.a && bVar != null) {

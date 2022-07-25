@@ -81,7 +81,7 @@ public class qm5 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                bn3.a();
+                cn3.a();
             }
         }
     }
@@ -121,6 +121,6 @@ public class qm5 {
         sm5.l().q(TbadkCoreApplication.getInst());
         vn5.a().b(TbadkCoreApplication.getInst());
         n10.e(TbadkCoreApplication.getInst()).l(new a());
-        be3.b0(new b(), 3000L);
+        ce3.b0(new b(), 3000L);
     }
 }

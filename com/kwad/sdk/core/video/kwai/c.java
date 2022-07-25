@@ -1,29 +1,36 @@
 package com.kwad.sdk.core.video.kwai;
 
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.media.TimedText;
+import android.net.Uri;
 import android.view.Surface;
+import android.view.SurfaceHolder;
 import androidx.annotation.NonNull;
+import java.io.FileDescriptor;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public interface c {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(int i);
+        void ai(int i);
     }
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a();
+        void ns();
     }
 
     /* renamed from: com.kwad.sdk.core.video.kwai.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0547c {
-        boolean a(int i, int i2);
+    public interface InterfaceC0393c {
+        boolean j(int i, int i2);
     }
 
     /* loaded from: classes5.dex */
     public interface d {
-        boolean a(int i, int i2);
+        boolean k(int i, int i2);
     }
 
     /* loaded from: classes5.dex */
@@ -33,22 +40,18 @@ public interface c {
 
     /* loaded from: classes5.dex */
     public interface f {
+        void nt();
     }
 
     /* loaded from: classes5.dex */
     public interface g {
+        void a(TimedText timedText);
     }
 
     /* loaded from: classes5.dex */
     public interface h {
-        void a(int i, int i2);
+        void i(int i, int i2);
     }
-
-    void a(float f2, float f3);
-
-    void a(long j);
-
-    void a(Surface surface);
 
     void a(@NonNull com.kwad.sdk.contentalliance.kwai.kwai.b bVar);
 
@@ -56,35 +59,72 @@ public interface c {
 
     void a(b bVar);
 
-    void a(InterfaceC0547c interfaceC0547c);
-
-    void a(d dVar);
-
-    void a(e eVar);
+    void a(InterfaceC0393c interfaceC0393c);
 
     void a(f fVar);
 
+    void a(g gVar);
+
     void a(h hVar);
 
-    void a(boolean z);
+    void b(e eVar);
 
-    void b(int i);
+    void c(d dVar);
 
-    boolean d();
+    int getAudioSessionId();
 
-    void e();
+    String getCurrentPlayingUrl();
 
-    void f();
+    long getCurrentPosition();
 
-    long g();
+    String getDataSource();
 
-    long h();
+    long getDuration();
 
-    void i();
+    int getMediaPlayerType();
 
-    void j();
+    int getVideoHeight();
 
-    boolean k();
+    int getVideoWidth();
 
-    int l();
+    boolean isLooping();
+
+    boolean isPlaying();
+
+    void pause();
+
+    boolean prepareAsync();
+
+    void release();
+
+    void reset();
+
+    void seekTo(long j);
+
+    void setAudioStreamType(int i);
+
+    void setDataSource(Context context, Uri uri);
+
+    @TargetApi(14)
+    void setDataSource(Context context, Uri uri, Map<String, String> map);
+
+    void setDataSource(FileDescriptor fileDescriptor);
+
+    void setDataSource(String str);
+
+    void setDisplay(SurfaceHolder surfaceHolder);
+
+    void setLooping(boolean z);
+
+    void setScreenOnWhilePlaying(boolean z);
+
+    void setSpeed(float f2);
+
+    void setSurface(Surface surface);
+
+    void setVolume(float f2, float f3);
+
+    void start();
+
+    void stop();
 }

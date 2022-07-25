@@ -36,8 +36,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
-import com.repackage.fu4;
+import com.repackage.dr4;
+import com.repackage.gu4;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class w96 implements View.OnClickListener, v96 {
@@ -45,7 +45,7 @@ public class w96 implements View.OnClickListener, v96 {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
     public BdTypeListView b;
-    public gu4 c;
+    public hu4 c;
     public RelativeLayout d;
     public NoNetworkView e;
     public PbListView f;
@@ -66,10 +66,10 @@ public class w96 implements View.OnClickListener, v96 {
     public boolean u;
     public int v;
     public String w;
-    public j55 x;
+    public k55 x;
 
     /* loaded from: classes7.dex */
-    public class a implements cr4.e {
+    public class a implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -89,17 +89,17 @@ public class w96 implements View.OnClickListener, v96 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -119,11 +119,11 @@ public class w96 implements View.OnClickListener, v96 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -155,12 +155,12 @@ public class w96 implements View.OnClickListener, v96 {
             this.e.setVisibility(8);
         }
         this.d.addView(this.e);
-        BdTypeListView bdTypeListView = (BdTypeListView) this.d.findViewById(R.id.obfuscated_res_0x7f090848);
+        BdTypeListView bdTypeListView = (BdTypeListView) this.d.findViewById(R.id.obfuscated_res_0x7f090846);
         this.b = bdTypeListView;
         bdTypeListView.setDivider(null);
-        gu4 gu4Var = new gu4(this.a);
-        this.c = gu4Var;
-        gu4Var.b0(bdUniqueId);
+        hu4 hu4Var = new hu4(this.a);
+        this.c = hu4Var;
+        hu4Var.b0(bdUniqueId);
         this.b.setPullRefresh(this.c);
         PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
         this.f = pbListView;
@@ -178,17 +178,17 @@ public class w96 implements View.OnClickListener, v96 {
         this.b.addHeaderView(this.k.c());
         this.b.addHeaderView(this.l);
         this.b.addHeaderView(this.m);
-        this.g = this.d.findViewById(R.id.obfuscated_res_0x7f090846);
-        this.h = (RelativeLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090846);
+        this.g = this.d.findViewById(R.id.obfuscated_res_0x7f090844);
+        this.h = (RelativeLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090844);
         this.i = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090104);
-        this.j = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090dc6);
+        this.j = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090dbf);
         this.g.setOnClickListener(this);
-        LinearLayout linearLayout = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f09088d);
+        LinearLayout linearLayout = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f09088b);
         this.q = linearLayout;
         linearLayout.setClickable(false);
         this.q.setOnClickListener(this);
         this.q.setVisibility(8);
-        this.r = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f092307);
+        this.r = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f092309);
         this.s = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090106);
         t();
     }
@@ -209,11 +209,11 @@ public class w96 implements View.OnClickListener, v96 {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.a.getPageActivity(), true, 25021)));
             } else if (TextUtils.isEmpty(this.w)) {
             } else {
-                cr4 cr4Var = new cr4(this.a.getPageActivity());
-                cr4Var.setMessage(this.w);
-                cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0427, new a(this));
-                cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(this));
-                cr4Var.create(this.a).show();
+                dr4 dr4Var = new dr4(this.a.getPageActivity());
+                dr4Var.setMessage(this.w);
+                dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0426, new a(this));
+                dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(this));
+                dr4Var.create(this.a).show();
             }
         }
     }
@@ -302,12 +302,12 @@ public class w96 implements View.OnClickListener, v96 {
     }
 
     public void l() {
-        j55 j55Var;
+        k55 k55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (j55Var = this.x) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (k55Var = this.x) == null) {
             return;
         }
-        j55Var.dettachView(this.d);
+        k55Var.dettachView(this.d);
         this.x = null;
     }
 
@@ -427,7 +427,7 @@ public class w96 implements View.OnClickListener, v96 {
         }
     }
 
-    public void p(fu4.g gVar) {
+    public void p(gu4.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, gVar) == null) {
             this.c.f(gVar);
@@ -454,7 +454,7 @@ public class w96 implements View.OnClickListener, v96 {
             SkinManager.setBackgroundColor(this.q, R.color.CAM_X0201);
             SkinManager.setImageResource(this.r, R.drawable.emotion_uploading_bar_refresh);
             SkinManager.setViewTextColor(this.s, (int) R.color.CAM_X0302);
-            this.s.setText(R.string.obfuscated_res_0x7f0f0564);
+            this.s.setText(R.string.obfuscated_res_0x7f0f0560);
             this.q.setClickable(false);
         }
     }
@@ -478,9 +478,9 @@ public class w96 implements View.OnClickListener, v96 {
         if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (tbPageContext = this.a) == null || this.d == null) {
             return;
         }
-        j55 j55Var = new j55(tbPageContext.getPageActivity());
-        this.x = j55Var;
-        j55Var.attachView(this.d, false);
+        k55 k55Var = new k55(tbPageContext.getPageActivity());
+        this.x = k55Var;
+        k55Var.attachView(this.d, false);
         this.x.onChangeSkinType();
     }
 
@@ -493,7 +493,7 @@ public class w96 implements View.OnClickListener, v96 {
         if (pbListView.b().getParent() == null) {
             this.b.setNextPage(this.f);
         }
-        this.f.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e7));
+        this.f.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09d3));
         this.f.f();
     }
 
@@ -519,7 +519,7 @@ public class w96 implements View.OnClickListener, v96 {
             SkinManager.setBackgroundColor(this.q, R.color.CAM_X0201);
             SkinManager.setImageResource(this.r, R.drawable.emotion_update_fail);
             SkinManager.setViewTextColor(this.s, (int) R.color.common_color_10037);
-            this.s.setText(R.string.obfuscated_res_0x7f0f053d);
+            this.s.setText(R.string.obfuscated_res_0x7f0f0539);
             this.q.setClickable(true);
         }
     }

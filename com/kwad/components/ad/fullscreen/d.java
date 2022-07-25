@@ -21,10 +21,10 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public final class d implements KsFullScreenVideoAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public KsFullScreenVideoAd.FullScreenVideoAdInteractionListener ei;
+    public AdInfo mAdInfo;
     @NonNull
-    public AdTemplate a;
-    public AdInfo b;
-    public KsFullScreenVideoAd.FullScreenVideoAdInteractionListener c;
+    public AdTemplate mAdTemplate;
 
     public d(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
@@ -41,50 +41,47 @@ public final class d implements KsFullScreenVideoAd {
                 return;
             }
         }
-        this.a = adTemplate;
-        this.b = com.kwad.sdk.core.response.a.d.i(adTemplate);
+        this.mAdTemplate = adTemplate;
+        this.mAdInfo = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
     }
 
-    private void a(Context context, KsVideoPlayConfig ksVideoPlayConfig) {
+    private void a(Context context, @NonNull KsVideoPlayConfig ksVideoPlayConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, context, ksVideoPlayConfig) == null) {
             if (!isAdEnable()) {
-                com.kwad.sdk.core.d.b.c("KsFullScreenVideoAdControl", "isAdEnable is false");
+                com.kwad.sdk.core.e.b.i("KsFullScreenVideoAdControl", "isAdEnable is false");
                 return;
             }
-            if (ksVideoPlayConfig == null) {
-                ksVideoPlayConfig = new KsVideoPlayConfig.Builder().build();
-            }
-            com.kwad.sdk.components.c.a(DevelopMangerComponents.class);
-            KsFullScreenVideoActivityProxy.launch(context, this.a, ksVideoPlayConfig, this.c);
+            com.kwad.sdk.components.c.f(DevelopMangerComponents.class);
+            KsFullScreenVideoActivityProxy.launch(context, this.mAdTemplate, ksVideoPlayConfig, this.ei);
         }
     }
 
-    public final AdTemplate a() {
+    public final AdTemplate getAdTemplate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (AdTemplate) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAdTemplate : (AdTemplate) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd
     public final int getECPM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.kwad.sdk.core.response.a.a.M(this.b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.kwad.sdk.core.response.a.a.aq(this.mAdInfo) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd
     public final int getInteractionType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.response.a.a.L(this.b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.response.a.a.ap(this.mAdInfo) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd
     public final int getMaterialType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? com.kwad.sdk.core.response.a.a.Y(this.b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? com.kwad.sdk.core.response.a.a.aD(this.mAdInfo) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd
@@ -92,10 +89,10 @@ public final class d implements KsFullScreenVideoAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (com.kwad.sdk.core.config.d.J() >= 0) {
+            if (com.kwad.sdk.core.config.d.sc() >= 0) {
                 return true;
             }
-            return f.a(this.a);
+            return f.h(this.mAdTemplate);
         }
         return invokeV.booleanValue;
     }
@@ -104,7 +101,7 @@ public final class d implements KsFullScreenVideoAd {
     public final void reportAdExposureFailed(int i, AdExposureFailedReason adExposureFailedReason) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i, adExposureFailedReason) == null) {
-            com.kwad.sdk.core.report.a.a(this.a, i, adExposureFailedReason);
+            com.kwad.sdk.core.report.a.a(this.mAdTemplate, i, adExposureFailedReason);
         }
     }
 
@@ -112,9 +109,9 @@ public final class d implements KsFullScreenVideoAd {
     public final void setBidEcpm(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            AdTemplate adTemplate = this.a;
+            AdTemplate adTemplate = this.mAdTemplate;
             adTemplate.mBidEcpm = i;
-            com.kwad.sdk.core.report.a.l(adTemplate);
+            com.kwad.sdk.core.report.a.aA(adTemplate);
         }
     }
 
@@ -122,7 +119,7 @@ public final class d implements KsFullScreenVideoAd {
     public final void setFullScreenVideoAdInteractionListener(KsFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, fullScreenVideoAdInteractionListener) == null) {
-            this.c = fullScreenVideoAdInteractionListener;
+            this.ei = fullScreenVideoAdInteractionListener;
         }
     }
 
@@ -130,11 +127,15 @@ public final class d implements KsFullScreenVideoAd {
     public final void showFullScreenVideoAd(Activity activity, KsVideoPlayConfig ksVideoPlayConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, ksVideoPlayConfig) == null) {
-            if (activity == null || ksVideoPlayConfig == null) {
-                com.kwad.sdk.core.d.b.e("KsFullScreenVideoAdControl", "showFullScreenVideoAd error, activity or config is null.");
-            } else {
-                a(activity, ksVideoPlayConfig);
+            if (activity == null) {
+                com.kwad.sdk.core.e.b.e("KsFullScreenVideoAdControl", "showFullScreenVideoAd error, activity is null.");
+                return;
             }
+            if (ksVideoPlayConfig == null) {
+                ksVideoPlayConfig = new KsVideoPlayConfig.Builder().build();
+            }
+            com.kwad.components.ad.reward.monitor.a.a(false, this.mAdTemplate);
+            a(activity, ksVideoPlayConfig);
         }
     }
 }

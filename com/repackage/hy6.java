@@ -63,10 +63,10 @@ public class hy6 extends an<az5, CardViewHolder<by5>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, az5Var, cardViewHolder})) == null) {
-            cardViewHolder.c().i(az5Var);
-            cardViewHolder.c().j(this.i, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.b().i(az5Var);
+            cardViewHolder.b().j(this.i, TbadkCoreApplication.getInst().getSkinType());
             cy5.b().a(new StatisticItem("c10718").param("obj_id", String.valueOf(az5Var.a)));
-            return cardViewHolder.b();
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

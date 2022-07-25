@@ -1,26 +1,25 @@
 package com.kwad.sdk.utils;
 
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.view.View;
+import android.content.Context;
+import androidx.annotation.Nullable;
 /* loaded from: classes5.dex */
 public final class bb {
-    public View d;
-    public Point c = new Point();
-    public Rect a = new Rect();
-    public Rect b = new Rect();
-
-    public bb(View view2) {
-        this.d = view2;
+    public static void a(long j, int i, @Nullable Context context) {
+        if (j == 0 || context == null) {
+            return;
+        }
+        long currentTimeMillis = j - System.currentTimeMillis();
+        (Math.abs(currentTimeMillis) / 3600000 > ((long) i) ? context.getSharedPreferences("ksadsdk_pref", 0).edit().putLong("key_time_diff_s2c", currentTimeMillis) : context.getSharedPreferences("ksadsdk_pref", 0).edit().remove("key_time_diff_s2c")).apply();
     }
 
-    public final boolean a() {
-        boolean globalVisibleRect = this.d.getGlobalVisibleRect(this.a, this.c);
-        Point point = this.c;
-        if (point.x == 0 && point.y == 0 && this.a.height() == this.d.getHeight() && this.b.height() != 0 && Math.abs(this.a.top - this.b.top) > this.d.getHeight() / 2) {
-            this.a.set(this.b);
+    public static long dz(@Nullable Context context) {
+        long currentTimeMillis = System.currentTimeMillis();
+        if (context != null) {
+            long j = context.getSharedPreferences("ksadsdk_pref", 0).getLong("key_time_diff_s2c", 0L);
+            if (j != 0) {
+                return currentTimeMillis + j;
+            }
         }
-        this.b.set(this.a);
-        return globalVisibleRect;
+        return Math.abs(currentTimeMillis);
     }
 }

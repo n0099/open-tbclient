@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ksad.annotation.invoker.InvokeBy;
-import com.kwad.components.core.j.e;
+import com.kwad.components.core.k.e;
 import com.kwad.components.offline.api.tk.ITkOfflineCompo;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.components.c;
@@ -24,9 +24,9 @@ public final class a extends com.kwad.components.core.offline.init.a {
 
     /* renamed from: com.kwad.components.offline.tk.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C0530a {
+    public static final class C0378a {
         public static /* synthetic */ Interceptable $ic;
-        public static final a a;
+        public static final a Ql;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,7 +42,7 @@ public final class a extends com.kwad.components.core.offline.init.a {
                     return;
                 }
             }
-            a = new a((byte) 0);
+            Ql = new a((byte) 0);
         }
     }
 
@@ -65,51 +65,44 @@ public final class a extends com.kwad.components.core.offline.init.a {
     }
 
     @InvokeBy(invokerClass = com.kwad.components.core.offline.init.b.class, methodId = "initOC")
-    public static void b(Context context) {
+    public static void aC(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            g().a(context);
+            qy().init(context);
         }
     }
 
-    public static a g() {
+    public static a qy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0530a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0378a.Ql : (a) invokeV.objValue;
     }
 
     @Override // com.kwad.components.core.offline.init.a
-    public final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TkInitModule" : (String) invokeV.objValue;
-    }
-
-    @Override // com.kwad.components.core.offline.init.a
-    public final boolean a(Context context, ClassLoader classLoader) {
+    public final boolean b(Context context, ClassLoader classLoader) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, classLoader)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, classLoader)) == null) {
             ITkOfflineCompo iTkOfflineCompo = (ITkOfflineCompo) a(classLoader, ITkOfflineCompo.IMPL);
             if (iTkOfflineCompo == null) {
-                com.kwad.sdk.core.d.b.a("TkInitModule", "onPluginLoaded components is null");
+                com.kwad.sdk.core.e.b.d("TkInitModule", "onPluginLoaded components is null");
                 return false;
             }
-            String a = a();
-            com.kwad.sdk.core.d.b.a(a, "onOfflineComponentsLoaded components classLoader: " + iTkOfflineCompo.getClass().getClassLoader());
+            String tag = getTag();
+            com.kwad.sdk.core.e.b.d(tag, "onOfflineComponentsLoaded components classLoader: " + iTkOfflineCompo.getClass().getClassLoader());
             TkCompoImpl tkCompoImpl = new TkCompoImpl(iTkOfflineCompo);
             c.a(com.kwad.components.core.offline.api.kwai.a.class, tkCompoImpl);
             iTkOfflineCompo.initReal(context, KsAdSDKImpl.get().getSdkConfig(), new b());
-            SdkConfigData G = d.G();
-            if (G != null) {
-                tkCompoImpl.onConfigRefresh(context, G.toJson());
+            SdkConfigData rZ = d.rZ();
+            if (rZ != null) {
+                tkCompoImpl.onConfigRefresh(context, rZ.toJson());
             }
             e.a(new e.a(this, tkCompoImpl, context) { // from class: com.kwad.components.offline.tk.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ TkCompoImpl a;
-                public final /* synthetic */ Context b;
-                public final /* synthetic */ a c;
+                public final /* synthetic */ TkCompoImpl Qj;
+                public final /* synthetic */ a Qk;
+                public final /* synthetic */ Context gC;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -126,23 +119,23 @@ public final class a extends com.kwad.components.core.offline.init.a {
                             return;
                         }
                     }
-                    this.c = this;
-                    this.a = tkCompoImpl;
-                    this.b = context;
+                    this.Qk = this;
+                    this.Qj = tkCompoImpl;
+                    this.gC = context;
                 }
 
-                @Override // com.kwad.components.core.j.e.a
-                public final void a() {
+                @Override // com.kwad.components.core.k.e.a
+                public final void a(@NonNull SdkConfigData sdkConfigData) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, sdkConfigData) == null) {
+                        this.Qj.onConfigRefresh(this.gC, sdkConfigData.toJson());
                     }
                 }
 
-                @Override // com.kwad.components.core.j.e.a
-                public final void a(@NonNull SdkConfigData sdkConfigData) {
+                @Override // com.kwad.components.core.k.e.a
+                public final void no() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkConfigData) == null) {
-                        this.a.onConfigRefresh(this.b, sdkConfigData.toJson());
+                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                     }
                 }
             });
@@ -152,37 +145,44 @@ public final class a extends com.kwad.components.core.offline.init.a {
     }
 
     @Override // com.kwad.components.core.offline.init.a
-    public final boolean b() {
+    public final String getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d.C() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "TkInitModule" : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.components.core.offline.init.a
-    public final String c() {
+    public final boolean isEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d.isCanUseTk() : invokeV.booleanValue;
+    }
+
+    @Override // com.kwad.components.core.offline.init.a
+    public final String nk() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ITkOfflineCompo.PACKAGE_NAME : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.components.core.offline.init.a
-    public final String d() {
+    public final String nl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "3.3.24.7" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "3.3.26.1" : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.components.core.offline.init.a
-    public final String e() {
+    public final String nm() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/offline_components/tk/ks_so-tachikomaNoSoRelease-3.3.24.7-11ed97fe.apk" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/offline_components/tk/ks_so-tachikomaNoSoRelease-3.3.26.1.apk" : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.components.core.offline.init.a
-    public final String f() {
+    public final String nn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "32b0020142ec0faf9dae126d121d723e" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "daf5b23731d40988bcb92485d3adf70a" : (String) invokeV.objValue;
     }
 }

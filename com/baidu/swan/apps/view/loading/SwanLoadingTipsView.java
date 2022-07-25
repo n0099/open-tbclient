@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.be3;
+import com.repackage.ce3;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
@@ -68,7 +68,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                be3.b0(this.a.e, 2000L);
+                ce3.b0(this.a.e, 2000L);
             }
         }
 
@@ -209,7 +209,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
             this.a = null;
             Runnable runnable = this.e;
             if (runnable != null) {
-                be3.d0(runnable);
+                ce3.d0(runnable);
             }
             ObjectAnimator objectAnimator = this.c;
             if (objectAnimator != null) {

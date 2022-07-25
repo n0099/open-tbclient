@@ -16,7 +16,7 @@ public class ay extends xw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadSmartAppLayout h;
-    public nn4 i;
+    public on4 i;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -95,11 +95,11 @@ public class ay extends xw {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: u */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nn4Var) == null) {
-            this.i = nn4Var;
-            this.h.a(nn4Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, on4Var) == null) {
+            this.i = on4Var;
+            this.h.a(on4Var);
         }
     }
 }

@@ -108,13 +108,13 @@ public class HotUserRankFragment extends BaseFragment {
                         if (this.a.d <= 0 && !TextUtils.isEmpty(this.a.c)) {
                             if (u56Var.a != null) {
                                 if (this.a.e) {
-                                    u56Var.a.a = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f07d7), this.a.c);
+                                    u56Var.a.a = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f07d3), this.a.c);
                                 } else {
-                                    u56Var.a.a = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f089d), this.a.c);
+                                    u56Var.a.a = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0888), this.a.c);
                                 }
                             }
                         } else {
-                            u56Var.a.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0675);
+                            u56Var.a.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0671);
                         }
                         this.a.b.f(u56Var.a, !oi.isEmpty(this.a.c));
                         if (this.a.isResumed() || this.a.getBaseFragmentActivity() != null) {
@@ -235,7 +235,7 @@ public class HotUserRankFragment extends BaseFragment {
             if (this.a == null) {
                 View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02d3, (ViewGroup) null);
                 this.a = inflate;
-                RankListViewController rankListViewController = new RankListViewController(inflate.findViewById(R.id.obfuscated_res_0x7f091a52), this.c, this.d);
+                RankListViewController rankListViewController = new RankListViewController(inflate.findViewById(R.id.obfuscated_res_0x7f091a2c), this.c, this.d);
                 this.b = rankListViewController;
                 rankListViewController.g(this.g);
             }

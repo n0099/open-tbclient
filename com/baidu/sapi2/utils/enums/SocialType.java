@@ -19,8 +19,8 @@ public final class SocialType {
     public static /* synthetic */ Interceptable $ic;
     public static final SocialType CFO;
     public static final SocialType FACEBOOK;
-    public static final SocialType GLORY;
     public static final SocialType GOOGLE;
+    public static final SocialType HONOR;
     public static final SocialType HUAWEI;
     public static final SocialType IQIYI;
     public static final SocialType MEIZU;
@@ -55,7 +55,7 @@ public final class SocialType {
         QQ_SSO = new SocialType("QQ_SSO", 2, 15, "QQ_SSO");
         WEIXIN = new SocialType("WEIXIN", 3, 42, "微信");
         HUAWEI = new SocialType("HUAWEI", 4, 45, "华为");
-        GLORY = new SocialType("GLORY", 5, 45, "荣耀");
+        HONOR = new SocialType("HONOR", 5, 61, "荣耀");
         IQIYI = new SocialType("IQIYI", 6, 47, "爱奇艺");
         XIAOMI = new SocialType("XIAOMI", 7, 49, "小米");
         MEIZU = new SocialType("MEIZU", 8, 50, "魅族");
@@ -67,7 +67,7 @@ public final class SocialType {
         QQ_SSO_BACKGROUND = new SocialType("QQ_SSO_BACKGROUND", 14, HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_DISPLAY_OPTIONS_NULL, "QQ_SSO_BACKGROUND");
         SocialType socialType = new SocialType("WEIXIN_BACKGROUND", 15, 100042, "微信");
         WEIXIN_BACKGROUND = socialType;
-        $VALUES = new SocialType[]{UNKNOWN, SINA_WEIBO_SSO, QQ_SSO, WEIXIN, HUAWEI, GLORY, IQIYI, XIAOMI, MEIZU, FACEBOOK, TWITTER, GOOGLE, YY, CFO, QQ_SSO_BACKGROUND, socialType};
+        $VALUES = new SocialType[]{UNKNOWN, SINA_WEIBO_SSO, QQ_SSO, WEIXIN, HUAWEI, HONOR, IQIYI, XIAOMI, MEIZU, FACEBOOK, TWITTER, GOOGLE, YY, CFO, QQ_SSO_BACKGROUND, socialType};
     }
 
     public SocialType(String str, int i, int i2, String str2) {
@@ -102,16 +102,19 @@ public final class SocialType {
                         if (i != 45) {
                             if (i != 47) {
                                 if (i != 55) {
-                                    if (i != 60) {
-                                        if (i != 49) {
-                                            if (i != 50) {
-                                                return UNKNOWN;
+                                    if (i != 49) {
+                                        if (i != 50) {
+                                            if (i != 60) {
+                                                if (i != 61) {
+                                                    return UNKNOWN;
+                                                }
+                                                return HONOR;
                                             }
-                                            return MEIZU;
+                                            return CFO;
                                         }
-                                        return XIAOMI;
+                                        return MEIZU;
                                     }
-                                    return CFO;
+                                    return XIAOMI;
                                 }
                                 return FACEBOOK;
                             }

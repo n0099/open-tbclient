@@ -5,51 +5,51 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.kwad.sdk.service.ServiceProvider;
-import com.kwad.sdk.utils.aw;
+import com.kwad.sdk.utils.ba;
 import com.kwad.sdk.utils.j;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class a implements com.kwad.sdk.core.b {
-    public static JSONObject a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
+    public static JSONObject acl;
+    public String acm;
+    public String appId;
+    public String name;
+    public String packageName;
+    public String version;
 
-    public static JSONObject a() {
-        if (!a(a)) {
-            a = b().toJson();
-        }
-        return a;
-    }
-
-    public static boolean a(@Nullable JSONObject jSONObject) {
+    public static boolean j(@Nullable JSONObject jSONObject) {
         if (jSONObject == null) {
             return false;
         }
         String optString = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
         String optString2 = jSONObject.optString("name");
-        return !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString) && optString.equals(((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).b()) && optString2.equals(((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).c());
+        return !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString) && optString.equals(((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getAppId()) && optString2.equals(((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getAppName());
     }
 
-    public static a b() {
+    public static JSONObject uM() {
+        if (!j(acl)) {
+            acl = uN().toJson();
+        }
+        return acl;
+    }
+
+    public static a uN() {
         a aVar = new a();
-        com.kwad.sdk.service.kwai.d dVar = (com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class);
-        aVar.b = dVar.b();
-        aVar.c = dVar.c();
-        Context a2 = dVar.a();
-        if (a2 != null) {
-            aVar.d = a2.getPackageName();
-            aVar.e = j.a(a2);
+        com.kwad.sdk.service.kwai.d dVar = (com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class);
+        aVar.appId = dVar.getAppId();
+        aVar.name = dVar.getAppName();
+        Context context = dVar.getContext();
+        if (context != null) {
+            aVar.packageName = context.getPackageName();
+            aVar.version = j.cb(context);
         }
-        aVar.f = com.kwad.sdk.utils.e.a(a2);
-        if (!TextUtils.isEmpty(aw.a())) {
-            aVar.b = aw.a();
+        aVar.acm = com.kwad.sdk.utils.e.bR(context);
+        if (!TextUtils.isEmpty(ba.getAppId())) {
+            aVar.appId = ba.getAppId();
         }
-        if (!TextUtils.isEmpty(aw.b())) {
-            aVar.d = aw.b();
+        if (!TextUtils.isEmpty(ba.getPackageName())) {
+            aVar.packageName = ba.getPackageName();
         }
         return aVar;
     }
@@ -61,11 +61,11 @@ public final class a implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public final JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        r.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.b);
-        r.a(jSONObject, "name", this.c);
-        r.a(jSONObject, "packageName", this.d);
-        r.a(jSONObject, "version", this.e);
-        r.a(jSONObject, "sha1", this.f);
+        r.putValue(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.appId);
+        r.putValue(jSONObject, "name", this.name);
+        r.putValue(jSONObject, "packageName", this.packageName);
+        r.putValue(jSONObject, "version", this.version);
+        r.putValue(jSONObject, "sha1", this.acm);
         return jSONObject;
     }
 }

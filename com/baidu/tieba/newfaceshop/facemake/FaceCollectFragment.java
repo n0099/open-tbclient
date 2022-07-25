@@ -138,11 +138,11 @@ public class FaceCollectFragment extends BaseFragment {
             this.f = getPageContext().getPageActivity();
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02db, (ViewGroup) null);
             SkinManager.setBackgroundResource(inflate, R.color.CAM_X0201);
-            NoDataView a2 = NoDataViewFactory.a(this.f, inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(this.f, R.dimen.obfuscated_res_0x7f0702a0)), NoDataViewFactory.e.c(this.f.getText(R.string.obfuscated_res_0x7f0f05e6).toString()), null);
+            NoDataView a2 = NoDataViewFactory.a(this.f, inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(this.f, R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.c(this.f.getText(R.string.obfuscated_res_0x7f0f05e2).toString()), null);
             this.e = a2;
             a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.e.setVisibility(8);
-            this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f0912e4);
+            this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f0912c0);
             this.c = new ArrayList();
             zn7 zn7Var = new zn7(this.c, 20);
             this.b = zn7Var;

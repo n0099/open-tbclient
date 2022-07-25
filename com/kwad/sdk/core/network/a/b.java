@@ -1,39 +1,39 @@
 package com.kwad.sdk.core.network.a;
 /* loaded from: classes5.dex */
 public interface b {
-    b a();
+    b aB(int i);
 
-    b a(int i);
+    b aC(int i);
 
-    b a(long j);
+    b aD(int i);
 
-    b a(String str);
+    b aE(int i);
 
-    b b();
+    b cc(String str);
 
-    b b(int i);
+    b cd(String str);
 
-    b b(String str);
+    b ce(String str);
 
-    b c();
+    b cf(String str);
 
-    b c(int i);
+    b cg(String str);
 
-    b c(String str);
+    void of();
 
-    b d();
+    b tM();
 
-    b d(int i);
+    b tN();
 
-    b d(String str);
+    b tO();
 
-    b e();
+    b tP();
 
-    b e(String str);
+    b tQ();
 
-    b f();
+    b tR();
 
-    b g();
+    b tS();
 
-    void h();
+    b z(long j);
 }

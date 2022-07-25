@@ -104,26 +104,26 @@ public class VoteCandidateCard extends CardBasicLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f = findViewById(R.id.obfuscated_res_0x7f091489);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09148b);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09148a);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0922b2);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091464);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091466);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091465);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0922b4);
             this.i = (CandidateInfoLayout) findViewById(R.id.obfuscated_res_0x7f09047c);
             this.j = (NewAnounceLayout) findViewById(R.id.obfuscated_res_0x7f09026c);
             this.k = (VoteAreaLayout) findViewById(R.id.obfuscated_res_0x7f092494);
             this.l = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f0924bf);
-            this.p = findViewById(R.id.obfuscated_res_0x7f0907ca);
-            this.q = findViewById(R.id.obfuscated_res_0x7f0907c5);
-            this.r = findViewById(R.id.obfuscated_res_0x7f0907d0);
-            this.s = findViewById(R.id.obfuscated_res_0x7f09089a);
-            this.t = findViewById(R.id.obfuscated_res_0x7f0913d9);
-            this.u = findViewById(R.id.obfuscated_res_0x7f090ec8);
+            this.p = findViewById(R.id.obfuscated_res_0x7f0907c8);
+            this.q = findViewById(R.id.obfuscated_res_0x7f0907c3);
+            this.r = findViewById(R.id.obfuscated_res_0x7f0907ce);
+            this.s = findViewById(R.id.obfuscated_res_0x7f090898);
+            this.t = findViewById(R.id.obfuscated_res_0x7f0913b5);
+            this.u = findViewById(R.id.obfuscated_res_0x7f090ec1);
             this.m = findViewById(R.id.obfuscated_res_0x7f0924b9);
             this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0924ba);
             this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0924bb);
-            this.x = findViewById(R.id.obfuscated_res_0x7f0907db);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f0920da);
-            this.z = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091624);
+            this.x = findViewById(R.id.obfuscated_res_0x7f0907d9);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f0920dc);
+            this.z = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0915ff);
         }
     }
 
@@ -135,7 +135,7 @@ public class VoteCandidateCard extends CardBasicLayout {
             setClipToPadding(false);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08b2, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08bc, (ViewGroup) this, true);
             a();
         }
     }

@@ -105,10 +105,10 @@ public class ao6 {
             return;
         }
         this.a = frsSportsRecommendFragment.getPageContext();
-        this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ce0);
-        this.c = (LinearGradientView) view2.findViewById(R.id.obfuscated_res_0x7f090ce2);
-        this.d = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b12);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a3f);
+        this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cd9);
+        this.c = (LinearGradientView) view2.findViewById(R.id.obfuscated_res_0x7f090cdb);
+        this.d = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b0b);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a38);
         this.b.setPageId(frsSportsRecommendFragment.getUniqueId());
         this.d.setPageId(frsSportsRecommendFragment.getUniqueId());
         this.d.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -181,7 +181,7 @@ public class ao6 {
         if (StringHelper.getChineseAndEnglishLength(name) > 20) {
             name = StringHelper.cutForumNameWithSuffix(name, 20, StringHelper.STRING_MORE);
         }
-        this.e.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0742), name));
+        this.e.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f073e), name));
         this.d.J(this.f.getForum().getImage_url(), 10, false);
         i();
         this.d.setOnClickListener(this.j);

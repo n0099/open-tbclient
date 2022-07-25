@@ -6,13 +6,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.kwad.components.offline.api.BuildConfig;
 import com.kwad.sdk.api.KsAdSDK;
 import com.kwad.sdk.api.SdkConfig;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
-import com.kwad.sdk.api.loader.l;
 import com.kwad.sdk.api.proxy.IComponentProxy;
 import java.io.File;
 import java.lang.Thread;
@@ -20,20 +18,22 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
 public class Loader {
     public static final /* synthetic */ boolean a = !Loader.class.desiredAssertionStatus();
+    public IKsAdSDK RJ;
+    public l RK;
+    public AtomicBoolean RL;
+    public AtomicBoolean RM;
     public volatile Context b;
-    public IKsAdSDK c;
-    public k d;
-    public AtomicBoolean e;
 
     /* loaded from: classes5.dex */
     public static class a {
-        public static final Loader a = new Loader((byte) 0);
+        public static final Loader RN = new Loader((byte) 0);
     }
 
     public Loader() {
-        this.c = null;
-        this.d = null;
-        this.e = new AtomicBoolean(false);
+        this.RJ = null;
+        this.RK = null;
+        this.RL = new AtomicBoolean(false);
+        this.RM = new AtomicBoolean(false);
     }
 
     public /* synthetic */ Loader(byte b) {
@@ -50,7 +50,7 @@ public class Loader {
                 if (!a && ksAdSdkDynamicApi == null) {
                     throw new AssertionError();
                 }
-                Object invoke = Class.forName(ksAdSdkDynamicApi.value(), true, classLoader).getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, new Class[0]).invoke(null, new Object[0]);
+                Object invoke = Class.forName(ksAdSdkDynamicApi.value(), true, classLoader).getDeclaredMethod("get", new Class[0]).invoke(null, new Object[0]);
                 if (invoke == null) {
                     throw new RuntimeException("Can not get sdk form ".concat(String.valueOf(classLoader)));
                 }
@@ -62,58 +62,40 @@ public class Loader {
         return iKsAdSDK;
     }
 
-    public static String a(Context context) {
-        return g.a(context, g.b);
-    }
-
     public static Loader get() {
-        return a.a;
+        return a.RN;
     }
 
     public void checkAutoRevert() {
-        k kVar;
-        int intValue;
-        if (this.b == null || (kVar = this.d) == null) {
+        if (this.b == null || this.RK == null || this.RM.get()) {
             return;
         }
+        this.RM.set(true);
         try {
-            IKsAdSDK iKsAdSDK = kVar.c;
-            Object dM = iKsAdSDK.dM("autoRT", new Object[0]);
-            if (!(dM instanceof Integer) || (intValue = ((Integer) dM).intValue()) <= 0) {
-                return;
+            Integer num = (Integer) com.kwad.sdk.api.b.a("getAutoRevertTime", new Object[0]);
+            int intValue = num != null ? num.intValue() : -1;
+            if (intValue > 0) {
+                d aF = d.aF(this.b);
+                Thread.UncaughtExceptionHandler defaultUncaughtExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
+                if (defaultUncaughtExceptionHandler != aF) {
+                    aF.Sj = defaultUncaughtExceptionHandler;
+                }
+                Thread.setDefaultUncaughtExceptionHandler(d.aF(this.b));
+                d aF2 = d.aF(this.b);
+                aF2.f = System.currentTimeMillis();
+                aF2.d = intValue;
+                if (aF2.a) {
+                    Log.d("test.chen", "startCheck:");
+                }
+                d.aF(this.b).Si = this.RJ;
             }
-            d a2 = d.a(this.b);
-            Thread.UncaughtExceptionHandler defaultUncaughtExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
-            if (defaultUncaughtExceptionHandler != a2) {
-                a2.c = defaultUncaughtExceptionHandler;
-            }
-            Thread.setDefaultUncaughtExceptionHandler(d.a(this.b));
-            d a3 = d.a(this.b);
-            a3.f = System.currentTimeMillis();
-            a3.d = intValue;
-            if (a3.a) {
-                Log.d("test.chen", "startCheck:");
-            }
-            d.a(this.b).b = iKsAdSDK;
         } catch (Throwable th) {
             th.printStackTrace();
         }
     }
 
     public void checkUpdate(IKsAdSDK iKsAdSDK) {
-        Context context = this.b;
-        if (Math.abs(System.currentTimeMillis() - r.c(context, "lastUpdateTime")) >= r.c(context, "interval") * 1000) {
-            Object dM = iKsAdSDK.dM("TRANSFORM_API_HOST", "https://open.e.kuaishou.com/rest/e/v3/open/sdk2");
-            String obj = dM != null ? dM.toString() : "https://open.e.kuaishou.com/rest/e/v3/open/sdk2";
-            Context context2 = get().getContext();
-            new l.e(new l.g(new l.d(new l.h(new l.b(obj, iKsAdSDK), context2), context2), context2), context2).a(new l.c<Boolean>() { // from class: com.kwad.sdk.api.loader.s.1
-                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-                @Override // com.kwad.sdk.api.loader.l.c
-                public final /* synthetic */ void a(Boolean bool) {
-                    Log.d("Updater", "checkAndUpdate result: ".concat(String.valueOf(bool)));
-                }
-            });
-        }
+        u.a(this.b, iKsAdSDK);
     }
 
     public Context getContext() {
@@ -122,43 +104,43 @@ public class Loader {
 
     @MainThread
     public ClassLoader getExternalClassLoader() {
-        k kVar = this.d;
-        if (kVar != null) {
-            return kVar.b;
+        l lVar = this.RK;
+        if (lVar != null) {
+            return lVar.Su;
         }
         return null;
     }
 
     @MainThread
     public Resources getExternalResource() {
-        k kVar = this.d;
-        if (kVar != null) {
-            return kVar.a;
+        l lVar = this.RK;
+        if (lVar != null) {
+            return lVar.St;
         }
         return null;
     }
 
     @MainThread
     public IKsAdSDK getKsAdSDKImpl() {
-        k kVar = this.d;
-        if (kVar != null) {
-            IKsAdSDK iKsAdSDK = kVar.c;
+        l lVar = this.RK;
+        if (lVar != null) {
+            IKsAdSDK iKsAdSDK = lVar.RJ;
             iKsAdSDK.setIsExternal(true);
             return iKsAdSDK;
         }
-        if (this.c == null) {
-            this.c = a(this.b != null ? this.b.getClassLoader() : Loader.class.getClassLoader());
+        if (this.RJ == null) {
+            this.RJ = a(this.b != null ? this.b.getClassLoader() : Loader.class.getClassLoader());
         }
-        this.c.setIsExternal(false);
-        return this.c;
+        this.RJ.setIsExternal(false);
+        return this.RJ;
     }
 
     public ClassLoader getRealClassLoader() {
-        k kVar = this.d;
-        return kVar != null ? kVar.b : Loader.class.getClassLoader();
+        l lVar = this.RK;
+        return lVar != null ? lVar.Su : Loader.class.getClassLoader();
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x0094, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0086, code lost:
         if (android.text.TextUtils.isEmpty(r0) == false) goto L15;
      */
     @MainThread
@@ -166,43 +148,43 @@ public class Loader {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void init(final Context context) {
-        if (this.e.get()) {
+        if (this.RL.get()) {
             return;
         }
         boolean z = true;
-        this.e.set(true);
+        this.RL.set(true);
         this.b = context.getApplicationContext();
         Context context2 = this.b;
-        String a2 = g.a(context2);
-        boolean b = r.b(context2, g.d);
-        if (TextUtils.isEmpty(a2) || !a2.equals(BuildConfig.VERSION_NAME) || b) {
-            String a3 = g.a(context2, g.b);
-            g.a(context2, g.b, "");
-            g.a(context2, g.a, "");
-            r.a(context2, g.d, false);
+        String c = g.c(context2);
+        boolean q = t.q(context2, g.a);
+        if (TextUtils.isEmpty(c) || !c.equals(BuildConfig.VERSION_NAME) || q) {
+            String a2 = g.a(context2);
+            g.a(context2, "");
+            g.b(context2, "");
+            t.a(context2, g.a, false);
             try {
-                h.a(h.b(context2, a3));
+                h.d(h.l(context2, a2));
             } catch (Exception unused) {
             }
-            g.b(context2, BuildConfig.VERSION_NAME);
+            g.c(context2, BuildConfig.VERSION_NAME);
         }
-        final String a4 = g.a(context, g.b);
-        String a5 = g.a(context, g.a);
-        if (!TextUtils.isEmpty(a4) || !TextUtils.isEmpty(a5)) {
-            if (!TextUtils.isEmpty(a5) && g.a(a5, a4)) {
-                g.a(context, g.b, a5);
-                if (!TextUtils.isEmpty(a4)) {
-                    j.a(new Runnable() { // from class: com.kwad.sdk.api.loader.h.1
+        final String a3 = g.a(context);
+        String b = g.b(context);
+        if (!TextUtils.isEmpty(a3) || !TextUtils.isEmpty(b)) {
+            if (!TextUtils.isEmpty(b) && g.a(b, a3)) {
+                g.a(context, b);
+                if (!TextUtils.isEmpty(a3)) {
+                    k.b(new Runnable() { // from class: com.kwad.sdk.api.loader.h.1
                         @Override // java.lang.Runnable
                         public final void run() {
                             try {
-                                File[] listFiles = h.b(context, a4).getParentFile().listFiles();
+                                File[] listFiles = h.l(context, a3).getParentFile().listFiles();
                                 if (listFiles == null || listFiles.length <= 0) {
                                     return;
                                 }
                                 for (File file : listFiles) {
-                                    if (g.a(a4, file.getName().substring(file.getName().indexOf("-") + 1))) {
-                                        h.a(file);
+                                    if (g.a(a3, file.getName().substring(file.getName().indexOf("-") + 1))) {
+                                        h.d(file);
                                     }
                                 }
                             } catch (Exception unused2) {
@@ -210,35 +192,35 @@ public class Loader {
                         }
                     });
                 }
-                g.a(context, g.a, "");
-                a4 = a5;
+                g.b(context, "");
+                a3 = b;
             }
         }
         z = false;
         if (z) {
-            this.d = k.a(this.b, g.a(context, g.b));
+            this.RK = l.p(this.b, g.a(context));
         }
-        if (this.d == null) {
-            this.c = a(Loader.class.getClassLoader());
+        if (this.RK == null) {
+            this.RJ = a(Loader.class.getClassLoader());
         }
     }
 
     public boolean isExternalLoaded() {
-        return this.d != null;
+        return this.RK != null;
     }
 
     @MainThread
     public <T extends IComponentProxy> T newComponentProxy(Context context, Class<?> cls, Object obj) {
-        if (!this.e.get()) {
-            KsAdSDK.init(context, SdkConfig.create(r.a(context, "sdkconfig")));
+        if (!this.RL.get()) {
+            KsAdSDK.init(context, SdkConfig.create(t.a(context, "sdkconfig")));
         }
         return (T) getKsAdSDKImpl().newComponentProxy(cls, obj);
     }
 
     @MainThread
     public <T extends IComponentProxy> T newComponentProxyNewProcess(Context context, Class<?> cls, Object obj) {
-        if (!this.e.get()) {
-            KsAdSDK.init(context, SdkConfig.create(r.a(context, "sdkconfig")));
+        if (!this.RL.get()) {
+            KsAdSDK.init(context, SdkConfig.create(t.a(context, "sdkconfig")));
         }
         return (T) getKsAdSDKImpl().newComponentProxy(cls, obj);
     }

@@ -134,7 +134,7 @@ public class fp6 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048581, this, activity, str, str2) == null) && activity != null && this.d.c()) {
             if (this.c == null) {
-                this.c = new lk6(activity, R.id.obfuscated_res_0x7f090af7);
+                this.c = new lk6(activity, R.id.obfuscated_res_0x7f090af0);
             }
             this.c.p(str);
             this.c.q(str2);
@@ -172,7 +172,7 @@ public class fp6 {
             return;
         }
         if (this.c == null) {
-            this.c = new lk6(activity, R.id.obfuscated_res_0x7f090afb);
+            this.c = new lk6(activity, R.id.obfuscated_res_0x7f090af4);
         }
         if (!StringUtils.isNull(str3)) {
             this.c.n(str3);

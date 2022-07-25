@@ -9,15 +9,15 @@ public final class q extends t {
     public final void a(d dVar) {
         int i = 0;
         while (true) {
-            byte[] bArr = dVar.d;
+            byte[] bArr = dVar.data;
             if (i >= bArr.length || bArr[i] == 0) {
                 break;
             }
             i++;
         }
-        ((t) this).h = b.a(dVar.d, 0, i);
+        this.key = b.d(dVar.data, 0, i);
         int i2 = i + 1;
-        byte[] bArr2 = dVar.d;
-        this.i = i2 < bArr2.length ? b.a(bArr2, i2, bArr2.length - i2) : "";
+        byte[] bArr2 = dVar.data;
+        this.amp = i2 < bArr2.length ? b.d(bArr2, i2, bArr2.length - i2) : "";
     }
 }

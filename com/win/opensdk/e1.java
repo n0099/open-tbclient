@@ -32,7 +32,7 @@ public class e1 {
                 return;
             }
         }
-        a = new String[]{"as", com.baidu.sofire.d.D.COLUMN_PLUGIN_ACTIVITY_INFO_LIST, "ao", "scb", "wdin", "wbas", "wbao"};
+        a = new String[]{"as", "ac", "ao", "scb", "wdin", "wbas", "wbao"};
         b = new String[]{"ins", Config.DEVICE_BRAND, "wdtr", "witr", "irs"};
         c = new String[]{"be", "bce", "bpe", "ps", "scbe", "wdst", "wde", "wie", "dplop", "wbe", "hte"};
         d = new String[]{"Ld", "wdin", "wiin", "wdre", "wiop", "wii", "rle"};

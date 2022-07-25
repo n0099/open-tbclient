@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bx4;
+import com.repackage.cx4;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
@@ -41,7 +41,7 @@ public class bq7 {
     public AtomicBoolean c;
 
     /* loaded from: classes5.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<bx4> {
+    public static class a implements CustomMessageTask.CustomRunnable<cx4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,12 +60,12 @@ public class bq7 {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<bx4> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<cx4> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    bx4 data = customMessage.getData();
+                    cx4 data = customMessage.getData();
                     String e = data.e();
                     if (data.getType() == 0 && TextUtils.isEmpty(e)) {
                         if (data.f() != null) {
@@ -91,21 +91,21 @@ public class bq7 {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(bx4.c cVar);
+        void a(cx4.c cVar);
     }
 
     /* loaded from: classes5.dex */
     public static class c implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public bx4 a;
+        public cx4 a;
 
-        public c(bx4 bx4Var) {
+        public c(cx4 cx4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bx4Var};
+                Object[] objArr = {cx4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -115,14 +115,14 @@ public class bq7 {
                     return;
                 }
             }
-            this.a = bx4Var;
+            this.a = cx4Var;
         }
 
         @Override // com.repackage.bq7.b
-        public void a(bx4.c cVar) {
-            bx4 bx4Var;
+        public void a(cx4.c cVar) {
+            cx4 cx4Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || (bx4Var = this.a) == null || bx4Var.f() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || (cx4Var = this.a) == null || cx4Var.f() == null) {
                 return;
             }
             this.a.f().b(cVar);
@@ -178,12 +178,12 @@ public class bq7 {
         }
     }
 
-    public void a(bx4.c cVar) {
+    public void a(cx4.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             if (this.a != null) {
                 if (cVar == null) {
-                    cVar = new bx4.c(false);
+                    cVar = new cx4.c(false);
                 }
                 this.a.a(cVar);
             }
@@ -195,14 +195,14 @@ public class bq7 {
     public void b(boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
-            a(new bx4.a(z, str));
+            a(new cx4.a(z, str));
         }
     }
 
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            a(new bx4.c(z));
+            a(new cx4.c(z));
         }
     }
 
@@ -210,14 +210,14 @@ public class bq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048579, this, z, str) == null) {
             cq7.i().k(null);
-            a(new bx4.b(z, str));
+            a(new cx4.b(z, str));
         }
     }
 
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            a(new bx4.c(false));
+            a(new cx4.c(false));
             if (z) {
                 p();
             }
@@ -260,22 +260,22 @@ public class bq7 {
         return invokeV.booleanValue;
     }
 
-    public final void i(bx4 bx4Var, b bVar) {
+    public final void i(cx4 cx4Var, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, bx4Var, bVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048583, this, cx4Var, bVar) == null) {
             q(bVar);
             SapiAccount session = SapiAccountManager.getInstance().getSession();
-            if (bx4Var != null && session != null) {
-                if (bx4Var.getType() == 0) {
-                    j(bx4Var.e());
+            if (cx4Var != null && session != null) {
+                if (cx4Var.getType() == 0) {
+                    j(cx4Var.e());
                     return;
-                } else if (bx4Var.getType() == 1) {
+                } else if (cx4Var.getType() == 1) {
                     l(session.bduss);
                     return;
-                } else if (bx4Var.getType() == 2) {
+                } else if (cx4Var.getType() == 2) {
                     k(session.bduss);
                     return;
-                } else if (bx4Var.getType() == 3) {
+                } else if (cx4Var.getType() == 3) {
                     m();
                     return;
                 } else {
@@ -333,16 +333,16 @@ public class bq7 {
     }
 
     public final void p() {
-        ow4 b2;
+        pw4 b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj == null) {
-                currentAccountObj = cn4.e();
+                currentAccountObj = dn4.e();
             }
             if (currentAccountObj != null && (!TextUtils.isEmpty(currentAccountObj.getAccount()) || !TextUtils.isEmpty(currentAccountObj.getAccountNameShow()))) {
-                cn4.c(currentAccountObj.getID());
-                if (ReloginManager.g().i() && !TextUtils.isEmpty(currentAccountObj.getID()) && (b2 = nw4.b()) != null) {
+                dn4.c(currentAccountObj.getID());
+                if (ReloginManager.g().i() && !TextUtils.isEmpty(currentAccountObj.getID()) && (b2 = ow4.b()) != null) {
                     b2.c(currentAccountObj);
                 }
                 ReloginManager.g().f(null);
@@ -360,19 +360,19 @@ public class bq7 {
         }
     }
 
-    public void r(bx4 bx4Var, b bVar) {
+    public void r(cx4 cx4Var, b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048590, this, bx4Var, bVar) == null) && this.c.compareAndSet(false, true)) {
+        if ((interceptable == null || interceptable.invokeLL(1048590, this, cx4Var, bVar) == null) && this.c.compareAndSet(false, true)) {
             if (this.b.compareAndSet(false, true)) {
                 try {
-                    i(bx4Var, bVar);
+                    i(cx4Var, bVar);
                 } catch (Exception e) {
                     BdStatisticsManager.getInstance().error("passloaderror", 0L, (String) null, "Exception", e.toString());
                     this.b.set(false);
                 }
             } else if (!h()) {
                 try {
-                    i(bx4Var, bVar);
+                    i(cx4Var, bVar);
                 } catch (Exception unused) {
                     this.b.set(false);
                 }

@@ -9,7 +9,6 @@ import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.searchbox.process.ipc.agent.activity.MainProcessDelegateActivity;
 import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
 import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
@@ -31,7 +30,7 @@ import org.json.JSONObject;
 @Singleton
 @Service
 /* loaded from: classes6.dex */
-public class fn5 implements jk2 {
+public class fn5 implements kk2 {
     public static /* synthetic */ Interceptable $ic;
     public static BroadcastReceiver a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +99,7 @@ public class fn5 implements jk2 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) || (f71Var = this.a) == null) {
                 return;
             }
-            f71Var.onPayResult(bundle.getInt("result_code"), bundle.getString(AbstractThirdPartyService.EXTRA_RESULT_MSG));
+            f71Var.onPayResult(bundle.getInt("result_code"), bundle.getString("result_msg"));
         }
     }
 
@@ -169,14 +168,14 @@ public class fn5 implements jk2 {
         }
     }
 
-    @Override // com.repackage.jk2
+    @Override // com.repackage.kk2
     public void a(Activity activity, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
         }
     }
 
-    @Override // com.repackage.jk2
+    @Override // com.repackage.kk2
     public boolean b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -184,21 +183,21 @@ public class fn5 implements jk2 {
             if (WXAPIFactory.createWXAPI(context, null).isWXAppInstalled()) {
                 return true;
             }
-            zz2.g(context, "您没有安装微信，请选择其他支付方式").G();
+            a03.g(context, "您没有安装微信，请选择其他支付方式").G();
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.jk2
+    @Override // com.repackage.kk2
     public void c(Activity activity, String str, f71 f71Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, str, f71Var) == null) {
-            if (!e95.c().d()) {
-                pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0e9a);
+            if (!f95.c().d()) {
+                pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0e83);
                 return;
             }
-            h03 M = h03.M();
+            i03 M = i03.M();
             if (M == null || M.getActivity() == null) {
                 return;
             }
@@ -211,7 +210,7 @@ public class fn5 implements jk2 {
         }
     }
 
-    @Override // com.repackage.jk2
+    @Override // com.repackage.kk2
     public void d(Context context, JSONObject jSONObject, f71 f71Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, context, jSONObject, f71Var) == null) {
@@ -220,8 +219,8 @@ public class fn5 implements jk2 {
             createWXAPI.registerApp(g.appId);
             if (!createWXAPI.isWXAppInstalled()) {
                 f71Var.onPayResult(3, "wx_not_installed");
-                zz2.g(context, "您没有安装微信，请选择其他支付方式").G();
-            } else if (h03.M() == null) {
+                a03.g(context, "您没有安装微信，请选择其他支付方式").G();
+            } else if (i03.M() == null) {
             } else {
                 if (!createWXAPI.sendReq(g)) {
                     f71Var.onPayResult(6, "wx_start_failed");
@@ -237,15 +236,15 @@ public class fn5 implements jk2 {
         }
     }
 
-    @Override // com.repackage.jk2
+    @Override // com.repackage.kk2
     public void e(Activity activity, String str, f71 f71Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, activity, str, f71Var) == null) {
-            DelegateUtils.callOnMainWithActivity(ul2.U().getActivity(), MainProcessDelegateActivity.class, in5.class, in5.d(str), new a(this, f71Var));
+            DelegateUtils.callOnMainWithActivity(vl2.U().getActivity(), MainProcessDelegateActivity.class, in5.class, in5.d(str), new a(this, f71Var));
         }
     }
 
-    @Override // com.repackage.jk2
+    @Override // com.repackage.kk2
     public void f(Activity activity, String str, q71<JSONObject> q71Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, str, q71Var) == null) {

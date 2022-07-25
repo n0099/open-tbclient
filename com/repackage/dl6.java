@@ -58,15 +58,15 @@ public class dl6 extends an<rl6, FrsItemAcceleratorHolder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rl6Var, frsItemAcceleratorHolder})) == null) {
-            frsItemAcceleratorHolder.c(rl6Var);
-            frsItemAcceleratorHolder.f();
+            frsItemAcceleratorHolder.b(rl6Var);
+            frsItemAcceleratorHolder.e();
             if (TbSingleton.getInstance().isItemTabVisible) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new dv4(17)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ev4(17)));
                 if (rl6Var.a() == TbSingleton.getInstance().acceleratorItemId) {
-                    frsItemAcceleratorHolder.d();
+                    frsItemAcceleratorHolder.c();
                     return null;
                 }
-                frsItemAcceleratorHolder.e();
+                frsItemAcceleratorHolder.d();
                 return null;
             }
             return null;

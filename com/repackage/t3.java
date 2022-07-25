@@ -174,13 +174,13 @@ public final class t3 implements Iterable<s3>, Comparable<t3> {
                 s3VarArr2[i3] = s3VarArr[i3];
             }
             this.a = s3VarArr2;
-            this.b = b();
+            this.b = a();
             return;
         }
         throw new IllegalArgumentException("attributes must be >= 1");
     }
 
-    public final int b() {
+    public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
@@ -202,7 +202,7 @@ public final class t3 implements Iterable<s3>, Comparable<t3> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
-    /* renamed from: c */
+    /* renamed from: b */
     public int compareTo(t3 t3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -213,7 +213,7 @@ public final class t3 implements Iterable<s3>, Comparable<t3> {
             if (length != s3VarArr2.length) {
                 return s3VarArr.length - s3VarArr2.length;
             }
-            int i = (e() > t3Var.e() ? 1 : (e() == t3Var.e() ? 0 : -1));
+            int i = (d() > t3Var.d() ? 1 : (d() == t3Var.d() ? 0 : -1));
             if (i != 0) {
                 return i < 0 ? -1 : 1;
             }
@@ -250,13 +250,13 @@ public final class t3 implements Iterable<s3>, Comparable<t3> {
         return invokeL.intValue;
     }
 
-    public s3 d(int i) {
+    public s3 c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.a[i] : (s3) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.a[i] : (s3) invokeI.objValue;
     }
 
-    public long e() {
+    public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

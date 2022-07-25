@@ -136,7 +136,7 @@ public class n56 extends b9 implements NoNetworkView.b {
                     }
                 }
                 if (TextUtils.isEmpty(str)) {
-                    str = this.a.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0572);
+                    str = this.a.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f056e);
                 }
                 TbSingleton.getInstance().setHotSearch(str);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921396));
@@ -393,13 +393,13 @@ public class n56 extends b9 implements NoNetworkView.b {
     public final void A(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.h.findViewById(R.id.obfuscated_res_0x7f0908b7);
+            NavigationBar navigationBar = (NavigationBar) this.h.findViewById(R.id.obfuscated_res_0x7f0908b5);
             this.p = navigationBar;
             navigationBar.setNavHeight(this.t);
             this.p.hideBottomLine();
-            this.q = this.h.findViewById(R.id.obfuscated_res_0x7f0907d7);
+            this.q = this.h.findViewById(R.id.obfuscated_res_0x7f0907d5);
             W(0);
-            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091586);
+            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091561);
             this.m = imageView;
             imageView.setOnClickListener(new d(this));
             if (this.d != null) {
@@ -425,11 +425,11 @@ public class n56 extends b9 implements NoNetworkView.b {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d026f, (ViewGroup) null);
             this.b = linearLayout;
-            ForumHeaderView forumHeaderView = (ForumHeaderView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a98);
+            ForumHeaderView forumHeaderView = (ForumHeaderView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a72);
             this.c = forumHeaderView;
             forumHeaderView.setFrom(0);
             this.c.b();
-            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) this.b.findViewById(R.id.obfuscated_res_0x7f091ec9);
+            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) this.b.findViewById(R.id.obfuscated_res_0x7f091ecd);
             this.d = newPagerSlidingTabBaseStrip;
             newPagerSlidingTabBaseStrip.setDefaultSelectorColorResourceId(R.color.CAM_X0105);
             this.d.setRectPaintColor(R.color.CAM_X0302);
@@ -442,8 +442,8 @@ public class n56 extends b9 implements NoNetworkView.b {
             this.d.setTabPadding(pi.f(this.a.getContext(), R.dimen.tbds36), 0, pi.f(this.a.getContext(), R.dimen.tbds36), 0);
             this.d.setViewPager(this.e);
             this.d.setOnPageChangeListener(this.y);
-            this.o = this.b.findViewById(R.id.obfuscated_res_0x7f0908b8);
-            this.n = this.b.findViewById(R.id.obfuscated_res_0x7f0908b9);
+            this.o = this.b.findViewById(R.id.obfuscated_res_0x7f0908b6);
+            this.n = this.b.findViewById(R.id.obfuscated_res_0x7f0908b7);
         }
     }
 
@@ -456,7 +456,7 @@ public class n56 extends b9 implements NoNetworkView.b {
         D(bundle);
         B(bundle);
         A(bundle);
-        NoNetworkView noNetworkView = (NoNetworkView) this.h.findViewById(R.id.obfuscated_res_0x7f092439);
+        NoNetworkView noNetworkView = (NoNetworkView) this.h.findViewById(R.id.obfuscated_res_0x7f09243b);
         this.r = noNetworkView;
         noNetworkView.a(this);
     }
@@ -464,15 +464,15 @@ public class n56 extends b9 implements NoNetworkView.b {
     public final void D(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            this.e = (PullLeftViewPager) this.h.findViewById(R.id.obfuscated_res_0x7f0908bc);
+            this.e = (PullLeftViewPager) this.h.findViewById(R.id.obfuscated_res_0x7f0908ba);
             EnterForumTabPagerAdapter.a aVar = new EnterForumTabPagerAdapter.a();
             aVar.a = new EnterForumFragment();
-            aVar.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b32);
+            aVar.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b1e);
             ((EnterForumFragment) aVar.a).C1(this);
             EnterForumTabPagerAdapter.a aVar2 = new EnterForumTabPagerAdapter.a();
             aVar2.a = new ForumSquareFragment();
-            aVar2.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06b1);
-            aVar2.d = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06b1);
+            aVar2.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06ad);
+            aVar2.d = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06ad);
             ArrayList arrayList = new ArrayList();
             this.g = arrayList;
             arrayList.add(aVar);
@@ -638,10 +638,13 @@ public class n56 extends b9 implements NoNetworkView.b {
                     newPagerSlidingTabBaseStrip.setWhiteStyle(false);
                 }
             }
-            if (i == 0) {
-                this.c.setAdState(this.k);
-            } else {
-                this.c.setAdState(null);
+            ForumHeaderView forumHeaderView = this.c;
+            if (forumHeaderView != null) {
+                if (i == 0) {
+                    forumHeaderView.setAdState(this.k);
+                } else {
+                    forumHeaderView.setAdState(null);
+                }
             }
             if (i == 0 && TbadkCoreApplication.getInst().getSkinType() != 1 && this.a.isPrimary() && (z46Var = this.k) != null && z46Var.a && i == 0) {
                 int i8 = z46Var.b;
@@ -934,7 +937,7 @@ public class n56 extends b9 implements NoNetworkView.b {
                     i = i2;
                 }
             }
-            if (i == -1 && this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b32).equals(str)) {
+            if (i == -1 && this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b1e).equals(str)) {
                 return 0;
             }
             return i;

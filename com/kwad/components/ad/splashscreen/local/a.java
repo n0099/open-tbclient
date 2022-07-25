@@ -15,10 +15,10 @@ import java.util.Date;
 /* loaded from: classes5.dex */
 public class a extends com.kwad.sdk.core.response.kwai.a {
     public static /* synthetic */ Interceptable $ic;
-    public static SimpleDateFormat c;
+    public static SimpleDateFormat em;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
+    public long en;
+    public int eo;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +33,7 @@ public class a extends com.kwad.sdk.core.response.kwai.a {
                 return;
             }
         }
-        c = new SimpleDateFormat("yyyy-MM-dd");
+        em = new SimpleDateFormat("yyyy-MM-dd");
     }
 
     public a() {
@@ -49,8 +49,8 @@ public class a extends com.kwad.sdk.core.response.kwai.a {
                 return;
             }
         }
-        this.a = -1L;
-        this.b = -1;
+        this.en = -1L;
+        this.eo = -1;
     }
 
     public a(long j, int i) {
@@ -68,35 +68,35 @@ public class a extends com.kwad.sdk.core.response.kwai.a {
                 return;
             }
         }
-        this.a = -1L;
-        this.b = -1;
-        this.a = j;
-        this.b = 1;
+        this.en = -1L;
+        this.eo = -1;
+        this.en = j;
+        this.eo = 1;
     }
 
-    public final boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            int i2 = this.b;
-            return i2 > 0 && i2 >= i;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final boolean a(long j) {
+    public final boolean e(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            if (this.a > 0 && j > 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            if (this.en > 0 && j > 0) {
                 try {
-                    return c.format(new Date(this.a)).equals(c.format(new Date(j)));
+                    return em.format(new Date(this.en)).equals(em.format(new Date(j)));
                 } catch (Exception e) {
-                    com.kwad.sdk.core.d.b.b(e);
+                    com.kwad.sdk.core.e.b.printStackTraceOnly(e);
                 }
             }
             return false;
         }
         return invokeJ.booleanValue;
+    }
+
+    public final boolean w(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            int i2 = this.eo;
+            return i2 > 0 && i2 >= i;
+        }
+        return invokeI.booleanValue;
     }
 }

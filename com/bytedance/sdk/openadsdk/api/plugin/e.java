@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
-import com.baidu.sofire.rp.service.Service;
 import com.bytedance.pangle.GlobalParam;
 import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.ZeusPluginStateListener;
@@ -253,7 +252,7 @@ public class e {
                 com.bytedance.sdk.openadsdk.api.a.b("TTPluginManager", "Load plugin failed, caused by timeout.");
                 tTPluginListener.onPluginListener(1001, null, null, null);
             }
-        }, Service.TRIGGER_INTERVAL);
+        }, 180000L);
         String packageName = tTPluginListener.packageName();
         Plugin plugin = (Zeus.isPluginInstalled(packageName) && (Zeus.isPluginLoaded(packageName) || Zeus.loadPlugin(packageName))) ? Zeus.getPlugin(packageName) : null;
         StringBuilder sb = new StringBuilder();

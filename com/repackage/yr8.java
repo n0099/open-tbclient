@@ -195,14 +195,14 @@ public class yr8 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0503, (ViewGroup) null);
+                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d050d, (ViewGroup) null);
                 cVar = new c(this);
-                cVar.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092150);
+                cVar.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092152);
                 cVar.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903d6);
-                cVar.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092138);
-                cVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09160e);
+                cVar.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09213a);
+                cVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915e9);
                 cVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0903bd);
-                cVar.e = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f09214f);
+                cVar.e = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f092151);
                 cVar.f = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0903d2);
                 view2.setTag(cVar);
             } else {

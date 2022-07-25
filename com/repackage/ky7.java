@@ -125,7 +125,7 @@ public class ky7 {
             if (tbPageContext == null) {
                 return null;
             }
-            return LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0888, (ViewGroup) null);
+            return LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0892, (ViewGroup) null);
         }
         return (View) invokeL.objValue;
     }
@@ -133,21 +133,21 @@ public class ky7 {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.e = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0916fb);
-            HeadImageView headImageView = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0916fa);
+            this.e = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0916d6);
+            HeadImageView headImageView = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0916d5);
             this.c = headImageView;
             headImageView.setOnClickListener(this.l);
-            LinearLayout linearLayout = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0916f9);
+            LinearLayout linearLayout = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0916d4);
             this.k = linearLayout;
             SkinManager.setBackgroundResource(linearLayout, R.drawable.video_author_bg);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0916fc);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0916d7);
             this.d = textView;
             textView.setOnClickListener(this.l);
-            TextView textView2 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0916f6);
+            TextView textView2 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0916d1);
             this.f = textView2;
             textView2.setOnClickListener(this.l);
-            this.g = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0916f7);
-            PbVideoFullUserInfoLikeButton pbVideoFullUserInfoLikeButton = (PbVideoFullUserInfoLikeButton) this.b.findViewById(R.id.obfuscated_res_0x7f0916f8);
+            this.g = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0916d2);
+            PbVideoFullUserInfoLikeButton pbVideoFullUserInfoLikeButton = (PbVideoFullUserInfoLikeButton) this.b.findViewById(R.id.obfuscated_res_0x7f0916d3);
             this.h = pbVideoFullUserInfoLikeButton;
             pbVideoFullUserInfoLikeButton.setTextSize(0, pi.f(this.a.getPageActivity(), R.dimen.tbds30));
             this.i = new jy7(this.a, this.h);

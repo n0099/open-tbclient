@@ -36,27 +36,27 @@ public abstract class vp8<T> extends up8<T> {
     public long e(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) ? xt4.k().m(str, j) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) ? yt4.k().m(str, j) : invokeLJ.longValue;
     }
 
     @Override // com.repackage.up8
     public void g(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-            xt4.k().x(str, j);
+            yt4.k().x(str, j);
         }
     }
 
     public int l(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) ? xt4.k().l(str, i) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) ? yt4.k().l(str, i) : invokeLI.intValue;
     }
 
     public void m(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
-            xt4.k().w(str, i);
+            yt4.k().w(str, i);
         }
     }
 }

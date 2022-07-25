@@ -9,7 +9,6 @@ import com.baidu.ar.h.t;
 import com.baidu.ar.ihttp.Downloader;
 import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.IProgressCallback;
-import com.baidu.sofire.core.ForHostApp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -94,7 +93,7 @@ public class c extends com.baidu.ar.e.a<String, Void> {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, iCallbackWith, iError) == null) {
             if (TextUtils.isEmpty(str)) {
                 iError.onError(2, "res url is not exists", null);
-            } else if (ForHostApp.KEY_NAME_LOCAL.equals(str)) {
+            } else if ("local".equals(str)) {
                 iCallbackWith.run(null);
             } else {
                 f aN = this.xz.aN(this.xy);

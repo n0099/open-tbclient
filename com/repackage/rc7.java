@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Set;
 /* loaded from: classes7.dex */
-public class rc7 extends jk4 {
+public class rc7 extends kk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a extends BdAsyncTask<Object, Integer, ok4> {
+    public class a extends BdAsyncTask<Object, Integer, pk4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile NetWork a;
@@ -54,11 +54,11 @@ public class rc7 extends jk4 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public ok4 doInBackground(Object... objArr) {
+        public pk4 doInBackground(Object... objArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                ok4 ok4Var = new ok4();
+                pk4 pk4Var = new pk4();
                 try {
                     this.a = new NetWork(TbConfig.SERVER_ADDRESS + this.c);
                     Set<String> keySet = this.d.keySet();
@@ -75,39 +75,39 @@ public class rc7 extends jk4 {
                     this.a.getNetContext().getRequest().mIsNeedTbs = true;
                     String postNetData = this.a.postNetData();
                     if (!this.a.getNetContext().getResponse().isNetSuccess()) {
-                        ok4Var.b = this.a.getNetErrorCode();
-                        ok4Var.c = this.a.getNetString();
+                        pk4Var.b = this.a.getNetErrorCode();
+                        pk4Var.c = this.a.getNetString();
                     } else {
-                        ok4Var.b = this.a.getServerErrorCode();
-                        ok4Var.c = this.a.getErrorString();
+                        pk4Var.b = this.a.getServerErrorCode();
+                        pk4Var.c = this.a.getErrorString();
                     }
                     if (this.a.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
-                        if (ok4Var.b != 0) {
+                        if (pk4Var.b != 0) {
                             z = false;
                         }
-                        ok4Var.a = z;
-                        return ok4Var;
+                        pk4Var.a = z;
+                        return pk4Var;
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
-                ok4Var.a = false;
-                return ok4Var;
+                pk4Var.a = false;
+                return pk4Var;
             }
-            return (ok4) invokeL.objValue;
+            return (pk4) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(ok4 ok4Var) {
+        public void onPostExecute(pk4 pk4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ok4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pk4Var) == null) {
                 c9 c9Var = this.e;
                 if (c9Var != null) {
-                    c9Var.c(ok4Var);
+                    c9Var.c(pk4Var);
                 }
-                nc7.a().d(this.c, this.d, ok4Var);
+                nc7.a().d(this.c, this.d, pk4Var);
             }
         }
 
@@ -142,7 +142,7 @@ public class rc7 extends jk4 {
         }
     }
 
-    @Override // com.repackage.jk4, com.repackage.mk4
+    @Override // com.repackage.kk4, com.repackage.nk4
     public void a(Object obj, HashMap<String, String> hashMap, String str, c9 c9Var) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, obj, hashMap, str, c9Var) == null) || hashMap == null || hashMap.isEmpty() || !hashMap.containsKey("url")) {
@@ -157,7 +157,7 @@ public class rc7 extends jk4 {
         aVar.execute(new Object[0]);
     }
 
-    @Override // com.repackage.jk4
+    @Override // com.repackage.kk4
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,14 +1,14 @@
 package com.repackage;
 
 import com.baidu.searchbox.http.AbstractHttpManager;
-import com.baidu.searchbox.http.request.HeadRequest;
+import com.baidu.searchbox.http.request.GetRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class b74 extends HeadRequest.HeadRequestBuilder {
+public class b74 extends GetRequest.GetRequestBuilder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,15 +33,15 @@ public class b74 extends HeadRequest.HeadRequestBuilder {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.request.HeadRequest.HeadRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
-    public HeadRequest build() {
+    @Override // com.baidu.searchbox.http.request.GetRequest.GetRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
+    public GetRequest build() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            x64.b().j(this.httpUrl.toString(), this);
+            y64.b().j(this.httpUrl.toString(), this);
             requestFrom(6);
             return super.build();
         }
-        return (HeadRequest) invokeV.objValue;
+        return (GetRequest) invokeV.objValue;
     }
 }

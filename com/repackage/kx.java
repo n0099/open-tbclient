@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kx extends qw<nn4> {
+public class kx extends qw<on4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public ThreadLinkView g;
     public TextView h;
-    public nn4 i;
+    public on4 i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public kx(Context context) {
@@ -48,8 +48,8 @@ public class kx extends qw<nn4> {
         } else {
             this.f = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a0, (ViewGroup) null, true);
         }
-        this.g = (ThreadLinkView) this.f.findViewById(R.id.obfuscated_res_0x7f0912cc);
-        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0912c7);
+        this.g = (ThreadLinkView) this.f.findViewById(R.id.obfuscated_res_0x7f0912a8);
+        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0912a3);
     }
 
     @Override // com.repackage.qw
@@ -64,8 +64,8 @@ public class kx extends qw<nn4> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
             this.g.b();
-            nn4 nn4Var = this.i;
-            if (nn4Var == null || nn4Var.getThreadData() == null) {
+            on4 on4Var = this.i;
+            if (on4Var == null || on4Var.getThreadData() == null) {
                 return;
             }
             ux5.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
@@ -75,12 +75,12 @@ public class kx extends qw<nn4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: p */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nn4Var) == null) {
-            if (nn4Var != null && nn4Var.getThreadData() != null) {
-                this.i = nn4Var;
-                ThreadData threadData = nn4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(1048579, this, on4Var) == null) {
+            if (on4Var != null && on4Var.getThreadData() != null) {
+                this.i = on4Var;
+                ThreadData threadData = on4Var.getThreadData();
                 ux5.j(threadData, this.h);
                 this.g.setData(threadData);
                 return;

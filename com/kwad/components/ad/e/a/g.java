@@ -12,7 +12,7 @@ import com.kwad.sdk.core.imageloader.KSImageLoader;
 public final class g extends com.kwad.components.ad.e.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView c;
+    public ImageView kc;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -29,23 +29,23 @@ public final class g extends com.kwad.components.ad.e.kwai.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
+    public void es() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            KSImageLoader.loadImage(this.c, com.kwad.sdk.core.response.a.a.k(com.kwad.sdk.core.response.a.d.i(((com.kwad.components.ad.e.kwai.a) this).a.d)), ((com.kwad.components.ad.e.kwai.a) this).a.d);
-            this.c.setVisibility(0);
+            KSImageLoader.loadImage(this.kc, com.kwad.sdk.core.response.a.a.K(com.kwad.sdk.core.response.a.d.bQ(this.jL.mAdTemplate)), this.jL.mAdTemplate);
+            this.kc.setVisibility(0);
         }
     }
 
     @Override // com.kwad.components.ad.e.kwai.a, com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
+            super.aq();
             com.kwad.components.core.video.h hVar = new com.kwad.components.core.video.h(this) { // from class: com.kwad.components.ad.e.a.g.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ g a;
+                public final /* synthetic */ g kd;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -62,29 +62,29 @@ public final class g extends com.kwad.components.ad.e.kwai.a {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.kd = this;
                 }
 
                 @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-                public final void d() {
+                public final void onVideoPlayCompleted() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.d();
+                        this.kd.es();
                     }
                 }
             };
-            ((com.kwad.components.ad.e.kwai.a) this).b = hVar;
-            ((com.kwad.components.ad.e.kwai.a) this).a.f.a(hVar);
-            this.c.setVisibility(8);
+            this.mVideoPlayStateListener = hVar;
+            this.jL.jM.a(hVar);
+            this.kc.setVisibility(8);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void i_() {
+    public final void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.i_();
-            this.c = (ImageView) b(R.id.obfuscated_res_0x7f0911cf);
+            super.onCreate();
+            this.kc = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911ab);
         }
     }
 }

@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.center.clearcache.DiskManagerSharedPrefsUtils;
@@ -17,16 +18,16 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class e implements g {
+public class e implements h {
     public static /* synthetic */ Interceptable $ic;
-    public static e a;
+    public static volatile e Dq;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public String b;
-    public int c;
-    public int d;
-    public long e;
-    public boolean f;
+    public String Dr;
+    public int Ds;
+    public int Dt;
+    public long Du;
+    public boolean Dv;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -41,10 +42,10 @@ public class e implements g {
                 return;
             }
         }
-        this.c = 0;
-        this.d = 1;
-        this.e = DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT;
-        this.f = false;
+        this.Ds = 0;
+        this.Dt = 1;
+        this.Du = DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT;
+        this.Dv = false;
     }
 
     public e(long j) {
@@ -62,36 +63,28 @@ public class e implements g {
                 return;
             }
         }
-        this.c = 0;
-        this.d = 1;
-        this.e = DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT;
-        this.f = false;
-        this.b = String.valueOf(j);
+        this.Ds = 0;
+        this.Dt = 1;
+        this.Du = DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT;
+        this.Dv = false;
+        this.Dr = String.valueOf(j);
     }
 
-    @NonNull
-    public static e a(long j) {
-        InterceptResult invokeJ;
-        e a2;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? (a.a() == null || (a2 = a.a().a(String.valueOf(j))) == null) ? g() : a2 : (e) invokeJ.objValue;
-    }
-
-    public static e a(AdTemplate adTemplate) {
+    public static e H(AdTemplate adTemplate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, adTemplate)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, adTemplate)) == null) {
             if (adTemplate == null) {
                 return null;
             }
             long j = adTemplate.posId;
-            AdInfo i = com.kwad.sdk.core.response.a.d.i(adTemplate);
+            AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
             e eVar = new e(j);
-            AdInfo.AdBaseInfo adBaseInfo = i.adBaseInfo;
-            eVar.c = adBaseInfo.adCacheStrategy;
-            eVar.e = adBaseInfo.adCacheSecond;
-            eVar.d = adBaseInfo.adCacheSize;
-            eVar.f = adBaseInfo.adCacheSwitch == 1;
+            AdInfo.AdBaseInfo adBaseInfo = bQ.adBaseInfo;
+            eVar.Ds = adBaseInfo.adCacheStrategy;
+            eVar.Du = adBaseInfo.adCacheSecond;
+            eVar.Dt = adBaseInfo.adCacheSize;
+            eVar.Dv = adBaseInfo.adCacheSwitch == 1;
             return eVar;
         }
         return (e) invokeL.objValue;
@@ -100,7 +93,7 @@ public class e implements g {
     public static synchronized List<e> a(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cursor)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cursor)) == null) {
             synchronized (e.class) {
                 if (cursor == null) {
                     return null;
@@ -110,7 +103,7 @@ public class e implements g {
                     try {
                         arrayList.add(b(cursor));
                     } catch (Exception e) {
-                        com.kwad.sdk.core.d.b.a(e);
+                        com.kwad.sdk.core.e.b.printStackTrace(e);
                     }
                 }
                 return arrayList;
@@ -123,7 +116,7 @@ public class e implements g {
         InterceptResult invokeL;
         e eVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cursor)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cursor)) == null) {
             synchronized (e.class) {
                 String string = cursor.getString(cursor.getColumnIndex("posId"));
                 int i = cursor.getInt(cursor.getColumnIndex("strategyCode"));
@@ -134,11 +127,11 @@ public class e implements g {
                     z = false;
                 }
                 eVar = new e();
-                eVar.b = string;
-                eVar.c = i;
-                eVar.d = i2;
-                eVar.e = j;
-                eVar.f = z;
+                eVar.Dr = string;
+                eVar.Ds = i;
+                eVar.Dt = i2;
+                eVar.Du = j;
+                eVar.Dv = z;
             }
             return eVar;
         }
@@ -146,63 +139,72 @@ public class e implements g {
     }
 
     @NonNull
-    public static e g() {
+    @WorkerThread
+    public static e k(long j) {
+        InterceptResult invokeJ;
+        e af;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) ? (a.lP() == null || (af = a.lP().af(String.valueOf(j))) == null) ? lW() : af : (e) invokeJ.objValue;
+    }
+
+    @NonNull
+    public static e lW() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (a == null) {
+            if (Dq == null) {
                 synchronized (e.class) {
-                    if (a == null) {
-                        a = new e();
+                    if (Dq == null) {
+                        Dq = new e();
                     }
                 }
             }
-            return a;
+            return Dq;
         }
         return (e) invokeV.objValue;
     }
 
-    public final int a() {
+    public final boolean isDefault() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? equals(lW()) : invokeV.booleanValue;
     }
 
-    public final int b() {
+    public final boolean isEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.Dv : invokeV.booleanValue;
     }
 
-    public final long c() {
+    public final int lX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.Ds : invokeV.intValue;
     }
 
-    public final boolean d() {
+    public final int lY() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.Dt : invokeV.intValue;
     }
 
-    public final boolean e() {
+    public final long lZ() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? equals(g()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.Du : invokeV.longValue;
     }
 
-    @Override // com.kwad.components.core.a.g
-    public final ContentValues f() {
+    @Override // com.kwad.components.core.a.h
+    public final ContentValues ma() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("posId", this.b);
-            contentValues.put("strategyCode", Integer.valueOf(this.c));
-            contentValues.put("cacheSize", Integer.valueOf(this.d));
-            contentValues.put("cacheSecond", Long.valueOf(this.e));
-            contentValues.put("enable", Integer.valueOf(this.f ? 1 : 0));
+            contentValues.put("posId", this.Dr);
+            contentValues.put("strategyCode", Integer.valueOf(this.Ds));
+            contentValues.put("cacheSize", Integer.valueOf(this.Dt));
+            contentValues.put("cacheSecond", Long.valueOf(this.Du));
+            contentValues.put("enable", Integer.valueOf(this.Dv ? 1 : 0));
             return contentValues;
         }
         return (ContentValues) invokeV.objValue;

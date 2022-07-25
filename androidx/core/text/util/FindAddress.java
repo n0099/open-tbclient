@@ -3,7 +3,6 @@ package androidx.core.text.util;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.sofire.d.D;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -238,24 +237,14 @@ public class FindAddress {
                 }
                 String lowerCase = matcher.group(2).toLowerCase(Locale.getDefault());
                 int i3 = parseInt % 10;
-                String str2 = D.COLUMU_PLUGIN_APPLICATION_THEME;
                 if (i3 == 1) {
-                    if (parseInt % 100 != 11) {
-                        str2 = "st";
-                    }
-                    return lowerCase.equals(str2);
+                    return lowerCase.equals(parseInt % 100 != 11 ? "st" : "th");
                 } else if (i3 == 2) {
-                    if (parseInt % 100 != 12) {
-                        str2 = "nd";
-                    }
-                    return lowerCase.equals(str2);
+                    return lowerCase.equals(parseInt % 100 != 12 ? "nd" : "th");
                 } else if (i3 != 3) {
-                    return lowerCase.equals(D.COLUMU_PLUGIN_APPLICATION_THEME);
+                    return lowerCase.equals("th");
                 } else {
-                    if (parseInt % 100 != 13) {
-                        str2 = "rd";
-                    }
-                    return lowerCase.equals(str2);
+                    return lowerCase.equals(parseInt % 100 != 13 ? "rd" : "th");
                 }
             }
             return true;

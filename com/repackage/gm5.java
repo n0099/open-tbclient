@@ -35,23 +35,23 @@ public class gm5 {
     public boolean d;
     public long e;
     public SplashNativePolicy f;
-    public nl4 g;
+    public ol4 g;
     public final ArrayList<hm5> h;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nl4 a;
+        public final /* synthetic */ ol4 a;
         public final /* synthetic */ hm5 b;
         public final /* synthetic */ gm5 c;
 
-        public a(gm5 gm5Var, nl4 nl4Var, hm5 hm5Var) {
+        public a(gm5 gm5Var, ol4 ol4Var, hm5 hm5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gm5Var, nl4Var, hm5Var};
+                Object[] objArr = {gm5Var, ol4Var, hm5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,7 +62,7 @@ public class gm5 {
                 }
             }
             this.c = gm5Var;
-            this.a = nl4Var;
+            this.a = ol4Var;
             this.b = hm5Var;
         }
 
@@ -75,9 +75,9 @@ public class gm5 {
                     this.a.c(hm5Var instanceof sl5 ? ((sl5) hm5Var).k : null);
                 }
                 this.b.show();
-                nl4 nl4Var = this.a;
-                if (nl4Var != null) {
-                    nl4Var.d(String.valueOf((int) this.c.f(this.b)));
+                ol4 ol4Var = this.a;
+                if (ol4Var != null) {
+                    ol4Var.d(String.valueOf((int) this.c.f(this.b)));
                 }
             }
         }
@@ -130,8 +130,8 @@ public class gm5 {
         this.e = -1L;
         this.g = null;
         this.h = new ArrayList<>();
-        this.a = xt4.k().l("splash_ad_strategy_key", 0);
-        this.b = xt4.k().l("splash_origin_ad_strategy_key", 1);
+        this.a = yt4.k().l("splash_ad_strategy_key", 0);
+        this.b = yt4.k().l("splash_origin_ad_strategy_key", 1);
         q();
     }
 
@@ -178,22 +178,22 @@ public class gm5 {
                 hm5 next = it.next();
                 if (next instanceof rl5) {
                     rl5 rl5Var = (rl5) next;
-                    boolean u = rl5Var.u();
-                    if (u && BearTimeoutTryShowSwitch.isOn()) {
+                    boolean v = rl5Var.v();
+                    if (v && BearTimeoutTryShowSwitch.isOn()) {
                         StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.SHOW_AD_TIME).param("obj_source", (int) f(next)).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, this.d ? 2 : 1).param(TiebaStatic.Params.SPLASH_UNI, this.e);
                         if (!StringUtils.isNull(next.c())) {
                             param.param(TiebaStatic.Params.OBJ_TO, next.c());
                         }
                         param.eventStat();
-                        rl5Var.s();
+                        rl5Var.t();
                         return;
                     }
-                    StatisticItem.make("fail_splash").param("obj_param1", u ? "1" : "0").eventStat();
+                    StatisticItem.make("fail_splash").param("obj_param1", v ? "1" : "0").eventStat();
                 }
             }
-            nl4 nl4Var = this.g;
-            if (nl4Var != null) {
-                nl4Var.b("");
+            ol4 ol4Var = this.g;
+            if (ol4Var != null) {
+                ol4Var.b("");
             }
         }
     }
@@ -238,16 +238,16 @@ public class gm5 {
                     rl5 rl5Var = new rl5(this.f);
                     this.h.clear();
                     if (UbsABTestHelper.newSplashStrategy()) {
-                        if (vc5.w()) {
+                        if (wc5.w()) {
                             this.h.add(sl5Var);
                         }
                     } else if (this.b != 0) {
                         this.h.add(sl5Var);
                     }
-                    if (vc5.q(this.a)) {
+                    if (wc5.q(this.a)) {
                         this.h.add(rl5Var);
                     }
-                    if (xt4.k().h("key_is_jump_splash_ad", false)) {
+                    if (yt4.k().h("key_is_jump_splash_ad", false)) {
                         j();
                         this.h.clear();
                     }
@@ -259,7 +259,7 @@ public class gm5 {
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? vc5.q(this.a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? wc5.q(this.a) : invokeV.booleanValue;
     }
 
     public boolean i() {
@@ -288,12 +288,12 @@ public class gm5 {
     }
 
     public void k(int i2) {
-        nl4 nl4Var;
+        ol4 ol4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (nl4Var = this.g) == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (ol4Var = this.g) == null) {
             return;
         }
-        nl4Var.a(i2);
+        ol4Var.a(i2);
     }
 
     public void l(int i2) {
@@ -328,14 +328,14 @@ public class gm5 {
         }
     }
 
-    public synchronized void m(ql4 ql4Var) {
+    public synchronized void m(rl4 rl4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ql4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, rl4Var) == null) {
             synchronized (this) {
                 this.c = false;
-                this.e = ql4Var.c();
-                this.g = ql4Var.a();
-                this.d = ql4Var.d();
+                this.e = rl4Var.c();
+                this.g = rl4Var.a();
+                this.d = rl4Var.d();
                 if (this.f != null) {
                     this.f.onSplashEvent(96);
                 }
@@ -345,24 +345,24 @@ public class gm5 {
                 while (it.hasNext()) {
                     hm5 next = it.next();
                     if (!(next instanceof sl5) || !mm5.g()) {
-                        next.e(ql4Var);
+                        next.e(rl4Var);
                     }
                 }
             }
         }
     }
 
-    public void n(nl4 nl4Var) {
+    public void n(ol4 ol4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, nl4Var) == null) || UbsABTestHelper.newSplashStrategy()) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, ol4Var) == null) || UbsABTestHelper.newSplashStrategy()) {
             return;
         }
-        o(nl4Var, true);
+        o(ol4Var, true);
     }
 
-    public synchronized void o(nl4 nl4Var, boolean z) {
+    public synchronized void o(ol4 ol4Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLZ(1048588, this, nl4Var, z) != null) {
+        if (interceptable != null && interceptable.invokeLZ(1048588, this, ol4Var, z) != null) {
             return;
         }
         synchronized (this) {
@@ -373,10 +373,10 @@ public class gm5 {
             while (true) {
                 if (!it.hasNext()) {
                     if (!z) {
-                        StatisticItem.make(TbadkCoreStatisticKey.HOT_SPLASH_TIMEOUT).param("obj_type", "a064").param(TiebaStatic.Params.BEAR_CONFIG, vc5.q(this.a) ? 1 : 0).param(TiebaStatic.Params.PLG_CONFIG, this.b != 0 ? 1 : 0).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.SPLASH_UNI, this.e).eventStat();
+                        StatisticItem.make(TbadkCoreStatisticKey.HOT_SPLASH_TIMEOUT).param("obj_type", "a064").param(TiebaStatic.Params.BEAR_CONFIG, wc5.q(this.a) ? 1 : 0).param(TiebaStatic.Params.PLG_CONFIG, this.b != 0 ? 1 : 0).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.SPLASH_UNI, this.e).eventStat();
                     }
-                    if (nl4Var != null) {
-                        nl4Var.b("");
+                    if (ol4Var != null) {
+                        ol4Var.b("");
                     }
                     return;
                 }
@@ -391,17 +391,17 @@ public class gm5 {
                         param.eventStat();
                         if (AdToMainTabActivitySwitch.getIsOn()) {
                             vk8.a(MainTabScheduleStrategy.UNSCHEDULE);
-                            qg.a().post(new a(this, nl4Var, next));
+                            qg.a().post(new a(this, ol4Var, next));
                         } else {
-                            if (nl4Var != null) {
-                                nl4Var.c(next instanceof sl5 ? ((sl5) next).k : null);
+                            if (ol4Var != null) {
+                                ol4Var.c(next instanceof sl5 ? ((sl5) next).k : null);
                             }
                             next.show();
-                            if (nl4Var != null) {
-                                nl4Var.d(String.valueOf((int) f(next)));
+                            if (ol4Var != null) {
+                                ol4Var.d(String.valueOf((int) f(next)));
                             }
                         }
-                        mt4.a("homePage", -1L, 0, "logo_splash", 0, "", "splashType", oi.isEmpty(next.f()) ? "bes" : next.f());
+                        nt4.a("homePage", -1L, 0, "logo_splash", 0, "", "splashType", oi.isEmpty(next.f()) ? "bes" : next.f());
                         return;
                     } else if (next.d() != AdLoadState.FAILED && z) {
                         return;
@@ -459,7 +459,7 @@ public class gm5 {
                 if (splashNativePolicy == null) {
                     SplashNativePolicy splashNativePolicy2 = new SplashNativePolicy();
                     this.f = splashNativePolicy2;
-                    boolean initSplashPolicy = splashNativePolicy2.initSplashPolicy(vc5.u(), vc5.w(), vc5.v(), vc5.k(), vc5.l());
+                    boolean initSplashPolicy = splashNativePolicy2.initSplashPolicy(wc5.u(), wc5.w(), wc5.v(), wc5.k(), wc5.l());
                     PrintStream printStream = System.out;
                     printStream.println("SplashPolicy init result = " + initSplashPolicy);
                     if (initSplashPolicy) {
@@ -468,7 +468,7 @@ public class gm5 {
                     this.f = null;
                     return;
                 }
-                boolean updateSplashConfig = splashNativePolicy.updateSplashConfig(vc5.u(), vc5.w(), vc5.v(), vc5.k(), vc5.l());
+                boolean updateSplashConfig = splashNativePolicy.updateSplashConfig(wc5.u(), wc5.w(), wc5.v(), wc5.k(), wc5.l());
                 PrintStream printStream2 = System.out;
                 printStream2.println("SplashPolicy update result = " + updateSplashConfig);
                 if (updateSplashConfig) {
@@ -499,17 +499,17 @@ public class gm5 {
                 int e7 = ng.e(optJSONObject.optString("screen_fill_advertisement_bear_switch", "1"), 1);
                 int e8 = ng.e(optJSONObject.optString("screen_fill_advertisement_plj_switch", "1"), 1);
                 int e9 = ng.e(optJSONObject.optString("screen_fill_advertisement_plj_cpc_switch", "1"), 1);
-                xt4.k().w("key_splash_new_policy_bear_enable", e7);
-                xt4.k().w("key_splash_new_policy_plg_enable", e8);
-                xt4.k().w("key_splash_new_policy_plg_cpc_enable", e9);
-                xt4.k().w("key_splash_new_policy_first_timeout", e5);
-                xt4.k().w("key_splash_new_policy_second_timeout", e6);
+                yt4.k().w("key_splash_new_policy_bear_enable", e7);
+                yt4.k().w("key_splash_new_policy_plg_enable", e8);
+                yt4.k().w("key_splash_new_policy_plg_cpc_enable", e9);
+                yt4.k().w("key_splash_new_policy_first_timeout", e5);
+                yt4.k().w("key_splash_new_policy_second_timeout", e6);
             }
-            rl5.v(e3);
-            xt4.k().w("splash_ad_strategy_key", e);
-            xt4.k().w("splash_origin_ad_strategy_key", e2);
-            xt4.k().w("key_splash_new_policy_enable", e4);
-            if (!h() && vc5.q(e)) {
+            rl5.x(e3);
+            yt4.k().w("splash_ad_strategy_key", e);
+            yt4.k().w("splash_origin_ad_strategy_key", e2);
+            yt4.k().w("key_splash_new_policy_enable", e4);
+            if (!h() && wc5.q(e)) {
                 if (pi.C()) {
                     zq6.m().u();
                 } else {

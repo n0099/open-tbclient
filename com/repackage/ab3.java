@@ -1,8 +1,7 @@
 package com.repackage;
 
-import android.net.wifi.ScanResult;
-import java.util.List;
+import android.net.wifi.WifiInfo;
 /* loaded from: classes5.dex */
 public interface ab3 {
-    void a(List<ScanResult> list);
+    void a(WifiInfo wifiInfo);
 }

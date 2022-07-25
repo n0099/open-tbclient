@@ -477,16 +477,16 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                 this.a.setVisibility(8);
                 this.d.setVisibility(8);
             } else if (i == 3) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f0811c6);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f0811ca);
                 this.d.setImageResource(R.drawable.obfuscated_res_0x7f080acc);
             } else if (i == 4) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f0811c6);
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f0811c9);
-            } else if (i == 5) {
                 this.a.setImageResource(R.drawable.obfuscated_res_0x7f0811ca);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f0811cd);
+            } else if (i == 5) {
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f0811ce);
                 wr8 wr8Var = this.e;
                 if (wr8Var != null && wr8Var.g() >= 3000.0f) {
-                    this.d.setImageResource(R.drawable.obfuscated_res_0x7f0811c9);
+                    this.d.setImageResource(R.drawable.obfuscated_res_0x7f0811cd);
                 } else {
                     this.d.setImageResource(R.drawable.obfuscated_res_0x7f080acc);
                 }
@@ -558,7 +558,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             wr8 wr8Var = this.e;
             if (wr8Var != null && wr8Var.i()) {
                 this.l = true;
-                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f0b19);
+                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f0b05);
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
@@ -599,20 +599,20 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d072f, this);
-            this.q = (VideoEffectLayout) findViewById(R.id.obfuscated_res_0x7f091233);
-            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09124e);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090753);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0739, this);
+            this.q = (VideoEffectLayout) findViewById(R.id.obfuscated_res_0x7f09120f);
+            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09122a);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090752);
             this.a = imageView;
             imageView.setOnClickListener(this);
-            VideoRecordButton videoRecordButton = (VideoRecordButton) findViewById(R.id.obfuscated_res_0x7f09124f);
+            VideoRecordButton videoRecordButton = (VideoRecordButton) findViewById(R.id.obfuscated_res_0x7f09122b);
             this.c = videoRecordButton;
             videoRecordButton.setOnTouchListener(this);
-            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f09069a);
+            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f090699);
             this.d = imageView2;
             imageView2.setOnClickListener(this);
-            this.p.add(0, new sr8(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b1a), new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0b1a)), R.drawable.obfuscated_res_0x7f080ae1));
-            this.p.add(1, new sr8(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b18), new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_CLOUD_ID, 2, getResources().getString(R.string.obfuscated_res_0x7f0f0b18)), R.drawable.obfuscated_res_0x7f080acb));
+            this.p.add(0, new sr8(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b06), new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0b06)), R.drawable.obfuscated_res_0x7f080ae1));
+            this.p.add(1, new sr8(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b04), new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_CLOUD_ID, 2, getResources().getString(R.string.obfuscated_res_0x7f0f0b04)), R.drawable.obfuscated_res_0x7f080acb));
         }
     }
 
@@ -746,7 +746,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             }
             B(false);
             this.c.getLayer1().setVisibility(8);
-            this.c.getTvTip().setText(getResources().getText(R.string.obfuscated_res_0x7f0f1536));
+            this.c.getTvTip().setText(getResources().getText(R.string.obfuscated_res_0x7f0f14e5));
             this.c.getTvTip().setVisibility(0);
             f fVar = this.k;
             if (fVar != null) {
@@ -846,7 +846,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                 this.c.setAlpha(1.0f);
                 this.a.setVisibility(8);
                 this.d.setVisibility(8);
-                this.c.getTvTip().setText(getResources().getString(R.string.obfuscated_res_0x7f0f1537));
+                this.c.getTvTip().setText(getResources().getString(R.string.obfuscated_res_0x7f0f14e6));
                 wr8 wr8Var = this.e;
                 if (wr8Var != null) {
                     wr8Var.n();

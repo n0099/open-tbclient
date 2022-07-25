@@ -149,22 +149,22 @@ public class uo7 implements InterestedForumModel.d, hp7, View.OnClickListener, I
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.a.e()) {
                 this.g.setEnabled(true);
-                this.g.setText(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f1201));
+                this.g.setText(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f11b0));
             } else {
                 this.g.setEnabled(false);
-                this.g.setText(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0933));
+                this.g.setText(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f091e));
             }
-            vu4 vu4Var = new vu4();
+            wu4 wu4Var = new wu4();
             this.f.setTextSize(R.dimen.T_X06);
             if (!this.a.f()) {
-                this.f.setText(this.h.getString(R.string.obfuscated_res_0x7f0f0939));
-                vu4Var.p(R.color.CAM_X0304);
-                this.f.setConfig(vu4Var);
+                this.f.setText(this.h.getString(R.string.obfuscated_res_0x7f0f0924));
+                wu4Var.p(R.color.CAM_X0304);
+                this.f.setConfig(wu4Var);
                 return;
             }
-            this.f.setText(this.h.getString(R.string.obfuscated_res_0x7f0f093b));
-            vu4Var.r(R.color.CAM_X0105);
-            this.f.setConfig(vu4Var);
+            this.f.setText(this.h.getString(R.string.obfuscated_res_0x7f0f0926));
+            wu4Var.r(R.color.CAM_X0105);
+            this.f.setConfig(wu4Var);
         }
     }
 
@@ -319,7 +319,7 @@ public class uo7 implements InterestedForumModel.d, hp7, View.OnClickListener, I
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.e.J();
             this.e.Q();
-            this.e.C(this.d.getContext().getString(R.string.obfuscated_res_0x7f0f09e6));
+            this.e.C(this.d.getContext().getString(R.string.obfuscated_res_0x7f0f09d2));
             this.e.L(pi.f(this.d.getContext(), R.dimen.tbds217));
         }
     }
@@ -327,7 +327,7 @@ public class uo7 implements InterestedForumModel.d, hp7, View.OnClickListener, I
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.e.D(this.d.getContext().getString(R.string.obfuscated_res_0x7f0f0935), pi.f(this.d.getContext(), R.dimen.tbds178));
+            this.e.D(this.d.getContext().getString(R.string.obfuscated_res_0x7f0f0920), pi.f(this.d.getContext(), R.dimen.tbds178));
             this.e.G(R.dimen.tbds36);
             this.e.A(R.color.CAM_X0109);
             this.e.f();
@@ -348,11 +348,11 @@ public class uo7 implements InterestedForumModel.d, hp7, View.OnClickListener, I
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
-            } else if (view2 != this.f || gd5.a()) {
+            } else if (view2 != this.f || hd5.a()) {
             } else {
-                if (this.h.getString(R.string.obfuscated_res_0x7f0f0939).equals(this.f.getText())) {
+                if (this.h.getString(R.string.obfuscated_res_0x7f0f0924).equals(this.f.getText())) {
                     l(true);
-                } else if (this.h.getString(R.string.obfuscated_res_0x7f0f093b).equals(this.f.getText())) {
+                } else if (this.h.getString(R.string.obfuscated_res_0x7f0f0926).equals(this.f.getText())) {
                     l(false);
                 }
                 a();
@@ -368,7 +368,7 @@ public class uo7 implements InterestedForumModel.d, hp7, View.OnClickListener, I
             if (yo7Var != null && !ListUtils.isEmpty(yo7Var.a)) {
                 PbListView pbListView = this.e;
                 if (pbListView != null) {
-                    pbListView.C(this.d.getContext().getString(R.string.obfuscated_res_0x7f0f0dc1));
+                    pbListView.C(this.d.getContext().getString(R.string.obfuscated_res_0x7f0f0daa));
                     this.e.f();
                     return;
                 }

@@ -33,8 +33,8 @@ import com.repackage.d37;
 import com.repackage.g37;
 import com.repackage.ng;
 import com.repackage.om7;
-import com.repackage.op4;
 import com.repackage.pm7;
+import com.repackage.pp4;
 import com.repackage.w27;
 import com.repackage.y27;
 import com.repackage.z8;
@@ -118,7 +118,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f) {
             MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this).createNormalCfg(2);
-            createNormalCfg.setSubTabName(getString(R.string.obfuscated_res_0x7f0f1366));
+            createNormalCfg.setSubTabName(getString(R.string.obfuscated_res_0x7f0f1315));
             sendMessage(new CustomMessage(2015002, createNormalCfg));
         }
     }
@@ -226,10 +226,10 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             b37 p = this.b.p(i);
-            op4 op4Var = p.b;
-            if (op4Var == null) {
+            pp4 pp4Var = p.b;
+            if (pp4Var == null) {
                 I1(i);
-            } else if (op4Var.b() != 0) {
+            } else if (pp4Var.b() != 0) {
                 this.a.C(i, p.b, p.c);
             }
         }
@@ -332,7 +332,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.v85
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

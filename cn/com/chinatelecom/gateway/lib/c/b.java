@@ -1,82 +1,59 @@
 package cn.com.chinatelecom.gateway.lib.c;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import cn.com.chinatelecom.gateway.lib.CtAuth;
+import cn.com.chinatelecom.gateway.lib.PreCodeListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public final class b {
+public final class b extends r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public /* synthetic */ Context a;
+    public /* synthetic */ String b;
+    public /* synthetic */ String c;
+    public /* synthetic */ String d;
+    public /* synthetic */ String e;
+    public /* synthetic */ String f;
+    public /* synthetic */ PreCodeListener g;
+    public /* synthetic */ a h;
 
-    public static SharedPreferences a(Context context) {
-        InterceptResult invokeL;
+    public b(a aVar, Context context, String str, String str2, String str3, String str4, String str5, PreCodeListener preCodeListener) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? context.getSharedPreferences(b(context), 0) : (SharedPreferences) invokeL.objValue;
-    }
-
-    public static void a(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65537, null, context, str, i) == null) || context == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            a(context).edit().putInt(str, i).commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void a(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, context, str, str2) == null) || context == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            a(context).edit().putString(str, str2).commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static int b(Context context, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, str, i)) == null) {
-            if (context != null && !TextUtils.isEmpty(str)) {
-                try {
-                    return a(context).getInt(str, i);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar, context, str, str2, str3, str4, str5, preCodeListener};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return i;
         }
-        return invokeLLI.intValue;
+        this.h = aVar;
+        this.a = context;
+        this.b = str;
+        this.c = str2;
+        this.d = str3;
+        this.e = str4;
+        this.f = str5;
+        this.g = preCodeListener;
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    @Override // java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? "ct_account_api_sdk" : (String) invokeL.objValue;
-    }
-
-    public static String b(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, str, str2)) == null) {
-            if (context != null && !TextUtils.isEmpty(str)) {
-                try {
-                    return a(context).getString(str, str2);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            String a = a.a(this.h, this.a, this.b, this.c, this.d, null, this.e, this.f);
+            if (a()) {
+                return;
             }
-            return str2;
+            CtAuth.postResult(this.a, a, this.f, this.g);
         }
-        return (String) invokeLLL.objValue;
     }
 }

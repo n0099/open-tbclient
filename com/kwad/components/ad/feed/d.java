@@ -21,30 +21,29 @@ import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.api.KsFeedAd;
 import com.kwad.sdk.api.core.AbstractKsFeedAd;
 import com.kwad.sdk.api.model.AdExposureFailedReason;
-import com.kwad.sdk.core.report.f;
 import com.kwad.sdk.core.report.u;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 /* loaded from: classes5.dex */
-public final class d extends AbstractKsFeedAd {
+public final class d extends AbstractKsFeedAd implements com.kwad.components.core.internal.api.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public KsFeedAd.AdInteractionListener a;
-    public com.kwad.components.core.widget.b b;
-    public com.kwad.components.core.widget.b c;
-    public boolean d;
-    public int e;
+    public KsFeedAd.AdInteractionListener cJ;
+    public com.kwad.components.core.widget.b cK;
+    public com.kwad.components.core.widget.b cL;
+    public boolean cM;
+    public KsAdVideoPlayConfig cN;
+    public AdInfo mAdInfo;
     @NonNull
-    public AdTemplate f;
-    public AdInfo g;
-    public KsAdVideoPlayConfig h;
+    public AdTemplate mAdTemplate;
+    public int mWidth;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
+        public int cS;
+        public int size;
 
         public a(int i) {
             Interceptable interceptable = $ic;
@@ -61,22 +60,22 @@ public final class d extends AbstractKsFeedAd {
                     return;
                 }
             }
-            this.a = i;
+            this.size = i;
         }
 
-        public final int a() {
+        public final int ba() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.cS : invokeV.intValue;
         }
 
-        public final boolean b() {
+        public final boolean bb() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i = this.b + 1;
-                this.b = i;
-                return i == this.a;
+                int i = this.cS + 1;
+                this.cS = i;
+                return i == this.size;
             }
             return invokeV.booleanValue;
         }
@@ -84,7 +83,7 @@ public final class d extends AbstractKsFeedAd {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a();
+        void aZ();
     }
 
     public d(@NonNull AdTemplate adTemplate, int i, boolean z) {
@@ -102,34 +101,34 @@ public final class d extends AbstractKsFeedAd {
                 return;
             }
         }
-        this.h = new KsAdVideoPlayConfig.Builder().build();
-        this.f = adTemplate;
+        this.cN = new KsAdVideoPlayConfig.Builder().build();
+        this.mAdTemplate = adTemplate;
         adTemplate.mInitVoiceStatus = 1;
-        this.g = com.kwad.sdk.core.response.a.d.i(adTemplate);
-        this.d = z;
-        this.e = i;
+        this.mAdInfo = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
+        this.cM = z;
+        this.mWidth = i;
     }
 
     @Nullable
-    private com.kwad.components.core.widget.b a(Context context) {
+    private com.kwad.components.core.widget.b F(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65537, this, context)) != null) {
             return (com.kwad.components.core.widget.b) invokeL.objValue;
         }
-        if (!this.d || !com.kwad.sdk.core.response.a.b.r(this.f)) {
-            return c.a(context, FeedType.fromInt(this.f.type), com.kwad.sdk.core.response.a.a.Y(this.g));
+        if (!this.cM || !com.kwad.sdk.core.response.a.b.bk(this.mAdTemplate)) {
+            return c.a(context, FeedType.fromInt(this.mAdTemplate.type), com.kwad.sdk.core.response.a.a.aD(this.mAdInfo));
         }
         l lVar = null;
         try {
             l lVar2 = new l(context);
             try {
-                lVar2.setVideoPlayConfig(this.h);
+                lVar2.setVideoPlayConfig(this.cN);
                 return lVar2;
             } catch (Throwable th) {
                 th = th;
                 lVar = lVar2;
-                com.kwad.sdk.crash.a.a(th);
+                com.kwad.components.core.b.a.b(th);
                 return lVar;
             }
         } catch (Throwable th2) {
@@ -143,12 +142,12 @@ public final class d extends AbstractKsFeedAd {
         if (!(interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, bVar, z) == null) || bVar == null) {
             return;
         }
-        bVar.setInnerAdInteractionListener(new b.InterfaceC0528b(this, z, bVar) { // from class: com.kwad.components.ad.feed.d.2
+        bVar.setInnerAdInteractionListener(new b.InterfaceC0376b(this, z, bVar) { // from class: com.kwad.components.ad.feed.d.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ boolean a;
-            public final /* synthetic */ com.kwad.components.core.widget.b b;
-            public final /* synthetic */ d c;
+            public final /* synthetic */ d cP;
+            public final /* synthetic */ boolean cQ;
+            public final /* synthetic */ com.kwad.components.core.widget.b cR;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -165,106 +164,106 @@ public final class d extends AbstractKsFeedAd {
                         return;
                     }
                 }
-                this.c = this;
-                this.a = z;
-                this.b = bVar;
+                this.cP = this;
+                this.cQ = z;
+                this.cR = bVar;
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0528b
-            public final void a() {
+            @Override // com.kwad.components.core.widget.b.InterfaceC0376b
+            public final void onAdClicked() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.c.a == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.cP.cJ == null) {
                     return;
                 }
-                this.c.a.onAdClicked();
+                this.cP.cJ.onAdClicked();
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0528b
-            public final void b() {
+            @Override // com.kwad.components.core.widget.b.InterfaceC0376b
+            public final void onAdShow() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    if (this.c.a != null) {
-                        this.c.a.onAdShow();
+                    if (this.cP.cJ != null) {
+                        this.cP.cJ.onAdShow();
                     }
-                    if (this.a) {
-                        f fVar = new f();
+                    if (this.cQ) {
+                        com.kwad.sdk.core.report.f fVar = new com.kwad.sdk.core.report.f();
                         u.a aVar = new u.a();
-                        FeedType fromInt = FeedType.fromInt(this.c.f.type);
+                        FeedType fromInt = FeedType.fromInt(this.cP.mAdTemplate.type);
                         if (fromInt == FeedType.FEED_TYPE_TEXT_NEW) {
                             fromInt = FeedType.FEED_TYPE_TEXT_BELOW;
                         }
-                        aVar.a = String.valueOf(fromInt.getType());
+                        aVar.templateId = String.valueOf(fromInt.getType());
                         fVar.a(aVar);
-                        com.kwad.components.core.l.c.a().a(this.c.f, null, fVar);
+                        com.kwad.components.core.m.c.ox().a(this.cP.mAdTemplate, null, fVar);
                     }
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0528b
-            public final void c() {
+            @Override // com.kwad.components.core.widget.b.InterfaceC0376b
+            public final void onDislikeClicked() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.c.a == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.cP.cJ == null) {
                     return;
                 }
-                this.c.a.onDislikeClicked();
+                this.cP.cJ.onDislikeClicked();
                 try {
-                    if (this.b.getParent() instanceof ViewGroup) {
-                        ((ViewGroup) this.b.getParent()).removeView(this.b);
+                    if (this.cR.getParent() instanceof ViewGroup) {
+                        ((ViewGroup) this.cR.getParent()).removeView(this.cR);
                     }
                 } catch (Exception e) {
-                    com.kwad.sdk.core.d.b.a(e);
+                    com.kwad.sdk.core.e.b.printStackTrace(e);
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0528b
-            public final void d() {
+            @Override // com.kwad.components.core.widget.b.InterfaceC0376b
+            public final void onDownloadTipsDialogDismiss() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048579, this) == null) || this.c.a == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048579, this) == null) || this.cP.cJ == null) {
                     return;
                 }
                 try {
-                    this.c.a.onDownloadTipsDialogShow();
+                    this.cP.cJ.onDownloadTipsDialogDismiss();
                 } catch (Throwable unused) {
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0528b
-            public final void e() {
+            @Override // com.kwad.components.core.widget.b.InterfaceC0376b
+            public final void onDownloadTipsDialogShow() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048580, this) == null) || this.c.a == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048580, this) == null) || this.cP.cJ == null) {
                     return;
                 }
                 try {
-                    this.c.a.onDownloadTipsDialogDismiss();
+                    this.cP.cJ.onDownloadTipsDialogShow();
                 } catch (Throwable unused) {
                 }
             }
         });
     }
 
-    private boolean a() {
+    private void aY() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || this.mAdTemplate == null) {
+            return;
+        }
+        com.kwad.sdk.core.diskcache.a.a sS = com.kwad.sdk.core.diskcache.a.a.sS();
+        sS.remove("feed_ad_cache_" + this.mAdTemplate.posId);
+    }
+
+    private boolean isVideoSoundEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            KsAdVideoPlayConfig ksAdVideoPlayConfig = this.h;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            KsAdVideoPlayConfig ksAdVideoPlayConfig = this.cN;
             if (ksAdVideoPlayConfig instanceof KSAdVideoPlayConfigImpl) {
                 KSAdVideoPlayConfigImpl kSAdVideoPlayConfigImpl = (KSAdVideoPlayConfigImpl) ksAdVideoPlayConfig;
                 if (kSAdVideoPlayConfigImpl.getVideoSoundValue() != 0) {
                     return kSAdVideoPlayConfigImpl.isVideoSoundEnable();
                 }
             }
-            return com.kwad.sdk.core.response.a.a.ay(this.g);
+            return com.kwad.sdk.core.response.a.a.bh(this.mAdInfo);
         }
         return invokeV.booleanValue;
-    }
-
-    private void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || this.f == null) {
-            return;
-        }
-        com.kwad.sdk.core.diskcache.a.a a2 = com.kwad.sdk.core.diskcache.a.a.a();
-        a2.c("feed_ad_cache_" + this.f.posId);
     }
 
     public final com.kwad.components.core.widget.b a(b bVar) {
@@ -273,25 +272,25 @@ public final class d extends AbstractKsFeedAd {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
             Context context = KsAdSDKImpl.get().getContext();
             if (context == null) {
-                bVar.a();
+                bVar.aZ();
                 return null;
             }
-            com.kwad.components.core.widget.b a2 = a(context);
-            this.c = a2;
-            if (a2 != null) {
-                this.c.setMargin(com.kwad.sdk.b.kwai.a.a(context, 16.0f));
-                com.kwad.components.core.widget.b bVar2 = this.c;
+            com.kwad.components.core.widget.b F = F(context);
+            this.cL = F;
+            if (F != null) {
+                this.cL.setMargin(com.kwad.sdk.b.kwai.a.a(context, 16.0f));
+                com.kwad.components.core.widget.b bVar2 = this.cL;
                 if (bVar2 instanceof l) {
                     l lVar = (l) bVar2;
-                    int i = this.e;
+                    int i = this.mWidth;
                     if (i > 0) {
                         lVar.setWidth(i);
                     }
-                    lVar.a(this.f, new l.a(this, bVar) { // from class: com.kwad.components.ad.feed.d.1
+                    lVar.a(this.mAdTemplate, new l.a(this, bVar) { // from class: com.kwad.components.ad.feed.d.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ b a;
-                        public final /* synthetic */ d b;
+                        public final /* synthetic */ b cO;
+                        public final /* synthetic */ d cP;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -308,76 +307,83 @@ public final class d extends AbstractKsFeedAd {
                                     return;
                                 }
                             }
-                            this.b = this;
-                            this.a = bVar;
+                            this.cP = this;
+                            this.cO = bVar;
                         }
 
                         @Override // com.kwad.components.ad.feed.a.l.a
-                        public final void a() {
+                        public final void aZ() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                d dVar = this.b;
-                                dVar.a(dVar.c, false);
-                                b bVar3 = this.a;
+                                d dVar = this.cP;
+                                dVar.a(dVar.cL, false);
+                                b bVar3 = this.cO;
                                 if (bVar3 != null) {
-                                    bVar3.a();
+                                    bVar3.aZ();
                                 }
                             }
                         }
                     });
-                    return this.c;
+                    return this.cL;
                 }
-                bVar2.a((com.kwad.components.core.widget.b) this.f);
-                com.kwad.components.core.widget.b bVar3 = this.c;
+                bVar2.c((com.kwad.components.core.widget.b) this.mAdTemplate);
+                com.kwad.components.core.widget.b bVar3 = this.cL;
                 if (bVar3 instanceof com.kwad.components.ad.feed.a.c) {
-                    ((com.kwad.components.ad.feed.a.c) bVar3).a(this.h);
+                    ((com.kwad.components.ad.feed.a.c) bVar3).a(this.cN);
                 }
-                a(this.c, true);
+                a(this.cL, true);
             }
-            bVar.a();
-            return this.c;
+            bVar.aZ();
+            return this.cL;
         }
         return (com.kwad.components.core.widget.b) invokeL.objValue;
+    }
+
+    @Override // com.kwad.components.core.internal.api.a
+    public final AdTemplate getAdTemplate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAdTemplate : (AdTemplate) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.KsFeedAd
     public final int getECPM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.kwad.sdk.core.response.a.a.M(this.g) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.response.a.a.aq(this.mAdInfo) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.core.AbstractKsFeedAd
     public final View getFeedView2(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            com.kwad.components.core.widget.b bVar = this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            com.kwad.components.core.widget.b bVar = this.cK;
             if (bVar == null) {
-                b();
-                com.kwad.components.core.widget.b bVar2 = this.c;
+                aY();
+                com.kwad.components.core.widget.b bVar2 = this.cL;
                 if (bVar2 != null) {
-                    this.b = bVar2;
+                    this.cK = bVar2;
                     return bVar2;
                 } else if (context == null) {
                     return null;
                 } else {
-                    this.b = a(context);
+                    this.cK = F(context);
                 }
             } else if (bVar.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.b.getParent()).removeView(this.b);
+                ((ViewGroup) this.cK.getParent()).removeView(this.cK);
             }
-            com.kwad.components.core.widget.b bVar3 = this.b;
+            com.kwad.components.core.widget.b bVar3 = this.cK;
             if (bVar3 != null) {
-                bVar3.a((com.kwad.components.core.widget.b) this.f);
-                com.kwad.components.core.widget.b bVar4 = this.b;
+                bVar3.c((com.kwad.components.core.widget.b) this.mAdTemplate);
+                com.kwad.components.core.widget.b bVar4 = this.cK;
                 if (bVar4 instanceof com.kwad.components.ad.feed.a.c) {
-                    ((com.kwad.components.ad.feed.a.c) bVar4).a(this.h);
+                    ((com.kwad.components.ad.feed.a.c) bVar4).a(this.cN);
                 }
-                com.kwad.components.core.widget.b bVar5 = this.b;
+                com.kwad.components.core.widget.b bVar5 = this.cK;
                 a(bVar5, !(bVar5 instanceof l));
             }
-            return this.b;
+            return this.cK;
         }
         return (View) invokeL.objValue;
     }
@@ -386,24 +392,24 @@ public final class d extends AbstractKsFeedAd {
     public final int getInteractionType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? com.kwad.sdk.core.response.a.a.L(this.g) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? com.kwad.sdk.core.response.a.a.ap(this.mAdInfo) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsFeedAd
     public final int getMaterialType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? com.kwad.sdk.core.response.a.a.Y(this.g) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? com.kwad.sdk.core.response.a.a.aD(this.mAdInfo) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsFeedAd
     public final void reportAdExposureFailed(int i, AdExposureFailedReason adExposureFailedReason) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, adExposureFailedReason) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, adExposureFailedReason) == null) {
             try {
-                com.kwad.sdk.core.report.a.a(this.f, i, adExposureFailedReason);
+                com.kwad.sdk.core.report.a.a(this.mAdTemplate, i, adExposureFailedReason);
             } catch (Exception e) {
-                com.kwad.sdk.core.d.b.a(e);
+                com.kwad.sdk.core.e.b.printStackTrace(e);
             }
         }
     }
@@ -411,18 +417,18 @@ public final class d extends AbstractKsFeedAd {
     @Override // com.kwad.sdk.api.KsFeedAd
     public final void setAdInteractionListener(KsFeedAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, adInteractionListener) == null) {
-            this.a = adInteractionListener;
+        if (interceptable == null || interceptable.invokeL(1048583, this, adInteractionListener) == null) {
+            this.cJ = adInteractionListener;
         }
     }
 
     @Override // com.kwad.sdk.api.KsFeedAd
     public final void setBidEcpm(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            AdTemplate adTemplate = this.f;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            AdTemplate adTemplate = this.mAdTemplate;
             adTemplate.mBidEcpm = i;
-            com.kwad.sdk.core.report.a.l(adTemplate);
+            com.kwad.sdk.core.report.a.aA(adTemplate);
         }
     }
 
@@ -431,28 +437,28 @@ public final class d extends AbstractKsFeedAd {
         AdTemplate adTemplate;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ksAdVideoPlayConfig) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, ksAdVideoPlayConfig) == null) {
             if (ksAdVideoPlayConfig instanceof KSAdVideoPlayConfigImpl) {
                 KSAdVideoPlayConfigImpl kSAdVideoPlayConfigImpl = (KSAdVideoPlayConfigImpl) ksAdVideoPlayConfig;
                 if (kSAdVideoPlayConfigImpl.getVideoSoundValue() != 0) {
-                    this.h.setVideoSoundEnable(kSAdVideoPlayConfigImpl.isVideoSoundEnable());
+                    this.cN.setVideoSoundEnable(kSAdVideoPlayConfigImpl.isVideoSoundEnable());
                 }
                 if (kSAdVideoPlayConfigImpl.getVideoAutoPlayType() != 0) {
-                    this.h.setVideoAutoPlayType(kSAdVideoPlayConfigImpl.getVideoAutoPlayType());
+                    this.cN.setVideoAutoPlayType(kSAdVideoPlayConfigImpl.getVideoAutoPlayType());
                 }
                 if (kSAdVideoPlayConfigImpl.getDataFlowAutoStartValue() != 0) {
-                    this.h.setDataFlowAutoStart(kSAdVideoPlayConfigImpl.isDataFlowAutoStart());
+                    this.cN.setDataFlowAutoStart(kSAdVideoPlayConfigImpl.isDataFlowAutoStart());
                 }
-                com.kwad.components.core.widget.b bVar = this.c;
+                com.kwad.components.core.widget.b bVar = this.cL;
                 if (bVar instanceof l) {
-                    ((l) bVar).setVideoPlayConfig(this.h);
+                    ((l) bVar).setVideoPlayConfig(this.cN);
                 }
             }
-            if (a()) {
-                adTemplate = this.f;
+            if (isVideoSoundEnable()) {
+                adTemplate = this.mAdTemplate;
                 i = 2;
             } else {
-                adTemplate = this.f;
+                adTemplate = this.mAdTemplate;
                 i = 1;
             }
             adTemplate.mInitVoiceStatus = i;
@@ -464,13 +470,13 @@ public final class d extends AbstractKsFeedAd {
         AdTemplate adTemplate;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.h.setVideoSoundEnable(z);
-            if (this.h.isVideoSoundEnable()) {
-                adTemplate = this.f;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.cN.setVideoSoundEnable(z);
+            if (this.cN.isVideoSoundEnable()) {
+                adTemplate = this.mAdTemplate;
                 i = 2;
             } else {
-                adTemplate = this.f;
+                adTemplate = this.mAdTemplate;
                 i = 1;
             }
             adTemplate.mInitVoiceStatus = i;

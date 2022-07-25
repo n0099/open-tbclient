@@ -29,14 +29,14 @@ public class t86 extends BaseAdapter {
     public List<CollectEmotionData> a;
     public List<CollectEmotionData> b;
     public int c;
-    public o45 d;
+    public p45 d;
     public boolean e;
     public int f;
     public e g;
     public d h;
 
     /* loaded from: classes7.dex */
-    public class a implements k45 {
+    public class a implements l45 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
@@ -59,7 +59,7 @@ public class t86 extends BaseAdapter {
             this.a = viewGroup;
         }
 
-        @Override // com.repackage.k45
+        @Override // com.repackage.l45
         public void a(ym ymVar, String str, boolean z) {
             TbImageView tbImageView;
             Interceptable interceptable = $ic;
@@ -116,10 +116,10 @@ public class t86 extends BaseAdapter {
                         this.b.getItem(this.a).selectIndex = i;
                     }
                 }
-                if (view2.getId() == R.id.obfuscated_res_0x7f090645) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090644) {
                     imageView = (ImageView) view2;
                 } else {
-                    imageView = (ImageView) ((RelativeLayout) view2.getParent()).findViewById(R.id.obfuscated_res_0x7f090645);
+                    imageView = (ImageView) ((RelativeLayout) view2.getParent()).findViewById(R.id.obfuscated_res_0x7f090644);
                 }
                 if (imageView != null) {
                     if (item.isSelect) {
@@ -227,7 +227,7 @@ public class t86 extends BaseAdapter {
         this.b = new ArrayList();
         this.h = dVar;
         this.c = pi.k(TbadkCoreApplication.getInst()) / 4;
-        this.d = new o45();
+        this.d = new p45();
     }
 
     public void e() {
@@ -308,11 +308,11 @@ public class t86 extends BaseAdapter {
                     ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
                     layoutParams.height = this.c;
                     fVar.a.setLayoutParams(layoutParams);
-                    TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090644);
+                    TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090643);
                     fVar.b = tbImageView;
                     ((RelativeLayout.LayoutParams) tbImageView.getLayoutParams()).setMargins(0, 0, 0, 0);
                     fVar.b.setScaleType(ImageView.ScaleType.CENTER);
-                    view2.findViewById(R.id.obfuscated_res_0x7f090645).setVisibility(8);
+                    view2.findViewById(R.id.obfuscated_res_0x7f090644).setVisibility(8);
                     view2.setTag(fVar);
                     SkinManager.setBackgroundColor(view2, R.color.white_alpha0, this.f);
                 } else {
@@ -337,8 +337,8 @@ public class t86 extends BaseAdapter {
                     ViewGroup.LayoutParams layoutParams2 = view3.getLayoutParams();
                     layoutParams2.height = this.c;
                     fVar2.a.setLayoutParams(layoutParams2);
-                    fVar2.b = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f090644);
-                    fVar2.c = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f090645);
+                    fVar2.b = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f090643);
+                    fVar2.c = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f090644);
                     view3.setTag(fVar2);
                     SkinManager.setBackgroundColor(view3, R.color.CAM_X0201, this.f);
                 } else {
@@ -354,7 +354,7 @@ public class t86 extends BaseAdapter {
                 if (imageFileInfo != null) {
                     imageFileInfo.clearPageActions();
                     int i2 = this.c;
-                    imageFileInfo.addPageAction(x45.g(i2, i2));
+                    imageFileInfo.addPageAction(y45.g(i2, i2));
                     fVar2.b.setTag(imageFileInfo.toCachedKey(false));
                     if (this.d.c(imageFileInfo, false) != null) {
                         fVar2.b.invalidate();

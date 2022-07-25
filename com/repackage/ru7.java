@@ -35,7 +35,7 @@ public class ru7 implements nn {
     public String j;
     public boolean k;
     public boolean l;
-    public kp4 m;
+    public lp4 m;
     public YyExtData n;
 
     static {
@@ -107,9 +107,9 @@ public class ru7 implements nn {
                             sparseArray2.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.extra);
                         }
                     }
-                    kp4 kp4Var = new kp4();
-                    this.m = kp4Var;
-                    kp4Var.j(sparseArray);
+                    lp4 lp4Var = new lp4();
+                    this.m = lp4Var;
+                    lp4Var.j(sparseArray);
                     this.m.g = sparseArray2;
                 } else {
                     this.m = null;

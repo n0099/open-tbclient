@@ -28,15 +28,15 @@ public class ks7 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             int fontSize = TbadkCoreApplication.getInst().getFontSize();
             if (fontSize == 0) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f143f);
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13ee);
             }
             if (fontSize == 1) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f143c);
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13eb);
             }
             if (fontSize == 2) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f143d);
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13ec);
             }
-            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f143e);
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13ed);
         }
         return (String) invokeV.objValue;
     }

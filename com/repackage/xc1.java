@@ -23,8 +23,8 @@ import org.json.JSONObject;
 public class xc1 extends wc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FileInputStream i0;
-    public GifAnimView j0;
+    public FileInputStream c0;
+    public GifAnimView d0;
 
     /* loaded from: classes7.dex */
     public class a implements ad1 {
@@ -199,17 +199,17 @@ public class xc1 extends wc1 {
             return;
         }
         GifAnimView gifAnimView = new GifAnimView(this.a, new b(this));
-        this.j0 = gifAnimView;
-        gifAnimView.setGifImage(this.i0);
+        this.d0 = gifAnimView;
+        gifAnimView.setGifImage(this.c0);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        this.j0.setLayoutParams(layoutParams);
-        this.j0.setShowDimension(this.k.getWidth(), this.k.getHeight());
-        this.j0.setAlpha(255);
-        this.j0.setOnClickListener(new c(this));
-        this.j0.i();
-        j(this.j0, layoutParams);
-        this.j0.requestLayout();
-        this.j0.j = new d(this);
+        this.d0.setLayoutParams(layoutParams);
+        this.d0.setShowDimension(this.k.getWidth(), this.k.getHeight());
+        this.d0.setAlpha(255);
+        this.d0.setOnClickListener(new c(this));
+        this.d0.i();
+        j(this.d0, layoutParams);
+        this.d0.requestLayout();
+        this.d0.j = new d(this);
         super.C();
     }
 
@@ -224,7 +224,7 @@ public class xc1 extends wc1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             try {
-                this.i0 = new FileInputStream(str);
+                this.c0 = new FileInputStream(str);
                 M();
             } catch (Exception unused) {
             }
@@ -310,7 +310,7 @@ public class xc1 extends wc1 {
     public void z() {
         GifAnimView gifAnimView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (gifAnimView = this.j0) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (gifAnimView = this.d0) == null) {
             return;
         }
         gifAnimView.setOnClickListener(null);

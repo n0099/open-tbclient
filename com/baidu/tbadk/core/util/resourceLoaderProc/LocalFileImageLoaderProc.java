@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.hg;
 import com.repackage.kg;
-import com.repackage.l45;
+import com.repackage.m45;
 import com.repackage.pi;
-import com.repackage.x45;
+import com.repackage.y45;
 import com.repackage.ym;
 /* loaded from: classes3.dex */
 public class LocalFileImageLoaderProc implements kg<ym> {
@@ -129,7 +129,7 @@ public class LocalFileImageLoaderProc implements kg<ym> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            ImageOperation g = x45.g(this.width, this.height);
+            ImageOperation g = y45.g(this.width, this.height);
             return "image_" + str + ':' + g.actionName + '=' + g.actionParam;
         }
         return (String) invokeL.objValue;
@@ -143,7 +143,7 @@ public class LocalFileImageLoaderProc implements kg<ym> {
             if (ymVar.u()) {
                 ymVar.A(i);
                 ymVar.z(i2);
-                l45.k().d(toCacheKey(str), ymVar);
+                m45.k().d(toCacheKey(str), ymVar);
             }
         }
     }
@@ -170,7 +170,7 @@ public class LocalFileImageLoaderProc implements kg<ym> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            ym checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), l45.k().m(toCacheKey(str)), i, i2);
+            ym checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), m45.k().m(toCacheKey(str)), i, i2);
             if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
                 return null;
             }

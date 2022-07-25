@@ -61,7 +61,7 @@ public class qx6 extends an<vy5, ThreadCardViewHolder<vy5>> {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 boolean z = nnVar instanceof vy5;
                 if (z && (vy5Var = (vy5) nnVar) != null && vy5Var.u && (threadData = vy5Var.a) != null && threadData.getItem() != null) {
-                    int a = ev4.a(vy5Var.a.getItem().button_link_type.intValue(), vy5Var.a.getItem().apk_detail != null ? vy5Var.a.getItem().apk_detail.pkg_source.intValue() : 0);
+                    int a = fv4.a(vy5Var.a.getItem().button_link_type.intValue(), vy5Var.a.getItem().apk_detail != null ? vy5Var.a.getItem().apk_detail.pkg_source.intValue() : 0);
                     ItemData itemData = new ItemData();
                     itemData.parseProto(vy5Var.a.getItem());
                     ItemCardHelper.q(this.a.v(), vy5Var.a.getItem().item_id.longValue(), this.a.u(itemData), vy5Var.a.getTid(), a, "", 2);
@@ -69,8 +69,8 @@ public class qx6 extends an<vy5, ThreadCardViewHolder<vy5>> {
                 } else if (z && (view2.getTag() instanceof ThreadCardViewHolder)) {
                     vy5 vy5Var2 = (vy5) nnVar;
                     vy5Var2.f = 1;
-                    ThreadCardUtils.jumpToPB((nn4) vy5Var2, view2.getContext(), 4, false);
-                    ((ThreadCardViewHolder) view2.getTag()).c().o(new ny.a(1));
+                    ThreadCardUtils.jumpToPB((on4) vy5Var2, view2.getContext(), 4, false);
+                    ((ThreadCardViewHolder) view2.getTag()).b().o(new ny.a(1));
                 }
             }
         }
@@ -114,7 +114,7 @@ public class qx6 extends an<vy5, ThreadCardViewHolder<vy5>> {
             cy k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.k);
             k.r(2);
             ThreadCardViewHolder<vy5> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.k(this.i);
+            threadCardViewHolder.j(this.i);
             V(new a(this, jxVar));
             return threadCardViewHolder;
         }
@@ -128,15 +128,15 @@ public class qx6 extends an<vy5, ThreadCardViewHolder<vy5>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vy5Var, threadCardViewHolder})) == null) {
-            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || vy5Var.a == null) {
+            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || vy5Var.a == null) {
                 return null;
             }
             vy5Var.I(vy5Var.position + 1);
             vy5Var.a.statFloor = vy5Var.m();
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.g(vy5Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            return threadCardViewHolder.b();
+            threadCardViewHolder.b().q(i);
+            threadCardViewHolder.f(vy5Var);
+            threadCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

@@ -58,7 +58,7 @@ public class in8 {
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? xt4.k().l("pref_key_jpush_sdk_enable", 0) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? yt4.k().l("pref_key_jpush_sdk_enable", 0) == 1 : invokeV.booleanValue;
     }
 
     public final a c() {

@@ -3,35 +3,39 @@ package com.kwad.sdk.core.b.kwai;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ao implements com.kwad.sdk.core.d<AdMatrixInfo.BottomBannerInfo> {
+public final class ao implements com.kwad.sdk.core.d<AdMatrixInfo.BaseMatrixTemplate> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(AdMatrixInfo.BottomBannerInfo bottomBannerInfo, JSONObject jSONObject) {
+    public static void a2(AdMatrixInfo.BaseMatrixTemplate baseMatrixTemplate, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        bottomBannerInfo.bannerSizeType = jSONObject.optInt("bannerSizeType");
-        bottomBannerInfo.bannerAdType = jSONObject.optInt("bannerAdType");
+        baseMatrixTemplate.templateId = jSONObject.optString("templateId");
+        if (jSONObject.opt("templateId") == JSONObject.NULL) {
+            baseMatrixTemplate.templateId = "";
+        }
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(AdMatrixInfo.BottomBannerInfo bottomBannerInfo, JSONObject jSONObject) {
+    public static JSONObject b2(AdMatrixInfo.BaseMatrixTemplate baseMatrixTemplate, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "bannerSizeType", bottomBannerInfo.bannerSizeType);
-        com.kwad.sdk.utils.r.a(jSONObject, "bannerAdType", bottomBannerInfo.bannerAdType);
+        String str = baseMatrixTemplate.templateId;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "templateId", baseMatrixTemplate.templateId);
+        }
         return jSONObject;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(AdMatrixInfo.BottomBannerInfo bottomBannerInfo, JSONObject jSONObject) {
-        a2(bottomBannerInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(AdMatrixInfo.BaseMatrixTemplate baseMatrixTemplate, JSONObject jSONObject) {
+        a2(baseMatrixTemplate, jSONObject);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(AdMatrixInfo.BottomBannerInfo bottomBannerInfo, JSONObject jSONObject) {
-        return b2(bottomBannerInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(AdMatrixInfo.BaseMatrixTemplate baseMatrixTemplate, JSONObject jSONObject) {
+        return b2(baseMatrixTemplate, jSONObject);
     }
 }

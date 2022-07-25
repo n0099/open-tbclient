@@ -20,7 +20,7 @@ public class to6 {
     public te<String> b;
 
     /* loaded from: classes7.dex */
-    public class a extends km4 {
+    public class a extends lm4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ to6 a;
@@ -43,7 +43,7 @@ public class to6 {
             this.a = to6Var;
         }
 
-        @Override // com.repackage.km4, android.app.Application.ActivityLifecycleCallbacks
+        @Override // com.repackage.lm4, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity != null && activity.getClass().getName().equals("FrsActivity")) {
@@ -118,8 +118,8 @@ public class to6 {
             }
         }
         this.a = new LruCache<>(10);
-        br4.f();
-        this.b = br4.g("tb.recently_vistited_forum_animation");
+        cr4.f();
+        this.b = cr4.g("tb.recently_vistited_forum_animation");
         TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(new a(this));
         this.b.f("transition_cache_key", new b(this));
     }

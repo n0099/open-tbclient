@@ -27,20 +27,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gx;
 import com.repackage.jy5;
-import com.repackage.nn4;
+import com.repackage.on4;
 import com.repackage.pi;
 import com.repackage.wm;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class MutiImgTextLayout extends LinearLayout implements gx<nn4> {
+public class MutiImgTextLayout extends LinearLayout implements gx<on4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int g;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public TextView b;
     public PlayVoiceBntNew c;
-    public jy5<nn4> d;
-    public nn4 e;
+    public jy5<on4> d;
+    public on4 e;
     public boolean f;
 
     /* loaded from: classes.dex */
@@ -69,7 +69,7 @@ public class MutiImgTextLayout extends LinearLayout implements gx<nn4> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            jy5<nn4> subClickListener;
+            jy5<on4> subClickListener;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (subClickListener = this.a.getSubClickListener()) == null) {
                 return;
@@ -139,12 +139,12 @@ public class MutiImgTextLayout extends LinearLayout implements gx<nn4> {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d058d, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0597, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09201d);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09202b);
-            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f09202c);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092021);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09202f);
+            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f092030);
             this.c = playVoiceBntNew;
             playVoiceBntNew.setAfterClickListener(new a(this));
         }
@@ -153,11 +153,11 @@ public class MutiImgTextLayout extends LinearLayout implements gx<nn4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: d */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nn4Var) == null) {
-            this.e = nn4Var;
-            ThreadData threadData = nn4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, on4Var) == null) {
+            this.e = on4Var;
+            ThreadData threadData = on4Var.getThreadData();
             ThreadCardUtils.setTitle(this.a, threadData, this.f);
             ThreadCardUtils.setAbstract(this.b, this.a, threadData, g, this.f);
             TextView textView = this.a;
@@ -194,7 +194,7 @@ public class MutiImgTextLayout extends LinearLayout implements gx<nn4> {
         }
     }
 
-    public jy5<nn4> getSubClickListener() {
+    public jy5<on4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (jy5) invokeV.objValue;
@@ -244,7 +244,7 @@ public class MutiImgTextLayout extends LinearLayout implements gx<nn4> {
         }
     }
 
-    public void setSubClickListener(jy5<nn4> jy5Var) {
+    public void setSubClickListener(jy5<on4> jy5Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, jy5Var) == null) {
             this.d = jy5Var;

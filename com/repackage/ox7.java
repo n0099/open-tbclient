@@ -76,7 +76,7 @@ public class ox7 extends BaseAdapter {
             }
             this.a = 3;
             this.d = view2;
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0907ca);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0907c8);
             TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905b7);
             this.c = textView;
             textView.setTextSize(0, TbConfig.getContentSizeOfLzl());
@@ -159,7 +159,7 @@ public class ox7 extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d060d, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0617, (ViewGroup) null);
             inflate.setTag(new a(this.a, inflate));
             return inflate;
         }
@@ -171,19 +171,19 @@ public class ox7 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             b bVar = new b();
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d060e, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0618, (ViewGroup) null);
             bVar.b = inflate;
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091e4f);
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091e53);
             bVar.c = linearLayout;
             if (this.h) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) linearLayout.getLayoutParams();
-                layoutParams.topMargin = pi.f(this.a, R.dimen.obfuscated_res_0x7f070304);
-                layoutParams.bottomMargin = pi.f(this.a, R.dimen.obfuscated_res_0x7f070304);
+                layoutParams.topMargin = pi.f(this.a, R.dimen.obfuscated_res_0x7f070302);
+                layoutParams.bottomMargin = pi.f(this.a, R.dimen.obfuscated_res_0x7f070302);
                 bVar.c.setLayoutParams(layoutParams);
             }
-            bVar.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913ef);
-            bVar.e = (TbRichTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915cf);
-            bVar.f = inflate.findViewById(R.id.obfuscated_res_0x7f0907af);
+            bVar.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913cb);
+            bVar.e = (TbRichTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915aa);
+            bVar.f = inflate.findViewById(R.id.obfuscated_res_0x7f0907ad);
             bVar.e.getLayoutStrategy().t();
             if (!this.h) {
                 bVar.e.getLayoutStrategy().o(TbConfig.getContentLineSpaceOfLzl(), 1.0f);
@@ -204,7 +204,7 @@ public class ox7 extends BaseAdapter {
             bVar.e.setOnClickListener(this.m);
             bVar.d.setOnClickListener(this.b);
             SparseArray sparseArray = new SparseArray();
-            sparseArray.put(R.id.obfuscated_res_0x7f091f02, bVar);
+            sparseArray.put(R.id.obfuscated_res_0x7f091f06, bVar);
             inflate.setTag(sparseArray);
             return inflate;
         }
@@ -260,18 +260,18 @@ public class ox7 extends BaseAdapter {
                 bVar.b.setTag(sparseArray2);
                 bVar.e.setTag(sparseArray2);
             }
-            sparseArray2.put(R.id.obfuscated_res_0x7f091f1d, name_show);
-            sparseArray2.put(R.id.obfuscated_res_0x7f091f1c, userId);
-            sparseArray2.put(R.id.obfuscated_res_0x7f091f1b, portrait);
-            sparseArray2.put(R.id.obfuscated_res_0x7f091eed, postData);
-            sparseArray2.put(R.id.obfuscated_res_0x7f091f06, Boolean.TRUE);
+            sparseArray2.put(R.id.obfuscated_res_0x7f091f21, name_show);
+            sparseArray2.put(R.id.obfuscated_res_0x7f091f20, userId);
+            sparseArray2.put(R.id.obfuscated_res_0x7f091f1f, portrait);
+            sparseArray2.put(R.id.obfuscated_res_0x7f091ef1, postData);
+            sparseArray2.put(R.id.obfuscated_res_0x7f091f0a, Boolean.TRUE);
         }
         bVar.e.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0108));
         bVar.e.setTextColor(SkinManager.getColor(R.color.CAM_X0106));
         d(postData, this.h);
         TbRichText Q = postData.Q();
         if (Q != null) {
-            bVar.e.setVoiceViewRes(R.layout.obfuscated_res_0x7f0d08af);
+            bVar.e.setVoiceViewRes(R.layout.obfuscated_res_0x7f0d08b9);
             bVar.e.setIsFromCDN(this.f);
             if (bVar.a != TbadkCoreApplication.getInst().getSkinType()) {
                 Q.isChanged = true;
@@ -311,58 +311,58 @@ public class ox7 extends BaseAdapter {
                     bVar.b.setTag(sparseArray);
                     bVar.e.setTag(sparseArray);
                 }
-                sparseArray.put(R.id.obfuscated_res_0x7f091f35, this.j);
+                sparseArray.put(R.id.obfuscated_res_0x7f091f39, this.j);
                 if (!z4) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f091f30, Boolean.TRUE);
-                    sparseArray.put(R.id.obfuscated_res_0x7f091f0c, Integer.valueOf(this.c));
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f34, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f10, Integer.valueOf(this.c));
                     if (postData.s() != null) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f091efa, postData.s().getUserName());
-                        sparseArray.put(R.id.obfuscated_res_0x7f091efb, postData.s().getName_show());
-                        sparseArray.put(R.id.obfuscated_res_0x7f091efc, postData.s().getPortrait());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091efe, postData.s().getUserName());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091eff, postData.s().getName_show());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091f00, postData.s().getPortrait());
                     }
-                    sparseArray.put(R.id.obfuscated_res_0x7f091efd, postData.J());
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f01, postData.J());
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f091f30, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f34, Boolean.FALSE);
                 }
-                sparseArray.put(R.id.obfuscated_res_0x7f091efd, postData.J());
-                sparseArray.put(R.id.obfuscated_res_0x7f091eed, postData);
+                sparseArray.put(R.id.obfuscated_res_0x7f091f01, postData.J());
+                sparseArray.put(R.id.obfuscated_res_0x7f091ef1, postData);
                 if (!z6) {
                     if (this.g != null) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f091f44, Boolean.TRUE);
-                        sparseArray.put(R.id.obfuscated_res_0x7f091f04, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
+                        sparseArray.put(R.id.obfuscated_res_0x7f091f48, Boolean.TRUE);
+                        sparseArray.put(R.id.obfuscated_res_0x7f091f08, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
                         if (postData.s() != null) {
-                            sparseArray.put(R.id.obfuscated_res_0x7f091f40, postData.s().getUserId());
-                            sparseArray.put(R.id.obfuscated_res_0x7f091f41, postData.s().getUserName());
-                            sparseArray.put(R.id.obfuscated_res_0x7f091f3f, postData.s().getName_show());
+                            sparseArray.put(R.id.obfuscated_res_0x7f091f44, postData.s().getUserId());
+                            sparseArray.put(R.id.obfuscated_res_0x7f091f45, postData.s().getUserName());
+                            sparseArray.put(R.id.obfuscated_res_0x7f091f43, postData.s().getName_show());
                         }
                         if (this.g.getId() != null) {
-                            sparseArray.put(R.id.obfuscated_res_0x7f091f43, this.g.getId());
+                            sparseArray.put(R.id.obfuscated_res_0x7f091f47, this.g.getId());
                         }
-                        sparseArray.put(R.id.obfuscated_res_0x7f091f42, postData.J());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091f46, postData.J());
                     }
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f091f44, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f48, Boolean.FALSE);
                 }
                 if (!z7) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f091f2e, Boolean.TRUE);
-                    sparseArray.put(R.id.obfuscated_res_0x7f091f0c, Integer.valueOf(this.c));
-                    sparseArray.put(R.id.obfuscated_res_0x7f091ef0, Boolean.valueOf(z8));
-                    sparseArray.put(R.id.obfuscated_res_0x7f091ef1, 2);
-                    sparseArray.put(R.id.obfuscated_res_0x7f091eef, postData.J());
-                    sparseArray.put(R.id.obfuscated_res_0x7f091f01, Boolean.valueOf(postData.g0()));
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f32, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f10, Integer.valueOf(this.c));
+                    sparseArray.put(R.id.obfuscated_res_0x7f091ef4, Boolean.valueOf(z8));
+                    sparseArray.put(R.id.obfuscated_res_0x7f091ef5, 2);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091ef3, postData.J());
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f05, Boolean.valueOf(postData.g0()));
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f091f2e, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f32, Boolean.FALSE);
                 }
                 if (this.h && z2 && this.i) {
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) bVar.c.getLayoutParams();
                     layoutParams.topMargin = pi.f(this.a, R.dimen.obfuscated_res_0x7f070207);
-                    layoutParams.bottomMargin = pi.f(this.a, R.dimen.obfuscated_res_0x7f070304);
+                    layoutParams.bottomMargin = pi.f(this.a, R.dimen.obfuscated_res_0x7f070302);
                     bVar.c.setLayoutParams(layoutParams);
                 }
                 if (this.h && !z2) {
                     LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) bVar.c.getLayoutParams();
-                    layoutParams2.topMargin = pi.f(this.a, R.dimen.obfuscated_res_0x7f070304);
-                    layoutParams2.bottomMargin = pi.f(this.a, R.dimen.obfuscated_res_0x7f070304);
+                    layoutParams2.topMargin = pi.f(this.a, R.dimen.obfuscated_res_0x7f070302);
+                    layoutParams2.bottomMargin = pi.f(this.a, R.dimen.obfuscated_res_0x7f070302);
                     bVar.c.setLayoutParams(layoutParams2);
                 }
                 bVar.d.setTag(sparseArray);
@@ -384,11 +384,11 @@ public class ox7 extends BaseAdapter {
         sparseArray = (SparseArray) bVar.b.getTag();
         if (sparseArray == null) {
         }
-        sparseArray.put(R.id.obfuscated_res_0x7f091f35, this.j);
+        sparseArray.put(R.id.obfuscated_res_0x7f091f39, this.j);
         if (!z4) {
         }
-        sparseArray.put(R.id.obfuscated_res_0x7f091efd, postData.J());
-        sparseArray.put(R.id.obfuscated_res_0x7f091eed, postData);
+        sparseArray.put(R.id.obfuscated_res_0x7f091f01, postData.J());
+        sparseArray.put(R.id.obfuscated_res_0x7f091ef1, postData);
         if (!z6) {
         }
         if (!z7) {
@@ -396,13 +396,13 @@ public class ox7 extends BaseAdapter {
         if (this.h) {
             LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) bVar.c.getLayoutParams();
             layoutParams3.topMargin = pi.f(this.a, R.dimen.obfuscated_res_0x7f070207);
-            layoutParams3.bottomMargin = pi.f(this.a, R.dimen.obfuscated_res_0x7f070304);
+            layoutParams3.bottomMargin = pi.f(this.a, R.dimen.obfuscated_res_0x7f070302);
             bVar.c.setLayoutParams(layoutParams3);
         }
         if (this.h) {
             LinearLayout.LayoutParams layoutParams22 = (LinearLayout.LayoutParams) bVar.c.getLayoutParams();
-            layoutParams22.topMargin = pi.f(this.a, R.dimen.obfuscated_res_0x7f070304);
-            layoutParams22.bottomMargin = pi.f(this.a, R.dimen.obfuscated_res_0x7f070304);
+            layoutParams22.topMargin = pi.f(this.a, R.dimen.obfuscated_res_0x7f070302);
+            layoutParams22.bottomMargin = pi.f(this.a, R.dimen.obfuscated_res_0x7f070302);
             bVar.c.setLayoutParams(layoutParams22);
         }
         bVar.d.setTag(sparseArray);
@@ -543,7 +543,7 @@ public class ox7 extends BaseAdapter {
             if ((view2.getTag() instanceof SparseArray) && postData.getType() == PostData.F0) {
                 view2 = a();
             }
-            if ((view2.getTag() instanceof SparseArray) && (bVar = (b) ((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f091f02)) != null && postData != null) {
+            if ((view2.getTag() instanceof SparseArray) && (bVar = (b) ((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f091f06)) != null && postData != null) {
                 boolean z = !this.e && i + 1 >= getCount();
                 boolean z2 = i == this.k;
                 c(bVar, postData, !z, i == 0, z2);

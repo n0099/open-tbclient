@@ -7,7 +7,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -69,7 +68,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
             if (((BaseSSOLoginActivity) this).g == 2001) {
                 Intent intent = new Intent();
                 intent.putExtra("result_code", i);
-                intent.putExtra(AbstractThirdPartyService.EXTRA_RESULT_MSG, str);
+                intent.putExtra("result_msg", str);
                 setResult(1002, intent);
             } else if (CoreViewRouter.getInstance().getWebAuthListener() != null) {
                 ((BaseSSOLoginActivity) this).h.setResultCode(i);
@@ -85,7 +84,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                a(-204, getString(R.string.obfuscated_res_0x7f0f1075));
+                a(-204, getString(R.string.obfuscated_res_0x7f0f1036));
                 return;
             }
             SapiWebView sapiWebView = this.sapiWebView;
@@ -123,12 +122,12 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
                         b(authHuaweiId.getAuthorizationCode());
                         return;
                     }
-                    a(-202, getString(R.string.obfuscated_res_0x7f0f1051));
+                    a(-202, getString(R.string.obfuscated_res_0x7f0f102b));
                     String str2 = p;
                     Log.i(str2, "signIn get code failed: " + parseAuthResultFromIntent.getException().getStatusCode());
                     return;
                 }
-                a(-202, getString(R.string.obfuscated_res_0x7f0f1075));
+                a(-202, getString(R.string.obfuscated_res_0x7f0f1036));
                 return;
             }
             Task parseAuthResultFromIntent2 = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
@@ -141,7 +140,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
                 b(authHuaweiId2.getAccessToken());
                 return;
             }
-            a(-202, getString(R.string.obfuscated_res_0x7f0f1051));
+            a(-202, getString(R.string.obfuscated_res_0x7f0f102b));
             String str5 = p;
             Log.i(str5, "signIn failed: " + parseAuthResultFromIntent2.getException().getStatusCode());
         }
@@ -161,7 +160,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f107f);
+            setTitleText(R.string.obfuscated_res_0x7f0f103f);
             try {
                 d();
             } catch (Exception e) {

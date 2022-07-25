@@ -7,12 +7,12 @@ import java.io.File;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public final class e {
-    public static String a(String str) {
+    public static String bi(String str) {
         if (Build.VERSION.SDK_INT >= 19) {
             try {
-                return new String(com.kwad.sdk.core.a.c.a().a(l.a(o.g(new File(str)))));
+                return new String(com.kwad.sdk.core.a.c.tg().encode(l.k(o.R(new File(str)))));
             } catch (IOException e) {
-                com.kwad.sdk.core.d.b.a(e);
+                com.kwad.sdk.core.e.b.printStackTrace(e);
             }
         }
         return null;

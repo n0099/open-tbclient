@@ -109,18 +109,18 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
             setNeedRatio(true);
             setAspectRatio(1.25f);
             this.p = context;
-            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0507, this);
-            this.d = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0912ff);
-            this.f = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f091302);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091305);
-            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0912fb);
-            this.e = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0912fc);
-            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091303);
-            this.j = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091304);
-            this.l = inflate.findViewById(R.id.obfuscated_res_0x7f0912f2);
-            this.m = inflate.findViewById(R.id.obfuscated_res_0x7f091337);
-            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091338);
-            this.o = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091339);
+            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0511, this);
+            this.d = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0912db);
+            this.f = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f0912de);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0912e1);
+            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0912d7);
+            this.e = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0912d8);
+            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0912df);
+            this.j = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0912e0);
+            this.l = inflate.findViewById(R.id.obfuscated_res_0x7f0912ce);
+            this.m = inflate.findViewById(R.id.obfuscated_res_0x7f091313);
+            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091314);
+            this.o = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091315);
         }
     }
 

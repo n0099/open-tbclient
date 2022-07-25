@@ -116,7 +116,7 @@ public class lx5 extends jx5<y26> {
             this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090501);
             this.k = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904fd);
             this.l = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0904fc);
-            this.m = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e99);
+            this.m = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e92);
             this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090502);
             this.o = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090503);
             this.p = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f090504);

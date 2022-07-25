@@ -22,8 +22,8 @@ public class ru6 {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String b;
-    public final List<rx4> c;
-    public final List<rx4> d;
+    public final List<sx4> c;
+    public final List<sx4> d;
     public boolean e;
 
     public ru6() {
@@ -46,31 +46,31 @@ public class ru6 {
         j();
     }
 
-    public rx4 a(int i, String str, String str2, String str3) {
+    public sx4 a(int i, String str, String str2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3})) == null) {
-            rx4 rx4Var = new rx4();
-            rx4Var.a = i;
-            rx4Var.b = str;
-            rx4Var.c = str2;
-            rx4Var.d = str3;
-            return rx4Var;
+            sx4 sx4Var = new sx4();
+            sx4Var.a = i;
+            sx4Var.b = str;
+            sx4Var.c = str2;
+            sx4Var.d = str3;
+            return sx4Var;
         }
-        return (rx4) invokeCommon.objValue;
+        return (sx4) invokeCommon.objValue;
     }
 
-    public rx4 b(int i, String str, String str2) {
+    public sx4 b(int i, String str, String str2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2)) == null) {
-            rx4 rx4Var = new rx4();
-            rx4Var.a = i;
-            rx4Var.b = str;
-            rx4Var.c = str2;
-            return rx4Var;
+            sx4 sx4Var = new sx4();
+            sx4Var.a = i;
+            sx4Var.b = str;
+            sx4Var.c = str2;
+            return sx4Var;
         }
-        return (rx4) invokeILL.objValue;
+        return (sx4) invokeILL.objValue;
     }
 
     public boolean c() {
@@ -80,7 +80,7 @@ public class ru6 {
             if (this.e) {
                 return false;
             }
-            List<rx4> i = i();
+            List<sx4> i = i();
             int size = i.size();
             if (size != this.c.size()) {
                 return true;
@@ -95,21 +95,21 @@ public class ru6 {
         return invokeV.booleanValue;
     }
 
-    public final List<rx4> d() {
+    public final List<sx4> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(b(5, g(R.string.obfuscated_res_0x7f0f1366), ""));
-            arrayList.add(b(6, g(R.string.obfuscated_res_0x7f0f1362), ""));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1361), "game"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f135e), "digital"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f135f), "entertainment"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1360), "films"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f135c), "campus"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f135b), "animes"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1365), "sports"));
-            arrayList.add(a(202, g(R.string.obfuscated_res_0x7f0f1363), AccountConstants.LOGIN_TYPE_NATIVE_SRC_NOVEL, this.b));
+            arrayList.add(b(5, g(R.string.obfuscated_res_0x7f0f1315), ""));
+            arrayList.add(b(6, g(R.string.obfuscated_res_0x7f0f1311), ""));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1310), "game"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f130d), "digital"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f130e), "entertainment"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f130f), "films"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f130b), "campus"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f130a), "animes"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1314), "sports"));
+            arrayList.add(a(202, g(R.string.obfuscated_res_0x7f0f1312), AccountConstants.LOGIN_TYPE_NATIVE_SRC_NOVEL, this.b));
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -122,7 +122,7 @@ public class ru6 {
     }
 
     @NonNull
-    public List<rx4> f() {
+    public List<sx4> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (List) invokeV.objValue;
@@ -134,20 +134,20 @@ public class ru6 {
         return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? TbadkCoreApplication.getInst().getString(i) : (String) invokeI.objValue;
     }
 
-    public List<rx4> h() {
+    public List<sx4> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : (List) invokeV.objValue;
     }
 
-    public final List<rx4> i() {
+    public final List<sx4> i() {
         InterceptResult invokeV;
         JSONArray jSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             ArrayList arrayList = new ArrayList();
             try {
-                jSONArray = new JSONArray(xt4.k().q("key_index_tab_info_list", "[]"));
+                jSONArray = new JSONArray(yt4.k().q("key_index_tab_info_list", "[]"));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -158,17 +158,17 @@ public class ru6 {
             this.e = false;
             boolean isHomeTabModifyABTestA = UbsABTestHelper.isHomeTabModifyABTestA();
             for (int i = 0; i < jSONArray.length(); i++) {
-                rx4 rx4Var = new rx4();
-                rx4Var.h(jSONArray.getJSONObject(i));
-                if (!rx4Var.e()) {
+                sx4 sx4Var = new sx4();
+                sx4Var.h(jSONArray.getJSONObject(i));
+                if (!sx4Var.e()) {
                     if (isHomeTabModifyABTestA) {
-                        if (rx4Var.f() && arrayList.size() < 2) {
-                            arrayList.add(rx4Var);
+                        if (sx4Var.f() && arrayList.size() < 2) {
+                            arrayList.add(sx4Var);
                         } else {
-                            this.d.add(rx4Var);
+                            this.d.add(sx4Var);
                         }
                     } else {
-                        arrayList.add(rx4Var);
+                        arrayList.add(sx4Var);
                     }
                 }
             }
@@ -180,7 +180,7 @@ public class ru6 {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            List<rx4> i = i();
+            List<sx4> i = i();
             if (ListUtils.isEmpty(i)) {
                 return;
             }
@@ -191,7 +191,7 @@ public class ru6 {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            List<rx4> list = this.c;
+            List<sx4> list = this.c;
             if (list != null) {
                 list.clear();
             }

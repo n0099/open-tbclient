@@ -5,21 +5,19 @@ import android.content.SharedPreferences;
 import androidx.annotation.WorkerThread;
 /* loaded from: classes5.dex */
 public final class d {
-    public static Context a;
+    public static Context ab;
 
     @WorkerThread
-    public static long a() {
-        long b = b(a);
-        a(a, 1 + b);
-        return b;
-    }
-
-    public static void a(Context context) {
-        a = context;
+    public static long by(Context context) {
+        SharedPreferences sharedPreferences;
+        if (context == null || (sharedPreferences = context.getSharedPreferences("ksadsdk_crashseq", 0)) == null) {
+            return 0L;
+        }
+        return sharedPreferences.getLong("crashseq", 1L);
     }
 
     @WorkerThread
-    public static boolean a(Context context, long j) {
+    public static boolean d(Context context, long j) {
         if (context != null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_crashseq", 0).edit();
             edit.putLong("crashseq", j);
@@ -28,12 +26,14 @@ public final class d {
         return false;
     }
 
+    public static void init(Context context) {
+        ab = context;
+    }
+
     @WorkerThread
-    public static long b(Context context) {
-        SharedPreferences sharedPreferences;
-        if (context == null || (sharedPreferences = context.getSharedPreferences("ksadsdk_crashseq", 0)) == null) {
-            return 0L;
-        }
-        return sharedPreferences.getLong("crashseq", 1L);
+    public static long uH() {
+        long by = by(ab);
+        d(ab, 1 + by);
+        return by;
     }
 }

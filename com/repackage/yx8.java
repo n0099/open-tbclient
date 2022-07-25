@@ -69,7 +69,7 @@ public class yx8 implements xx8 {
                 return;
             }
             if (StringUtils.isNull(this.a.f)) {
-                this.a.a.showToast(false, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0511));
+                this.a.a.showToast(false, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f050d));
             } else {
                 this.a.a.showToast(false, this.a.f);
             }
@@ -101,21 +101,21 @@ public class yx8 implements xx8 {
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.e
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, fy4 fy4Var, WriteData writeData, AntiData antiData) {
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, gy4 gy4Var, WriteData writeData, AntiData antiData) {
             String str;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, fy4Var, writeData, antiData}) == null) || this.a.a == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, gy4Var, writeData, antiData}) == null) || this.a.a == null) {
                 return;
             }
             this.a.a.showPostThreadLoadingView(false);
             if (z) {
                 this.a.g = true;
                 if (writeData != null && writeData.getVideoReviewType() == 1) {
-                    this.a.a.showToast(true, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f153a));
+                    this.a.a.showToast(true, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f14e9));
                 } else if (writeData != null && writeData.getVideoReviewType() == 2) {
-                    this.a.a.showToast(true, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1539));
+                    this.a.a.showToast(true, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f14e8));
                 } else if (writeData != null) {
-                    String string = this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1119);
+                    String string = this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f10d5);
                     String str2 = null;
                     if (postWriteCallBackData != null) {
                         str2 = postWriteCallBackData.getPreMsg();
@@ -141,12 +141,12 @@ public class yx8 implements xx8 {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.a.getContext().getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
             } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 220015 && this.a.j != null) {
                 if (this.a.j != null) {
-                    this.a.j.callback(z, postWriteCallBackData, fy4Var, writeData, antiData);
+                    this.a.j.callback(z, postWriteCallBackData, gy4Var, writeData, antiData);
                 }
             } else if (postWriteCallBackData == null) {
             } else {
                 if (StringUtils.isNull(postWriteCallBackData.getErrorString())) {
-                    this.a.a.showToast(false, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f08fb));
+                    this.a.a.showToast(false, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f08e6));
                 } else {
                     this.a.a.showToast(false, postWriteCallBackData.getErrorString());
                 }
@@ -269,7 +269,7 @@ public class yx8 implements xx8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             if (!pi.D()) {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c17);
                 this.a.getContext().finish();
             } else if (!StringUtils.isNull(str)) {
                 this.a.showPostThreadLoadingView(true);
@@ -277,7 +277,7 @@ public class yx8 implements xx8 {
                 this.b.V().setVcodeType("4");
                 this.b.h0();
             } else {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c17);
                 this.a.getContext().finish();
             }
         }

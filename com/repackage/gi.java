@@ -586,7 +586,7 @@ public class gi {
             this.j = gi.o(i);
         }
 
-        public void c() throws IOException {
+        public void a() throws IOException {
             int i;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (i = this.b) <= 0) {
@@ -607,7 +607,7 @@ public class gi {
         public void close() throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                c();
+                a();
                 super.close();
                 this.c = null;
                 ((FilterOutputStream) this).out = null;

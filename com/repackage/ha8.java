@@ -103,7 +103,7 @@ public class ha8 {
                     downloadData2.setStatus(3);
                     return downloadData2;
                 }
-                downloadData.setCallback(new a15());
+                downloadData.setCallback(new b15());
                 downloadData.setStatusMsg(TbadkCoreApplication.getCurrentAccount());
                 downloadData.setType(12);
                 downloadData.setPath(l);
@@ -134,7 +134,7 @@ public class ha8 {
                                 downloadData.getDownloadStaticsData().setDa_range("0");
                             }
                             if (downloadData.isNeedNotify()) {
-                                String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0509);
+                                String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0505);
                                 la8 la8Var = new la8(downloadData, 0);
                                 this.a.b.put(downloadData.getUrl(), la8Var);
                                 Application app2 = TbadkCoreApplication.getInst().getApp();
@@ -293,18 +293,18 @@ public class ha8 {
         }
         int errorCode = downloadData.getErrorCode();
         if (errorCode == 1) {
-            string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0500);
+            string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04fc);
         } else if (errorCode != 3) {
-            string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04fe);
+            string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04fa);
         } else {
-            string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04ff);
+            string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04fb);
         }
         String str = string;
         if (downloadData.isNeedNotify()) {
             int process = downloadData.getProcess();
             Application app = TbadkCoreApplication.getInst().getApp();
             int notifyId = downloadData.getNotifyId();
-            NotificationHelper.showProgressNotification(app, notifyId, downloadData.getUser_name() + TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f04fe), process, process + "%", str, h(downloadData.getAction()), false);
+            NotificationHelper.showProgressNotification(app, notifyId, downloadData.getUser_name() + TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f04fa), process, process + "%", str, h(downloadData.getAction()), false);
         }
     }
 
@@ -339,9 +339,9 @@ public class ha8 {
         List<DownloadData> i = ka8.j().i();
         if (i != null && i.size() >= 5) {
             downloadData.setStatus(2);
-            downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04fd));
+            downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04f9));
             y(downloadData);
-            UtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.obfuscated_res_0x7f0f04fd);
+            UtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.obfuscated_res_0x7f0f04f9);
             return;
         }
         e.add(downloadData);

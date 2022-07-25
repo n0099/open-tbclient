@@ -1,15 +1,15 @@
 package com.kwad.sdk.pngencrypt;
 /* loaded from: classes5.dex */
 public final class l {
-    public final k a;
-    public final int[] b;
+    public final k akJ;
+    public final int[] ala;
 
-    public static h<l> a() {
+    public static h<l> yv() {
         return new h<l>() { // from class: com.kwad.sdk.pngencrypt.l.1
         };
     }
 
     public final String toString() {
-        return " cols=" + this.a.a + " bpc=" + this.a.c + " size=" + this.b.length;
+        return " cols=" + this.akJ.akv + " bpc=" + this.akJ.akN + " size=" + this.ala.length;
     }
 }

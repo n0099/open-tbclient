@@ -296,17 +296,17 @@ public class o37 extends cd6<ThreadData, CardViewHolder<ey5>> implements gy5 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, threadData, cardViewHolder})) == null) {
-            if (cardViewHolder == null || cardViewHolder.c() == null) {
+            if (cardViewHolder == null || cardViewHolder.b() == null) {
                 return null;
             }
-            cardViewHolder.c().n(this.v);
-            cardViewHolder.c().i(threadData);
+            cardViewHolder.b().n(this.v);
+            cardViewHolder.b().i(threadData);
             if (threadData != null && threadData.getAuthor() != null) {
                 StatisticItem statisticItem = new StatisticItem("c13019");
                 statisticItem.param("tid", threadData.getTid()).param("fid", threadData.getFid()).param("obj_name", threadData.getAuthor().getName_show());
                 cy5.b().a(statisticItem);
             }
-            return cardViewHolder.b();
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

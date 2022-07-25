@@ -63,7 +63,7 @@ public class xu6 extends an<vy5, ThreadCardViewHolder<vy5>> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, vy5Var) == null) {
                 int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f09202a || id == R.id.obfuscated_res_0x7f09203e) {
+                if (id == R.id.obfuscated_res_0x7f09202e || id == R.id.obfuscated_res_0x7f092042) {
                     fv6.e(vy5Var, this.b.m);
                 }
             }
@@ -102,10 +102,10 @@ public class xu6 extends an<vy5, ThreadCardViewHolder<vy5>> {
                 vy5 vy5Var = (vy5) nnVar;
                 vy5Var.f = 1;
                 if (this.a.n != null) {
-                    this.a.n.a(threadCardViewHolder.b(), vy5Var);
+                    this.a.n.a(threadCardViewHolder.a(), vy5Var);
                 }
                 fv6.b(vy5Var, view2.getContext(), 18, false, uw.a((tn) viewGroup, view2, i));
-                threadCardViewHolder.c().o(new ny.a(1));
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -179,11 +179,11 @@ public class xu6 extends an<vy5, ThreadCardViewHolder<vy5>> {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             cy.b bVar = new cy.b(this.i.getPageActivity(), false);
             ey eyVar = new ey(this.i.getPageActivity());
-            tn4 tn4Var = new tn4();
-            tn4Var.b = 15;
-            tn4Var.h = 11;
+            un4 un4Var = new un4();
+            un4Var.b = 15;
+            un4Var.h = 11;
             eyVar.x(false);
-            eyVar.w(tn4Var);
+            eyVar.w(un4Var);
             eyVar.y(12);
             eyVar.D(9);
             eyVar.A(this.m);
@@ -193,7 +193,7 @@ public class xu6 extends an<vy5, ThreadCardViewHolder<vy5>> {
             cy k = bVar.k(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.k);
             k.r(18);
             ThreadCardViewHolder<vy5> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.k(this.j);
+            threadCardViewHolder.j(this.j);
             V(new b(this));
             return threadCardViewHolder;
         }
@@ -207,19 +207,19 @@ public class xu6 extends an<vy5, ThreadCardViewHolder<vy5>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vy5Var, threadCardViewHolder})) == null) {
-            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || vy5Var.a == null) {
+            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || vy5Var.a == null) {
                 return null;
             }
             vy5Var.I(vy5Var.position + 1);
-            threadCardViewHolder.c().q(i);
-            if (threadCardViewHolder.c().f() instanceof ey) {
-                ((ey) threadCardViewHolder.c().f()).C(new c(this, viewGroup, view2, i));
+            threadCardViewHolder.b().q(i);
+            if (threadCardViewHolder.b().f() instanceof ey) {
+                ((ey) threadCardViewHolder.b().f()).C(new c(this, viewGroup, view2, i));
             }
-            threadCardViewHolder.q(false).u(this.l);
-            threadCardViewHolder.g(vy5Var);
-            threadCardViewHolder.c().onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.n);
-            return threadCardViewHolder.b();
+            threadCardViewHolder.p(false).u(this.l);
+            threadCardViewHolder.f(vy5Var);
+            threadCardViewHolder.b().onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().p(this.n);
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

@@ -64,9 +64,9 @@ public class v98 extends an<py5, CardAdvertAppEmptyHolder> implements o98 {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, py5Var, cardAdvertAppEmptyHolder})) == null) {
             AdvertAppInfo c = py5Var.c();
             if (c != null) {
-                sn4.e(c.i, py5Var.position, c.c == -1001);
+                tn4.e(c.i, py5Var.position, c.c == -1001);
             }
-            return cardAdvertAppEmptyHolder.b();
+            return cardAdvertAppEmptyHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

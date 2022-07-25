@@ -88,7 +88,7 @@ public class rb6 extends b9<TbTitleActivity> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.a.getPageContext().getContext()).createNormalCfg(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f13fd), "from")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.a.getPageContext().getContext()).createNormalCfg(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f13ac), "from")));
             }
         }
     }
@@ -197,12 +197,12 @@ public class rb6 extends b9<TbTitleActivity> {
             this.f.removeAllViews();
             for (int i = 1; i <= list.size(); i++) {
                 LevelInfo levelInfo = list.get(i - 1);
-                View inflate = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d081c, (ViewGroup) null);
-                LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ee0);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee2);
-                TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee3);
-                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091f96);
-                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee1);
+                View inflate = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0826, (ViewGroup) null);
+                LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ee4);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee6);
+                TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee7);
+                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091f9a);
+                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee5);
                 if (i % 2 != 0) {
                     SkinManager.setBackgroundResource(linearLayout, R.color.CAM_X0205);
                 }
@@ -249,8 +249,8 @@ public class rb6 extends b9<TbTitleActivity> {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            String string = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f13b8);
-            String string2 = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f13b9);
+            String string = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f1367);
+            String string2 = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f1368);
             int length = string2.length();
             int indexOf = string.indexOf(string2);
             SpannableString spannableString = new SpannableString(string);
@@ -263,35 +263,35 @@ public class rb6 extends b9<TbTitleActivity> {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d081b, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0825, (ViewGroup) null);
             this.b = relativeLayout;
             this.a.setContentView(relativeLayout);
-            this.m = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092462);
-            this.n = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a4b);
-            this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090916);
-            this.p = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0918c4);
-            this.q = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920b7);
+            this.m = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092464);
+            this.n = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a25);
+            this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09090f);
+            this.p = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09189f);
+            this.q = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920bb);
             this.r = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924c1);
-            this.s = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092459);
-            this.l = this.b.findViewById(R.id.obfuscated_res_0x7f092156);
+            this.s = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09245b);
+            this.l = this.b.findViewById(R.id.obfuscated_res_0x7f092158);
             if (!ni.A()) {
-                this.l.getLayoutParams().height = UtilHelper.getLightStatusBarHeight() + pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07025c);
+                this.l.getLayoutParams().height = UtilHelper.getLightStatusBarHeight() + pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07025a);
             } else {
-                this.l.getLayoutParams().height = UtilHelper.getLightStatusBarHeight() + pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070308);
+                this.l.getLayoutParams().height = UtilHelper.getLightStatusBarHeight() + pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070306);
             }
-            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092439);
             this.d = navigationBar;
-            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f13bb));
+            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f136a));
             this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.d.showBottomLine();
-            this.e = (ScrollView) this.b.findViewById(R.id.obfuscated_res_0x7f091f98);
-            this.k = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090983);
-            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f97);
-            this.f = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091edf);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09232a);
-            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090cf5);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f99);
-            this.c = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f092439);
+            this.e = (ScrollView) this.b.findViewById(R.id.obfuscated_res_0x7f091f9c);
+            this.k = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09097c);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f9b);
+            this.f = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091ee3);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09232c);
+            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090cee);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f9d);
+            this.c = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09243b);
             m();
             q();
         }
@@ -320,12 +320,12 @@ public class rb6 extends b9<TbTitleActivity> {
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             if (!z) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.l.getLayoutParams();
-                layoutParams.height = UtilHelper.getLightStatusBarHeight() + pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07025c);
+                layoutParams.height = UtilHelper.getLightStatusBarHeight() + pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07025a);
                 this.l.setLayoutParams(layoutParams);
                 return;
             }
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.l.getLayoutParams();
-            layoutParams2.height = UtilHelper.getLightStatusBarHeight() + pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070308);
+            layoutParams2.height = UtilHelper.getLightStatusBarHeight() + pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070306);
             this.l.setLayoutParams(layoutParams2);
         }
     }

@@ -49,7 +49,7 @@ public class l08 extends an<s08, PersonInfoAddUserPicViewHolder> {
     public PersonInfoAddUserPicViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PersonInfoAddUserPicViewHolder(LayoutInflater.from(this.i.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0866, (ViewGroup) null)) : (PersonInfoAddUserPicViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PersonInfoAddUserPicViewHolder(LayoutInflater.from(this.i.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0870, (ViewGroup) null)) : (PersonInfoAddUserPicViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -62,9 +62,9 @@ public class l08 extends an<s08, PersonInfoAddUserPicViewHolder> {
             if (personInfoAddUserPicViewHolder == null || s08Var == null) {
                 return null;
             }
-            personInfoAddUserPicViewHolder.f(this.j);
-            personInfoAddUserPicViewHolder.c(s08Var);
-            return personInfoAddUserPicViewHolder.b();
+            personInfoAddUserPicViewHolder.e(this.j);
+            personInfoAddUserPicViewHolder.b(s08Var);
+            return personInfoAddUserPicViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

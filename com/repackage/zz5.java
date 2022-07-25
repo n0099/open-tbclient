@@ -69,24 +69,24 @@ public class zz5 {
 
         /* renamed from: com.repackage.zz5$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0790a implements ef {
+        public class C0638a implements ef {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
             /* renamed from: com.repackage.zz5$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class View$OnClickListenerC0791a implements View.OnClickListener {
+            public class View$OnClickListenerC0639a implements View.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0790a a;
+                public final /* synthetic */ C0638a a;
 
-                public View$OnClickListenerC0791a(C0790a c0790a) {
+                public View$OnClickListenerC0639a(C0638a c0638a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0790a};
+                        Object[] objArr = {c0638a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -96,7 +96,7 @@ public class zz5 {
                             return;
                         }
                     }
-                    this.a = c0790a;
+                    this.a = c0638a;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -121,7 +121,7 @@ public class zz5 {
                 }
             }
 
-            public C0790a(a aVar) {
+            public C0638a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -159,8 +159,8 @@ public class zz5 {
                 Drawable drawable;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
-                    View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04ef, (ViewGroup) null);
-                    TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920b4);
+                    View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04f9, (ViewGroup) null);
+                    TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920b8);
                     textView.setText(this.a.a.f);
                     if (this.a.a.A != 0) {
                         textView.setGravity(this.a.a.A);
@@ -197,7 +197,7 @@ public class zz5 {
                     if (this.a.a.t != null) {
                         textView.setOnClickListener(this.a.a.t);
                     } else {
-                        textView.setOnClickListener(new View$OnClickListenerC0791a(this));
+                        textView.setOnClickListener(new View$OnClickListenerC0639a(this));
                     }
                     return inflate;
                 }
@@ -247,7 +247,7 @@ public class zz5 {
                     gfVar.c(0);
                     gfVar.i(true);
                     gfVar.h(true);
-                    gfVar.a(new C0790a(this));
+                    gfVar.a(new C0638a(this));
                     this.a.b = gfVar.b();
                     this.a.b.k(false);
                     this.a.b.l(this.a.v);
@@ -371,7 +371,7 @@ public class zz5 {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.k) {
             return;
         }
-        xt4.k().w(this.g, this.j + 1);
+        yt4.k().w(this.g, this.j + 1);
     }
 
     public void F(int i) {
@@ -480,7 +480,7 @@ public class zz5 {
             this.f = str;
             this.g = str2;
             this.k = z2;
-            int l = xt4.k().l(str2, 0);
+            int l = yt4.k().l(str2, 0);
             this.j = l;
             if (l < this.l || this.k) {
                 if (z) {

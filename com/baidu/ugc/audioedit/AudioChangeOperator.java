@@ -93,7 +93,7 @@ public class AudioChangeOperator implements k59 {
             } else if (i2 + ErrorCode.ARGS_ERROR == 15 && this.mCurrentEQparams != null) {
                 this.mDuAudioProcess.i(Math.max(this.mEQType + ErrorCode.ARGS_ERROR, 0), this.mCurrentEQparams);
             }
-            this.mDuAudioProcess.g(Math.max(this.mAirType - 500, 0));
+            this.mDuAudioProcess.g(Math.max(this.mAirType + ErrorCode.SERVER_ERROR, 0));
             this.mDuAudioProcess.j(this.mHarmonyType >= 700 ? 1 : 0);
             w89.d("AudioChangeOperatorNew: 切换效果 mPitchType = " + this.mPitchType);
             w89.d("AudioChangeOperatorNew: 切换效果 mReverbType = " + this.mReverbType);

@@ -87,9 +87,9 @@ public class m58 extends jx5<k48> {
         this.i = tbPageContext;
         View h = h();
         this.j = h;
-        this.k = h.findViewById(R.id.obfuscated_res_0x7f0907df);
-        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090c6f);
-        HTypeListView hTypeListView = (HTypeListView) this.j.findViewById(R.id.obfuscated_res_0x7f090c5c);
+        this.k = h.findViewById(R.id.obfuscated_res_0x7f0907dd);
+        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090c68);
+        HTypeListView hTypeListView = (HTypeListView) this.j.findViewById(R.id.obfuscated_res_0x7f090c55);
         this.m = hTypeListView;
         this.n = new i38(this.i, hTypeListView);
     }
@@ -122,7 +122,7 @@ public class m58 extends jx5<k48> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, k48Var) == null) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
-                this.i.showToast(R.string.obfuscated_res_0x7f0f07b4);
+                this.i.showToast(R.string.obfuscated_res_0x7f0f07b0);
             } else if (ViewHelper.checkUpIsLogin(this.i.getPageActivity())) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.i.getPageActivity(), k48Var.c, k48Var.d, k48Var.e, k48Var.f)));
             }
@@ -142,11 +142,11 @@ public class m58 extends jx5<k48> {
                 this.n.b(aVar);
                 this.m.setData(u(k48Var.g));
                 if (k48Var.a) {
-                    this.l.setText(R.string.obfuscated_res_0x7f0f07b8);
+                    this.l.setText(R.string.obfuscated_res_0x7f0f07b4);
                 } else if (k48Var.b) {
-                    this.l.setText(R.string.obfuscated_res_0x7f0f07b7);
+                    this.l.setText(R.string.obfuscated_res_0x7f0f07b3);
                 } else {
-                    this.l.setText(R.string.obfuscated_res_0x7f0f07b6);
+                    this.l.setText(R.string.obfuscated_res_0x7f0f07b2);
                 }
                 j(this.i, TbadkCoreApplication.getInst().getSkinType());
                 return;

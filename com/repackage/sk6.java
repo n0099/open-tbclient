@@ -11,23 +11,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sk6 extends bt4 {
+public class sk6 extends ct4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sk6(zs4 zs4Var) {
-        super(zs4Var);
+    public sk6(at4 at4Var) {
+        super(at4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zs4Var};
+            Object[] objArr = {at4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((zs4) newInitContext.callArgs[0]);
+                super((at4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,7 +35,7 @@ public class sk6 extends bt4 {
         }
     }
 
-    @ct4(isAsync = false, value = "isGameInstall")
+    @dt4(isAsync = false, value = "isGameInstall")
     private JSONObject isGameInstall(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class sk6 extends bt4 {
         return (JSONObject) invokeL.objValue;
     }
 
-    @Override // com.repackage.bt4
+    @Override // com.repackage.ct4
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

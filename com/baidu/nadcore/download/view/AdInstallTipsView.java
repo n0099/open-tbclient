@@ -156,7 +156,7 @@ public class AdInstallTipsView extends LinearLayout implements zj0, View.OnClick
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            g(LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05b2, this));
+            g(LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05bc, this));
             setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d54));
             setOrientation(0);
             setGravity(16);
@@ -175,8 +175,8 @@ public class AdInstallTipsView extends LinearLayout implements zj0, View.OnClick
             this.h = (CountDownTextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b6);
             this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900b4);
             this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900b7);
-            this.e.setLabelText(getResources().getString(R.string.obfuscated_res_0x7f0f0b50));
-            this.h.setLabelText(getResources().getString(R.string.obfuscated_res_0x7f0f0b60));
+            this.e.setLabelText(getResources().getString(R.string.obfuscated_res_0x7f0f0b3c));
+            this.h.setLabelText(getResources().getString(R.string.obfuscated_res_0x7f0f0b4c));
             this.e.setTimerTextFormat(null, "s");
             this.h.setTimerTextFormat(null, "s");
             this.e.setTextColor(Color.parseColor("#FF4141"));

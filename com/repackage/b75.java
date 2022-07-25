@@ -1,14 +1,16 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.mutiprocess.history.HistoryEvent;
+import com.baidu.searchbox.fluency.BdTracesManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.mutiprocess.fps.ImageFpsEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class b75 implements l65<HistoryEvent> {
+public class b75 implements m65<ImageFpsEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,17 +29,17 @@ public class b75 implements l65<HistoryEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.l65
+    @Override // com.repackage.m65
     /* renamed from: a */
-    public boolean onEvent(HistoryEvent historyEvent) {
+    public boolean onEvent(ImageFpsEvent imageFpsEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, historyEvent)) == null) {
-            if (historyEvent == null || TextUtils.isEmpty(historyEvent.tid)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFpsEvent)) == null) {
+            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+                BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(ImageViewerConfig.KEY_FPS_IMAGE);
+                return true;
             }
-            ux5.a(historyEvent.tid);
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
     }

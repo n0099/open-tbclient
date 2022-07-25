@@ -61,13 +61,13 @@ public class je1 {
             if (jSONObject != null) {
                 try {
                     if (jSONObject.length() != 0) {
-                        String d = new cf1(this.a, null).d(jSONObject, j);
+                        String d = new df1(this.a, null).d(jSONObject, j);
                         if (!TextUtils.isEmpty(d)) {
                             return d;
                         }
                     }
                 } catch (Throwable th) {
-                    sf1.d(th);
+                    tf1.d(th);
                 }
             }
             return "";
@@ -115,11 +115,11 @@ public class je1 {
                     if (f()) {
                         return true;
                     }
-                    cf1 cf1Var = new cf1(this.a, null);
-                    String b2 = cf1Var.b();
+                    df1 df1Var = new df1(this.a, null);
+                    String b2 = df1Var.b();
                     if (TextUtils.isEmpty(b2)) {
                         for (int i = 0; i < 3; i++) {
-                            b2 = cf1Var.b();
+                            b2 = df1Var.b();
                             if (!TextUtils.isEmpty(b2)) {
                                 break;
                             }
@@ -147,7 +147,7 @@ public class je1 {
                         String optString = optJSONObject2.optString("app_id");
                         String optString2 = optJSONObject2.optString(GameGuideConfigInfo.KEY_APP_KEY);
                         if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                            pe1.k(FunAdSdk.PLATFORM_CM, optString, optString2);
+                            qe1.k(FunAdSdk.PLATFORM_CM, optString, optString2);
                         }
                         int optInt2 = optJSONObject2.optInt("status", -1);
                         if (optInt2 == 1) {
@@ -162,7 +162,7 @@ public class je1 {
                         String optString3 = optJSONObject3.optString("app_id");
                         String optString4 = optJSONObject3.optString(GameGuideConfigInfo.KEY_APP_KEY);
                         if (!TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString4)) {
-                            pe1.k(Config.EXCEPTION_CRASH_TYPE, optString3, optString4);
+                            qe1.k(Config.EXCEPTION_CRASH_TYPE, optString3, optString4);
                         }
                         int optInt3 = optJSONObject3.optInt("status", -1);
                         if (optInt3 == 1) {
@@ -177,7 +177,7 @@ public class je1 {
                         String optString5 = optJSONObject4.optString("app_id");
                         String optString6 = optJSONObject4.optString(GameGuideConfigInfo.KEY_APP_KEY);
                         if (!TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString6)) {
-                            pe1.k("cu", optString5, optString6);
+                            qe1.k("cu", optString5, optString6);
                         }
                         int optInt4 = optJSONObject4.optInt("status", -1);
                         if (optInt4 == 1) {
@@ -209,7 +209,7 @@ public class je1 {
                     he1.f(this.a).P(System.currentTimeMillis());
                     return true;
                 } catch (Throwable th) {
-                    sf1.d(th);
+                    tf1.d(th);
                     return false;
                 }
             }
@@ -224,13 +224,13 @@ public class je1 {
             if (jSONObject != null) {
                 try {
                     if (jSONObject.length() != 0) {
-                        String i = new cf1(this.a, null).i(jSONObject, j);
+                        String i = new df1(this.a, null).i(jSONObject, j);
                         if (!TextUtils.isEmpty(i)) {
                             return i;
                         }
                     }
                 } catch (Throwable th) {
-                    sf1.d(th);
+                    tf1.d(th);
                 }
             }
             return "";
@@ -257,7 +257,7 @@ public class je1 {
                     String string = jSONObject.getString("app_id");
                     String string2 = jSONObject.getString(GameGuideConfigInfo.KEY_APP_KEY);
                     if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2)) {
-                        pe1.k(FunAdSdk.PLATFORM_CM, string, string2);
+                        qe1.k(FunAdSdk.PLATFORM_CM, string, string2);
                     }
                 }
                 if (!TextUtils.isEmpty(O)) {
@@ -265,7 +265,7 @@ public class je1 {
                     String string3 = jSONObject2.getString("app_id");
                     String string4 = jSONObject2.getString(GameGuideConfigInfo.KEY_APP_KEY);
                     if (!TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string4)) {
-                        pe1.k(Config.EXCEPTION_CRASH_TYPE, string3, string4);
+                        qe1.k(Config.EXCEPTION_CRASH_TYPE, string3, string4);
                     }
                 }
                 if (TextUtils.isEmpty(f0)) {
@@ -277,10 +277,10 @@ public class je1 {
                 if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2)) {
                     return true;
                 }
-                pe1.k("cu", optString, optString2);
+                qe1.k("cu", optString, optString2);
                 return true;
             } catch (Throwable th) {
-                sf1.d(th);
+                tf1.d(th);
                 return false;
             }
         }

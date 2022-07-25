@@ -107,7 +107,7 @@ public class HeadSegDetector extends com.baidu.ar.b.a.a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, aVar)) == null) {
                     String str = aVar.tw[0];
-                    return aVar.f1753tv ? ARMdlInterfaceJNI.initHeadSegFromAsset(str) : ARMdlInterfaceJNI.initHeadSeg(str);
+                    return aVar.f1033tv ? ARMdlInterfaceJNI.initHeadSegFromAsset(str) : ARMdlInterfaceJNI.initHeadSeg(str);
                 }
                 return invokeL2.intValue;
             }

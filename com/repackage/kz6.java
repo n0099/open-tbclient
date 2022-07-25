@@ -21,7 +21,7 @@ public class kz6 {
             if (!(nnVar instanceof ny5) || (threadData = (ny5Var = (ny5) nnVar).a) == null || threadData.getVoiceRoomData() == null || StringUtils.isNull(ny5Var.a.getVoiceRoomData().room_name) || ny5Var.a.getVoiceRoomData().room_id.longValue() <= 0) {
                 return false;
             }
-            ((a65) ServiceManager.getService(a65.a.a())).a(tbPageContext, ny5Var.a.getVoiceRoomData().room_id.longValue());
+            ((b65) ServiceManager.getService(b65.a.a())).a(tbPageContext, ny5Var.a.getVoiceRoomData().room_id.longValue());
             return true;
         }
         return invokeLL.booleanValue;

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b67;
-import com.repackage.cp4;
+import com.repackage.dp4;
 import com.repackage.s67;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -65,17 +65,17 @@ public class IMUserListHttpResponseMsg extends JsonHttpResponsedMessage {
                         g.setIsFriend(userData.getRelation());
                         z = true;
                     }
-                    cp4 cp4Var = new cp4();
-                    cp4Var.b(userData);
+                    dp4 dp4Var = new dp4();
+                    dp4Var.b(userData);
                     if (g.getImUserExtraData() == null) {
-                        g.setImUserExtraData(cp4Var);
+                        g.setImUserExtraData(dp4Var);
                     } else {
-                        String c = cp4Var.c();
+                        String c = dp4Var.c();
                         String c2 = g.getImUserExtraData().c();
                         if (c == null || c.equals(c2)) {
                             z2 = z;
                         } else {
-                            g.setImUserExtraData(cp4Var);
+                            g.setImUserExtraData(dp4Var);
                         }
                     }
                     if (z2) {

@@ -96,12 +96,12 @@ public class m37 extends cd6<ThreadData, CardViewHolder<fy5>> implements gy5 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, threadData, cardViewHolder})) == null) {
-            if (cardViewHolder == null || cardViewHolder.c() == null) {
+            if (cardViewHolder == null || cardViewHolder.b() == null) {
                 return null;
             }
-            cardViewHolder.c().n(this.u);
-            cardViewHolder.c().i(threadData);
-            return cardViewHolder.b();
+            cardViewHolder.b().n(this.u);
+            cardViewHolder.b().i(threadData);
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

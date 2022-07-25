@@ -72,7 +72,7 @@ public class hp5 extends an<lp5, SdkDoubleLiveViewHolder> {
             }
             pq5Var.i(lp5Var);
             sdkDoubleLiveViewHolder.a.j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            return sdkDoubleLiveViewHolder.b();
+            return sdkDoubleLiveViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

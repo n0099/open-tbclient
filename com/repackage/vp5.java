@@ -126,7 +126,7 @@ public class vp5 extends an<zp5, LiveTabConcernOfflineViewHolder> {
                 return null;
             }
             iq5Var.i(zp5Var);
-            return liveTabConcernOfflineViewHolder.b();
+            return liveTabConcernOfflineViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

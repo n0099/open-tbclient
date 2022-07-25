@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import tbclient.BlockPopInfo;
 /* loaded from: classes7.dex */
 public class xo8 {
@@ -24,7 +24,7 @@ public class xo8 {
     public CustomMessageListener b;
 
     /* loaded from: classes7.dex */
-    public class a implements cr4.e {
+    public class a implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,17 +44,17 @@ public class xo8 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BlockPopInfo a;
@@ -79,10 +79,10 @@ public class xo8 {
             this.a = blockPopInfo;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.b.e(this.a);
             }
         }
@@ -181,7 +181,7 @@ public class xo8 {
                         if (!oi.isEmpty(str) && !oi.isEmpty(str2)) {
                             h(blockPopInfo);
                         } else {
-                            BdToast b3 = BdToast.b(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f081a));
+                            BdToast b3 = BdToast.b(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0816));
                             b3.f(BdToast.ToastIcon.FAILURE);
                             b3.c(3000);
                             b3.h();
@@ -222,10 +222,10 @@ public class xo8 {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, blockPopInfo) == null) || blockPopInfo == null) {
             return;
         }
-        cr4 cr4Var = new cr4(this.a.getPageActivity());
-        cr4Var.setMessage(blockPopInfo.block_info);
-        cr4Var.setNegativeButton(blockPopInfo.ok_info, new a(this));
-        cr4Var.setPositiveButton(blockPopInfo.ahead_info, new b(this, blockPopInfo));
-        cr4Var.create(this.a).show();
+        dr4 dr4Var = new dr4(this.a.getPageActivity());
+        dr4Var.setMessage(blockPopInfo.block_info);
+        dr4Var.setNegativeButton(blockPopInfo.ok_info, new a(this));
+        dr4Var.setPositiveButton(blockPopInfo.ahead_info, new b(this, blockPopInfo));
+        dr4Var.create(this.a).show();
     }
 }

@@ -5,24 +5,21 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
-public class vk3 {
+public class vk3 implements sk3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public Method b;
-    public Object c;
+    public wk3 a;
+    public boolean b;
 
-    public vk3(Class<?> cls) {
+    public vk3(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,70 +29,39 @@ public class vk3 {
                 return;
             }
         }
-        this.a = 4099;
-        if (cls == null) {
+        this.b = false;
+        c(context);
+    }
+
+    @Override // com.repackage.sk3
+    public void a() {
+        wk3 wk3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b && (wk3Var = this.a) != null && wk3Var.c()) {
+            this.b = false;
+            wk3 wk3Var2 = this.a;
+            wk3Var2.d(wk3Var2.a(), "", -1);
+        }
+    }
+
+    @Override // com.repackage.sk3
+    public void b(int i) {
+        wk3 wk3Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.b || (wk3Var = this.a) == null || !wk3Var.c()) {
             return;
         }
-        try {
-            Object k = k44.k(cls, "getInstance", new Object[0]);
-            this.c = k;
-            if (k != null) {
-                Object h = k44.h(k, "UNIPERF_EVENT_APP_START");
-                this.a = h == null ? this.a : ((Integer) h).intValue();
-            }
-            Method i3 = k44.i(cls, "uniPerfEvent", Integer.TYPE, String.class, int[].class);
-            this.b = i3;
-            if (i3 != null) {
-                i3.setAccessible(true);
-            }
-        } catch (Throwable unused) {
+        wk3 wk3Var2 = this.a;
+        if (wk3Var2.d(wk3Var2.a(), "", 0) != 0) {
+            return;
         }
+        this.b = true;
     }
 
-    public static vk3 b(@NonNull Context context) {
-        Class<?> cls;
-        InterceptResult invokeL;
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                cls = k44.b("android.iawareperf.UniPerf", true);
-            } catch (Throwable unused) {
-                cls = null;
-            }
-            return new vk3(cls);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = wk3.b(context);
         }
-        return (vk3) invokeL.objValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.c == null || this.b == null) ? false : true : invokeV.booleanValue;
-    }
-
-    public int d(int i, String str, int... iArr) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, iArr)) == null) {
-            if (c()) {
-                try {
-                    Object invoke = this.b.invoke(this.c, Integer.valueOf(i), str, iArr);
-                    if (invoke == null) {
-                        return -1;
-                    }
-                    return ((Integer) invoke).intValue();
-                } catch (Throwable unused) {
-                    return -1;
-                }
-            }
-            return -1;
-        }
-        return invokeILL.intValue;
     }
 }

@@ -1,86 +1,41 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.PreInitMainTabViewSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
 public class t55 {
     public static /* synthetic */ Interceptable $ic;
+    public static t55 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public String b;
-    public boolean c;
-    public String d;
-    public boolean e;
-    public boolean f;
-    public u55 g;
-    public ig<ym> h;
+    public final HashMap<Integer, Object> a;
+    public final xp4 b;
 
     /* loaded from: classes7.dex */
-    public class a extends ig<ym> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t55 a;
+    public interface a {
+        Object build();
+    }
 
-        public a(t55 t55Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t55Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = t55Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755339747, "Lcom/repackage/t55;")) == null) {
+            return;
         }
-
-        @Override // com.repackage.ig
-        public void onCancelled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                super.onCancelled(str);
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // com.repackage.ig
-        public void onProgressUpdate(Object... objArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
-                super.onProgressUpdate(objArr);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ig
-        public void onLoaded(ym ymVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ymVar, str, i) == null) {
-                if (ymVar != null && str != null) {
-                    if (str.equals(this.a.b)) {
-                        this.a.c = true;
-                    } else if (str.equals(this.a.d)) {
-                        this.a.e = true;
-                    }
-                }
-                if (this.a.c && this.a.e) {
-                    this.a.f = true;
-                }
-                if (this.a.g == null || !this.a.f) {
-                    return;
-                }
-                this.a.g.a();
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755339747, "Lcom/repackage/t55;");
         }
     }
 
@@ -88,79 +43,76 @@ public class t55 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.h = new a(this);
+        this.a = new HashMap<>();
+        this.b = new xp4();
     }
 
-    public int j() {
+    public static t55 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 45;
-        }
-        return invokeV.intValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            String str = this.b;
-            if (str != null && !oi.isEmpty(str)) {
-                jg.h().k(this.b, j(), this.h, 0, 0, this.a, new Object[0]);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (t55.class) {
+                    if (c == null) {
+                        c = new t55();
+                    }
+                }
             }
-            String str2 = this.d;
-            if (str2 == null || oi.isEmpty(str2)) {
-                return;
+            return c;
+        }
+        return (t55) invokeV.objValue;
+    }
+
+    public void a(int i, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, obj) == null) {
+            this.a.put(Integer.valueOf(i), obj);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.a();
+            this.a.clear();
+        }
+    }
+
+    public Object c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.a.get(Integer.valueOf(i)) : invokeI.objValue;
+    }
+
+    public Object d(int i, a aVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, aVar)) == null) {
+            Object obj = this.a.get(Integer.valueOf(i));
+            if ((!PreInitMainTabViewSwitch.getIsOn() || obj == null) && aVar != null) {
+                obj = aVar.build();
             }
-            jg.h().k(this.d, j(), this.h, 0, 0, this.a, new Object[0]);
+            this.a.remove(Integer.valueOf(i));
+            if (obj == null && TbadkCoreApplication.getInst().isDebugMode()) {
+                throw new RuntimeException("ViewCache must have return value.");
+            }
+            return obj;
         }
+        return invokeIL.objValue;
     }
 
-    public void o(JSONObject jSONObject) {
+    public xp4 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            this.b = jSONObject.optString("pic_before");
-            this.d = jSONObject.optString("pic_after");
-        }
-    }
-
-    public void p(u55 u55Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, u55Var) == null) {
-            this.g = u55Var;
-        }
-    }
-
-    public void q(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (xp4) invokeV.objValue;
     }
 }

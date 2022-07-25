@@ -118,17 +118,17 @@ public class h31 {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = View.inflate(this.d, R.layout.obfuscated_res_0x7f0d05b8, null);
-            this.a = (CheckBox) inflate.findViewById(R.id.obfuscated_res_0x7f091acc);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09147b);
+            View inflate = View.inflate(this.d, R.layout.obfuscated_res_0x7f0d05c2, null);
+            this.a = (CheckBox) inflate.findViewById(R.id.obfuscated_res_0x7f091aa6);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091457);
             this.b = textView;
             textView.setTextColor(this.d.getResources().getColor(R.color.obfuscated_res_0x7f0607f5));
             this.b.setText(c());
             n41.a aVar = new n41.a(this.d);
-            aVar.q(R.string.obfuscated_res_0x7f0f0b9d);
+            aVar.q(R.string.obfuscated_res_0x7f0f0b89);
             aVar.s(inflate);
-            aVar.l(R.string.obfuscated_res_0x7f0f0b99, new b(this));
-            aVar.o(R.string.obfuscated_res_0x7f0f0b9c, new a(this));
+            aVar.l(R.string.obfuscated_res_0x7f0f0b85, new b(this));
+            aVar.o(R.string.obfuscated_res_0x7f0f0b88, new a(this));
             this.e = aVar.a();
         }
     }
@@ -142,7 +142,7 @@ public class h31 {
             if ("http".equals(parse.getScheme())) {
                 str = this.c.substring(7);
             }
-            return String.format(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0b9a), str);
+            return String.format(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0b86), str);
         }
         return (String) invokeV.objValue;
     }
@@ -152,7 +152,7 @@ public class h31 {
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             boolean isChecked = this.a.isChecked();
             if (isChecked) {
-                yz0.a().b(this.d.getApplicationContext(), z ? R.string.obfuscated_res_0x7f0f0b9e : R.string.obfuscated_res_0x7f0f0b9f);
+                yz0.a().b(this.d.getApplicationContext(), z ? R.string.obfuscated_res_0x7f0f0b8a : R.string.obfuscated_res_0x7f0f0b8b);
             }
             this.f.a(this.c, z, isChecked);
         }

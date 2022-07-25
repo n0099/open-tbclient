@@ -22,7 +22,7 @@ public class FileDownloadHttpException extends IOException {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FileDownloadHttpException(int i, Map<String, List<String>> map, Map<String, List<String>> map2) {
-        super(f.a("response requestHttpCode error: %d, \n request headers: %s \n response headers: %s", Integer.valueOf(i), map, map2));
+        super(f.h("response requestHttpCode error: %d, \n request headers: %s \n response headers: %s", Integer.valueOf(i), map, map2));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

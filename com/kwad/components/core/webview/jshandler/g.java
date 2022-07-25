@@ -3,6 +3,7 @@ package com.kwad.components.core.webview.jshandler;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,21 +14,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class g implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final com.kwad.sdk.core.webview.b a;
-    public a b;
-    public Handler c;
+    public Handler Ll;
+    public com.kwad.sdk.core.webview.a.kwai.b Lt;
+    @Nullable
+    public com.kwad.sdk.core.webview.kwai.c Lu;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a();
-    }
-
-    public g(com.kwad.sdk.core.webview.b bVar, a aVar) {
+    public g(com.kwad.sdk.core.webview.a.kwai.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, aVar};
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,27 +34,29 @@ public final class g implements com.kwad.sdk.core.webview.kwai.a {
                 return;
             }
         }
-        this.c = new Handler(Looper.getMainLooper());
-        this.a = bVar;
-        this.b = aVar;
+        this.Lt = bVar;
+        this.Ll = new Handler(Looper.getMainLooper());
     }
 
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
-    public final String a() {
-        InterceptResult invokeV;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void pw() {
+        com.kwad.sdk.core.webview.a.kwai.b bVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "dislike" : (String) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (bVar = this.Lt) == null) {
+            return;
+        }
+        bVar.onClose();
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            this.c.post(new Runnable(this) { // from class: com.kwad.components.core.webview.jshandler.g.1
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
+            this.Lu = cVar;
+            this.Ll.post(new Runnable(this) { // from class: com.kwad.components.core.webview.jshandler.g.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ g a;
+                public final /* synthetic */ g Lv;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -74,26 +73,38 @@ public final class g implements com.kwad.sdk.core.webview.kwai.a {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.Lv = this;
                 }
 
                 @Override // java.lang.Runnable
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.b.a();
+                        this.Lv.pw();
+                        if (this.Lv.Lu != null) {
+                            this.Lv.Lu.a(null);
+                        }
                     }
                 }
             });
-            cVar.a(null);
         }
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void b() {
+    @NonNull
+    public final String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "close" : (String) invokeV.objValue;
+    }
+
+    @Override // com.kwad.sdk.core.webview.kwai.a
+    public final void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.removeCallbacksAndMessages(null);
+            this.Lt = null;
+            this.Lu = null;
+            this.Ll.removeCallbacksAndMessages(null);
         }
     }
 }

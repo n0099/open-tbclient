@@ -23,7 +23,7 @@ import com.repackage.qf;
 import com.repackage.rf;
 import com.repackage.sf;
 import com.repackage.tf;
-import com.repackage.xt4;
+import com.repackage.yt4;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -334,7 +334,7 @@ public class WebClient implements hg.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (xt4.k().l("image_no_cache_switch", 0) == 1) {
+            if (yt4.k().l("image_no_cache_switch", 0) == 1) {
                 return this.needCache;
             }
             return true;

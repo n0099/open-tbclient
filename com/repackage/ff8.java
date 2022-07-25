@@ -115,11 +115,11 @@ public class ff8 extends an<hf8, CardViewHolder<yf8>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hf8Var, cardViewHolder})) == null) {
-            if (hf8Var == null || cardViewHolder == null || cardViewHolder.c() == null) {
+            if (hf8Var == null || cardViewHolder == null || cardViewHolder.b() == null) {
                 return null;
             }
-            cardViewHolder.c().i(hf8Var);
-            cardViewHolder.c().n(this.j);
+            cardViewHolder.b().i(hf8Var);
+            cardViewHolder.b().n(this.j);
             if (this.i.getPageActivity() instanceof ForumSquareActivity) {
                 String className = ((ForumSquareActivity) this.i.getPageActivity()).A1().getClassName();
                 if (!"推荐".equals(className)) {
@@ -136,7 +136,7 @@ public class ff8 extends an<hf8, CardViewHolder<yf8>> {
                     TiebaStatic.log(statisticItem2);
                 }
             }
-            return cardViewHolder.b();
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

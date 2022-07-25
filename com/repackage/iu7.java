@@ -147,8 +147,8 @@ public class iu7 {
             }
         }
         this.a = view2;
-        this.b = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f090c5f);
-        this.d = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0912cf);
+        this.b = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f090c58);
+        this.d = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0912ab);
     }
 
     public void a() {
@@ -163,16 +163,16 @@ public class iu7 {
         qg.a().postDelayed(new c(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
     }
 
-    public void b(qp4 qp4Var, String str, String str2, long j, long j2, long j3) {
+    public void b(rp4 rp4Var, String str, String str2, long j, long j2, long j3) {
         ViewStub viewStub;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{qp4Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            if (qp4Var != null && !ListUtils.isEmpty(qp4Var.a()) && (viewStub = this.b) != null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{rp4Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if (rp4Var != null && !ListUtils.isEmpty(rp4Var.a()) && (viewStub = this.b) != null) {
                 if (this.c == null) {
                     this.c = (PbGiftListView) viewStub.inflate();
                 }
                 this.c.setVisibility(0);
-                this.c.g(qp4Var, str, str2, j, j2, j3);
+                this.c.g(rp4Var, str, str2, j, j2, j3);
                 this.c.i();
                 return;
             }
@@ -183,14 +183,14 @@ public class iu7 {
         }
     }
 
-    public void c(fp4 fp4Var) {
+    public void c(gp4 gp4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fp4Var) == null) || fp4Var == null || oi.isEmpty(fp4Var.e())) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gp4Var) == null) || gp4Var == null || oi.isEmpty(gp4Var.e())) {
             return;
         }
         BaseWebView baseWebView = this.g;
-        if ((baseWebView == null || !baseWebView.getIsLoaded()) && fp4Var.c() == fp4.g && this.d != null) {
-            if (fp4Var.f()) {
+        if ((baseWebView == null || !baseWebView.getIsLoaded()) && gp4Var.c() == gp4.g && this.d != null) {
+            if (gp4Var.f()) {
                 LinearLayout linearLayout = this.e;
                 if (linearLayout != null) {
                     linearLayout.setVisibility(8);
@@ -201,8 +201,8 @@ public class iu7 {
             if (this.e == null) {
                 LinearLayout linearLayout2 = (LinearLayout) this.d.inflate();
                 this.e = linearLayout2;
-                this.f = linearLayout2.findViewById(R.id.obfuscated_res_0x7f0912ca);
-                this.g = (BaseWebView) this.e.findViewById(R.id.obfuscated_res_0x7f0912d0);
+                this.f = linearLayout2.findViewById(R.id.obfuscated_res_0x7f0912a6);
+                this.g = (BaseWebView) this.e.findViewById(R.id.obfuscated_res_0x7f0912ac);
             }
             this.f.setVisibility(0);
             SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
@@ -218,7 +218,7 @@ public class iu7 {
             this.g.getSettings().setDatabaseEnabled(true);
             this.g.setOnLoadUrlListener(new a(this));
             this.g.setOnPageFinishedListener(new b(this));
-            this.g.loadUrl(fp4Var.e());
+            this.g.loadUrl(gp4Var.e());
         }
     }
 

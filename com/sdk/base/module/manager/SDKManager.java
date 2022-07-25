@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.api.CallBack;
-import com.sdk.base.framework.c.f;
-import com.sdk.base.module.a.a;
+import com.sdk.f.g;
+import com.sdk.u.a;
 /* loaded from: classes7.dex */
 public abstract class SDKManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -89,9 +89,7 @@ public abstract class SDKManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, context, str) == null) {
             mContext = context;
-            a a = a.a(context);
-            com.sdk.base.framework.f.a.a.c();
-            a.a(null, str);
+            a.a(context).a(null, str);
         }
     }
 
@@ -99,9 +97,7 @@ public abstract class SDKManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65544, null, context, str, str2) == null) {
             mContext = context;
-            a a = a.a(context);
-            com.sdk.base.framework.f.a.a.c();
-            a.a(str, str2);
+            a.a(context).a(str, str2);
         }
     }
 
@@ -123,65 +119,80 @@ public abstract class SDKManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? smartTrust : invokeV.booleanValue;
     }
 
+    public static void releaseConnect(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
+            com.sdk.t.a.a(context);
+        }
+    }
+
+    public static void securityType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65549, null, i) == null) {
+            a.d = i;
+            a.e = i == 0 ? "B" : "C";
+        }
+    }
+
     public static void setDebug(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
-            f.b = z;
+        if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
+            g.b = z;
         }
     }
 
     public static void setDebugHead(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
-            f.d = z;
+        if (interceptable == null || interceptable.invokeZ(65551, null, z) == null) {
+            g.d = z;
         }
     }
 
     public static void setIsStrong(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65552, null, z) == null) {
             isStrong = z;
         }
     }
 
     public static void setSmartTrust(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65551, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65553, null, z) == null) {
             smartTrust = z;
         }
     }
 
     public static void setStatisticalTestHost(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65554, null, str) == null) {
             statisticalTestHost = str;
         }
     }
 
     public static void setTestHost(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
             testHost = str;
         }
     }
 
     public static void setUseCache(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65554, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65556, null, z) == null) {
             useCache = z;
         }
     }
 
     public static void setUserAgent(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65557, null, str) == null) {
             userAgent = str;
         }
     }
 
     public static <T> void toFailed(CallBack<T> callBack, int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65556, null, callBack, i, str) == null) || callBack == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(65558, null, callBack, i, str) == null) || callBack == null) {
             return;
         }
         callBack.onFailed(1, i, str, null);
@@ -190,6 +201,6 @@ public abstract class SDKManager {
     public static boolean useCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? useCache : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) ? useCache : invokeV.booleanValue;
     }
 }

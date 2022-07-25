@@ -51,8 +51,8 @@ public class gd6 {
             FrsHotTopicListData frsHotTopicListData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                br4.f();
-                te<String> h = br4.h("tb.frs_hottopic", "");
+                cr4.f();
+                te<String> h = cr4.h("tb.frs_hottopic", "");
                 if (h != null) {
                     String str = h.get("hot_topic_key");
                     if (!StringUtils.isNull(str) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str, FrsHotTopicListData.class)) != null) {
@@ -95,8 +95,8 @@ public class gd6 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                br4.f();
-                te<String> h = br4.h("tb.frs_hottopic", "");
+                cr4.f();
+                te<String> h = cr4.h("tb.frs_hottopic", "");
                 if (h == null) {
                     return null;
                 }

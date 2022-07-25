@@ -151,7 +151,7 @@ public final class xx5 implements View.OnClickListener {
             Intrinsics.throwUninitializedPropertyAccessException("mCardInterestRoot");
             relativeLayout = null;
         }
-        ur4 d = ur4.d(relativeLayout);
+        vr4 d = vr4.d(relativeLayout);
         d.n(R.string.J_X06);
         d.f(R.color.CAM_X0201);
         ImageView imageView2 = this.f;
@@ -165,7 +165,7 @@ public final class xx5 implements View.OnClickListener {
             Intrinsics.throwUninitializedPropertyAccessException("mCardInterestContent");
             textView = null;
         }
-        ur4 d2 = ur4.d(textView);
+        vr4 d2 = vr4.d(textView);
         d2.v(R.color.CAM_X0304);
         d2.z(R.dimen.T_X08);
         ImageView imageView3 = this.h;

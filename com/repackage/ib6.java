@@ -31,7 +31,7 @@ public class ib6 extends cd6<jb6, ManagerApplyViewHolder> {
     /* renamed from: v */
     public static final int obfuscated = 2131296940;
     public transient /* synthetic */ FieldHolder $fh;
-    public sz4 t;
+    public tz4 t;
     public View.OnClickListener u;
 
     /* loaded from: classes6.dex */
@@ -125,12 +125,12 @@ public class ib6 extends cd6<jb6, ManagerApplyViewHolder> {
     }
 
     public void onDestroy() {
-        sz4 sz4Var;
+        tz4 tz4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (sz4Var = this.t) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tz4Var = this.t) == null) {
             return;
         }
-        sz4Var.s();
+        tz4Var.s();
     }
 
     public View p0(int i, View view2, ViewGroup viewGroup, jb6 jb6Var, ManagerApplyViewHolder managerApplyViewHolder) {
@@ -174,7 +174,7 @@ public class ib6 extends cd6<jb6, ManagerApplyViewHolder> {
             d9<?> a2 = h9.a(this.a);
             Activity pageActivity = a2 instanceof TbPageContext ? ((TbPageContext) a2).getPageActivity() : null;
             if (this.t == null) {
-                this.t = new sz4(pageActivity);
+                this.t = new tz4(pageActivity);
             }
             this.t.p();
             this.t.u(accountData);

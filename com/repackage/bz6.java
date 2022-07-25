@@ -60,10 +60,10 @@ public class bz6 {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ma5 ma5Var = new ma5(309277);
-            ma5Var.setResponsedClass(RealTimeSocketResponse.class);
-            ma5Var.g(true);
-            MessageManager.getInstance().registerTask(ma5Var);
+            na5 na5Var = new na5(309277);
+            na5Var.setResponsedClass(RealTimeSocketResponse.class);
+            na5Var.g(true);
+            MessageManager.getInstance().registerTask(na5Var);
         }
     }
 

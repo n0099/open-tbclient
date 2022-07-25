@@ -46,8 +46,8 @@ public class qj7 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09144e);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09144d);
+            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09142a);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091429);
         }
     }
 
@@ -135,7 +135,7 @@ public class qj7 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d0542, (ViewGroup) null);
+                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d054c, (ViewGroup) null);
                 view2.setTag(new a(this, view2));
             }
             b(getItem(i), (a) view2.getTag());

@@ -183,14 +183,14 @@ public class tv5 {
             this.n = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090210);
             this.l = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09020b);
             this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09020e);
-            this.j = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090896);
-            this.k = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090898);
+            this.j = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090894);
+            this.k = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090896);
             this.p = this.a.findViewById(R.id.obfuscated_res_0x7f090211);
             this.c = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f09020f);
             ov5 ov5Var = new ov5(this.b, this.s);
             this.d = ov5Var;
             this.c.setAdapter((ListAdapter) ov5Var);
-            RelativeLayout relativeLayout = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0908a0);
+            RelativeLayout relativeLayout = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09089e);
             this.i = relativeLayout;
             this.c.setEmptyView(relativeLayout);
             this.e.setIsRound(true);
@@ -287,7 +287,7 @@ public class tv5 {
                             tbImageView.J(this.r.get(i).mark_pic, 21, false);
                             tbImageView.setLayoutParams(new LinearLayout.LayoutParams(dimension, dimension));
                             tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                            ((LinearLayout.LayoutParams) tbImageView.getLayoutParams()).rightMargin = (int) this.b.getResources().getDimension(R.dimen.obfuscated_res_0x7f07023d);
+                            ((LinearLayout.LayoutParams) tbImageView.getLayoutParams()).rightMargin = (int) this.b.getResources().getDimension(R.dimen.obfuscated_res_0x7f07023b);
                             this.l.addView(tbImageView);
                         }
                         return;

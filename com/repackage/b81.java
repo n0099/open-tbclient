@@ -23,13 +23,13 @@ public class b81 {
 
         /* renamed from: com.repackage.b81$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0599a extends t81 {
+        public class C0445a extends t81 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONArray a;
             public final /* synthetic */ a b;
 
-            public C0599a(a aVar, JSONArray jSONArray) {
+            public C0445a(a aVar, JSONArray jSONArray) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,7 +88,7 @@ public class b81 {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (c = b81.c()) == null) {
                 return;
             }
-            x71.d(c, new C0599a(this, c));
+            x71.d(c, new C0445a(this, c));
         }
     }
 

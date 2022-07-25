@@ -19,6 +19,8 @@ public interface FI {
 
     boolean cp(Context context);
 
+    Context gct();
+
     SharedPreferences getCustomMutiProcessSharedPreferences(Context context, String str);
 
     Pair<Boolean, DeviceInfoCallback> getDeviceInfoCallback();
@@ -50,6 +52,10 @@ public interface FI {
     void s(int i, boolean z);
 
     void sp(String str, boolean z);
+
+    void sse(Context context, String str, Map<String, Object> map, boolean z);
+
+    void sser(Context context, String str, Map<String, Object> map);
 
     void u(String str);
 

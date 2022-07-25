@@ -12,11 +12,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.SdkConfig;
 import com.kwad.sdk.components.DevelopMangerComponents;
-import com.kwad.sdk.core.config.item.i;
-import com.kwad.sdk.core.config.item.l;
-import com.kwad.sdk.core.download.a;
+import com.kwad.sdk.core.config.item.m;
 import com.kwad.sdk.core.network.j;
-import com.kwad.sdk.core.network.k;
+import com.kwad.sdk.core.network.l;
+import com.kwad.sdk.core.report.k;
 import com.kwad.sdk.core.report.r;
 import com.kwad.sdk.core.response.a.e;
 import com.kwad.sdk.core.response.model.AdTemplate;
@@ -24,9 +23,6 @@ import com.kwad.sdk.export.proxy.AdHttpProxy;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.service.kwai.f;
 import com.kwad.sdk.service.kwai.h;
-import com.kwai.sodler.lib.a.g;
-import com.kwai.sodler.lib.ext.PluginError;
-import com.kwai.sodler.lib.ext.c;
 import java.io.File;
 import java.io.InputStream;
 import java.util.List;
@@ -64,18 +60,18 @@ public final class b {
         public final void a(int i, AdTemplate adTemplate) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(1048576, this, i, adTemplate) == null) && i == 1) {
-                com.kwad.sdk.core.report.a.d(adTemplate, (JSONObject) null);
+                com.kwad.sdk.core.report.a.f(adTemplate, (JSONObject) null);
             }
         }
     }
 
     /* renamed from: com.kwad.components.core.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0506b implements com.kwad.sdk.service.kwai.b {
+    public static class C0351b implements com.kwad.sdk.service.kwai.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0506b() {
+        public C0351b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,101 +110,101 @@ public final class b {
         }
 
         @Override // com.kwad.sdk.service.kwai.d
-        public final Context a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? KsAdSDKImpl.get().getContext() : (Context) invokeV.objValue;
-        }
-
-        @Override // com.kwad.sdk.service.kwai.d
-        public final boolean a(AdTemplate adTemplate) {
+        public final boolean G(AdTemplate adTemplate) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate)) == null) {
-                com.kwad.components.kwai.kwai.a aVar = (com.kwad.components.kwai.kwai.a) com.kwad.sdk.components.c.a(com.kwad.components.kwai.kwai.a.class);
-                return aVar != null && aVar.c();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, adTemplate)) == null) {
+                com.kwad.components.kwai.kwai.a aVar = (com.kwad.components.kwai.kwai.a) com.kwad.sdk.components.c.f(com.kwad.components.kwai.kwai.a.class);
+                return aVar != null && aVar.qn();
             }
             return invokeL.booleanValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.d
-        public final String b() {
+        public final String getApiVersion() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? KsAdSDKImpl.get().getAppId() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? KsAdSDKImpl.get().getApiVersion() : (String) invokeV.objValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.d
-        public final String c() {
+        public final int getApiVersionCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? KsAdSDKImpl.get().getAppName() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? KsAdSDKImpl.get().getApiVersionCode() : invokeV.intValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.d
-        public final boolean d() {
+        public final String getAppId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? KsAdSDKImpl.get().getIsExternal() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? KsAdSDKImpl.get().getAppId() : (String) invokeV.objValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.d
-        public final String e() {
+        public final String getAppName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? KsAdSDKImpl.get().getApiVersion() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? KsAdSDKImpl.get().getAppName() : (String) invokeV.objValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.d
-        public final int f() {
+        public final Context getContext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? KsAdSDKImpl.get().getApiVersionCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? KsAdSDKImpl.get().getContext() : (Context) invokeV.objValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.d
-        public final boolean g() {
+        public final boolean getIsExternal() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? KsAdSDKImpl.get().isPersonalRecommend() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? KsAdSDKImpl.get().getIsExternal() : invokeV.booleanValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.d
-        public final boolean h() {
+        public final String getSDKVersion() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? KsAdSDKImpl.get().isProgrammaticRecommend() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? KsAdSDKImpl.get().getSDKVersion() : (String) invokeV.objValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.d
-        public final String i() {
+        public final SdkConfig getSdkConfig() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? KsAdSDKImpl.get().getSDKVersion() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? KsAdSDKImpl.get().getSdkConfig() : (SdkConfig) invokeV.objValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.d
-        public final boolean j() {
+        public final boolean isDebugLogEnable() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? KsAdSDKImpl.get().isDebugLogEnable() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? KsAdSDKImpl.get().isDebugLogEnable() : invokeV.booleanValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.d
-        public final SdkConfig k() {
+        public final boolean isPersonalRecommend() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? KsAdSDKImpl.get().getSdkConfig() : (SdkConfig) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? KsAdSDKImpl.get().isPersonalRecommend() : invokeV.booleanValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.d
-        public final e l() {
+        public final boolean isProgrammaticRecommend() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? KsAdSDKImpl.get().isProgrammaticRecommend() : invokeV.booleanValue;
+        }
+
+        @Override // com.kwad.sdk.service.kwai.d
+        public final e lw() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                com.kwad.components.kwai.kwai.a aVar = (com.kwad.components.kwai.kwai.a) com.kwad.sdk.components.c.a(com.kwad.components.kwai.kwai.a.class);
+                com.kwad.components.kwai.kwai.a aVar = (com.kwad.components.kwai.kwai.a) com.kwad.sdk.components.c.f(com.kwad.components.kwai.kwai.a.class);
                 if (aVar != null) {
-                    return aVar.d();
+                    return aVar.lw();
                 }
                 return null;
             }
@@ -240,163 +236,177 @@ public final class b {
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final int a(Context context) {
+        public final boolean ae(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? com.kwad.sdk.core.config.item.c.a(context) : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? com.kwad.sdk.core.config.a.ae(str) : invokeL.booleanValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final boolean a() {
+        public final int af(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? com.kwad.sdk.core.config.item.c.bm(context) : invokeL.intValue;
+        }
+
+        @Override // com.kwad.sdk.service.kwai.f
+        public final String getAppId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.kwad.sdk.core.config.d.t() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? KsAdSDKImpl.get().getAppId() : (String) invokeV.objValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final boolean a(long j) {
+        public final String getUserAgent() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? com.kwad.sdk.core.config.d.getUserAgent() : (String) invokeV.objValue;
+        }
+
+        @Override // com.kwad.sdk.service.kwai.f
+        public final boolean i(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? com.kwad.sdk.core.config.d.a(j) : invokeJ.booleanValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) ? com.kwad.sdk.core.config.d.i(j) : invokeJ.booleanValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? com.kwad.sdk.core.config.a.a(str) : invokeL.booleanValue;
-        }
-
-        @Override // com.kwad.sdk.service.kwai.f
-        public final boolean b() {
+        public final boolean lA() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? com.kwad.sdk.core.config.d.u() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? com.kwad.sdk.core.config.d.lA() : invokeV.booleanValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final boolean c() {
+        public final String lB() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? com.kwad.sdk.core.config.d.v() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? com.kwad.sdk.core.config.d.lB() : (String) invokeV.objValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final boolean d() {
+        public final String lC() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? com.kwad.sdk.core.config.d.s() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? com.kwad.sdk.core.config.d.lC() : (String) invokeV.objValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final String e() {
+        public final List<String> lD() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? com.kwad.sdk.core.config.d.y() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? com.kwad.sdk.core.config.d.lD() : (List) invokeV.objValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final String f() {
+        public final boolean lE() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? com.kwad.sdk.core.config.d.z() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? com.kwad.sdk.core.config.d.lE() : invokeV.booleanValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final List<String> g() {
+        public final boolean lF() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? com.kwad.sdk.core.config.d.c() : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? com.kwad.sdk.core.config.d.lF() : invokeV.booleanValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final String h() {
+        public final boolean lG() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? com.kwad.sdk.core.config.d.L() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? com.kwad.sdk.core.config.d.lG() : invokeV.booleanValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final boolean i() {
+        public final boolean lH() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? com.kwad.sdk.core.config.d.M() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? com.kwad.sdk.core.config.d.se() : invokeV.booleanValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final boolean j() {
+        public final float lI() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? com.kwad.sdk.core.config.d.Q() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? com.kwad.sdk.core.config.d.lI() : invokeV.floatValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final boolean k() {
+        public final float lJ() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? com.kwad.sdk.core.config.d.x() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? com.kwad.sdk.core.config.d.lJ() : invokeV.floatValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final String l() {
+        public final boolean lK() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? KsAdSDKImpl.get().getAppId() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? com.kwad.sdk.core.config.d.lK() : invokeV.booleanValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final boolean m() {
+        public final boolean lL() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? com.kwad.sdk.core.config.d.N() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? com.kwad.sdk.core.config.d.lL() : invokeV.booleanValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final float n() {
+        public final int lM() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? com.kwad.sdk.core.config.d.O() : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? com.kwad.sdk.core.config.d.lM() : invokeV.intValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final float o() {
+        public final int lN() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? com.kwad.sdk.core.config.d.P() : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? com.kwad.sdk.core.config.d.lN() : invokeV.intValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final boolean p() {
+        public final float lO() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? com.kwad.sdk.core.config.d.ag() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? com.kwad.sdk.core.config.d.lO() : invokeV.floatValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final boolean q() {
+        public final boolean lx() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? com.kwad.sdk.core.config.d.ah() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? com.kwad.sdk.core.config.d.lx() : invokeV.booleanValue;
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final int r() {
+        public final boolean ly() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? com.kwad.sdk.core.config.d.b() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? com.kwad.sdk.core.config.d.ly() : invokeV.booleanValue;
+        }
+
+        @Override // com.kwad.sdk.service.kwai.f
+        public final boolean lz() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? com.kwad.sdk.core.config.d.lz() : invokeV.booleanValue;
         }
     }
 
     @NonNull
-    public static AdHttpProxy a() {
+    public static AdHttpProxy le() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (com.kwad.components.core.a.c.booleanValue()) {
-                return g();
+            if (com.kwad.components.core.a.aw.booleanValue()) {
+                return lf();
             }
             try {
-                return com.kwad.sdk.core.network.kwai.b.a() != null ? new com.kwad.sdk.core.network.b.b() : new com.kwad.sdk.core.network.b.a();
+                return com.kwad.sdk.core.network.kwai.b.tF() != null ? new com.kwad.sdk.core.network.b.b() : new com.kwad.sdk.core.network.b.a();
             } catch (Throwable unused) {
                 return new com.kwad.sdk.core.network.b.a();
             }
@@ -404,56 +414,20 @@ public final class b {
         return (AdHttpProxy) invokeV.objValue;
     }
 
-    public static void a(Context context) {
+    public static AdHttpProxy lf() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            c.a aVar = new c.a();
-            aVar.a("sodler");
-            aVar.a(((i) com.kwad.sdk.core.config.d.a(context, com.kwad.sdk.core.config.c.aB)).b().intValue());
-            aVar.a(false);
-            aVar.b(((com.kwad.sdk.core.config.item.d) com.kwad.sdk.core.config.d.a(context, com.kwad.sdk.core.config.c.aA)).b().booleanValue());
-            com.kwai.sodler.kwai.a.a(context, aVar.a());
-            com.kwai.sodler.kwai.a.a(new g.a() { // from class: com.kwad.components.core.b.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                        }
-                    }
-                }
-
-                @Override // com.kwai.sodler.lib.a.g.a
-                public final void a(com.kwai.sodler.lib.a.f fVar, File file) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, fVar, file) == null) {
-                        try {
-                            com.kwad.sdk.core.download.a.a(fVar.p(), file, (a.b) null, -1, true);
-                        } catch (Throwable th) {
-                            com.kwad.sdk.core.d.b.a("Sodler", "download failed url: " + fVar.p(), th);
-                            if (th instanceof Exception) {
-                                com.kwad.sdk.core.network.idc.a.a().a(fVar.p(), th);
-                            }
-                            throw new PluginError.UpdateError(th.getMessage(), -4);
-                        }
-                    }
-                }
-            });
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            com.kwad.sdk.components.c.f(DevelopMangerComponents.class);
+            return new Random().nextInt(2) == 0 ? new com.kwad.sdk.core.network.b.b() : new com.kwad.sdk.core.network.b.a();
         }
+        return (AdHttpProxy) invokeV.objValue;
     }
 
-    public static void b() {
+    public static void lg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            ServiceProvider.a(com.kwad.sdk.service.kwai.e.class, new com.kwad.sdk.service.kwai.e() { // from class: com.kwad.components.core.b.2
+            ServiceProvider.put(com.kwad.sdk.service.kwai.e.class, new com.kwad.sdk.service.kwai.e() { // from class: com.kwad.components.core.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -472,14 +446,14 @@ public final class b {
                 }
 
                 @Override // com.kwad.sdk.service.kwai.e
-                public final Class<?> a(Class<?> cls) {
+                public final Class<?> getProxyRealClass(Class<?> cls) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cls)) == null) ? KsAdSDKImpl.getProxyRealClass(cls) : (Class) invokeL.objValue;
                 }
 
                 @Override // com.kwad.sdk.service.kwai.e
-                public final Object a() {
+                public final Object lm() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? KsAdSDKImpl.get().getProxyForHttp() : invokeV.objValue;
@@ -488,18 +462,18 @@ public final class b {
         }
     }
 
-    public static void c() {
+    public static void lh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            ServiceProvider.a(com.kwad.sdk.service.kwai.d.class, new c((byte) 0));
-            ServiceProvider.a(f.class, new d((byte) 0));
+            ServiceProvider.put(com.kwad.sdk.service.kwai.d.class, new c((byte) 0));
+            ServiceProvider.put(f.class, new d((byte) 0));
         }
     }
 
-    public static void d() {
+    public static void li() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            ServiceProvider.a(com.kwad.sdk.service.kwai.a.class, new com.kwad.sdk.service.kwai.a() { // from class: com.kwad.components.core.b.3
+            ServiceProvider.put(com.kwad.sdk.service.kwai.a.class, new com.kwad.sdk.service.kwai.a() { // from class: com.kwad.components.core.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -515,37 +489,37 @@ public final class b {
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
                     }
-                }
-
-                @Override // com.kwad.sdk.service.kwai.a
-                public final File a(String str) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, str)) == null) ? com.kwad.sdk.core.diskcache.a.a.a().b(str) : (File) invokeL.objValue;
                 }
 
                 @Override // com.kwad.sdk.service.kwai.a
                 public final void a(boolean z, String str, String str2, String str3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, str2, str3}) == null) {
-                        com.kwad.sdk.core.diskcache.a.a.a().a(str);
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2, str3}) == null) {
+                        com.kwad.sdk.core.diskcache.a.a.sS().bA(str);
                     }
+                }
+
+                @Override // com.kwad.sdk.service.kwai.a
+                public final File ad(String str) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? com.kwad.sdk.core.diskcache.a.a.sS().ad(str) : (File) invokeL.objValue;
                 }
             });
         }
     }
 
-    public static void e() {
+    public static void lj() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            ServiceProvider.a(com.kwad.sdk.service.kwai.b.class, new C0506b());
+            ServiceProvider.put(com.kwad.sdk.service.kwai.b.class, new C0351b());
         }
     }
 
-    public static void f() {
+    public static void lk() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            ServiceProvider.a(h.class, new h() { // from class: com.kwad.components.core.b.4
+            ServiceProvider.put(h.class, new h() { // from class: com.kwad.components.core.b.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -564,46 +538,46 @@ public final class b {
                 }
 
                 @Override // com.kwad.sdk.service.kwai.h
-                public final InputStream a(InputStream inputStream) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, inputStream)) == null) {
-                        com.kwad.components.core.k.b.a();
-                        return com.kwad.components.core.k.b.a(inputStream);
-                    }
-                    return (InputStream) invokeL.objValue;
-                }
-
-                @Override // com.kwad.sdk.service.kwai.h
-                public final boolean a() {
+                public final boolean ln() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                        com.kwad.components.core.k.b.a();
-                        return com.kwad.components.core.k.b.b();
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        com.kwad.components.core.l.b.or();
+                        return com.kwad.components.core.l.b.ln();
                     }
                     return invokeV.booleanValue;
                 }
 
                 @Override // com.kwad.sdk.service.kwai.h
-                public final int b() {
+                public final int lo() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                        com.kwad.components.core.k.b.a();
-                        return com.kwad.components.core.k.b.c();
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                        com.kwad.components.core.l.b.or();
+                        return com.kwad.components.core.l.b.lo();
                     }
                     return invokeV.intValue;
                 }
 
                 @Override // com.kwad.sdk.service.kwai.h
-                public final int c() {
+                public final int lp() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) ? com.kwad.components.core.k.b.a().d() : invokeV.intValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.components.core.l.b.or().lp() : invokeV.intValue;
+                }
+
+                @Override // com.kwad.sdk.service.kwai.h
+                public final InputStream wrapInputStream(InputStream inputStream) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048579, this, inputStream)) == null) {
+                        com.kwad.components.core.l.b.or();
+                        return com.kwad.components.core.l.b.wrapInputStream(inputStream);
+                    }
+                    return (InputStream) invokeL.objValue;
                 }
             });
-            ServiceProvider.a(k.class, new k() { // from class: com.kwad.components.core.b.5
+            ServiceProvider.put(l.class, new l() { // from class: com.kwad.components.core.b.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -621,47 +595,37 @@ public final class b {
                     }
                 }
 
-                @Override // com.kwad.sdk.core.network.k
-                public final com.kwad.sdk.core.b a() {
+                @Override // com.kwad.sdk.core.network.l
+                public final void a(double d2, j jVar) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2), jVar}) == null) {
+                        k.b(d2, jVar);
+                    }
+                }
+
+                @Override // com.kwad.sdk.core.network.l
+                public final void a(double d2, com.kwad.sdk.core.network.k kVar) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d2), kVar}) == null) {
+                        k.b(d2, kVar);
+                    }
+                }
+
+                @Override // com.kwad.sdk.core.network.l
+                public final com.kwad.sdk.core.b lq() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? com.kwad.components.core.j.kwai.c.a() : (com.kwad.sdk.core.b) invokeV.objValue;
-                }
-
-                @Override // com.kwad.sdk.core.network.k
-                public final void a(com.kwad.sdk.core.network.i iVar) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar) == null) {
-                        com.kwad.sdk.core.report.k.a(iVar);
-                    }
-                }
-
-                @Override // com.kwad.sdk.core.network.k
-                public final void a(j jVar) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar) == null) {
-                        com.kwad.sdk.core.report.k.a(jVar);
-                    }
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.components.core.k.kwai.c.oq() : (com.kwad.sdk.core.b) invokeV.objValue;
                 }
             });
-            h();
+            ll();
         }
     }
 
-    public static AdHttpProxy g() {
-        InterceptResult invokeV;
+    public static void ll() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            com.kwad.sdk.components.c.a(DevelopMangerComponents.class);
-            return new Random().nextInt(2) == 0 ? new com.kwad.sdk.core.network.b.b() : new com.kwad.sdk.core.network.b.a();
-        }
-        return (AdHttpProxy) invokeV.objValue;
-    }
-
-    public static void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            ServiceProvider.a(r.class, new r() { // from class: com.kwad.components.core.b.6
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            ServiceProvider.put(r.class, new r() { // from class: com.kwad.components.core.b.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -680,39 +644,39 @@ public final class b {
                 }
 
                 @Override // com.kwad.sdk.core.report.r
-                public final int a() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? com.kwad.sdk.core.config.d.f() : invokeV.intValue;
-                }
-
-                @Override // com.kwad.sdk.core.report.r
-                public final boolean a(long j) {
+                public final boolean h(long j) {
                     InterceptResult invokeJ;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeJ = interceptable2.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-                        l lVar = com.kwad.sdk.core.config.c.K;
-                        return l.a(j);
+                    if (interceptable2 == null || (invokeJ = interceptable2.invokeJ(1048576, this, j)) == null) {
+                        m mVar = com.kwad.sdk.core.config.c.Ui;
+                        return m.h(j);
                     }
                     return invokeJ.booleanValue;
                 }
 
                 @Override // com.kwad.sdk.core.report.r
-                public final int b() {
+                public final int lr() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.kwad.sdk.core.config.d.lr() : invokeV.intValue;
+                }
+
+                @Override // com.kwad.sdk.core.report.r
+                public final int ls() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                        com.kwad.components.kwai.kwai.a aVar = (com.kwad.components.kwai.kwai.a) com.kwad.sdk.components.c.a(com.kwad.components.kwai.kwai.a.class);
+                        com.kwad.components.kwai.kwai.a aVar = (com.kwad.components.kwai.kwai.a) com.kwad.sdk.components.c.f(com.kwad.components.kwai.kwai.a.class);
                         if (aVar != null) {
-                            return aVar.a();
+                            return aVar.ls();
                         }
                         return 0;
                     }
                     return invokeV.intValue;
                 }
             });
-            ServiceProvider.a(com.kwad.sdk.core.download.d.class, new a((byte) 0));
-            ServiceProvider.a(com.kwad.sdk.core.video.kwai.f.class, new com.kwad.sdk.core.video.kwai.f() { // from class: com.kwad.components.core.b.7
+            ServiceProvider.put(com.kwad.sdk.core.download.d.class, new a((byte) 0));
+            ServiceProvider.put(com.kwad.sdk.core.video.kwai.f.class, new com.kwad.sdk.core.video.kwai.f() { // from class: com.kwad.components.core.b.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -731,31 +695,51 @@ public final class b {
                 }
 
                 @Override // com.kwad.sdk.core.video.kwai.f
-                public final boolean a() {
+                public final boolean lt() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? com.kwad.sdk.core.config.d.e() : invokeV.booleanValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? com.kwad.sdk.core.config.d.lt() : invokeV.booleanValue;
                 }
 
                 @Override // com.kwad.sdk.core.video.kwai.f
-                public final boolean b() {
+                public final boolean lu() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.kwad.sdk.core.config.d.p() : invokeV.booleanValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.kwad.sdk.core.config.d.lu() : invokeV.booleanValue;
                 }
 
                 @Override // com.kwad.sdk.core.video.kwai.f
-                public final boolean c() {
+                public final boolean lv() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.config.d.h() : invokeV.booleanValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((com.kwad.components.kwai.kwai.a) com.kwad.sdk.components.c.f(com.kwad.components.kwai.kwai.a.class)).lv() : invokeV.booleanValue;
+                }
+            });
+            ServiceProvider.put(com.kwad.sdk.utils.a.b.class, new com.kwad.sdk.utils.a.b() { // from class: com.kwad.components.core.b.7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
                 }
 
-                @Override // com.kwad.sdk.core.video.kwai.f
-                public final boolean d() {
-                    InterceptResult invokeV;
+                @Override // com.kwad.sdk.utils.a.b
+                public final void a(com.kwad.sdk.utils.a.a aVar) {
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) ? ((com.kwad.components.kwai.kwai.a) com.kwad.sdk.components.c.a(com.kwad.components.kwai.kwai.a.class)).b() : invokeV.booleanValue;
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, aVar) == null) || aVar == null) {
+                        return;
+                    }
+                    k.b(aVar);
                 }
             });
         }

@@ -31,8 +31,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bb;
 import com.repackage.d9;
-import com.repackage.py4;
-import com.repackage.xt4;
+import com.repackage.qy4;
+import com.repackage.yt4;
 /* loaded from: classes4.dex */
 public class MsgRemindModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
@@ -92,31 +92,31 @@ public class MsgRemindModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
                 if (i == 2) {
                     if (z) {
-                        py4.d().H(z2);
+                        qy4.d().H(z2);
                     }
                 } else if (i == 3) {
                     if (z) {
-                        py4.d().L(z2);
+                        qy4.d().L(z2);
                     }
                 } else if (i == 1) {
                     if (z) {
-                        py4.d().M(z2);
+                        qy4.d().M(z2);
                     }
                 } else if (i == 20) {
                     if (z) {
-                        py4.d().P(z2);
+                        qy4.d().P(z2);
                     }
                 } else if (i == 30) {
                     if (z) {
-                        py4.d().R(z2);
+                        qy4.d().R(z2);
                     }
                 } else if (i != 10) {
                     if (i == 7) {
                         if (z) {
-                            py4.d().U(z2);
+                            qy4.d().U(z2);
                         }
                     } else if (i == 6 && z) {
-                        py4.d().T(z2);
+                        qy4.d().T(z2);
                     }
                 }
                 if (this.a.c != null) {
@@ -164,10 +164,10 @@ public class MsgRemindModel extends BdBaseModel {
                     FriendAndStrangerSwitchResMsg friendAndStrangerSwitchResMsg = (FriendAndStrangerSwitchResMsg) httpResponsedMessage;
                     if (friendAndStrangerSwitchResMsg.getError() == 0) {
                         GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE = friendAndStrangerReqMsg.mMaskType;
-                        xt4 k = xt4.k();
+                        yt4 k = yt4.k();
                         k.w(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", friendAndStrangerReqMsg.mMaskType);
                         GetFriendAndStrangerSwitchModel.FRIEND_PRIVATE_MESSAGE_PUSH_TYPE = friendAndStrangerReqMsg.mPushType;
-                        xt4 k2 = xt4.k();
+                        yt4 k2 = yt4.k();
                         k2.w(TbadkCoreApplication.getCurrentAccount() + "key_friend_private_message_type", friendAndStrangerReqMsg.mPushType);
                     }
                     int i = friendAndStrangerReqMsg.mPushType;
@@ -371,7 +371,7 @@ public class MsgRemindModel extends BdBaseModel {
             if (z) {
                 this.b.a(i, true, z2);
                 if (i != 14) {
-                    if (py4.d().s() || py4.d().t() || py4.d().v() || py4.d().x() || py4.d().A() || py4.d().r() || py4.d().D()) {
+                    if (qy4.d().s() || qy4.d().t() || qy4.d().v() || qy4.d().x() || qy4.d().A() || qy4.d().r() || qy4.d().D()) {
                         return;
                     }
                     this.b.a(14, true, false);
@@ -390,7 +390,7 @@ public class MsgRemindModel extends BdBaseModel {
                 if (!TextUtils.isEmpty(str)) {
                     this.a.showToast(str);
                 } else {
-                    this.a.showToast((int) R.string.obfuscated_res_0x7f0f1123);
+                    this.a.showToast((int) R.string.obfuscated_res_0x7f0f10df);
                 }
             }
             this.b.a(i, false, z2);

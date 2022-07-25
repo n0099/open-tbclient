@@ -75,14 +75,14 @@ public class tu0 extends qu0 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.i == null) {
-                LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.obfuscated_res_0x7f0d059b, null);
+                LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.obfuscated_res_0x7f0d05a5, null);
                 this.i = linearLayout;
-                TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091903);
+                TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0918de);
                 this.j = textView;
                 textView.setOnClickListener(this);
                 this.e.addView(this.i, new FrameLayout.LayoutParams(-1, -1));
             }
-            this.j.setText(R.string.obfuscated_res_0x7f0f0b59);
+            this.j.setText(R.string.obfuscated_res_0x7f0f0b45);
             P(u().V0());
             this.i.setVisibility(0);
         }
@@ -92,9 +92,9 @@ public class tu0 extends qu0 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.k) {
             if (this.f == null) {
-                LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.obfuscated_res_0x7f0d059c, null);
+                LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.obfuscated_res_0x7f0d05a6, null);
                 this.f = linearLayout;
-                this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09222a);
+                this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09222c);
                 Button button = (Button) this.f.findViewById(R.id.obfuscated_res_0x7f0903f2);
                 this.h = button;
                 button.setOnClickListener(this);
@@ -112,11 +112,11 @@ public class tu0 extends qu0 implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             Drawable[] compoundDrawables = this.j.getCompoundDrawables();
             if (z) {
-                this.j.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704f4));
-                compoundDrawables[1].setBounds(0, 0, this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070502), this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070502));
-            } else {
                 this.j.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704f2));
-                compoundDrawables[1].setBounds(0, 0, this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070501), this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070501));
+                compoundDrawables[1].setBounds(0, 0, this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070500), this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070500));
+            } else {
+                this.j.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704f0));
+                compoundDrawables[1].setBounds(0, 0, this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704ff), this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704ff));
             }
             this.j.setCompoundDrawables(compoundDrawables[0], compoundDrawables[1], compoundDrawables[2], compoundDrawables[3]);
         }
@@ -127,17 +127,17 @@ public class tu0 extends qu0 implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.h.getLayoutParams();
             if (z) {
-                this.g.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704f4));
-                this.h.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704f4));
-                layoutParams.width = this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704ef);
-                layoutParams.height = this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704ff);
-                layoutParams.topMargin = this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704fe);
-            } else {
                 this.g.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704f2));
                 this.h.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704f2));
-                layoutParams.width = this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070505);
-                layoutParams.height = this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704fa);
-                layoutParams.topMargin = this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704fb);
+                layoutParams.width = this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704ed);
+                layoutParams.height = this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704fd);
+                layoutParams.topMargin = this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704fc);
+            } else {
+                this.g.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704f0));
+                this.h.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704f0));
+                layoutParams.width = this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070503);
+                layoutParams.height = this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704f6);
+                layoutParams.topMargin = this.c.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704f8);
             }
             this.h.setLayoutParams(layoutParams);
         }
@@ -239,11 +239,11 @@ public class tu0 extends qu0 implements View.OnClickListener {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0903f2 || view2.getId() == R.id.obfuscated_res_0x7f091903) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0903f2 || view2.getId() == R.id.obfuscated_res_0x7f0918de) {
                 if (!BdNetUtils.f()) {
                     ViewGroup n = u().n();
                     if (n != null && u().n1().a()) {
-                        yz0.a().b(n.getContext(), R.string.obfuscated_res_0x7f0f0b5a);
+                        yz0.a().b(n.getContext(), R.string.obfuscated_res_0x7f0f0b46);
                         return;
                     }
                     return;

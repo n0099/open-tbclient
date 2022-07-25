@@ -28,20 +28,20 @@ public class m77 {
 
     public String a(String str) {
         InterceptResult invokeL;
-        gx4 a;
+        hx4 a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (str != null) {
                 try {
-                    jw4 jw4Var = new jw4(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
+                    kw4 kw4Var = new kw4(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
                     String storeFile = FileHelper.getStoreFile(str, 1);
-                    jw4Var.a("type", 2);
-                    hx4 d = jw4Var.d(storeFile);
+                    kw4Var.a("type", 2);
+                    ix4 d = kw4Var.d(storeFile);
                     if (d == null || !d.d() || (a = d.a()) == null) {
                         return null;
                     }
                     String b = a.b();
-                    gw4.b(str, b);
+                    hw4.b(str, b);
                     return b;
                 } catch (Exception unused) {
                     return null;

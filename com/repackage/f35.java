@@ -1,33 +1,118 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.graphics.Rect;
+import android.os.Build;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class f35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public final View b;
+    public final int c;
+    public final boolean d;
+    public b35 e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755758743, "Lcom/repackage/f35;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public f35(View view2) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755758743, "Lcom/repackage/f35;");
+        this.a = -1;
+        this.b = view2;
+        this.c = i35.a(view2.getContext());
+        this.d = j35.c((Activity) view2.getContext());
+    }
+
+    public final b35 a(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, view2)) != null) {
+            return (b35) invokeL.objValue;
+        }
+        b35 b35Var = this.e;
+        if (b35Var != null) {
+            return b35Var;
+        }
+        if (view2 instanceof b35) {
+            b35 b35Var2 = (b35) view2;
+            this.e = b35Var2;
+            return b35Var2;
+        } else if (!(view2 instanceof ViewGroup)) {
+            return null;
+        } else {
+            int i = 0;
+            while (true) {
+                ViewGroup viewGroup = (ViewGroup) view2;
+                if (i >= viewGroup.getChildCount()) {
+                    return null;
+                }
+                b35 a = a(viewGroup.getChildAt(i));
+                if (a != null) {
+                    this.e = a;
+                    return a;
+                }
+                i++;
+            }
         }
     }
 
-    public static boolean a(boolean z, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
+    @TargetApi(16)
+    public void b(int i, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) ? z || (z2 && !z3) : invokeCommon.booleanValue;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            if (this.d && Build.VERSION.SDK_INT >= 16 && this.b.getFitsSystemWindows()) {
+                Rect rect = new Rect();
+                this.b.getWindowVisibleDisplayFrame(rect);
+                i2 = rect.bottom - rect.top;
+            }
+            Log.d("KPSRootLayoutHandler", "onMeasure, width: " + i + " height: " + i2);
+            if (i2 < 0) {
+                return;
+            }
+            int i3 = this.a;
+            if (i3 < 0) {
+                this.a = i2;
+                return;
+            }
+            int i4 = i3 - i2;
+            if (i4 == 0) {
+                Log.d("KPSRootLayoutHandler", "" + i4 + " == 0 break;");
+            } else if (Math.abs(i4) == this.c) {
+                Log.w("KPSRootLayoutHandler", String.format("offset just equal statusBar height %d", Integer.valueOf(i4)));
+            } else {
+                this.a = i2;
+                b35 a = a(this.b);
+                if (a == null) {
+                    Log.w("KPSRootLayoutHandler", "can't find the valid panel conflict layout, give up!");
+                } else if (Math.abs(i4) < h35.f(this.b.getContext())) {
+                    Log.w("KPSRootLayoutHandler", "system bottom-menu-bar(such as HuaWei Mate7) causes layout changed");
+                } else if (i4 > 0) {
+                    a.handleHide();
+                } else if (a.b() && a.isVisible()) {
+                    a.handleShow();
+                }
+            }
+        }
     }
 }

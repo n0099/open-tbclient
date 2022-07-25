@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ir7;
-import com.repackage.ur4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -42,27 +42,27 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view2;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091709);
-        this.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091b58);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092269);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f0916e4);
+        this.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091b32);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09226b);
         this.d = textView;
-        ur4.d(textView).A(R.string.F_X02);
+        vr4.d(textView).A(R.string.F_X02);
     }
 
-    public void c(ir7 ir7Var) {
+    public void b(ir7 ir7Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, ir7Var) == null) {
             this.d.setText(ir7Var.b());
         }
     }
 
-    public View d() {
+    public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (View) invokeV.objValue;
     }
 
-    public void e() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
@@ -71,7 +71,7 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void f(int i) {
+    public void e(int i) {
         View view2;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (view2 = this.a) == null) {

@@ -201,8 +201,8 @@ public class yu8 extends BaseAdapter {
             if (view2 == null) {
                 view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01db, viewGroup, false);
                 bVar = new b();
-                bVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0914fa);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0914f7);
+                bVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0914d5);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0914d2);
                 bVar.a = tbImageView;
                 tbImageView.setDrawerType(1);
                 bVar.a.setIsRound(true);
@@ -211,12 +211,12 @@ public class yu8 extends BaseAdapter {
                 bVar.a.setBorderWidth(pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070224));
                 bVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
                 bVar.a.setConrers(15);
-                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0914f8);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914fb);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914f4);
-                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914f6);
-                bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914f5);
-                bVar.h = view2.findViewById(R.id.obfuscated_res_0x7f0912b0);
+                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0914d3);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914d6);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914cf);
+                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914d1);
+                bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914d0);
+                bVar.h = view2.findViewById(R.id.obfuscated_res_0x7f09128c);
                 view2.setTag(bVar);
             } else {
                 bVar = (b) view2.getTag();

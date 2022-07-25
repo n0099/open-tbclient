@@ -54,16 +54,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.fy8;
 import com.repackage.hx8;
-import com.repackage.ia5;
+import com.repackage.ja5;
 import com.repackage.kx8;
 import com.repackage.oi;
 import com.repackage.pi;
 import com.repackage.rn;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
-public class AtListActivity extends SuspendedActivity implements ia5, AdapterView.OnItemClickListener, fy8.c {
+public class AtListActivity extends SuspendedActivity implements ja5, AdapterView.OnItemClickListener, fy8.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView A;
@@ -108,12 +108,12 @@ public class AtListActivity extends SuspendedActivity implements ia5, AdapterVie
 
         /* renamed from: com.baidu.tieba.write.write.AtListActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0249a implements View.OnClickListener {
+        public class View$OnClickListenerC0263a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0249a(a aVar) {
+            public View$OnClickListenerC0263a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,7 +168,7 @@ public class AtListActivity extends SuspendedActivity implements ia5, AdapterVie
                 this.a.B.setVisibility(8);
                 if (this.a.e == null) {
                     AtListActivity atListActivity = this.a;
-                    atListActivity.e = atListActivity.l.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f04e0), new View$OnClickListenerC0249a(this));
+                    atListActivity.e = atListActivity.l.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f04dc), new View$OnClickListenerC0263a(this));
                 }
             }
         }
@@ -314,7 +314,7 @@ public class AtListActivity extends SuspendedActivity implements ia5, AdapterVie
                         return;
                     }
                     AtListActivity atListActivity = this.a;
-                    atListActivity.showToastWithIcon(String.format(atListActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0951), 5), R.drawable.obfuscated_res_0x7f080a83);
+                    atListActivity.showToastWithIcon(String.format(atListActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f093c), 5), R.drawable.obfuscated_res_0x7f080a83);
                     tbCheckBox.setChecked(false);
                     ((MetaData) obj).setChecked(false);
                     return;
@@ -626,18 +626,18 @@ public class AtListActivity extends SuspendedActivity implements ia5, AdapterVie
     private void x0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65570, this) == null) {
-            this.A = this.l.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f10f6));
+            this.A = this.l.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f10b2));
             View addCustomView = this.l.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0076, new i(this));
             this.C = addCustomView;
-            this.D = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f0915bb);
-            View addCustomView2 = this.l.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d05e9, (View.OnClickListener) null);
+            this.D = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091596);
+            View addCustomView2 = this.l.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d05f3, (View.OnClickListener) null);
             this.B = addCustomView2;
             addCustomView2.setVisibility(8);
-            this.m = (EditText) this.B.findViewById(R.id.obfuscated_res_0x7f0908ed);
-            this.E = (ImageView) this.B.findViewById(R.id.obfuscated_res_0x7f0908e9);
+            this.m = (EditText) this.B.findViewById(R.id.obfuscated_res_0x7f0908e6);
+            this.E = (ImageView) this.B.findViewById(R.id.obfuscated_res_0x7f0908e2);
             this.m.addTextChangedListener(new j(this));
             this.m.setOnFocusChangeListener(new k(this));
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0908ee);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0908e7);
             this.n = textView;
             textView.setOnClickListener(new a(this));
         }
@@ -731,13 +731,13 @@ public class AtListActivity extends SuspendedActivity implements ia5, AdapterVie
                 this.q.setVisibility(8);
                 hideNetRefreshView(this.H);
                 this.G.setVisibility(0);
-                this.G.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c41)));
+                this.G.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c2d)));
                 this.s.setVisibility(8);
             } else if (i2 == 1) {
                 this.q.setVisibility(8);
                 hideNetRefreshView(this.H);
                 this.G.setVisibility(0);
-                this.G.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c74)));
+                this.G.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c60)));
                 this.s.setVisibility(8);
             } else if (i2 == 0) {
                 this.q.setVisibility(0);
@@ -761,7 +761,7 @@ public class AtListActivity extends SuspendedActivity implements ia5, AdapterVie
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean J0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -789,14 +789,14 @@ public class AtListActivity extends SuspendedActivity implements ia5, AdapterVie
         this.r.g(metaData);
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.M : (Intent) invokeV.objValue;
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public void n(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
@@ -804,7 +804,7 @@ public class AtListActivity extends SuspendedActivity implements ia5, AdapterVie
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public ia5 o0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public ja5 o0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, linearLayout, navigationBar)) == null) {
@@ -813,7 +813,7 @@ public class AtListActivity extends SuspendedActivity implements ia5, AdapterVie
             LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d011e, (ViewGroup) this.o, true);
             return this;
         }
-        return (ia5) invokeLL.objValue;
+        return (ja5) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity
@@ -831,21 +831,21 @@ public class AtListActivity extends SuspendedActivity implements ia5, AdapterVie
             this.w.notifyDataSetChanged();
             SkinManager.setBackgroundResource(this.F, R.drawable.invite_friend_list_item_bg_color);
             SkinManager.setBackgroundResource(this.t, R.drawable.post_button_bg);
-            ur4 d2 = ur4.d(this.t);
+            vr4 d2 = vr4.d(this.t);
             d2.n(R.string.J_X03);
             d2.f(R.color.CAM_X0302);
             SkinManager.setViewTextColor(this.t, R.color.CAM_X0101, 3);
             this.D.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e3, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             SkinManager.setViewTextColor(this.H, (int) R.color.CAM_X0201);
             WebPManager.setPureDrawable(this.E, R.drawable.obfuscated_res_0x7f080a29, R.color.CAM_X0109, null);
-            ur4 d3 = ur4.d(this.p);
+            vr4 d3 = vr4.d(this.p);
             d3.n(R.string.J_X07);
             d3.l(R.dimen.L_X01);
             d3.k(R.color.CAM_X0615);
             d3.f(R.color.CAM_X0209);
-            ur4.d(this.m).v(R.color.CAM_X0109);
-            ur4.d(this.n).A(R.string.F_X01);
-            ur4.d(this.e).v(R.color.CAM_X0109);
+            vr4.d(this.m).v(R.color.CAM_X0109);
+            vr4.d(this.n).A(R.string.F_X01);
+            vr4.d(this.e).v(R.color.CAM_X0109);
         }
     }
 
@@ -903,7 +903,7 @@ public class AtListActivity extends SuspendedActivity implements ia5, AdapterVie
                 if (item.isChecked()) {
                     y1(item);
                 } else if (5 <= this.r.getItemLength()) {
-                    showToastWithIcon(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f0951), 5), R.drawable.obfuscated_res_0x7f080a83);
+                    showToastWithIcon(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f093c), 5), R.drawable.obfuscated_res_0x7f080a83);
                     return;
                 } else {
                     u1(item);
@@ -957,7 +957,7 @@ public class AtListActivity extends SuspendedActivity implements ia5, AdapterVie
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean s() {
         InterceptResult invokeV;
         View childAt;
@@ -1021,14 +1021,14 @@ public class AtListActivity extends SuspendedActivity implements ia5, AdapterVie
     public final void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.y = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0916ba);
-            this.G = NoDataViewFactory.b(getPageContext().getContext(), this.y, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, pi.f(getActivity(), R.dimen.obfuscated_res_0x7f0702a0)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c41)), null, true);
+            this.y = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091695);
+            this.G = NoDataViewFactory.b(getPageContext().getContext(), this.y, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, pi.f(getActivity(), R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c2d)), null, true);
             this.z = findViewById(R.id.obfuscated_res_0x7f0902b0);
             this.G.setOnTouchListener(new d(this));
             x0();
             this.p = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0903f4);
-            this.H = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906a0);
-            this.q = (BdListView) findViewById(R.id.obfuscated_res_0x7f0912d2);
+            this.H = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09069f);
+            this.q = (BdListView) findViewById(R.id.obfuscated_res_0x7f0912ae);
             fy8 fy8Var = new fy8(this, this.I);
             this.w = fy8Var;
             fy8Var.g(this);
@@ -1040,7 +1040,7 @@ public class AtListActivity extends SuspendedActivity implements ia5, AdapterVie
                 ((View) this.m.getParent()).setFocusable(true);
                 ((View) this.m.getParent()).setFocusableInTouchMode(true);
             }
-            this.s = (LinearLayout) this.y.findViewById(R.id.obfuscated_res_0x7f090f20);
+            this.s = (LinearLayout) this.y.findViewById(R.id.obfuscated_res_0x7f090f19);
             Button button = (Button) this.y.findViewById(R.id.obfuscated_res_0x7f09045a);
             this.t = button;
             button.setOnClickListener(new g(this));
@@ -1169,7 +1169,7 @@ public class AtListActivity extends SuspendedActivity implements ia5, AdapterVie
                 } else {
                     this.b.showToast(this.a.getErrorString());
                     AtListActivity atListActivity2 = this.b;
-                    atListActivity2.showNetRefreshView(atListActivity2.H, this.b.getString(R.string.obfuscated_res_0x7f0f0f9b), null, this.b.getString(R.string.obfuscated_res_0x7f0f0f9a), true, this.b.getNetRefreshListener());
+                    atListActivity2.showNetRefreshView(atListActivity2.H, this.b.getString(R.string.obfuscated_res_0x7f0f0f84), null, this.b.getString(R.string.obfuscated_res_0x7f0f0f83), true, this.b.getNetRefreshListener());
                 }
                 super.onPostExecute(hx8Var);
             }

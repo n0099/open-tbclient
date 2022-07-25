@@ -145,6 +145,7 @@ public class AdMatrixInfo extends com.kwad.sdk.core.response.kwai.a implements S
     public static class InterstitialCardInfo extends BaseMatrixTemplate {
         public static final long serialVersionUID = -5881505827627373593L;
         public AdInteractionInfo interactionInfo = new AdInteractionInfo();
+        public int renderType;
     }
 
     @KsJson

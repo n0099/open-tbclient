@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y15;
+import com.repackage.z15;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -31,25 +31,25 @@ public class q46 {
     public static q46 c;
     public static BdAsyncTaskParallel d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<b25> a;
-    public final List<y15> b;
+    public ArrayList<c25> a;
+    public final List<z15> b;
 
     /* loaded from: classes7.dex */
     public class a extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ArrayList<b25> a;
-        public final y15.a b;
+        public final ArrayList<c25> a;
+        public final z15.a b;
         public final /* synthetic */ q46 c;
 
         /* renamed from: com.repackage.q46$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0714a implements y15.a {
+        public class C0558a implements z15.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0714a(a aVar) {
+            public C0558a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,11 +67,11 @@ public class q46 {
                 this.a = aVar;
             }
 
-            @Override // com.repackage.y15.a
-            public void a(b25 b25Var) {
+            @Override // com.repackage.z15.a
+            public void a(c25 c25Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, b25Var) == null) {
-                    this.a.a.add(b25Var);
+                if (interceptable == null || interceptable.invokeL(1048576, this, c25Var) == null) {
+                    this.a.a.add(c25Var);
                 }
             }
         }
@@ -93,7 +93,7 @@ public class q46 {
             }
             this.c = q46Var;
             this.a = new ArrayList<>();
-            this.b = new C0714a(this);
+            this.b = new C0558a(this);
             setPriority(4);
             setParallel(q46.d);
         }
@@ -117,7 +117,7 @@ public class q46 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr)) == null) {
                 for (int i = 0; i < this.c.b.size(); i++) {
-                    ((y15) this.c.b.get(i)).b(this.b);
+                    ((z15) this.c.b.get(i)).b(this.b);
                 }
                 return null;
             }
@@ -171,10 +171,10 @@ public class q46 {
             return;
         }
         if (z) {
-            l45.k().e(f(str, z), ymVar, true);
+            m45.k().e(f(str, z), ymVar, true);
             return;
         }
-        l45.k().e(str, ymVar, false);
+        m45.k().e(str, ymVar, false);
     }
 
     public final void e() {
@@ -227,7 +227,7 @@ public class q46 {
                     if (substring.contains("_")) {
                         substring = substring.substring(substring.lastIndexOf("_") + 1);
                     }
-                    String str2 = z55.b.c() + "/" + m45.d() + "/" + substring;
+                    String str2 = a65.b.c() + "/" + n45.d() + "/" + substring;
                     if (z) {
                         return str2 + "_b.gif";
                     }
@@ -236,7 +236,7 @@ public class q46 {
                     if (substring.contains("_")) {
                         substring = substring.substring(substring.lastIndexOf("_") + 1);
                     }
-                    String str3 = z55.b.c() + "/" + m45.c() + "/" + substring;
+                    String str3 = a65.b.c() + "/" + n45.c() + "/" + substring;
                     if (z) {
                         return str3 + "_b.gif";
                     }
@@ -284,7 +284,7 @@ public class q46 {
         return (String) invokeL.objValue;
     }
 
-    public ArrayList<b25> i() {
+    public ArrayList<c25> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -316,7 +316,7 @@ public class q46 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             e();
-            Iterator<b25> it = this.a.iterator();
+            Iterator<c25> it = this.a.iterator();
             while (it.hasNext()) {
                 if (it.next().m(str)) {
                     return true;
@@ -347,9 +347,9 @@ public class q46 {
                 return false;
             }
             e();
-            Iterator<b25> it = this.a.iterator();
+            Iterator<c25> it = this.a.iterator();
             while (it.hasNext()) {
-                b25 next = it.next();
+                c25 next = it.next();
                 if (next.m(str)) {
                     return next.h() == EmotionGroupType.LOCAL;
                 }
@@ -378,13 +378,13 @@ public class q46 {
     public boolean p(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) ? m45.f.equals(str) || "#(meme,diysetting)".equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) ? n45.f.equals(str) || "#(meme,diysetting)".equals(str) : invokeL.booleanValue;
     }
 
     public boolean q(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) ? m45.f.equals(str) || str.startsWith(m45.g) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) ? n45.f.equals(str) || str.startsWith(n45.g) : invokeL.booleanValue;
     }
 
     public boolean r(String str) {
@@ -398,17 +398,17 @@ public class q46 {
         Bitmap t;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, str2)) == null) {
-            ym m = l45.k().m(str2);
+            ym m = m45.k().m(str2);
             if (m != null) {
                 return m;
             }
             e();
-            Iterator<b25> it = this.a.iterator();
+            Iterator<c25> it = this.a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                b25 next = it.next();
+                c25 next = it.next();
                 if (next.m(str2)) {
                     m = next.o(str2);
                     break;
@@ -432,12 +432,12 @@ public class q46 {
         return (Bitmap) invokeLL.objValue;
     }
 
-    public void u(y15 y15Var) {
+    public void u(z15 z15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, y15Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, z15Var) == null) {
             synchronized (this.b) {
-                if (!this.b.contains(y15Var)) {
-                    this.b.add(y15Var);
+                if (!this.b.contains(z15Var)) {
+                    this.b.add(z15Var);
                     Collections.sort(this.b);
                 }
             }

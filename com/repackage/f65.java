@@ -3,9 +3,9 @@ package com.repackage;
 import androidx.annotation.NonNull;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes6.dex */
-public interface f65 extends x55 {
-    public static final String b = "com.repackage.f65";
+public interface f65 extends y55 {
+    public static final String a = "com.repackage.f65";
 
     @NonNull
-    g65 a(@NonNull TbPageContext tbPageContext);
+    e65 b(@NonNull TbPageContext tbPageContext);
 }

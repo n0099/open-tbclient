@@ -109,7 +109,7 @@ public final class CollapsingTextHelper {
     public boolean useTexture;
 
     /* renamed from: view  reason: collision with root package name */
-    public final View f1790view;
+    public final View f1070view;
 
     static {
         InterceptResult invokeClinit;
@@ -153,7 +153,7 @@ public final class CollapsingTextHelper {
         this.expandedTextSize = 15.0f;
         this.collapsedTextSize = 15.0f;
         this.maxLines = 1;
-        this.f1790view = view2;
+        this.f1070view = view2;
         this.textPaint = new TextPaint(129);
         this.tmpPaint = new TextPaint(this.textPaint);
         this.collapsedBounds = new Rect();
@@ -264,7 +264,7 @@ public final class CollapsingTextHelper {
                 this.textPaint.setColor(getCurrentCollapsedTextColor());
             }
             this.textPaint.setShadowLayer(lerp(this.expandedShadowRadius, this.collapsedShadowRadius, f, null), lerp(this.expandedShadowDx, this.collapsedShadowDx, f, null), lerp(this.expandedShadowDy, this.collapsedShadowDy, f, null), blendColors(getCurrentColor(this.expandedShadowColor), getCurrentColor(this.collapsedShadowColor), f));
-            ViewCompat.postInvalidateOnAnimation(this.f1790view);
+            ViewCompat.postInvalidateOnAnimation(this.f1070view);
         }
     }
 
@@ -365,7 +365,7 @@ public final class CollapsingTextHelper {
             float f4 = lineBaseline;
             canvas.drawText(charSequence, 0, charSequence.length(), 0.0f, f4, this.textPaint);
             String trim = this.textToDrawCollapsed.toString().trim();
-            if (trim.endsWith("…")) {
+            if (trim.endsWith(ELLIPSIS_NORMAL)) {
                 trim = trim.substring(0, trim.length() - 1);
             }
             String str = trim;
@@ -475,7 +475,7 @@ public final class CollapsingTextHelper {
     private boolean isDefaultIsRtl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) ? ViewCompat.getLayoutDirection(this.f1790view) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) ? ViewCompat.getLayoutDirection(this.f1070view) == 1 : invokeV.booleanValue;
     }
 
     public static float lerp(float f, float f2, float f3, @Nullable TimeInterpolator timeInterpolator) {
@@ -500,7 +500,7 @@ public final class CollapsingTextHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65559, this, f) == null) {
             this.collapsedTextBlend = f;
-            ViewCompat.postInvalidateOnAnimation(this.f1790view);
+            ViewCompat.postInvalidateOnAnimation(this.f1070view);
         }
     }
 
@@ -525,7 +525,7 @@ public final class CollapsingTextHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65561, this, f) == null) {
             this.expandedTextBlend = f;
-            ViewCompat.postInvalidateOnAnimation(this.f1790view);
+            ViewCompat.postInvalidateOnAnimation(this.f1070view);
         }
     }
 
@@ -555,7 +555,7 @@ public final class CollapsingTextHelper {
             if (z) {
                 ensureExpandedTexture();
             }
-            ViewCompat.postInvalidateOnAnimation(this.f1790view);
+            ViewCompat.postInvalidateOnAnimation(this.f1070view);
         }
     }
 
@@ -747,7 +747,7 @@ public final class CollapsingTextHelper {
 
     public void recalculate() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || this.f1790view.getHeight() <= 0 || this.f1790view.getWidth() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || this.f1070view.getHeight() <= 0 || this.f1070view.getWidth() <= 0) {
             return;
         }
         calculateBaseOffsets();
@@ -767,7 +767,7 @@ public final class CollapsingTextHelper {
     public void setCollapsedTextAppearance(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            TextAppearance textAppearance = new TextAppearance(this.f1790view.getContext(), i);
+            TextAppearance textAppearance = new TextAppearance(this.f1070view.getContext(), i);
             ColorStateList colorStateList = textAppearance.textColor;
             if (colorStateList != null) {
                 this.collapsedTextColor = colorStateList;
@@ -818,7 +818,7 @@ public final class CollapsingTextHelper {
                     }
                 }
             }, textAppearance.getFallbackFont());
-            textAppearance.getFontAsync(this.f1790view.getContext(), this.collapsedFontCallback);
+            textAppearance.getFontAsync(this.f1070view.getContext(), this.collapsedFontCallback);
             recalculate();
         }
     }
@@ -870,7 +870,7 @@ public final class CollapsingTextHelper {
     public void setExpandedTextAppearance(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
-            TextAppearance textAppearance = new TextAppearance(this.f1790view.getContext(), i);
+            TextAppearance textAppearance = new TextAppearance(this.f1070view.getContext(), i);
             ColorStateList colorStateList = textAppearance.textColor;
             if (colorStateList != null) {
                 this.expandedTextColor = colorStateList;
@@ -921,7 +921,7 @@ public final class CollapsingTextHelper {
                     }
                 }
             }, textAppearance.getFallbackFont());
-            textAppearance.getFontAsync(this.f1790view.getContext(), this.expandedFontCallback);
+            textAppearance.getFontAsync(this.f1070view.getContext(), this.expandedFontCallback);
             recalculate();
         }
     }

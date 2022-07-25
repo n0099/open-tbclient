@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bb6;
 import com.repackage.fd6;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import com.repackage.le6;
 import com.repackage.nb6;
 import com.repackage.ni;
@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements fu4.g {
+public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements gu4.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public re6 a;
@@ -170,7 +170,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         }
     }
 
-    @Override // com.repackage.fu4.g
+    @Override // com.repackage.gu4.g
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {

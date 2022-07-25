@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.ur4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class MsgStrangerTipItemAdapter extends MsgCommonItemAdapter<TextView> {
     public static /* synthetic */ Interceptable $ic;
@@ -84,14 +84,14 @@ public class MsgStrangerTipItemAdapter extends MsgCommonItemAdapter<TextView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.S(i, view2, viewGroup, chatMessage, msgViewHolder);
-            TextView c = msgViewHolder.c();
-            ur4 d = ur4.d(c);
+            TextView b = msgViewHolder.b();
+            vr4 d = vr4.d(b);
             d.z(R.dimen.T_X09);
             d.A(R.string.F_X01);
             d.v(R.color.CAM_X0101);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0603);
-            c.setText(R.string.obfuscated_res_0x7f0f0e5d);
+            b.setText(R.string.obfuscated_res_0x7f0f0e46);
             return view2;
         }
         return (View) invokeCommon.objValue;

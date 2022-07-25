@@ -7,15 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class wm2 extends tm2 {
+public class wm2 extends um2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public an2 A;
-    public double B;
-    public int C;
+    public String A;
+    public ArrayList<String> B;
     public String z;
 
     public wm2() {
@@ -32,30 +33,43 @@ public class wm2 extends tm2 {
             }
         }
         this.z = "";
-        this.C = 1000;
+        this.A = "";
     }
 
-    @Override // com.repackage.tm2, com.repackage.xv1, com.repackage.gq2
+    @Override // com.repackage.um2, com.repackage.yv1, com.repackage.hq2
     public void a(JSONObject jSONObject) throws JSONException {
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         super.a(jSONObject);
-        this.z = jSONObject.optString("markerId");
-        an2 an2Var = new an2();
-        this.A = an2Var;
-        an2Var.a(jSONObject.optJSONObject("destination"));
-        jSONObject.optBoolean("autoRotate");
-        this.B = jSONObject.optDouble("rotate");
-        this.C = Math.abs(jSONObject.optInt("duration", this.C));
+        if (jSONObject.has("scale")) {
+            this.k = jSONObject.optDouble("scale", 18.0d);
+        }
+        if (jSONObject.has("name")) {
+            this.z = jSONObject.optString("name");
+        }
+        if (jSONObject.has("address")) {
+            this.A = jSONObject.optString("address");
+        }
+        if (jSONObject.has("ignoredApps") && (optJSONArray = jSONObject.optJSONArray("ignoredApps")) != null) {
+            int length = optJSONArray.length();
+            this.B = new ArrayList<>();
+            for (int i = 0; i < length; i++) {
+                this.B.add(optJSONArray.optString(i));
+            }
+        }
+        if (jSONObject.has("naviPreference")) {
+            jSONObject.optInt("naviPreference", -1);
+        }
     }
 
-    @Override // com.repackage.xv1, com.repackage.gq2
+    @Override // com.repackage.yv1, com.repackage.hq2
     public boolean isValid() {
         InterceptResult invokeV;
-        an2 an2Var;
+        bn2 bn2Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.z) || (an2Var = this.A) == null || !an2Var.isValid()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.c) || (bn2Var = this.j) == null || !bn2Var.isValid()) ? false : true : invokeV.booleanValue;
     }
 }

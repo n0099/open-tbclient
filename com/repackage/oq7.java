@@ -57,7 +57,7 @@ public class oq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = null;
-            xt4.k().y("key_pb_guide_enter_forum", "");
+            yt4.k().y("key_pb_guide_enter_forum", "");
         }
     }
 
@@ -77,7 +77,7 @@ public class oq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, or7Var) == null) {
             this.a = or7Var;
-            xt4.k().y("key_pb_guide_enter_forum", or7Var.toString());
+            yt4.k().y("key_pb_guide_enter_forum", or7Var.toString());
         }
     }
 
@@ -104,6 +104,6 @@ public class oq7 {
                 return;
             }
         }
-        this.a = or7.a(xt4.k().q("key_pb_guide_enter_forum", ""));
+        this.a = or7.a(yt4.k().q("key_pb_guide_enter_forum", ""));
     }
 }

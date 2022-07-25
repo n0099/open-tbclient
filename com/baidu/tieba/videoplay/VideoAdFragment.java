@@ -55,7 +55,7 @@ import com.repackage.lt8;
 import com.repackage.oi;
 import com.repackage.pi;
 import com.repackage.qt8;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import com.repackage.xz5;
 import com.repackage.zq6;
 import java.util.ArrayList;
@@ -732,12 +732,12 @@ public class VideoAdFragment extends BaseFragment implements ai5.b, qt8 {
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (gestureInterceptTouchFrameLayout = this.a) == null) {
             return;
         }
-        this.p = (FrameLayout) gestureInterceptTouchFrameLayout.findViewById(R.id.obfuscated_res_0x7f09080c);
-        this.q = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09080d);
-        this.s = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09080e);
+        this.p = (FrameLayout) gestureInterceptTouchFrameLayout.findViewById(R.id.obfuscated_res_0x7f09080a);
+        this.q = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09080b);
+        this.s = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09080c);
         this.q.setVisibility(0);
-        ur4.d(this.q).o(new int[]{R.color.CAM_X0606, R.color.CAM_X0601});
-        this.r = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090810);
+        vr4.d(this.q).o(new int[]{R.color.CAM_X0606, R.color.CAM_X0601});
+        this.r = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09080e);
         this.t = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09014e);
         VideoItemModel videoItemModel = this.i;
         if (videoItemModel != null && videoItemModel.getVideoAdData() != null) {
@@ -754,33 +754,33 @@ public class VideoAdFragment extends BaseFragment implements ai5.b, qt8 {
             this.J = this.i.getVideoAdData().a();
         }
         this.u.setText(String.valueOf(this.J));
-        ur4 d2 = ur4.d(this.u);
+        vr4 d2 = vr4.d(this.u);
         d2.z(R.dimen.T_X09);
         d2.A(R.string.F_X01);
         d2.v(R.color.CAM_X0101);
         d2.y(R.array.S_O_X001);
         this.v = (TBLottieAnimationView) this.a.findViewById(R.id.obfuscated_res_0x7f09014b);
-        ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090657);
+        ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090656);
         this.w = imageView;
         imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080818, WebPManager.ResourceStateType.NORMAL_DISABLE));
-        EMTextView eMTextView = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090659);
+        EMTextView eMTextView = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090658);
         this.x = eMTextView;
-        eMTextView.setText(R.string.obfuscated_res_0x7f0f150a);
-        ur4 d3 = ur4.d(this.x);
+        eMTextView.setText(R.string.obfuscated_res_0x7f0f14b9);
+        vr4 d3 = vr4.d(this.x);
         d3.z(R.dimen.T_X09);
         d3.A(R.string.F_X01);
         d3.v(R.color.CAM_X0101);
         d3.y(R.array.S_O_X001);
         this.w.setAlpha(SkinManager.RESOURCE_ALPHA_PRESS);
         this.x.setAlpha(SkinManager.RESOURCE_ALPHA_PRESS);
-        this.y = this.a.findViewById(R.id.obfuscated_res_0x7f0914ab);
-        ImageView imageView2 = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0914b2);
+        this.y = this.a.findViewById(R.id.obfuscated_res_0x7f091486);
+        ImageView imageView2 = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09148d);
         this.z = imageView2;
         imageView2.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080817, WebPManager.ResourceStateType.NORMAL));
-        EMTextView eMTextView2 = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f0914b8);
+        EMTextView eMTextView2 = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f091493);
         this.A = eMTextView2;
-        eMTextView2.setText(R.string.obfuscated_res_0x7f0f150c);
-        ur4 d4 = ur4.d(this.A);
+        eMTextView2.setText(R.string.obfuscated_res_0x7f0f14bb);
+        vr4 d4 = vr4.d(this.A);
         d4.z(R.dimen.T_X09);
         d4.A(R.string.F_X01);
         d4.v(R.color.CAM_X0101);
@@ -796,7 +796,7 @@ public class VideoAdFragment extends BaseFragment implements ai5.b, qt8 {
         this.C.setDrawBorder(true);
         TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0900d5);
         this.D = textView;
-        ur4 d5 = ur4.d(textView);
+        vr4 d5 = vr4.d(textView);
         d5.z(R.dimen.T_X06);
         d5.A(R.string.F_X02);
         d5.v(R.color.CAM_X0101);
@@ -810,14 +810,14 @@ public class VideoAdFragment extends BaseFragment implements ai5.b, qt8 {
         this.E.setLimitLine(2);
         LinearLayout linearLayout = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0900a5);
         this.F = linearLayout;
-        ur4 d6 = ur4.d(linearLayout);
+        vr4 d6 = vr4.d(linearLayout);
         d6.n(R.string.J_X04);
         d6.f(R.color.CAM_X0614);
         this.G = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0900a6);
         TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0900a7);
         this.H = textView2;
-        textView2.setText(R.string.obfuscated_res_0x7f0f1509);
-        ur4 d7 = ur4.d(this.H);
+        textView2.setText(R.string.obfuscated_res_0x7f0f14b8);
+        vr4 d7 = vr4.d(this.H);
         d7.z(R.dimen.T_X09);
         d7.v(R.color.CAM_X0621);
         d7.A(R.string.F_X01);
@@ -849,7 +849,7 @@ public class VideoAdFragment extends BaseFragment implements ai5.b, qt8 {
         }
         this.D.setText(e2);
         if (oi.isEmpty(cq8Var.d())) {
-            this.E.setData(TbadkCoreApplication.getInst().getContext().getResources().getString(R.string.obfuscated_res_0x7f0f150b), false, null);
+            this.E.setData(TbadkCoreApplication.getInst().getContext().getResources().getString(R.string.obfuscated_res_0x7f0f14ba), false, null);
         } else {
             this.E.setData(cq8Var.d(), false, null);
         }
@@ -984,7 +984,7 @@ public class VideoAdFragment extends BaseFragment implements ai5.b, qt8 {
             }
             this.n = i2;
             WebPManager.setMaskDrawable(this.e, R.drawable.obfuscated_res_0x7f0807d1, null);
-            ur4.d(this.a).f(R.color.CAM_X0611);
+            vr4.d(this.a).f(R.color.CAM_X0611);
             WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f0809df, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             WebPManager.setPureDrawable(this.g, R.drawable.icon_pure_card_close22, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             AdInfoButton adInfoButton = this.I;
@@ -1005,14 +1005,14 @@ public class VideoAdFragment extends BaseFragment implements ai5.b, qt8 {
             if (arguments != null) {
                 arguments.getString("from");
             }
-            GestureInterceptTouchFrameLayout gestureInterceptTouchFrameLayout = (GestureInterceptTouchFrameLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d086d, (ViewGroup) null);
+            GestureInterceptTouchFrameLayout gestureInterceptTouchFrameLayout = (GestureInterceptTouchFrameLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0877, (ViewGroup) null);
             this.a = gestureInterceptTouchFrameLayout;
-            this.b = (FrameLayout) gestureInterceptTouchFrameLayout.findViewById(R.id.obfuscated_res_0x7f090be6);
-            this.c = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0908e2);
+            this.b = (FrameLayout) gestureInterceptTouchFrameLayout.findViewById(R.id.obfuscated_res_0x7f090bdf);
+            this.c = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0908dc);
             this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09009e);
             this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0900f1);
             this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0902f6);
-            this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090963);
+            this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09095c);
             int statusBarHeight = UtilHelper.getStatusBarHeight();
             if (this.d.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                 ((ViewGroup.MarginLayoutParams) this.d.getLayoutParams()).topMargin = statusBarHeight;

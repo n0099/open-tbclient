@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.rm4;
 import com.repackage.sg;
+import com.repackage.sm4;
 /* loaded from: classes3.dex */
 public class MorePopupWindow extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
@@ -65,15 +65,15 @@ public class MorePopupWindow extends PopupWindow {
         init(activity, view2, drawable, aVar);
     }
 
-    private void applaySkin(rm4 rm4Var, int i, Drawable drawable) {
+    private void applaySkin(sm4 sm4Var, int i, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65539, this, rm4Var, i, drawable) == null) || this.mContentView == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(65539, this, sm4Var, i, drawable) == null) || this.mContentView == null) {
             return;
         }
         setBackgroundDrawable(drawable);
-        rm4Var.k(i == 1);
+        sm4Var.k(i == 1);
         try {
-            rm4Var.j(this.mContentView);
+            sm4Var.j(this.mContentView);
         } catch (IllegalArgumentException e) {
             BdLog.e(e.toString());
         }
@@ -186,7 +186,7 @@ public class MorePopupWindow extends PopupWindow {
     public void showWindowInLeftCenterOfHost(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048587, this, view2, z) == null) {
-            setAnimationStyle(R.style.obfuscated_res_0x7f1003ce);
+            setAnimationStyle(R.style.obfuscated_res_0x7f1003d2);
             setFocusable(z);
             int i = this.mShowLeftCenterXOff;
             int i2 = this.mWindowHeight;
@@ -216,10 +216,10 @@ public class MorePopupWindow extends PopupWindow {
         }
     }
 
-    public void onChangeSkinType(rm4 rm4Var, int i, Drawable drawable) {
+    public void onChangeSkinType(sm4 sm4Var, int i, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, rm4Var, i, drawable) == null) {
-            applaySkin(rm4Var, i, drawable);
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, sm4Var, i, drawable) == null) {
+            applaySkin(sm4Var, i, drawable);
         }
     }
 

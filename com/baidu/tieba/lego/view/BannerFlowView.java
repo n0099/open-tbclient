@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aw4;
-import com.repackage.cw4;
+import com.repackage.bw4;
+import com.repackage.dw4;
 import com.repackage.he7;
 import com.repackage.ie7;
 import com.repackage.nn;
@@ -171,7 +171,7 @@ public class BannerFlowView extends FrameLayout {
             indicatorView.setSpacing(0);
             b();
             this.d = new ie7(context, this.a, this.c, null);
-            this.e = new he7(context, cw4.a);
+            this.e = new he7(context, dw4.a);
             this.d.m(5000L);
             this.d.l(context, this.e);
             this.d.q(new b(this));
@@ -263,7 +263,7 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setOnItemClickListener(aw4.a<cw4, he7.a> aVar) {
+    public void setOnItemClickListener(bw4.a<dw4, he7.a> aVar) {
         he7 he7Var;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) || (he7Var = this.e) == null) {

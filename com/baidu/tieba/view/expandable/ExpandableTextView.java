@@ -29,7 +29,7 @@ import com.bumptech.glide.load.engine.GlideException;
 import com.repackage.bu8;
 import com.repackage.pi;
 import com.repackage.sg5;
-import com.repackage.ur4;
+import com.repackage.vr4;
 /* loaded from: classes4.dex */
 public class ExpandableTextView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -153,10 +153,10 @@ public class ExpandableTextView extends RelativeLayout {
                 int lineCount2 = layout.getLineCount();
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.a.j.getLayoutParams();
                 if (this.a.j.getWidth() + layout.getLineWidth(lineCount2 - 1) > layout.getWidth()) {
-                    layoutParams.addRule(3, R.id.obfuscated_res_0x7f090913);
+                    layoutParams.addRule(3, R.id.obfuscated_res_0x7f09090c);
                     layoutParams.addRule(8, 0);
                 } else {
-                    layoutParams.addRule(8, R.id.obfuscated_res_0x7f090913);
+                    layoutParams.addRule(8, R.id.obfuscated_res_0x7f09090c);
                     layoutParams.addRule(3, 0);
                 }
                 this.a.j.setLayoutParams(layoutParams);
@@ -369,7 +369,7 @@ public class ExpandableTextView extends RelativeLayout {
     public void setHasDown() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ur4.d(this.i).y(R.array.S_O_X001);
+            vr4.d(this.i).y(R.array.S_O_X001);
         }
     }
 
@@ -460,12 +460,12 @@ public class ExpandableTextView extends RelativeLayout {
     public final void v(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08bd, this);
-            SpannableClickTextView spannableClickTextView = (SpannableClickTextView) findViewById(R.id.obfuscated_res_0x7f090913);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08c7, this);
+            SpannableClickTextView spannableClickTextView = (SpannableClickTextView) findViewById(R.id.obfuscated_res_0x7f09090c);
             this.i = spannableClickTextView;
             spannableClickTextView.setTextSize(0, TbConfig.getContentSize());
             this.i.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090914);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09090d);
             this.j = textView;
             textView.setOnClickListener(this.s);
             pi.f(context, R.dimen.tbfontsize42);

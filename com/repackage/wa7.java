@@ -66,7 +66,7 @@ public class wa7 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements fm4 {
+    public class b implements gm4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -95,7 +95,7 @@ public class wa7 {
             this.d = activity;
         }
 
-        @Override // com.repackage.fm4
+        @Override // com.repackage.gm4
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -103,14 +103,14 @@ public class wa7 {
                     new MsgRemindModel(this.b).F(1, true, null);
                 }
                 if (this.c) {
-                    nz4.l(this.d);
+                    oz4.l(this.d);
                 } else {
-                    kz4.e(this.b);
+                    lz4.e(this.b);
                 }
             }
         }
 
-        @Override // com.repackage.fm4
+        @Override // com.repackage.gm4
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -119,7 +119,7 @@ public class wa7 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements fm4 {
+    public class c implements gm4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -148,7 +148,7 @@ public class wa7 {
             this.d = activity;
         }
 
-        @Override // com.repackage.fm4
+        @Override // com.repackage.gm4
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -156,14 +156,14 @@ public class wa7 {
                     new MsgRemindModel(this.b).F(10, true, null);
                 }
                 if (this.c) {
-                    nz4.l(this.d);
+                    oz4.l(this.d);
                 } else {
-                    kz4.e(this.b);
+                    lz4.e(this.b);
                 }
             }
         }
 
-        @Override // com.repackage.fm4
+        @Override // com.repackage.gm4
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -210,23 +210,23 @@ public class wa7 {
         }
         boolean areNotificationsEnabled = NotificationManagerCompat.from(fragmentActivity).areNotificationsEnabled();
         if (i == 3) {
-            boolean x = py4.d().x();
+            boolean x = qy4.d().x();
             if (areNotificationsEnabled && x) {
                 return;
             }
             b bVar = new b(this, x, pageContext, areNotificationsEnabled, fragmentActivity);
-            if (nz4.g(TbadkCoreApplication.getInst(), 0)) {
-                nz4.k(pageContext, 3, bVar);
+            if (oz4.g(TbadkCoreApplication.getInst(), 0)) {
+                oz4.k(pageContext, 3, bVar);
             }
         }
         if (i == 2) {
-            boolean p = py4.d().p();
+            boolean p = qy4.d().p();
             if (areNotificationsEnabled && p) {
                 return;
             }
             c cVar = new c(this, p, pageContext, areNotificationsEnabled, fragmentActivity);
-            if (nz4.g(TbadkCoreApplication.getInst(), 0)) {
-                nz4.k(pageContext, 2, cVar);
+            if (oz4.g(TbadkCoreApplication.getInst(), 0)) {
+                oz4.k(pageContext, 2, cVar);
             }
         }
     }

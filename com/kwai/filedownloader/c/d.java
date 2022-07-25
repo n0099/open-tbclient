@@ -9,17 +9,29 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(int i) {
+    public static boolean cy(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? i < 0 : invokeI.booleanValue;
     }
 
-    public static boolean a(int i, int i2) {
+    public static boolean cz(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i > 0 : invokeI.booleanValue;
+    }
+
+    public static boolean f(com.kwai.filedownloader.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, aVar)) == null) ? aVar.Ca() == 0 || aVar.Ca() == 3 : invokeL.booleanValue;
+    }
+
+    public static boolean y(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            if ((i == 3 || i == 5 || i != i2) && !a(i)) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
+            if ((i == 3 || i == 5 || i != i2) && !cy(i)) {
                 if (i <= 0 || i > 6 || i2 < 10 || i2 > 11) {
                     if (i == 1) {
                         return i2 != 0;
@@ -42,23 +54,11 @@ public final class d {
         return invokeII.booleanValue;
     }
 
-    public static boolean a(com.kwai.filedownloader.a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, aVar)) == null) ? aVar.v() == 0 || aVar.v() == 3 : invokeL.booleanValue;
-    }
-
-    public static boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i > 0 : invokeI.booleanValue;
-    }
-
-    public static boolean b(int i, int i2) {
+    public static boolean z(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) {
-            if ((i == 3 || i == 5 || i != i2) && !a(i)) {
+            if ((i == 3 || i == 5 || i != i2) && !cy(i)) {
                 if (i2 == -2 || i2 == -1) {
                     return true;
                 }

@@ -288,7 +288,7 @@ public class RecommendTopicData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (StringUtils.isNull(this.a)) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0879);
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0864);
             }
             return this.a;
         }

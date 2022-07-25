@@ -118,7 +118,7 @@ public class sj5 implements ji5, View.OnClickListener, TbTabLayout.c {
         h();
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean J0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -156,7 +156,7 @@ public class sj5 implements ji5, View.OnClickListener, TbTabLayout.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
             TiebaStatic.log(new StatisticItem("c13994").param("obj_type", fVar.e() + 1));
-            xt4.k().w(this.b, fVar.e());
+            yt4.k().w(this.b, fVar.e());
         }
     }
 
@@ -164,10 +164,10 @@ public class sj5 implements ji5, View.OnClickListener, TbTabLayout.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.c.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0093));
-            ImageView imageView = (ImageView) this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d08cf, (View.OnClickListener) null);
+            ImageView imageView = (ImageView) this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d08d9, (View.OnClickListener) null);
             this.d = imageView;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
-            layoutParams.setMargins(0, 0, pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070232), 0);
+            layoutParams.setMargins(0, 0, pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070230), 0);
             this.d.setLayoutParams(layoutParams);
             this.d.setOnClickListener(this);
             this.d.setVisibility(8);
@@ -188,7 +188,7 @@ public class sj5 implements ji5, View.OnClickListener, TbTabLayout.c {
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -202,7 +202,7 @@ public class sj5 implements ji5, View.OnClickListener, TbTabLayout.c {
             this.h = selectForumPagerAdapter;
             this.g.setAdapter(selectForumPagerAdapter);
             this.f.setupWithViewPager(this.g);
-            i(xt4.k().l(this.b, 0));
+            i(yt4.k().l(this.b, 0));
             this.f.setOnTabSelectedListener(this);
             this.g.addOnPageChangeListener(new a(this));
         }
@@ -224,7 +224,7 @@ public class sj5 implements ji5, View.OnClickListener, TbTabLayout.c {
         return invokeI.booleanValue;
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public void n(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
@@ -258,7 +258,7 @@ public class sj5 implements ji5, View.OnClickListener, TbTabLayout.c {
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

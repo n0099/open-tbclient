@@ -25,8 +25,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cs6;
 import com.repackage.g9;
-import com.repackage.ko4;
-import com.repackage.pv4;
+import com.repackage.lo4;
+import com.repackage.qv4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -205,7 +205,7 @@ public class SpanGroupEditText extends AppCompatEditText {
     }
 
     public void f(int i) {
-        pv4 C;
+        qv4 C;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (C = this.b.C(i)) == null || getText() == null) {
             return;
@@ -224,7 +224,7 @@ public class SpanGroupEditText extends AppCompatEditText {
             if (!this.b.o(cs6Var.a())) {
                 TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
                 tbLinkSpanGroup.a(getText(), getSelectionEnd(), getSelectionEnd(), (int) getTextSize());
-                ko4 b = ko4.b(tbLinkSpanGroup, cs6Var);
+                lo4 b = lo4.b(tbLinkSpanGroup, cs6Var);
                 b.h = str;
                 tbLinkSpanGroup.z(b.d);
                 tbLinkSpanGroup.r();
@@ -327,7 +327,7 @@ public class SpanGroupEditText extends AppCompatEditText {
         }
     }
 
-    public void setOnSpanGroupChangedListener(pv4.a aVar) {
+    public void setOnSpanGroupChangedListener(qv4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, aVar) == null) {
             this.b.T(aVar);

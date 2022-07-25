@@ -170,7 +170,6 @@ public class SapiDeviceInfo implements NoProguard {
         String str3;
         String str4;
         String str5;
-        String str6;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
@@ -179,13 +178,13 @@ public class SapiDeviceInfo implements NoProguard {
             List<Integer> diExceptIndex = SapiContext.getInstance().getDiExceptIndex();
             JSONArray grayControlParams = ParamsUtil.getGrayControlParams();
             ArrayList arrayList = new ArrayList();
-            String str7 = "";
+            String str6 = "";
             arrayList.add((diExceptIndex.contains(0) || !ParamsUtil.checkDiUpload(grayControlParams, 0)) ? "" : context.getPackageName());
             arrayList.add((diExceptIndex.contains(1) || !ParamsUtil.checkDiUpload(grayControlParams, 1)) ? "" : SapiUtils.getVersionName(context));
             arrayList.add((diExceptIndex.contains(2) || !ParamsUtil.checkDiUpload(grayControlParams, 2)) ? "" : isAccountManager.getVersionName());
             arrayList.add((diExceptIndex.contains(3) || !ParamsUtil.checkDiUpload(grayControlParams, 3)) ? "" : getOSModel());
             arrayList.add((diExceptIndex.contains(4) || !ParamsUtil.checkDiUpload(grayControlParams, 4)) ? "" : getOSVersion());
-            String str8 = "android";
+            String str7 = "android";
             arrayList.add((diExceptIndex.contains(5) || !ParamsUtil.checkDiUpload(grayControlParams, 5)) ? "" : "android");
             arrayList.add((diExceptIndex.contains(6) || !ParamsUtil.checkDiUpload(grayControlParams, 6)) ? "" : SapiUtils.getClientId(context));
             arrayList.add((diExceptIndex.contains(7) || !ParamsUtil.checkDiUpload(grayControlParams, 7)) ? "" : confignation.tpl);
@@ -209,11 +208,11 @@ public class SapiDeviceInfo implements NoProguard {
             arrayList.add((diExceptIndex.contains(15) || !ParamsUtil.checkDiUpload(grayControlParams, 15)) ? "" : SapiUtils.getWifiInfo(context));
             arrayList.add((diExceptIndex.contains(16) || !ParamsUtil.checkDiUpload(grayControlParams, 16)) ? "" : SapiDeviceUtils.getIMEI(context));
             if (diExceptIndex.contains(17) || !ParamsUtil.checkDiUpload(grayControlParams, 17)) {
-                str8 = "";
+                str7 = "";
             } else if (SapiUtils.isEmulator(context)) {
-                str8 = "emulator";
+                str7 = "emulator";
             }
-            arrayList.add(str8);
+            arrayList.add(str7);
             arrayList.add("");
             arrayList.add((diExceptIndex.contains(19) || !ParamsUtil.checkDiUpload(grayControlParams, 19) || SapiUtils.getCpuName() == null) ? "" : SapiUtils.getCpuName());
             arrayList.add((diExceptIndex.contains(20) || !ParamsUtil.checkDiUpload(grayControlParams, 20)) ? "" : SapiUtils.getRamMemorySize());
@@ -261,12 +260,12 @@ public class SapiDeviceInfo implements NoProguard {
             }
             arrayList.add("");
             arrayList.add((diExceptIndex.contains(36) || !ParamsUtil.checkDiUpload(grayControlParams, 36)) ? "" : SapiUtils.getIccid(context));
-            arrayList.add((diExceptIndex.contains(37) || !ParamsUtil.checkDiUpload(grayControlParams, 37)) ? "" : "9.5.5");
-            arrayList.add((diExceptIndex.contains(38) || !ParamsUtil.checkDiUpload(grayControlParams, 38)) ? "" : SapiUtils.getClientId(context));
-            if (!diExceptIndex.contains(39) && ParamsUtil.checkDiUpload(grayControlParams, 39) && (str6 = confignation.mTAppName) != null) {
-                str7 = str6;
+            arrayList.add((diExceptIndex.contains(37) || !ParamsUtil.checkDiUpload(grayControlParams, 37)) ? "" : "9.6.3.3");
+            arrayList.add((diExceptIndex.contains(38) || !ParamsUtil.checkDiUpload(grayControlParams, 38) || (r12 = confignation.mTPLCuid) == null) ? "" : "");
+            if (!diExceptIndex.contains(39) && ParamsUtil.checkDiUpload(grayControlParams, 39) && (str6 = confignation.mTPLAppName) == null) {
+                str6 = SapiUtils.getClientId(context);
             }
-            arrayList.add(str7);
+            arrayList.add(str6);
             Log.e("privacy_parameter_control", "token=" + arrayList);
             return arrayList;
         }
@@ -325,6 +324,12 @@ public class SapiDeviceInfo implements NoProguard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? !TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "" : (String) invokeV.objValue;
+    }
+
+    public static int getOsSdkInt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? Build.VERSION.SDK_INT : invokeV.intValue;
     }
 
     public static String getDiCookieInfo(List<String> list, boolean z) {

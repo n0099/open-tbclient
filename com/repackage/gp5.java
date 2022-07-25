@@ -68,7 +68,7 @@ public class gp5 extends an<mp5, StageLiveViewHolder> {
             }
             oq5Var.i(mp5Var);
             stageLiveViewHolder.a.j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            return stageLiveViewHolder.b();
+            return stageLiveViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

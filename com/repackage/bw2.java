@@ -1,108 +1,20 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.repackage.ej2;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class bw2 extends cw2 implements Cloneable {
+public class bw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final u03<bw2> k;
-    public static final v03<bw2> l;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean g;
-    public long h;
-    public long i;
-    public int j;
-
-    /* loaded from: classes5.dex */
-    public static class a extends u03<bw2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.u03
-        /* renamed from: b */
-        public bw2 a(@NonNull mj2 mj2Var) throws Exception {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mj2Var)) == null) {
-                bw2 bw2Var = new bw2();
-                bw2Var.a = mj2Var.j();
-                bw2Var.b = mj2Var.j();
-                bw2Var.c = mj2Var.readLong();
-                bw2Var.d = mj2Var.readInt();
-                bw2Var.e = mj2Var.j();
-                bw2Var.f = mj2Var.j();
-                bw2Var.g = mj2Var.readBoolean();
-                bw2Var.h = mj2Var.readLong();
-                bw2Var.i = mj2Var.readLong();
-                bw2Var.j = mj2Var.readInt();
-                return bw2Var;
-            }
-            return (bw2) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b extends v03<bw2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.v03
-        /* renamed from: b */
-        public void a(@NonNull bw2 bw2Var, @NonNull nj2 nj2Var) throws Exception {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bw2Var, nj2Var) == null) {
-                nj2Var.f(bw2Var.a);
-                nj2Var.f(bw2Var.b);
-                nj2Var.writeLong(bw2Var.c);
-                nj2Var.writeInt(bw2Var.d);
-                nj2Var.f(bw2Var.e);
-                nj2Var.f(bw2Var.f);
-                nj2Var.writeBoolean(bw2Var.g);
-                nj2Var.writeLong(bw2Var.h);
-                nj2Var.writeLong(bw2Var.i);
-                nj2Var.writeInt(bw2Var.j);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -117,71 +29,76 @@ public class bw2 extends cw2 implements Cloneable {
                 return;
             }
         }
-        k = new a();
-        l = new b();
+        a = sg1.a;
     }
 
-    public bw2() {
+    public static void a() {
+        String[] list;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.g = false;
-        this.j = 1;
-    }
-
-    public Object clone() throws CloneNotSupportedException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? super.clone() : invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "SwanDependentModel{inline=" + this.g + ", minVersionCode=" + this.h + ", maxVersionCode=" + this.i + ", requireType=" + this.j + ", libName='" + this.a + "', versionName='" + this.b + "', versionCode=" + this.c + ", category=" + this.d + ", libPath='" + this.e + "', libConfig='" + this.f + "'}";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public bw2(JSONObject jSONObject, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject, str};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.g = false;
-        this.j = 1;
-        if (jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (list = ej2.q().list()) == null || list.length <= 0) {
             return;
         }
-        this.a = str;
-        this.d = 6;
-        this.b = jSONObject.optString("version");
-        this.c = jSONObject.optLong("version_code", -1L);
-        this.e = jSONObject.optString("path");
-        this.g = jSONObject.optBoolean("inline", false);
-        this.h = jSONObject.optLong("min_version_code");
-        this.i = jSONObject.optLong("max_version_code");
-        this.f = jSONObject.optString(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
-        this.j = jSONObject.optInt("require_type");
+        for (String str : list) {
+            if (!TextUtils.isEmpty(str)) {
+                h94 h94Var = new h94();
+                h94Var.g = str;
+                h94Var.i = -1L;
+                d84.i().f(h94Var);
+            }
+        }
+        ej2.e.d();
+    }
+
+    public static void b(String str) {
+        File s;
+        String[] list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || TextUtils.isEmpty(str) || (s = ej2.s(str)) == null || (list = s.list()) == null || list.length <= 1) {
+            return;
+        }
+        List<h94> q = pv2.q(str);
+        for (String str2 : list) {
+            long j = -1;
+            try {
+                j = Long.parseLong(str2);
+            } catch (NumberFormatException e) {
+                if (a) {
+                    aw2.b(Log.getStackTraceString(e));
+                }
+            }
+            if (!c(j, q)) {
+                kg4.L(ej2.t(str, str2));
+                aw2.b("delete plugin name = " + str + " ; version = " + str2);
+            }
+        }
+        h94 h94Var = null;
+        if (q != null) {
+            if (q.size() == 1) {
+                h94Var = q.get(0);
+            } else if (q.size() >= 2) {
+                h94Var = q.get(1);
+            }
+        }
+        if (h94Var != null) {
+            d84.i().f(h94Var);
+        }
+    }
+
+    public static boolean c(long j, List<h94> list) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, list)) == null) {
+            if (j >= 0 && list != null && list.size() != 0) {
+                int min = Math.min(list.size(), 2);
+                for (int i = 0; i < min; i++) {
+                    h94 h94Var = list.get(i);
+                    if (h94Var != null && (j == h94Var.i || j == xd3.c(h94Var.j))) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeJL.booleanValue;
     }
 }

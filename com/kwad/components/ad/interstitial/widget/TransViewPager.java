@@ -17,10 +17,10 @@ import java.util.Map;
 public class TransViewPager extends com.kwad.sdk.widget.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Integer, View> a;
-    public float b;
+    public float jd;
     @SlideType
-    public int c;
+    public int je;
+    public Map<Integer, e> map;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TransViewPager(@NonNull Context context) {
@@ -62,62 +62,62 @@ public class TransViewPager extends com.kwad.sdk.widget.d {
                 return;
             }
         }
-        this.a = new HashMap();
-        this.c = 0;
-    }
-
-    private View a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) ? this.a.get(Integer.valueOf(i)) : (View) invokeI.objValue;
+        this.map = new HashMap();
+        this.je = 0;
     }
 
     private void a(View view2, View view3, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{view2, view3, Float.valueOf(f)}) == null) {
-            if (this.c == 0 && f != 0.0f) {
-                float f2 = this.b;
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{view2, view3, Float.valueOf(f)}) == null) {
+            if (this.je == 0 && f != 0.0f) {
+                float f2 = this.jd;
                 if (f2 != 0.0f) {
                     if (f > f2) {
-                        this.c = 1;
+                        this.je = 1;
                     } else {
-                        this.c = 2;
+                        this.je = 2;
                     }
                 }
             }
-            if (this.c == 1 && view3 != null) {
+            if (this.je == 1 && view3 != null) {
                 if (f > 0.5d || f <= 0.0f) {
                     view3.setTranslationX((1.0f - f) * 240.0f);
                 } else {
                     view3.setTranslationX(240.0f * f);
                 }
             }
-            if (this.c == 2 && view2 != null) {
+            if (this.je == 2 && view2 != null) {
                 if (f > 0.5d || f < 0.0f) {
                     view2.setTranslationX((1.0f - f) * (-240.0f));
                 } else {
                     view2.setTranslationX((-240.0f) * f);
                 }
             }
-            this.b = f;
+            this.jd = f;
             if (f == 0.0f) {
-                this.c = 0;
+                this.je = 0;
             }
         }
     }
 
-    public final void a(int i, View view2) {
+    public final e F(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, view2) == null) {
-            this.a.put(Integer.valueOf(i), view2);
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.map.get(Integer.valueOf(i)) : (e) invokeI.objValue;
+    }
+
+    public final void a(int i, e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, eVar) == null) {
+            this.map.put(Integer.valueOf(i), eVar);
         }
     }
 
     @Override // androidx.viewpager.widget.ViewPager
     public void onPageScrolled(int i, float f, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
-            a(a(i), a(i + 1), f);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
+            a(F(i), F(i + 1), f);
             super.onPageScrolled(i, f, i2);
         }
     }

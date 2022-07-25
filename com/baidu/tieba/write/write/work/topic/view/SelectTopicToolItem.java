@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ur4;
 import com.repackage.v37;
+import com.repackage.vr4;
 /* loaded from: classes4.dex */
 public class SelectTopicToolItem extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -141,25 +141,25 @@ public class SelectTopicToolItem extends RelativeLayout {
                 this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0805fc, SkinManager.getColor(R.color.CAM_X0109), null));
             }
             if (!this.g && (v37Var = this.e) != null && v37Var.h()) {
-                ur4.d(this.a).v(R.color.CAM_X0304);
-                ur4.d(this.b).v(R.color.CAM_X0304);
-                ur4 d = ur4.d(this.d);
+                vr4.d(this.a).v(R.color.CAM_X0304);
+                vr4.d(this.b).v(R.color.CAM_X0304);
+                vr4 d = vr4.d(this.d);
                 d.n(R.string.J_X01);
                 d.l(R.dimen.L_X02);
                 d.k(R.color.CAM_X0304);
                 d.f(R.color.CAM_X0905);
             } else if (this.h && !this.g) {
-                ur4.d(this.a).v(R.color.CAM_X0105);
-                ur4.d(this.b).v(R.color.CAM_X0105);
-                ur4 d2 = ur4.d(this.d);
+                vr4.d(this.a).v(R.color.CAM_X0105);
+                vr4.d(this.b).v(R.color.CAM_X0105);
+                vr4 d2 = vr4.d(this.d);
                 d2.n(R.string.J_X01);
                 d2.l(R.dimen.L_X02);
                 d2.k(R.color.CAM_X0209);
                 d2.f(R.color.CAM_X0201);
             } else {
-                ur4.d(this.a).v(R.color.CAM_X0105);
-                ur4.d(this.b).v(R.color.CAM_X0105);
-                ur4 d3 = ur4.d(this.d);
+                vr4.d(this.a).v(R.color.CAM_X0105);
+                vr4.d(this.b).v(R.color.CAM_X0105);
+                vr4 d3 = vr4.d(this.d);
                 d3.n(R.string.J_X01);
                 d3.l(R.dimen.L_X02);
                 d3.k(R.color.CAM_X0209);
@@ -171,11 +171,11 @@ public class SelectTopicToolItem extends RelativeLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0766, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0921b5);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0921b7);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0921b6);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091358);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0770, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0921b7);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0921b9);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0921b8);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091334);
             setOnClickListener(new a(this));
             d();
         }

@@ -29,7 +29,7 @@ public class yn7 extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
     public List<ImageFileInfo> a;
     public LinkedHashMap<String, ImageFileInfo> b;
-    public o45 c;
+    public p45 c;
     public BaseFragmentActivity d;
     public xn7 e;
     public int f;
@@ -41,7 +41,7 @@ public class yn7 extends BaseAdapter {
     public String l;
 
     /* loaded from: classes7.dex */
-    public class a implements k45 {
+    public class a implements l45 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
@@ -64,7 +64,7 @@ public class yn7 extends BaseAdapter {
             this.a = viewGroup;
         }
 
-        @Override // com.repackage.k45
+        @Override // com.repackage.l45
         public void a(ym ymVar, String str, boolean z) {
             HeadImageView headImageView;
             Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public class yn7 extends BaseAdapter {
                         if (!TextUtils.isEmpty(this.a.d.l)) {
                             BdToast.b(pageActivity, this.a.d.l).h();
                         } else {
-                            BdToast.b(pageActivity, pageActivity.getText(R.string.obfuscated_res_0x7f0f05dc)).h();
+                            BdToast.b(pageActivity, pageActivity.getText(R.string.obfuscated_res_0x7f0f05d8)).h();
                         }
                     }
                 }
@@ -158,8 +158,8 @@ public class yn7 extends BaseAdapter {
         public final void b(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e33);
-                this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091cfa);
+                this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e2c);
+                this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d00);
                 view2.setOnClickListener(new a(this));
             }
         }
@@ -183,14 +183,14 @@ public class yn7 extends BaseAdapter {
         this.d = baseFragmentActivity;
         this.a = list;
         this.b = new LinkedHashMap<>();
-        this.f = (int) baseFragmentActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f07027c);
+        this.f = (int) baseFragmentActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f07027a);
         int k = pi.k(baseFragmentActivity.getPageContext().getPageActivity());
         this.g = k;
         this.h = (k - pi.f(baseFragmentActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be)) / 3;
-        int f = pi.f(baseFragmentActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070304) / 3;
+        int f = pi.f(baseFragmentActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070302) / 3;
         this.i = f;
         this.j = (f * 2) + 1;
-        this.c = new o45();
+        this.c = new p45();
     }
 
     public void e(Map<String, ImageFileInfo> map) {
@@ -206,10 +206,10 @@ public class yn7 extends BaseAdapter {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (LinkedHashMap) invokeV.objValue;
     }
 
-    public o45 g() {
+    public p45 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (o45) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (p45) invokeV.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -245,7 +245,7 @@ public class yn7 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
                 bVar = new b(this);
-                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d04fb, (ViewGroup) null);
+                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0505, (ViewGroup) null);
                 bVar.b(view3);
                 view3.setTag(bVar);
             } else {
@@ -274,7 +274,7 @@ public class yn7 extends BaseAdapter {
             if (imageFileInfo != null) {
                 imageFileInfo.clearPageActions();
                 int i4 = this.f;
-                imageFileInfo.addPageAction(x45.g(i4, i4));
+                imageFileInfo.addPageAction(y45.g(i4, i4));
                 ym c = this.c.c(imageFileInfo, false);
                 bVar.b.setTag(imageFileInfo.toCachedKey(false));
                 if (c != null) {

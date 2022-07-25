@@ -5,6 +5,7 @@ import androidx.annotation.Keep;
 import com.kwad.sdk.api.KsInnerAd;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 import com.kwad.sdk.api.model.AdExposureFailedReason;
+import com.kwad.sdk.api.model.KsExtraRewardType;
 @KsAdSdkApi
 @Keep
 /* loaded from: classes5.dex */
@@ -17,6 +18,10 @@ public interface KsRewardVideoAd {
         @KsAdSdkApi
         @Keep
         void onAdClicked();
+
+        @KsAdSdkApi
+        @Keep
+        void onExtraRewardVerify(@KsExtraRewardType int i);
 
         @KsAdSdkApi
         @Keep

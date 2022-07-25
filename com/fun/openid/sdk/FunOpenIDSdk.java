@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class FunOpenIDSdk {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String SDK_VERSION = "1.3.5";
+    public static final String SDK_VERSION = "1.3.6";
     public static final String TAG = "FunOpenIDSdk";
     public static boolean logEnabled;
     public static String vivoAppId;
@@ -77,7 +77,7 @@ public class FunOpenIDSdk {
     public static String getSdkVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? "1.3.5" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? SDK_VERSION : (String) invokeV.objValue;
     }
 
     public static String getVivoAppId() {

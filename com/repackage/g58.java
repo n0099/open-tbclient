@@ -41,7 +41,7 @@ public class g58 {
     public h38 e;
     public PersonCenterTabBaseFragment f;
     public NoDataView g;
-    public j95 h;
+    public k95 h;
     public int i;
 
     /* loaded from: classes6.dex */
@@ -119,7 +119,7 @@ public class g58 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
                 if (this.a.h == null) {
-                    this.a.h = new j95();
+                    this.a.h = new k95();
                     this.a.h.a(this.a.i);
                 }
                 if (i == 0) {
@@ -184,7 +184,7 @@ public class g58 {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f0915c6);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f0915a1);
             this.b = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new a(this, bdTypeRecyclerView.getContext()));
             this.b.addOnScrollListener(new b(this));
@@ -240,9 +240,9 @@ public class g58 {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            j95 j95Var = this.h;
-            if (j95Var != null) {
-                j95Var.c();
+            k95 k95Var = this.h;
+            if (k95Var != null) {
+                k95Var.c();
             }
             this.b.setOnSrollToBottomListener(null);
         }
@@ -275,7 +275,7 @@ public class g58 {
             if (ListUtils.isEmpty(list)) {
                 g();
                 if (this.b.getHeaderViewsCount() == 0) {
-                    p(R.string.obfuscated_res_0x7f0f0e0d);
+                    p(R.string.obfuscated_res_0x7f0f0df6);
                 }
             } else {
                 NoDataView noDataView = this.g;
@@ -302,12 +302,12 @@ public class g58 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             if (this.f.t1() == 1) {
-                string = this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0e0b);
+                string = this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0df4);
             } else {
-                string = this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0e0c);
+                string = this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0df5);
             }
             if (this.g == null) {
-                this.g = NoDataViewFactory.a(this.a.getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070263)), NoDataViewFactory.e.d(null, string), null);
+                this.g = NoDataViewFactory.a(this.a.getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070260)), NoDataViewFactory.e.d(null, string), null);
             }
             this.g.f(this.a, TbadkApplication.getInst().getSkinType());
             this.g.setVisibility(0);
@@ -323,7 +323,7 @@ public class g58 {
             this.b.setNextPage(this.d);
             this.d.L(0);
             this.d.f();
-            this.d.C(this.a.getString(R.string.obfuscated_res_0x7f0f09e7));
+            this.d.C(this.a.getString(R.string.obfuscated_res_0x7f0f09d3));
         }
     }
 

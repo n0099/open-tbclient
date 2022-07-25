@@ -159,8 +159,8 @@ public class kw7 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
                 cVar = new c();
-                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0504, (ViewGroup) null);
-                EmotionView emotionView = (EmotionView) view3.findViewById(R.id.obfuscated_res_0x7f09088e);
+                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d050e, (ViewGroup) null);
+                EmotionView emotionView = (EmotionView) view3.findViewById(R.id.obfuscated_res_0x7f09088c);
                 cVar.a = emotionView;
                 emotionView.k0();
                 cVar.a.setController(this.c);

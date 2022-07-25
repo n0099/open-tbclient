@@ -128,7 +128,7 @@ public class DefaultTimeBar extends View implements TimeBar {
         int dpToPx5 = dpToPx(displayMetrics, 0);
         int dpToPx6 = dpToPx(displayMetrics, 16);
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040078, R.attr.obfuscated_res_0x7f040079, R.attr.obfuscated_res_0x7f0400c1, R.attr.obfuscated_res_0x7f04010f, R.attr.obfuscated_res_0x7f0404df, R.attr.obfuscated_res_0x7f0404e0, R.attr.obfuscated_res_0x7f040576, R.attr.obfuscated_res_0x7f040577, R.attr.obfuscated_res_0x7f040578, R.attr.obfuscated_res_0x7f040579, R.attr.obfuscated_res_0x7f04057a, R.attr.obfuscated_res_0x7f0406a2, R.attr.obfuscated_res_0x7f0406b5}, 0, 0);
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040078, R.attr.obfuscated_res_0x7f040079, R.attr.obfuscated_res_0x7f0400c1, R.attr.obfuscated_res_0x7f04010f, R.attr.obfuscated_res_0x7f0404df, R.attr.obfuscated_res_0x7f0404e0, R.attr.obfuscated_res_0x7f040578, R.attr.obfuscated_res_0x7f040579, R.attr.obfuscated_res_0x7f04057a, R.attr.obfuscated_res_0x7f04057b, R.attr.obfuscated_res_0x7f04057c, R.attr.obfuscated_res_0x7f0406a4, R.attr.obfuscated_res_0x7f0406b7}, 0, 0);
             try {
                 Drawable drawable = obtainStyledAttributes.getDrawable(9);
                 this.scrubberDrawable = drawable;

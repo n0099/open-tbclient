@@ -75,7 +75,7 @@ public class h38 {
             this.j = new n08(tbPageContext, p08.b);
             this.k = new k08(tbPageContext.getPageActivity(), f08.d);
             this.l = new j38(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
-            this.m = new q38(tbPageContext, vy5.o0);
+            this.m = new q38(tbPageContext, vy5.i0);
             this.n = new n38(tbPageContext, vy5.q0);
             this.o = new s38(tbPageContext, wy5.U);
             this.p = new r38(tbPageContext, vy5.r0);

@@ -1,59 +1,115 @@
 package com.repackage;
 
-import android.os.Bundle;
-import com.baidu.searchbox.http.NetworkQuality;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.websocket.WebSocketManager;
+import com.baidu.searchbox.websocket.WebSocketTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class ur2 extends ProviderDelegation {
+public final class ur2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile Set<String> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755251428, "Lcom/repackage/ur2;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755251428, "Lcom/repackage/ur2;");
+        }
+    }
 
     public ur2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static int c() {
+    public final synchronized boolean a() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ww2 c = uw2.c(ur2.class, null);
-            if (c.a()) {
-                return c.a.getInt("net_quality", -1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                Set<String> set = this.a;
+                z = (set != null ? set.size() : 0) < 5;
             }
-            return -1;
+            return z;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    public final synchronized void b(WebSocketTask task) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            Bundle bundle2 = new Bundle();
-            if (SwanAppNetworkUtils.h()) {
-                bundle2.putInt("net_quality", NetworkQuality.getNetworkQuality());
-            } else {
-                bundle2.putInt("net_quality", 3);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, task) == null) {
+            synchronized (this) {
+                Intrinsics.checkNotNullParameter(task, "task");
+                if (this.a == null) {
+                    this.a = new LinkedHashSet();
+                }
+                Set<String> set = this.a;
+                if (set != null) {
+                    set.add(task.getTaskId());
+                }
             }
-            return bundle2;
         }
-        return (Bundle) invokeL.objValue;
+    }
+
+    public final synchronized void c(String taskId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskId) == null) {
+            synchronized (this) {
+                Intrinsics.checkNotNullParameter(taskId, "taskId");
+                Set<String> set = this.a;
+                if (set != null) {
+                    set.remove(taskId);
+                }
+            }
+        }
+    }
+
+    public final synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                Set<String> set = this.a;
+                if (set != null) {
+                    for (String str : set) {
+                        try {
+                            WebSocketManager.INSTANCE.close(str, 1001, "aiapp terminate");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                Set<String> set2 = this.a;
+                if (set2 != null) {
+                    set2.clear();
+                }
+            }
+        }
     }
 }

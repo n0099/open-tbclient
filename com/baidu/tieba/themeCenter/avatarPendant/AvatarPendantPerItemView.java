@@ -103,10 +103,10 @@ public class AvatarPendantPerItemView extends LinearLayout {
         boolean inUse = dressItemData.getInUse();
         if (dressItemData.isPropIdEven()) {
             if (this.c.getHeadView() != null) {
-                this.c.getHeadView().J(String.valueOf((int) R.drawable.obfuscated_res_0x7f080ef6), 24, false);
+                this.c.getHeadView().J(String.valueOf((int) R.drawable.obfuscated_res_0x7f080efd), 24, false);
             }
         } else if (this.c.getHeadView() != null) {
-            this.c.getHeadView().J(String.valueOf((int) R.drawable.obfuscated_res_0x7f080ef5), 24, false);
+            this.c.getHeadView().J(String.valueOf((int) R.drawable.obfuscated_res_0x7f080efc), 24, false);
         }
         if (oi.byteLength(dressItemData.getTitle()) > 8) {
             this.f.setText(oi.cutString(dressItemData.getTitle(), 8));
@@ -131,12 +131,12 @@ public class AvatarPendantPerItemView extends LinearLayout {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0126, this);
             this.b = inflate;
             this.c = (HeadPendantView) inflate.findViewById(R.id.obfuscated_res_0x7f0902eb);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0917ee);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0917c9);
             this.d = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a4);
-            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a4);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a8);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a8);
             this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0905f1);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091fd6);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091fda);
             this.c.setHasPendantStyle();
             if (this.c.getHeadView() != null) {
                 this.c.getHeadView().setIsRound(true);

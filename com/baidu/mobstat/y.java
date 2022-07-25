@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.d.D;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -205,7 +204,7 @@ public class y {
                     bb.c().b(e9);
                 }
                 try {
-                    this.n = jSONObject.getLong(D.COLUMN_PLUGIN_ACTIVITY_INFO_LIST);
+                    this.n = jSONObject.getLong("ac");
                 } catch (JSONException e10) {
                     bb.c().b(e10);
                 }

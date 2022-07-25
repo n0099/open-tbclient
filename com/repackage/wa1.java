@@ -9,7 +9,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.nad.jni.NADNativeHelper;
 import com.baidu.prologue.business.data.BaseVM;
-import com.baidu.sofire.d.D;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.atomData.AbsMsgImageActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -340,7 +339,7 @@ public class wa1 {
             String sb2 = sb.toString();
             String i = i(str);
             HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put(D.COLUMN_PLUGIN_ACTIVITY_INFO_LIST, TextUtils.equals(str, "update") ? String.valueOf(ya1.p()) : "1");
+            hashMap.put("ac", TextUtils.equals(str, "update") ? String.valueOf(ya1.p()) : "1");
             hashMap.put("pid", i);
             hashMap.put("product_id ", hh0.a().l());
             b(hashMap);

@@ -64,7 +64,7 @@ public class VotedAreaLayout extends CardBasicLayout {
             setMinimumHeight(pi.f(getContext(), R.dimen.tbds62));
             setMinimumWidth(pi.f(getContext(), R.dimen.tbds172));
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08b7, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08c1, (ViewGroup) this, true);
             a();
         }
     }

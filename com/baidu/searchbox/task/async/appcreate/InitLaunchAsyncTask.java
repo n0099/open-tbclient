@@ -20,20 +20,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bn4;
-import com.repackage.fd5;
+import com.repackage.a15;
+import com.repackage.ad5;
+import com.repackage.cn4;
+import com.repackage.gd5;
 import com.repackage.na;
-import com.repackage.nw4;
 import com.repackage.of;
+import com.repackage.ow4;
 import com.repackage.q88;
 import com.repackage.qg;
 import com.repackage.qj8;
 import com.repackage.rj8;
-import com.repackage.s95;
+import com.repackage.t95;
 import com.repackage.v88;
-import com.repackage.z05;
 import com.repackage.z8;
-import com.repackage.zc5;
 /* loaded from: classes2.dex */
 public class InitLaunchAsyncTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -111,7 +111,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
             if (TbadkCoreApplication.getInst().isMainProcess(true) && ICDNIPDirectConnect.getInstance() != null) {
                 ICDNIPDirectConnect.getInstance().init();
             }
-            s95.b().n(System.currentTimeMillis() - currentTimeMillis);
+            t95.b().n(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -152,7 +152,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
                 public void onServiceCreate() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        fd5.e().c(new fd5.b(this) { // from class: com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask.2.1
+                        gd5.e().c(new gd5.b(this) { // from class: com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask.2.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass2 this$1;
@@ -175,7 +175,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
                                 this.this$1 = this;
                             }
 
-                            @Override // com.repackage.fd5.b
+                            @Override // com.repackage.gd5.b
                             public void onResult(boolean z) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeZ(1048576, this, z) == null) {
@@ -199,11 +199,11 @@ public class InitLaunchAsyncTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setServiceOnCreateCallBack();
             v88.g().j();
-            z05.j().m(TbadkCoreApplication.getInst().isMainProcess(false));
+            a15.j().m(TbadkCoreApplication.getInst().isMainProcess(false));
             intReadThreadHistory();
-            nw4.c();
-            bn4.t().C();
-            zc5.m().s(TbadkCoreApplication.getInst());
+            ow4.c();
+            cn4.t().C();
+            ad5.m().s(TbadkCoreApplication.getInst());
             initICDN();
             initQuickWebViewManager();
             if (TbadkCoreApplication.getInst().isMainProcess(false)) {
@@ -242,12 +242,12 @@ public class InitLaunchAsyncTask extends LaunchTask {
                         }
                     }
                 });
-                s95.b().q(System.currentTimeMillis() - currentTimeMillis);
+                t95.b().q(System.currentTimeMillis() - currentTimeMillis);
             }
             EmotionUtil.statisticsEmotionGroupNums();
             ColdStartStatsUtil.startUBCStats(TbadkCoreApplication.getInst().isMainProcess(false));
             if (TbadkCoreApplication.getInst().isRemoteProcess()) {
-                s95.b().g(System.currentTimeMillis() - TbadkCoreApplication.getInst().processCreateTime);
+                t95.b().g(System.currentTimeMillis() - TbadkCoreApplication.getInst().processCreateTime);
             }
         }
     }

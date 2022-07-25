@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.baidu.mobstat.Config;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import com.kwad.sdk.core.response.model.AdProductInfo;
@@ -90,6 +91,10 @@ public final class p implements com.kwad.sdk.core.d<AdInfo> {
         AdMatrixInfo adMatrixInfo = new AdMatrixInfo();
         adInfo.adMatrixInfo = adMatrixInfo;
         adMatrixInfo.parseJson(jSONObject.optJSONObject("adMatrixInfo"));
+        adInfo.trace = jSONObject.optString(Config.TRACE_PART);
+        if (jSONObject.opt(Config.TRACE_PART) == JSONObject.NULL) {
+            adInfo.trace = "";
+        }
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
@@ -101,15 +106,33 @@ public final class p implements com.kwad.sdk.core.d<AdInfo> {
         com.kwad.sdk.utils.r.a(jSONObject, "advertiserInfo", adInfo.advertiserInfo);
         com.kwad.sdk.utils.r.a(jSONObject, "adConversionInfo", adInfo.adConversionInfo);
         com.kwad.sdk.utils.r.a(jSONObject, "adMaterialInfo", adInfo.adMaterialInfo);
-        com.kwad.sdk.utils.r.a(jSONObject, "adTrackInfo", adInfo.adTrackInfoList);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "adTrackInfo", adInfo.adTrackInfoList);
         com.kwad.sdk.utils.r.a(jSONObject, "downloadSafeInfo", adInfo.downloadSafeInfo);
         com.kwad.sdk.utils.r.a(jSONObject, "unDownloadConf", adInfo.unDownloadConf);
-        com.kwad.sdk.utils.r.a(jSONObject, "status", adInfo.status);
-        com.kwad.sdk.utils.r.a(jSONObject, "progress", adInfo.progress);
-        com.kwad.sdk.utils.r.a(jSONObject, "soFarBytes", adInfo.soFarBytes);
-        com.kwad.sdk.utils.r.a(jSONObject, "totalBytes", adInfo.totalBytes);
-        com.kwad.sdk.utils.r.a(jSONObject, "downloadFilePath", adInfo.downloadFilePath);
-        com.kwad.sdk.utils.r.a(jSONObject, "downloadId", adInfo.downloadId);
+        int i = adInfo.status;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "status", i);
+        }
+        int i2 = adInfo.progress;
+        if (i2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "progress", i2);
+        }
+        long j = adInfo.soFarBytes;
+        if (j != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "soFarBytes", j);
+        }
+        long j2 = adInfo.totalBytes;
+        if (j2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "totalBytes", j2);
+        }
+        String str = adInfo.downloadFilePath;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "downloadFilePath", adInfo.downloadFilePath);
+        }
+        String str2 = adInfo.downloadId;
+        if (str2 != null && !str2.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "downloadId", adInfo.downloadId);
+        }
         com.kwad.sdk.utils.r.a(jSONObject, "adPreloadInfo", adInfo.adPreloadInfo);
         com.kwad.sdk.utils.r.a(jSONObject, "adSplashInfo", adInfo.adSplashInfo);
         com.kwad.sdk.utils.r.a(jSONObject, "adStyleInfo", adInfo.adStyleInfo);
@@ -121,8 +144,15 @@ public final class p implements com.kwad.sdk.core.d<AdInfo> {
         com.kwad.sdk.utils.r.a(jSONObject, "adFeedInfo", adInfo.adFeedInfo);
         com.kwad.sdk.utils.r.a(jSONObject, "adInsertScreenInfo", adInfo.adInsertScreenInfo);
         com.kwad.sdk.utils.r.a(jSONObject, "adProductInfo", adInfo.adProductInfo);
-        com.kwad.sdk.utils.r.a(jSONObject, "ocpcActionType", adInfo.ocpcActionType);
+        int i3 = adInfo.ocpcActionType;
+        if (i3 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "ocpcActionType", i3);
+        }
         com.kwad.sdk.utils.r.a(jSONObject, "adMatrixInfo", adInfo.adMatrixInfo);
+        String str3 = adInfo.trace;
+        if (str3 != null && !str3.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, Config.TRACE_PART, adInfo.trace);
+        }
         return jSONObject;
     }
 

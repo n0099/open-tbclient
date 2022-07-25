@@ -9,5 +9,7 @@ import com.kwad.sdk.api.KsScene;
 public interface h extends com.kwad.sdk.components.a {
     void a(Context context, String str, boolean z, Rect rect);
 
-    void a(@NonNull KsScene ksScene, @NonNull KsLoadManager.SplashScreenAdListener splashScreenAdListener);
+    void ag();
+
+    void loadSplashScreenAd(@NonNull KsScene ksScene, @NonNull KsLoadManager.SplashScreenAdListener splashScreenAdListener);
 }

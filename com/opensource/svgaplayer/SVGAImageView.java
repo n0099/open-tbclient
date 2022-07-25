@@ -120,25 +120,25 @@ public class SVGAImageView extends ImageView {
 
         /* renamed from: com.opensource.svgaplayer.SVGAImageView$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static final class C0577a implements SVGAParser.b {
+        public static final class C0425a implements SVGAParser.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
             /* renamed from: com.opensource.svgaplayer.SVGAImageView$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public static final class RunnableC0578a implements Runnable {
+            public static final class RunnableC0426a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0577a a;
+                public final /* synthetic */ C0425a a;
                 public final /* synthetic */ SVGAVideoEntity b;
 
-                public RunnableC0578a(C0577a c0577a, SVGAVideoEntity sVGAVideoEntity) {
+                public RunnableC0426a(C0425a c0425a, SVGAVideoEntity sVGAVideoEntity) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0577a, sVGAVideoEntity};
+                        Object[] objArr = {c0425a, sVGAVideoEntity};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -148,7 +148,7 @@ public class SVGAImageView extends ImageView {
                             return;
                         }
                     }
-                    this.a = c0577a;
+                    this.a = c0425a;
                     this.b = sVGAVideoEntity;
                 }
 
@@ -176,7 +176,7 @@ public class SVGAImageView extends ImageView {
                 }
             }
 
-            public C0577a(a aVar) {
+            public C0425a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -198,7 +198,7 @@ public class SVGAImageView extends ImageView {
             public void a(SVGAVideoEntity sVGAVideoEntity) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, sVGAVideoEntity) == null) {
-                    this.a.c.post(new RunnableC0578a(this, sVGAVideoEntity));
+                    this.a.c.post(new RunnableC0426a(this, sVGAVideoEntity));
                 }
             }
 
@@ -236,11 +236,11 @@ public class SVGAImageView extends ImageView {
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                C0577a c0577a = new C0577a(this);
+                C0425a c0425a = new C0425a(this);
                 if (!StringsKt__StringsJVMKt.startsWith$default(this.a, "http://", false, 2, null) && !StringsKt__StringsJVMKt.startsWith$default(this.a, "https://", false, 2, null)) {
-                    this.b.v(this.a, c0577a);
+                    this.b.v(this.a, c0425a);
                 } else {
-                    this.b.w(new URL(this.a), c0577a);
+                    this.b.w(new URL(this.a), c0425a);
                 }
             }
         }

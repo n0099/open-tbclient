@@ -1,23 +1,26 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Modifier;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class iw2 {
+public abstract class iw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public Bundle a;
+    public int b;
+    public String c;
+    public Bundle d;
 
     static {
         InterceptResult invokeClinit;
@@ -32,98 +35,49 @@ public class iw2 {
                 return;
             }
         }
-        a = rg1.a;
+        e = sg1.a;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static void a(int i, String str, String str2, @Nullable Bundle bundle) {
+    public iw2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, bundle}) == null) {
-            hw2 b = b(str);
-            if (b == null) {
-                if (!a) {
-                    c(i, str2, null);
-                    return;
-                }
-                throw new RuntimeException("Messenger创建代理类失败");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (a) {
-                Log.d("MDelegate-Delegation", "exec call messenger delegation: " + str);
-            }
-            if (bundle == null) {
-                bundle = new Bundle();
-            }
-            b.a = bundle;
-            b.b = i;
-            b.c = str2;
-            b.b(bundle);
+        }
+        this.a = new Bundle();
+        this.c = "";
+        this.d = new Bundle();
+    }
+
+    public abstract void b(@NonNull Bundle bundle);
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            d(this.d);
         }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static hw2 b(@Nullable String str) {
-        InterceptResult invokeL;
+    public void d(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                if (a) {
-                    Log.e("MDelegate-Delegation", "create delegation with null delegate name");
-                }
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            if (e) {
+                Log.d("MDelegate-Delegation", "messenger delegation finish");
             }
-            try {
-                Class<?> cls = Class.forName(str);
-                if (cls == null) {
-                    if (a) {
-                        throw new RuntimeException("Messenger代理类不存在：" + str);
-                    }
-                    return null;
-                }
-                int modifiers = cls.getModifiers();
-                if (hw2.class.isAssignableFrom(cls) && !cls.isInterface() && !Modifier.isAbstract(modifiers)) {
-                    Constructor<?> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
-                    declaredConstructor.setAccessible(true);
-                    Object newInstance = declaredConstructor.newInstance(new Object[0]);
-                    if (!(newInstance instanceof hw2)) {
-                        if (a) {
-                            throw new RuntimeException("Messenger代理类不是:" + hw2.class.getName());
-                        }
-                        return null;
-                    }
-                    return (hw2) newInstance;
-                }
-                if (a) {
-                    throw new RuntimeException("Messenger代理类不合法：" + str);
-                }
-                return null;
-            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
-                if (a) {
-                    e.printStackTrace();
-                    throw new RuntimeException(e);
-                }
-                return null;
+            if (qw2.a(this.c)) {
+                return;
             }
-        }
-        return (hw2) invokeL.objValue;
-    }
-
-    public static void c(int i, String str, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(65539, null, i, str, bundle) == null) || pw2.a(str)) {
-            return;
-        }
-        if (a) {
-            Log.d("MDelegate-Delegation", "send result to client: " + i + " observer: " + str);
-        }
-        Bundle bundle2 = new Bundle();
-        bundle2.putString("key_observer_id", str);
-        if (bundle != null) {
-            bundle2.putBundle("key_result_data", bundle);
-        }
-        if (i == -1000) {
-            ax2.f(bundle2);
-        } else {
-            ax2.e(i, bundle2);
+            if (e) {
+                Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.b + " observer: " + this.c);
+            }
+            jw2.c(this.b, this.c, bundle);
         }
     }
 }

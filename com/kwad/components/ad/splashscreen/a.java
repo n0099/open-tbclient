@@ -16,6 +16,7 @@ import com.kwad.sdk.api.SdkConfig;
 public class a extends com.kwad.sdk.components.d implements com.kwad.components.ad.a.h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public c xj;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -35,16 +36,21 @@ public class a extends com.kwad.sdk.components.d implements com.kwad.components.
     public final void a(Context context, String str, boolean z, Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, str, Boolean.valueOf(z), rect}) == null) {
-            new c(context, str, false, null).a(rect);
+            c cVar = new c(context, str, false, null);
+            this.xj = cVar;
+            cVar.a(rect);
         }
     }
 
     @Override // com.kwad.components.ad.a.h
-    public final void a(@NonNull KsScene ksScene, @NonNull KsLoadManager.SplashScreenAdListener splashScreenAdListener) {
+    public final void ag() {
+        c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ksScene, splashScreenAdListener) == null) {
-            b.a(ksScene, splashScreenAdListener);
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.xj) == null) {
+            return;
         }
+        cVar.jo();
+        this.xj = null;
     }
 
     @Override // com.kwad.sdk.components.a
@@ -58,6 +64,14 @@ public class a extends com.kwad.sdk.components.d implements com.kwad.components.
     public void init(Context context, SdkConfig sdkConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, sdkConfig) == null) {
+        }
+    }
+
+    @Override // com.kwad.components.ad.a.h
+    public final void loadSplashScreenAd(@NonNull KsScene ksScene, @NonNull KsLoadManager.SplashScreenAdListener splashScreenAdListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, ksScene, splashScreenAdListener) == null) {
+            b.loadSplashScreenAd(ksScene, splashScreenAdListener);
         }
     }
 }

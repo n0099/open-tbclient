@@ -58,9 +58,9 @@ public class TipView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(1);
             setGravity(17);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08a1, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920b0);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b4);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08ab, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920b4);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b8);
         }
     }
 
@@ -74,7 +74,7 @@ public class TipView extends LinearLayout {
             this.b.setText(str);
             ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
             if (layoutParams != null) {
-                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701c6);
+                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701c4);
                 layoutParams.width = dimensionPixelOffset;
                 layoutParams.height = dimensionPixelOffset;
             }
@@ -89,7 +89,7 @@ public class TipView extends LinearLayout {
             this.a.clearAnimation();
             ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
             if (layoutParams != null) {
-                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705f4);
+                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705ef);
                 layoutParams.width = dimensionPixelOffset;
                 layoutParams.height = dimensionPixelOffset;
             }

@@ -189,8 +189,8 @@ public class l41 extends n41 {
             }
             this.e = l41Var;
             if (view2 != null) {
-                this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090dba);
-                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090db9);
+                this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090db3);
+                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090db2);
                 this.c = (LinearLayout) view2;
                 this.d = l41Var2;
             }
@@ -245,7 +245,7 @@ public class l41 extends n41 {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, aVar, linearLayout, i)) == null) {
-            LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d05b3, (ViewGroup) linearLayout, false);
+            LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d05bd, (ViewGroup) linearLayout, false);
             linearLayout2.setBackground(getContext().getResources().getDrawable(i));
             new d(this, linearLayout2, this).a(aVar);
             return linearLayout2;
@@ -317,11 +317,11 @@ public class l41 extends n41 {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             Context context = getContext();
             this.e = context;
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05e0, a().c(), false);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05ea, a().c(), false);
             this.b = viewGroup;
-            this.c = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090dbb);
-            this.f = this.b.findViewById(R.id.obfuscated_res_0x7f090dbc);
-            this.d = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090db8);
+            this.c = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090db4);
+            this.f = this.b.findViewById(R.id.obfuscated_res_0x7f090db5);
+            this.d = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090db1);
             View i = i(this.c);
             if (i != null) {
                 this.c.addView(i);

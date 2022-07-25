@@ -1,7 +1,15 @@
 package com.repackage;
+
+import android.content.Context;
+import android.view.View;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes7.dex */
 public interface zr4 {
-    String a();
+    cs4 a();
 
-    String b();
+    View b();
+
+    es4 c();
+
+    TbImageView d(Context context);
 }

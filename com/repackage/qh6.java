@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cy;
 import com.repackage.ny;
 /* loaded from: classes7.dex */
-public class qh6 extends cd6<qq4, ThreadCardViewHolder<ThreadData>> implements hy5, go6, ck5, iy5, xn {
+public class qh6 extends cd6<rq4, ThreadCardViewHolder<ThreadData>> implements hy5, go6, ck5, iy5, xn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String t;
@@ -61,16 +61,16 @@ public class qh6 extends cd6<qq4, ThreadCardViewHolder<ThreadData>> implements h
     @Override // com.repackage.xn
     public void b(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (nnVar instanceof qq4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (nnVar instanceof rq4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
             ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-            ThreadData threadData = ((qq4) nnVar).s;
+            ThreadData threadData = ((rq4) nnVar).s;
             threadData.objType = 1;
             if (threadData == null) {
                 return;
             }
-            ThreadCardUtils.jumpToPB((nn4) threadData, view2.getContext(), this.u, false);
-            threadCardViewHolder.c().o(new ny.a(1));
-            do6.e(threadData, 1, this.e, go6.f0, a0());
+            ThreadCardUtils.jumpToPB((on4) threadData, view2.getContext(), this.u, false);
+            threadCardViewHolder.b().o(new ny.a(1));
+            do6.e(threadData, 1, this.e, go6.p0, a0());
             FrsViewData frsViewData = this.j;
             if (frsViewData == null || frsViewData.getForum() == null) {
                 return;
@@ -91,7 +91,7 @@ public class qh6 extends cd6<qq4, ThreadCardViewHolder<ThreadData>> implements h
     public eo6 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? go6.f0 : (eo6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? go6.p0 : (eo6) invokeV.objValue;
     }
 
     @Override // com.repackage.iy5
@@ -117,8 +117,8 @@ public class qh6 extends cd6<qq4, ThreadCardViewHolder<ThreadData>> implements h
             cy k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.m);
             k.r(3);
             ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.k(this.e);
-            threadCardViewHolder.p(false);
+            threadCardViewHolder.j(this.e);
+            threadCardViewHolder.o(false);
             V(this);
             return threadCardViewHolder;
         }
@@ -128,20 +128,20 @@ public class qh6 extends cd6<qq4, ThreadCardViewHolder<ThreadData>> implements h
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.cd6, com.repackage.an
     /* renamed from: m0 */
-    public View S(int i, View view2, ViewGroup viewGroup, qq4 qq4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, rq4 rq4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qq4Var, threadCardViewHolder})) == null) {
-            super.S(i, view2, viewGroup, qq4Var, threadCardViewHolder);
-            if (qq4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rq4Var, threadCardViewHolder})) == null) {
+            super.S(i, view2, viewGroup, rq4Var, threadCardViewHolder);
+            if (rq4Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null) {
                 return null;
             }
-            threadCardViewHolder.c().b(this.t);
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.g(qq4Var.s);
-            threadCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
-            qq4Var.s.updateShowStatus();
-            return threadCardViewHolder.b();
+            threadCardViewHolder.b().b(this.t);
+            threadCardViewHolder.b().q(i);
+            threadCardViewHolder.f(rq4Var.s);
+            threadCardViewHolder.b().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
+            rq4Var.s.updateShowStatus();
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

@@ -16,7 +16,7 @@ public class MovieBox extends AbstractContainerBox {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MovieBox() {
-        super("moov");
+        super(TYPE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -80,7 +80,7 @@ public class x47 extends a9<OfficialBarFeedActivity> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x47(TbPageContext<OfficialBarFeedActivity> tbPageContext, boolean z) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0640);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d064a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,10 +107,10 @@ public class x47 extends a9<OfficialBarFeedActivity> {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = (BarImageView) a(R.id.obfuscated_res_0x7f090312);
             this.d = (TextView) a(R.id.obfuscated_res_0x7f090320);
-            this.e = (TextView) a(R.id.obfuscated_res_0x7f09147d);
-            this.f = (LinearLayout) a(R.id.obfuscated_res_0x7f090f2e);
-            this.g = (RelativeLayout) a(R.id.obfuscated_res_0x7f09164c);
-            View a2 = a(R.id.obfuscated_res_0x7f09164d);
+            this.e = (TextView) a(R.id.obfuscated_res_0x7f091459);
+            this.f = (LinearLayout) a(R.id.obfuscated_res_0x7f090f27);
+            this.g = (RelativeLayout) a(R.id.obfuscated_res_0x7f091627);
+            View a2 = a(R.id.obfuscated_res_0x7f091628);
             this.b = a2;
             if (this.k) {
                 a2.setVisibility(8);
@@ -170,7 +170,7 @@ public class x47 extends a9<OfficialBarFeedActivity> {
         }
         if (!this.k && i67Var != null) {
             this.c.J(i67Var.c(), 10, false);
-            this.d.setText(String.format("%s%s", i67Var.a(), context.getString(R.string.obfuscated_res_0x7f0f0650)));
+            this.d.setText(String.format("%s%s", i67Var.a(), context.getString(R.string.obfuscated_res_0x7f0f064c)));
         }
         long j = aVar.m * 1000;
         if (this.k) {

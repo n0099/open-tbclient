@@ -1,170 +1,450 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.searchbox.fluency.utils.FpsConstants;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
+import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
 import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public class t95 extends r95 {
+public class t95 extends s95 {
     public static /* synthetic */ Interceptable $ic;
+    public static t95 E;
     public transient /* synthetic */ FieldHolder $fh;
+    public long A;
+    public long B;
+    public long C;
+    public long D;
+    public boolean b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public long f;
+    public long g;
+    public long h;
+    public long i;
+    public long j;
+    public long k;
+    public long l;
+    public long m;
+    public long n;
+    public long o;
+    public long p;
+    public long q;
+    public long r;
+    public long s;
+    public long t;
+    public long u;
+    public long v;
+    public long w;
+    public long x;
+    public long y;
+    public long z;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755335903, "Lcom/repackage/t95;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755335903, "Lcom/repackage/t95;");
+        }
+    }
 
     public t95() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void b(p95 p95Var) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, p95Var) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            vg a = r95.a();
-            a.b("action", "time");
-            a.b("ishttp", p95Var.s ? "1" : "0");
-            a.b("issuccess", p95Var.b ? "1" : "0");
-            a.b(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-            a.b("wt", String.valueOf(p95Var.p));
-            a.b("qt", String.valueOf(p95Var.f));
-            a.b("connt", String.valueOf(p95Var.g));
-            a.b("rwt", String.valueOf(p95Var.h));
-            a.b("fbt", String.valueOf(p95Var.i));
-            a.b("abt", String.valueOf(p95Var.j));
-            a.b("dect", String.valueOf(p95Var.k));
-            a.b("parset", String.valueOf(p95Var.l));
-            a.b("tqt", String.valueOf(p95Var.n));
-            a.b("rendert", String.valueOf(p95Var.o));
-            a.b("ss", String.valueOf(p95Var.q));
-            a.b("hs", String.valueOf(p95Var.r));
-            if (p95Var.s && (i = p95Var.t) != 0) {
-                a.b("salno", String.valueOf(i));
-                long j = p95Var.u;
-                if (j != 0) {
-                    a.b("scosttime", String.valueOf(j));
-                }
-            }
-            if (p95Var.s) {
-                a.b("hrtn", String.valueOf(p95Var.w));
-                a.b("hrtt", String.valueOf(p95Var.x));
-            }
-            int i2 = p95Var.v;
-            if (i2 != 0) {
-                a.c("errcode", Integer.valueOf(i2));
-            }
-            if (p95Var.y) {
-                a.b(Config.PLATFORM_TYPE, "1");
-            } else {
-                a.b("sysct", String.valueOf(p95Var.c));
-                a.b(Config.EXCEPTION_CRASH_TYPE, String.valueOf(p95Var.e));
-                a.b(WebvttCueParser.ENTITY_LESS_THAN, String.valueOf(p95Var.d));
-                a.b("df", String.valueOf(p95Var.m));
-            }
-            if (p95Var.s) {
-                a.b("c_logid", String.valueOf(p95Var.A));
-                long j2 = p95Var.z;
-                if (j2 != 0) {
-                    a.b("seq_id", String.valueOf(j2 & 4294967295L));
-                }
-            } else {
-                a.b("seq_id", String.valueOf(p95Var.z & 4294967295L));
-            }
-            HashMap<String, String> hashMap = p95Var.E;
-            if (hashMap != null && !hashMap.isEmpty()) {
-                for (Map.Entry<String, String> entry : p95Var.E.entrySet()) {
-                    a.b(entry.getKey(), entry.getValue());
-                }
-            }
-            BdStatisticsManager.getInstance().performance(this.a, a);
-        }
-    }
-
-    public void c(p95 p95Var, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p95Var, i) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && p95Var.D > 0) {
-            vg a = r95.a();
-            a.b("action", "time");
-            a.b("pct", String.valueOf(p95Var.D));
-            if (i == 0) {
-                a.b("pct_type", String.valueOf(100));
-            } else if (i != 40) {
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
-            } else {
-                a.b("pct_type", String.valueOf(101));
             }
-            BdStatisticsManager.getInstance().performance(this.a, a);
         }
+        this.b = false;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+        this.f = -1L;
+        this.g = -1L;
+        this.h = -1L;
+        this.i = -1L;
+        this.j = -1L;
+        this.k = -1L;
+        this.l = -1L;
+        this.m = -1L;
+        this.n = -1L;
+        this.o = -1L;
+        this.p = -1L;
+        this.q = -1L;
+        this.r = -1L;
+        this.s = -1L;
+        this.t = -1L;
+        this.u = -1L;
+        this.v = -1L;
+        this.w = -1L;
+        this.x = -1L;
+        this.y = -1L;
+        this.z = -1L;
+        this.A = -1L;
+        this.B = -1L;
+        this.C = -1L;
+        this.D = -1L;
     }
 
-    public void d(p95 p95Var, boolean z) {
-        int i;
+    public static t95 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, p95Var, z) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            if (!z || p95Var.B > 0) {
-                if (z || p95Var.C > 0) {
-                    vg a = r95.a();
-                    a.b("action", "time");
-                    if (z) {
-                        a.b(SharedPreferenceManager.OPERATION_PUT_PERFIX, String.valueOf(p95Var.B));
-                    } else {
-                        a.b("pdt", String.valueOf(p95Var.C));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (E == null) {
+                synchronized (t95.class) {
+                    if (E == null) {
+                        E = new t95();
                     }
-                    a.b("ishttp", p95Var.s ? "1" : "0");
-                    a.b("issuccess", p95Var.b ? "1" : "0");
-                    a.b(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-                    a.b("qt", String.valueOf(p95Var.f));
-                    a.b("connt", String.valueOf(p95Var.g));
-                    a.b("rwt", String.valueOf(p95Var.h));
-                    a.b("dect", String.valueOf(p95Var.k));
-                    a.b("parset", String.valueOf(p95Var.l));
-                    a.b("rendert", String.valueOf(p95Var.o));
-                    a.b("ss", String.valueOf(p95Var.q));
-                    a.b("hs", String.valueOf(p95Var.r));
-                    if (p95Var.s && (i = p95Var.t) != 0) {
-                        a.b("salno", String.valueOf(i));
-                        long j = p95Var.u;
-                        if (j != 0) {
-                            a.b("scosttime", String.valueOf(j));
-                        }
-                    }
-                    int i2 = p95Var.v;
-                    if (i2 != 0) {
-                        a.c("errcode", Integer.valueOf(i2));
-                    }
-                    BdStatisticsManager.getInstance().performance(this.a, a);
                 }
             }
+            return E;
+        }
+        return (t95) invokeV.objValue;
+    }
+
+    public void A(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            this.i = j;
         }
     }
 
-    public void e(j95 j95Var) {
+    public void B(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, j95Var) == null) && j95Var != null && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            vg a = r95.a();
-            a.b("action", FpsTracer.UBC_KEY_FLUENCY);
-            a.b(FpsConstants.REPORT_FPS, String.valueOf(j95Var.b()));
-            BdStatisticsManager.getInstance().performance(this.a, a);
-            vg a2 = r95.a();
-            a2.b("action", "mem");
-            a2.b("memp", String.valueOf(PerformanceLoggerHelper.getInstance().getCurrentUsedMemory()));
-            BdStatisticsManager.getInstance().performance(this.a, a2);
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+        }
+    }
+
+    public void C(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.y = j;
+        }
+    }
+
+    public void D(long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJ(1048579, this, j) == null) || this.z > 0) {
+            return;
+        }
+        this.z = j;
+    }
+
+    public void E(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.A = j;
+        }
+    }
+
+    public void F(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.g = j;
+        }
+    }
+
+    public void G(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.o = j;
+        }
+    }
+
+    public void H(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.n = j;
+        }
+    }
+
+    public void I(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.x = j;
+        }
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f : invokeV.longValue;
+    }
+
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.w : invokeV.longValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0170  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0172  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void f() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            long j = 0;
+            if (this.D - this.f <= 0 || this.d || this.v <= 0 || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+                return;
+            }
+            long j2 = this.g - this.f;
+            long j3 = this.t;
+            long j4 = j3 > 0 ? this.u - j3 : -1L;
+            this.d = true;
+            long j5 = this.D - this.C;
+            vg a = s95.a();
+            a.b("procname", "main");
+            a.b("appc", String.valueOf(j2));
+            a.b("loadclass", String.valueOf(this.h));
+            a.b("sapiinit", String.valueOf(this.i));
+            a.b("acctinit", String.valueOf(this.A));
+            a.b("iminit", String.valueOf(this.y));
+            a.b("plugininit", String.valueOf(this.z));
+            a.b("patchloaded", String.valueOf(this.j));
+            a.b("naslibinit", String.valueOf(this.k));
+            a.b("websocketinit", String.valueOf(this.l));
+            a.b("settinginit", String.valueOf(this.m));
+            a.b("toastinit", String.valueOf(this.n));
+            a.b("tiebastaticinit", String.valueOf(this.o));
+            a.b("cdninit", String.valueOf(this.p));
+            a.b("messagesetinit", String.valueOf(this.q));
+            a.b("logores", String.valueOf(this.B));
+            a.b("opttest", String.valueOf(yt4.k().l("static_opt_open", 0) > 0 ? 1 : 0));
+            long j6 = this.r;
+            if (j6 <= 0) {
+                str = "1";
+            } else if (this.t > 0 && j4 > 0) {
+                a.b("adc", String.valueOf(j6 + this.s));
+                a.b(SpeedStatsMainTable.AD_SHOW, String.valueOf(j4));
+                a.b("adrequest", String.valueOf(this.s));
+                j = this.r + this.s + j4;
+                str = "1";
+                a.b("hasad", str);
+                a.b("tabc", String.valueOf(j5));
+                a.b("costt", String.valueOf(this.w - j));
+                a.b("newinst", !this.b ? str : "0");
+                a.c("pluginloadsync", Boolean.valueOf(this.e));
+                a.b("hptotal", String.valueOf(this.v));
+                a.b("locationinit", String.valueOf(j2 + this.B + this.r + j4 + this.s + j5 + this.v));
+                a.b("userperceptiont", String.valueOf(this.x - j));
+                BdStatisticsManager.getInstance().performance("startt", a);
+                h();
+            } else {
+                str = "1";
+            }
+            a.b("hasad", "0");
+            long j7 = this.s;
+            if (j7 > 0) {
+                j = j7;
+            }
+            a.b("tabc", String.valueOf(j5));
+            a.b("costt", String.valueOf(this.w - j));
+            a.b("newinst", !this.b ? str : "0");
+            a.c("pluginloadsync", Boolean.valueOf(this.e));
+            a.b("hptotal", String.valueOf(this.v));
+            a.b("locationinit", String.valueOf(j2 + this.B + this.r + j4 + this.s + j5 + this.v));
+            a.b("userperceptiont", String.valueOf(this.x - j));
+            BdStatisticsManager.getInstance().performance("startt", a);
+            h();
+        }
+    }
+
+    public void g(long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048589, this, j) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && j > 0) {
+            vg a = s95.a();
+            a.b("procname", "remote");
+            a.b("costt", String.valueOf(j));
+            BdStatisticsManager.getInstance().performance("startt", a);
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.b = false;
+            this.c = false;
+            this.f = -1L;
+            this.g = -1L;
+            this.w = -1L;
+            this.h = -1L;
+            this.i = -1L;
+            this.j = -1L;
+            this.B = -1L;
+            this.t = -1L;
+            this.u = -1L;
+            this.r = -1L;
+            this.C = -1L;
+            this.D = -1L;
+            this.k = -1L;
+            this.l = -1L;
+            this.m = -1L;
+            this.n = -1L;
+            this.o = -1L;
+            this.p = -1L;
+            this.q = -1L;
+            this.s = -1L;
+            this.v = -1L;
+            this.x = -1L;
+            this.y = -1L;
+            this.z = -1L;
+            this.A = -1L;
+        }
+    }
+
+    public void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+        }
+    }
+
+    public void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            this.r = j;
+        }
+    }
+
+    public void k(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+            this.s = j;
+        }
+    }
+
+    public void l(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+            this.u = j;
+        }
+    }
+
+    public void m(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
+            this.t = j;
+        }
+    }
+
+    public void n(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
+            this.p = j;
+        }
+    }
+
+    public void o(long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJ(1048597, this, j) == null) || this.v > 0) {
+            return;
+        }
+        this.v = j;
+        this.w = System.currentTimeMillis() - this.f;
+    }
+
+    public void p(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+        }
+    }
+
+    public void q(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
+            this.k = j;
+        }
+    }
+
+    public void r(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
+            this.m = j;
+        }
+    }
+
+    public void s(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
+            this.l = j;
+        }
+    }
+
+    public void t(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048602, this, j) == null) {
+            this.f = j;
+        }
+    }
+
+    public void u(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048603, this, j) == null) {
+            this.h = j;
+        }
+    }
+
+    public void v(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
+            this.B = j;
+        }
+    }
+
+    public void w(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048605, this, j) == null) {
+            this.C = j;
+        }
+    }
+
+    public void x(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048606, this, j) == null) {
+            this.D = j;
+            this.c = true;
+        }
+    }
+
+    public void y(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048607, this, j) == null) {
+            this.q = j;
+        }
+    }
+
+    public void z(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
+            this.b = z;
         }
     }
 }

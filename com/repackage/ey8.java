@@ -47,9 +47,9 @@ public class ey8 extends cy8 {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06ea, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06f4, (ViewGroup) null);
             this.c = inflate;
-            this.d = (HorizontalListView) inflate.findViewById(R.id.obfuscated_res_0x7f090d63);
+            this.d = (HorizontalListView) inflate.findViewById(R.id.obfuscated_res_0x7f090d5c);
             ky8 ky8Var = new ky8();
             this.e = ky8Var;
             this.d.setAdapter((ListAdapter) ky8Var);

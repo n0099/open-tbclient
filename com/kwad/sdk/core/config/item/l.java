@@ -1,58 +1,38 @@
 package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class l extends b<String> {
-    public static volatile String[] a;
-
-    public l(String str, String str2) {
-        super(str, str2);
-        a = null;
+public final class l extends a<Long> {
+    public l(String str) {
+        this(str, 0L);
     }
 
-    public static void a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        a = str.split(",");
-    }
-
-    public static boolean a(long j) {
-        String[] strArr;
-        if (a == null) {
-            return false;
-        }
-        for (String str : a) {
-            if (str != null && String.valueOf(j).equals(str.trim())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    @Override // com.kwad.sdk.core.config.item.b
-    public final void a(@NonNull SharedPreferences.Editor editor) {
-        editor.putString(a(), b());
+    public l(String str, Long l) {
+        super(str, l);
     }
 
     @Override // com.kwad.sdk.core.config.item.b
     public final void a(@NonNull SharedPreferences sharedPreferences) {
-        String string = sharedPreferences.getString(a(), c());
-        a((l) string);
-        a(string);
+        setValue(Long.valueOf(sharedPreferences.getLong(getKey(), sx().longValue())));
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            a((l) c());
-            return;
-        }
-        String optString = jSONObject.optString(a(), c());
-        a((l) optString);
-        a(optString);
+    public final void b(@NonNull SharedPreferences.Editor editor) {
+        editor.putLong(getKey(), getValue().longValue());
+    }
+
+    @Override // com.kwad.sdk.core.config.item.b
+    public final void e(JSONObject jSONObject) {
+        setValue(jSONObject != null ? Long.valueOf(jSONObject.optLong(getKey(), sx().longValue())) : sx());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.kwad.sdk.core.config.item.b
+    @NonNull
+    /* renamed from: sD */
+    public final Long getValue() {
+        return (Long) super.getValue();
     }
 }

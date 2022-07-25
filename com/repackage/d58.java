@@ -60,7 +60,7 @@ public class d58 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
-                    pi.N(this.b.a.getPageActivity(), R.string.obfuscated_res_0x7f0f13dd);
+                    pi.N(this.b.a.getPageActivity(), R.string.obfuscated_res_0x7f0f138c);
                 }
                 this.b.h(z, this.a);
             }

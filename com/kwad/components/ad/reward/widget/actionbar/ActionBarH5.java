@@ -7,7 +7,6 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,15 +23,15 @@ import com.kwad.sdk.widget.f;
 public class ActionBarH5 extends FrameLayout implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView a;
-    public TextView b;
-    public AdTemplate c;
-    public a d;
-    public View e;
+    public TextView cE;
+    public AdTemplate mAdTemplate;
+    public TextView wQ;
+    public a wR;
+    public View wS;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(boolean z);
+        void R(boolean z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -53,7 +52,7 @@ public class ActionBarH5 extends FrameLayout implements c {
                 return;
             }
         }
-        a(context);
+        E(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -75,7 +74,7 @@ public class ActionBarH5 extends FrameLayout implements c {
                 return;
             }
         }
-        a(context);
+        E(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -97,27 +96,27 @@ public class ActionBarH5 extends FrameLayout implements c {
                 return;
             }
         }
-        a(context);
+        E(context);
     }
 
-    private void a(Context context) {
+    private void E(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0471, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09104a);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09104e);
-            this.e = findViewById(R.id.obfuscated_res_0x7f09102c);
+        if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0470, this);
+            this.wQ = (TextView) findViewById(R.id.obfuscated_res_0x7f091041);
+            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f091045);
+            this.wS = findViewById(R.id.obfuscated_res_0x7f091023);
         }
     }
 
-    private void a(View view2, boolean z) {
+    private void b(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65541, this, view2, z) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0507a(view2.getContext()).a(this.c).a(view2 == this.e ? 1 : 2).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarH5.1
+            com.kwad.components.core.c.a.a.a(new a.C0352a(view2.getContext()).L(this.mAdTemplate).ae(view2 == this.wS ? 1 : 2).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarH5.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ boolean a;
-                public final /* synthetic */ ActionBarH5 b;
+                public final /* synthetic */ boolean rl;
+                public final /* synthetic */ ActionBarH5 wT;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -134,17 +133,17 @@ public class ActionBarH5 extends FrameLayout implements c {
                             return;
                         }
                     }
-                    this.b = this;
-                    this.a = z;
+                    this.wT = this;
+                    this.rl = z;
                 }
 
                 @Override // com.kwad.components.core.c.a.a.b
-                public final void a() {
+                public final void onAdClicked() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.b.d == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.wT.wR == null) {
                         return;
                     }
-                    this.b.d.a(this.a);
+                    this.wT.wR.R(this.rl);
                 }
             }));
         }
@@ -153,31 +152,31 @@ public class ActionBarH5 extends FrameLayout implements c {
     public final void a(@NonNull AdTemplate adTemplate, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, adTemplate, aVar) == null) {
-            this.c = adTemplate;
-            this.d = aVar;
-            AdInfo i = d.i(adTemplate);
-            this.a.setText(com.kwad.sdk.core.response.a.a.z(i));
-            this.b.setText(com.kwad.sdk.core.response.a.a.H(i));
+            this.mAdTemplate = adTemplate;
+            this.wR = aVar;
+            AdInfo bQ = d.bQ(adTemplate);
+            this.wQ.setText(com.kwad.sdk.core.response.a.a.ad(bQ));
+            this.cE.setText(com.kwad.sdk.core.response.a.a.al(bQ));
             setClickable(true);
-            this.e.setClickable(true);
-            new f(this.e, this);
+            this.wS.setClickable(true);
+            new f(this.wS, this);
             new f(this, this);
         }
     }
 
     @Override // com.kwad.sdk.widget.c
-    public final void a_(View view2) {
+    public final void f(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            a(view2, true);
+            b(view2, true);
         }
     }
 
     @Override // com.kwad.sdk.widget.c
-    public final void b(View view2) {
+    public final void g(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && com.kwad.sdk.core.response.a.c.d(this.c)) {
-            a(view2, false);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && com.kwad.sdk.core.response.a.c.bF(this.mAdTemplate)) {
+            b(view2, false);
         }
     }
 }

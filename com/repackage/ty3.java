@@ -1,137 +1,104 @@
 package com.repackage;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.repackage.yr2;
+import java.io.IOException;
+import okhttp3.Interceptor;
+import okhttp3.Response;
 /* loaded from: classes7.dex */
-public class ty3 {
+public class ty3 implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<os1> a;
+    public yr2.b a;
+    public final or2 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755274461, "Lcom/repackage/ty3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements or2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ty3 a;
+
+        public a(ty3 ty3Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ty3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755274461, "Lcom/repackage/ty3;");
-                return;
+            this.a = ty3Var;
+        }
+
+        @Override // com.repackage.or2
+        public void a(long j, long j2, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+                if (this.a.a == null) {
+                    if (sg1.a) {
+                        Log.e("onProgress", "DownloadProgressInterceptor.mIProgressCallback == null");
+                    }
+                } else if (j2 == -1 && j != 0) {
+                    this.a.a.b(0, j, j2);
+                } else if (j2 > 52428800) {
+                    this.a.a.a(j2);
+                    this.a.a = null;
+                } else if (j2 <= 0 || j > j2 || j == 0) {
+                    this.a.a.c(j, j2);
+                    this.a.a = null;
+                } else {
+                    int floor = (int) Math.floor((100 * j) / j2);
+                    if (floor <= 100) {
+                        this.a.a.b(floor, j, j2);
+                    }
+                }
             }
         }
-        b = rg1.a;
     }
 
-    public ty3(JSONArray jSONArray) {
+    public ty3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONArray};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        if (jSONArray == null) {
-            return;
-        }
-        if (b) {
-            Log.d("SwanGamePreloadConfig", "jsonArray:" + jSONArray);
-        }
-        int length = jSONArray.length();
-        int i3 = 0;
-        int i4 = 0;
-        for (int i5 = 0; i5 < length; i5++) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(i5);
-            if (optJSONObject != null) {
-                String optString = optJSONObject.optString("type");
-                char c = 65535;
-                int hashCode = optString.hashCode();
-                if (hashCode != 1095692943) {
-                    if (hashCode == 1427818632 && optString.equals("download")) {
-                        c = 1;
-                    }
-                } else if (optString.equals("request")) {
-                    c = 0;
-                }
-                if (c != 0) {
-                    if (c == 1 && i4 < 10) {
-                        this.a.add(a(optJSONObject));
-                        i4++;
-                    }
-                } else if (i3 < 3) {
-                    this.a.add(b(optJSONObject));
-                    i3++;
-                }
-            }
+        this.b = new a(this);
+    }
+
+    public void c(yr2.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.a = bVar;
         }
     }
 
-    public final os1 a(@NonNull JSONObject jSONObject) {
+    @Override // okhttp3.Interceptor
+    public Response intercept(Interceptor.Chain chain) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            os1 os1Var = new os1();
-            os1Var.G("type", jSONObject.optString("type"));
-            os1Var.G("url", jSONObject.optString("url"));
-            os1Var.G("filePath", jSONObject.optString("filePath"));
-            os1Var.G("header", c(jSONObject.optJSONObject("header")));
-            return os1Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
+            Response proceed = chain.proceed(chain.request());
+            return proceed.newBuilder().body(new rr2(proceed.body(), this.b)).build();
         }
-        return (os1) invokeL.objValue;
-    }
-
-    public final os1 b(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            os1 os1Var = new os1();
-            os1Var.G("type", jSONObject.optString("type"));
-            os1Var.G("url", jSONObject.optString("url"));
-            os1Var.G("responseType", jSONObject.optString("responseType"));
-            os1Var.G("header", c(jSONObject.optJSONObject("header")));
-            return os1Var;
-        }
-        return (os1) invokeL.objValue;
-    }
-
-    public final os1 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            os1 os1Var = new os1();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                os1Var.G(next, jSONObject.optString(next));
-            }
-            return os1Var;
-        }
-        return (os1) invokeL.objValue;
+        return (Response) invokeL.objValue;
     }
 }

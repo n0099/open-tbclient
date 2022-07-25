@@ -1,25 +1,34 @@
 package com.repackage;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
 import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.net.URLConnection;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class wo1 extends ko1 {
+public class wo1 extends lo1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements xo1 {
+    public class a implements ActivityResultConsumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ wo1 b;
 
         public a(wo1 wo1Var, String str) {
             Interceptable interceptable = $ic;
@@ -33,68 +42,38 @@ public class wo1 extends ko1 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = wo1Var;
+            this.a = str;
         }
-    }
 
-    /* loaded from: classes7.dex */
-    public class b implements xo1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(wo1 wo1Var, String str) {
+        @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
+        public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
+            InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wo1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i, intent)) == null) {
+                this.b.d(this.a, new is1(0));
+                return true;
             }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements xo1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(wo1 wo1Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wo1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+            return invokeLIL.booleanValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wo1(@NonNull io1 io1Var) {
-        super(io1Var);
+    public wo1(@NonNull jo1 jo1Var) {
+        super(jo1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {io1Var};
+            Object[] objArr = {jo1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((io1) newInitContext.callArgs[0]);
+                super((jo1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -102,142 +81,86 @@ public class wo1 extends ko1 {
         }
     }
 
-    @Override // com.repackage.ko1
+    @Override // com.repackage.lo1
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "HostDownloadManager" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "File" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.ko1
+    @Override // com.repackage.lo1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "HostDownloadManagerApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "FileApi" : (String) invokeV.objValue;
     }
 
-    public hs1 query(String str) {
+    public final String x(String str) {
         InterceptResult invokeL;
-        Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#query", false);
-            if (h03.b0() == null) {
-                return new hs1(1001);
+            int lastIndexOf = str.lastIndexOf("/");
+            if (lastIndexOf > 0) {
+                String contentTypeFor = URLConnection.getFileNameMap().getContentTypeFor(str.substring(lastIndexOf + 1));
+                return !TextUtils.isEmpty(contentTypeFor) ? contentTypeFor : "*/*";
             }
-            Pair<hs1, JSONObject> s = s(str);
-            hs1 hs1Var = (hs1) s.first;
-            if (hs1Var.isSuccess() && (obj = s.second) != null) {
-                JSONObject jSONObject = (JSONObject) obj;
-                String optString = jSONObject.optString("taskID");
-                if (TextUtils.isEmpty(optString)) {
-                    return new hs1(202, "taskId is empty");
-                }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new hs1(202, "cb is empty");
-                }
-                zk1 z = oj2.z();
-                if (z != null) {
-                    z.b(optString, new b(this, optString2));
-                }
-                return hs1.f();
-            }
-            hx1.c("HostDownloadManagerApi", "parse fail");
-            return hs1Var;
+            return "*/*";
         }
-        return (hs1) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public hs1 x(String str) {
+    public is1 y(String str) {
         InterceptResult invokeL;
-        Object obj;
+        Uri fromFile;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            h03 b0 = h03.b0();
-            if (b0 == null) {
-                return new hs1(1001);
+            q("#shareFile", false);
+            if (n()) {
+                ix1.c("FileApi", "FileApi does not supported when app is invisible.");
+                return new is1(1001, "FileApi does not supported when app is invisible.");
             }
-            if (b0.w() == null) {
-                return new hs1(1001);
+            Pair<is1, JSONObject> s = s(str);
+            is1 is1Var = (is1) s.first;
+            if (is1Var.isSuccess()) {
+                JSONObject jSONObject = (JSONObject) s.second;
+                String optString = jSONObject.optString("filePath");
+                String M = q73.M(optString, i03.g0());
+                if (!TextUtils.isEmpty(optString) && q73.s(optString) == PathType.BD_FILE && !TextUtils.isEmpty(M)) {
+                    String optString2 = jSONObject.optString("cb");
+                    if (TextUtils.isEmpty(optString2)) {
+                        ix1.c("FileApi", "cb is required");
+                        return new is1(202, "cb is required");
+                    }
+                    File file = new File(M);
+                    if (file.exists() && !file.isDirectory()) {
+                        SwanAppActivity activity = vl2.U().getActivity();
+                        if (activity == null) {
+                            ix1.c("FileApi", "activity null");
+                            return new is1(1001, "activity null");
+                        }
+                        ActivityResultDispatcher resultDispatcher = activity.getResultDispatcher();
+                        Intent intent = new Intent();
+                        if (pc3.i()) {
+                            fromFile = fe3.a(activity, file);
+                            intent.setFlags(3);
+                        } else {
+                            fromFile = Uri.fromFile(file);
+                        }
+                        intent.setAction("android.intent.action.SEND");
+                        intent.putExtra("android.intent.extra.STREAM", fromFile);
+                        intent.setType(x(M));
+                        resultDispatcher.addConsumer(new a(this, optString2));
+                        resultDispatcher.startActivityForResult(Intent.createChooser(intent, "分享到..."));
+                        return is1.f();
+                    }
+                    ix1.c("FileApi", "file not exists");
+                    return new is1(1001, "file not exists");
+                }
+                ix1.c("FileApi", "a valid filePath is required");
+                return new is1(202, "a valid filePath is required");
             }
-            Pair<hs1, JSONObject> s = s(str);
-            hs1 hs1Var = (hs1) s.first;
-            if (hs1Var.isSuccess() && (obj = s.second) != null) {
-                JSONObject jSONObject = (JSONObject) obj;
-                String optString = jSONObject.optString("url");
-                if (TextUtils.isEmpty(optString)) {
-                    return new hs1(202, "url is empty");
-                }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new hs1(202, "cb is empty");
-                }
-                String optString3 = jSONObject.optString("name");
-                JSONObject optJSONObject = jSONObject.optJSONObject("header");
-                zk1 z = oj2.z();
-                if (z != null) {
-                    z.d(optString, optString3, optJSONObject, new a(this, optString2));
-                }
-                return hs1.f();
-            }
-            hx1.c("HostDownloadManagerApi", "parse fail");
-            return hs1Var;
+            return is1Var;
         }
-        return (hs1) invokeL.objValue;
-    }
-
-    public hs1 y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            q("#openDownloadCenter", false);
-            if (h03.b0() == null) {
-                return new hs1(1001);
-            }
-            zk1 z = oj2.z();
-            if (z != null) {
-                z.a();
-            }
-            return hs1.f();
-        }
-        return (hs1) invokeV.objValue;
-    }
-
-    public hs1 z(String str) {
-        InterceptResult invokeL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            q("#openFile", false);
-            if (h03.b0() == null) {
-                return new hs1(1001);
-            }
-            Pair<hs1, JSONObject> s = s(str);
-            hs1 hs1Var = (hs1) s.first;
-            if (hs1Var.isSuccess() && (obj = s.second) != null) {
-                JSONObject jSONObject = (JSONObject) obj;
-                String optString = jSONObject.optString("taskID");
-                if (TextUtils.isEmpty(optString)) {
-                    return new hs1(202, "taskId is empty");
-                }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new hs1(202, "cb is empty");
-                }
-                SwanAppActivity activity = ul2.U().getActivity();
-                if (activity == null) {
-                    return new hs1(1001);
-                }
-                zk1 z = oj2.z();
-                if (z != null) {
-                    z.c(activity, optString, new c(this, optString2));
-                }
-                return hs1.f();
-            }
-            hx1.c("HostDownloadManagerApi", "parse fail");
-            return hs1Var;
-        }
-        return (hs1) invokeL.objValue;
+        return (is1) invokeL.objValue;
     }
 }

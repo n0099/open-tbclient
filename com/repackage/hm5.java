@@ -7,7 +7,7 @@ public interface hm5 {
     public static final boolean a;
 
     static {
-        a = TbadkCoreApplication.getInst().isDebugMode() || tm4.h();
+        a = TbadkCoreApplication.getInst().isDebugMode() || um4.h();
     }
 
     void a();
@@ -20,7 +20,7 @@ public interface hm5 {
 
     void destroy();
 
-    void e(ql4 ql4Var);
+    void e(rl4 rl4Var);
 
     String f();
 

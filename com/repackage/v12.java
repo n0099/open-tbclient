@@ -1,15 +1,5 @@
 package com.repackage;
 /* loaded from: classes7.dex */
 public interface v12 {
-    void a(int i);
-
-    boolean b(String str);
-
-    void c(int i, String str, String str2);
-
-    void d(String str);
-
-    void e(String str);
-
-    void goBack();
+    void onScrollChanged(int i, int i2, int i3, int i4);
 }

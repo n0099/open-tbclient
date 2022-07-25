@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cy;
 /* loaded from: classes7.dex */
-public class yz6 extends an<dq4, ThreadCardViewHolder<dq4>> implements ck5, vz6 {
+public class yz6 extends an<eq4, ThreadCardViewHolder<eq4>> implements ck5, vz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId i;
@@ -32,7 +32,7 @@ public class yz6 extends an<dq4, ThreadCardViewHolder<dq4>> implements ck5, vz6 
     public String n;
     public View.OnClickListener o;
     public PullLeftRefreshLayout.f p;
-    public jm4 q;
+    public km4 q;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -101,7 +101,7 @@ public class yz6 extends an<dq4, ThreadCardViewHolder<dq4>> implements ck5, vz6 
     }
 
     /* loaded from: classes7.dex */
-    public class c implements jm4<cq4> {
+    public class c implements km4<dq4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yz6 a;
@@ -125,30 +125,30 @@ public class yz6 extends an<dq4, ThreadCardViewHolder<dq4>> implements ck5, vz6 
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: a */
-        public void d(View view2, cq4 cq4Var, int i, long j) {
+        public void d(View view2, dq4 dq4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, cq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || cq4Var == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, dq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || dq4Var == null) {
                 return;
             }
-            uz6.b("c13756", cq4Var, i + 1, this.a.m);
+            uz6.b("c13756", dq4Var, i + 1, this.a.m);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: b */
-        public void c(View view2, cq4 cq4Var, int i, long j) {
+        public void c(View view2, dq4 dq4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, cq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                if (cq4Var == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, dq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                if (dq4Var == null) {
                     this.a.c0();
                     return;
                 }
-                String k = cq4Var.k();
+                String k = dq4Var.k();
                 if (oi.isForumName(k)) {
                     this.a.j.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.j.getPageActivity()).createNormalCfg(k, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
-                    uz6.a("c13756", cq4Var, i + 1, this.a.m);
+                    uz6.a("c13756", dq4Var, i + 1, this.a.m);
                 }
             }
         }
@@ -207,7 +207,7 @@ public class yz6 extends an<dq4, ThreadCardViewHolder<dq4>> implements ck5, vz6 
             bVar.l().e(0);
             bVar.l().h(0);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.k));
-            threadCardViewHolder.k(this.i);
+            threadCardViewHolder.j(this.i);
             return threadCardViewHolder;
         }
         return (ThreadCardViewHolder) invokeL.objValue;
@@ -216,21 +216,21 @@ public class yz6 extends an<dq4, ThreadCardViewHolder<dq4>> implements ck5, vz6 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.an
     /* renamed from: e0 */
-    public View S(int i, View view2, ViewGroup viewGroup, dq4 dq4Var, ThreadCardViewHolder<dq4> threadCardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, eq4 eq4Var, ThreadCardViewHolder<eq4> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dq4Var, threadCardViewHolder})) == null) {
-            if (dq4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, eq4Var, threadCardViewHolder})) == null) {
+            if (eq4Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null) {
                 return null;
             }
-            threadCardViewHolder.c().q(i);
-            if (threadCardViewHolder.c() instanceof bk5) {
-                threadCardViewHolder.c().b(this.l);
+            threadCardViewHolder.b().q(i);
+            if (threadCardViewHolder.b() instanceof bk5) {
+                threadCardViewHolder.b().b(this.l);
             }
-            this.n = dq4Var.f;
-            threadCardViewHolder.g(dq4Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            return threadCardViewHolder.b();
+            this.n = eq4Var.f;
+            threadCardViewHolder.f(eq4Var);
+            threadCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

@@ -8,7 +8,6 @@ import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
-import com.baidu.sofire.utility.CommonMethods;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,12 +43,15 @@ public final class SapiOptions implements NoProguard {
     public static final String KEY_CACHE_VERSION = "version";
     public static final String KEY_CUID_AUTHORIZED_DOMAINS = "cuid_authorized_domains";
     public static final String KEY_DEFAULT_HTTPS_ENABLED = "default_https_enabled";
+    public static final String KEY_DEFAULT_SELECT_AGREEMENT_TPLS = "default_select_agreement_tpls";
+    public static final String KEY_DIALOG_LOGIN_CONFIG = "dialog_login_config";
     public static final String KEY_DI_EXCEPT_INDEX = "di_except_index";
     public static final String KEY_GLOBAL_SHARE_STRATEGY = "global_share_strategy";
     public static final String KEY_GRAY = "gray_android";
     public static final String KEY_JOIN_QR_LOGIN_PROMPT = "join_qr_login_prompt";
     public static final String KEY_LOGIN_COOKIE_DI_KEYS = "login_cookie_di_keys";
     public static final String KEY_LOGIN_STAT_EXTRA_LIMIT_LENGTH = "extrajson_limit_len";
+    public static final String KEY_LOGIN_TPLS_PRIORITY = "login_tpls_priority";
     public static final String KEY_OPEN_BDUSS_CAN_GET_BDUSS = "can_get_bduss";
     public static final String KEY_OPEN_BDUSS_TPLS = "open_bduss_tpls";
     public static final String KEY_OPTN_BDUSS_DOMAINS = "open_bduss_domains";
@@ -59,6 +61,7 @@ public final class SapiOptions implements NoProguard {
     public static final String KEY_SHARE_COMMOM_STORAGE_ENABLE = "share_common_storage_enable";
     public static final String KEY_SHARE_INTERNAL_STORAGE = "share_inter_storage_gray";
     public static final String KEY_SHARE_LIVINGUNAME_ENABLE = "share_livinguname_enabled";
+    public static final String KEY_SHOW_CHILREN_AGREEMENT = "show_chilren_agreement";
     public static final String KEY_SPECIFIC_SHARE_STRATEGY = "specific_share_strategy";
     public static final String KEY_TID = "tid";
     public static final String defaultJoinQrLoginPrompt = "登录后%s将获得百度帐号的公开信息（用户名、头像）";
@@ -70,12 +73,15 @@ public final class SapiOptions implements NoProguard {
     public List<String> cuidAuthorizedDomains;
     public boolean defaultHttpsEnabled;
     public List<Integer> diExceptIndex;
+    public List<String> dialogSelectAgreementTpls;
+    public boolean dialogShowChilrenAgreement;
     public LoginShareStrategy globalShareStrategy;
     public Gray gray;
     public boolean httpClientAsyncCookie;
     public String joinQrLoginPrompt;
     public List<String> loginCookieDiKeys;
     public int loginStatExtraLimitLen;
+    public Map<String, JSONArray> loginTplsPriority;
     public List<String> openBdussDomains;
     public List<String> openBdussTpls;
     public boolean resetFileExecPer;
@@ -681,7 +687,7 @@ public final class SapiOptions implements NoProguard {
                 hashMap.put("com.baidu.duershow.swan", "ff3cc4b3dfcb2419ea8cf8abfcba6684");
                 hashMap.put("com.baidu.launcher", "2171946eb93787d73348c42064b5c8b7");
                 hashMap.put("com.baidu.rap", "44488ccee79ea8da05b4654a4d689016");
-                hashMap.put(CommonMethods.PKGNAME_SKIP_CHECK_INPUT, "c2b0b497d0389e6de1505e7fd8f4d539");
+                hashMap.put("com.baidu.input", "c2b0b497d0389e6de1505e7fd8f4d539");
                 hashMap.put("com.baidu.xiuxiu", "efa43c8bebf232432fd7c3559b34fe04");
                 return hashMap;
             }
@@ -778,6 +784,7 @@ public final class SapiOptions implements NoProguard {
         this.shareInterGray = 100;
         this.shareCheckOnlineTimeOut = 1000;
         this.joinQrLoginPrompt = defaultJoinQrLoginPrompt;
+        this.dialogShowChilrenAgreement = true;
         this.cache = new Cache();
         this.gray = new Gray();
     }
@@ -856,6 +863,29 @@ public final class SapiOptions implements NoProguard {
             sapiOptions.gray = Gray.fromJSON(jSONObject);
             sapiOptions.canGetBduss = jSONObject.optBoolean(KEY_OPEN_BDUSS_CAN_GET_BDUSS, true);
             sapiOptions.tid = jSONObject.optString("tid");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject(KEY_DIALOG_LOGIN_CONFIG);
+            if (optJSONObject2 != null) {
+                sapiOptions.dialogShowChilrenAgreement = optJSONObject2.optBoolean(KEY_SHOW_CHILREN_AGREEMENT, true);
+                sapiOptions.dialogSelectAgreementTpls = new ArrayList();
+                JSONArray optJSONArray2 = optJSONObject2.optJSONArray(KEY_DEFAULT_SELECT_AGREEMENT_TPLS);
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        sapiOptions.dialogSelectAgreementTpls.add((String) optJSONArray2.opt(i2));
+                    }
+                }
+                sapiOptions.loginTplsPriority = new HashMap();
+                JSONObject optJSONObject3 = optJSONObject2.optJSONObject(KEY_LOGIN_TPLS_PRIORITY);
+                if (optJSONObject3 != null) {
+                    Iterator<String> keys2 = optJSONObject3.keys();
+                    while (keys2.hasNext()) {
+                        String next2 = keys2.next();
+                        JSONArray optJSONArray3 = optJSONObject3.optJSONArray(next2);
+                        if (optJSONArray3 != null) {
+                            sapiOptions.loginTplsPriority.put(next2, optJSONArray3);
+                        }
+                    }
+                }
+            }
             return sapiOptions;
         }
         return (SapiOptions) invokeL.objValue;
@@ -1042,28 +1072,60 @@ public final class SapiOptions implements NoProguard {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.defaultHttpsEnabled : invokeV.booleanValue;
     }
 
+    public JSONArray getDialogLoginPriority(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            Map<String, JSONArray> map = this.loginTplsPriority;
+            if (map == null || !map.containsKey(str)) {
+                return null;
+            }
+            return this.loginTplsPriority.get(str);
+        }
+        return (JSONArray) invokeL.objValue;
+    }
+
     public LoginShareStrategy getGlobalShareStrategy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.globalShareStrategy : (LoginShareStrategy) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.globalShareStrategy : (LoginShareStrategy) invokeV.objValue;
     }
 
     public boolean getHttpAsyncCookie() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.httpClientAsyncCookie : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.httpClientAsyncCookie : invokeV.booleanValue;
+    }
+
+    public Boolean getIsProtocolCheck(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            List<String> list = this.dialogSelectAgreementTpls;
+            if (list != null && list.contains(str)) {
+                return Boolean.TRUE;
+            }
+            return Boolean.FALSE;
+        }
+        return (Boolean) invokeL.objValue;
+    }
+
+    public boolean getIsShowChildrenAgreement() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.dialogShowChilrenAgreement : invokeV.booleanValue;
     }
 
     public List<String> getLoginCookieDiKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.loginCookieDiKeys : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.loginCookieDiKeys : (List) invokeV.objValue;
     }
 
     public List<String> getOpenBdussDomains() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add("baifubao.com");
             arrayList.add("duxiaoman.com");
@@ -1083,7 +1145,7 @@ public final class SapiOptions implements NoProguard {
     public List<String> getOpenBdussTpls() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add("licai");
             arrayList.add("baidugushitong");
@@ -1103,7 +1165,7 @@ public final class SapiOptions implements NoProguard {
     public Map<String, Integer> getOrderAuthorizedPackages() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("com.baidu.searchbox(.*)", 4);
             hashMap.put("com.baidu.BaiduMap(.*)", 5);
@@ -1118,12 +1180,12 @@ public final class SapiOptions implements NoProguard {
     public Map<String, LoginShareStrategy> getSpecificShareStrategy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.specificShareStrategy : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.specificShareStrategy : (Map) invokeV.objValue;
     }
 
     public void setCache(Cache cache) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, cache) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, cache) == null) {
             this.cache = cache;
         }
     }
@@ -1131,7 +1193,7 @@ public final class SapiOptions implements NoProguard {
     public String toJSON() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("cache", this.cache.toJSON());
@@ -1166,6 +1228,27 @@ public final class SapiOptions implements NoProguard {
                 jSONObject.put(KEY_GRAY, this.gray.toJSON());
                 jSONObject.put(KEY_OPEN_BDUSS_CAN_GET_BDUSS, this.canGetBduss);
                 jSONObject.put("tid", this.tid);
+                JSONObject jSONObject3 = new JSONObject();
+                if (this.dialogSelectAgreementTpls != null) {
+                    JSONArray jSONArray2 = new JSONArray();
+                    for (String str : this.dialogSelectAgreementTpls) {
+                        jSONArray2.put(str);
+                    }
+                    jSONObject3.put(KEY_DEFAULT_SELECT_AGREEMENT_TPLS, jSONArray2);
+                }
+                jSONObject3.put(KEY_SHOW_CHILREN_AGREEMENT, this.dialogShowChilrenAgreement);
+                if (this.loginTplsPriority != null) {
+                    JSONObject jSONObject4 = new JSONObject();
+                    for (Map.Entry<String, JSONArray> entry2 : this.loginTplsPriority.entrySet()) {
+                        String key = entry2.getKey();
+                        JSONArray value = entry2.getValue();
+                        if (key != null && value != null) {
+                            jSONObject4.put(key, value);
+                        }
+                    }
+                    jSONObject3.put(KEY_LOGIN_TPLS_PRIORITY, jSONObject4);
+                }
+                jSONObject.put(KEY_DIALOG_LOGIN_CONFIG, jSONObject3);
                 return jSONObject.toString();
             } catch (Throwable unused) {
                 return null;

@@ -51,9 +51,9 @@ public class bq6 {
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void a(ArrayList<Integer> arrayList, String str, kp4 kp4Var) {
+        public void a(ArrayList<Integer> arrayList, String str, lp4 lp4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, arrayList, str, kp4Var) == null) || arrayList == null || kp4Var == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, arrayList, str, lp4Var) == null) || arrayList == null || lp4Var == null) {
                 return;
             }
             StringBuilder sb = new StringBuilder();
@@ -63,21 +63,21 @@ public class bq6 {
             if (sb.length() > 0) {
                 sb.deleteCharAt(sb.length() - 1);
             }
-            TiebaStatic.log(new StatisticItem("c11974").param("obj_locate", sb.toString()).param("fid", kp4Var.c()).param("tid", kp4Var.f()).param("nid", kp4Var.e()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("source", kp4Var.l).param("weight", kp4Var.k).param("ab_tag", kp4Var.p).param("extra", kp4Var.m).param("card_type", kp4Var.o).param(TiebaStatic.Params.OBJ_FLOOR, kp4Var.q));
+            TiebaStatic.log(new StatisticItem("c11974").param("obj_locate", sb.toString()).param("fid", lp4Var.c()).param("tid", lp4Var.f()).param("nid", lp4Var.e()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("source", lp4Var.l).param("weight", lp4Var.k).param("ab_tag", lp4Var.p).param("extra", lp4Var.m).param("card_type", lp4Var.o).param(TiebaStatic.Params.OBJ_FLOOR, lp4Var.q));
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void b(kp4 kp4Var, CompoundButton compoundButton, boolean z) {
+        public void b(lp4 lp4Var, CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kp4Var, compoundButton, z) == null) {
+            if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lp4Var, compoundButton, z) == null) {
             }
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void c(kp4 kp4Var) {
+        public void c(lp4 lp4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kp4Var) == null) {
-                TiebaStatic.log(new StatisticItem("c11973").param("fid", kp4Var.c()).param("tid", kp4Var.f()).param("uid", TbadkCoreApplication.getCurrentAccount()));
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lp4Var) == null) {
+                TiebaStatic.log(new StatisticItem("c11973").param("fid", lp4Var.c()).param("tid", lp4Var.f()).param("uid", TbadkCoreApplication.getCurrentAccount()));
             }
         }
     }
@@ -114,7 +114,7 @@ public class bq6 {
                 NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(this.b);
                 this.a = nEGFeedBackView;
                 nEGFeedBackView.setUniqueId(this.d);
-                this.a.setId(R.id.obfuscated_res_0x7f0915aa);
+                this.a.setId(R.id.obfuscated_res_0x7f091585);
                 this.a.setDefaultReasonArray(new String[]{this.b.getString(R.string.obfuscated_res_0x7f0f02cc), "", ""});
                 this.a.setEventCallback(this.e);
                 this.a.m(this.c, pi.f(this.b.getPageActivity(), R.dimen.tbds120), 0);
@@ -123,13 +123,13 @@ public class bq6 {
             if (this.a.getVisibility() != 0) {
                 this.a.setVisibility(0);
             }
-            kp4 kp4Var = new kp4();
-            kp4Var.o(threadData.getTid());
-            kp4Var.k(threadData.getFid());
-            kp4Var.n(threadData.getNid());
-            kp4Var.j(threadData.getFeedBackReasonMap());
-            kp4Var.g = threadData.feedBackExtraMap;
-            this.a.setData(kp4Var);
+            lp4 lp4Var = new lp4();
+            lp4Var.o(threadData.getTid());
+            lp4Var.k(threadData.getFid());
+            lp4Var.n(threadData.getNid());
+            lp4Var.j(threadData.getFeedBackReasonMap());
+            lp4Var.g = threadData.feedBackExtraMap;
+            this.a.setData(lp4Var);
         } else {
             NEGFeedBackView nEGFeedBackView2 = this.a;
             if (nEGFeedBackView2 != null && nEGFeedBackView2.getVisibility() != 8) {

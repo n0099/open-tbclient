@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
+import java.io.ByteArrayInputStream;
 /* loaded from: classes7.dex */
-public abstract class v03<T> implements lj2<byte[], T> {
+public abstract class v03<T> implements mj2<T, byte[]> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,33 +27,24 @@ public abstract class v03<T> implements lj2<byte[], T> {
         }
     }
 
-    public abstract void a(@NonNull T t, @NonNull nj2 nj2Var) throws Exception;
+    public abstract T a(@NonNull nj2 nj2Var) throws Exception;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.repackage.lj2
-    public /* bridge */ /* synthetic */ byte[] call(Object obj) throws Exception {
-        return call2((v03<T>) obj);
-    }
-
-    @Override // com.repackage.lj2
-    /* renamed from: call  reason: avoid collision after fix types in other method */
-    public final byte[] call2(T t) throws Exception {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.mj2
+    public final T call(byte[] bArr) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            if (t == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
+            if (bArr == null) {
                 return null;
             }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            nj2 nj2Var = new nj2(byteArrayOutputStream);
-            a(t, nj2Var);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            nj2 nj2Var = new nj2(byteArrayInputStream);
+            T a = a(nj2Var);
             nj2Var.close();
-            byteArrayOutputStream.close();
-            return byteArray;
+            byteArrayInputStream.close();
+            return a;
         }
-        return (byte[]) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 }

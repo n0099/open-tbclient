@@ -34,11 +34,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dv4;
+import com.repackage.ev4;
 import com.repackage.h9;
 import com.repackage.hx;
 import com.repackage.pi;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.AlbumElement;
@@ -143,7 +143,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements hx {
                 w.getIntent().putExtra("from", "index");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2010000, w));
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new dv4(1, i + 1, albumElement.album_type.intValue())));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ev4(1, i + 1, albumElement.album_type.intValue())));
         }
     }
 
@@ -179,18 +179,18 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements hx {
                         return;
                     }
                 }
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b1b);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b14);
                 this.a = tbImageView;
                 tbImageView.setConrers(15);
                 this.a.setRadiusById(R.string.J_X05);
                 this.a.setDrawCorner(true);
                 this.a.setPlaceHolder(3);
                 this.a.setPageId(h9.a(view2.getContext()).getUniqueId());
-                View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090b1c);
+                View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090b15);
                 this.b = findViewById;
-                ur4.d(findViewById).s(R.array.Mask_X001);
-                ur4.d(this.b).n(R.string.J_X05);
-                this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b1d);
+                vr4.d(findViewById).s(R.array.Mask_X001);
+                vr4.d(this.b).n(R.string.J_X05);
+                this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b16);
             }
 
             public void a(AlbumElement albumElement) {

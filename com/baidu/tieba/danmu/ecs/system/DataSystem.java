@@ -33,10 +33,10 @@ import com.repackage.r0;
 import com.repackage.r06;
 import com.repackage.s16;
 import com.repackage.s26;
-import com.repackage.tm4;
 import com.repackage.u06;
 import com.repackage.u16;
 import com.repackage.u26;
+import com.repackage.um4;
 import com.repackage.w16;
 import com.repackage.y16;
 import com.repackage.z06;
@@ -195,7 +195,7 @@ public final class DataSystem extends z06 implements r06.a {
             return;
         }
         int i = 0;
-        if (!tm4.e()) {
+        if (!um4.e()) {
             a26.b("DataSystem_createNewSlice");
             synchronized (this) {
                 List sortedData = this.i;
@@ -278,7 +278,7 @@ public final class DataSystem extends z06 implements r06.a {
             long b2 = y16.b(this) + max;
             y16.b(this);
             y();
-            if (!tm4.e()) {
+            if (!um4.e()) {
                 m();
             } else {
                 Trace.beginSection("DataSystem_sort");
@@ -332,8 +332,8 @@ public final class DataSystem extends z06 implements r06.a {
     public void update(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
-            if (!tm4.e()) {
-                if (!tm4.e()) {
+            if (!um4.e()) {
+                if (!um4.e()) {
                     j06 c = i().c();
                     for (o0 o0Var : k()) {
                         b16 b = z16.b(o0Var);
@@ -386,7 +386,7 @@ public final class DataSystem extends z06 implements r06.a {
                 return;
             }
             Trace.beginSection("DataSystem_update");
-            if (!tm4.e()) {
+            if (!um4.e()) {
                 j06 c3 = i().c();
                 for (o0 o0Var3 : k()) {
                     b16 b3 = z16.b(o0Var3);

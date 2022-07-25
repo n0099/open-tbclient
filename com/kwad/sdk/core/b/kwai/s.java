@@ -8,29 +8,29 @@ public final class s implements com.kwad.sdk.core.d<com.kwad.sdk.internal.api.a>
         if (jSONObject == null) {
             return;
         }
-        aVar.a = jSONObject.optInt("thirdAge");
-        aVar.b = jSONObject.optInt("thirdGender");
-        aVar.c = jSONObject.optString("thirdInterest");
+        aVar.acZ = jSONObject.optInt("thirdAge");
+        aVar.ada = jSONObject.optInt("thirdGender");
+        aVar.adb = jSONObject.optString("thirdInterest");
         if (jSONObject.opt("thirdInterest") == JSONObject.NULL) {
-            aVar.c = "";
+            aVar.adb = "";
         }
-        aVar.d = jSONObject.optString("prevTitle");
+        aVar.aiz = jSONObject.optString("prevTitle");
         if (jSONObject.opt("prevTitle") == JSONObject.NULL) {
-            aVar.d = "";
+            aVar.aiz = "";
         }
-        aVar.e = jSONObject.optString("postTitle");
+        aVar.aiA = jSONObject.optString("postTitle");
         if (jSONObject.opt("postTitle") == JSONObject.NULL) {
-            aVar.e = "";
+            aVar.aiA = "";
         }
-        aVar.f = jSONObject.optString("historyTitle");
+        aVar.aiB = jSONObject.optString("historyTitle");
         if (jSONObject.opt("historyTitle") == JSONObject.NULL) {
-            aVar.f = "";
+            aVar.aiB = "";
         }
-        aVar.g = jSONObject.optString("channel");
+        aVar.agM = jSONObject.optString("channel");
         if (jSONObject.opt("channel") == JSONObject.NULL) {
-            aVar.g = "";
+            aVar.agM = "";
         }
-        aVar.h = jSONObject.optLong("cpmBidFloor");
+        aVar.aiC = jSONObject.optLong("cpmBidFloor");
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
@@ -38,14 +38,38 @@ public final class s implements com.kwad.sdk.core.d<com.kwad.sdk.internal.api.a>
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "thirdAge", aVar.a);
-        com.kwad.sdk.utils.r.a(jSONObject, "thirdGender", aVar.b);
-        com.kwad.sdk.utils.r.a(jSONObject, "thirdInterest", aVar.c);
-        com.kwad.sdk.utils.r.a(jSONObject, "prevTitle", aVar.d);
-        com.kwad.sdk.utils.r.a(jSONObject, "postTitle", aVar.e);
-        com.kwad.sdk.utils.r.a(jSONObject, "historyTitle", aVar.f);
-        com.kwad.sdk.utils.r.a(jSONObject, "channel", aVar.g);
-        com.kwad.sdk.utils.r.a(jSONObject, "cpmBidFloor", aVar.h);
+        int i = aVar.acZ;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "thirdAge", i);
+        }
+        int i2 = aVar.ada;
+        if (i2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "thirdGender", i2);
+        }
+        String str = aVar.adb;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "thirdInterest", aVar.adb);
+        }
+        String str2 = aVar.aiz;
+        if (str2 != null && !str2.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "prevTitle", aVar.aiz);
+        }
+        String str3 = aVar.aiA;
+        if (str3 != null && !str3.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "postTitle", aVar.aiA);
+        }
+        String str4 = aVar.aiB;
+        if (str4 != null && !str4.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "historyTitle", aVar.aiB);
+        }
+        String str5 = aVar.agM;
+        if (str5 != null && !str5.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "channel", aVar.agM);
+        }
+        long j = aVar.aiC;
+        if (j != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "cpmBidFloor", j);
+        }
         return jSONObject;
     }
 

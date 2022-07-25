@@ -15,7 +15,7 @@ public final class c extends b {
 
     /* loaded from: classes5.dex */
     public static class a {
-        public static final c a = new c((byte) 0);
+        public static final c ahp = new c((byte) 0);
     }
 
     public c() {
@@ -23,10 +23,6 @@ public final class c extends b {
 
     public /* synthetic */ c(byte b) {
         this();
-    }
-
-    public static c a() {
-        return a.a;
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(17:1|(2:2|3)|(24:(3:188|189|(13:191|192|6|(6:176|177|178|179|180|181)|(6:164|165|166|167|168|169)|(6:152|153|154|155|156|157)|(6:140|141|142|143|144|145)|15|16|(1:18)|20|21|(5:23|(1:25)|(2:27|(3:29|30|31)(1:34))|35|36)(1:(4:39|(1:41)(1:51)|42|(3:44|45|47)(1:50))(1:52))))|167|168|169|(0)|152|153|154|155|156|157|(0)|140|141|142|143|144|145|15|16|(0)|20|21|(0)(0))|5|6|(0)|176|177|178|179|180|181|(0)|164|165|166|(1:(0))) */
@@ -44,13 +40,13 @@ public final class c extends b {
         uploadRemainingExceptions();
      */
     /* JADX WARN: Code restructure failed: missing block: B:105:0x0221, code lost:
-        com.kwad.sdk.crash.utils.f.d(r9);
+        com.kwad.sdk.crash.utils.f.E(r9);
      */
     /* JADX WARN: Code restructure failed: missing block: B:106:0x0225, code lost:
         if (r10 != null) goto L83;
      */
     /* JADX WARN: Code restructure failed: missing block: B:107:0x0227, code lost:
-        com.kwad.sdk.core.d.b.a("ExceptionCollector", "uploader.uploadEvent(message);");
+        com.kwad.sdk.core.e.b.d("ExceptionCollector", "uploader.uploadEvent(message);");
      */
     /* JADX WARN: Code restructure failed: missing block: B:108:0x022a, code lost:
         if (r24 != false) goto L85;
@@ -100,11 +96,11 @@ public final class c extends b {
      */
     /* JADX WARN: Code restructure failed: missing block: B:95:0x01e4, code lost:
         com.kwad.sdk.crash.utils.f.a(r6, r0);
-        com.kwad.sdk.crash.utils.f.c(r8);
-        com.kwad.sdk.crash.utils.f.a(r7);
+        com.kwad.sdk.crash.utils.f.D(r8);
+        com.kwad.sdk.crash.utils.f.B(r7);
      */
     /* JADX WARN: Code restructure failed: missing block: B:96:0x01f5, code lost:
-        if (com.kwad.sdk.crash.d.a().j() != false) goto L70;
+        if (com.kwad.sdk.crash.d.wz().isDebug() != false) goto L70;
      */
     /* JADX WARN: Code restructure failed: missing block: B:97:0x01f7, code lost:
         backupLogFiles(r20.mLogDir);
@@ -146,7 +142,7 @@ public final class c extends b {
                                     if (!this.mLogDir.exists()) {
                                         try {
                                             if (!this.mLogDir.mkdirs()) {
-                                                exceptionMessage.mErrorMessage += "create " + a().mLogDir.getPath() + " failed!\n";
+                                                exceptionMessage.mErrorMessage += "create " + wO().mLogDir.getPath() + " failed!\n";
                                                 z2 = false;
                                                 if (file != null || andIncrement != 0) {
                                                     File file5 = this.mLogDir;
@@ -184,7 +180,7 @@ public final class c extends b {
                                                     sb4.append(".minfo");
                                                     file4 = new File(file8, sb4.toString());
                                                 }
-                                                f.a(th, exceptionMessage, context);
+                                                f.b(th, exceptionMessage, context);
                                                 f.a(exceptionMessage, getCrashType());
                                                 if (this.mExceptionListener != null) {
                                                     this.mExceptionListener.a(getCrashType(), exceptionMessage);
@@ -192,7 +188,7 @@ public final class c extends b {
                                                 String jSONObject = exceptionMessage.toJson().toString();
                                                 if (z2) {
                                                     if (uploader != null) {
-                                                        com.kwad.sdk.core.d.b.a("ExceptionCollector", "uploader.uploadEvent(message);");
+                                                        com.kwad.sdk.core.e.b.d("ExceptionCollector", "uploader.uploadEvent(message);");
                                                         CountDownLatch countDownLatch = z ? new CountDownLatch(1) : null;
                                                         uploader.a(exceptionMessage, countDownLatch);
                                                         new StringBuilder("------  Java Crash Happened Begin ------\n").append(exceptionMessage);
@@ -209,9 +205,9 @@ public final class c extends b {
                                                     return;
                                                 }
                                                 f.a(file, jSONObject);
-                                                f.c(file3);
-                                                f.a(file2);
-                                                if (com.kwad.sdk.crash.d.a().j()) {
+                                                f.D(file3);
+                                                f.B(file2);
+                                                if (com.kwad.sdk.crash.d.wz().isDebug()) {
                                                     backupLogFiles(this.mLogDir);
                                                 }
                                                 if (uploader != null) {
@@ -227,7 +223,7 @@ public final class c extends b {
                                                         uploadRemainingExceptions();
                                                     }
                                                 }
-                                                f.d(file4);
+                                                f.E(file4);
                                                 return;
                                             }
                                         } catch (Throwable th3) {
@@ -242,7 +238,7 @@ public final class c extends b {
                                                 } catch (Throwable th4) {
                                                     if (uploader != null) {
                                                         try {
-                                                            f.a(th4);
+                                                            f.l(th4);
                                                             return;
                                                         } catch (Exception unused3) {
                                                             return;
@@ -255,9 +251,9 @@ public final class c extends b {
                                                     String jSONObject3 = exceptionMessage.toJson().toString();
                                                     if (z2) {
                                                         f.a(file, jSONObject3);
-                                                        f.c(file3);
-                                                        f.a(file2);
-                                                        if (com.kwad.sdk.crash.d.a().j()) {
+                                                        f.D(file3);
+                                                        f.B(file2);
+                                                        if (com.kwad.sdk.crash.d.wz().isDebug()) {
                                                             backupLogFiles(this.mLogDir);
                                                         }
                                                         if (uploader != null) {
@@ -273,9 +269,9 @@ public final class c extends b {
                                                                 uploadRemainingExceptions();
                                                             }
                                                         }
-                                                        f.d(file4);
+                                                        f.E(file4);
                                                     } else if (uploader != null) {
-                                                        com.kwad.sdk.core.d.b.a("ExceptionCollector", "uploader.uploadEvent(message);");
+                                                        com.kwad.sdk.core.e.b.d("ExceptionCollector", "uploader.uploadEvent(message);");
                                                         CountDownLatch countDownLatch4 = z ? new CountDownLatch(1) : null;
                                                         uploader.a(exceptionMessage, countDownLatch4);
                                                         new StringBuilder("------  Java Crash Happened Begin ------\n").append(exceptionMessage);
@@ -288,7 +284,7 @@ public final class c extends b {
                                                     }
                                                 } catch (Throwable th6) {
                                                     if (uploader != null) {
-                                                        f.a(th6);
+                                                        f.l(th6);
                                                     }
                                                 }
                                                 throw th5;
@@ -301,7 +297,7 @@ public final class c extends b {
                                 } catch (Throwable th7) {
                                     if (uploader != null) {
                                         try {
-                                            f.a(th7);
+                                            f.l(th7);
                                             return;
                                         } catch (Exception unused6) {
                                             return;
@@ -309,7 +305,7 @@ public final class c extends b {
                                     }
                                     return;
                                 }
-                                f.a(th, exceptionMessage, context);
+                                f.b(th, exceptionMessage, context);
                                 f.a(exceptionMessage, getCrashType());
                                 if (this.mExceptionListener != null) {
                                 }
@@ -397,8 +393,12 @@ public final class c extends b {
         StringBuilder sb22 = new StringBuilder();
     }
 
+    public static c wO() {
+        return a.ahp;
+    }
+
     public final void a(@NonNull Throwable th, @NonNull ExceptionMessage exceptionMessage, @Nullable Context context) {
-        a(th, exceptionMessage, context, ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).d());
+        a(th, exceptionMessage, context, ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getIsExternal());
     }
 
     @Override // com.kwad.sdk.crash.handler.b
@@ -409,7 +409,7 @@ public final class c extends b {
     @Override // com.kwad.sdk.crash.handler.b
     public final void init(File file, com.kwad.sdk.crash.e eVar, e eVar2) {
         super.init(file, eVar, eVar2);
-        if (com.kwad.sdk.crash.d.a().j()) {
+        if (com.kwad.sdk.crash.d.wz().isDebug()) {
             b.initBackupDir(new File("sdcard/kwad_ex/java_crash/dump"));
         }
     }

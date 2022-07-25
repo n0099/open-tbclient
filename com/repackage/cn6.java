@@ -68,8 +68,8 @@ public class cn6 extends an<ch8, FrsLikeRecommendHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ch8Var, frsLikeRecommendHolder})) == null) {
             if (ch8Var != null && frsLikeRecommendHolder != null) {
-                frsLikeRecommendHolder.c(ch8Var);
-                frsLikeRecommendHolder.e(new View.OnClickListener() { // from class: com.repackage.ym6
+                frsLikeRecommendHolder.b(ch8Var);
+                frsLikeRecommendHolder.d(new View.OnClickListener() { // from class: com.repackage.ym6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -81,7 +81,7 @@ public class cn6 extends an<ch8, FrsLikeRecommendHolder> {
                         }
                     }
                 });
-                frsLikeRecommendHolder.d();
+                frsLikeRecommendHolder.c();
             }
             return view2;
         }

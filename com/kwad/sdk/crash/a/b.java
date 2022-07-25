@@ -5,8 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes5.dex */
 public final class b {
-    public Set<String> a = new HashSet();
-    public Set<String> b = new HashSet();
+    public Set<String> ahi = new HashSet();
+    public Set<String> ahj = new HashSet();
 
     public final synchronized void a(String[] strArr, String[] strArr2) {
         if (strArr != null) {
@@ -14,7 +14,7 @@ public final class b {
                 if (strArr.length > 0) {
                     for (String str : strArr) {
                         if (!TextUtils.isEmpty(str)) {
-                            this.a.add(str);
+                            this.ahi.add(str);
                         }
                     }
                 }
@@ -25,17 +25,17 @@ public final class b {
         if (strArr2 != null && strArr2.length > 0) {
             for (String str2 : strArr2) {
                 if (!TextUtils.isEmpty(str2)) {
-                    this.b.add(str2);
+                    this.ahj.add(str2);
                 }
             }
         }
     }
 
-    public final synchronized String[] a() {
-        return (String[]) this.a.toArray(new String[this.a.size()]);
+    public final synchronized String[] wB() {
+        return (String[]) this.ahj.toArray(new String[this.ahj.size()]);
     }
 
-    public final synchronized String[] b() {
-        return (String[]) this.b.toArray(new String[this.b.size()]);
+    public final synchronized String[] wM() {
+        return (String[]) this.ahi.toArray(new String[this.ahi.size()]);
     }
 }

@@ -311,8 +311,8 @@ public class ga6 {
         this.j = emotionPackageDetailActivity.getSafeHandler();
         this.l = emotionPackageDetailActivity.p2();
         this.b = ViewConfiguration.get(emotionPackageDetailActivity).getScaledTouchSlop() * 2;
-        this.c = pi.f(emotionPackageDetailActivity, R.dimen.obfuscated_res_0x7f070285);
-        this.d = pi.f(emotionPackageDetailActivity, R.dimen.obfuscated_res_0x7f07028c);
+        this.c = pi.f(emotionPackageDetailActivity, R.dimen.obfuscated_res_0x7f070283);
+        this.d = pi.f(emotionPackageDetailActivity, R.dimen.obfuscated_res_0x7f07028a);
         this.l.setOnScrollListener(new c(this));
         SwipeBackLayout q2 = emotionPackageDetailActivity.q2();
         if (q2 != null) {

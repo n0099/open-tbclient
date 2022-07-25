@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.lo6;
 import com.repackage.pi;
-import com.repackage.ur4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -70,7 +70,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
         if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
             this.a = threadData;
             if (threadData != null) {
-                String string = getResources().getString(R.string.obfuscated_res_0x7f0f06fd);
+                String string = getResources().getString(R.string.obfuscated_res_0x7f0f06f9);
                 if (StringUtils.isNull(string)) {
                     setVisibility(8);
                     return;
@@ -113,9 +113,9 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             setOnClickListener(this);
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0192, (ViewGroup) this, true);
             this.c = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a40);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a39);
             this.e = textView;
-            ur4 d = ur4.d(textView);
+            vr4 d = vr4.d(textView);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0305);

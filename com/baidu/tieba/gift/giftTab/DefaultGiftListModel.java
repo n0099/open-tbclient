@@ -14,16 +14,16 @@ import com.repackage.d9;
 import com.repackage.rr6;
 import com.repackage.vr6;
 import com.repackage.wh8;
-import com.repackage.xo4;
 import com.repackage.yo4;
 import com.repackage.za;
+import com.repackage.zo4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<rr6> a;
-    public ArrayList<xo4> b;
+    public ArrayList<yo4> b;
     public ArrayList<vr6> c;
     public String d;
     public int e;
@@ -65,10 +65,10 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            yo4 yo4Var;
+            zo4 zo4Var;
             int i;
             int i2;
-            yo4 yo4Var2;
+            zo4 zo4Var2;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
@@ -85,12 +85,12 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
                 this.a.d = defaultGiftListHttpResponseMessage.getAddFreeUrl();
                 this.a.e = defaultGiftListHttpResponseMessage.getFreeChance();
                 i2 = defaultGiftListHttpResponseMessage.currencyType;
-                yo4Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
+                zo4Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
             } else if (!(responsedMessage instanceof DefaultGiftListSocketResponseMessage)) {
-                yo4Var = null;
+                zo4Var = null;
                 i = 0;
                 if (this.a.f == null) {
-                    this.a.f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.e, this.a.d, i, yo4Var, this.a.a, this.a.b, this.a.c);
+                    this.a.f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.e, this.a.d, i, zo4Var, this.a.a, this.a.b, this.a.c);
                     return;
                 }
                 return;
@@ -102,10 +102,10 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
                 this.a.d = defaultGiftListSocketResponseMessage.getAddFreeUrl();
                 this.a.e = defaultGiftListSocketResponseMessage.getFreeChance();
                 i2 = defaultGiftListSocketResponseMessage.currencyType;
-                yo4Var2 = defaultGiftListSocketResponseMessage.urlTitleData;
+                zo4Var2 = defaultGiftListSocketResponseMessage.urlTitleData;
             }
             i = i2;
-            yo4Var = yo4Var2;
+            zo4Var = zo4Var2;
             if (this.a.f == null) {
             }
         }
@@ -113,7 +113,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(int i, String str, int i2, String str2, int i3, yo4 yo4Var, ArrayList<rr6> arrayList, ArrayList<xo4> arrayList2, ArrayList<vr6> arrayList3);
+        void a(int i, String str, int i2, String str2, int i3, zo4 zo4Var, ArrayList<rr6> arrayList, ArrayList<yo4> arrayList2, ArrayList<vr6> arrayList3);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

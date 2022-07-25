@@ -63,13 +63,13 @@ public class b implements TTAdBridge {
 
     @Override // com.bytedance.sdk.openadsdk.TTAdBridge
     public void subscribe(final TTAdEvent tTAdEvent) {
-        this.b.a(new a.InterfaceC0270a() { // from class: com.bytedance.sdk.openadsdk.a.b.1
-            @Override // com.bytedance.sdk.openadsdk.a.a.InterfaceC0270a
+        this.b.a(new a.InterfaceC0284a() { // from class: com.bytedance.sdk.openadsdk.a.b.1
+            @Override // com.bytedance.sdk.openadsdk.a.a.InterfaceC0284a
             public void a() {
                 tTAdEvent.onEvent(0, null);
             }
 
-            @Override // com.bytedance.sdk.openadsdk.a.a.InterfaceC0270a
+            @Override // com.bytedance.sdk.openadsdk.a.a.InterfaceC0284a
             public void b() {
                 tTAdEvent.onEvent(1, null);
             }

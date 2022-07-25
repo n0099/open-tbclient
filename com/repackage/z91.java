@@ -189,14 +189,14 @@ public class z91 extends Dialog {
             Window window = getWindow();
             if (window != null) {
                 window.setGravity(80);
-                window.setWindowAnimations(R.style.obfuscated_res_0x7f10039d);
+                window.setWindowAnimations(R.style.obfuscated_res_0x7f1003a0);
                 window.setLayout(-1, -2);
             }
             this.a = (CouponListView) findViewById(R.id.obfuscated_res_0x7f090578);
             FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090579);
             this.c = frameLayout;
             frameLayout.setVisibility(8);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f8f);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f88);
             this.b = imageView;
             imageView.setOnClickListener(new a(this));
             setOnCancelListener(new b(this));

@@ -41,7 +41,7 @@ public class pl5 extends BdAsyncTask<Void, Void, Void> {
             if (ml5.f().b(this.a)) {
                 return null;
             }
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             k.u("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
             return null;
         }

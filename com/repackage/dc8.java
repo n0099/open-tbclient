@@ -104,7 +104,7 @@ public class dc8 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             this.a = k.l("post" + currentAccount, 0);
             this.b = k.l("like" + currentAccount, 0);
@@ -141,7 +141,7 @@ public class dc8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             k.w("post" + currentAccount, this.a);
             k.w("like" + currentAccount, this.b);
             k.w("group" + currentAccount, this.c);
@@ -158,7 +158,7 @@ public class dc8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, str, i) == null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             k.w(str + currentAccount, i);
         }
     }

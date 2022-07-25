@@ -113,7 +113,7 @@ public class BDEmotionBagLayout extends LinearLayout {
                 } else {
                     linearLayout = (LinearLayout) view2;
                 }
-                ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e88);
+                ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e81);
                 if (i == getCount() - 1) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08054a);
                 } else if (i < this.mList.size() && (emotionBitmapByName = EmotionUtils.getInstance().getEmotionBitmapByName(EmotionType.EMOTION_CLASSIC_TYPE, this.mList.get(i))) != null) {

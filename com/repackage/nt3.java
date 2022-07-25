@@ -15,7 +15,7 @@ public final class nt3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ou3 a;
+    public pu3 a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +30,7 @@ public final class nt3 {
                 return;
             }
         }
-        b = rg1.a;
+        b = sg1.a;
     }
 
     public nt3() {
@@ -47,15 +47,15 @@ public final class nt3 {
         }
     }
 
-    public static nt3 d(os1 os1Var) {
+    public static nt3 d(ps1 ps1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, os1Var)) == null) {
-            if (os1Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ps1Var)) == null) {
+            if (ps1Var == null) {
                 return null;
             }
             nt3 nt3Var = new nt3();
-            nt3Var.a = ou3.e(os1Var);
+            nt3Var.a = pu3.e(ps1Var);
             return nt3Var;
         }
         return (nt3) invokeL.objValue;
@@ -69,7 +69,7 @@ public final class nt3 {
             try {
                 jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
                 jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                jSONObject.put("errDes", tp3.a(str));
+                jSONObject.put("errDes", up3.a(str));
             } catch (Exception e) {
                 if (b) {
                     e.printStackTrace();
@@ -84,19 +84,19 @@ public final class nt3 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             JSONObject a = a(str);
-            ou3 ou3Var = this.a;
-            if (ou3Var != null) {
-                ou3Var.b(a);
+            pu3 pu3Var = this.a;
+            if (pu3Var != null) {
+                pu3Var.b(a);
             }
         }
     }
 
     public void c() {
-        ou3 ou3Var;
+        pu3 pu3Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (ou3Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (pu3Var = this.a) == null) {
             return;
         }
-        ou3Var.c();
+        pu3Var.c();
     }
 }

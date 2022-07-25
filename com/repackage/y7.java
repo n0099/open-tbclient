@@ -45,7 +45,7 @@ public class y7<K, V> extends w7<K, V> {
         }
 
         @Override // com.repackage.w7.d
-        public void c() {
+        public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.d = -1;
@@ -56,7 +56,7 @@ public class y7<K, V> extends w7<K, V> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.repackage.w7.a, java.util.Iterator
-        /* renamed from: e */
+        /* renamed from: d */
         public w7.b next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -123,7 +123,7 @@ public class y7<K, V> extends w7<K, V> {
         }
 
         @Override // com.repackage.w7.d
-        public void c() {
+        public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.d = -1;
@@ -133,19 +133,19 @@ public class y7<K, V> extends w7<K, V> {
         }
 
         @Override // com.repackage.w7.c
-        public a7<K> e() {
+        public a7<K> d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 a7<K> a7Var = new a7<>(true, this.f.b - this.c);
-                f(a7Var);
+                e(a7Var);
                 return a7Var;
             }
             return (a7) invokeV.objValue;
         }
 
         @Override // com.repackage.w7.c
-        public a7<K> f(a7<K> a7Var) {
+        public a7<K> e(a7<K> a7Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a7Var)) == null) {
@@ -225,7 +225,7 @@ public class y7<K, V> extends w7<K, V> {
         }
 
         @Override // com.repackage.w7.d
-        public void c() {
+        public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.d = -1;
@@ -302,13 +302,13 @@ public class y7<K, V> extends w7<K, V> {
             }
             w7.a aVar = this.h;
             if (!aVar.e) {
-                aVar.c();
+                aVar.b();
                 w7.a<K, V> aVar2 = this.h;
                 aVar2.e = true;
                 this.i.e = false;
                 return aVar2;
             }
-            this.i.c();
+            this.i.b();
             w7.a<K, V> aVar3 = this.i;
             aVar3.e = true;
             this.h.e = false;
@@ -349,13 +349,13 @@ public class y7<K, V> extends w7<K, V> {
             }
             w7.c cVar = this.l;
             if (!cVar.e) {
-                cVar.c();
+                cVar.b();
                 w7.c<K> cVar2 = this.l;
                 cVar2.e = true;
                 this.m.e = false;
                 return cVar2;
             }
-            this.m.c();
+            this.m.b();
             w7.c<K> cVar3 = this.m;
             cVar3.e = true;
             this.l.e = false;
@@ -452,13 +452,13 @@ public class y7<K, V> extends w7<K, V> {
             }
             w7.e eVar = this.j;
             if (!eVar.e) {
-                eVar.c();
+                eVar.b();
                 w7.e<V> eVar2 = this.j;
                 eVar2.e = true;
                 this.k.e = false;
                 return eVar2;
             }
-            this.k.c();
+            this.k.b();
             w7.e<V> eVar3 = this.k;
             eVar3.e = true;
             this.j.e = false;

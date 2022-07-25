@@ -8,38 +8,38 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public final class c {
-    public static long a(@Nullable AdTemplate adTemplate) {
+    public static long bC(@Nullable AdTemplate adTemplate) {
         if (adTemplate == null) {
             return 0L;
         }
-        return e(adTemplate).playDetailInfo.detailTopToolBarInfo.callButtonShowTime;
+        return bG(adTemplate).playDetailInfo.detailTopToolBarInfo.callButtonShowTime;
     }
 
-    public static String b(@Nullable AdTemplate adTemplate) {
-        return adTemplate == null ? "" : e(adTemplate).playDetailInfo.detailTopToolBarInfo.callButtonDescription;
+    public static String bD(@Nullable AdTemplate adTemplate) {
+        return adTemplate == null ? "" : bG(adTemplate).playDetailInfo.detailTopToolBarInfo.callButtonDescription;
     }
 
-    public static String c(@Nullable AdTemplate adTemplate) {
-        return adTemplate == null ? "" : e(adTemplate).playEndInfo.endTopToolBarInfo.callButtonDescription;
+    public static String bE(@Nullable AdTemplate adTemplate) {
+        return adTemplate == null ? "" : bG(adTemplate).playEndInfo.endTopToolBarInfo.callButtonDescription;
     }
 
-    public static boolean d(@Nullable AdTemplate adTemplate) {
-        if (adTemplate != null && d.a(adTemplate)) {
-            return e(adTemplate).slideClick;
+    public static boolean bF(@Nullable AdTemplate adTemplate) {
+        if (adTemplate != null && d.bI(adTemplate)) {
+            return bG(adTemplate).slideClick;
         }
         return false;
     }
 
     @NonNull
-    public static AdStyleInfo e(@NonNull AdTemplate adTemplate) {
-        return d.i(adTemplate).adStyleInfo;
+    public static AdStyleInfo bG(@NonNull AdTemplate adTemplate) {
+        return d.bQ(adTemplate).adStyleInfo;
     }
 
-    public static List<String> f(@NonNull AdTemplate adTemplate) {
-        AdStyleInfo e = e(adTemplate);
+    public static List<String> bH(@NonNull AdTemplate adTemplate) {
+        AdStyleInfo bG = bG(adTemplate);
         ArrayList arrayList = new ArrayList();
         try {
-            for (AdStyleInfo.ExposeTagInfo exposeTagInfo : e.extraDisplayInfo.exposeTagInfoList) {
+            for (AdStyleInfo.ExposeTagInfo exposeTagInfo : bG.extraDisplayInfo.exposeTagInfoList) {
                 arrayList.add(exposeTagInfo.text);
             }
         } catch (Exception unused) {

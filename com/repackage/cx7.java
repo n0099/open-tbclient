@@ -22,14 +22,14 @@ public class cx7 extends uw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout f;
-    public nn4 g;
+    public on4 g;
     public xx h;
     public jy i;
     public ThreadData j;
     public VoteView k;
 
     /* loaded from: classes5.dex */
-    public class a extends nn4 {
+    public class a extends on4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ cx7 a;
@@ -52,17 +52,17 @@ public class cx7 extends uw7 {
             this.a = cx7Var;
         }
 
-        @Override // com.repackage.nn4
-        public kp4 getNegFeedBackData() {
+        @Override // com.repackage.on4
+        public lp4 getNegFeedBackData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return null;
             }
-            return (kp4) invokeV.objValue;
+            return (lp4) invokeV.objValue;
         }
 
-        @Override // com.repackage.nn4
+        @Override // com.repackage.on4
         public ThreadData getThreadData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;

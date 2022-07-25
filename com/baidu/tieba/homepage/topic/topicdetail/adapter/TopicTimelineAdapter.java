@@ -48,7 +48,7 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
         if (!(interceptable == null || interceptable.invokeLI(1048576, this, topicTimelineHolder, i) == null) || (k17Var = (k17) ListUtils.getItem(this.b, i)) == null) {
             return;
         }
-        TopicTimelineCellCardView topicTimelineCellCardView = (TopicTimelineCellCardView) topicTimelineHolder.b();
+        TopicTimelineCellCardView topicTimelineCellCardView = (TopicTimelineCellCardView) topicTimelineHolder.a();
         topicTimelineCellCardView.setData(k17Var);
         topicTimelineCellCardView.b();
     }

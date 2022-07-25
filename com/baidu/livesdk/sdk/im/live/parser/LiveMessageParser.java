@@ -13,6 +13,7 @@ import com.baidu.livesdk.api.im.live.LiveMessageBean;
 import com.baidu.livesdk.api.im.live.LiveSendMessage;
 import com.baidu.livesdk.sdk.LiveSDK;
 import com.baidu.livesdk.sdk.im.live.MessageUtils;
+import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -261,7 +262,7 @@ public class LiveMessageParser {
                     break;
                 case 105:
                     data.mcaseId = jSONObject.optInt("mcast_id");
-                    data.opreation = jSONObject.optInt("operation");
+                    data.opreation = jSONObject.optInt(AppDownloadNetworkStateReceiver.KEY_OPERATION);
                     String optString = jSONObject.optString("stick_msgs");
                     if (!TextUtils.isEmpty(optString)) {
                         JSONArray jSONArray = null;

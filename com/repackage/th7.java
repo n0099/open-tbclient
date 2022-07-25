@@ -52,14 +52,14 @@ public class th7 extends sh7 implements LivePlayer, IPlayerViewable {
 
         /* renamed from: com.repackage.th7$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0733a implements Runnable {
+        public class RunnableC0582a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ String b;
             public final /* synthetic */ a c;
 
-            public RunnableC0733a(a aVar, int i, String str) {
+            public RunnableC0582a(a aVar, int i, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -251,7 +251,7 @@ public class th7 extends sh7 implements LivePlayer, IPlayerViewable {
             if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) || (tbBRTCPlayerView = (th7Var = this.a).o) == null || th7Var.e == null) {
                 return;
             }
-            tbBRTCPlayerView.post(new RunnableC0733a(this, i, str));
+            tbBRTCPlayerView.post(new RunnableC0582a(this, i, str));
         }
 
         @Override // com.baidu.rtc.player.BRTCPlayerEvents

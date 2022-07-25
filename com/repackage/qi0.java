@@ -26,13 +26,13 @@ public class qi0 extends dc1<w11> {
 
         /* renamed from: com.repackage.qi0$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0715a extends ik0<xi0> {
+        public class C0560a extends ik0<xi0> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ w11.b b;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0715a(a aVar, Class cls, w11.b bVar) {
+            public C0560a(a aVar, Class cls, w11.b bVar) {
                 super(cls);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -90,7 +90,7 @@ public class qi0 extends dc1<w11> {
         public void a(Object obj, w11.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, obj, bVar) == null) {
-                ek0.a().b(obj, new C0715a(this, xi0.class, bVar));
+                ek0.a().b(obj, new C0560a(this, xi0.class, bVar));
             }
         }
 

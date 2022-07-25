@@ -267,17 +267,17 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
         setLayoutParams(layoutParams);
         setBackgroundResource(R.drawable.obfuscated_res_0x7f080251);
         this.a = a97.f(this.e, R.dimen.obfuscated_res_0x7f070215);
-        this.c = a97.f(this.e, R.dimen.obfuscated_res_0x7f07026e);
-        this.b = a97.f(this.e, R.dimen.obfuscated_res_0x7f0702d6);
+        this.c = a97.f(this.e, R.dimen.obfuscated_res_0x7f07026c);
+        this.b = a97.f(this.e, R.dimen.obfuscated_res_0x7f0702d4);
     }
 
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                startAnimation(AnimationUtils.loadAnimation(this.e, R.anim.obfuscated_res_0x7f010129));
+                startAnimation(AnimationUtils.loadAnimation(this.e, R.anim.obfuscated_res_0x7f010127));
             } else {
-                startAnimation(AnimationUtils.loadAnimation(this.e, R.anim.obfuscated_res_0x7f010128));
+                startAnimation(AnimationUtils.loadAnimation(this.e, R.anim.obfuscated_res_0x7f010126));
             }
         }
     }

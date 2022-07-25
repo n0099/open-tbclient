@@ -6,42 +6,42 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 /* loaded from: classes5.dex */
 public abstract class e implements com.kwad.sdk.core.videocache.kwai.a {
-    public final ExecutorService a = com.kwad.sdk.core.threads.b.a();
+    public final ExecutorService aeY = com.kwad.sdk.core.threads.b.vh();
 
     /* loaded from: classes5.dex */
     public class a implements Callable<Void> {
-        public final File b;
+        public final File file;
 
         public a(File file) {
-            this.b = file;
+            this.file = file;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: private */
         @Override // java.util.concurrent.Callable
-        /* renamed from: a */
+        /* renamed from: sH */
         public Void call() {
-            e.this.b(this.b);
+            e.this.w(this.file);
             return null;
         }
     }
 
-    private void a(List<File> list) {
-        long b = b(list);
+    private void s(List<File> list) {
+        long t = t(list);
         list.size();
         for (File file : list) {
-            if (!a(b)) {
+            if (!J(t)) {
                 long length = file.length();
                 if (file.delete()) {
-                    b -= length;
+                    t -= length;
                 } else {
-                    com.kwad.sdk.core.d.b.e("LruDiskUsage", "Error deleting file " + file + " for trimming cache");
+                    com.kwad.sdk.core.e.b.e("LruDiskUsage", "Error deleting file " + file + " for trimming cache");
                 }
             }
         }
     }
 
-    public static long b(List<File> list) {
+    public static long t(List<File> list) {
         long j = 0;
         for (File file : list) {
             j += file.length();
@@ -50,15 +50,15 @@ public abstract class e implements com.kwad.sdk.core.videocache.kwai.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(File file) {
-        d.c(file);
-        a(d.b(file.getParentFile()));
+    public void w(File file) {
+        d.t(file);
+        s(d.s(file.getParentFile()));
     }
+
+    public abstract boolean J(long j);
 
     @Override // com.kwad.sdk.core.videocache.kwai.a
-    public final void a(File file) {
-        this.a.submit(new a(file));
+    public final void p(File file) {
+        this.aeY.submit(new a(file));
     }
-
-    public abstract boolean a(long j);
 }

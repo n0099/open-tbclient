@@ -100,14 +100,14 @@ public class z86 extends Dialog {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.b = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0277, (ViewGroup) null);
             this.f = TbadkApplication.getInst().getSkinType();
-            String string = getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f53);
+            String string = getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f3c);
             this.c = new SpannableString(string);
             this.c.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.common_color_10159)), 5, string.length(), 33);
-            setContentView(this.b, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702db), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ad)));
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091f9a);
+            setContentView(this.b, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d9), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ab)));
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091f9e);
             this.d = textView;
             textView.setText(this.c);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090692);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090691);
             this.e = textView2;
             textView2.setOnClickListener(new a(this));
             setCancelable(true);
@@ -120,7 +120,7 @@ public class z86 extends Dialog {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.b = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0278, (ViewGroup) null);
             this.f = TbadkApplication.getInst().getSkinType();
-            setContentView(this.b, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702db), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070295)));
+            setContentView(this.b, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d9), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070293)));
             setCancelable(false);
             b();
         }

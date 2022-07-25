@@ -266,7 +266,7 @@ public class bh6 extends cd6<ThreadData, c> {
             if (threadData != null) {
                 threadData.updateShowStatus();
             }
-            return cVar.b();
+            return cVar.a();
         }
         return (View) invokeCommon.objValue;
     }

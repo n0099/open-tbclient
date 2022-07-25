@@ -48,8 +48,8 @@ public class AlaEnterEffectCategoryAdapter extends an<xv5, ViewHolder> {
                     return;
                 }
             }
-            this.a = (TextView) b().findViewById(R.id.obfuscated_res_0x7f0908b2);
-            this.b = b().findViewById(R.id.obfuscated_res_0x7f0901c7);
+            this.a = (TextView) a().findViewById(R.id.obfuscated_res_0x7f0908b0);
+            this.b = a().findViewById(R.id.obfuscated_res_0x7f0901c7);
         }
     }
 
@@ -109,7 +109,7 @@ public class AlaEnterEffectCategoryAdapter extends an<xv5, ViewHolder> {
                 viewHolder.b.setVisibility(0);
             }
             Z(viewHolder);
-            return viewHolder.b();
+            return viewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

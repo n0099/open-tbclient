@@ -28,7 +28,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ln5 extends e23 {
+public class ln5 extends f23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,15 +38,15 @@ public class ln5 extends e23 {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
         public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ h03 c;
+        public final /* synthetic */ i03 c;
         public final /* synthetic */ ln5 d;
 
-        public a(ln5 ln5Var, String str, CallbackHandler callbackHandler, h03 h03Var) {
+        public a(ln5 ln5Var, String str, CallbackHandler callbackHandler, i03 i03Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ln5Var, str, callbackHandler, h03Var};
+                Object[] objArr = {ln5Var, str, callbackHandler, i03Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,7 +59,7 @@ public class ln5 extends e23 {
             this.d = ln5Var;
             this.a = str;
             this.b = callbackHandler;
-            this.c = h03Var;
+            this.c = i03Var;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -90,13 +90,13 @@ public class ln5 extends e23 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ln5(e13 e13Var) {
-        super(e13Var, "/swanAPI/navigateToProgram");
+    public ln5(f13 f13Var) {
+        super(f13Var, "/swanAPI/navigateToProgram");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e13Var};
+            Object[] objArr = {f13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -110,20 +110,20 @@ public class ln5 extends e23 {
         }
     }
 
-    @Override // com.repackage.e23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+    @Override // com.repackage.f23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
             if (optParamsAsJo == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
-            } else if (h03Var == null) {
+            } else if (i03Var == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             } else {
-                String g0 = h03.g0();
+                String g0 = i03.g0();
                 if (!TextUtils.isEmpty(g0) && !TextUtils.isEmpty(g0.trim())) {
                     String optString = optParamsAsJo.optString("cb");
                     if (TextUtils.isEmpty(optString)) {
@@ -141,7 +141,7 @@ public class ln5 extends e23 {
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                         return false;
                     }
-                    m(l.body(), unitedSchemeEntity, optString, callbackHandler, h03Var);
+                    m(l.body(), unitedSchemeEntity, optString, callbackHandler, i03Var);
                     return true;
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -164,7 +164,7 @@ public class ln5 extends e23 {
                 schemeHead = BaseWebViewActivity.SHOUBAI_SCHEME;
             }
             buildUpon.scheme(schemeHead);
-            if (e23.b) {
+            if (f23.b) {
                 Log.i("NavigateToSmartProgram", buildUpon.build().toString());
             }
             return buildUpon.build();
@@ -177,19 +177,19 @@ public class ln5 extends e23 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject)) == null) {
             if (jSONObject != null && !TextUtils.isEmpty(str)) {
-                String b = hq2.b(be3.n());
+                String b = iq2.b(ce3.n());
                 JSONObject jSONObject2 = new JSONObject();
                 try {
                     jSONObject2.put(GameGuideConfigInfo.KEY_APP_KEY, str);
                     jSONObject2.put("srcAppPage", b);
                     jSONObject2.put("params", jSONObject);
-                    Request build = new Request.Builder().url(oj2.o().I()).post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
-                    if (e23.b) {
+                    Request build = new Request.Builder().url(pj2.o().I()).post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
+                    if (f23.b) {
                         Log.i("NavigateToSmartProgram", "appId :" + str + "\nrequest params" + jSONObject2.toString());
                     }
                     return build;
                 } catch (Exception e) {
-                    if (e23.b) {
+                    if (f23.b) {
                         e.printStackTrace();
                     }
                 }
@@ -199,21 +199,21 @@ public class ln5 extends e23 {
         return (Request) invokeLL.objValue;
     }
 
-    public final void m(RequestBody requestBody, UnitedSchemeEntity unitedSchemeEntity, String str, CallbackHandler callbackHandler, h03 h03Var) {
+    public final void m(RequestBody requestBody, UnitedSchemeEntity unitedSchemeEntity, String str, CallbackHandler callbackHandler, i03 i03Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, requestBody, unitedSchemeEntity, str, callbackHandler, h03Var) == null) {
-            i74 i74Var = new i74(oj2.o().I(), requestBody, new a(this, str, callbackHandler, h03Var));
-            i74Var.f = true;
-            i74Var.g = false;
-            i74Var.h = true;
-            j74.g().e(i74Var);
+        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, requestBody, unitedSchemeEntity, str, callbackHandler, i03Var) == null) {
+            j74 j74Var = new j74(pj2.o().I(), requestBody, new a(this, str, callbackHandler, i03Var));
+            j74Var.f = true;
+            j74Var.g = false;
+            j74Var.h = true;
+            k74.g().e(j74Var);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 
-    public final void n(Response response, String str, CallbackHandler callbackHandler, h03 h03Var) {
+    public final void n(Response response, String str, CallbackHandler callbackHandler, i03 i03Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, response, str, callbackHandler, h03Var) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, response, str, callbackHandler, i03Var) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(response.body().string());
                 if (!TextUtils.equals(jSONObject.optString("errno"), "0")) {
@@ -229,10 +229,10 @@ public class ln5 extends e23 {
                 if (k == null) {
                     callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(402).toString());
                 } else {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(SchemeRouter.invokeScheme(h03Var.getApplicationContext(), k, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) ? 0 : 1001).toString());
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(SchemeRouter.invokeScheme(i03Var.getApplicationContext(), k, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) ? 0 : 1001).toString());
                 }
             } catch (Exception e) {
-                if (e23.b) {
+                if (f23.b) {
                     Log.d("NavigateToSmartProgram", e.getMessage());
                 }
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(201, e.getMessage()).toString());

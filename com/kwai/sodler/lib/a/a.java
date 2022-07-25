@@ -15,15 +15,15 @@ import java.io.File;
 public abstract class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public File a;
-    public String b;
-    public com.kwai.sodler.lib.ext.c c;
-    public String d;
-    public String e;
-    public com.kwai.sodler.lib.c.b f;
-    public boolean g;
-    public final byte[] h;
-    public final String i;
+    public File axU;
+    public String axV;
+    public String axW;
+    public boolean axX;
+    public final byte[] axY;
+    public final String axZ;
+    public com.kwai.sodler.lib.ext.c axi;
+    public com.kwai.sodler.lib.c.b aya;
+    public String mVersion;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -40,116 +40,116 @@ public abstract class a {
                 return;
             }
         }
-        this.h = new byte[0];
-        this.g = false;
-        this.i = str;
-        this.b = str;
-        this.c = i.a().c();
+        this.axY = new byte[0];
+        this.axX = false;
+        this.axZ = str;
+        this.axV = str;
+        this.axi = i.EU().EX();
     }
 
-    private void a() {
+    private void Fg() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.g) {
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.axX) {
             return;
         }
-        synchronized (this.h) {
-            this.g = true;
+        synchronized (this.axY) {
+            this.axX = true;
         }
     }
 
-    public final a a(@NonNull com.kwai.sodler.lib.c.b bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-            this.f = bVar;
-            return this;
-        }
-        return (a) invokeL.objValue;
-    }
-
-    public abstract void a(Context context, String str);
-
-    public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public final void b(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, str) == null) {
-            a(context, str);
-            a();
-        }
-    }
-
-    public final void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public final String c() {
+    public final String Fh() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.axZ : (String) invokeV.objValue;
     }
 
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.g) {
-                return true;
-            }
-            synchronized (this.h) {
-                z = this.g;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final String e() {
+    public final String Fi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.i : (String) invokeV.objValue;
-    }
-
-    public final String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            com.kwai.sodler.lib.c.b bVar = this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            com.kwai.sodler.lib.c.b bVar = this.aya;
             if (bVar != null) {
-                return bVar.f;
+                return bVar.ayC;
             }
             return null;
         }
         return (String) invokeV.objValue;
     }
 
+    public final a a(@NonNull com.kwai.sodler.lib.c.b bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
+            this.aya = bVar;
+            return this;
+        }
+        return (a) invokeL.objValue;
+    }
+
+    public abstract void ad(Context context, String str);
+
+    public final void af(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) {
+            ad(context, str);
+            Fg();
+        }
+    }
+
+    public final void eT(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.mVersion = str;
+        }
+    }
+
+    public final void eU(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.axW = str;
+        }
+    }
+
+    public final void eV(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.axV = str;
+        }
+    }
+
+    public final String getId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.axW : (String) invokeV.objValue;
+    }
+
+    public final String getVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mVersion : (String) invokeV.objValue;
+    }
+
+    public final boolean isLoaded() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (this.axX) {
+                return true;
+            }
+            synchronized (this.axY) {
+                z = this.axX;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return "Plugin{, ApkPath = '" + this.i + "'}";
+            return "Plugin{, ApkPath = '" + this.axZ + "'}";
         }
         return (String) invokeV.objValue;
     }

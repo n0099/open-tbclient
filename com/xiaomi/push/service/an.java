@@ -16,7 +16,7 @@ public class an {
     public static Object a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static Map<String, Queue<String>> f1619a;
+    public static Map<String, Queue<String>> f899a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class an {
             }
         }
         a = new Object();
-        f1619a = new HashMap();
+        f899a = new HashMap();
     }
 
     public static boolean a(XMPushService xMPushService, String str, String str2) {
@@ -42,14 +42,14 @@ public class an {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, xMPushService, str, str2)) == null) {
             synchronized (a) {
                 SharedPreferences sharedPreferences = xMPushService.getSharedPreferences("push_message_ids", 0);
-                Queue<String> queue = f1619a.get(str);
+                Queue<String> queue = f899a.get(str);
                 if (queue == null) {
                     String[] split = sharedPreferences.getString(str, "").split(",");
                     LinkedList linkedList = new LinkedList();
                     for (String str3 : split) {
                         linkedList.add(str3);
                     }
-                    f1619a.put(str, linkedList);
+                    f899a.put(str, linkedList);
                     queue = linkedList;
                 }
                 if (queue.contains(str2)) {

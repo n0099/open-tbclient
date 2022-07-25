@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class dq5 {
@@ -35,7 +35,7 @@ public class dq5 {
     public RelativeLayout d;
     public BdTypeRecyclerView e;
     public BdSwipeRefreshLayout f;
-    public gu4 g;
+    public hu4 g;
     public View h;
     public rp5 i;
     public f j;
@@ -78,7 +78,7 @@ public class dq5 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements fu4.g {
+    public class b implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dq5 a;
@@ -101,7 +101,7 @@ public class dq5 {
             this.a = dq5Var;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.j == null) {
@@ -303,7 +303,7 @@ public class dq5 {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0901f1);
             this.c = navigationBar;
-            navigationBar.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a10));
+            navigationBar.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09fc));
             this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
         }
     }
@@ -313,7 +313,7 @@ public class dq5 {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             i();
             this.d = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0901f0);
-            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f0907d7);
+            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f0907d5);
             BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.b.findViewById(R.id.obfuscated_res_0x7f0901f3);
             this.e = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity()));
@@ -321,9 +321,9 @@ public class dq5 {
             this.e.setOverScrollMode(2);
             this.e.addOnScrollListener(this.m);
             this.e.setOnSrollToBottomListener(new a(this));
-            gu4 gu4Var = new gu4(this.a);
-            this.g = gu4Var;
-            gu4Var.f(new b(this));
+            hu4 hu4Var = new hu4(this.a);
+            this.g = hu4Var;
+            hu4Var.f(new b(this));
             BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0901f2);
             this.f = bdSwipeRefreshLayout;
             bdSwipeRefreshLayout.setProgressView(this.g);
@@ -347,9 +347,9 @@ public class dq5 {
                 navigationBar.onChangeSkinType(this.a, i);
             }
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
-            gu4 gu4Var = this.g;
-            if (gu4Var != null) {
-                gu4Var.H(i);
+            hu4 hu4Var = this.g;
+            if (hu4Var != null) {
+                hu4Var.H(i);
             }
             SkinManager.setBackgroundColor(this.f, R.color.CAM_X0201);
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0201);
@@ -365,9 +365,9 @@ public class dq5 {
                 this.e.setOnSrollToBottomListener(null);
                 this.e.setScrollable(null);
             }
-            gu4 gu4Var = this.g;
-            if (gu4Var != null) {
-                gu4Var.f(null);
+            hu4 hu4Var = this.g;
+            if (hu4Var != null) {
+                hu4Var.f(null);
                 this.g.Z();
             }
         }

@@ -64,18 +64,18 @@ public class f78 implements View.OnClickListener {
             }
         }
         this.o = tbPageContext;
-        this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092148);
-        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091945);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092357);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091af9);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a3f);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091aea);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f2f);
-        this.d = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f43);
-        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f39);
-        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0918a4);
-        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09182f);
-        this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090656);
+        this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09214a);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091920);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092359);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ad3);
+        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a38);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ac4);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f28);
+        this.d = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f3c);
+        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f32);
+        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09187f);
+        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09180a);
+        this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090655);
         this.g = pi.d(view2.getContext(), 42.0f);
         LinearLayout linearLayout = this.c;
         if (linearLayout != null) {
@@ -87,7 +87,7 @@ public class f78 implements View.OnClickListener {
         this.m.setOnClickListener(this);
         this.d.setOnClickListener(this);
         this.e.setOnClickListener(this);
-        this.m.setText(R.string.obfuscated_res_0x7f0f0fc0);
+        this.m.setText(R.string.obfuscated_res_0x7f0f0fa9);
     }
 
     public void a(int i) {
@@ -288,7 +288,7 @@ public class f78 implements View.OnClickListener {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f090a3f) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090a38) {
                 TbPageContext<?> tbPageContext = this.o;
                 if (tbPageContext != null) {
                     tbPageContext.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.o.getPageActivity()).createNormalCfg((String) view2.getTag(), "")));

@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m95;
+import com.repackage.n95;
 import com.repackage.ng;
 import com.repackage.ni;
-import com.repackage.q95;
 import com.repackage.r95;
 import com.repackage.s95;
 import com.repackage.t95;
-import com.repackage.xt4;
+import com.repackage.u95;
+import com.repackage.yt4;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes3.dex */
@@ -69,7 +69,7 @@ public class PerformanceLoggerHelper {
         this.isSmallFlow = false;
         this.maxIntervalForOnce = 86400L;
         this.smallFlowInterval = 0L;
-        this.startSmallFlowTime = xt4.k().m(TB_PERFOR_SMALLFLOW_TIME, 0L);
+        this.startSmallFlowTime = yt4.k().m(TB_PERFOR_SMALLFLOW_TIME, 0L);
         BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
         this.smallFlowInterval = this.maxIntervalForOnce;
         BdBaseApplication.getInst().setSmallFlowInterval(this.smallFlowInterval);
@@ -348,66 +348,66 @@ public class PerformanceLoggerHelper {
         return invokeV.longValue;
     }
 
-    public r95 getLoggerWithType(int i) {
+    public s95 getLoggerWithType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             if (isSmallFlow()) {
                 switch (i) {
                     case 1000:
-                        t95 t95Var = new t95();
-                        t95Var.a = "frs";
-                        return t95Var;
+                        u95 u95Var = new u95();
+                        u95Var.a = "frs";
+                        return u95Var;
                     case 1001:
-                        t95 t95Var2 = new t95();
-                        t95Var2.a = "pb";
-                        return t95Var2;
+                        u95 u95Var2 = new u95();
+                        u95Var2.a = "pb";
+                        return u95Var2;
                     case 1002:
-                        q95 q95Var = new q95();
-                        q95Var.a = "im";
-                        return q95Var;
+                        r95 r95Var = new r95();
+                        r95Var.a = "im";
+                        return r95Var;
                     case 1003:
                     case 1006:
                     case 1007:
                     default:
                         return null;
                     case 1004:
-                        t95 t95Var3 = new t95();
-                        t95Var3.a = "photo_live";
-                        return t95Var3;
+                        u95 u95Var3 = new u95();
+                        u95Var3.a = "photo_live";
+                        return u95Var3;
                     case 1005:
-                        m95 m95Var = new m95();
-                        m95Var.a = "home_page";
-                        return m95Var;
+                        n95 n95Var = new n95();
+                        n95Var.a = "home_page";
+                        return n95Var;
                     case 1008:
-                        t95 t95Var4 = new t95();
-                        t95Var4.a = "user_center";
-                        return t95Var4;
+                        u95 u95Var4 = new u95();
+                        u95Var4.a = "user_center";
+                        return u95Var4;
                     case 1009:
-                        t95 t95Var5 = new t95();
-                        t95Var5.a = "sign_all";
-                        return t95Var5;
+                        u95 u95Var5 = new u95();
+                        u95Var5.a = "sign_all";
+                        return u95Var5;
                     case 1010:
-                        t95 t95Var6 = new t95();
-                        t95Var6.a = "person_center";
-                        return t95Var6;
+                        u95 u95Var6 = new u95();
+                        u95Var6.a = "person_center";
+                        return u95Var6;
                     case 1011:
-                        t95 t95Var7 = new t95();
-                        t95Var7.a = "person_center_home";
-                        return t95Var7;
+                        u95 u95Var7 = new u95();
+                        u95Var7.a = "person_center_home";
+                        return u95Var7;
                     case 1012:
-                        t95 t95Var8 = new t95();
-                        t95Var8.a = "person_center_post";
-                        return t95Var8;
+                        u95 u95Var8 = new u95();
+                        u95Var8.a = "person_center_post";
+                        return u95Var8;
                     case 1013:
-                        t95 t95Var9 = new t95();
-                        t95Var9.a = "person_center_dynamic";
-                        return t95Var9;
+                        u95 u95Var9 = new u95();
+                        u95Var9.a = "person_center_dynamic";
+                        return u95Var9;
                 }
             }
             return null;
         }
-        return (r95) invokeI.objValue;
+        return (s95) invokeI.objValue;
     }
 
     public String getNetType() {
@@ -437,17 +437,17 @@ public class PerformanceLoggerHelper {
                 if (0 == j || currentTimeMillis - j >= this.smallFlowInterval) {
                     this.startSmallFlowTime = currentTimeMillis;
                     BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
-                    xt4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                    yt4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
                 }
             } else {
                 this.startSmallFlowTime = 0L;
                 BdBaseApplication.getInst().setStartSmallFlowTime(0L);
-                xt4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                yt4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
             }
             this.isSmallFlow = z;
             BdBaseApplication.getInst().setIsSmallFlow(z);
             if (BdStatisticsManager.getInstance().isMainProcess()) {
-                s95.b().f();
+                t95.b().f();
             }
         }
     }

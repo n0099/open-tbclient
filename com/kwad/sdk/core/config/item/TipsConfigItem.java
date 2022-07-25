@@ -63,7 +63,7 @@ public final class TipsConfigItem extends b<TipConfigData> {
             try {
                 genTipMap(new JSONObject(str));
             } catch (Exception e) {
-                com.kwad.sdk.core.d.b.b(e);
+                com.kwad.sdk.core.e.b.printStackTraceOnly(e);
             }
         }
 
@@ -74,8 +74,8 @@ public final class TipsConfigItem extends b<TipConfigData> {
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            r.a(jSONObject, "tipShowSwitch", this.tipShowSwitch);
-            r.a(jSONObject, "tipInfo", this.tipInfo);
+            r.putValue(jSONObject, "tipShowSwitch", this.tipShowSwitch);
+            r.putValue(jSONObject, "tipInfo", this.tipInfo);
             return jSONObject;
         }
     }
@@ -85,31 +85,31 @@ public final class TipsConfigItem extends b<TipConfigData> {
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void a(@NonNull SharedPreferences.Editor editor) {
-        editor.putInt("tipsSwitch", b().getTipShowSwitch());
-        editor.putString("tipsInfo", b().getTipInfoData() != null ? b().getTipInfoData() : "");
-    }
-
-    @Override // com.kwad.sdk.core.config.item.b
     public final void a(@NonNull SharedPreferences sharedPreferences) {
-        TipConfigData b = b();
-        if (b == null) {
-            b = new TipConfigData();
+        TipConfigData value = getValue();
+        if (value == null) {
+            value = new TipConfigData();
         }
-        b.setTipShowSwitch(sharedPreferences.getInt("tipsSwitch", 0));
-        b.setTipInfoData(sharedPreferences.getString("tipsInfo", ""));
-        a((TipsConfigItem) b);
+        value.setTipShowSwitch(sharedPreferences.getInt("tipsSwitch", 0));
+        value.setTipInfoData(sharedPreferences.getString("tipsInfo", ""));
+        setValue(value);
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void a(JSONObject jSONObject) {
+    public final void b(@NonNull SharedPreferences.Editor editor) {
+        editor.putInt("tipsSwitch", getValue().getTipShowSwitch());
+        editor.putString("tipsInfo", getValue().getTipInfoData() != null ? getValue().getTipInfoData() : "");
+    }
+
+    @Override // com.kwad.sdk.core.config.item.b
+    public final void e(JSONObject jSONObject) {
         JSONObject optJSONObject;
-        if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject(a())) == null) {
-            a((TipsConfigItem) c());
+        if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject(getKey())) == null) {
+            setValue(sx());
             return;
         }
         TipConfigData tipConfigData = new TipConfigData();
         tipConfigData.parseJson(optJSONObject);
-        a((TipsConfigItem) tipConfigData);
+        setValue(tipConfigData);
     }
 }

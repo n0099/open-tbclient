@@ -196,11 +196,11 @@ public class rk6 {
             imageView.setOnClickListener(this.h);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(0, 0, pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), 0);
-            ImageView imageView2 = (ImageView) this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d078f, (View.OnClickListener) null);
+            ImageView imageView2 = (ImageView) this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0799, (View.OnClickListener) null);
             this.f = imageView2;
             imageView2.setLayoutParams(layoutParams);
             this.f.setOnClickListener(this.h);
-            ImageView imageView3 = (ImageView) this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d08bf, (View.OnClickListener) null);
+            ImageView imageView3 = (ImageView) this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d08c9, (View.OnClickListener) null);
             this.g = imageView3;
             imageView3.setLayoutParams(layoutParams);
             this.g.setOnClickListener(this.h);

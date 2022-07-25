@@ -46,13 +46,13 @@ public abstract class qu9<E> extends ou9<E> {
         }
     }
 
-    public final LinkedQueueNode<E> b() {
+    public final LinkedQueueNode<E> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (LinkedQueueNode) rv9.a.f(this, a) : (LinkedQueueNode) invokeV.objValue;
     }
 
-    public final void c(LinkedQueueNode<E> linkedQueueNode) {
+    public final void b(LinkedQueueNode<E> linkedQueueNode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
             this.producerNode = linkedQueueNode;

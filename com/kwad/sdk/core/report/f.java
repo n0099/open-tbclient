@@ -1,97 +1,107 @@
 package com.kwad.sdk.core.report;
 
 import com.kwad.sdk.core.report.u;
-import com.kwad.sdk.utils.y;
+import com.kwad.sdk.utils.aa;
 /* loaded from: classes5.dex */
 public final class f {
-    public u.b a = new u.b();
+    public u.b ZY = new u.b();
 
-    public final f a(double d) {
-        this.a.H = d;
-        return this;
-    }
-
-    public final f a(int i) {
-        this.a.c = i;
-        return this;
-    }
-
-    public final f a(long j) {
-        this.a.D = j;
+    public final f F(long j) {
+        this.ZY.ss = j;
         return this;
     }
 
     public final f a(u.a aVar) {
-        this.a.B = aVar;
+        this.ZY.abW = aVar;
         return this;
     }
 
-    public final f a(y.a aVar) {
-        this.a.i = aVar;
+    public final f aI(int i) {
+        this.ZY.gJ = i;
         return this;
     }
 
-    public final f a(String str) {
-        this.a.j = str;
+    public final f aJ(int i) {
+        this.ZY.abD = 1;
         return this;
     }
 
-    public final u.b a() {
-        return this.a;
-    }
-
-    public final f b(int i) {
-        this.a.d = 1;
+    public final f aK(int i) {
+        this.ZY.abE = i;
         return this;
     }
 
-    public final f b(String str) {
-        this.a.J = str;
+    public final f aL(int i) {
+        this.ZY.aat = i;
         return this;
     }
 
-    public final f c(int i) {
-        this.a.e = i;
+    public final f aM(int i) {
+        this.ZY.abG = i;
         return this;
     }
 
-    public final f d(int i) {
-        this.a.q = i;
+    public final f aN(int i) {
+        this.ZY.abX = i;
         return this;
     }
 
-    public final f e(int i) {
-        this.a.h = i;
+    public final f aO(int i) {
+        this.ZY.abY = i;
         return this;
     }
 
-    public final f f(int i) {
-        this.a.E = i;
+    public final f aP(int i) {
+        this.ZY.acd = i;
         return this;
     }
 
-    public final f g(int i) {
-        this.a.F = i;
+    public final f aQ(int i) {
+        this.ZY.aV(i);
         return this;
     }
 
-    public final f h(int i) {
-        this.a.L = i;
+    public final f aR(int i) {
+        this.ZY.acf = i;
         return this;
     }
 
-    public final f i(int i) {
-        this.a.a(i);
+    public final f aS(int i) {
+        this.ZY.acg = i;
         return this;
     }
 
-    public final f j(int i) {
-        this.a.O = i;
+    public final f aT(int i) {
+        this.ZY.ach = i;
         return this;
     }
 
-    public final f k(int i) {
-        this.a.P = i;
+    public final f aU(int i) {
+        this.ZY.abH = i;
         return this;
+    }
+
+    public final f b(aa.a aVar) {
+        this.ZY.gL = aVar;
+        return this;
+    }
+
+    public final f cr(String str) {
+        this.ZY.Mn = str;
+        return this;
+    }
+
+    public final f cs(String str) {
+        this.ZY.acb = str;
+        return this;
+    }
+
+    public final f e(double d) {
+        this.ZY.gM = d;
+        return this;
+    }
+
+    public final u.b uw() {
+        return this.ZY;
     }
 }

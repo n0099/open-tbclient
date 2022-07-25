@@ -1,43 +1,33 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.view.View;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.TextUtils;
+import android.util.Pair;
 import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.AgreeView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb.ejection.EjectionAnimationView;
-import com.baidu.tieba.view.WaterRippleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class zt4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<?> a;
-    public int b;
-    public FrameLayout c;
-    public WaterRippleView d;
-    public EjectionAnimationView e;
-    public AgreeView f;
-    public PopupWindow g;
+    public int a;
+    public FragmentTabHost b;
+    public final ig<ym> c;
 
     /* loaded from: classes7.dex */
-    public class a implements is7 {
+    public class a extends ig<ym> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zt4 a;
@@ -60,155 +50,100 @@ public class zt4 {
             this.a = zt4Var;
         }
 
-        @Override // com.repackage.is7
-        public /* synthetic */ void onStart() {
-            hs7.a(this);
-        }
-
-        @Override // com.repackage.is7
-        public void onStop() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ig
+        public void onLoaded(ym ymVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.e.setVisibility(8);
-                if (this.a.g != null && this.a.g.isShowing()) {
-                    sg.d(this.a.g, this.a.a.getPageActivity());
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, ymVar, str, i) == null) {
+                super.onLoaded((a) ymVar, str, i);
+                if (this.a.b == null || ymVar == null || !ymVar.w()) {
+                    this.a.f();
+                    return;
                 }
-                if (this.a.f != null) {
-                    this.a.f.P();
+                FragmentTabWidget fragmentTabWidget = this.a.b.getFragmentTabWidget();
+                CustomViewPager fragmentViewPager = this.a.b.getFragmentViewPager();
+                ViewGroup tabWrapper = this.a.b.getTabWrapper();
+                if (fragmentTabWidget == null || fragmentViewPager == null) {
+                    return;
                 }
+                this.a.b.setNeedShowThemeStyle(false);
+                fragmentTabWidget.setBackGroundDrawableResId(R.color.black_alpha0);
+                SkinManager.setBackgroundColor(tabWrapper, R.color.black_alpha0);
+                SkinManager.setBackgroundColor(fragmentTabWidget, R.color.black_alpha0);
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) fragmentViewPager.getLayoutParams();
+                layoutParams.bottomMargin = pi.f(this.a.b.getContext(), R.dimen.tbds100);
+                fragmentViewPager.setLayoutParams(layoutParams);
+                fragmentTabWidget.setBackgroundDrawable(new BitmapDrawable(ymVar.p()));
             }
         }
     }
 
-    public zt4(TbPageContext<?> tbPageContext) {
+    public zt4(FragmentTabHost fragmentTabHost, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {fragmentTabHost, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 0;
-        this.a = tbPageContext;
-        f();
-        g();
+        this.a = 0;
+        this.c = new a(this);
+        this.b = fragmentTabHost;
+        this.a = i;
     }
 
-    public final int e() {
+    public final BdUniqueId c() {
         InterceptResult invokeV;
+        d9<?> a2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? UtilHelper.getImmersiveStickyBarHeight() + UtilHelper.getScreenHeight(this.a.getPageActivity()) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            FragmentTabHost fragmentTabHost = this.b;
+            if (fragmentTabHost == null || fragmentTabHost.getContext() == null || (a2 = h9.a(this.b.getContext())) == null) {
+                return null;
+            }
+            return a2.getUniqueId();
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            jg.h().m(str, 10, this.c, c());
+        }
+    }
+
+    public void e(Pair<String, String> pair) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pair) == null) || pair == null) {
+            return;
+        }
+        String str = (String) pair.first;
+        String str2 = (String) pair.second;
+        if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(str2)) {
+            d(str2);
+        } else if (!TextUtils.isEmpty(str)) {
+            d(str);
+        } else {
+            f();
+        }
     }
 
     public final void f() {
+        FragmentTabHost fragmentTabHost;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new FrameLayout(this.a.getPageActivity());
-            this.e = new EjectionAnimationView(this.a.getPageActivity());
-            this.c.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            this.e.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            this.e.setEjectionAnimationViewCallback(new a(this));
-            this.c.addView(this.e);
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            PopupWindow popupWindow = new PopupWindow();
-            this.g = popupWindow;
-            popupWindow.setContentView(this.c);
-            this.g.setHeight(e());
-            this.g.setWidth(-1);
-            this.g.setOutsideTouchable(false);
-            this.g.setFocusable(false);
-            this.g.setTouchable(false);
-        }
-    }
-
-    public final void h(View view2, Rect rect) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, view2, rect) == null) && sg.m(this.g, view2, this.b, 0, 0)) {
-            this.e.setAnchorPosition((rect.right + rect.left) / 2, (rect.bottom + rect.top) / 2);
-            this.e.k();
-        }
-    }
-
-    public void i(AgreeView agreeView) {
-        WaterRippleView waterRippleView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, agreeView) == null) || agreeView == null || (waterRippleView = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (fragmentTabHost = this.b) == null || fragmentTabHost.getFragmentTabWidget() == null) {
             return;
         }
-        ViewParent parent = waterRippleView.getParent();
-        if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(this.d);
-        }
-    }
-
-    public void j(boolean z) {
-        PopupWindow popupWindow;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (popupWindow = this.g) == null) {
-            return;
-        }
-        popupWindow.setClippingEnabled(z);
-    }
-
-    public void k(View view2, List<Bitmap> list, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, view2, list, rect) == null) {
-            this.e.setVisibility(0);
-            this.e.setBitmaps(list);
-            h(view2, rect);
-        }
-    }
-
-    public void l(LinearLayout linearLayout, AgreeView agreeView) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, linearLayout, agreeView) == null) || linearLayout == null || agreeView == null) {
-            return;
-        }
-        if (agreeView.getWidth() != 0 && agreeView.getHeight() != 0) {
-            this.f = agreeView;
-            WaterRippleView waterRippleView = this.d;
-            if (waterRippleView == null) {
-                this.d = new WaterRippleView(this.a.getPageActivity());
-            } else {
-                ViewParent parent = waterRippleView.getParent();
-                if (parent instanceof ViewGroup) {
-                    ((ViewGroup) parent).removeView(this.d);
-                }
-            }
-            linearLayout.getGlobalVisibleRect(new Rect());
-            Rect rect = new Rect();
-            agreeView.getImgAgree().getGlobalVisibleRect(rect);
-            int centerX = rect.centerX();
-            int centerY = rect.centerY();
-            int f = pi.f(this.a.getPageActivity(), R.dimen.tbds166);
-            int i = centerX - f;
-            int i2 = centerY - f;
-            int i3 = f * 2;
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i3, i3);
-            layoutParams.addRule(13, -1);
-            layoutParams.setMargins(i, i2, 0, 0);
-            this.c.addView(this.d, layoutParams);
-            return;
-        }
-        BdLog.e("AgreeView not measured");
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.e.l();
-        }
+        this.b.getFragmentTabWidget().setBackGroundDrawableResId(this.a);
+        SkinManager.setBackgroundColor(this.b.getFragmentTabWidget(), this.a);
+        SkinManager.setBackgroundColor(this.b.getTabWrapper(), this.a);
     }
 }

@@ -193,8 +193,8 @@ public class cz6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                long m = xt4.k().m("recommend_frs_cache_time", DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT) * 1000;
-                xt4 k2 = xt4.k();
+                long m = yt4.k().m("recommend_frs_cache_time", DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT) * 1000;
+                yt4 k2 = yt4.k();
                 long m2 = k2.m("recommend_frs_refresh_time" + TbadkCoreApplication.getCurrentAccount(), 0L);
                 if (m2 != 0) {
                     z = Math.abs(System.currentTimeMillis() - m2) > m;
@@ -211,12 +211,12 @@ public class cz6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (TbadkCoreApplication.getCurrentAccount() == null) {
-                bn4.t().A();
+                cn4.t().A();
             }
             if (n()) {
                 return;
             }
-            if ((ut4.q().u() && ut4.q().o() >= ut4.q().p()) || (e = br4.e("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount())) == null || (bArr = e.get("0")) == null || bArr.length == 0) {
+            if ((vt4.q().u() && vt4.q().o() >= vt4.q().p()) || (e = cr4.e("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount())) == null || (bArr = e.get("0")) == null || bArr.length == 0) {
                 return;
             }
             try {
@@ -239,10 +239,10 @@ public class cz6 {
                 if (PermissionUtil.isAgreePrivacyPolicy()) {
                     o();
                     if (this.a == null) {
-                        wc5 wc5Var = new wc5();
-                        wc5Var.b = "";
-                        wc5Var.a = 0;
-                        RecPersonalizePageModel.g().o(1, 0, wc5Var, 1, 0);
+                        xc5 xc5Var = new xc5();
+                        xc5Var.b = "";
+                        xc5Var.a = 0;
+                        RecPersonalizePageModel.g().o(1, 0, xc5Var, 1, 0);
                         this.i = true;
                     } else {
                         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_GET_CACHE_KEY);

@@ -47,14 +47,14 @@ public class gz6 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String[] split = xt4.k().q("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "").split(",");
+                String[] split = yt4.k().q("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "").split(",");
                 if (split.length != 2) {
                     return null;
                 }
                 String str = split[0];
                 long g = ng.g(split[1], 0L);
                 if (g != 0 && !StringUtils.isNull(str)) {
-                    xt4.k().y("read_progress_" + TbadkCoreApplication.getCurrentAccount(), this.a.tid + "," + g);
+                    yt4.k().y("read_progress_" + TbadkCoreApplication.getCurrentAccount(), this.a.tid + "," + g);
                 }
                 return null;
             }
@@ -104,7 +104,7 @@ public class gz6 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && TbadkCoreApplication.isLogin()) {
             if (this.a == null) {
-                xt4 k = xt4.k();
+                yt4 k = yt4.k();
                 this.a = k.q("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
             }
             if (StringUtils.isNull(this.a)) {
@@ -139,7 +139,7 @@ public class gz6 {
         }
         this.a = null;
         b = threadInfo.tid.longValue();
-        xt4.k().y("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
+        yt4.k().y("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
     }
 
     public void c(boolean z, List<ThreadInfo> list) {
@@ -151,6 +151,6 @@ public class gz6 {
         }
         this.a = null;
         b = threadInfo.tid.longValue();
-        xt4.k().y("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
+        yt4.k().y("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
     }
 }

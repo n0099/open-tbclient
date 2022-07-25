@@ -221,10 +221,10 @@ public class zw6 {
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(ConcernUnreadTipHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        ma5 ma5Var = new ma5(309541);
-        ma5Var.setResponsedClass(ConcernUnreadTipSocketResMsg.class);
-        ma5Var.g(true);
-        MessageManager.getInstance().registerTask(ma5Var);
+        na5 na5Var = new na5(309541);
+        na5Var.setResponsedClass(ConcernUnreadTipSocketResMsg.class);
+        na5Var.g(true);
+        MessageManager.getInstance().registerTask(na5Var);
     }
 
     public final void e(qy6 qy6Var) {
@@ -244,7 +244,7 @@ public class zw6 {
                 if (concernUnreadTipView != null) {
                     personalizePageView.removeView(concernUnreadTipView);
                     if (z && this.b.getIsUnreadTipShow()) {
-                        xt4.k().x(xt4.o("concern_unread_tip_next_show_time"), 0L);
+                        yt4.k().x(yt4.o("concern_unread_tip_next_show_time"), 0L);
                         TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 2));
                     }
                 }

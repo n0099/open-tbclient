@@ -57,7 +57,7 @@ public class LabelItemView extends LinearLayout {
     public final TextView a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0481, (ViewGroup) this, false) : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0480, (ViewGroup) this, false) : (TextView) invokeV.objValue;
     }
 
     public final void b() {

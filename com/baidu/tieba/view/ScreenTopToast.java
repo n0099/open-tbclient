@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.qg;
-import com.repackage.tu4;
+import com.repackage.uu4;
 /* loaded from: classes4.dex */
 public class ScreenTopToast extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -158,12 +158,12 @@ public class ScreenTopToast extends LinearLayout {
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
             }
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0741, this);
-            this.a = (ShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f091c82);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091c83);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091c81);
-            this.d = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091c80);
-            this.d.setConfig(new tu4());
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d074b, this);
+            this.a = (ShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f091c88);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091c89);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091c87);
+            this.d = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091c86);
+            this.d.setConfig(new uu4());
             f();
             h();
         }

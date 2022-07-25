@@ -24,7 +24,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] a;

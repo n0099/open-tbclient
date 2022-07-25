@@ -67,7 +67,7 @@ public class ws6 {
     public int p;
     public BigdaySwipeRefreshLayout q;
     public int r;
-    public List<bp4> s;
+    public List<cp4> s;
     public CustomMessageListener t;
     public CustomMessageListener u;
     public RecyclerView.OnScrollListener v;
@@ -109,8 +109,8 @@ public class ws6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 DataRes.Builder builder = new DataRes.Builder(this.a.build(true));
-                br4.f();
-                te<byte[]> e = br4.e("tb.concern_page_all", TbadkCoreApplication.getCurrentAccount());
+                cr4.f();
+                te<byte[]> e = cr4.e("tb.concern_page_all", TbadkCoreApplication.getCurrentAccount());
                 try {
                     build = builder.build(true);
                 } catch (Exception e2) {
@@ -590,8 +590,8 @@ public class ws6 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                br4.f();
-                br4.a("tb.concern_page_all", TbadkCoreApplication.getCurrentAccount());
+                cr4.f();
+                cr4.a("tb.concern_page_all", TbadkCoreApplication.getCurrentAccount());
                 return null;
             }
             return (DataRes) invokeV.objValue;
@@ -599,7 +599,7 @@ public class ws6 {
     }
 
     /* loaded from: classes7.dex */
-    public class l implements jd5<DataRes> {
+    public class l implements kd5<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ws6 a;
@@ -623,7 +623,7 @@ public class ws6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(DataRes dataRes) {
             Interceptable interceptable = $ic;
@@ -662,8 +662,8 @@ public class ws6 {
             byte[] bArr;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                br4.f();
-                te<byte[]> e = br4.e("tb.concern_page_all", TbadkCoreApplication.getCurrentAccount());
+                cr4.f();
+                te<byte[]> e = cr4.e("tb.concern_page_all", TbadkCoreApplication.getCurrentAccount());
                 if (e != null && (bArr = e.get("0")) != null && bArr.length != 0) {
                     try {
                         return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
@@ -678,7 +678,7 @@ public class ws6 {
     }
 
     /* loaded from: classes7.dex */
-    public class n implements jd5<DataRes> {
+    public class n implements kd5<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ws6 a;
@@ -702,7 +702,7 @@ public class ws6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(DataRes dataRes) {
             Interceptable interceptable = $ic;
@@ -714,13 +714,13 @@ public class ws6 {
 
     /* loaded from: classes7.dex */
     public interface o {
-        void a(wc5 wc5Var);
+        void a(xc5 xc5Var);
 
         void b();
 
         void c(boolean z, boolean z2);
 
-        void d(String str, wc5 wc5Var);
+        void d(String str, xc5 xc5Var);
 
         void onError(int i, String str);
     }
@@ -770,59 +770,59 @@ public class ws6 {
     public static boolean A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? xt4.k().h(xt4.o("key_home_concern_all_status_cache_loaded"), false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? yt4.k().h(yt4.o("key_home_concern_all_status_cache_loaded"), false) : invokeV.booleanValue;
     }
 
     public static boolean H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? UbsABTestHelper.isConcernForumCardShow() && xt4.k().l("key_home_concern_all_status", 0) == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? UbsABTestHelper.isConcernForumCardShow() && yt4.k().l("key_home_concern_all_status", 0) == 0 : invokeV.booleanValue;
     }
 
     public static void R(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
-            xt4.k().u(xt4.o("key_home_concern_all_status_cache_loaded"), z);
+            yt4.k().u(yt4.o("key_home_concern_all_status_cache_loaded"), z);
         }
     }
 
     public static void S(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            xt4.k().y(xt4.o("key_home_concern_all_status_cache_nextpage_key"), str);
+            yt4.k().y(yt4.o("key_home_concern_all_status_cache_nextpage_key"), str);
         }
     }
 
     public static void T(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            xt4.k().y(xt4.o("key_home_concern_all_status_cache_nextpage_update_key"), str);
+            yt4.k().y(yt4.o("key_home_concern_all_status_cache_nextpage_update_key"), str);
         }
     }
 
     public static void U(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65542, null, j2) == null) {
-            xt4.k().x(xt4.o("key_home_concern_all_status_cache_time"), j2);
+            yt4.k().x(yt4.o("key_home_concern_all_status_cache_time"), j2);
         }
     }
 
     public static String u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? xt4.k().q(xt4.o("key_home_concern_all_status_cache_nextpage_key"), "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? yt4.k().q(yt4.o("key_home_concern_all_status_cache_nextpage_key"), "") : (String) invokeV.objValue;
     }
 
     public static String v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) ? xt4.k().q(xt4.o("key_home_concern_all_status_cache_nextpage_update_key"), "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) ? yt4.k().q(yt4.o("key_home_concern_all_status_cache_nextpage_update_key"), "") : (String) invokeV.objValue;
     }
 
     public static long w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? xt4.k().m(xt4.o("key_home_concern_all_status_cache_time"), 0L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? yt4.k().m(yt4.o("key_home_concern_all_status_cache_time"), 0L) : invokeV.longValue;
     }
 
     public final boolean B() {
@@ -854,7 +854,7 @@ public class ws6 {
     public final void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            wc5 q = q(true);
+            xc5 q = q(true);
             o oVar = this.a;
             if (oVar != null) {
                 oVar.a(q);
@@ -865,7 +865,7 @@ public class ws6 {
     public void F() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !B() && this.g) {
-            wc5 q = q(false);
+            xc5 q = q(false);
             if (this.a != null) {
                 V(true);
                 this.a.d(this.f, q);
@@ -999,7 +999,7 @@ public class ws6 {
             DataRes.Builder builder = new DataRes.Builder(dataRes);
             this.p = builder.user_tips_type.intValue();
             if (dataRes.req_unix != null) {
-                xt4.k().x(xt4.o("concern_data_res_request_time"), dataRes.req_unix.longValue());
+                yt4.k().x(yt4.o("concern_data_res_request_time"), dataRes.req_unix.longValue());
             }
             List<nn> G = G(z, builder, z2);
             x(G, builder, i4);
@@ -1030,7 +1030,7 @@ public class ws6 {
                                     linkedList.add(bu6Var2);
                                 }
                             } else {
-                                bu6Var2.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f041f);
+                                bu6Var2.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f041e);
                             }
                         }
                         z3 = true;
@@ -1050,7 +1050,7 @@ public class ws6 {
                             break;
                         }
                         nn next = it.next();
-                        if (next instanceof e05) {
+                        if (next instanceof f05) {
                             nnVar = next;
                             break;
                         }
@@ -1172,16 +1172,16 @@ public class ws6 {
         O(builder);
     }
 
-    public final List<bp4> b0(List<bp4> list) {
+    public final List<cp4> b0(List<cp4> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, list)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (bp4 bp4Var : list) {
-                if (bp4Var instanceof AdvertAppInfo) {
-                    arrayList.add(new py5((AdvertAppInfo) bp4Var));
-                } else if (bp4Var instanceof py5) {
-                    arrayList.add((py5) bp4Var);
+            for (cp4 cp4Var : list) {
+                if (cp4Var instanceof AdvertAppInfo) {
+                    arrayList.add(new py5((AdvertAppInfo) cp4Var));
+                } else if (cp4Var instanceof py5) {
+                    arrayList.add((py5) cp4Var);
                 }
             }
             return arrayList;
@@ -1196,16 +1196,16 @@ public class ws6 {
         }
     }
 
-    public final wc5 q(boolean z) {
+    public final xc5 q(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048599, this, z)) == null) {
             String e2 = w88.e(this.b, z);
-            wc5 wc5Var = new wc5();
-            wc5Var.b = e2;
-            return wc5Var;
+            xc5 xc5Var = new xc5();
+            xc5Var.b = e2;
+            return xc5Var;
         }
-        return (wc5) invokeZ.objValue;
+        return (xc5) invokeZ.objValue;
     }
 
     public final void r(List<nn> list) {
@@ -1303,7 +1303,7 @@ public class ws6 {
     public final void x(List<nn> list, DataRes.Builder builder, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048604, this, list, builder, i2) == null) {
-            List<bp4> b0 = b0(w88.h(builder.app_list, "CONCERN"));
+            List<cp4> b0 = b0(w88.h(builder.app_list, "CONCERN"));
             if (this.c == null) {
                 this.c = new DataRes.Builder();
             }

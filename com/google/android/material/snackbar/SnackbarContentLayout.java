@@ -128,8 +128,8 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onFinishInflate();
-            this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc5);
-            this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f091dc4);
+            this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f091dcb);
+            this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f091dca);
         }
     }
 
@@ -158,8 +158,8 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
                     super.onMeasure(i, i2);
                 }
             }
-            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070220);
-            int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07021f);
+            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07021e);
+            int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07021c);
             boolean z = false;
             boolean z2 = this.messageView.getLayout().getLineCount() > 1;
             if (!z2 || this.maxInlineActionWidth <= 0 || this.actionView.getMeasuredWidth() <= this.maxInlineActionWidth) {

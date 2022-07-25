@@ -41,14 +41,14 @@ public class m76 {
             }
         }
         this.a = tbPageContext;
-        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d061d, (ViewGroup) null);
+        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0627, (ViewGroup) null);
         this.b = inflate;
-        this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090f3d);
-        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e33);
-        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d0e);
-        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d0f);
-        this.e.setText(R.string.obfuscated_res_0x7f0f0c58);
-        this.f.setText(R.string.obfuscated_res_0x7f0f0c59);
+        this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090f36);
+        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e2c);
+        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d07);
+        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d08);
+        this.e.setText(R.string.obfuscated_res_0x7f0f0c44);
+        this.f.setText(R.string.obfuscated_res_0x7f0f0c45);
     }
 
     public void a() {

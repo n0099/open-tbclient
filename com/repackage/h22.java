@@ -1,16 +1,14 @@
 package com.repackage;
 
 import android.app.Activity;
-import android.content.Context;
-import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.AnyThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.JsCodeCacheCallback;
-import com.baidu.searchbox.v8engine.JsCodeCacheResult;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,28 +16,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.x72;
 /* loaded from: classes6.dex */
-public class h22 implements d22 {
+public class h22 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public g22 a;
-    public String b;
-    public boolean c;
-    public boolean d;
+    public q72 a;
+    public os1 b;
+    public a82 c;
 
     /* loaded from: classes6.dex */
-    public class a implements JsCodeCacheCallback {
+    public class a extends m82 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h22 a;
+        public String a;
+        public String b;
+        public final /* synthetic */ h22 c;
 
-        public a(h22 h22Var) {
+        public a(@NonNull h22 h22Var, @NonNull String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {h22Var};
+                Object[] objArr = {h22Var, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,99 +49,59 @@ public class h22 implements d22 {
                     return;
                 }
             }
-            this.a = h22Var;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.JsCodeCacheCallback
-        public void onJsCodeCacheFinished(JsCodeCacheResult jsCodeCacheResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jsCodeCacheResult) == null) {
-                if (h22.e) {
-                    Log.d("V8MasterAdapter", jsCodeCacheResult != null ? jsCodeCacheResult.toString() : StringUtil.NULL_STRING);
-                }
-                if (jsCodeCacheResult == null || !jsCodeCacheResult.isCacheUsed) {
-                    return;
-                }
-                if (TextUtils.equals(jsCodeCacheResult.businessId, "appframe")) {
-                    this.a.c = true;
-                } else if (TextUtils.equals(jsCodeCacheResult.businessId, "appjs")) {
-                    this.a.d = true;
-                }
+            this.c = h22Var;
+            this.a = str;
+            this.b = str2;
+            if (h22.d) {
+                Log.d("SwanAppV8Master", "basePath: " + str + ", jsFile: " + str2);
             }
         }
-    }
 
-    /* loaded from: classes6.dex */
-    public class b implements z72 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vy1 a;
-        public final /* synthetic */ h22 b;
-
-        public b(h22 h22Var, vy1 vy1Var) {
+        @Override // com.repackage.n82
+        public String a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h22Var, vy1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = h22Var;
-            this.a = vy1Var;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
         }
 
-        @Override // com.repackage.z72
-        public void a(p72 p72Var) {
-            vy1 vy1Var;
+        @Override // com.repackage.m82, com.repackage.n82
+        @Nullable
+        public V8EngineConfiguration.CodeCacheSetting b() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, p72Var) == null) || (vy1Var = this.a) == null) {
-                return;
-            }
-            vy1Var.a(this.b.b);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-
-        public c(h22 h22Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h22Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (h22.d) {
+                    Log.d("SwanAppV8Master", "pathList item: " + this.a);
                 }
+                return az1.a("appframe", this.a);
             }
-            this.a = i;
+            return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.repackage.m82, com.repackage.n82
+        public void c(q72 q72Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    Process.setThreadPriority(this.a);
-                } catch (Throwable th) {
-                    hx1.c("V8MasterAdapter", th.getMessage());
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, q72Var) == null) {
+                if (this.c.c != null) {
+                    this.c.c.a(q72Var);
                 }
+                q72Var.z0();
             }
+        }
+
+        @Override // com.repackage.m82, com.repackage.n82
+        public void d(q72 q72Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, q72Var) == null) {
+                this.c.b.b(q72Var, pj2.c());
+            }
+        }
+
+        @Override // com.repackage.n82
+        public String getInitBasePath() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (String) invokeV.objValue;
         }
     }
 
@@ -158,128 +118,119 @@ public class h22 implements d22 {
                 return;
             }
         }
-        e = rg1.a;
+        d = sg1.a;
     }
 
-    public h22(Context context) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public h22(@NonNull String str, @NonNull String str2) {
+        this(str, str2, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.repackage.d22
-    public void E(v62 v62Var) {
+    public void d(Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, v62Var) == null) || v62Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            this.b.a(activity);
         }
-        if (e) {
-            Log.d("V8MasterAdapter", "pathList item: " + v62Var.b);
-        }
-        this.a.j(zy1.a("appjs", v62Var.b));
     }
 
-    @Override // com.repackage.d22
-    public String b() {
+    public x72 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            g22 g22Var = this.a;
-            if (g22Var != null) {
-                return g22Var.h();
-            }
-            if (e) {
-                Log.d("V8MasterAdapter", Log.getStackTraceString(new Exception("illegal state")));
-                return "";
-            }
-            return "";
+            x72.b bVar = new x72.b();
+            bVar.c(1);
+            bVar.b(o22.b());
+            return bVar.a();
         }
-        return (String) invokeV.objValue;
+        return (x72) invokeV.objValue;
     }
 
-    @Override // com.repackage.d22
-    public void c(vy1 vy1Var) {
-        g22 g22Var;
+    public m82 f(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vy1Var) == null) || (g22Var = this.a) == null) {
-            return;
-        }
-        g22Var.l(new b(this, vy1Var));
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) ? new a(this, str, str2) : (m82) invokeLL.objValue;
     }
 
-    @Override // com.repackage.d22
-    public void destroy() {
-        g22 g22Var;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (g22Var = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.U();
         }
-        g22Var.g();
     }
 
-    @Override // com.repackage.d22
-    public void e(Activity activity) {
-        g22 g22Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, activity) == null) || (g22Var = this.a) == null) {
-            return;
-        }
-        g22Var.d(activity);
-    }
-
-    @Override // com.repackage.d22
-    public fz1 g() {
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.i() : (fz1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.c : (String) invokeV.objValue;
     }
 
-    public g22 i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? new g22(str, "runtime/index.js") : (g22) invokeL.objValue;
-    }
-
-    public int j() {
+    public q72 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? zy1.b(this.c, this.d) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (q72) invokeV.objValue;
     }
 
-    @Override // com.repackage.d22
-    public void loadUrl(String str) {
+    public void j(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            if (this.a == null) {
-                g22 i = i(b72.U().c0());
-                this.a = i;
-                this.b = str;
-                i.k(new a(this));
-            } else if (e) {
-                Log.e("V8MasterAdapter", Log.getStackTraceString(new Exception("same instance loadUrl should not be call twice.")));
+        if (interceptable == null || interceptable.invokeL(1048582, this, codeCacheSetting) == null) {
+            this.a.C0(codeCacheSetting);
+        }
+    }
+
+    public void k(JsCodeCacheCallback jsCodeCacheCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, jsCodeCacheCallback) == null) {
+            this.a.G0(jsCodeCacheCallback);
+        }
+    }
+
+    public void l(a82 a82Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, a82Var) == null) {
+            this.c = a82Var;
+        }
+    }
+
+    public h22(@NonNull String str, @NonNull String str2, @Nullable String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.repackage.d22
-    @AnyThread
-    public void q(int i) {
-        g22 g22Var;
-        p72 i2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || (g22Var = this.a) == null || (i2 = g22Var.i()) == null) {
-            return;
+        this.b = new os1();
+        if (d) {
+            Log.d("SwanAppV8Master", "createV8Master: " + str + str2);
         }
-        i2.runOnJSThread(new c(this, i));
+        j22 j22Var = ju2.l() ? new j22() : null;
+        x72 e = e();
+        if (!TextUtils.isEmpty(str3)) {
+            e.b = str3;
+        }
+        this.a = w72.b(e, f(str, str2), j22Var);
     }
 }

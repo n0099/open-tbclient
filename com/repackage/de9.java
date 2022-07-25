@@ -38,7 +38,7 @@ public class de9 implements TTAppDownloadListener {
     public final String a(Context context, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)})) == null) ? j != 0 ? context.getString(R.string.obfuscated_res_0x7f0f076e, String.format("%s/100", Long.valueOf((j2 * 100) / j))) : context.getString(R.string.obfuscated_res_0x7f0f076f) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)})) == null) ? j != 0 ? context.getString(R.string.obfuscated_res_0x7f0f076a, String.format("%s/100", Long.valueOf((j2 * 100) / j))) : context.getString(R.string.obfuscated_res_0x7f0f076b) : (String) invokeCommon.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
@@ -60,7 +60,7 @@ public class de9 implements TTAppDownloadListener {
             LogPrinter.e("CSJAppDownloadListener 下载失败，点击图片重新下载", new Object[0]);
             Button button = this.a;
             if (button != null) {
-                button.setText(R.string.obfuscated_res_0x7f0f076d);
+                button.setText(R.string.obfuscated_res_0x7f0f0769);
             }
         }
     }
@@ -72,7 +72,7 @@ public class de9 implements TTAppDownloadListener {
             LogPrinter.d("CSJAppDownloadListener 点击图片安装", new Object[0]);
             Button button = this.a;
             if (button != null) {
-                button.setText(R.string.obfuscated_res_0x7f0f0770);
+                button.setText(R.string.obfuscated_res_0x7f0f076c);
             }
         }
     }
@@ -96,7 +96,7 @@ public class de9 implements TTAppDownloadListener {
             LogPrinter.e("CSJAppDownloadListener 点击图片开始下载", new Object[0]);
             Button button = this.a;
             if (button != null) {
-                button.setText(R.string.obfuscated_res_0x7f0f076d);
+                button.setText(R.string.obfuscated_res_0x7f0f0769);
             }
         }
     }
@@ -108,7 +108,7 @@ public class de9 implements TTAppDownloadListener {
             LogPrinter.d("CSJAppDownloadListener 安装完成，点击图片打开", new Object[0]);
             Button button = this.a;
             if (button != null) {
-                button.setText(R.string.obfuscated_res_0x7f0f0771);
+                button.setText(R.string.obfuscated_res_0x7f0f076d);
             }
         }
     }

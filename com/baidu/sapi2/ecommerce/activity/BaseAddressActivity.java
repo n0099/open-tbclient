@@ -53,7 +53,6 @@ public abstract class BaseAddressActivity<P extends IPresenter> extends BaseMvpA
                 AddressManageDTO addressManageDTO2 = this.addressManageDTO;
                 this.selectAddedAddress = addressManageDTO2.selectAddedAddress;
                 this.isOpenEdit = TextUtils.equals(addressManageDTO2.openPageName, "1");
-                this.addressManageCallback.activityOnCreate();
                 return;
             }
             AddressManageResult addressManageResult = new AddressManageResult();
@@ -93,42 +92,6 @@ public abstract class BaseAddressActivity<P extends IPresenter> extends BaseMvpA
             }
             super.onCreate(bundle);
             initAddressManage();
-        }
-    }
-
-    @Override // com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onDestroy();
-            AddressManageCallback addressManageCallback = this.addressManageCallback;
-            if (addressManageCallback != null) {
-                addressManageCallback.activityOnDestory();
-            }
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onPause();
-            AddressManageCallback addressManageCallback = this.addressManageCallback;
-            if (addressManageCallback != null) {
-                addressManageCallback.activityOnPause();
-            }
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onResume();
-            AddressManageCallback addressManageCallback = this.addressManageCallback;
-            if (addressManageCallback != null) {
-                addressManageCallback.activityOnResume();
-            }
         }
     }
 }

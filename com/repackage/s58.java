@@ -336,16 +336,16 @@ public class s58 {
         }
         this.a = tbPageContext;
         this.l = z;
-        this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091816);
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f091814);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091818);
-        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091813);
+        this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917f1);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f0917ef);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917f3);
+        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917ee);
         this.f = imageView;
         imageView.setOnClickListener(new a(this));
-        ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091815);
+        ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917f0);
         this.g = imageView2;
         imageView2.setOnClickListener(new b(this));
-        ImageView imageView3 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091817);
+        ImageView imageView3 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917f2);
         this.h = imageView3;
         imageView3.setOnClickListener(new c(this));
     }

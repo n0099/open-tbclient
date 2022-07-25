@@ -45,22 +45,9 @@ public class ax5 implements zw5 {
         }
 
         @Override // com.repackage.bv8.a
-        public float a() {
-            InterceptResult invokeV;
+        public void a(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.d != null) {
-                    return this.a.d.a();
-                }
-                return 1.0f;
-            }
-            return invokeV.floatValue;
-        }
-
-        @Override // com.repackage.bv8.a
-        public void b(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
                 if (this.a.e != null) {
                     this.a.e.a(f);
                 }
@@ -68,6 +55,19 @@ public class ax5 implements zw5 {
                 ax5 ax5Var = this.a;
                 textView.setText(ax5Var.h(ax5Var.getProgress()));
             }
+        }
+
+        @Override // com.repackage.bv8.a
+        public float getSpeed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.a.d != null) {
+                    return this.a.d.getSpeed();
+                }
+                return 1.0f;
+            }
+            return invokeV.floatValue;
         }
 
         @Override // com.repackage.bv8.a

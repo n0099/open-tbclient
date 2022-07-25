@@ -33,11 +33,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.al4;
 import com.repackage.bl4;
+import com.repackage.cl4;
 import com.repackage.g96;
-import com.repackage.k45;
+import com.repackage.l45;
 import com.repackage.pi;
 import com.repackage.xn7;
-import com.repackage.yk4;
 import com.repackage.ym;
 import com.repackage.yn7;
 import com.repackage.zk4;
@@ -58,13 +58,13 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     public View f;
     public g96 g;
     public yn7 h;
-    public zk4 i;
+    public al4 i;
     public List<ImageFileInfo> j;
     public List<ImageFileInfo> k;
     public LinkedHashMap<String, ImageFileInfo> l;
     public String m;
     public int n;
-    public yk4 o;
+    public zk4 o;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -74,12 +74,12 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
 
         /* renamed from: com.baidu.tieba.faceshop.UserAlbumActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0190a implements al4 {
+        public class C0204a implements bl4 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0190a(a aVar) {
+            public C0204a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,8 +97,8 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                 this.a = aVar;
             }
 
-            @Override // com.repackage.al4
-            public void a(List<yk4> list) {
+            @Override // com.repackage.bl4
+            public void a(List<zk4> list) {
                 Interceptable interceptable = $ic;
                 if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
                     return;
@@ -113,7 +113,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                 this.a.a.g.l(this.a.a.c);
             }
 
-            @Override // com.repackage.al4
+            @Override // com.repackage.bl4
             public void onPreLoad() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -146,7 +146,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                 Drawable drawable = SkinManager.getDrawable(R.drawable.icon_emotion_albumarrow_up);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 this.a.d.setCompoundDrawables(null, null, drawable, null);
-                this.a.i.g(new C0190a(this));
+                this.a.i.g(new C0204a(this));
             }
         }
     }
@@ -227,7 +227,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     }
 
     /* loaded from: classes3.dex */
-    public class d implements bl4 {
+    public class d implements cl4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserAlbumActivity a;
@@ -250,8 +250,8 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
             this.a = userAlbumActivity;
         }
 
-        @Override // com.repackage.bl4
-        public void a(List<yk4> list, List<ImageFileInfo> list2, String str) {
+        @Override // com.repackage.cl4
+        public void a(List<zk4> list, List<ImageFileInfo> list2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, list, list2, str) == null) {
                 if (!ListUtils.isEmpty(list2)) {
@@ -260,10 +260,10 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                     this.a.k.clear();
                     this.a.k.addAll(list2);
                     this.a.j.addAll(list2);
-                    this.a.o = new yk4();
-                    this.a.o.h(yk4.f);
-                    yk4 yk4Var = this.a.o;
-                    yk4Var.i(list2.size() + "");
+                    this.a.o = new zk4();
+                    this.a.o.h(zk4.f);
+                    zk4 zk4Var = this.a.o;
+                    zk4Var.i(list2.size() + "");
                     this.a.o.l(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f024d));
                     this.a.o.k(list2.get(0));
                     this.a.h.notifyDataSetChanged();
@@ -274,7 +274,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
             }
         }
 
-        @Override // com.repackage.bl4
+        @Override // com.repackage.cl4
         public void onPreLoad() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -283,7 +283,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     }
 
     /* loaded from: classes3.dex */
-    public class e implements k45 {
+    public class e implements l45 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserAlbumActivity a;
@@ -306,7 +306,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
             this.a = userAlbumActivity;
         }
 
-        @Override // com.repackage.k45
+        @Override // com.repackage.l45
         public void a(ym ymVar, String str, boolean z) {
             TbImageView tbImageView;
             Interceptable interceptable = $ic;
@@ -318,7 +318,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     }
 
     /* loaded from: classes3.dex */
-    public class f implements bl4 {
+    public class f implements cl4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserAlbumActivity a;
@@ -341,8 +341,8 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
             this.a = userAlbumActivity;
         }
 
-        @Override // com.repackage.bl4
-        public void a(List<yk4> list, List<ImageFileInfo> list2, String str) {
+        @Override // com.repackage.cl4
+        public void a(List<zk4> list, List<ImageFileInfo> list2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, list, list2, str) == null) {
                 this.a.j.clear();
@@ -353,7 +353,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
             }
         }
 
-        @Override // com.repackage.bl4
+        @Override // com.repackage.cl4
         public void onPreLoad() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -392,13 +392,13 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         this.j = new ArrayList();
         this.k = new ArrayList();
         this.l = new LinkedHashMap<>();
-        this.m = yk4.f;
+        this.m = zk4.f;
     }
 
     public final void G0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.i = new zk4(getActivity());
+            this.i = new al4(getActivity());
             yn7 yn7Var = new yn7(this, this.j);
             this.h = yn7Var;
             yn7Var.k(getPageContext().getString(R.string.obfuscated_res_0x7f0f0369));
@@ -415,7 +415,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     public final void H0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.i.i(yk4.f, new d(this));
+            this.i.i(zk4.f, new d(this));
         }
     }
 
@@ -430,7 +430,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         for (int i = 0; i < childCount; i++) {
             View childAt = this.a.getChildAt(i);
             if (childAt != null) {
-                TbImageView tbImageView = (TbImageView) childAt.findViewById(R.id.obfuscated_res_0x7f090e33);
+                TbImageView tbImageView = (TbImageView) childAt.findViewById(R.id.obfuscated_res_0x7f090e2c);
                 ImageFileInfo item = this.h.getItem(firstVisiblePosition + i);
                 if (item != null && tbImageView != null) {
                     tbImageView.setTag(item.toCachedKey(false));
@@ -454,14 +454,14 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     }
 
     @Override // com.repackage.g96.d
-    public void a(int i, yk4 yk4Var) {
+    public void a(int i, zk4 zk4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048580, this, i, yk4Var) == null) || yk4Var == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048580, this, i, zk4Var) == null) || zk4Var == null) {
             return;
         }
-        this.m = yk4Var.b();
-        this.c.setCenterTextTitle(yk4Var.g());
-        this.i.i(yk4Var.b(), new f(this));
+        this.m = zk4Var.b();
+        this.c.setCenterTextTitle(zk4Var.g());
+        this.i.i(zk4Var.b(), new f(this));
     }
 
     @Override // com.repackage.xn7
@@ -495,18 +495,18 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     public final void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), this.f, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0702a0)), NoDataViewFactory.e.c(getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f05e7).toString()), null);
+            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), this.f, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.c(getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f05e3).toString()), null);
             this.b = a2;
             a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.b.setVisibility(8);
-            this.a = (GridView) this.f.findViewById(R.id.obfuscated_res_0x7f090ca0);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09158d);
+            this.a = (GridView) this.f.findViewById(R.id.obfuscated_res_0x7f090c99);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091568);
             this.c = navigationBar;
             navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f024d));
             TextView textView = this.c.mCenterText;
             this.d = textView;
             textView.setOnClickListener(new a(this));
-            this.d.setCompoundDrawablePadding(pi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070304));
+            this.d.setCompoundDrawablePadding(pi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070302));
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
             Drawable drawable = SkinManager.getDrawable(R.drawable.icon_emotion_albumarrow_down);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
@@ -536,7 +536,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.onCreate(bundle);
-            View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0868, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0872, (ViewGroup) null);
             this.f = inflate;
             setContentView(inflate);
             SkinManager.setBackgroundResource(this.f, R.color.CAM_X0201);

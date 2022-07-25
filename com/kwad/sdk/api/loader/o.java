@@ -2,20 +2,19 @@ package com.kwad.sdk.api.loader;
 
 import android.content.ComponentCallbacks;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.res.Resources;
+import android.view.ContextThemeWrapper;
 import com.kwad.sdk.api.core.ResContext;
 /* loaded from: classes5.dex */
-public final class o extends ContextWrapper implements ResContext {
-    public final Context a;
-    public Resources.Theme b;
+public final class o extends ContextThemeWrapper implements ResContext {
+    public final ContextThemeWrapper SE;
+    public Resources.Theme SF;
     public int c;
 
-    public o(Context context) {
-        super(context);
-        this.c = -1;
-        this.a = context;
-        this.c = ((Integer) Reflect.a(context).b("getThemeResId").a).intValue();
+    public o(ContextThemeWrapper contextThemeWrapper) {
+        super(contextThemeWrapper, 0);
+        this.SE = contextThemeWrapper;
+        this.c = ((Integer) Reflect.b(contextThemeWrapper).bd("getThemeResId").a).intValue();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -35,20 +34,20 @@ public final class o extends ContextWrapper implements ResContext {
 
     @Override // com.kwad.sdk.api.core.ResContext
     public final Context getDelegatedContext() {
-        return this.a;
+        return this.SE;
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context
+    @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public final Resources getResources() {
         return Wrapper.replaceExternalResources(super.getResources());
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context
+    @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public final Object getSystemService(String str) {
-        return Wrapper.wrapSystemService(super.getSystemService(str), str, this);
+        return Wrapper.wrapSystemService(this.SE.getSystemService(str), str, this);
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context
+    @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public final Resources.Theme getTheme() {
         Resources.Theme theme;
         try {
@@ -57,19 +56,19 @@ public final class o extends ContextWrapper implements ResContext {
             e.printStackTrace();
             theme = null;
         }
-        Resources.Theme theme2 = this.b;
+        Resources.Theme theme2 = this.SF;
         if (theme2 == null || theme2 == theme) {
-            this.b = Wrapper.replaceTheme(theme, this.b, this.c);
+            this.SF = Wrapper.replaceTheme(theme, this.SF, this.c);
         }
-        return this.b;
+        return this.SF;
     }
 
     @Override // android.content.Context
     public final void registerComponentCallbacks(ComponentCallbacks componentCallbacks) {
-        this.a.registerComponentCallbacks(componentCallbacks);
+        this.SE.registerComponentCallbacks(componentCallbacks);
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context
+    @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public final void setTheme(int i) {
         this.c = i;
         super.setTheme(i);
@@ -77,6 +76,6 @@ public final class o extends ContextWrapper implements ResContext {
 
     @Override // android.content.Context
     public final void unregisterComponentCallbacks(ComponentCallbacks componentCallbacks) {
-        this.a.unregisterComponentCallbacks(componentCallbacks);
+        this.SE.unregisterComponentCallbacks(componentCallbacks);
     }
 }

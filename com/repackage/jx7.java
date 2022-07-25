@@ -73,9 +73,9 @@ public class jx7 {
         }
         this.e = new a(this);
         this.d = pbFragment;
-        this.b = pbFragment.getBaseFragmentActivity().findViewById(R.id.obfuscated_res_0x7f0913f8);
-        this.c = (TextView) this.d.getBaseFragmentActivity().findViewById(R.id.obfuscated_res_0x7f0913f9);
-        this.a = this.d.getBaseFragmentActivity().findViewById(R.id.obfuscated_res_0x7f0913f5);
+        this.b = pbFragment.getBaseFragmentActivity().findViewById(R.id.obfuscated_res_0x7f0913d4);
+        this.c = (TextView) this.d.getBaseFragmentActivity().findViewById(R.id.obfuscated_res_0x7f0913d5);
+        this.a = this.d.getBaseFragmentActivity().findViewById(R.id.obfuscated_res_0x7f0913d1);
         this.b.setOnClickListener(this.e);
     }
 

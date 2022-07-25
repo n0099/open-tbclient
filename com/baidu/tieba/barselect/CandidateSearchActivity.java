@@ -264,7 +264,7 @@ public class CandidateSearchActivity extends BaseActivity {
                 BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
                 blockPopInfoData.block_info = oi.isEmpty(httpResponsedMessage.getErrorString()) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f031e) : httpResponsedMessage.getErrorString();
                 blockPopInfoData.ahead_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f031c);
-                blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f099e);
+                blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0989);
                 blockPopInfoData.ahead_url = "https://tieba.baidu.com/mo/q/userappeal";
                 AntiHelper.s(this.a, blockPopInfoData);
             }
@@ -378,17 +378,17 @@ public class CandidateSearchActivity extends BaseActivity {
     public final void K1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09158d);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091568);
             this.a = navigationBar;
             navigationBar.showBottomLine();
             View addCustomView = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d016d, (View.OnClickListener) null);
             this.g = addCustomView;
-            this.h = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091c9e);
-            this.i = (EditText) this.g.findViewById(R.id.obfuscated_res_0x7f090d2f);
-            ImageView imageView = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f090d1f);
+            this.h = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091ca4);
+            this.i = (EditText) this.g.findViewById(R.id.obfuscated_res_0x7f090d28);
+            ImageView imageView = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f090d18);
             this.j = imageView;
             imageView.setOnClickListener(this.m);
-            this.k = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090d1e);
+            this.k = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090d17);
             L1(false);
             this.k.setText(getString(R.string.obfuscated_res_0x7f0f036a));
             this.k.setOnClickListener(this.m);
@@ -429,10 +429,10 @@ public class CandidateSearchActivity extends BaseActivity {
                 this.e = getIntent().getStringExtra("forum_id");
             }
             K1();
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f091aba);
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f091a94);
             this.b = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-            this.f = findViewById(R.id.obfuscated_res_0x7f091fd2);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091fd6);
             CandidateSearchAdapter candidateSearchAdapter = new CandidateSearchAdapter();
             this.c = candidateSearchAdapter;
             this.b.setAdapter(candidateSearchAdapter);

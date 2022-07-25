@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e47 extends a9<MsglistActivity<?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class e47 extends a9<MsglistActivity<?>> {
     public int f;
     public hf g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class e47 extends a9<MsglistActivity<?>> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +111,7 @@ public class e47 extends a9<MsglistActivity<?>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e47(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d055b);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0565);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,11 +131,11 @@ public class e47 extends a9<MsglistActivity<?>> {
         if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
             return;
         }
-        this.b = (TextView) a(R.id.obfuscated_res_0x7f0914c3);
-        this.c = (ImageView) a(R.id.obfuscated_res_0x7f0914c0);
-        this.d = (HorizontalScrollView) a(R.id.obfuscated_res_0x7f0914c2);
-        this.e = (LinearLayout) a(R.id.obfuscated_res_0x7f0914c1);
-        this.b.setText(R.string.obfuscated_res_0x7f0f08bc);
+        this.b = (TextView) a(R.id.obfuscated_res_0x7f09149e);
+        this.c = (ImageView) a(R.id.obfuscated_res_0x7f09149b);
+        this.d = (HorizontalScrollView) a(R.id.obfuscated_res_0x7f09149d);
+        this.e = (LinearLayout) a(R.id.obfuscated_res_0x7f09149c);
+        this.b.setText(R.string.obfuscated_res_0x7f0f08a7);
         this.c.setOnClickListener(new a(this));
     }
 
@@ -161,7 +161,7 @@ public class e47 extends a9<MsglistActivity<?>> {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             HorizontalScrollView horizontalScrollView = this.d;
             if (horizontalScrollView != null) {
-                ur4 d = ur4.d(horizontalScrollView);
+                vr4 d = vr4.d(horizontalScrollView);
                 d.n(R.string.J_X05);
                 d.f(R.color.CAM_X0201);
             }

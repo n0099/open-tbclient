@@ -54,7 +54,7 @@ public abstract class cd6<T, V extends TypeAdapter.ViewHolder> extends an<T, V> 
             }
         }
         Resources resources = TbadkCoreApplication.getInst().getContext().getResources();
-        resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070304);
+        resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070302);
         resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be);
         resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198);
     }
@@ -90,8 +90,8 @@ public abstract class cd6<T, V extends TypeAdapter.ViewHolder> extends an<T, V> 
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
             this.n = TbadkCoreApplication.getInst().getSkinType();
             this.m = (tn) viewGroup;
-            if (t instanceof qq4) {
-                ((qq4) t).s.setResource(2);
+            if (t instanceof rq4) {
+                ((rq4) t).s.setResource(2);
                 return null;
             }
             return null;

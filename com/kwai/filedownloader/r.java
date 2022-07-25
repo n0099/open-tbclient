@@ -18,16 +18,16 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public class r {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    public static final Object c;
+    public static final Object atE;
+    public static final Object atG;
     public transient /* synthetic */ FieldHolder $fh;
-    public w b;
-    public v d;
+    public w atF;
+    public volatile v atH;
 
     /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final r a;
+        public static final r atI;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -43,7 +43,7 @@ public class r {
                     return;
                 }
             }
-            a = new r();
+            atI = new r();
         }
     }
 
@@ -60,8 +60,8 @@ public class r {
                 return;
             }
         }
-        a = new Object();
-        c = new Object();
+        atE = new Object();
+        atG = new Object();
     }
 
     public r() {
@@ -78,79 +78,120 @@ public class r {
         }
     }
 
-    private int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
-            List<a.InterfaceC0555a> c2 = h.a().c(i);
-            if (c2.isEmpty()) {
-                com.kwai.filedownloader.e.d.d(this, "request pause but not exist %d", Integer.valueOf(i));
-                return 0;
-            }
-            for (a.InterfaceC0555a interfaceC0555a : c2) {
-                interfaceC0555a.F().f();
-            }
-            return c2.size();
-        }
-        return invokeI.intValue;
-    }
-
-    public static com.kwai.filedownloader.a a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? new c(str) : (com.kwai.filedownloader.a) invokeL.objValue;
-    }
-
-    public static r a() {
+    public static r CZ() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.a : (r) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.atI : (r) invokeV.objValue;
     }
 
-    public static void a(Context context) {
+    public static boolean Db() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
-            com.kwai.filedownloader.e.c.a(context.getApplicationContext());
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? n.CR().isConnected() : invokeV.booleanValue;
     }
 
     public static void a(Context context, c.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, context, aVar) == null) {
-            if (com.kwai.filedownloader.e.d.a) {
-                com.kwai.filedownloader.e.d.c(r.class, "init Downloader with params: %s %s", context, aVar);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, aVar) == null) {
+            if (com.kwai.filedownloader.e.d.awL) {
+                com.kwai.filedownloader.e.d.e(r.class, "init Downloader with params: %s %s", context, aVar);
             }
             if (context == null) {
                 throw new IllegalArgumentException("the provided context must not be null!");
             }
-            com.kwai.filedownloader.e.c.a(context.getApplicationContext());
-            com.kwai.filedownloader.download.b.a().a(aVar);
+            com.kwai.filedownloader.e.c.D(context.getApplicationContext());
+            com.kwai.filedownloader.download.b.Dp().a(aVar);
         }
     }
 
     public static void a(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, eVar) == null) {
-            f.a().a("event.service.connect.changed", eVar);
+        if (interceptable == null || interceptable.invokeL(65541, null, eVar) == null) {
+            f.CE().a("event.service.connect.changed", eVar);
         }
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    private int bZ(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? n.a().c() : invokeV.booleanValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) {
+            List<a.InterfaceC0403a> bU = h.CG().bU(i);
+            if (bU.isEmpty()) {
+                com.kwai.filedownloader.e.d.f(this, "request pause but not exist %d", Integer.valueOf(i));
+                return 0;
+            }
+            for (a.InterfaceC0403a interfaceC0403a : bU) {
+                interfaceC0403a.Ci().pause();
+            }
+            return bU.size();
+        }
+        return invokeI.intValue;
     }
 
-    public final boolean a(int i, String str) {
+    public static void dD(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
+            com.kwai.filedownloader.e.c.D(context.getApplicationContext());
+        }
+    }
+
+    public static com.kwai.filedownloader.a eq(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? new c(str) : (com.kwai.filedownloader.a) invokeL.objValue;
+    }
+
+    public final void Da() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || Db()) {
+            return;
+        }
+        n.CR().dC(com.kwai.filedownloader.e.c.EJ());
+    }
+
+    public final w Dc() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.atF == null) {
+                synchronized (atE) {
+                    if (this.atF == null) {
+                        this.atF = new ab();
+                    }
+                }
+            }
+            return this.atF;
+        }
+        return (w) invokeV.objValue;
+    }
+
+    public final v Dd() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.atH == null) {
+                synchronized (atG) {
+                    if (this.atH == null) {
+                        this.atH = new z();
+                        a((e) this.atH);
+                    }
+                }
+            }
+            return this.atH;
+        }
+        return (v) invokeV.objValue;
+    }
+
+    public final boolean k(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-            a(i);
-            if (n.a().c(i)) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, str)) == null) {
+            bZ(i);
+            if (n.CR().bY(i)) {
                 if (TextUtils.isEmpty(str)) {
                     return true;
                 }
-                File file = new File(com.kwai.filedownloader.e.f.b(str));
+                File file = new File(com.kwai.filedownloader.e.f.eF(str));
                 if (file.exists()) {
                     file.delete();
                 }
@@ -163,47 +204,5 @@ public class r {
             return false;
         }
         return invokeIL.booleanValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || c()) {
-            return;
-        }
-        n.a().a(com.kwai.filedownloader.e.c.a());
-    }
-
-    public final w d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b == null) {
-                synchronized (a) {
-                    if (this.b == null) {
-                        this.b = new ab();
-                    }
-                }
-            }
-            return this.b;
-        }
-        return (w) invokeV.objValue;
-    }
-
-    public final v e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.d == null) {
-                synchronized (c) {
-                    if (this.d == null) {
-                        z zVar = new z();
-                        this.d = zVar;
-                        a(zVar);
-                    }
-                }
-            }
-            return this.d;
-        }
-        return (v) invokeV.objValue;
     }
 }

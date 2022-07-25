@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.g47;
 import com.repackage.pi;
 import com.repackage.s67;
-import com.repackage.xt4;
+import com.repackage.yt4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class MsgleftView extends g47 {
@@ -150,7 +150,7 @@ public class MsgleftView extends g47 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgleftView(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d055c);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0566);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -171,16 +171,16 @@ public class MsgleftView extends g47 {
         this.K = new b(this);
         this.I = tbPageContext;
         o();
-        this.G = (ImageView) a(R.id.obfuscated_res_0x7f090fa8);
-        this.D = (TextView) a(R.id.obfuscated_res_0x7f091fa4);
+        this.G = (ImageView) a(R.id.obfuscated_res_0x7f090fa1);
+        this.D = (TextView) a(R.id.obfuscated_res_0x7f091fa8);
         this.E = (ViewGroup) a(R.id.obfuscated_res_0x7f0903e1);
-        HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f090e92);
+        HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f090e8b);
         this.C = headImageView;
         headImageView.setAutoChangeStyle(false);
         this.C.setDrawerType(1);
         this.C.setRadius(pi.d(this.I.getContext(), 4.0f));
         this.C.setPlaceHolder(1);
-        this.F = (UserIconBox) a(R.id.obfuscated_res_0x7f09234f);
+        this.F = (UserIconBox) a(R.id.obfuscated_res_0x7f092351);
         this.C.setLongClickable(true);
         this.C.setOnLongClickListener(this.K);
         this.C.setOnTouchListener(new a(this));
@@ -191,7 +191,7 @@ public class MsgleftView extends g47 {
     public final void R(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, chatMessage) == null) {
-            String q = xt4.k().q("live_room_chat_page_author_id", "");
+            String q = yt4.k().q("live_room_chat_page_author_id", "");
             if (chatMessage.getUserInfo() != null && chatMessage.getUserInfo().getUserId() != null && chatMessage.getUserInfo().getUserId().equals(q)) {
                 this.G.setVisibility(0);
             } else {
@@ -276,7 +276,7 @@ public class MsgleftView extends g47 {
                 userIconBox.setVisibility(0);
                 this.F.setAutoChangedStyle(false);
                 Resources resources = this.I.getResources();
-                this.F.h(tShowInfoNew, 2, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070304), true);
+                this.F.h(tShowInfoNew, 2, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070302), true);
             }
             if (chatMessage == null) {
                 this.D.setText((CharSequence) null);

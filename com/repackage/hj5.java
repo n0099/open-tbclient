@@ -54,7 +54,7 @@ public class hj5 {
     public TbPageContext b;
     public PopupWindow c;
     public ViewGroup d;
-    public kp4 e;
+    public lp4 e;
     public SparseArray<String> f;
     public List<gj5.b> g;
     public int h;
@@ -70,7 +70,7 @@ public class hj5 {
     public View r;
     public TextView s;
     public TBSpecificationBtn t;
-    public uu4 u;
+    public vu4 u;
     public gj5 v;
     public boolean w;
     public int x;
@@ -346,7 +346,7 @@ public class hj5 {
             this.c.setTouchable(true);
             this.c.setOnDismissListener(this.E);
             t();
-            PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0897, (ViewGroup) null), -1, -1);
+            PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08a1, (ViewGroup) null), -1, -1);
             this.q = popupWindow2;
             if (Build.VERSION.SDK_INT >= 22) {
                 popupWindow2.setAttachedInDecor(false);
@@ -383,7 +383,7 @@ public class hj5 {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             int size = this.g.size();
             if (size > 0) {
-                String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0601, Integer.valueOf(size));
+                String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f05fd, Integer.valueOf(size));
                 SpannableString spannableString = new SpannableString(string);
                 UtilHelper.setSpan(spannableString, string, String.valueOf(size), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0302)));
                 TextView textView = this.s;
@@ -392,7 +392,7 @@ public class hj5 {
                 }
                 TBSpecificationBtn tBSpecificationBtn = this.t;
                 if (tBSpecificationBtn != null) {
-                    tBSpecificationBtn.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0427));
+                    tBSpecificationBtn.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0426));
                     return;
                 }
                 return;
@@ -401,12 +401,12 @@ public class hj5 {
                 if (!oi.isEmpty(G)) {
                     this.s.setText(G);
                 } else {
-                    this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13c1));
+                    this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1370));
                 }
             }
             TBSpecificationBtn tBSpecificationBtn2 = this.t;
             if (tBSpecificationBtn2 != null) {
-                tBSpecificationBtn2.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c8e));
+                tBSpecificationBtn2.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c7a));
             }
         }
     }
@@ -471,19 +471,19 @@ public class hj5 {
                 return null;
             }
             if (this.d == null) {
-                ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05f1, (ViewGroup) null);
+                ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05fb, (ViewGroup) null);
                 this.d = viewGroup;
-                this.s = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090cdd);
+                this.s = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090cd6);
                 if (!oi.isEmpty(G)) {
                     this.s.setText(G);
                 }
-                this.t = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f0922f1);
-                uu4 uu4Var = new uu4();
-                this.u = uu4Var;
-                uu4Var.r(R.color.CAM_X0304);
+                this.t = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f0922f3);
+                vu4 vu4Var = new vu4();
+                this.u = vu4Var;
+                vu4Var.r(R.color.CAM_X0304);
                 this.t.setConfig(this.u);
                 this.t.setOnClickListener(this.D);
-                this.t.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c8e));
+                this.t.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c7a));
                 this.t.setTextSize(R.dimen.T_X08);
                 ViewGroup viewGroup2 = this.d;
                 int i = this.n;
@@ -630,10 +630,10 @@ public class hj5 {
             }
         }
         l();
-        new cu4().a = 1500L;
-        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f97);
+        new du4().a = 1500L;
+        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f80);
         if (o != null && "7".equals(o.optString("dislike_ids"))) {
-            string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0648);
+            string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0644);
         }
         pi.O(this.a, string);
         NEGFeedBackView.b bVar = this.p;
@@ -657,20 +657,20 @@ public class hj5 {
         }
     }
 
-    public void v(kp4 kp4Var) {
+    public void v(lp4 lp4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, kp4Var) == null) || kp4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, lp4Var) == null) || lp4Var == null) {
             return;
         }
-        this.e = kp4Var;
-        SparseArray<String> b2 = kp4Var.b();
+        this.e = lp4Var;
+        SparseArray<String> b2 = lp4Var.b();
         this.f = b2;
         if (b2 != null && b2.size() > 9) {
             for (int size = this.f.size() - 1; size >= 9; size--) {
                 this.f.removeAt(size);
             }
         }
-        this.v.j(kp4Var);
+        this.v.j(lp4Var);
     }
 
     public void w(String[] strArr) {

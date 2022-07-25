@@ -76,7 +76,7 @@ public class v48 implements yt8 {
                 if (userData == null) {
                     return;
                 }
-                rl4.s(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f14ed), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + userData.getUserId() + "&opacity=0", true, true, true);
+                sl4.s(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f149c), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + userData.getUserId() + "&opacity=0", true, true, true);
                 return;
             case 4:
                 if (userData == null) {

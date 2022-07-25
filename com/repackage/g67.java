@@ -39,7 +39,7 @@ public class g67 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             if (!StrangeCleanSwitch.isOn()) {
-                mt4.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "witch is close", new Object[0]);
+                nt4.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "witch is close", new Object[0]);
                 return;
             }
             try {
@@ -53,7 +53,7 @@ public class g67 {
                     return;
                 }
                 boolean b2 = b(d);
-                mt4.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "clean suc " + b2, new Object[0]);
+                nt4.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "clean suc " + b2, new Object[0]);
             } finally {
                 z57.d().b();
             }
@@ -79,7 +79,7 @@ public class g67 {
     public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? xt4.k().l("key_max_stranger", a) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? yt4.k().l("key_max_stranger", a) : invokeV.intValue;
     }
 
     public static String d() {
@@ -96,7 +96,7 @@ public class g67 {
             }
             if (e != null && e.size() != 0) {
                 int c = c();
-                mt4.a("StrangeClean", -1L, -1, "getStrangeData", -1, "strange size is " + e.size() + " max is " + c, new Object[0]);
+                nt4.a("StrangeClean", -1L, -1, "getStrangeData", -1, "strange size is " + e.size() + " max is " + c, new Object[0]);
                 if (e.size() > c) {
                     int i = 2000;
                     if (2000 >= e.size() - c) {
@@ -152,7 +152,7 @@ public class g67 {
             if (i < i2) {
                 i = i2;
             }
-            xt4.k().w("key_max_stranger", i);
+            yt4.k().w("key_max_stranger", i);
         }
     }
 }

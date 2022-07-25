@@ -127,7 +127,7 @@ public class ge7 implements ee7 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements jd5<DataRes> {
+    public class c implements kd5<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -155,7 +155,7 @@ public class ge7 implements ee7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(DataRes dataRes) {
             Interceptable interceptable = $ic;
@@ -190,8 +190,8 @@ public class ge7 implements ee7 {
     public void a(long j, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(1048576, this, j, str) == null) {
-            br4.f();
-            he5.b(new b(this, br4.d("tb.lego_update"), j, str), new c(this, j, str));
+            cr4.f();
+            he5.b(new b(this, cr4.d("tb.lego_update"), j, str), new c(this, j, str));
         }
     }
 

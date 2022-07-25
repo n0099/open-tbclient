@@ -36,7 +36,7 @@ public class OADIDSDKHelper25 {
                     boolean unused = OADIDSDKHelper25.sGetOaidFail = true;
                 } else {
                     Log.d("KSAdSDK", "OADIDSDKHelper25:oaid time=" + currentTimeMillis + "--OAID:" + oaid);
-                    this.mOaidListener.a(oaid);
+                    this.mOaidListener.cp(oaid);
                 }
             }
             boolean unused2 = OADIDSDKHelper25.mIsRequestIng = false;
@@ -46,7 +46,7 @@ public class OADIDSDKHelper25 {
     /* loaded from: classes5.dex */
     public interface a {
         @WorkerThread
-        void a(String str);
+        void cp(String str);
     }
 
     public static void getOAId(Context context, a aVar) {

@@ -1,24 +1,36 @@
 package com.kwad.sdk.utils;
 
-import com.baidu.searchbox.player.widget.BdPlayerProgressView;
-import java.util.Formatter;
-import java.util.Locale;
+import android.annotation.SuppressLint;
+import java.io.IOException;
 /* loaded from: classes5.dex */
 public final class ay {
-    public static String a(long j) {
-        if (j <= 0 || j >= 86400000) {
-            return BdPlayerProgressView.DEFAULT_TIME_TEXT;
-        }
+    public static Class<?> aou;
+
+    public static String dV(String str) {
         try {
-            long j2 = j / 1000;
-            long j3 = j2 % 60;
-            long j4 = (j2 / 60) % 60;
-            long j5 = j2 / 3600;
-            Formatter formatter = new Formatter(new StringBuilder(), Locale.getDefault());
-            return j5 > 0 ? formatter.format("%d:%02d:%02d", Long.valueOf(j5), Long.valueOf(j4), Long.valueOf(j3)).toString() : formatter.format("%02d:%02d", Long.valueOf(j4), Long.valueOf(j3)).toString();
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.b.a(e);
-            return "";
+            Runtime runtime = Runtime.getRuntime();
+            return com.kwad.sdk.crash.utils.g.d(runtime.exec("getprop " + str).getInputStream());
+        } catch (IOException e) {
+            com.kwad.sdk.core.e.b.printStackTrace(e);
+            return null;
         }
+    }
+
+    @SuppressLint({"PrivateApi"})
+    public static Object f(String str, Object... objArr) {
+        try {
+            if (aou == null) {
+                aou = Class.forName("android.os.SystemProperties");
+            }
+            return q.c(aou, str, objArr);
+        } catch (Throwable th) {
+            com.kwad.sdk.core.e.b.printStackTrace(th);
+            return null;
+        }
+    }
+
+    public static String get(String str) {
+        Object f = f("get", str);
+        return f instanceof String ? (String) f : dV(str);
     }
 }

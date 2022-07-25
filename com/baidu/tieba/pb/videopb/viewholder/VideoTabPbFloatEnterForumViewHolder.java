@@ -43,7 +43,7 @@ public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder 
         this.b = (FlowLabelLayout) ((ViewGroup) view2).getChildAt(0);
     }
 
-    public void c() {
+    public void b() {
         ThreadForumEnterButton threadForumEnterButton;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (threadForumEnterButton = this.c) == null) {
@@ -52,7 +52,7 @@ public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder 
         threadForumEnterButton.e();
     }
 
-    public void d(View.OnClickListener onClickListener) {
+    public void c(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
             this.c.setAfterClickListener(onClickListener);

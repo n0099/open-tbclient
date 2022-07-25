@@ -179,9 +179,9 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> 
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            View inflate = this.a.inflate(R.layout.obfuscated_res_0x7f0d051d, viewGroup, false);
+            View inflate = this.a.inflate(R.layout.obfuscated_res_0x7f0d0527, viewGroup, false);
             ViewHolder viewHolder = new ViewHolder(inflate);
-            viewHolder.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092246);
+            viewHolder.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092248);
             return viewHolder;
         }
         return (ViewHolder) invokeLI.objValue;

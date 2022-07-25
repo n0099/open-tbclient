@@ -40,7 +40,6 @@ import com.baidu.live.business.view.smarttab.SmartTabLayout;
 import com.baidu.live.business.view.viewpager.NestedNoScrollViewPager;
 import com.baidu.live.framework.appbar.AppBarLayout;
 import com.baidu.mobstat.Config;
-import com.baidu.sofire.rp.service.Service;
 import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -140,7 +139,7 @@ public class z70 implements x90<a80> {
                     LiveFeedPageSdk.f().g().invokeScheme(this.a.c, liveBannerEntity.cmdInfo.a);
                     return;
                 }
-                LiveFeedPageSdk.f().g().a(this.a.c, this.a.c.getResources().getString(R.string.obfuscated_res_0x7f0f09fe));
+                LiveFeedPageSdk.f().g().a(this.a.c, this.a.c.getResources().getString(R.string.obfuscated_res_0x7f0f09ea));
             }
         }
     }
@@ -822,28 +821,28 @@ public class z70 implements x90<a80> {
     public final void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            View inflate = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d051e, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d0528, (ViewGroup) null);
             this.e = inflate;
-            this.f = inflate.findViewById(R.id.obfuscated_res_0x7f09132d);
-            this.g = (AppBarLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091326);
-            this.o = (FrameLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091328);
-            this.j = (SmartTabLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091333);
-            this.k = (RecyclerView) this.e.findViewById(R.id.obfuscated_res_0x7f091334);
-            this.l = (RecyclerView) this.e.findViewById(R.id.obfuscated_res_0x7f09132e);
-            this.t = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091327);
-            this.u = this.e.findViewById(R.id.obfuscated_res_0x7f09132f);
-            this.v = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091330);
-            this.w = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091331);
-            this.y = this.e.findViewById(R.id.obfuscated_res_0x7f091332);
-            FakeStartLiveButton fakeStartLiveButton = (FakeStartLiveButton) this.e.findViewById(R.id.obfuscated_res_0x7f0912f9);
+            this.f = inflate.findViewById(R.id.obfuscated_res_0x7f091309);
+            this.g = (AppBarLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091302);
+            this.o = (FrameLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091304);
+            this.j = (SmartTabLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09130f);
+            this.k = (RecyclerView) this.e.findViewById(R.id.obfuscated_res_0x7f091310);
+            this.l = (RecyclerView) this.e.findViewById(R.id.obfuscated_res_0x7f09130a);
+            this.t = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091303);
+            this.u = this.e.findViewById(R.id.obfuscated_res_0x7f09130b);
+            this.v = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09130c);
+            this.w = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09130d);
+            this.y = this.e.findViewById(R.id.obfuscated_res_0x7f09130e);
+            FakeStartLiveButton fakeStartLiveButton = (FakeStartLiveButton) this.e.findViewById(R.id.obfuscated_res_0x7f0912d5);
             this.x = fakeStartLiveButton;
             fakeStartLiveButton.setOnClickListener(new e(this));
-            ImageView imageView = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f0912fa);
+            ImageView imageView = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f0912d6);
             this.z = imageView;
             imageView.setOnClickListener(new f(this));
             this.z.setVisibility(this.I ? 0 : 8);
-            this.A = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091307);
-            this.B = (LiveSearchGuideView) this.e.findViewById(R.id.obfuscated_res_0x7f091308);
+            this.A = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f0912e3);
+            this.B = (LiveSearchGuideView) this.e.findViewById(R.id.obfuscated_res_0x7f0912e4);
             this.A.setOnClickListener(new g(this));
             if (this.I && ma0.a()) {
                 this.e.setPadding(0, ma0.d(this.c), 0, 0);
@@ -857,7 +856,7 @@ public class z70 implements x90<a80> {
             StaggeredGridLayoutManager staggeredGridLayoutManager2 = new StaggeredGridLayoutManager(1, 0);
             staggeredGridLayoutManager2.setOrientation(0);
             this.l.setLayoutManager(staggeredGridLayoutManager2);
-            NestedNoScrollViewPager nestedNoScrollViewPager = (NestedNoScrollViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f091335);
+            NestedNoScrollViewPager nestedNoScrollViewPager = (NestedNoScrollViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f091311);
             this.h = nestedNoScrollViewPager;
             nestedNoScrollViewPager.setId(View.generateViewId());
             this.h.setOffscreenPageLimit(1);
@@ -902,11 +901,11 @@ public class z70 implements x90<a80> {
             this.n = liveFeedPageConcernAdapter;
             this.l.setAdapter(liveFeedPageConcernAdapter);
             N();
-            LoadingView loadingView = (LoadingView) this.e.findViewById(R.id.obfuscated_res_0x7f09132b);
+            LoadingView loadingView = (LoadingView) this.e.findViewById(R.id.obfuscated_res_0x7f091307);
             this.r = loadingView;
             loadingView.c(this.I);
             g0(this.r);
-            ErrorView errorView = (ErrorView) this.e.findViewById(R.id.obfuscated_res_0x7f091329);
+            ErrorView errorView = (ErrorView) this.e.findViewById(R.id.obfuscated_res_0x7f091305);
             this.s = errorView;
             errorView.setActionCallback(new l(this));
             U(Config.TRACE_VISIT_RECENT_DAY);
@@ -1360,7 +1359,7 @@ public class z70 implements x90<a80> {
                     return;
                 }
             }
-            this.a = Service.TRIGGER_INTERVAL;
+            this.a = 180000L;
         }
 
         public boolean a() {

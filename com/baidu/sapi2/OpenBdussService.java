@@ -68,7 +68,7 @@ public class OpenBdussService extends AbstractService implements NoProguard {
             }
             if (currentAccount != null || TextUtils.isEmpty(cookieBduss)) {
                 if (currentAccount == null || !TextUtils.isEmpty(cookieBduss)) {
-                    return !cookieBduss.equals(currentAccount.bduss) ? 4 : 0;
+                    return (currentAccount == null || cookieBduss.equals(currentAccount.bduss)) ? 0 : 4;
                 }
                 return 3;
             }

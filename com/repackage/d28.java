@@ -133,10 +133,10 @@ public class d28 extends jx5<v18> {
             }
         }
         View h = h();
-        this.q = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0913c8);
-        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091dc2);
+        this.q = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0913a4);
+        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091dc8);
         this.k = (BdBaseViewPager) h.findViewById(R.id.obfuscated_res_0x7f0924c0);
-        this.o = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091dc3);
+        this.o = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091dc9);
         this.l = h.findViewById(R.id.obfuscated_res_0x7f090387);
         ArrayList arrayList = new ArrayList();
         this.j = arrayList;
@@ -150,7 +150,7 @@ public class d28 extends jx5<v18> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06b8 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06c2 : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5
@@ -164,10 +164,10 @@ public class d28 extends jx5<v18> {
             }
             SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
             SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0105);
-            ur4 d = ur4.d(this.k);
+            vr4 d = vr4.d(this.k);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0205);
-            ur4 d2 = ur4.d(this.o);
+            vr4 d2 = vr4.d(this.o);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
         }

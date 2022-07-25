@@ -52,12 +52,12 @@ public class xa1 {
 
         /* renamed from: com.repackage.xa1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0769a implements wo0.b {
+        public class C0618a implements wo0.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0769a(a aVar) {
+            public C0618a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +116,7 @@ public class xa1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    wo0.a(this.a, this.b, new C0769a(this));
+                    wo0.a(this.a, this.b, new C0618a(this));
                 } catch (Exception unused) {
                 }
             }

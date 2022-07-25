@@ -1,26 +1,26 @@
 package com.kwad.sdk.utils;
 
-import android.app.Activity;
-import android.content.Context;
-import androidx.annotation.Nullable;
-import com.kwad.sdk.api.core.ResContext;
-import com.kwad.sdk.api.loader.Wrapper;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.view.View;
 /* loaded from: classes5.dex */
 public final class bf {
-    public static Context a(Context context) {
-        Context applicationContext = Wrapper.unwrapContextIfNeed(context).getApplicationContext();
-        return applicationContext instanceof ResContext ? ((ResContext) applicationContext).getDelegatedContext().getApplicationContext() : applicationContext;
+    public View apj;
+    public Point api = new Point();
+    public Rect apg = new Rect();
+    public Rect aph = new Rect();
+
+    public bf(View view2) {
+        this.apj = view2;
     }
 
-    @Nullable
-    public static Activity b(@Nullable Context context) {
-        if (context instanceof ResContext) {
-            context = ((ResContext) context).getDelegatedContext();
+    public final boolean AV() {
+        boolean globalVisibleRect = this.apj.getGlobalVisibleRect(this.apg, this.api);
+        Point point = this.api;
+        if (point.x == 0 && point.y == 0 && this.apg.height() == this.apj.getHeight() && this.aph.height() != 0 && Math.abs(this.apg.top - this.aph.top) > this.apj.getHeight() / 2) {
+            this.apg.set(this.aph);
         }
-        if (context instanceof Activity) {
-            return (Activity) context;
-        }
-        com.kwad.sdk.core.lifecycle.a.c();
-        return com.kwad.sdk.core.lifecycle.a.e();
+        this.aph.set(this.apg);
+        return globalVisibleRect;
     }
 }

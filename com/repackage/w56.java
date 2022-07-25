@@ -73,7 +73,7 @@ public class w56 {
                 if (responsedMessage.getError() == 0) {
                     if (this.a.b == 1 && (u56Var == null || ListUtils.isEmpty(u56Var.b))) {
                         if (this.a.d != null) {
-                            this.a.d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c2b));
+                            this.a.d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17));
                         }
                     } else if (u56Var != null) {
                         this.a.c.a = u56Var.a;
@@ -202,11 +202,11 @@ public class w56 {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            ma5 ma5Var = new ma5(309652);
-            ma5Var.setResponsedClass(HotUserRankSocketResMsg.class);
-            ma5Var.g(true);
-            ma5Var.setPriority(4);
-            MessageManager.getInstance().registerTask(ma5Var);
+            na5 na5Var = new na5(309652);
+            na5Var.setResponsedClass(HotUserRankSocketResMsg.class);
+            na5Var.g(true);
+            na5Var.setPriority(4);
+            MessageManager.getInstance().registerTask(na5Var);
         }
     }
 

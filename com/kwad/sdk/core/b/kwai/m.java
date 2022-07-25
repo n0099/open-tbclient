@@ -18,8 +18,14 @@ public final class m implements com.kwad.sdk.core.d<AdInfo.AdFeedInfo> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "videoSoundType", adFeedInfo.videoSoundType);
-        com.kwad.sdk.utils.r.a(jSONObject, "videoAutoPlayType", adFeedInfo.videoAutoPlayType);
+        int i = adFeedInfo.videoSoundType;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "videoSoundType", i);
+        }
+        int i2 = adFeedInfo.videoAutoPlayType;
+        if (i2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "videoAutoPlayType", i2);
+        }
         return jSONObject;
     }
 

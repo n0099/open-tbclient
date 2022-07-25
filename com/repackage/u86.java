@@ -31,7 +31,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 /* loaded from: classes7.dex */
-public class u86 extends b25 {
+public class u86 extends c25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<String> e;
@@ -57,7 +57,7 @@ public class u86 extends b25 {
         x();
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public String b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class u86 extends b25 {
         return (String) invokeI.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -84,35 +84,35 @@ public class u86 extends b25 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public ym e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.d() : (ym) invokeV.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? m45.b() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? n45.b() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "用户Diy表情" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public EmotionGroupType h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? EmotionGroupType.USER_DIY : (EmotionGroupType) invokeV.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -122,7 +122,7 @@ public class u86 extends b25 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -132,7 +132,7 @@ public class u86 extends b25 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -142,14 +142,14 @@ public class u86 extends b25 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public boolean m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? this.f.contains(str) : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public ym n(String str) {
         InterceptResult invokeL;
         ByteArrayOutputStream byteArrayOutputStream;
@@ -216,7 +216,7 @@ public class u86 extends b25 {
         }
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public ym o(String str) {
         InterceptResult invokeL;
         Bitmap image;
@@ -234,7 +234,7 @@ public class u86 extends b25 {
         return (ym) invokeL.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public void p(int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || i == this.g) {
@@ -244,7 +244,7 @@ public class u86 extends b25 {
         ym ymVar = new ym(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f08090c)), false);
         super.s(ymVar);
         super.r(ymVar);
-        l45.k().h(jg.h().g("#(meme,diysetting)", 20));
+        m45.k().h(jg.h().g("#(meme,diysetting)", 20));
     }
 
     public File u(String str) {
@@ -259,7 +259,7 @@ public class u86 extends b25 {
             if (replace2.contains("_")) {
                 replace2 = replace2.substring(replace2.indexOf("_") + 1);
             }
-            return new File(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + m45.c() + "/" + replace2 + "_s.jpg");
+            return new File(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + n45.c() + "/" + replace2 + "_s.jpg");
         }
         return (File) invokeL.objValue;
     }

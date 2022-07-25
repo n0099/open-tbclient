@@ -93,7 +93,7 @@ public class y98 extends cd6<AdvertAppInfo, FrsAppLegoViewHolder> {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             V v = this.g;
             if (v != 0) {
-                ((FrsAppLegoViewHolder) v).c();
+                ((FrsAppLegoViewHolder) v).b();
             }
             super.c0();
         }
@@ -117,7 +117,7 @@ public class y98 extends cd6<AdvertAppInfo, FrsAppLegoViewHolder> {
                 if (M == null) {
                     return null;
                 }
-                view2 = M.b();
+                view2 = M.a();
             }
             View view3 = view2;
             return S(i, view3, viewGroup, advertAppInfo, (FrsAppLegoViewHolder) view3.getTag());
@@ -130,10 +130,10 @@ public class y98 extends cd6<AdvertAppInfo, FrsAppLegoViewHolder> {
         V v;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) {
-            if (view2 == null || view2.getTag() == null || (v = this.g) == 0 || this.t == null || !((FrsAppLegoViewHolder) v).getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(((FrsAppLegoViewHolder) this.g).getClass()) || !(view2.getTag(R.id.obfuscated_res_0x7f091ef7) instanceof AdvertAppInfo.ILegoAdvert)) {
+            if (view2 == null || view2.getTag() == null || (v = this.g) == 0 || this.t == null || !((FrsAppLegoViewHolder) v).getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(((FrsAppLegoViewHolder) this.g).getClass()) || !(view2.getTag(R.id.obfuscated_res_0x7f091efb) instanceof AdvertAppInfo.ILegoAdvert)) {
                 return true;
             }
-            return !this.t.isReusable((AdvertAppInfo.ILegoAdvert) view2.getTag(R.id.obfuscated_res_0x7f091ef7));
+            return !this.t.isReusable((AdvertAppInfo.ILegoAdvert) view2.getTag(R.id.obfuscated_res_0x7f091efb));
         }
         return invokeL.booleanValue;
     }
@@ -149,7 +149,7 @@ public class y98 extends cd6<AdvertAppInfo, FrsAppLegoViewHolder> {
             if (this.t == null || (view2 = (View) uc7.h().a(this.k, this.t, 1)) == null) {
                 return null;
             }
-            view2.setTag(R.id.obfuscated_res_0x7f091ef7, this.t);
+            view2.setTag(R.id.obfuscated_res_0x7f091efb, this.t);
             return new FrsAppLegoViewHolder((pd7) view2);
         }
         return (FrsAppLegoViewHolder) invokeL.objValue;
@@ -193,7 +193,7 @@ public class y98 extends cd6<AdvertAppInfo, FrsAppLegoViewHolder> {
             }
             this.k.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
             this.k.getLayoutMode().j(view2);
-            sn4.b(advertAppInfo);
+            tn4.b(advertAppInfo);
             pd7 pd7Var = (pd7) view2;
             pd7Var.setFromCDN(this.i);
             pd7Var.update(this.t);
@@ -202,7 +202,7 @@ public class y98 extends cd6<AdvertAppInfo, FrsAppLegoViewHolder> {
             this.u.n0();
             pd7Var.setAfterClickSchemeListener(new a(this, advertAppInfo, d1, U));
             if (m98.class.isAssignableFrom(view2.getClass())) {
-                frsAppLegoViewHolder.d(((m98) view2).getVideoOrVrView());
+                frsAppLegoViewHolder.c(((m98) view2).getVideoOrVrView());
             }
             return view2;
         }

@@ -46,7 +46,7 @@ public class o08 {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d = new m08(this.b, x05.d);
+            this.d = new m08(this.b, y05.d);
             this.e = new l08(this.b, s08.b);
             this.f = new k08(this.b.getPageActivity(), f08.d);
             this.a.add(this.d);

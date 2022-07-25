@@ -54,9 +54,9 @@ public class EmptyView extends LinearLayout {
             this.a.setLayoutParams(layoutParams);
             setImageResource(eb0.e().b(z));
             if ("quanmin".equals(LiveFeedPageSdk.f().e())) {
-                this.b.setText(R.string.obfuscated_res_0x7f0f09f2);
+                this.b.setText(R.string.obfuscated_res_0x7f0f09de);
             } else {
-                this.b.setText(R.string.obfuscated_res_0x7f0f09f1);
+                this.b.setText(R.string.obfuscated_res_0x7f0f09dd);
             }
             this.b.setTextColor(eb0.e().a(getContext(), z, "color_8585852"));
         }
@@ -134,10 +134,10 @@ public class EmptyView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d050b, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0515, this);
         setOrientation(1);
         setGravity(17);
-        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090896);
-        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f090898);
+        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090894);
+        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f090896);
     }
 }

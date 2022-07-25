@@ -1,11 +1,13 @@
 package com.repackage;
+
+import android.content.Context;
 /* loaded from: classes6.dex */
 public interface fm1 {
-    ed4 a();
+    void a(Context context, bf3<Boolean> bf3Var);
 
-    void b(l62 l62Var, j62 j62Var);
+    void b(boolean z, bf3<String> bf3Var);
 
-    boolean c();
+    void c(Context context, bf3<String> bf3Var);
 
-    boolean d();
+    void d(bf3<Integer> bf3Var);
 }

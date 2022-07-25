@@ -57,7 +57,7 @@ public class FoldedGridView extends BdGridView implements vj6, AdapterView.OnIte
                 return;
             }
         }
-        i = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702cd);
+        i = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702cb);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

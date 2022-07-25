@@ -155,16 +155,16 @@ public class p56 {
             if (linkedList != null && linkedList.size() >= 1) {
                 int d = d(linkedList);
                 if (d < 0) {
-                    xt4.k().u("key_enter_forum_ufan_recent_visit_tip_show", true);
+                    yt4.k().u("key_enter_forum_ufan_recent_visit_tip_show", true);
                     return;
-                } else if (xt4.k().h("key_enter_forum_ufan_recent_visit_tip_show", false)) {
+                } else if (yt4.k().h("key_enter_forum_ufan_recent_visit_tip_show", false)) {
                     return;
                 } else {
                     this.d.postDelayed(new b(this, i, d), 100L);
                     return;
                 }
             }
-            xt4.k().u("key_enter_forum_ufan_recent_visit_tip_show", true);
+            yt4.k().u("key_enter_forum_ufan_recent_visit_tip_show", true);
         }
     }
 
@@ -203,7 +203,7 @@ public class p56 {
     public final void g(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            xt4.k().u("key_enter_forum_ufan_recent_visit_tip_show", true);
+            yt4.k().u("key_enter_forum_ufan_recent_visit_tip_show", true);
             PopupWindow popupWindow = this.c;
             if (popupWindow == null || !popupWindow.isShowing()) {
                 if (this.b == null) {

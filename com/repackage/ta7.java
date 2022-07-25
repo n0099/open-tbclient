@@ -171,7 +171,7 @@ public class ta7 extends jx5<oa7> {
             messageCardBottomView.h();
         }
         SkinManager.setBackgroundResource(this.s, R.drawable.icon_news_red_dot);
-        ur4 d = ur4.d(this.k);
+        vr4 d = vr4.d(this.k);
         d.n(R.string.J_X04);
         d.v(R.color.CAM_X0108);
         d.A(R.string.F_X01);
@@ -223,16 +223,16 @@ public class ta7 extends jx5<oa7> {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             View h = h();
             this.x = h;
-            this.i = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f0918ce);
-            this.j = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f09232d);
-            this.k = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f090954);
-            this.l = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f091951);
-            this.m = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f09208f);
+            this.i = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f0918a9);
+            this.j = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f09232f);
+            this.k = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f09094d);
+            this.l = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f09192c);
+            this.m = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f092093);
             this.n = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f090539);
-            this.o = (OriginalThreadCardView) this.x.findViewById(R.id.obfuscated_res_0x7f09168e);
+            this.o = (OriginalThreadCardView) this.x.findViewById(R.id.obfuscated_res_0x7f091669);
             this.r = (MessageCardBottomView) this.x.findViewById(R.id.obfuscated_res_0x7f090535);
-            this.s = this.x.findViewById(R.id.obfuscated_res_0x7f0915be);
-            this.p = (LinearLayout) this.x.findViewById(R.id.obfuscated_res_0x7f0915bf);
+            this.s = this.x.findViewById(R.id.obfuscated_res_0x7f091599);
+            this.p = (LinearLayout) this.x.findViewById(R.id.obfuscated_res_0x7f09159a);
             this.q = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f09053a);
             ViewCommonUtil.setViewPadding(this.o, pi.f(getContext(), R.dimen.M_W_X004), pi.f(getContext(), R.dimen.M_H_X003), pi.f(getContext(), R.dimen.M_W_X004), pi.f(getContext(), R.dimen.M_H_X003));
             this.o.setUsePlaceHolder(false);
@@ -286,7 +286,7 @@ public class ta7 extends jx5<oa7> {
                 if (u()) {
                     this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f02a6));
                 } else if (v()) {
-                    this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0fb9));
+                    this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0fa2));
                 }
             } else {
                 this.l.setVisibility(8);
@@ -296,7 +296,7 @@ public class ta7 extends jx5<oa7> {
             if (u()) {
                 this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f02a5));
             } else if (v()) {
-                this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0fba));
+                this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0fa3));
             }
         }
         this.m.setText(StringHelper.getFormatTime(this.v.getTime()));
@@ -316,10 +316,10 @@ public class ta7 extends jx5<oa7> {
                     this.z = 1;
                     this.n.setVisibility(8);
                     this.q.setVisibility(8);
-                    ur4 d = ur4.d(this.p);
+                    vr4 d = vr4.d(this.p);
                     d.n(R.string.J_X05);
                     d.f(R.color.CAM_X0201);
-                    ur4 d2 = ur4.d(this.o);
+                    vr4 d2 = vr4.d(this.o);
                     d2.n(R.string.J_X05);
                     d2.f(R.color.CAM_X0204);
                     ViewCommonUtil.setViewMargin(this.p, 0, pi.f(getContext(), R.dimen.M_H_X004), 0, pi.f(getContext(), R.dimen.M_H_X005));
@@ -327,10 +327,10 @@ public class ta7 extends jx5<oa7> {
                     ViewCommonUtil.setViewMargin(this.o, 0, 0, 0, 0);
                 }
                 this.q.setVisibility(8);
-                ur4 d3 = ur4.d(this.p);
+                vr4 d3 = vr4.d(this.p);
                 d3.n(R.string.J_X05);
                 d3.f(R.color.CAM_X0201);
-                ur4 d4 = ur4.d(this.o);
+                vr4 d4 = vr4.d(this.o);
                 d4.n(R.string.J_X05);
                 d4.f(R.color.CAM_X0204);
                 ViewCommonUtil.setViewMargin(this.p, 0, pi.f(getContext(), R.dimen.M_H_X004), 0, pi.f(getContext(), R.dimen.M_H_X003));
@@ -348,17 +348,17 @@ public class ta7 extends jx5<oa7> {
                 ViewCommonUtil.setViewMargin(this.p, 0, pi.f(getContext(), R.dimen.M_H_X004), 0, pi.f(getContext(), R.dimen.M_H_X003));
                 ViewCommonUtil.setViewMargin(this.o, pi.f(getContext(), R.dimen.M_W_X005), pi.f(getContext(), R.dimen.M_H_X004), pi.f(getContext(), R.dimen.M_W_X005), pi.f(getContext(), R.dimen.M_H_X004));
                 this.p.setPadding(0, 0, 0, 0);
-                ur4 d5 = ur4.d(this.p);
+                vr4 d5 = vr4.d(this.p);
                 d5.n(R.string.J_X05);
                 d5.f(R.color.CAM_X0204);
-                ur4 d6 = ur4.d(this.o);
+                vr4 d6 = vr4.d(this.o);
                 d6.n(R.string.J_X05);
                 d6.f(R.color.CAM_X0201);
                 if (this.y.get(1) != null) {
                     this.q.setOnTouchListener(new bu8(rg5.E(this.y.get(1).content)));
                     this.q.setText(rg5.E(this.y.get(1).content));
                     this.v.L(TbRichTextView.X(this.y.get(1).content, false));
-                    this.q.setTag(R.id.obfuscated_res_0x7f090f31, Boolean.valueOf(this.y.get(1).is_floor.intValue() == 1));
+                    this.q.setTag(R.id.obfuscated_res_0x7f090f2a, Boolean.valueOf(this.y.get(1).is_floor.intValue() == 1));
                 }
             }
             if (this.v.m().size() != 0 && this.y.get(0) != null) {

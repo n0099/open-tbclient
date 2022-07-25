@@ -125,8 +125,8 @@ public class ma7 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 ArrayList<oa7> arrayList = new ArrayList<>();
-                br4.f();
-                te<byte[]> e = br4.e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName());
+                cr4.f();
+                te<byte[]> e = cr4.e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName());
                 if (e == null || (bArr = e.get("agree_me_cache_key")) == null) {
                     return arrayList;
                 }

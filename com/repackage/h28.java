@@ -154,22 +154,22 @@ public class h28 extends jx5<s18> {
         }
         this.i = 3;
         View h = h();
-        PersonHeadPendantView personHeadPendantView = (PersonHeadPendantView) h.findViewById(R.id.obfuscated_res_0x7f09185c);
+        PersonHeadPendantView personHeadPendantView = (PersonHeadPendantView) h.findViewById(R.id.obfuscated_res_0x7f091837);
         this.o = personHeadPendantView;
         personHeadPendantView.setHasPendantStyle();
         this.o.getHeadView().setIsRound(true);
         this.o.getHeadView().setGodIconWidth(R.dimen.tbds40);
         this.o.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         this.o.getHeadView().setPlaceHolder(2);
-        this.n = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f091865);
-        this.p = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0918a5);
-        this.q = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f091443);
-        this.r = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091899);
-        this.s = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0915ed);
-        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090953);
-        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090956);
-        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090682);
-        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090683);
+        this.n = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f091840);
+        this.p = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f091880);
+        this.q = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f09141f);
+        this.r = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091874);
+        this.s = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0915c8);
+        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09094c);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09094f);
+        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090681);
+        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090682);
         this.t = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f0902a4);
         h.setOnClickListener(this);
         this.q.setOnClickListener(this);
@@ -194,7 +194,7 @@ public class h28 extends jx5<s18> {
             } else {
                 SkinManager.setViewTextColor(this.r, R.color.CAM_X0105, 1);
             }
-            ur4 d = ur4.d(this.s);
+            vr4 d = vr4.d(this.s);
             d.v(R.color.CAM_X0108);
             d.n(R.string.J_X04);
             d.f(R.color.CAM_X0203);
@@ -222,7 +222,7 @@ public class h28 extends jx5<s18> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d06b1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d06bb : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5

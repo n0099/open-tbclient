@@ -5,20 +5,20 @@ import com.ksad.json.annotation.KsJson;
 @KsJson
 /* loaded from: classes5.dex */
 public class a extends com.kwad.sdk.core.response.kwai.a {
-    public int a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public long h;
+    public int acZ;
+    public int ada;
+    public String adb;
+    public String agM;
+    public String aiA;
+    public String aiB;
+    public long aiC;
+    public String aiz;
 
-    public final boolean a() {
-        return this.a == 0 && this.b == 0 && TextUtils.isEmpty(this.c);
+    public final boolean xp() {
+        return this.acZ == 0 && this.ada == 0 && TextUtils.isEmpty(this.adb);
     }
 
-    public final boolean b() {
-        return TextUtils.isEmpty(this.d) && TextUtils.isEmpty(this.e) && TextUtils.isEmpty(this.g) && TextUtils.isEmpty(this.f);
+    public final boolean xq() {
+        return TextUtils.isEmpty(this.aiz) && TextUtils.isEmpty(this.aiA) && TextUtils.isEmpty(this.agM) && TextUtils.isEmpty(this.aiB);
     }
 }

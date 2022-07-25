@@ -115,7 +115,7 @@ public class FirstPraiseToast {
     private void praiseToast() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            SpannableString spannableString = new SpannableString(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f047f), Integer.valueOf(this.experience)));
+            SpannableString spannableString = new SpannableString(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f047e), Integer.valueOf(this.experience)));
             spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)), 4, spannableString.length(), 33);
             BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableString);
             b.e(R.drawable.obfuscated_res_0x7f0807c8);

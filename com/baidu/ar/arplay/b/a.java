@@ -278,7 +278,7 @@ public class a implements ARPMessage.MessageHandler {
             return;
         }
         c cVar = new c();
-        Object obj = hashMap.get("number");
+        Object obj = hashMap.get(com.baidu.sapi2.views.logindialog.view.a.k);
         if (obj != null) {
             cVar.G((String) obj);
         }

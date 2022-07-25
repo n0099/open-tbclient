@@ -6,7 +6,7 @@ import android.os.Process;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 /* loaded from: classes5.dex */
 public final class AbiUtil {
-    public static Abi a;
+    public static Abi amH;
 
     /* loaded from: classes5.dex */
     public enum Abi {
@@ -15,17 +15,13 @@ public final class AbiUtil {
         ARM64_V8A
     }
 
-    public static String a(Context context) {
-        return b(context) ? "arm64-v8a" : PassBiometricUtil.CPU_TYPE_ARMEABI_V7A;
+    public static String bO(Context context) {
+        return isArm64(context) ? "arm64-v8a" : PassBiometricUtil.CPU_TYPE_ARMEABI_V7A;
     }
 
-    public static boolean b(Context context) {
-        return c(context) == Abi.ARM64_V8A;
-    }
-
-    public static Abi c(Context context) {
+    public static Abi bP(Context context) {
         Abi abi;
-        Abi abi2 = a;
+        Abi abi2 = amH;
         if (abi2 != null) {
             return abi2;
         }
@@ -34,26 +30,30 @@ public final class AbiUtil {
             if (i < 23) {
                 if (i >= 21) {
                     try {
-                        a = ((Boolean) q.a(q.a("dalvik.system.VMRuntime", "getRuntime", new Object[0]), "is64Bit", new Object[0])).booleanValue() ? Abi.ARM64_V8A : Abi.ARMEABI_V7A;
+                        amH = ((Boolean) q.a(q.a("dalvik.system.VMRuntime", "getRuntime", new Object[0]), "is64Bit", new Object[0])).booleanValue() ? Abi.ARM64_V8A : Abi.ARMEABI_V7A;
                     } catch (Throwable th) {
                         th.printStackTrace();
                         try {
-                            a = context.getApplicationInfo().nativeLibraryDir.contains("arm64") ? Abi.ARM64_V8A : Abi.UNKNOWN;
+                            amH = context.getApplicationInfo().nativeLibraryDir.contains("arm64") ? Abi.ARM64_V8A : Abi.UNKNOWN;
                         } catch (Throwable th2) {
                             th2.printStackTrace();
                             abi = Abi.UNKNOWN;
                         }
                     }
                 }
-                return a;
+                return amH;
             } else if (Process.is64Bit()) {
                 abi = Abi.ARM64_V8A;
             }
-            a = abi;
-            return a;
+            amH = abi;
+            return amH;
         }
         abi = Abi.ARMEABI_V7A;
-        a = abi;
-        return a;
+        amH = abi;
+        return amH;
+    }
+
+    public static boolean isArm64(Context context) {
+        return bP(context) == Abi.ARM64_V8A;
     }
 }

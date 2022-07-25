@@ -1,34 +1,143 @@
 package com.repackage;
 
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes7.dex */
 public final class v72 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile v72 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Lock a;
+    public ArrayList<z72> b;
 
-    public static p72 a(w72 w72Var, m82 m82Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
+    public v72() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, w72Var, m82Var, v8ThreadDelegatePolicy)) == null) {
-            x72 a = oj2.B0().a(w72Var);
-            p72 a2 = a.a(w72Var.a(), m82Var, v8ThreadDelegatePolicy);
-            a2.J0(a.getUserAgent());
-            return a2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (p72) invokeLLL.objValue;
+        this.a = new ReentrantLock();
+        this.b = new ArrayList<>();
     }
 
-    public static p72 b(w72 w72Var, m82 m82Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
+    public static v72 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, w72Var, m82Var, v8ThreadDelegatePolicy)) == null) {
-            p72 a = a(w72Var, m82Var, v8ThreadDelegatePolicy);
-            a.r0();
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (v72.class) {
+                    if (c == null) {
+                        c = new v72();
+                    }
+                }
+            }
+            return c;
         }
-        return (p72) invokeLLL.objValue;
+        return (v72) invokeV.objValue;
+    }
+
+    public final Object[] a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                this.a.lock();
+                return this.b.size() > 0 ? this.b.toArray() : null;
+            } finally {
+                this.a.unlock();
+            }
+        }
+        return (Object[]) invokeV.objValue;
+    }
+
+    public void b(q72 q72Var) {
+        Object[] a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q72Var) == null) || (a = a()) == null) {
+            return;
+        }
+        for (Object obj : a) {
+            ((z72) obj).d(q72Var);
+        }
+    }
+
+    public void c(q72 q72Var) {
+        Object[] a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, q72Var) == null) || (a = a()) == null) {
+            return;
+        }
+        for (Object obj : a) {
+            ((z72) obj).b(q72Var);
+        }
+    }
+
+    public void d(q72 q72Var) {
+        Object[] a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, q72Var) == null) || (a = a()) == null) {
+            return;
+        }
+        for (Object obj : a) {
+            ((z72) obj).f(q72Var);
+        }
+    }
+
+    public void e(q72 q72Var) {
+        Object[] a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, q72Var) == null) || (a = a()) == null) {
+            return;
+        }
+        for (Object obj : a) {
+            ((z72) obj).c(q72Var);
+        }
+    }
+
+    public void f(q72 q72Var) {
+        Object[] a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, q72Var) == null) || (a = a()) == null) {
+            return;
+        }
+        for (Object obj : a) {
+            ((z72) obj).g(q72Var);
+        }
+    }
+
+    public void g(q72 q72Var) {
+        Object[] a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, q72Var) == null) || (a = a()) == null) {
+            return;
+        }
+        for (Object obj : a) {
+            ((z72) obj).a(q72Var);
+        }
+    }
+
+    public void h(q72 q72Var) {
+        Object[] a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, q72Var) == null) || (a = a()) == null) {
+            return;
+        }
+        for (Object obj : a) {
+            ((z72) obj).e(q72Var);
+        }
     }
 }

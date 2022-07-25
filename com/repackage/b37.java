@@ -25,7 +25,7 @@ public class b37 extends ThreadData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<ny5> a;
-    public op4 b;
+    public pp4 b;
     public long c;
     public int d;
     public List<nn> e;
@@ -62,12 +62,12 @@ public class b37 extends ThreadData {
         }
     }
 
-    public ArrayList<nn> d(dq4 dq4Var) {
+    public ArrayList<nn> d(eq4 eq4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dq4Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eq4Var)) == null) {
             ArrayList<nn> arrayList = new ArrayList<>(this.e);
-            k(arrayList, dq4Var);
+            k(arrayList, eq4Var);
             ArrayList<nn> arrayList2 = new ArrayList<>();
             Iterator<nn> it = arrayList.iterator();
             int i = 0;
@@ -77,71 +77,71 @@ public class b37 extends ThreadData {
                     ThreadData threadData = (ThreadData) next;
                     int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
                     if (threadData.getType() == ThreadData.TYPE_NORMAL) {
-                        qq4 qq4Var = new qq4();
-                        qq4Var.s = threadData;
-                        qq4Var.position = i;
-                        qq4Var.a = true;
-                        arrayList2.add(qq4Var);
-                        qq4 qq4Var2 = new qq4();
-                        qq4Var2.s = threadData;
-                        qq4Var2.position = i;
+                        rq4 rq4Var = new rq4();
+                        rq4Var.s = threadData;
+                        rq4Var.position = i;
+                        rq4Var.a = true;
+                        arrayList2.add(rq4Var);
+                        rq4 rq4Var2 = new rq4();
+                        rq4Var2.s = threadData;
+                        rq4Var2.position = i;
                         if (threadData.isBJHNormalThreadType()) {
-                            qq4Var2.f = true;
+                            rq4Var2.f = true;
                         } else if (threadData.picCount() == 1) {
-                            qq4Var2.d = true;
-                            qq4Var2.t = imageWidthAndHeight[0];
-                            qq4Var2.u = imageWidthAndHeight[1];
+                            rq4Var2.d = true;
+                            rq4Var2.t = imageWidthAndHeight[0];
+                            rq4Var2.u = imageWidthAndHeight[1];
                         } else if (threadData.picCount() >= 2) {
-                            qq4Var2.e = true;
+                            rq4Var2.e = true;
                         } else {
-                            qq4Var2.b = true;
+                            rq4Var2.b = true;
                         }
-                        arrayList2.add(qq4Var2);
+                        arrayList2.add(rq4Var2);
                         if (threadData.getItem() != null) {
-                            qq4 qq4Var3 = new qq4();
-                            qq4Var3.n = true;
-                            qq4Var3.s = threadData;
-                            qq4Var3.position = i;
-                            arrayList2.add(qq4Var3);
+                            rq4 rq4Var3 = new rq4();
+                            rq4Var3.n = true;
+                            rq4Var3.s = threadData;
+                            rq4Var3.position = i;
+                            arrayList2.add(rq4Var3);
                         }
-                        qq4 qq4Var4 = new qq4();
-                        qq4Var4.m = true;
-                        qq4Var4.s = threadData;
-                        qq4Var4.position = i;
-                        arrayList2.add(qq4Var4);
-                        qq4 qq4Var5 = new qq4();
-                        qq4Var5.g = true;
-                        qq4Var5.s = threadData;
-                        qq4Var5.position = i;
-                        arrayList2.add(qq4Var5);
+                        rq4 rq4Var4 = new rq4();
+                        rq4Var4.m = true;
+                        rq4Var4.s = threadData;
+                        rq4Var4.position = i;
+                        arrayList2.add(rq4Var4);
+                        rq4 rq4Var5 = new rq4();
+                        rq4Var5.g = true;
+                        rq4Var5.s = threadData;
+                        rq4Var5.position = i;
+                        arrayList2.add(rq4Var5);
                     } else if (threadData.getType() == ThreadData.TYPE_VIDEO) {
-                        qq4 qq4Var6 = new qq4();
-                        qq4Var6.s = threadData;
-                        qq4Var6.position = i;
-                        qq4Var6.a = true;
-                        arrayList2.add(qq4Var6);
-                        qq4 qq4Var7 = new qq4();
-                        qq4Var7.s = threadData;
-                        qq4Var7.position = i;
-                        qq4Var7.i = true;
-                        arrayList2.add(qq4Var7);
+                        rq4 rq4Var6 = new rq4();
+                        rq4Var6.s = threadData;
+                        rq4Var6.position = i;
+                        rq4Var6.a = true;
+                        arrayList2.add(rq4Var6);
+                        rq4 rq4Var7 = new rq4();
+                        rq4Var7.s = threadData;
+                        rq4Var7.position = i;
+                        rq4Var7.i = true;
+                        arrayList2.add(rq4Var7);
                         if (threadData.getItem() != null) {
-                            qq4 qq4Var8 = new qq4();
-                            qq4Var8.n = true;
-                            qq4Var8.s = threadData;
-                            qq4Var8.position = i;
-                            arrayList2.add(qq4Var8);
+                            rq4 rq4Var8 = new rq4();
+                            rq4Var8.n = true;
+                            rq4Var8.s = threadData;
+                            rq4Var8.position = i;
+                            arrayList2.add(rq4Var8);
                         }
-                        qq4 qq4Var9 = new qq4();
-                        qq4Var9.m = true;
-                        qq4Var9.s = threadData;
-                        qq4Var9.position = i;
-                        arrayList2.add(qq4Var9);
-                        qq4 qq4Var10 = new qq4();
-                        qq4Var10.g = true;
-                        qq4Var10.s = threadData;
-                        qq4Var10.position = i;
-                        arrayList2.add(qq4Var10);
+                        rq4 rq4Var9 = new rq4();
+                        rq4Var9.m = true;
+                        rq4Var9.s = threadData;
+                        rq4Var9.position = i;
+                        arrayList2.add(rq4Var9);
+                        rq4 rq4Var10 = new rq4();
+                        rq4Var10.g = true;
+                        rq4Var10.s = threadData;
+                        rq4Var10.position = i;
+                        arrayList2.add(rq4Var10);
                     } else if (threadData.getType() == ThreadData.TYPE_ARTICLE && threadData.isBJHArticleThreadType()) {
                         threadData.position = i;
                         arrayList2.add(threadData);
@@ -150,10 +150,10 @@ public class b37 extends ThreadData {
                         uy5Var.g = threadData.getTid();
                         arrayList2.add(uy5Var);
                     } else {
-                        qq4 qq4Var11 = new qq4();
-                        qq4Var11.s = threadData;
-                        qq4Var11.position = i;
-                        arrayList2.add(qq4Var11);
+                        rq4 rq4Var11 = new rq4();
+                        rq4Var11.s = threadData;
+                        rq4Var11.position = i;
+                        arrayList2.add(rq4Var11);
                     }
                 } else if (next instanceof BaseCardInfo) {
                     ((BaseCardInfo) next).position = i;
@@ -187,9 +187,9 @@ public class b37 extends ThreadData {
         }
     }
 
-    public final void k(ArrayList<nn> arrayList, dq4 dq4Var) {
+    public final void k(ArrayList<nn> arrayList, eq4 eq4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, arrayList, dq4Var) == null) || dq4Var == null || ListUtils.isEmpty(dq4Var.g())) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, arrayList, eq4Var) == null) || eq4Var == null || ListUtils.isEmpty(eq4Var.g())) {
             return;
         }
         int size = arrayList.size();
@@ -200,8 +200,8 @@ public class b37 extends ThreadData {
                 break;
             }
             if (arrayList.get(i) instanceof ThreadData) {
-                if (dq4Var.floorPosition == i2) {
-                    ListUtils.add(arrayList, i, dq4Var);
+                if (eq4Var.floorPosition == i2) {
+                    ListUtils.add(arrayList, i, eq4Var);
                     break;
                 }
                 i2++;
@@ -209,7 +209,7 @@ public class b37 extends ThreadData {
             i++;
         }
         if (size == 2) {
-            ListUtils.add(arrayList, dq4Var);
+            ListUtils.add(arrayList, eq4Var);
         }
     }
 
@@ -243,9 +243,9 @@ public class b37 extends ThreadData {
             c(dataRes.thread_list);
         }
         if (dataRes.page != null) {
-            op4 op4Var = new op4();
-            this.b = op4Var;
-            op4Var.j(dataRes.page);
+            pp4 pp4Var = new pp4();
+            this.b = pp4Var;
+            pp4Var.j(dataRes.page);
         }
     }
 
@@ -282,9 +282,9 @@ public class b37 extends ThreadData {
             c(hotThread.thread_list);
         }
         if (hotThread.page != null) {
-            op4 op4Var = new op4();
-            this.b = op4Var;
-            op4Var.j(hotThread.page);
+            pp4 pp4Var = new pp4();
+            this.b = pp4Var;
+            pp4Var.j(hotThread.page);
         }
     }
 

@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.wj5;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AsInstallService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AS_INSTALL_RECEIVING_DURATION_MILLS = 120000;
@@ -33,7 +33,7 @@ public class AsInstallService extends BdBaseService {
     public Runnable mStopReceivingRunnable;
     public VersionData mVersionData;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class AsInstallService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

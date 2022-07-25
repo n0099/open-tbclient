@@ -30,13 +30,13 @@ public class SecurityUtil implements com.baidu.pass.a {
     public static byte[] aesDecrypt(byte[] bArr, String str, String str2) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, bArr, str, str2)) == null) ? new a.C0122a().a(bArr, str, str2) : (byte[]) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, bArr, str, str2)) == null) ? new a.C0123a().a(bArr, str, str2) : (byte[]) invokeLLL.objValue;
     }
 
     public static byte[] aesEncrypt(String str, String str2, String str3) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) ? new a.C0122a().a(str, str2, str3) : (byte[]) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) ? new a.C0123a().a(str, str2, str3) : (byte[]) invokeLLL.objValue;
     }
 
     public static byte[] base64Decode(byte[] bArr) {

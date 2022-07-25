@@ -1,7 +1,19 @@
 package com.repackage;
 
-import android.os.Message;
+import java.io.File;
 /* loaded from: classes6.dex */
-public interface hl1 {
-    boolean a(Message message);
+public interface hl1 extends zt2 {
+    File a();
+
+    void e(String str, String str2);
+
+    void e(String str, String str2, Throwable th);
+
+    void flush(boolean z);
+
+    void i(String str, String str2);
+
+    void w(String str, String str2);
+
+    void w(String str, String str2, Throwable th);
 }

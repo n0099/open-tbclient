@@ -1,11 +1,11 @@
 package com.kwad.sdk.core.b.kwai;
 
 import com.ksad.annotation.invoker.InvokeBy;
-import com.kwad.components.core.j.kwai.c;
+import com.kwad.components.ad.adbit.AdBid;
 /* loaded from: classes5.dex */
 public final class bd {
-    @InvokeBy(invokerClass = cz.class, methodId = "registerHolder")
-    public static void a() {
-        cz.a().put(c.a.class, new aj());
+    @InvokeBy(invokerClass = dd.class, methodId = "registerHolder")
+    public static void tl() {
+        dd.tm().put(AdBid.class, new h());
     }
 }

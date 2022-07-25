@@ -201,7 +201,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
                 radioButton.setId(i + 4660);
                 Context context = getContext();
                 Intrinsics.checkExpressionValueIsNotNull(context, "context");
-                radioButton.setButtonDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e24));
+                radioButton.setButtonDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e2b));
                 RadioGroup radioGroup2 = this.b;
                 if (radioGroup2 == null) {
                     Intrinsics.throwNpe();
@@ -220,7 +220,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int dimension = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0705f8);
+            int dimension = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0705f3);
             return new RadioGroup.LayoutParams(dimension + 12, dimension);
         }
         return (RadioGroup.LayoutParams) invokeV.objValue;
@@ -232,11 +232,11 @@ public final class PluginCenterTopBanner extends RelativeLayout {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404dd}, i, 0);
             this.e = obtainStyledAttributes.getFloat(0, 0.0f);
             obtainStyledAttributes.recycle();
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d066d, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f09125d);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0677, (ViewGroup) this, true);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091239);
             if (findViewById != null) {
                 this.a = (PluginCenterBannerGallery) findViewById;
-                View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09125c);
+                View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091238);
                 if (findViewById2 != null) {
                     this.b = (RadioGroup) findViewById2;
                     this.d = findViewById(R.id.obfuscated_res_0x7f090307);

@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import tbclient.BawuThrones;
 /* loaded from: classes6.dex */
 public class nd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cr4 a;
+    public dr4 a;
     public TextView b;
     public TextView c;
     public ImageView d;
@@ -64,7 +64,7 @@ public class nd6 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -91,11 +91,11 @@ public class nd6 {
             this.b = str2;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                xt4.k().u("key_frs_recommend_tip", !this.c.f);
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                yt4.k().u("key_frs_recommend_tip", !this.c.f);
                 uc6.c().d(this.a, this.b);
                 this.c.a.dismiss();
                 this.c.a = null;
@@ -104,7 +104,7 @@ public class nd6 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements cr4.e {
+    public class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nd6 a;
@@ -127,10 +127,10 @@ public class nd6 {
             this.a = nd6Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.f = false;
                 this.a.a.dismiss();
                 this.a.a = null;
@@ -200,33 +200,33 @@ public class nd6 {
     public void i(TbPageContext tbPageContext, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, tbPageContext, str, str2) == null) {
-            cr4 cr4Var = this.a;
-            if (cr4Var == null || !cr4Var.isShowing()) {
-                cr4 cr4Var2 = new cr4(tbPageContext.getPageActivity());
-                this.a = cr4Var2;
-                cr4Var2.setContentViewSize(1);
+            dr4 dr4Var = this.a;
+            if (dr4Var == null || !dr4Var.isShowing()) {
+                dr4 dr4Var2 = new dr4(tbPageContext.getPageActivity());
+                this.a = dr4Var2;
+                dr4Var2.setContentViewSize(1);
                 this.a.setNegativeTextColor(R.color.CAM_X0105);
                 View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d016a, (ViewGroup) null);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920bc);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920be);
                 this.b = textView;
-                textView.setText(R.string.obfuscated_res_0x7f0f073c);
+                textView.setText(R.string.obfuscated_res_0x7f0f0738);
                 this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090465);
                 BawuThrones b2 = uc6.c().b();
                 if (b2 != null) {
                     TextView textView2 = this.c;
-                    String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f073b);
+                    String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f0737);
                     Integer num = b2.total_recommend_num;
                     textView2.setText(String.format(string, b2.bazhu_level, num, Integer.valueOf(num.intValue() - b2.used_recommend_num.intValue())));
                 } else {
-                    this.c.setText(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f073b), "D", 2, 2));
+                    this.c.setText(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0737), "D", 2, 2));
                 }
                 this.d = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0905e2);
-                this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091611);
-                inflate.findViewById(R.id.obfuscated_res_0x7f091610).setOnClickListener(new a(this));
+                this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915ec);
+                inflate.findViewById(R.id.obfuscated_res_0x7f0915eb).setOnClickListener(new a(this));
                 f();
                 this.a.setContentView(inflate);
-                this.a.setPositiveButton(tbPageContext.getString(R.string.obfuscated_res_0x7f0f073a), new b(this, str, str2));
-                this.a.setNegativeButton(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0c37), new c(this));
+                this.a.setPositiveButton(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0736), new b(this, str, str2));
+                this.a.setNegativeButton(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0c23), new c(this));
                 this.a.create(tbPageContext).show();
             }
         }

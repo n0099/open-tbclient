@@ -1,73 +1,42 @@
 package com.kwad.sdk.utils;
 
-import android.app.ActivityManager;
-import android.app.Application;
-import android.content.Context;
-import android.os.Build;
-import android.os.Process;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import java.util.List;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 /* loaded from: classes5.dex */
 public final class ak {
-    public static String a = "";
-    public static volatile Boolean b;
-
-    public static String a() {
-        return Build.VERSION.SDK_INT >= 28 ? Application.getProcessName() : "";
-    }
-
-    public static String a(@NonNull Context context) {
-        if (TextUtils.isEmpty(a)) {
-            String a2 = a();
-            a = a2;
-            if (TextUtils.isEmpty(a2)) {
-                String b2 = b();
-                a = b2;
-                if (TextUtils.isEmpty(b2)) {
-                    String c = c(context);
-                    a = c;
-                    return c;
-                }
-                return a;
-            }
-            return a;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:10:0x0010 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:4:0x0004 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:6:0x0008 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:8:0x000c */
+    /* JADX WARN: Code restructure failed: missing block: B:0:?, code lost:
+        r0 = r0;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v4 */
+    /* JADX WARN: Type inference failed for: r0v5, types: [int] */
+    /* JADX WARN: Type inference failed for: r0v7 */
+    /* JADX WARN: Type inference failed for: r0v8 */
+    /* JADX WARN: Type inference failed for: r0v9 */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int a(boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, int i) {
+        boolean z7;
+        if (z2) {
+            z7 = (z ? 1 : 0) | true;
         }
-        return a;
-    }
-
-    public static String b() {
-        try {
-            Object a2 = q.a(Class.forName("android.app.ActivityThread", false, Application.class.getClassLoader()), "currentProcessName", new Object[0]);
-            return a2 instanceof String ? (String) a2 : "";
-        } catch (Throwable th) {
-            th.printStackTrace();
-            return "";
+        if (z3) {
+            z7 = (z7 ? 1 : 0) | true;
         }
-    }
-
-    public static boolean b(Context context) {
-        if (b == null) {
-            String a2 = a(context);
-            b = Boolean.valueOf(!TextUtils.isEmpty(a2) && a2.equals(context.getPackageName()));
+        if (z4) {
+            z7 = (z7 ? 1 : 0) | 8;
         }
-        return b.booleanValue();
-    }
-
-    public static String c(@NonNull Context context) {
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
-        if (context == null) {
-            return "";
+        if (z5) {
+            z7 = (z7 == true ? 1 : 0) | 16;
         }
-        int myPid = Process.myPid();
-        ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
-        if (activityManager != null && (runningAppProcesses = activityManager.getRunningAppProcesses()) != null) {
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.processName;
-                }
-            }
+        if (z6) {
+            z7 = (z7 == true ? 1 : 0) | WebvttCueParser.CHAR_SPACE;
         }
-        return "";
+        return i == 2 ? z7 | 64 : z7;
     }
 }

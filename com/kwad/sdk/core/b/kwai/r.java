@@ -29,7 +29,10 @@ public final class r implements com.kwad.sdk.core.d<AdMatrixInfo.AdInteractionIn
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "interactiveStyle", adInteractionInfo.interactiveStyle);
+        int i = adInteractionInfo.interactiveStyle;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "interactiveStyle", i);
+        }
         com.kwad.sdk.utils.r.a(jSONObject, "shakeInfo", adInteractionInfo.shakeInfo);
         com.kwad.sdk.utils.r.a(jSONObject, "rotateInfo", adInteractionInfo.rotateInfo);
         com.kwad.sdk.utils.r.a(jSONObject, "slideInfo", adInteractionInfo.slideInfo);

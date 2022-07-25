@@ -84,8 +84,8 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     public void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091530);
-            this.l = (NadExpressBottomView) findViewById(R.id.obfuscated_res_0x7f09152b);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09150b);
+            this.l = (NadExpressBottomView) findViewById(R.id.obfuscated_res_0x7f091506);
             k(context);
         }
     }

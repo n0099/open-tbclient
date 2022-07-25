@@ -1,15 +1,14 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.AbstractHttpManager;
-import com.baidu.searchbox.http.request.PostBodyRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.n74;
 /* loaded from: classes5.dex */
-public class d74 extends PostBodyRequest.PostBodyRequestBuilder {
+public class d74 extends n74.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,15 +33,16 @@ public class d74 extends PostBodyRequest.PostBodyRequestBuilder {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.request.PostBodyRequest.PostBodyRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
-    public PostBodyRequest build() {
+    @Override // com.repackage.n74.a, com.baidu.searchbox.http.request.HttpRequestBuilder
+    /* renamed from: a */
+    public n74 build() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            x64.b().j(this.httpUrl.toString(), this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            y64.b().j(this.httpUrl.toString(), this);
             requestFrom(6);
             return super.build();
         }
-        return (PostBodyRequest) invokeV.objValue;
+        return (n74) invokeV.objValue;
     }
 }

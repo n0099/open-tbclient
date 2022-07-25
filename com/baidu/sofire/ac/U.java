@@ -8,27 +8,25 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
+import android.util.Base64;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.sofire.FileDeleteObserverUtils;
 import com.baidu.sofire.MyReceiver;
+import com.baidu.sofire.a.b;
+import com.baidu.sofire.a.c;
+import com.baidu.sofire.b.d;
+import com.baidu.sofire.b.k;
+import com.baidu.sofire.c.a;
 import com.baidu.sofire.core.ApkInfo;
-import com.baidu.sofire.core.ForHostApp;
-import com.baidu.sofire.core.PluginloaderHub;
-import com.baidu.sofire.core.TimeoutRunner;
-import com.baidu.sofire.d.D;
 import com.baidu.sofire.jni.Asc;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
-import com.baidu.sofire.utility.AlarmUtil;
-import com.baidu.sofire.utility.CommonMethods;
-import com.baidu.sofire.utility.EncryptUtil;
-import com.baidu.sofire.utility.HttpUtil;
-import com.baidu.sofire.utility.LocalConstant;
-import com.baidu.sofire.utility.MD5Util;
-import com.baidu.sofire.utility.OkHttpUtil;
-import com.baidu.sofire.utility.ThreadPoolManager;
+import com.baidu.sofire.k.e;
+import com.baidu.sofire.k.i;
+import com.baidu.sofire.k.j;
+import com.baidu.sofire.k.l;
+import com.baidu.sofire.k.p;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -111,14 +109,14 @@ public class U implements Runnable {
     public static boolean sSetRetrmAlarm;
     public transient /* synthetic */ FieldHolder $fh;
     public Context context;
-    public ForHostApp forHostAPP;
-    public D loadedPluginDB;
+    public d forHostAPP;
+    public a loadedPluginDB;
     public Map<Integer, String> mCloudKeyMap;
     public List<Integer> mDownloadPluginsList;
     public int mEndReason;
     public int mFrom;
     public boolean mOut;
-    public SharedPreferenceManager mPreferenceManager;
+    public com.baidu.sofire.j.a mPreferenceManager;
     public Map<Integer, String> mStartKeyMap;
     public int mStartNetwork;
     public List<Integer> mUnloadPluginsList;
@@ -201,9 +199,9 @@ public class U implements Runnable {
         this.mUpgradeResultMap = new HashMap();
         this.mStartNetwork = -2;
         this.context = context;
-        this.loadedPluginDB = D.getInstance(context);
-        this.mPreferenceManager = SharedPreferenceManager.getInstance(context);
-        this.forHostAPP = ForHostApp.getInstance(context);
+        this.loadedPluginDB = a.a(context);
+        this.mPreferenceManager = com.baidu.sofire.j.a.a(context);
+        this.forHostAPP = d.a(context);
         this.tmpDir = new File(context.getFilesDir(), ".tmp");
         this.mFrom = i;
         this.mOut = z;
@@ -223,10 +221,27 @@ public class U implements Runnable {
         }
     }
 
+    private boolean commonDownloadFile(String str, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, this, str, file)) == null) {
+            try {
+                if (l.a(this.context)) {
+                    return new l(this.context).a(str, file);
+                }
+                return new i(this.context).a(str, file);
+            } catch (Throwable unused) {
+                int i = b.a;
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void handlePluginDownError(ApkInfo apkInfo, File file, int i, List<Integer> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65545, this, apkInfo, file, i, list) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(65546, this, apkInfo, file, i, list) == null) {
             Map<Integer, UpgradeResult> map = this.mUpgradeResultMap;
             if (map != null && !map.keySet().contains(Integer.valueOf(apkInfo.key))) {
                 this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new UpgradeResult(this, i, 4));
@@ -235,40 +250,50 @@ public class U implements Runnable {
             if (i2 == 1 || i2 == 2 || i2 == 3) {
                 if (list != null && list.contains(Integer.valueOf(apkInfo.key)) && !sSetRetrmAlarm) {
                     sSetRetrmAlarm = true;
-                    AlarmUtil.setCheckUpdateRetryAlarm(this.context, sRetryDownoadHostCareApksTimesCount, false);
+                    com.baidu.sofire.a.a.a(this.context, sRetryDownoadHostCareApksTimesCount, false);
                     sRetryDownoadHostCareApksTimesCount++;
                 }
                 if (!sMonitorNetworkWhenUpgradeNoNet) {
                     IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                    MyReceiver myReceiver = CommonMethods.sNetWorkReceiver;
+                    MyReceiver myReceiver = com.baidu.sofire.k.a.g;
                     if (myReceiver == null) {
-                        CommonMethods.sNetWorkReceiver = new MyReceiver().setOnlyNetSelf();
+                        com.baidu.sofire.k.a.g = new MyReceiver().a();
                     } else {
-                        myReceiver.setOnlyNetSelf();
+                        myReceiver.a();
                     }
-                    CommonMethods.registerReceiver(this.context, CommonMethods.sNetWorkReceiver, intentFilter);
+                    com.baidu.sofire.k.a.a(this.context, com.baidu.sofire.k.a.g, intentFilter);
                     sMonitorNetworkWhenUpgradeNoNet = true;
                 }
             }
-            if (System.currentTimeMillis() - this.mPreferenceManager.getPullApkFailedTime() > 86400000) {
+            long currentTimeMillis = System.currentTimeMillis();
+            com.baidu.sofire.j.a aVar = this.mPreferenceManager;
+            long j = aVar.a.getLong("pu_ap_fd", 0L);
+            if (j == 0) {
+                j = System.currentTimeMillis();
+                aVar.b.putLong("pu_ap_fd", System.currentTimeMillis());
+                aVar.b.commit();
+            }
+            if (currentTimeMillis - j > 86400000) {
                 HashMap hashMap = new HashMap();
-                if (CommonMethods.isWifiAvailable(this.context)) {
-                    hashMap.put("0", Integer.valueOf(this.mPreferenceManager.getPullApkWifiFailed() + 1));
-                    hashMap.put("1", Integer.valueOf(this.mPreferenceManager.getPullApkMobileFailed()));
+                if (com.baidu.sofire.k.a.m(this.context)) {
+                    hashMap.put("0", Integer.valueOf(this.mPreferenceManager.i() + 1));
+                    hashMap.put("1", Integer.valueOf(this.mPreferenceManager.h()));
                 } else {
-                    hashMap.put("0", Integer.valueOf(this.mPreferenceManager.getPullApkWifiFailed()));
-                    hashMap.put("1", Integer.valueOf(this.mPreferenceManager.getPullApkMobileFailed() + 1));
+                    hashMap.put("0", Integer.valueOf(this.mPreferenceManager.i()));
+                    hashMap.put("1", Integer.valueOf(this.mPreferenceManager.h() + 1));
                 }
-                this.mPreferenceManager.setPullApkWifiFailed(0);
-                this.mPreferenceManager.setPullApkMobileFailed(0);
-                this.mPreferenceManager.setPullApkFailedTime();
-                CommonMethods.sendEventUDC(this.context, "1003116", hashMap, false);
-            } else if (CommonMethods.isWifiAvailable(this.context)) {
-                SharedPreferenceManager sharedPreferenceManager = this.mPreferenceManager;
-                sharedPreferenceManager.setPullApkWifiFailed(sharedPreferenceManager.getPullApkWifiFailed() + 1);
+                this.mPreferenceManager.c(0);
+                this.mPreferenceManager.b(0);
+                com.baidu.sofire.j.a aVar2 = this.mPreferenceManager;
+                aVar2.b.putLong("pu_ap_fd", System.currentTimeMillis());
+                aVar2.b.commit();
+                com.baidu.sofire.k.a.a(this.context, "1003116", (Map<String, Object>) hashMap, false);
+            } else if (com.baidu.sofire.k.a.m(this.context)) {
+                com.baidu.sofire.j.a aVar3 = this.mPreferenceManager;
+                aVar3.c(aVar3.i() + 1);
             } else {
-                SharedPreferenceManager sharedPreferenceManager2 = this.mPreferenceManager;
-                sharedPreferenceManager2.setPullApkMobileFailed(sharedPreferenceManager2.getPullApkMobileFailed() + 1);
+                com.baidu.sofire.j.a aVar4 = this.mPreferenceManager;
+                aVar4.b(aVar4.h() + 1);
             }
             file.delete();
         }
@@ -277,40 +302,41 @@ public class U implements Runnable {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean handlePluginDownload(ApkInfo apkInfo, File file, File file2, int i) {
         InterceptResult invokeLLLI;
-        boolean downloadFile;
+        Asc asc;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65546, this, apkInfo, file, file2, i)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65547, this, apkInfo, file, file2, i)) == null) {
             try {
                 if (file.exists()) {
                     file.delete();
                 }
-            } catch (Throwable th) {
-                CommonMethods.handleNuLException(th);
+            } catch (Throwable unused) {
+                int i2 = b.a;
             }
-            if (!CommonMethods.PKGNAME_HUAWEI_INPUT.equals(this.context.getPackageName()) || this.mPreferenceManager.getCanConn()) {
-                if (OkHttpUtil.useOkHttp(this.context)) {
-                    downloadFile = new OkHttpUtil(this.context).requestForGetFile(apkInfo.downloadURL, file);
-                } else {
-                    downloadFile = new HttpUtil(this.context, null).downloadFile(apkInfo.downloadURL, file);
-                }
-                if (downloadFile) {
+            if (!"com.baidu.input_huawei".equals(this.context.getPackageName()) || this.mPreferenceManager.b()) {
+                boolean commonDownloadFile = commonDownloadFile(apkInfo.downloadURL, file);
+                if (commonDownloadFile) {
                     if (file2.exists()) {
                         file2.delete();
                     }
-                    new Asc();
-                    if (EncryptUtil.decryptFile(file, file2, apkInfo.signMD5.substring(0, apkInfo.signMD5.length() / 2).getBytes(IMAudioTransRequest.CHARSET)) != 0) {
-                        if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
+                    byte[] bytes = apkInfo.signMD5.substring(0, apkInfo.signMD5.length() / 2).getBytes(IMAudioTransRequest.CHARSET);
+                    Asc asc2 = e.a;
+                    if (((bytes == null || bytes.length <= 0 || (asc = e.a) == null) ? -1 : asc.df(file.getAbsolutePath(), file2.getAbsolutePath(), bytes)) != 0) {
+                        Map<Integer, UpgradeResult> map = this.mUpgradeResultMap;
+                        if (map != null && !map.keySet().contains(Integer.valueOf(apkInfo.key))) {
                             this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new UpgradeResult(this, i, 7));
                         }
-                        downloadFile = false;
+                        commonDownloadFile = false;
                     }
-                } else if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
-                    this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new UpgradeResult(this, i, 4));
+                } else {
+                    Map<Integer, UpgradeResult> map2 = this.mUpgradeResultMap;
+                    if (map2 != null && !map2.keySet().contains(Integer.valueOf(apkInfo.key))) {
+                        this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new UpgradeResult(this, i, 4));
+                    }
                 }
-                String md5 = MD5Util.getMD5(file2);
+                String a = j.a(file2);
                 file.delete();
-                if (downloadFile) {
-                    if (apkInfo.apkMD5.equals(md5)) {
+                if (commonDownloadFile) {
+                    if (apkInfo.apkMD5.equals(a)) {
                         return true;
                     }
                 }
@@ -322,16 +348,17 @@ public class U implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:121:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x00ce A[Catch: all -> 0x01d4, TryCatch #0 {all -> 0x01d4, blocks: (B:5:0x000b, B:7:0x0019, B:17:0x0056, B:19:0x005e, B:20:0x0063, B:22:0x00b9, B:27:0x00ce, B:29:0x00d2, B:40:0x011c, B:76:0x01d0, B:43:0x0124, B:45:0x012e, B:50:0x013c, B:52:0x0144, B:54:0x014e, B:55:0x0159, B:57:0x0161, B:60:0x016c, B:63:0x0174, B:65:0x0180, B:67:0x018d, B:68:0x019e, B:72:0x01b3, B:74:0x01c5, B:69:0x01a3, B:30:0x00ec, B:32:0x00f6, B:34:0x0106, B:36:0x0113, B:9:0x0025, B:11:0x002f, B:13:0x0033, B:15:0x0045), top: B:114:0x000b }] */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0117  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x011c A[Catch: all -> 0x01d4, TryCatch #0 {all -> 0x01d4, blocks: (B:5:0x000b, B:7:0x0019, B:17:0x0056, B:19:0x005e, B:20:0x0063, B:22:0x00b9, B:27:0x00ce, B:29:0x00d2, B:40:0x011c, B:76:0x01d0, B:43:0x0124, B:45:0x012e, B:50:0x013c, B:52:0x0144, B:54:0x014e, B:55:0x0159, B:57:0x0161, B:60:0x016c, B:63:0x0174, B:65:0x0180, B:67:0x018d, B:68:0x019e, B:72:0x01b3, B:74:0x01c5, B:69:0x01a3, B:30:0x00ec, B:32:0x00f6, B:34:0x0106, B:36:0x0113, B:9:0x0025, B:11:0x002f, B:13:0x0033, B:15:0x0045), top: B:114:0x000b }] */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x0121  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x0161 A[Catch: all -> 0x01d4, TryCatch #0 {all -> 0x01d4, blocks: (B:5:0x000b, B:7:0x0019, B:17:0x0056, B:19:0x005e, B:20:0x0063, B:22:0x00b9, B:27:0x00ce, B:29:0x00d2, B:40:0x011c, B:76:0x01d0, B:43:0x0124, B:45:0x012e, B:50:0x013c, B:52:0x0144, B:54:0x014e, B:55:0x0159, B:57:0x0161, B:60:0x016c, B:63:0x0174, B:65:0x0180, B:67:0x018d, B:68:0x019e, B:72:0x01b3, B:74:0x01c5, B:69:0x01a3, B:30:0x00ec, B:32:0x00f6, B:34:0x0106, B:36:0x0113, B:9:0x0025, B:11:0x002f, B:13:0x0033, B:15:0x0045), top: B:114:0x000b }] */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x0169  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x0180 A[Catch: all -> 0x01d4, TryCatch #0 {all -> 0x01d4, blocks: (B:5:0x000b, B:7:0x0019, B:17:0x0056, B:19:0x005e, B:20:0x0063, B:22:0x00b9, B:27:0x00ce, B:29:0x00d2, B:40:0x011c, B:76:0x01d0, B:43:0x0124, B:45:0x012e, B:50:0x013c, B:52:0x0144, B:54:0x014e, B:55:0x0159, B:57:0x0161, B:60:0x016c, B:63:0x0174, B:65:0x0180, B:67:0x018d, B:68:0x019e, B:72:0x01b3, B:74:0x01c5, B:69:0x01a3, B:30:0x00ec, B:32:0x00f6, B:34:0x0106, B:36:0x0113, B:9:0x0025, B:11:0x002f, B:13:0x0033, B:15:0x0045), top: B:114:0x000b }] */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x01a3 A[Catch: all -> 0x01d4, TryCatch #0 {all -> 0x01d4, blocks: (B:5:0x000b, B:7:0x0019, B:17:0x0056, B:19:0x005e, B:20:0x0063, B:22:0x00b9, B:27:0x00ce, B:29:0x00d2, B:40:0x011c, B:76:0x01d0, B:43:0x0124, B:45:0x012e, B:50:0x013c, B:52:0x0144, B:54:0x014e, B:55:0x0159, B:57:0x0161, B:60:0x016c, B:63:0x0174, B:65:0x0180, B:67:0x018d, B:68:0x019e, B:72:0x01b3, B:74:0x01c5, B:69:0x01a3, B:30:0x00ec, B:32:0x00f6, B:34:0x0106, B:36:0x0113, B:9:0x0025, B:11:0x002f, B:13:0x0033, B:15:0x0045), top: B:114:0x000b }] */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x01d0 A[Catch: all -> 0x01d4, TRY_LEAVE, TryCatch #0 {all -> 0x01d4, blocks: (B:5:0x000b, B:7:0x0019, B:17:0x0056, B:19:0x005e, B:20:0x0063, B:22:0x00b9, B:27:0x00ce, B:29:0x00d2, B:40:0x011c, B:76:0x01d0, B:43:0x0124, B:45:0x012e, B:50:0x013c, B:52:0x0144, B:54:0x014e, B:55:0x0159, B:57:0x0161, B:60:0x016c, B:63:0x0174, B:65:0x0180, B:67:0x018d, B:68:0x019e, B:72:0x01b3, B:74:0x01c5, B:69:0x01a3, B:30:0x00ec, B:32:0x00f6, B:34:0x0106, B:36:0x0113, B:9:0x0025, B:11:0x002f, B:13:0x0033, B:15:0x0045), top: B:114:0x000b }] */
+    /* JADX WARN: Removed duplicated region for block: B:135:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00f4 A[Catch: all -> 0x0201, TryCatch #4 {all -> 0x0201, blocks: (B:5:0x000a, B:7:0x001f, B:9:0x0025, B:11:0x002b, B:13:0x0031, B:15:0x003c, B:16:0x0047, B:19:0x0053, B:21:0x0057, B:23:0x0067, B:25:0x0078, B:27:0x0080, B:28:0x0085, B:30:0x00df, B:35:0x00f4, B:37:0x00f8, B:48:0x0140, B:93:0x01fc, B:51:0x0148, B:53:0x0152, B:58:0x0160, B:60:0x0168, B:62:0x0172, B:63:0x017d, B:65:0x0185, B:68:0x0190, B:71:0x0198, B:73:0x01a4, B:75:0x01b1, B:76:0x01c2, B:80:0x01d7, B:82:0x01e9, B:83:0x01ef, B:86:0x01f4, B:77:0x01c7, B:38:0x0112, B:40:0x011b, B:42:0x012b, B:44:0x0138, B:85:0x01f1), top: B:132:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x013c  */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x0140 A[Catch: all -> 0x0201, TryCatch #4 {all -> 0x0201, blocks: (B:5:0x000a, B:7:0x001f, B:9:0x0025, B:11:0x002b, B:13:0x0031, B:15:0x003c, B:16:0x0047, B:19:0x0053, B:21:0x0057, B:23:0x0067, B:25:0x0078, B:27:0x0080, B:28:0x0085, B:30:0x00df, B:35:0x00f4, B:37:0x00f8, B:48:0x0140, B:93:0x01fc, B:51:0x0148, B:53:0x0152, B:58:0x0160, B:60:0x0168, B:62:0x0172, B:63:0x017d, B:65:0x0185, B:68:0x0190, B:71:0x0198, B:73:0x01a4, B:75:0x01b1, B:76:0x01c2, B:80:0x01d7, B:82:0x01e9, B:83:0x01ef, B:86:0x01f4, B:77:0x01c7, B:38:0x0112, B:40:0x011b, B:42:0x012b, B:44:0x0138, B:85:0x01f1), top: B:132:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0145  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x0185 A[Catch: all -> 0x0201, TryCatch #4 {all -> 0x0201, blocks: (B:5:0x000a, B:7:0x001f, B:9:0x0025, B:11:0x002b, B:13:0x0031, B:15:0x003c, B:16:0x0047, B:19:0x0053, B:21:0x0057, B:23:0x0067, B:25:0x0078, B:27:0x0080, B:28:0x0085, B:30:0x00df, B:35:0x00f4, B:37:0x00f8, B:48:0x0140, B:93:0x01fc, B:51:0x0148, B:53:0x0152, B:58:0x0160, B:60:0x0168, B:62:0x0172, B:63:0x017d, B:65:0x0185, B:68:0x0190, B:71:0x0198, B:73:0x01a4, B:75:0x01b1, B:76:0x01c2, B:80:0x01d7, B:82:0x01e9, B:83:0x01ef, B:86:0x01f4, B:77:0x01c7, B:38:0x0112, B:40:0x011b, B:42:0x012b, B:44:0x0138, B:85:0x01f1), top: B:132:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x018d  */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x01a4 A[Catch: all -> 0x0201, TryCatch #4 {all -> 0x0201, blocks: (B:5:0x000a, B:7:0x001f, B:9:0x0025, B:11:0x002b, B:13:0x0031, B:15:0x003c, B:16:0x0047, B:19:0x0053, B:21:0x0057, B:23:0x0067, B:25:0x0078, B:27:0x0080, B:28:0x0085, B:30:0x00df, B:35:0x00f4, B:37:0x00f8, B:48:0x0140, B:93:0x01fc, B:51:0x0148, B:53:0x0152, B:58:0x0160, B:60:0x0168, B:62:0x0172, B:63:0x017d, B:65:0x0185, B:68:0x0190, B:71:0x0198, B:73:0x01a4, B:75:0x01b1, B:76:0x01c2, B:80:0x01d7, B:82:0x01e9, B:83:0x01ef, B:86:0x01f4, B:77:0x01c7, B:38:0x0112, B:40:0x011b, B:42:0x012b, B:44:0x0138, B:85:0x01f1), top: B:132:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x01c7 A[Catch: all -> 0x0201, TryCatch #4 {all -> 0x0201, blocks: (B:5:0x000a, B:7:0x001f, B:9:0x0025, B:11:0x002b, B:13:0x0031, B:15:0x003c, B:16:0x0047, B:19:0x0053, B:21:0x0057, B:23:0x0067, B:25:0x0078, B:27:0x0080, B:28:0x0085, B:30:0x00df, B:35:0x00f4, B:37:0x00f8, B:48:0x0140, B:93:0x01fc, B:51:0x0148, B:53:0x0152, B:58:0x0160, B:60:0x0168, B:62:0x0172, B:63:0x017d, B:65:0x0185, B:68:0x0190, B:71:0x0198, B:73:0x01a4, B:75:0x01b1, B:76:0x01c2, B:80:0x01d7, B:82:0x01e9, B:83:0x01ef, B:86:0x01f4, B:77:0x01c7, B:38:0x0112, B:40:0x011b, B:42:0x012b, B:44:0x0138, B:85:0x01f1), top: B:132:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x01f0  */
+    /* JADX WARN: Removed duplicated region for block: B:93:0x01fc A[Catch: all -> 0x0201, TRY_LEAVE, TryCatch #4 {all -> 0x0201, blocks: (B:5:0x000a, B:7:0x001f, B:9:0x0025, B:11:0x002b, B:13:0x0031, B:15:0x003c, B:16:0x0047, B:19:0x0053, B:21:0x0057, B:23:0x0067, B:25:0x0078, B:27:0x0080, B:28:0x0085, B:30:0x00df, B:35:0x00f4, B:37:0x00f8, B:48:0x0140, B:93:0x01fc, B:51:0x0148, B:53:0x0152, B:58:0x0160, B:60:0x0168, B:62:0x0172, B:63:0x017d, B:65:0x0185, B:68:0x0190, B:71:0x0198, B:73:0x01a4, B:75:0x01b1, B:76:0x01c2, B:80:0x01d7, B:82:0x01e9, B:83:0x01ef, B:86:0x01f4, B:77:0x01c7, B:38:0x0112, B:40:0x011b, B:42:0x012b, B:44:0x0138, B:85:0x01f1), top: B:132:0x000a }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -339,42 +366,56 @@ public class U implements Runnable {
         boolean z;
         boolean z2;
         File file;
-        ApkInfo apkInfo2;
         boolean z3;
         boolean z4;
+        d dVar;
         boolean z5;
         File file2;
+        boolean z6;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(65547, this, apkInfo) != null) {
+        if (interceptable != null && interceptable.invokeL(65548, this, apkInfo) != null) {
             return;
         }
         try {
-            int currNetworkType = CommonMethods.getCurrNetworkType(this.context);
-            List<Integer> hostCarePluginKeys = this.mPreferenceManager.getHostCarePluginKeys();
-            if ((hostCarePluginKeys == null || !hostCarePluginKeys.contains(Integer.valueOf(apkInfo.key))) && !CommonMethods.checkNetwork(this.context, apkInfo.network)) {
-                if (this.mUpgradeResultMap == null || this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
+            int d = com.baidu.sofire.k.a.d(this.context);
+            List<Integer> e = this.mPreferenceManager.e();
+            if (!((ArrayList) e).contains(Integer.valueOf(apkInfo.key))) {
+                Context context = this.context;
+                if (apkInfo.network != 1 || com.baidu.sofire.k.a.m(context)) {
+                    z6 = true;
+                } else {
+                    IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
+                    if (com.baidu.sofire.k.a.g == null) {
+                        com.baidu.sofire.k.a.g = new MyReceiver().a();
+                    }
+                    com.baidu.sofire.k.a.a(context, com.baidu.sofire.k.a.g, intentFilter);
+                    com.baidu.sofire.k.a.a = true;
+                    z6 = false;
+                }
+                if (!z6) {
+                    Map<Integer, UpgradeResult> map = this.mUpgradeResultMap;
+                    if (map == null || map.keySet().contains(Integer.valueOf(apkInfo.key))) {
+                        return;
+                    }
+                    this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new UpgradeResult(this, d, 3));
                     return;
                 }
-                this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new UpgradeResult(this, currNetworkType, 3));
-                return;
             }
             if (!this.tmpDir.exists()) {
                 this.tmpDir.mkdir();
             }
-            ApkInfo pluginByID = this.loadedPluginDB.getPluginByID(apkInfo.key + LocalConstant.NEXTSUFFIX);
+            ApkInfo b = this.loadedPluginDB.b(apkInfo.key + 10000000);
             File file3 = new File(this.tmpDir, apkInfo.key + "-" + apkInfo.versionName + ".tmp");
             File file4 = new File(this.tmpDir, apkInfo.key + "-" + apkInfo.versionName + ".zip");
             if (file4.exists()) {
-                if (apkInfo.apkMD5.equals(MD5Util.getMD5(file4))) {
+                if (apkInfo.apkMD5.equals(j.a(file4))) {
                     z = false;
                     z2 = true;
                     if (z) {
                         file = file4;
-                        apkInfo2 = pluginByID;
                     } else if (apkInfo.isNextLoad) {
                         file = file4;
-                        apkInfo2 = pluginByID;
-                        ThreadPoolManager.getInstance(this.context).execute(new Runnable(this, apkInfo, file3, file4, currNetworkType, hostCarePluginKeys) { // from class: com.baidu.sofire.ac.U.3
+                        p.a(this.context).a(new Runnable(this, apkInfo, file3, file4, d, e) { // from class: com.baidu.sofire.ac.U.3
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ U this$0;
@@ -389,7 +430,7 @@ public class U implements Runnable {
                                 if (interceptable2 != null) {
                                     InitContext newInitContext = TitanRuntime.newInitContext();
                                     newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, apkInfo, file3, file4, Integer.valueOf(currNetworkType), hostCarePluginKeys};
+                                    Object[] objArr = {this, apkInfo, file3, file4, Integer.valueOf(d), e};
                                     interceptable2.invokeUnInit(65536, newInitContext);
                                     int i = newInitContext.flag;
                                     if ((i & 1) != 0) {
@@ -403,8 +444,8 @@ public class U implements Runnable {
                                 this.val$apkInfo = apkInfo;
                                 this.val$file = file3;
                                 this.val$resfile = file4;
-                                this.val$networkType = currNetworkType;
-                                this.val$hostCarePluginKeys = hostCarePluginKeys;
+                                this.val$networkType = d;
+                                this.val$hostCarePluginKeys = e;
                             }
 
                             @Override // java.lang.Runnable
@@ -417,80 +458,88 @@ public class U implements Runnable {
                                             return;
                                         }
                                         this.val$apkInfo.pkgPath = this.val$resfile.getAbsolutePath();
-                                        ApkInfo apkInfo3 = new ApkInfo(this.val$apkInfo);
-                                        apkInfo3.key += LocalConstant.NEXTSUFFIX;
-                                        if (!TextUtils.isEmpty(apkInfo3.packageName)) {
-                                            apkInfo3.packageName = new StringBuilder(apkInfo3.packageName).reverse().toString();
+                                        ApkInfo apkInfo2 = new ApkInfo(this.val$apkInfo);
+                                        apkInfo2.key += 10000000;
+                                        if (!TextUtils.isEmpty(apkInfo2.packageName)) {
+                                            apkInfo2.packageName = new StringBuilder(apkInfo2.packageName).reverse().toString();
                                         }
-                                        this.this$0.loadedPluginDB.insertOrUpdatePluginRecord(apkInfo3);
-                                    } catch (Throwable th) {
-                                        CommonMethods.handleNuLException(th);
+                                        this.this$0.loadedPluginDB.a(apkInfo2);
+                                    } catch (Throwable unused) {
+                                        int i = b.a;
                                     }
                                 }
                             }
                         });
                     } else {
                         file = file4;
-                        apkInfo2 = pluginByID;
-                        z2 = handlePluginDownload(apkInfo, file3, file, currNetworkType);
+                        z2 = handlePluginDownload(apkInfo, file3, file, d);
                         z3 = !z2;
-                        if (apkInfo2 != null) {
-                            this.loadedPluginDB.deletePluginById(apkInfo2.key + LocalConstant.NEXTSUFFIX);
-                            if (!TextUtils.isEmpty(apkInfo2.pkgPath)) {
-                                File file5 = new File(apkInfo2.pkgPath);
+                        if (b != null) {
+                            this.loadedPluginDB.a(b.key + 10000000);
+                            if (!TextUtils.isEmpty(b.pkgPath)) {
+                                File file5 = new File(b.pkgPath);
                                 if (file5.exists()) {
                                     file5.delete();
                                 }
                             }
                         }
                         if (z2) {
-                            pluginUpdate(file, apkInfo, currNetworkType);
+                            pluginUpdate(file, apkInfo, d);
                         } else {
-                            if (apkInfo2 != null) {
-                                ApkInfo pluginByID2 = this.loadedPluginDB.getPluginByID(apkInfo.key);
-                                if (pluginByID2 != null && !CommonMethods.compareVersionNotEquals(apkInfo2.versionName, pluginByID2.versionName)) {
+                            if (b != null) {
+                                ApkInfo b2 = this.loadedPluginDB.b(apkInfo.key);
+                                if (b2 != null && !com.baidu.sofire.k.a.b(b.versionName, b2.versionName)) {
                                     z5 = false;
-                                    if (!TextUtils.isEmpty(apkInfo2.versionName) && apkInfo2.versionName.equals(apkInfo.versionName)) {
-                                        this.loadedPluginDB.deletePluginByIdVersion(apkInfo2.key + LocalConstant.NEXTSUFFIX, apkInfo2.versionName);
+                                    if (!TextUtils.isEmpty(b.versionName) && b.versionName.equals(apkInfo.versionName)) {
+                                        this.loadedPluginDB.a(b.key + 10000000, b.versionName);
                                         z5 = false;
                                     }
-                                    file2 = TextUtils.isEmpty(apkInfo2.pkgPath) ? new File(apkInfo2.pkgPath) : null;
+                                    file2 = TextUtils.isEmpty(b.pkgPath) ? new File(b.pkgPath) : null;
                                     if (file2 != null && file2.exists() && z5) {
-                                        if (!apkInfo2.apkMD5.equals(MD5Util.getMD5(file2))) {
-                                            apkInfo2.key -= LocalConstant.NEXTSUFFIX;
-                                            if (!TextUtils.isEmpty(apkInfo2.packageName)) {
-                                                apkInfo2.packageName = new StringBuilder(apkInfo2.packageName).reverse().toString();
+                                        if (!b.apkMD5.equals(j.a(file2))) {
+                                            b.key -= 10000000;
+                                            if (!TextUtils.isEmpty(b.packageName)) {
+                                                b.packageName = new StringBuilder(b.packageName).reverse().toString();
                                             }
-                                            pluginUpdate(file2, apkInfo2, currNetworkType);
+                                            pluginUpdate(file2, b, d);
                                             z4 = true;
-                                            if (!z4 && PluginloaderHub.createSingleInstance(this.context.getApplicationContext()).getApkInfoByPackageName(apkInfo.packageName) == null) {
-                                                this.forHostAPP.initPlugin(apkInfo.key, apkInfo.versionName, null);
+                                            if (!z4 && k.a(this.context.getApplicationContext()).b(apkInfo.packageName) == null) {
+                                                dVar = this.forHostAPP;
+                                                int i = apkInfo.key;
+                                                String str = apkInfo.versionName;
+                                                synchronized (dVar) {
+                                                    dVar.a(i, str, false, (PackageInfo) null);
+                                                }
                                             }
                                         } else {
-                                            this.loadedPluginDB.deletePluginByIdVersion(apkInfo2.key + LocalConstant.NEXTSUFFIX, apkInfo2.versionName);
+                                            this.loadedPluginDB.a(b.key + 10000000, b.versionName);
                                             file2.delete();
                                         }
                                     }
                                 }
                                 z5 = true;
-                                if (!TextUtils.isEmpty(apkInfo2.versionName)) {
-                                    this.loadedPluginDB.deletePluginByIdVersion(apkInfo2.key + LocalConstant.NEXTSUFFIX, apkInfo2.versionName);
+                                if (!TextUtils.isEmpty(b.versionName)) {
+                                    this.loadedPluginDB.a(b.key + 10000000, b.versionName);
                                     z5 = false;
                                 }
-                                if (TextUtils.isEmpty(apkInfo2.pkgPath)) {
+                                if (TextUtils.isEmpty(b.pkgPath)) {
                                 }
                                 if (file2 != null) {
-                                    if (!apkInfo2.apkMD5.equals(MD5Util.getMD5(file2))) {
+                                    if (!b.apkMD5.equals(j.a(file2))) {
                                     }
                                 }
                             }
                             z4 = false;
                             if (!z4) {
-                                this.forHostAPP.initPlugin(apkInfo.key, apkInfo.versionName, null);
+                                dVar = this.forHostAPP;
+                                int i2 = apkInfo.key;
+                                String str2 = apkInfo.versionName;
+                                synchronized (dVar) {
+                                }
                             }
                         }
                         if (z3) {
-                            handlePluginDownError(apkInfo, file, currNetworkType, hostCarePluginKeys);
+                            handlePluginDownError(apkInfo, file, d, e);
                             return;
                         }
                         return;
@@ -511,74 +560,87 @@ public class U implements Runnable {
             }
             if (z3) {
             }
-        } catch (Throwable th) {
-            CommonMethods.handleNuLException(th);
+        } catch (Throwable unused) {
+            int i3 = b.a;
             try {
-                if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
-                    this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new UpgradeResult(this, CommonMethods.getCurrNetworkType(this.context), 2));
+                Map<Integer, UpgradeResult> map2 = this.mUpgradeResultMap;
+                if (map2 != null && !map2.keySet().contains(Integer.valueOf(apkInfo.key))) {
+                    this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new UpgradeResult(this, com.baidu.sofire.k.a.d(this.context), 2));
                 }
-            } catch (Throwable th2) {
-                CommonMethods.handleNuLException(th2);
+            } catch (Throwable unused2) {
+                int i4 = b.a;
             }
             try {
-                List<Integer> hostCarePluginKeys2 = this.mPreferenceManager.getHostCarePluginKeys();
-                if (this.mFrom == 1 || this.mFrom == 2 || this.mFrom == 3) {
-                    if (hostCarePluginKeys2 != null && hostCarePluginKeys2.contains(Integer.valueOf(apkInfo.key)) && !sSetRetrmAlarm) {
+                List<Integer> e2 = this.mPreferenceManager.e();
+                int i5 = this.mFrom;
+                if (i5 == 1 || i5 == 2 || i5 == 3) {
+                    if (((ArrayList) e2).contains(Integer.valueOf(apkInfo.key)) && !sSetRetrmAlarm) {
                         sSetRetrmAlarm = true;
-                        AlarmUtil.setCheckUpdateRetryAlarm(this.context, sRetryDownoadHostCareApksTimesCount, false);
+                        com.baidu.sofire.a.a.a(this.context, sRetryDownoadHostCareApksTimesCount, false);
                         sRetryDownoadHostCareApksTimesCount++;
                     }
                     if (sMonitorNetworkWhenUpgradeNoNet) {
                         return;
                     }
-                    IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                    if (CommonMethods.sNetWorkReceiver == null) {
-                        CommonMethods.sNetWorkReceiver = new MyReceiver().setOnlyNetSelf();
+                    IntentFilter intentFilter2 = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
+                    MyReceiver myReceiver = com.baidu.sofire.k.a.g;
+                    if (myReceiver == null) {
+                        com.baidu.sofire.k.a.g = new MyReceiver().a();
                     } else {
-                        CommonMethods.sNetWorkReceiver.setOnlyNetSelf();
+                        myReceiver.a();
                     }
-                    CommonMethods.registerReceiver(this.context, CommonMethods.sNetWorkReceiver, intentFilter);
+                    com.baidu.sofire.k.a.a(this.context, com.baidu.sofire.k.a.g, intentFilter2);
                     sMonitorNetworkWhenUpgradeNoNet = true;
                 }
-            } catch (Throwable th3) {
-                CommonMethods.handleNuLException(th3);
+            } catch (Throwable unused3) {
+                int i6 = b.a;
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:84:0x01f0 A[Catch: all -> 0x020b, TryCatch #1 {all -> 0x020b, blocks: (B:45:0x0143, B:46:0x014d, B:48:0x0153, B:50:0x0175, B:81:0x01e6, B:82:0x01ea, B:84:0x01f0, B:86:0x01f8, B:87:0x01fc, B:53:0x0183, B:55:0x0187, B:57:0x0197, B:67:0x01b7, B:68:0x01b9, B:76:0x01d1, B:78:0x01d5, B:89:0x0203), top: B:99:0x0143 }] */
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:93:0x01c0, code lost:
+        if (r5.keySet().contains(java.lang.Integer.valueOf(r4)) == false) goto L110;
+     */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void handleThreadEnd(String str) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, this, str) == null) {
-            boolean z = true;
+        if (interceptable == null || interceptable.invokeL(65549, this, str) == null) {
             try {
-                this.mPreferenceManager.setUFinishTimesFor1Day(this.mPreferenceManager.getUFinishTimesFor1Day() + 1);
-                if (this.mEndReason != 0) {
-                    this.mPreferenceManager.setUStartEndTimesForId(1, this.mEndReason, this.mPreferenceManager.getUStartEndTimesForId(1, this.mEndReason) + 1);
+                com.baidu.sofire.j.a aVar = this.mPreferenceManager;
+                aVar.e(aVar.a.getInt("sufzfd", 0) + 1);
+                int i = this.mEndReason;
+                if (i != 0) {
+                    com.baidu.sofire.j.a aVar2 = this.mPreferenceManager;
+                    aVar2.a(1, i, aVar2.a(1, i) + 1);
                 }
-            } catch (Throwable th) {
-                CommonMethods.handleNuLException(th);
+            } catch (Throwable unused) {
+                int i2 = b.a;
             }
             Map<Integer, String> map = null;
             try {
                 HashMap hashMap = new HashMap();
-                if (this.mStartKeyMap != null) {
-                    hashMap.put("1", this.mStartKeyMap.keySet());
+                Map<Integer, String> map2 = this.mStartKeyMap;
+                if (map2 != null) {
+                    hashMap.put("1", map2.keySet());
                     hashMap.put("2", this.mStartKeyMap.values());
                 }
                 hashMap.put("3", Integer.valueOf(this.mFrom));
-                if (this.mCloudKeyMap != null) {
-                    hashMap.put("4", this.mCloudKeyMap.keySet());
+                Map<Integer, String> map3 = this.mCloudKeyMap;
+                if (map3 != null) {
+                    hashMap.put("4", map3.keySet());
                     hashMap.put("5", this.mCloudKeyMap.values());
                 }
-                if (this.mUnloadPluginsList != null) {
-                    hashMap.put("6", this.mUnloadPluginsList);
+                List<Integer> list = this.mUnloadPluginsList;
+                if (list != null) {
+                    hashMap.put("6", list);
                 }
-                if (this.mDownloadPluginsList != null) {
-                    hashMap.put("7", this.mDownloadPluginsList);
+                List<Integer> list2 = this.mDownloadPluginsList;
+                if (list2 != null) {
+                    hashMap.put("7", list2);
                 }
                 if (this.mUpgradeResultMap != null) {
                     JSONObject jSONObject = new JSONObject();
@@ -594,224 +656,707 @@ public class U implements Runnable {
                     }
                     hashMap.put("8", jSONObject);
                 }
-                map = this.loadedPluginDB.getInitSuceedPluginKeys();
-                if (map != null) {
-                    hashMap.put("9", map.keySet());
-                    hashMap.put("10", map.values());
-                }
+                map = this.loadedPluginDB.c();
+                HashMap hashMap2 = (HashMap) map;
+                hashMap.put("9", hashMap2.keySet());
+                hashMap.put("10", hashMap2.values());
                 hashMap.put("11", Integer.valueOf(this.mEndReason));
                 if (!TextUtils.isEmpty(str)) {
                     hashMap.put("12", str.replace("\n", "").replace("\t", "").replace("\r", ""));
                 }
                 hashMap.put("13", Integer.valueOf(this.mStartNetwork));
-                hashMap.put("14", Integer.valueOf(CommonMethods.getCurrNetworkType(this.context)));
-                CommonMethods.sendEventUDC(this.context, "1003129", hashMap, false);
-            } catch (Throwable th2) {
-                CommonMethods.handleNuLException(th2);
+                hashMap.put("14", Integer.valueOf(com.baidu.sofire.k.a.d(this.context)));
+                com.baidu.sofire.k.a.a(this.context, "1003129", (Map<String, Object>) hashMap, false);
+            } catch (Throwable unused2) {
+                int i3 = b.a;
             }
             try {
                 for (Map.Entry<Integer, List<BDModuleLoadCallback>> entry2 : sCallbackMap.entrySet()) {
                     int intValue2 = entry2.getKey().intValue();
                     List<BDModuleLoadCallback> value2 = entry2.getValue();
-                    int i = 4;
+                    int i4 = 4;
                     if (map == null || !map.containsKey(Integer.valueOf(intValue2))) {
-                        if (this.mUpgradeResultMap != null && this.mUpgradeResultMap.keySet().contains(Integer.valueOf(intValue2))) {
-                            int i2 = this.mUpgradeResultMap.get(Integer.valueOf(intValue2)).resultId;
-                            if (i2 != 2) {
-                                if (i2 != 3 && i2 != 4) {
-                                    if (i2 != 5) {
-                                        if (i2 != 7) {
-                                            if (i2 != 8) {
-                                                z = false;
-                                            } else {
-                                                z = false;
+                        Map<Integer, UpgradeResult> map4 = this.mUpgradeResultMap;
+                        if (map4 != null && map4.keySet().contains(Integer.valueOf(intValue2))) {
+                            int i5 = this.mUpgradeResultMap.get(Integer.valueOf(intValue2)).resultId;
+                            if (i5 != 2) {
+                                if (i5 != 3 && i5 != 4) {
+                                    if (i5 != 5) {
+                                        if (i5 != 7) {
+                                            if (i5 != 8) {
+                                                i4 = 11;
                                             }
                                         }
-                                        z = false;
-                                        i = 3;
+                                        i4 = 3;
                                     } else {
-                                        z = false;
-                                        i = 2;
+                                        i4 = 2;
                                     }
-                                    while (r2.hasNext()) {
-                                    }
-                                    z = true;
+                                    z = false;
                                 }
+                                i4 = 1;
                                 z = false;
-                                i = 1;
-                                while (r2.hasNext()) {
-                                }
-                                z = true;
                             }
+                            i4 = 6;
                             z = false;
-                            i = 6;
-                            while (r2.hasNext()) {
-                            }
-                            z = true;
                         } else {
                             switch (this.mEndReason) {
                                 case 1:
-                                    if (this.mCloudKeyMap != null && !this.mCloudKeyMap.keySet().contains(Integer.valueOf(intValue2))) {
-                                        z = false;
-                                        i = 5;
+                                    Map<Integer, String> map5 = this.mCloudKeyMap;
+                                    if (map5 != null) {
                                         break;
                                     }
-                                    z = false;
+                                    i4 = 11;
                                     break;
                                 case 2:
-                                    z = false;
-                                    i = 8;
+                                    i4 = 8;
                                     break;
                                 case 3:
                                 case 4:
                                 case 7:
-                                    z = false;
-                                    i = 1;
+                                    i4 = 1;
                                     break;
                                 case 5:
                                 default:
-                                    z = false;
+                                    i4 = 11;
                                     break;
                                 case 6:
-                                    z = false;
-                                    i = 7;
+                                    i4 = 7;
                                     break;
                                 case 8:
-                                    z = false;
-                                    i = 3;
+                                    i4 = 3;
                                     break;
                                 case 9:
                                 case 10:
-                                    z = false;
-                                    i = 5;
+                                    i4 = 5;
                                     break;
                                 case 11:
-                                    z = false;
-                                    i = 6;
+                                    i4 = 6;
                                     break;
                             }
-                            for (BDModuleLoadCallback bDModuleLoadCallback : value2) {
-                                if (z) {
-                                    bDModuleLoadCallback.onSuccess(intValue2);
-                                } else {
-                                    bDModuleLoadCallback.onFailure(intValue2, i);
-                                }
-                            }
-                            z = true;
+                            z = false;
+                        }
+                    } else {
+                        i4 = 11;
+                        z = true;
+                    }
+                    for (BDModuleLoadCallback bDModuleLoadCallback : value2) {
+                        if (z) {
+                            bDModuleLoadCallback.onSuccess(intValue2);
+                        } else {
+                            bDModuleLoadCallback.onFailure(intValue2, i4);
                         }
                     }
-                    i = 11;
-                    while (r2.hasNext()) {
-                    }
-                    z = true;
                 }
                 sCallbackMap.clear();
                 sIsRunning = false;
-            } catch (Throwable th3) {
-                CommonMethods.handleNuLException(th3);
+            } catch (Throwable unused3) {
+                int i6 = b.a;
             }
         }
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00fe A[Catch: all -> 0x0111, TryCatch #0 {all -> 0x0111, blocks: (B:32:0x00e6, B:34:0x00fe, B:35:0x0108), top: B:42:0x00e6 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private void handleThreadStart() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
             try {
-                long lastReportUCountTime = this.mPreferenceManager.getLastReportUCountTime();
-                long currentTimeMillis = System.currentTimeMillis();
-                int i = (lastReportUCountTime > 0L ? 1 : (lastReportUCountTime == 0L ? 0 : -1));
-                if (i > 0 && currentTimeMillis - lastReportUCountTime > 86400000) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("1", Integer.valueOf(this.mPreferenceManager.getUStartTimesFor1Day()));
-                    this.mPreferenceManager.setUStartTimesFor1Day(0);
-                    JSONObject jSONObject = new JSONObject();
-                    for (int i2 = 1; i2 <= 6; i2++) {
-                        jSONObject.put(String.valueOf(i2), this.mPreferenceManager.getUStartEndTimesForId(0, i2));
-                        this.mPreferenceManager.setUStartEndTimesForId(0, i2, 0);
-                    }
-                    hashMap.put("2", jSONObject);
-                    hashMap.put("3", Integer.valueOf(this.mPreferenceManager.getUFinishTimesFor1Day()));
-                    this.mPreferenceManager.setUFinishTimesFor1Day(0);
-                    JSONObject jSONObject2 = new JSONObject();
-                    for (int i3 = 1; i3 <= 11; i3++) {
-                        jSONObject2.put(String.valueOf(i3), this.mPreferenceManager.getUStartEndTimesForId(1, i3));
-                        this.mPreferenceManager.setUStartEndTimesForId(1, i3, 0);
-                    }
-                    hashMap.put("4", jSONObject2);
-                    CommonMethods.sendEventUDC(this.context, "1003128", hashMap, false);
-                    this.mPreferenceManager.setLastReportUCountTime(currentTimeMillis);
-                } else if (i == 0) {
-                    this.mPreferenceManager.setLastReportUCountTime(currentTimeMillis);
-                }
-            } catch (Throwable th) {
                 try {
-                    this.mPreferenceManager.setUStartTimesFor1Day(0);
-                    this.mPreferenceManager.setUFinishTimesFor1Day(0);
-                    for (int i4 = 1; i4 <= 6; i4++) {
-                        this.mPreferenceManager.setUStartEndTimesForId(0, i4, 0);
+                    try {
+                        long j = this.mPreferenceManager.a.getLong("slruct", 0L);
+                        long currentTimeMillis = System.currentTimeMillis();
+                        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                        if (i2 > 0 && currentTimeMillis - j > 86400000) {
+                            HashMap hashMap = new HashMap();
+                            hashMap.put("1", Integer.valueOf(this.mPreferenceManager.a.getInt("sustfd", 0)));
+                            this.mPreferenceManager.f(0);
+                            JSONObject jSONObject = new JSONObject();
+                            for (int i3 = 1; i3 <= 6; i3++) {
+                                jSONObject.put(String.valueOf(i3), this.mPreferenceManager.a(0, i3));
+                                this.mPreferenceManager.a(0, i3, 0);
+                            }
+                            hashMap.put("2", jSONObject);
+                            hashMap.put("3", Integer.valueOf(this.mPreferenceManager.a.getInt("sufzfd", 0)));
+                            this.mPreferenceManager.e(0);
+                            JSONObject jSONObject2 = new JSONObject();
+                            for (int i4 = 1; i4 <= 11; i4++) {
+                                jSONObject2.put(String.valueOf(i4), this.mPreferenceManager.a(1, i4));
+                                this.mPreferenceManager.a(1, i4, 0);
+                            }
+                            hashMap.put("4", jSONObject2);
+                            com.baidu.sofire.k.a.a(this.context, "1003128", (Map<String, Object>) hashMap, false);
+                            com.baidu.sofire.j.a aVar = this.mPreferenceManager;
+                            aVar.b.putLong("slruct", currentTimeMillis);
+                            aVar.b.commit();
+                        } else if (i2 == 0) {
+                            com.baidu.sofire.j.a aVar2 = this.mPreferenceManager;
+                            aVar2.b.putLong("slruct", currentTimeMillis);
+                            aVar2.b.commit();
+                        }
+                    } catch (Throwable unused) {
+                        int i5 = b.a;
+                        int i6 = b.a;
+                        this.mStartKeyMap = this.loadedPluginDB.c();
+                        com.baidu.sofire.j.a aVar3 = this.mPreferenceManager;
+                        aVar3.f(aVar3.a.getInt("sustfd", 0) + 1);
+                        i = this.mFrom;
+                        if (i != 0) {
+                        }
+                        this.mStartNetwork = com.baidu.sofire.k.a.d(this.context);
                     }
-                    for (int i5 = 1; i5 <= 11; i5++) {
-                        this.mPreferenceManager.setUStartEndTimesForId(1, i5, 0);
+                } catch (Throwable unused2) {
+                    this.mPreferenceManager.f(0);
+                    this.mPreferenceManager.e(0);
+                    for (int i7 = 1; i7 <= 6; i7++) {
+                        this.mPreferenceManager.a(0, i7, 0);
                     }
-                } catch (Throwable th2) {
-                    CommonMethods.handleNuLException(th2);
+                    for (int i8 = 1; i8 <= 11; i8++) {
+                        this.mPreferenceManager.a(1, i8, 0);
+                    }
+                    int i62 = b.a;
+                    this.mStartKeyMap = this.loadedPluginDB.c();
+                    com.baidu.sofire.j.a aVar32 = this.mPreferenceManager;
+                    aVar32.f(aVar32.a.getInt("sustfd", 0) + 1);
+                    i = this.mFrom;
+                    if (i != 0) {
+                    }
+                    this.mStartNetwork = com.baidu.sofire.k.a.d(this.context);
                 }
-                CommonMethods.handleNuLException(th);
-            }
-            try {
-                this.mStartKeyMap = this.loadedPluginDB.getInitSuceedPluginKeys();
-                this.mPreferenceManager.setUStartTimesFor1Day(this.mPreferenceManager.getUStartTimesFor1Day() + 1);
-                if (this.mFrom != 0) {
-                    this.mPreferenceManager.setUStartEndTimesForId(0, this.mFrom, this.mPreferenceManager.getUStartEndTimesForId(0, this.mFrom) + 1);
+                this.mStartKeyMap = this.loadedPluginDB.c();
+                com.baidu.sofire.j.a aVar322 = this.mPreferenceManager;
+                aVar322.f(aVar322.a.getInt("sustfd", 0) + 1);
+                i = this.mFrom;
+                if (i != 0) {
+                    com.baidu.sofire.j.a aVar4 = this.mPreferenceManager;
+                    aVar4.a(0, i, aVar4.a(0, i) + 1);
                 }
-                this.mStartNetwork = CommonMethods.getCurrNetworkType(this.context);
-            } catch (Throwable th3) {
-                CommonMethods.handleNuLException(th3);
+                this.mStartNetwork = com.baidu.sofire.k.a.d(this.context);
+            } catch (Throwable unused3) {
+                int i9 = b.a;
             }
         }
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:118:0x04ad */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:125:0x04b7 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:178:0x02f2 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:46:0x023e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:65:0x02c9 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:143:0x0552  */
+    /* JADX WARN: Removed duplicated region for block: B:148:0x057a  */
+    /* JADX WARN: Removed duplicated region for block: B:94:0x03c8 A[Catch: all -> 0x04af, TRY_LEAVE, TryCatch #8 {all -> 0x04af, blocks: (B:92:0x03a2, B:94:0x03c8, B:90:0x039d), top: B:175:0x039d }] */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x0414 A[Catch: all -> 0x04ad, TryCatch #7 {all -> 0x04ad, blocks: (B:96:0x03f0, B:97:0x0414, B:99:0x041a, B:101:0x0429), top: B:174:0x03c6 }] */
+    /* JADX WARN: Type inference failed for: r14v10 */
+    /* JADX WARN: Type inference failed for: r14v11 */
+    /* JADX WARN: Type inference failed for: r14v12 */
+    /* JADX WARN: Type inference failed for: r14v13 */
+    /* JADX WARN: Type inference failed for: r14v14 */
+    /* JADX WARN: Type inference failed for: r14v15 */
+    /* JADX WARN: Type inference failed for: r14v16, types: [java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r14v20 */
+    /* JADX WARN: Type inference failed for: r14v7 */
+    /* JADX WARN: Type inference failed for: r14v8 */
+    /* JADX WARN: Type inference failed for: r14v9, types: [java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.sofire.ac.U] */
+    /* JADX WARN: Type inference failed for: r1v10 */
+    /* JADX WARN: Type inference failed for: r1v11 */
+    /* JADX WARN: Type inference failed for: r1v17 */
+    /* JADX WARN: Type inference failed for: r1v19, types: [java.lang.CharSequence] */
+    /* JADX WARN: Type inference failed for: r1v34 */
+    /* JADX WARN: Type inference failed for: r1v35 */
+    /* JADX WARN: Type inference failed for: r1v8 */
+    /* JADX WARN: Type inference failed for: r1v9 */
+    /* JADX WARN: Type inference failed for: r23v0 */
+    /* JADX WARN: Type inference failed for: r23v2 */
+    /* JADX WARN: Type inference failed for: r23v3 */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private void pluginUpdate(File file, ApkInfo apkInfo, int i) {
+        ?? r23;
+        Class cls;
+        ?? r14;
+        Object[] objArr;
+        String str;
+        ApkInfo apkInfo2;
+        boolean z;
+        int i2;
+        HashMap hashMap;
+        String replace;
+        k a;
+        String str2;
+        String str3;
+        com.baidu.sofire.b.j jVar;
+        Class<?> a2;
+        Class[] clsArr;
+        Class[] clsArr2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65550, this, file, apkInfo, i) == null) {
-            CommonMethods.ensureQuanxian(file.getAbsolutePath(), true);
-            if (this.mPreferenceManager.isNeedBackupAPK()) {
-                File file2 = new File(this.context.getFilesDir(), ".b");
-                if (!file2.exists()) {
-                    file2.mkdir();
-                }
-                File file3 = new File(file2, apkInfo.key + "-" + apkInfo.versionName);
-                CommonMethods.copyFile(file, file3);
-                FileDeleteObserverUtils.registerObserver(this.context, apkInfo.key, file, file3);
-            }
-            apkInfo.pkgPath = file.getAbsolutePath();
-            String str = "before update, time=" + System.currentTimeMillis() + ", downloadAPK path:" + file.getAbsolutePath() + ", exists=" + file.exists() + ", canRead=" + file.canRead() + ", isFile=" + file.isFile() + ",length" + file.length();
-            StringBuilder sb = new StringBuilder("before update, time=" + System.currentTimeMillis() + StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            ApkInfo pluginByID = this.loadedPluginDB.getPluginByID(apkInfo.key);
-            if (pluginByID == null) {
-                sb.append("apkInDB == null");
-            } else {
-                File file4 = new File(pluginByID.pkgPath);
-                sb.append("origAPK path:" + file4.getAbsolutePath() + ", exists=" + file4.exists() + ", canRead=" + file4.canRead() + ", isFile=" + file4.isFile() + ",length" + file4.length());
-            }
-            boolean newCloudPluginCome = this.forHostAPP.newCloudPluginCome(apkInfo, str, sb.toString());
-            this.loadedPluginDB.deletePluginByIdVersion(apkInfo.key + LocalConstant.NEXTSUFFIX, apkInfo.versionName);
-            if (!newCloudPluginCome) {
-                Map<Integer, UpgradeResult> map = this.mUpgradeResultMap;
-                if (map == null || map.keySet().contains(Integer.valueOf(apkInfo.key))) {
-                    return;
-                }
-                this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new UpgradeResult(this, i, 5));
+        if (interceptable != null) {
+            r23 = 65551;
+            if (interceptable.invokeLLI(65551, this, file, apkInfo, i) != null) {
                 return;
             }
-            int pluginDeleteStatus = this.loadedPluginDB.getPluginDeleteStatus(apkInfo.key);
-            if (pluginDeleteStatus < 3 && pluginDeleteStatus != -1) {
-                this.loadedPluginDB.updatePluginDeleteStatus(apkInfo.key, pluginDeleteStatus + 1);
+        }
+        CharSequence charSequence = this;
+        String str4 = "2";
+        com.baidu.sofire.k.a.a(file.getAbsolutePath(), true);
+        if (!charSequence.mPreferenceManager.n()) {
+            cls = String.class;
+        } else {
+            File file2 = new File(charSequence.context.getFilesDir(), ".b");
+            if (!file2.exists()) {
+                file2.mkdir();
             }
-            Map<Integer, UpgradeResult> map2 = this.mUpgradeResultMap;
-            if (map2 != null) {
-                map2.put(Integer.valueOf(apkInfo.key), new UpgradeResult(this, i, 1));
+            StringBuilder sb = new StringBuilder();
+            cls = String.class;
+            sb.append(apkInfo.key);
+            sb.append("-");
+            sb.append(apkInfo.versionName);
+            File file3 = new File(file2, sb.toString());
+            com.baidu.sofire.k.a.a(file, file3);
+            c.a(charSequence.context, apkInfo.key, file, file3);
+        }
+        apkInfo.pkgPath = file.getAbsolutePath();
+        StringBuilder sb2 = new StringBuilder();
+        sb2.append("before update, time=");
+        sb2.append(System.currentTimeMillis());
+        sb2.append(", downloadAPK path:");
+        sb2.append(file.getAbsolutePath());
+        sb2.append(", exists=");
+        sb2.append(file.exists());
+        sb2.append(", canRead=");
+        sb2.append(file.canRead());
+        sb2.append(", isFile=");
+        sb2.append(file.isFile());
+        String str5 = ",length";
+        sb2.append(",length");
+        CharSequence charSequence2 = "\t";
+        sb2.append(file.length());
+        String sb3 = sb2.toString();
+        StringBuilder sb4 = new StringBuilder("before update, time=" + System.currentTimeMillis() + StringUtil.ARRAY_ELEMENT_SEPARATOR);
+        ApkInfo b = charSequence.loadedPluginDB.b(apkInfo.key);
+        if (b == null) {
+            sb4.append("apkInDB == null");
+        } else {
+            File file4 = new File(b.pkgPath);
+            sb4.append("origAPK path:" + file4.getAbsolutePath() + ", exists=" + file4.exists() + ", canRead=" + file4.canRead() + ", isFile=" + file4.isFile() + ",length" + file4.length());
+        }
+        d dVar = charSequence.forHostAPP;
+        sb4.toString();
+        dVar.getClass();
+        String str6 = apkInfo.pkgPath;
+        File file5 = new File(str6);
+        try {
+            try {
+            } catch (Throwable th) {
+                th = th;
             }
+        } catch (Throwable th2) {
+            th = th2;
+            str6 = "2";
+            r14 = "1";
+            objArr = "0";
+            str4 = "1003106";
+            sb3 = "\r";
+            charSequence = charSequence2;
+            str = "3";
+        }
+        if (!com.baidu.sofire.k.a.a(file5)) {
+            try {
+                hashMap = new HashMap();
+                hashMap.put("0", 1);
+                hashMap.put("1", apkInfo.key + "");
+                hashMap.put("2", apkInfo.versionName);
+                StringBuilder sb5 = new StringBuilder();
+                sb5.append("nowTime:");
+                str6 = "2";
+                r23 = "1";
+                try {
+                    sb5.append(System.currentTimeMillis());
+                    sb5.append(", nowFileInfo: path=");
+                    sb5.append(file5.getAbsolutePath());
+                    sb5.append(", exists=");
+                    sb5.append(file5.exists());
+                    sb5.append(", canRead=");
+                    sb5.append(file5.canRead());
+                    sb5.append(", isFile=");
+                    sb5.append(file5.isFile());
+                    sb5.append(",length");
+                    sb5.append(file5.length());
+                    sb5.append(" - ");
+                    sb5.append(sb3);
+                    replace = Base64.encodeToString(sb5.toString().getBytes(), 0).replace("\n", "");
+                    charSequence = charSequence2;
+                    try {
+                        sb3 = "\r";
+                        try {
+                            str5 = "3";
+                        } catch (Throwable th3) {
+                            th = th3;
+                            str4 = "1003106";
+                            charSequence = charSequence;
+                            str5 = "3";
+                            r14 = r23;
+                            apkInfo2 = apkInfo;
+                            str = str5;
+                            objArr = "0";
+                            try {
+                                c.a(file5);
+                                dVar.c(apkInfo2.packageName);
+                                file5.delete();
+                                dVar.a(apkInfo2.key, apkInfo2.versionName, true, (PackageInfo) null);
+                                dVar.c.b(apkInfo2.key, 0);
+                                HashMap hashMap2 = new HashMap();
+                                hashMap2.put(objArr, 5);
+                                hashMap2.put(r14, apkInfo2.key + "");
+                                hashMap2.put(str6, apkInfo2.versionName);
+                                hashMap2.put(str, Base64.encodeToString(b.a(th).getBytes(), 0).replace("\n", "").replace(charSequence, "").replace(sb3, ""));
+                            } catch (Throwable unused) {
+                            }
+                            try {
+                                com.baidu.sofire.k.a.a(d.e, str4, (Map<String, Object>) hashMap2, false);
+                            } catch (Throwable unused2) {
+                                int i3 = b.a;
+                                z = false;
+                                this.loadedPluginDB.a(apkInfo.key + 10000000, apkInfo.versionName);
+                                if (!z) {
+                                }
+                            }
+                            z = false;
+                            this.loadedPluginDB.a(apkInfo.key + 10000000, apkInfo.versionName);
+                            if (!z) {
+                            }
+                        }
+                    } catch (Throwable th4) {
+                        th = th4;
+                        str4 = "1003106";
+                        sb3 = "\r";
+                        charSequence = charSequence;
+                    }
+                } catch (Throwable th5) {
+                    th = th5;
+                    str4 = "1003106";
+                    sb3 = "\r";
+                    charSequence = charSequence2;
+                }
+            } catch (Throwable th6) {
+                th = th6;
+                str6 = "2";
+                str4 = "1003106";
+                sb3 = "\r";
+                charSequence = charSequence2;
+                str5 = "3";
+                r14 = "1";
+                apkInfo2 = apkInfo;
+                str = str5;
+                objArr = "0";
+                c.a(file5);
+                dVar.c(apkInfo2.packageName);
+                file5.delete();
+                dVar.a(apkInfo2.key, apkInfo2.versionName, true, (PackageInfo) null);
+                dVar.c.b(apkInfo2.key, 0);
+                HashMap hashMap22 = new HashMap();
+                hashMap22.put(objArr, 5);
+                hashMap22.put(r14, apkInfo2.key + "");
+                hashMap22.put(str6, apkInfo2.versionName);
+                hashMap22.put(str, Base64.encodeToString(b.a(th).getBytes(), 0).replace("\n", "").replace(charSequence, "").replace(sb3, ""));
+                com.baidu.sofire.k.a.a(d.e, str4, (Map<String, Object>) hashMap22, false);
+                z = false;
+                this.loadedPluginDB.a(apkInfo.key + 10000000, apkInfo.versionName);
+                if (!z) {
+                }
+            }
+            try {
+                hashMap.put(str5, replace.replace((CharSequence) charSequence, "").replace(sb3, ""));
+                com.baidu.sofire.k.a.a(d.e, "1003106", (Map<String, Object>) hashMap, false);
+            } catch (Throwable th7) {
+                th = th7;
+                str4 = "1003106";
+                r14 = r23;
+                apkInfo2 = apkInfo;
+                str = str5;
+                objArr = "0";
+                c.a(file5);
+                dVar.c(apkInfo2.packageName);
+                file5.delete();
+                dVar.a(apkInfo2.key, apkInfo2.versionName, true, (PackageInfo) null);
+                dVar.c.b(apkInfo2.key, 0);
+                HashMap hashMap222 = new HashMap();
+                hashMap222.put(objArr, 5);
+                hashMap222.put(r14, apkInfo2.key + "");
+                hashMap222.put(str6, apkInfo2.versionName);
+                hashMap222.put(str, Base64.encodeToString(b.a(th).getBytes(), 0).replace("\n", "").replace(charSequence, "").replace(sb3, ""));
+                com.baidu.sofire.k.a.a(d.e, str4, (Map<String, Object>) hashMap222, false);
+                z = false;
+                this.loadedPluginDB.a(apkInfo.key + 10000000, apkInfo.versionName);
+                if (!z) {
+                }
+            }
+        } else {
+            str6 = "2";
+            str4 = "1003106";
+            sb3 = "\r";
+            charSequence = charSequence2;
+            str5 = "3";
+            try {
+                if (!dVar.c.g(apkInfo.key)) {
+                    dVar.c.a(apkInfo);
+                }
+                a = k.a(d.e.getApplicationContext());
+                r14 = 1;
+                dVar.c.b(apkInfo.key, 1);
+                dVar.c(apkInfo.packageName);
+                try {
+                } catch (Throwable th8) {
+                    th = th8;
+                    apkInfo2 = apkInfo;
+                    str = str5;
+                    objArr = "0";
+                    c.a(file5);
+                    dVar.c(apkInfo2.packageName);
+                    file5.delete();
+                    dVar.a(apkInfo2.key, apkInfo2.versionName, true, (PackageInfo) null);
+                    dVar.c.b(apkInfo2.key, 0);
+                    HashMap hashMap2222 = new HashMap();
+                    hashMap2222.put(objArr, 5);
+                    hashMap2222.put(r14, apkInfo2.key + "");
+                    hashMap2222.put(str6, apkInfo2.versionName);
+                    hashMap2222.put(str, Base64.encodeToString(b.a(th).getBytes(), 0).replace("\n", "").replace(charSequence, "").replace(sb3, ""));
+                    com.baidu.sofire.k.a.a(d.e, str4, (Map<String, Object>) hashMap2222, false);
+                    z = false;
+                    this.loadedPluginDB.a(apkInfo.key + 10000000, apkInfo.versionName);
+                    if (!z) {
+                    }
+                }
+            } catch (Throwable th9) {
+                th = th9;
+                str = str5;
+                objArr = "0";
+                r14 = "1";
+            }
+            if (!a.a(apkInfo, true)) {
+                HashMap hashMap3 = new HashMap();
+                hashMap3.put("0", 2);
+                hashMap3.put("1", apkInfo.key + "");
+                hashMap3.put(str6, apkInfo.versionName);
+                com.baidu.sofire.k.a.a(d.e, str4, (Map<String, Object>) hashMap3, false);
+                c.a(file5);
+                file5.delete();
+                dVar.a(apkInfo.key, apkInfo.versionName, true, (PackageInfo) null);
+                dVar.c.b(apkInfo.key, 0);
+            } else {
+                r14 = "1";
+                try {
+                    String[] p = com.baidu.sofire.k.a.p(d.e);
+                    if (p.length != 2 || TextUtils.isEmpty(p[0]) || TextUtils.isEmpty(p[1])) {
+                        str2 = "925fc15df8a49bed0b3eca8d2b44cb7b";
+                        str3 = str5;
+                    } else {
+                        str3 = p[0];
+                        str2 = p[1];
+                    }
+                    apkInfo2 = a.c.get(apkInfo.pkgPath);
+                } catch (Throwable th10) {
+                    th = th10;
+                    str = str5;
+                    objArr = "0";
+                    r14 = r14;
+                    apkInfo2 = apkInfo;
+                    c.a(file5);
+                    dVar.c(apkInfo2.packageName);
+                    file5.delete();
+                    dVar.a(apkInfo2.key, apkInfo2.versionName, true, (PackageInfo) null);
+                    dVar.c.b(apkInfo2.key, 0);
+                    HashMap hashMap22222 = new HashMap();
+                    hashMap22222.put(objArr, 5);
+                    hashMap22222.put(r14, apkInfo2.key + "");
+                    hashMap22222.put(str6, apkInfo2.versionName);
+                    hashMap22222.put(str, Base64.encodeToString(b.a(th).getBytes(), 0).replace("\n", "").replace(charSequence, "").replace(sb3, ""));
+                    com.baidu.sofire.k.a.a(d.e, str4, (Map<String, Object>) hashMap22222, false);
+                    z = false;
+                    this.loadedPluginDB.a(apkInfo.key + 10000000, apkInfo.versionName);
+                    if (!z) {
+                    }
+                }
+                if (apkInfo2 != null) {
+                    try {
+                        jVar = (com.baidu.sofire.b.j) apkInfo2.classLoader;
+                        a2 = jVar.a("com.baidu.sofire.engine.EngineImpl");
+                        try {
+                        } catch (Throwable th11) {
+                            th = th11;
+                            str = str5;
+                        }
+                    } catch (Throwable th12) {
+                        th = th12;
+                        str = str5;
+                        objArr = "0";
+                        c.a(file5);
+                        dVar.c(apkInfo2.packageName);
+                        file5.delete();
+                        dVar.a(apkInfo2.key, apkInfo2.versionName, true, (PackageInfo) null);
+                        dVar.c.b(apkInfo2.key, 0);
+                        HashMap hashMap222222 = new HashMap();
+                        hashMap222222.put(objArr, 5);
+                        hashMap222222.put(r14, apkInfo2.key + "");
+                        hashMap222222.put(str6, apkInfo2.versionName);
+                        hashMap222222.put(str, Base64.encodeToString(b.a(th).getBytes(), 0).replace("\n", "").replace(charSequence, "").replace(sb3, ""));
+                        com.baidu.sofire.k.a.a(d.e, str4, (Map<String, Object>) hashMap222222, false);
+                        z = false;
+                        this.loadedPluginDB.a(apkInfo.key + 10000000, apkInfo.versionName);
+                        if (!z) {
+                        }
+                    }
+                    if (a2 == null) {
+                        Class<?> a3 = jVar.a("java.lang.String");
+                        HashMap hashMap4 = new HashMap();
+                        hashMap4.put("0", 6);
+                        StringBuilder sb6 = new StringBuilder();
+                        charSequence2 = "0";
+                        sb6.append(apkInfo2.key);
+                        sb6.append("");
+                        hashMap4.put(r14, sb6.toString());
+                        hashMap4.put(str6, apkInfo2.versionName);
+                        hashMap4.put(str5, Base64.encodeToString(("classloader=" + jVar + ",StringClass=" + a3).getBytes(), 0).replace("\n", "").replace(charSequence, "").replace(sb3, ""));
+                        com.baidu.sofire.k.a.a(d.e, str4, (Map<String, Object>) hashMap4, false);
+                        c.a(file5);
+                        file5.delete();
+                        dVar.c.b(apkInfo2.key, 0);
+                    } else {
+                        charSequence2 = "0";
+                        Object invoke = a2.getDeclaredMethod("getInstance", Context.class).invoke(a2, d.e);
+                        try {
+                            clsArr2 = new Class[]{cls, cls};
+                            str = str5;
+                        } catch (Throwable unused3) {
+                            str = str5;
+                        }
+                        try {
+                            try {
+                                com.baidu.sofire.k.a.a(invoke, "setSecurityVerifyInfo", clsArr2, str3, str2);
+                            } catch (Throwable unused4) {
+                                try {
+                                    int i4 = b.a;
+                                    clsArr = new Class[]{Integer.TYPE, Boolean.TYPE};
+                                    objArr = new Object[]{0, Boolean.TRUE};
+                                    if (((Boolean) com.baidu.sofire.k.a.a(invoke, "init", clsArr, objArr)).booleanValue()) {
+                                    }
+                                } catch (Throwable th13) {
+                                    th = th13;
+                                    objArr = charSequence2;
+                                    c.a(file5);
+                                    dVar.c(apkInfo2.packageName);
+                                    file5.delete();
+                                    dVar.a(apkInfo2.key, apkInfo2.versionName, true, (PackageInfo) null);
+                                    dVar.c.b(apkInfo2.key, 0);
+                                    HashMap hashMap2222222 = new HashMap();
+                                    hashMap2222222.put(objArr, 5);
+                                    hashMap2222222.put(r14, apkInfo2.key + "");
+                                    hashMap2222222.put(str6, apkInfo2.versionName);
+                                    hashMap2222222.put(str, Base64.encodeToString(b.a(th).getBytes(), 0).replace("\n", "").replace(charSequence, "").replace(sb3, ""));
+                                    com.baidu.sofire.k.a.a(d.e, str4, (Map<String, Object>) hashMap2222222, false);
+                                    z = false;
+                                    this.loadedPluginDB.a(apkInfo.key + 10000000, apkInfo.versionName);
+                                    if (!z) {
+                                    }
+                                }
+                            }
+                        } catch (Throwable th14) {
+                            th = th14;
+                            c.a(file5);
+                            dVar.c(apkInfo2.packageName);
+                            file5.delete();
+                            dVar.a(apkInfo2.key, apkInfo2.versionName, true, (PackageInfo) null);
+                            dVar.c.b(apkInfo2.key, 0);
+                            HashMap hashMap22222222 = new HashMap();
+                            hashMap22222222.put(objArr, 5);
+                            hashMap22222222.put(r14, apkInfo2.key + "");
+                            hashMap22222222.put(str6, apkInfo2.versionName);
+                            hashMap22222222.put(str, Base64.encodeToString(b.a(th).getBytes(), 0).replace("\n", "").replace(charSequence, "").replace(sb3, ""));
+                            com.baidu.sofire.k.a.a(d.e, str4, (Map<String, Object>) hashMap22222222, false);
+                            z = false;
+                            this.loadedPluginDB.a(apkInfo.key + 10000000, apkInfo.versionName);
+                            if (!z) {
+                            }
+                        }
+                        clsArr = new Class[]{Integer.TYPE, Boolean.TYPE};
+                        objArr = new Object[]{0, Boolean.TRUE};
+                        if (((Boolean) com.baidu.sofire.k.a.a(invoke, "init", clsArr, objArr)).booleanValue()) {
+                            c.a(file5);
+                            dVar.c(apkInfo2.packageName);
+                            file5.delete();
+                            dVar.a(apkInfo2.key, apkInfo2.versionName, true, (PackageInfo) null);
+                            dVar.c.b(apkInfo2.key, 0);
+                            HashMap hashMap5 = new HashMap();
+                            hashMap5.put(charSequence2, 4);
+                            hashMap5.put(r14, apkInfo2.key + "");
+                            hashMap5.put(str6, apkInfo2.versionName);
+                            str5 = null;
+                            com.baidu.sofire.k.a.a(d.e, str4, (Map<String, Object>) hashMap5, false);
+                        } else {
+                            if (apkInfo2.isMem) {
+                                c.a(file5);
+                                file5.delete();
+                                com.baidu.sofire.k.a.c(apkInfo2.dataDir);
+                                List<Integer> list = k.i;
+                                if (list != null) {
+                                    list.add(Integer.valueOf(apkInfo2.key));
+                                }
+                            }
+                            try {
+                                ApkInfo b2 = dVar.c.b(apkInfo2.key);
+                                File file6 = (b2 == null || b2.versionName.equals(apkInfo2.versionName)) ? null : new File(b2.pkgPath);
+                                apkInfo2.initStatus = 1;
+                                apkInfo2.apkParseSuc = 1;
+                                if (dVar.c.a(apkInfo2) > 0 && file6 != null && file6.exists()) {
+                                    c.a(file6);
+                                    file6.delete();
+                                }
+                                dVar.c.b(apkInfo2.key, 0);
+                                com.baidu.sofire.k.a.q(d.e);
+                                HashMap hashMap6 = new HashMap();
+                                hashMap6.put(charSequence2, 0);
+                                hashMap6.put(r14, apkInfo2.key + "");
+                                hashMap6.put(str6, apkInfo2.versionName);
+                                com.baidu.sofire.k.a.a(d.e, str4, (Map<String, Object>) hashMap6, false);
+                            } catch (Throwable unused5) {
+                                int i5 = b.a;
+                            }
+                            z = true;
+                            this.loadedPluginDB.a(apkInfo.key + 10000000, apkInfo.versionName);
+                            if (!z) {
+                                Map<Integer, UpgradeResult> map = this.mUpgradeResultMap;
+                                if (map == null || map.keySet().contains(Integer.valueOf(apkInfo.key))) {
+                                    return;
+                                }
+                                this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new UpgradeResult(this, i, 5));
+                                return;
+                            }
+                            int c = this.loadedPluginDB.c(apkInfo.key);
+                            if (c >= 3 || c == -1) {
+                                i2 = 1;
+                            } else {
+                                i2 = 1;
+                                this.loadedPluginDB.c(apkInfo.key, c + 1);
+                            }
+                            Map<Integer, UpgradeResult> map2 = this.mUpgradeResultMap;
+                            if (map2 != null) {
+                                map2.put(Integer.valueOf(apkInfo.key), new UpgradeResult(this, i, i2));
+                                return;
+                            }
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+        z = false;
+        this.loadedPluginDB.a(apkInfo.key + 10000000, apkInfo.versionName);
+        if (!z) {
         }
     }
 
@@ -819,38 +1364,37 @@ public class U implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             this.context = context;
-            this.loadedPluginDB = D.getInstance(context);
-            this.mPreferenceManager = SharedPreferenceManager.getInstance(context);
+            this.loadedPluginDB = a.a(context);
+            this.mPreferenceManager = com.baidu.sofire.j.a.a(context);
             this.tmpDir = new File(context.getFilesDir(), ".tmp");
-            this.forHostAPP = ForHostApp.getInstance(context);
+            this.forHostAPP = d.a(context);
             this.mFrom = intent.getIntExtra("from", 0);
-            ThreadPoolManager.getInstance(context).executeCore(this);
+            p.a(context).b(this);
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:217:0x039f  */
-    /* JADX WARN: Removed duplicated region for block: B:218:0x03a1  */
-    /* JADX WARN: Removed duplicated region for block: B:226:0x03b9  */
-    /* JADX WARN: Removed duplicated region for block: B:227:0x03bb  */
-    /* JADX WARN: Removed duplicated region for block: B:230:0x03c0 A[Catch: all -> 0x06fc, TryCatch #21 {all -> 0x0782, blocks: (B:20:0x001d, B:345:0x0696, B:347:0x069a, B:348:0x069d, B:21:0x001e, B:23:0x0028, B:25:0x002c, B:27:0x0030, B:29:0x0034, B:31:0x0042, B:33:0x0046, B:34:0x004b, B:47:0x005f, B:49:0x0067, B:50:0x006d, B:52:0x007b, B:55:0x008a, B:57:0x008e, B:58:0x0090, B:60:0x009e, B:62:0x00a7, B:66:0x00b3, B:68:0x00bd, B:70:0x00c1, B:76:0x00d3, B:77:0x00d6, B:79:0x00de, B:80:0x00e6, B:82:0x00ea, B:84:0x00ee, B:86:0x00f2, B:88:0x00f6, B:93:0x0114, B:95:0x011f, B:97:0x0130, B:99:0x013d, B:101:0x0141, B:102:0x0146, B:103:0x0149, B:104:0x0150, B:96:0x012b, B:90:0x00fa, B:92:0x0106, B:105:0x0151, B:107:0x018f, B:109:0x0193, B:110:0x0197, B:111:0x019e, B:112:0x019f, B:114:0x01a3, B:115:0x01a7, B:117:0x01ad, B:119:0x01c7, B:120:0x01d0, B:122:0x01e4, B:123:0x01e8, B:125:0x01fd, B:126:0x0204, B:128:0x020a, B:130:0x0210, B:133:0x021c, B:134:0x0220, B:138:0x022c, B:142:0x023a, B:144:0x0242, B:148:0x0250, B:214:0x0389, B:215:0x038d, B:219:0x03a2, B:224:0x03b0, B:228:0x03bc, B:230:0x03c0, B:231:0x03c2, B:233:0x03ca, B:234:0x03da, B:236:0x03e2, B:240:0x03ef, B:242:0x03f7, B:244:0x03ff, B:246:0x0406, B:248:0x0410, B:249:0x041e, B:251:0x0424, B:252:0x0433, B:254:0x043a, B:256:0x0455, B:257:0x0466, B:259:0x046c, B:261:0x0471, B:263:0x0481, B:265:0x0487, B:266:0x0490, B:269:0x049c, B:270:0x049f, B:272:0x04a3, B:274:0x04b1, B:276:0x04c0, B:278:0x04c4, B:285:0x04f3, B:275:0x04b9, B:281:0x04d7, B:283:0x04e1, B:284:0x04ee, B:286:0x04f7, B:288:0x0504, B:223:0x03ae, B:290:0x051e, B:292:0x0528, B:293:0x052d, B:294:0x0531, B:296:0x0537, B:298:0x0547, B:300:0x054b, B:301:0x0556, B:303:0x0560, B:304:0x057c, B:306:0x0582, B:308:0x058c, B:309:0x0593, B:310:0x0596, B:311:0x05aa, B:313:0x05b0, B:315:0x05bc, B:317:0x05c4, B:321:0x05d2, B:324:0x05dc, B:326:0x05ef, B:327:0x05f2, B:329:0x061c, B:330:0x061f, B:336:0x0663, B:331:0x0627, B:333:0x063a, B:335:0x065d, B:342:0x0681, B:337:0x066e, B:339:0x0674, B:341:0x067e, B:343:0x0685, B:344:0x0695, B:361:0x06b5, B:363:0x06ba, B:365:0x06be, B:371:0x06e3, B:373:0x06e7, B:375:0x06ec, B:376:0x06f3, B:377:0x06f4, B:378:0x06fb, B:367:0x06c3, B:369:0x06d1, B:370:0x06dc, B:54:0x007f, B:349:0x06a1, B:351:0x06a5, B:353:0x06a9, B:7:0x0008, B:9:0x000c, B:13:0x0012, B:35:0x004c, B:37:0x0050, B:39:0x0054), top: B:452:0x0008 }] */
-    /* JADX WARN: Removed duplicated region for block: B:233:0x03ca A[Catch: all -> 0x06fc, TryCatch #21 {all -> 0x0782, blocks: (B:20:0x001d, B:345:0x0696, B:347:0x069a, B:348:0x069d, B:21:0x001e, B:23:0x0028, B:25:0x002c, B:27:0x0030, B:29:0x0034, B:31:0x0042, B:33:0x0046, B:34:0x004b, B:47:0x005f, B:49:0x0067, B:50:0x006d, B:52:0x007b, B:55:0x008a, B:57:0x008e, B:58:0x0090, B:60:0x009e, B:62:0x00a7, B:66:0x00b3, B:68:0x00bd, B:70:0x00c1, B:76:0x00d3, B:77:0x00d6, B:79:0x00de, B:80:0x00e6, B:82:0x00ea, B:84:0x00ee, B:86:0x00f2, B:88:0x00f6, B:93:0x0114, B:95:0x011f, B:97:0x0130, B:99:0x013d, B:101:0x0141, B:102:0x0146, B:103:0x0149, B:104:0x0150, B:96:0x012b, B:90:0x00fa, B:92:0x0106, B:105:0x0151, B:107:0x018f, B:109:0x0193, B:110:0x0197, B:111:0x019e, B:112:0x019f, B:114:0x01a3, B:115:0x01a7, B:117:0x01ad, B:119:0x01c7, B:120:0x01d0, B:122:0x01e4, B:123:0x01e8, B:125:0x01fd, B:126:0x0204, B:128:0x020a, B:130:0x0210, B:133:0x021c, B:134:0x0220, B:138:0x022c, B:142:0x023a, B:144:0x0242, B:148:0x0250, B:214:0x0389, B:215:0x038d, B:219:0x03a2, B:224:0x03b0, B:228:0x03bc, B:230:0x03c0, B:231:0x03c2, B:233:0x03ca, B:234:0x03da, B:236:0x03e2, B:240:0x03ef, B:242:0x03f7, B:244:0x03ff, B:246:0x0406, B:248:0x0410, B:249:0x041e, B:251:0x0424, B:252:0x0433, B:254:0x043a, B:256:0x0455, B:257:0x0466, B:259:0x046c, B:261:0x0471, B:263:0x0481, B:265:0x0487, B:266:0x0490, B:269:0x049c, B:270:0x049f, B:272:0x04a3, B:274:0x04b1, B:276:0x04c0, B:278:0x04c4, B:285:0x04f3, B:275:0x04b9, B:281:0x04d7, B:283:0x04e1, B:284:0x04ee, B:286:0x04f7, B:288:0x0504, B:223:0x03ae, B:290:0x051e, B:292:0x0528, B:293:0x052d, B:294:0x0531, B:296:0x0537, B:298:0x0547, B:300:0x054b, B:301:0x0556, B:303:0x0560, B:304:0x057c, B:306:0x0582, B:308:0x058c, B:309:0x0593, B:310:0x0596, B:311:0x05aa, B:313:0x05b0, B:315:0x05bc, B:317:0x05c4, B:321:0x05d2, B:324:0x05dc, B:326:0x05ef, B:327:0x05f2, B:329:0x061c, B:330:0x061f, B:336:0x0663, B:331:0x0627, B:333:0x063a, B:335:0x065d, B:342:0x0681, B:337:0x066e, B:339:0x0674, B:341:0x067e, B:343:0x0685, B:344:0x0695, B:361:0x06b5, B:363:0x06ba, B:365:0x06be, B:371:0x06e3, B:373:0x06e7, B:375:0x06ec, B:376:0x06f3, B:377:0x06f4, B:378:0x06fb, B:367:0x06c3, B:369:0x06d1, B:370:0x06dc, B:54:0x007f, B:349:0x06a1, B:351:0x06a5, B:353:0x06a9, B:7:0x0008, B:9:0x000c, B:13:0x0012, B:35:0x004c, B:37:0x0050, B:39:0x0054), top: B:452:0x0008 }] */
-    /* JADX WARN: Removed duplicated region for block: B:236:0x03e2 A[Catch: all -> 0x06fc, TryCatch #21 {all -> 0x0782, blocks: (B:20:0x001d, B:345:0x0696, B:347:0x069a, B:348:0x069d, B:21:0x001e, B:23:0x0028, B:25:0x002c, B:27:0x0030, B:29:0x0034, B:31:0x0042, B:33:0x0046, B:34:0x004b, B:47:0x005f, B:49:0x0067, B:50:0x006d, B:52:0x007b, B:55:0x008a, B:57:0x008e, B:58:0x0090, B:60:0x009e, B:62:0x00a7, B:66:0x00b3, B:68:0x00bd, B:70:0x00c1, B:76:0x00d3, B:77:0x00d6, B:79:0x00de, B:80:0x00e6, B:82:0x00ea, B:84:0x00ee, B:86:0x00f2, B:88:0x00f6, B:93:0x0114, B:95:0x011f, B:97:0x0130, B:99:0x013d, B:101:0x0141, B:102:0x0146, B:103:0x0149, B:104:0x0150, B:96:0x012b, B:90:0x00fa, B:92:0x0106, B:105:0x0151, B:107:0x018f, B:109:0x0193, B:110:0x0197, B:111:0x019e, B:112:0x019f, B:114:0x01a3, B:115:0x01a7, B:117:0x01ad, B:119:0x01c7, B:120:0x01d0, B:122:0x01e4, B:123:0x01e8, B:125:0x01fd, B:126:0x0204, B:128:0x020a, B:130:0x0210, B:133:0x021c, B:134:0x0220, B:138:0x022c, B:142:0x023a, B:144:0x0242, B:148:0x0250, B:214:0x0389, B:215:0x038d, B:219:0x03a2, B:224:0x03b0, B:228:0x03bc, B:230:0x03c0, B:231:0x03c2, B:233:0x03ca, B:234:0x03da, B:236:0x03e2, B:240:0x03ef, B:242:0x03f7, B:244:0x03ff, B:246:0x0406, B:248:0x0410, B:249:0x041e, B:251:0x0424, B:252:0x0433, B:254:0x043a, B:256:0x0455, B:257:0x0466, B:259:0x046c, B:261:0x0471, B:263:0x0481, B:265:0x0487, B:266:0x0490, B:269:0x049c, B:270:0x049f, B:272:0x04a3, B:274:0x04b1, B:276:0x04c0, B:278:0x04c4, B:285:0x04f3, B:275:0x04b9, B:281:0x04d7, B:283:0x04e1, B:284:0x04ee, B:286:0x04f7, B:288:0x0504, B:223:0x03ae, B:290:0x051e, B:292:0x0528, B:293:0x052d, B:294:0x0531, B:296:0x0537, B:298:0x0547, B:300:0x054b, B:301:0x0556, B:303:0x0560, B:304:0x057c, B:306:0x0582, B:308:0x058c, B:309:0x0593, B:310:0x0596, B:311:0x05aa, B:313:0x05b0, B:315:0x05bc, B:317:0x05c4, B:321:0x05d2, B:324:0x05dc, B:326:0x05ef, B:327:0x05f2, B:329:0x061c, B:330:0x061f, B:336:0x0663, B:331:0x0627, B:333:0x063a, B:335:0x065d, B:342:0x0681, B:337:0x066e, B:339:0x0674, B:341:0x067e, B:343:0x0685, B:344:0x0695, B:361:0x06b5, B:363:0x06ba, B:365:0x06be, B:371:0x06e3, B:373:0x06e7, B:375:0x06ec, B:376:0x06f3, B:377:0x06f4, B:378:0x06fb, B:367:0x06c3, B:369:0x06d1, B:370:0x06dc, B:54:0x007f, B:349:0x06a1, B:351:0x06a5, B:353:0x06a9, B:7:0x0008, B:9:0x000c, B:13:0x0012, B:35:0x004c, B:37:0x0050, B:39:0x0054), top: B:452:0x0008 }] */
-    /* JADX WARN: Removed duplicated region for block: B:253:0x0439  */
-    /* JADX WARN: Removed duplicated region for block: B:256:0x0455 A[Catch: all -> 0x06fc, TryCatch #21 {all -> 0x0782, blocks: (B:20:0x001d, B:345:0x0696, B:347:0x069a, B:348:0x069d, B:21:0x001e, B:23:0x0028, B:25:0x002c, B:27:0x0030, B:29:0x0034, B:31:0x0042, B:33:0x0046, B:34:0x004b, B:47:0x005f, B:49:0x0067, B:50:0x006d, B:52:0x007b, B:55:0x008a, B:57:0x008e, B:58:0x0090, B:60:0x009e, B:62:0x00a7, B:66:0x00b3, B:68:0x00bd, B:70:0x00c1, B:76:0x00d3, B:77:0x00d6, B:79:0x00de, B:80:0x00e6, B:82:0x00ea, B:84:0x00ee, B:86:0x00f2, B:88:0x00f6, B:93:0x0114, B:95:0x011f, B:97:0x0130, B:99:0x013d, B:101:0x0141, B:102:0x0146, B:103:0x0149, B:104:0x0150, B:96:0x012b, B:90:0x00fa, B:92:0x0106, B:105:0x0151, B:107:0x018f, B:109:0x0193, B:110:0x0197, B:111:0x019e, B:112:0x019f, B:114:0x01a3, B:115:0x01a7, B:117:0x01ad, B:119:0x01c7, B:120:0x01d0, B:122:0x01e4, B:123:0x01e8, B:125:0x01fd, B:126:0x0204, B:128:0x020a, B:130:0x0210, B:133:0x021c, B:134:0x0220, B:138:0x022c, B:142:0x023a, B:144:0x0242, B:148:0x0250, B:214:0x0389, B:215:0x038d, B:219:0x03a2, B:224:0x03b0, B:228:0x03bc, B:230:0x03c0, B:231:0x03c2, B:233:0x03ca, B:234:0x03da, B:236:0x03e2, B:240:0x03ef, B:242:0x03f7, B:244:0x03ff, B:246:0x0406, B:248:0x0410, B:249:0x041e, B:251:0x0424, B:252:0x0433, B:254:0x043a, B:256:0x0455, B:257:0x0466, B:259:0x046c, B:261:0x0471, B:263:0x0481, B:265:0x0487, B:266:0x0490, B:269:0x049c, B:270:0x049f, B:272:0x04a3, B:274:0x04b1, B:276:0x04c0, B:278:0x04c4, B:285:0x04f3, B:275:0x04b9, B:281:0x04d7, B:283:0x04e1, B:284:0x04ee, B:286:0x04f7, B:288:0x0504, B:223:0x03ae, B:290:0x051e, B:292:0x0528, B:293:0x052d, B:294:0x0531, B:296:0x0537, B:298:0x0547, B:300:0x054b, B:301:0x0556, B:303:0x0560, B:304:0x057c, B:306:0x0582, B:308:0x058c, B:309:0x0593, B:310:0x0596, B:311:0x05aa, B:313:0x05b0, B:315:0x05bc, B:317:0x05c4, B:321:0x05d2, B:324:0x05dc, B:326:0x05ef, B:327:0x05f2, B:329:0x061c, B:330:0x061f, B:336:0x0663, B:331:0x0627, B:333:0x063a, B:335:0x065d, B:342:0x0681, B:337:0x066e, B:339:0x0674, B:341:0x067e, B:343:0x0685, B:344:0x0695, B:361:0x06b5, B:363:0x06ba, B:365:0x06be, B:371:0x06e3, B:373:0x06e7, B:375:0x06ec, B:376:0x06f3, B:377:0x06f4, B:378:0x06fb, B:367:0x06c3, B:369:0x06d1, B:370:0x06dc, B:54:0x007f, B:349:0x06a1, B:351:0x06a5, B:353:0x06a9, B:7:0x0008, B:9:0x000c, B:13:0x0012, B:35:0x004c, B:37:0x0050, B:39:0x0054), top: B:452:0x0008 }] */
-    /* JADX WARN: Removed duplicated region for block: B:259:0x046c A[Catch: all -> 0x06fc, TryCatch #21 {all -> 0x0782, blocks: (B:20:0x001d, B:345:0x0696, B:347:0x069a, B:348:0x069d, B:21:0x001e, B:23:0x0028, B:25:0x002c, B:27:0x0030, B:29:0x0034, B:31:0x0042, B:33:0x0046, B:34:0x004b, B:47:0x005f, B:49:0x0067, B:50:0x006d, B:52:0x007b, B:55:0x008a, B:57:0x008e, B:58:0x0090, B:60:0x009e, B:62:0x00a7, B:66:0x00b3, B:68:0x00bd, B:70:0x00c1, B:76:0x00d3, B:77:0x00d6, B:79:0x00de, B:80:0x00e6, B:82:0x00ea, B:84:0x00ee, B:86:0x00f2, B:88:0x00f6, B:93:0x0114, B:95:0x011f, B:97:0x0130, B:99:0x013d, B:101:0x0141, B:102:0x0146, B:103:0x0149, B:104:0x0150, B:96:0x012b, B:90:0x00fa, B:92:0x0106, B:105:0x0151, B:107:0x018f, B:109:0x0193, B:110:0x0197, B:111:0x019e, B:112:0x019f, B:114:0x01a3, B:115:0x01a7, B:117:0x01ad, B:119:0x01c7, B:120:0x01d0, B:122:0x01e4, B:123:0x01e8, B:125:0x01fd, B:126:0x0204, B:128:0x020a, B:130:0x0210, B:133:0x021c, B:134:0x0220, B:138:0x022c, B:142:0x023a, B:144:0x0242, B:148:0x0250, B:214:0x0389, B:215:0x038d, B:219:0x03a2, B:224:0x03b0, B:228:0x03bc, B:230:0x03c0, B:231:0x03c2, B:233:0x03ca, B:234:0x03da, B:236:0x03e2, B:240:0x03ef, B:242:0x03f7, B:244:0x03ff, B:246:0x0406, B:248:0x0410, B:249:0x041e, B:251:0x0424, B:252:0x0433, B:254:0x043a, B:256:0x0455, B:257:0x0466, B:259:0x046c, B:261:0x0471, B:263:0x0481, B:265:0x0487, B:266:0x0490, B:269:0x049c, B:270:0x049f, B:272:0x04a3, B:274:0x04b1, B:276:0x04c0, B:278:0x04c4, B:285:0x04f3, B:275:0x04b9, B:281:0x04d7, B:283:0x04e1, B:284:0x04ee, B:286:0x04f7, B:288:0x0504, B:223:0x03ae, B:290:0x051e, B:292:0x0528, B:293:0x052d, B:294:0x0531, B:296:0x0537, B:298:0x0547, B:300:0x054b, B:301:0x0556, B:303:0x0560, B:304:0x057c, B:306:0x0582, B:308:0x058c, B:309:0x0593, B:310:0x0596, B:311:0x05aa, B:313:0x05b0, B:315:0x05bc, B:317:0x05c4, B:321:0x05d2, B:324:0x05dc, B:326:0x05ef, B:327:0x05f2, B:329:0x061c, B:330:0x061f, B:336:0x0663, B:331:0x0627, B:333:0x063a, B:335:0x065d, B:342:0x0681, B:337:0x066e, B:339:0x0674, B:341:0x067e, B:343:0x0685, B:344:0x0695, B:361:0x06b5, B:363:0x06ba, B:365:0x06be, B:371:0x06e3, B:373:0x06e7, B:375:0x06ec, B:376:0x06f3, B:377:0x06f4, B:378:0x06fb, B:367:0x06c3, B:369:0x06d1, B:370:0x06dc, B:54:0x007f, B:349:0x06a1, B:351:0x06a5, B:353:0x06a9, B:7:0x0008, B:9:0x000c, B:13:0x0012, B:35:0x004c, B:37:0x0050, B:39:0x0054), top: B:452:0x0008 }] */
-    /* JADX WARN: Removed duplicated region for block: B:261:0x0471 A[Catch: all -> 0x06fc, TryCatch #21 {all -> 0x0782, blocks: (B:20:0x001d, B:345:0x0696, B:347:0x069a, B:348:0x069d, B:21:0x001e, B:23:0x0028, B:25:0x002c, B:27:0x0030, B:29:0x0034, B:31:0x0042, B:33:0x0046, B:34:0x004b, B:47:0x005f, B:49:0x0067, B:50:0x006d, B:52:0x007b, B:55:0x008a, B:57:0x008e, B:58:0x0090, B:60:0x009e, B:62:0x00a7, B:66:0x00b3, B:68:0x00bd, B:70:0x00c1, B:76:0x00d3, B:77:0x00d6, B:79:0x00de, B:80:0x00e6, B:82:0x00ea, B:84:0x00ee, B:86:0x00f2, B:88:0x00f6, B:93:0x0114, B:95:0x011f, B:97:0x0130, B:99:0x013d, B:101:0x0141, B:102:0x0146, B:103:0x0149, B:104:0x0150, B:96:0x012b, B:90:0x00fa, B:92:0x0106, B:105:0x0151, B:107:0x018f, B:109:0x0193, B:110:0x0197, B:111:0x019e, B:112:0x019f, B:114:0x01a3, B:115:0x01a7, B:117:0x01ad, B:119:0x01c7, B:120:0x01d0, B:122:0x01e4, B:123:0x01e8, B:125:0x01fd, B:126:0x0204, B:128:0x020a, B:130:0x0210, B:133:0x021c, B:134:0x0220, B:138:0x022c, B:142:0x023a, B:144:0x0242, B:148:0x0250, B:214:0x0389, B:215:0x038d, B:219:0x03a2, B:224:0x03b0, B:228:0x03bc, B:230:0x03c0, B:231:0x03c2, B:233:0x03ca, B:234:0x03da, B:236:0x03e2, B:240:0x03ef, B:242:0x03f7, B:244:0x03ff, B:246:0x0406, B:248:0x0410, B:249:0x041e, B:251:0x0424, B:252:0x0433, B:254:0x043a, B:256:0x0455, B:257:0x0466, B:259:0x046c, B:261:0x0471, B:263:0x0481, B:265:0x0487, B:266:0x0490, B:269:0x049c, B:270:0x049f, B:272:0x04a3, B:274:0x04b1, B:276:0x04c0, B:278:0x04c4, B:285:0x04f3, B:275:0x04b9, B:281:0x04d7, B:283:0x04e1, B:284:0x04ee, B:286:0x04f7, B:288:0x0504, B:223:0x03ae, B:290:0x051e, B:292:0x0528, B:293:0x052d, B:294:0x0531, B:296:0x0537, B:298:0x0547, B:300:0x054b, B:301:0x0556, B:303:0x0560, B:304:0x057c, B:306:0x0582, B:308:0x058c, B:309:0x0593, B:310:0x0596, B:311:0x05aa, B:313:0x05b0, B:315:0x05bc, B:317:0x05c4, B:321:0x05d2, B:324:0x05dc, B:326:0x05ef, B:327:0x05f2, B:329:0x061c, B:330:0x061f, B:336:0x0663, B:331:0x0627, B:333:0x063a, B:335:0x065d, B:342:0x0681, B:337:0x066e, B:339:0x0674, B:341:0x067e, B:343:0x0685, B:344:0x0695, B:361:0x06b5, B:363:0x06ba, B:365:0x06be, B:371:0x06e3, B:373:0x06e7, B:375:0x06ec, B:376:0x06f3, B:377:0x06f4, B:378:0x06fb, B:367:0x06c3, B:369:0x06d1, B:370:0x06dc, B:54:0x007f, B:349:0x06a1, B:351:0x06a5, B:353:0x06a9, B:7:0x0008, B:9:0x000c, B:13:0x0012, B:35:0x004c, B:37:0x0050, B:39:0x0054), top: B:452:0x0008 }] */
-    /* JADX WARN: Removed duplicated region for block: B:286:0x04f7 A[Catch: all -> 0x06fc, TryCatch #21 {all -> 0x0782, blocks: (B:20:0x001d, B:345:0x0696, B:347:0x069a, B:348:0x069d, B:21:0x001e, B:23:0x0028, B:25:0x002c, B:27:0x0030, B:29:0x0034, B:31:0x0042, B:33:0x0046, B:34:0x004b, B:47:0x005f, B:49:0x0067, B:50:0x006d, B:52:0x007b, B:55:0x008a, B:57:0x008e, B:58:0x0090, B:60:0x009e, B:62:0x00a7, B:66:0x00b3, B:68:0x00bd, B:70:0x00c1, B:76:0x00d3, B:77:0x00d6, B:79:0x00de, B:80:0x00e6, B:82:0x00ea, B:84:0x00ee, B:86:0x00f2, B:88:0x00f6, B:93:0x0114, B:95:0x011f, B:97:0x0130, B:99:0x013d, B:101:0x0141, B:102:0x0146, B:103:0x0149, B:104:0x0150, B:96:0x012b, B:90:0x00fa, B:92:0x0106, B:105:0x0151, B:107:0x018f, B:109:0x0193, B:110:0x0197, B:111:0x019e, B:112:0x019f, B:114:0x01a3, B:115:0x01a7, B:117:0x01ad, B:119:0x01c7, B:120:0x01d0, B:122:0x01e4, B:123:0x01e8, B:125:0x01fd, B:126:0x0204, B:128:0x020a, B:130:0x0210, B:133:0x021c, B:134:0x0220, B:138:0x022c, B:142:0x023a, B:144:0x0242, B:148:0x0250, B:214:0x0389, B:215:0x038d, B:219:0x03a2, B:224:0x03b0, B:228:0x03bc, B:230:0x03c0, B:231:0x03c2, B:233:0x03ca, B:234:0x03da, B:236:0x03e2, B:240:0x03ef, B:242:0x03f7, B:244:0x03ff, B:246:0x0406, B:248:0x0410, B:249:0x041e, B:251:0x0424, B:252:0x0433, B:254:0x043a, B:256:0x0455, B:257:0x0466, B:259:0x046c, B:261:0x0471, B:263:0x0481, B:265:0x0487, B:266:0x0490, B:269:0x049c, B:270:0x049f, B:272:0x04a3, B:274:0x04b1, B:276:0x04c0, B:278:0x04c4, B:285:0x04f3, B:275:0x04b9, B:281:0x04d7, B:283:0x04e1, B:284:0x04ee, B:286:0x04f7, B:288:0x0504, B:223:0x03ae, B:290:0x051e, B:292:0x0528, B:293:0x052d, B:294:0x0531, B:296:0x0537, B:298:0x0547, B:300:0x054b, B:301:0x0556, B:303:0x0560, B:304:0x057c, B:306:0x0582, B:308:0x058c, B:309:0x0593, B:310:0x0596, B:311:0x05aa, B:313:0x05b0, B:315:0x05bc, B:317:0x05c4, B:321:0x05d2, B:324:0x05dc, B:326:0x05ef, B:327:0x05f2, B:329:0x061c, B:330:0x061f, B:336:0x0663, B:331:0x0627, B:333:0x063a, B:335:0x065d, B:342:0x0681, B:337:0x066e, B:339:0x0674, B:341:0x067e, B:343:0x0685, B:344:0x0695, B:361:0x06b5, B:363:0x06ba, B:365:0x06be, B:371:0x06e3, B:373:0x06e7, B:375:0x06ec, B:376:0x06f3, B:377:0x06f4, B:378:0x06fb, B:367:0x06c3, B:369:0x06d1, B:370:0x06dc, B:54:0x007f, B:349:0x06a1, B:351:0x06a5, B:353:0x06a9, B:7:0x0008, B:9:0x000c, B:13:0x0012, B:35:0x004c, B:37:0x0050, B:39:0x0054), top: B:452:0x0008 }] */
+    /* JADX WARN: Removed duplicated region for block: B:212:0x0396  */
+    /* JADX WARN: Removed duplicated region for block: B:213:0x0398  */
+    /* JADX WARN: Removed duplicated region for block: B:216:0x039d A[Catch: all -> 0x06cd, TryCatch #16 {, blocks: (B:20:0x001d, B:24:0x002b, B:26:0x002f, B:28:0x003d, B:30:0x0041, B:31:0x0046, B:42:0x0058, B:44:0x0060, B:45:0x0066, B:49:0x0081, B:51:0x0085, B:53:0x0089, B:55:0x0095, B:57:0x009e, B:61:0x00aa, B:63:0x00b4, B:65:0x00b8, B:71:0x00cc, B:73:0x00d4, B:74:0x00dc, B:76:0x00e0, B:80:0x00e8, B:87:0x0108, B:89:0x0113, B:91:0x0122, B:93:0x012f, B:95:0x0133, B:96:0x0136, B:97:0x0139, B:98:0x0140, B:90:0x011f, B:82:0x00ec, B:84:0x00f4, B:86:0x00fa, B:99:0x0141, B:101:0x017b, B:103:0x017f, B:104:0x0183, B:105:0x018a, B:106:0x018b, B:107:0x018f, B:109:0x0195, B:111:0x01b0, B:112:0x01b7, B:114:0x01cb, B:115:0x01cf, B:117:0x01e4, B:118:0x01eb, B:120:0x01f1, B:122:0x01f7, B:125:0x0207, B:126:0x020b, B:130:0x0219, B:134:0x0224, B:136:0x0230, B:140:0x023e, B:204:0x036b, B:205:0x036f, B:210:0x038d, B:214:0x0399, B:216:0x039d, B:217:0x039f, B:219:0x03a7, B:220:0x03b7, B:222:0x03bf, B:226:0x03cc, B:228:0x03d4, B:230:0x03dc, B:232:0x03e6, B:233:0x03f4, B:235:0x03fa, B:236:0x0409, B:238:0x0410, B:240:0x041b, B:242:0x042c, B:243:0x043d, B:245:0x0443, B:247:0x0448, B:249:0x0458, B:251:0x045e, B:252:0x0465, B:255:0x0471, B:256:0x0474, B:258:0x0478, B:260:0x0484, B:262:0x0493, B:264:0x0497, B:271:0x04c2, B:261:0x048c, B:267:0x04a8, B:269:0x04b2, B:270:0x04bd, B:272:0x04c6, B:274:0x04d3, B:276:0x04ee, B:278:0x04fa, B:280:0x04ff, B:281:0x0503, B:283:0x0509, B:286:0x051c, B:288:0x0520, B:289:0x0529, B:290:0x0531, B:293:0x0550, B:295:0x0556, B:297:0x055d, B:299:0x0563, B:300:0x056a, B:301:0x056d, B:302:0x0581, B:304:0x0587, B:306:0x0593, B:308:0x059b, B:312:0x05a9, B:315:0x05b3, B:317:0x05c6, B:318:0x05c9, B:320:0x05f3, B:321:0x05f6, B:327:0x063a, B:322:0x05fe, B:324:0x0611, B:326:0x0634, B:333:0x0658, B:328:0x0645, B:330:0x064b, B:332:0x0655, B:334:0x065c, B:335:0x066c, B:349:0x068b, B:358:0x06b4, B:360:0x06b8, B:362:0x06bd, B:363:0x06c4, B:364:0x06c5, B:365:0x06cc, B:354:0x0695, B:356:0x06a2, B:357:0x06ad, B:48:0x0076, B:67:0x00bc, B:206:0x0381), top: B:439:0x001d }] */
+    /* JADX WARN: Removed duplicated region for block: B:219:0x03a7 A[Catch: all -> 0x06cd, TryCatch #16 {, blocks: (B:20:0x001d, B:24:0x002b, B:26:0x002f, B:28:0x003d, B:30:0x0041, B:31:0x0046, B:42:0x0058, B:44:0x0060, B:45:0x0066, B:49:0x0081, B:51:0x0085, B:53:0x0089, B:55:0x0095, B:57:0x009e, B:61:0x00aa, B:63:0x00b4, B:65:0x00b8, B:71:0x00cc, B:73:0x00d4, B:74:0x00dc, B:76:0x00e0, B:80:0x00e8, B:87:0x0108, B:89:0x0113, B:91:0x0122, B:93:0x012f, B:95:0x0133, B:96:0x0136, B:97:0x0139, B:98:0x0140, B:90:0x011f, B:82:0x00ec, B:84:0x00f4, B:86:0x00fa, B:99:0x0141, B:101:0x017b, B:103:0x017f, B:104:0x0183, B:105:0x018a, B:106:0x018b, B:107:0x018f, B:109:0x0195, B:111:0x01b0, B:112:0x01b7, B:114:0x01cb, B:115:0x01cf, B:117:0x01e4, B:118:0x01eb, B:120:0x01f1, B:122:0x01f7, B:125:0x0207, B:126:0x020b, B:130:0x0219, B:134:0x0224, B:136:0x0230, B:140:0x023e, B:204:0x036b, B:205:0x036f, B:210:0x038d, B:214:0x0399, B:216:0x039d, B:217:0x039f, B:219:0x03a7, B:220:0x03b7, B:222:0x03bf, B:226:0x03cc, B:228:0x03d4, B:230:0x03dc, B:232:0x03e6, B:233:0x03f4, B:235:0x03fa, B:236:0x0409, B:238:0x0410, B:240:0x041b, B:242:0x042c, B:243:0x043d, B:245:0x0443, B:247:0x0448, B:249:0x0458, B:251:0x045e, B:252:0x0465, B:255:0x0471, B:256:0x0474, B:258:0x0478, B:260:0x0484, B:262:0x0493, B:264:0x0497, B:271:0x04c2, B:261:0x048c, B:267:0x04a8, B:269:0x04b2, B:270:0x04bd, B:272:0x04c6, B:274:0x04d3, B:276:0x04ee, B:278:0x04fa, B:280:0x04ff, B:281:0x0503, B:283:0x0509, B:286:0x051c, B:288:0x0520, B:289:0x0529, B:290:0x0531, B:293:0x0550, B:295:0x0556, B:297:0x055d, B:299:0x0563, B:300:0x056a, B:301:0x056d, B:302:0x0581, B:304:0x0587, B:306:0x0593, B:308:0x059b, B:312:0x05a9, B:315:0x05b3, B:317:0x05c6, B:318:0x05c9, B:320:0x05f3, B:321:0x05f6, B:327:0x063a, B:322:0x05fe, B:324:0x0611, B:326:0x0634, B:333:0x0658, B:328:0x0645, B:330:0x064b, B:332:0x0655, B:334:0x065c, B:335:0x066c, B:349:0x068b, B:358:0x06b4, B:360:0x06b8, B:362:0x06bd, B:363:0x06c4, B:364:0x06c5, B:365:0x06cc, B:354:0x0695, B:356:0x06a2, B:357:0x06ad, B:48:0x0076, B:67:0x00bc, B:206:0x0381), top: B:439:0x001d }] */
+    /* JADX WARN: Removed duplicated region for block: B:222:0x03bf A[Catch: all -> 0x06cd, TryCatch #16 {, blocks: (B:20:0x001d, B:24:0x002b, B:26:0x002f, B:28:0x003d, B:30:0x0041, B:31:0x0046, B:42:0x0058, B:44:0x0060, B:45:0x0066, B:49:0x0081, B:51:0x0085, B:53:0x0089, B:55:0x0095, B:57:0x009e, B:61:0x00aa, B:63:0x00b4, B:65:0x00b8, B:71:0x00cc, B:73:0x00d4, B:74:0x00dc, B:76:0x00e0, B:80:0x00e8, B:87:0x0108, B:89:0x0113, B:91:0x0122, B:93:0x012f, B:95:0x0133, B:96:0x0136, B:97:0x0139, B:98:0x0140, B:90:0x011f, B:82:0x00ec, B:84:0x00f4, B:86:0x00fa, B:99:0x0141, B:101:0x017b, B:103:0x017f, B:104:0x0183, B:105:0x018a, B:106:0x018b, B:107:0x018f, B:109:0x0195, B:111:0x01b0, B:112:0x01b7, B:114:0x01cb, B:115:0x01cf, B:117:0x01e4, B:118:0x01eb, B:120:0x01f1, B:122:0x01f7, B:125:0x0207, B:126:0x020b, B:130:0x0219, B:134:0x0224, B:136:0x0230, B:140:0x023e, B:204:0x036b, B:205:0x036f, B:210:0x038d, B:214:0x0399, B:216:0x039d, B:217:0x039f, B:219:0x03a7, B:220:0x03b7, B:222:0x03bf, B:226:0x03cc, B:228:0x03d4, B:230:0x03dc, B:232:0x03e6, B:233:0x03f4, B:235:0x03fa, B:236:0x0409, B:238:0x0410, B:240:0x041b, B:242:0x042c, B:243:0x043d, B:245:0x0443, B:247:0x0448, B:249:0x0458, B:251:0x045e, B:252:0x0465, B:255:0x0471, B:256:0x0474, B:258:0x0478, B:260:0x0484, B:262:0x0493, B:264:0x0497, B:271:0x04c2, B:261:0x048c, B:267:0x04a8, B:269:0x04b2, B:270:0x04bd, B:272:0x04c6, B:274:0x04d3, B:276:0x04ee, B:278:0x04fa, B:280:0x04ff, B:281:0x0503, B:283:0x0509, B:286:0x051c, B:288:0x0520, B:289:0x0529, B:290:0x0531, B:293:0x0550, B:295:0x0556, B:297:0x055d, B:299:0x0563, B:300:0x056a, B:301:0x056d, B:302:0x0581, B:304:0x0587, B:306:0x0593, B:308:0x059b, B:312:0x05a9, B:315:0x05b3, B:317:0x05c6, B:318:0x05c9, B:320:0x05f3, B:321:0x05f6, B:327:0x063a, B:322:0x05fe, B:324:0x0611, B:326:0x0634, B:333:0x0658, B:328:0x0645, B:330:0x064b, B:332:0x0655, B:334:0x065c, B:335:0x066c, B:349:0x068b, B:358:0x06b4, B:360:0x06b8, B:362:0x06bd, B:363:0x06c4, B:364:0x06c5, B:365:0x06cc, B:354:0x0695, B:356:0x06a2, B:357:0x06ad, B:48:0x0076, B:67:0x00bc, B:206:0x0381), top: B:439:0x001d }] */
+    /* JADX WARN: Removed duplicated region for block: B:237:0x040f  */
+    /* JADX WARN: Removed duplicated region for block: B:242:0x042c A[Catch: all -> 0x06cd, TryCatch #16 {, blocks: (B:20:0x001d, B:24:0x002b, B:26:0x002f, B:28:0x003d, B:30:0x0041, B:31:0x0046, B:42:0x0058, B:44:0x0060, B:45:0x0066, B:49:0x0081, B:51:0x0085, B:53:0x0089, B:55:0x0095, B:57:0x009e, B:61:0x00aa, B:63:0x00b4, B:65:0x00b8, B:71:0x00cc, B:73:0x00d4, B:74:0x00dc, B:76:0x00e0, B:80:0x00e8, B:87:0x0108, B:89:0x0113, B:91:0x0122, B:93:0x012f, B:95:0x0133, B:96:0x0136, B:97:0x0139, B:98:0x0140, B:90:0x011f, B:82:0x00ec, B:84:0x00f4, B:86:0x00fa, B:99:0x0141, B:101:0x017b, B:103:0x017f, B:104:0x0183, B:105:0x018a, B:106:0x018b, B:107:0x018f, B:109:0x0195, B:111:0x01b0, B:112:0x01b7, B:114:0x01cb, B:115:0x01cf, B:117:0x01e4, B:118:0x01eb, B:120:0x01f1, B:122:0x01f7, B:125:0x0207, B:126:0x020b, B:130:0x0219, B:134:0x0224, B:136:0x0230, B:140:0x023e, B:204:0x036b, B:205:0x036f, B:210:0x038d, B:214:0x0399, B:216:0x039d, B:217:0x039f, B:219:0x03a7, B:220:0x03b7, B:222:0x03bf, B:226:0x03cc, B:228:0x03d4, B:230:0x03dc, B:232:0x03e6, B:233:0x03f4, B:235:0x03fa, B:236:0x0409, B:238:0x0410, B:240:0x041b, B:242:0x042c, B:243:0x043d, B:245:0x0443, B:247:0x0448, B:249:0x0458, B:251:0x045e, B:252:0x0465, B:255:0x0471, B:256:0x0474, B:258:0x0478, B:260:0x0484, B:262:0x0493, B:264:0x0497, B:271:0x04c2, B:261:0x048c, B:267:0x04a8, B:269:0x04b2, B:270:0x04bd, B:272:0x04c6, B:274:0x04d3, B:276:0x04ee, B:278:0x04fa, B:280:0x04ff, B:281:0x0503, B:283:0x0509, B:286:0x051c, B:288:0x0520, B:289:0x0529, B:290:0x0531, B:293:0x0550, B:295:0x0556, B:297:0x055d, B:299:0x0563, B:300:0x056a, B:301:0x056d, B:302:0x0581, B:304:0x0587, B:306:0x0593, B:308:0x059b, B:312:0x05a9, B:315:0x05b3, B:317:0x05c6, B:318:0x05c9, B:320:0x05f3, B:321:0x05f6, B:327:0x063a, B:322:0x05fe, B:324:0x0611, B:326:0x0634, B:333:0x0658, B:328:0x0645, B:330:0x064b, B:332:0x0655, B:334:0x065c, B:335:0x066c, B:349:0x068b, B:358:0x06b4, B:360:0x06b8, B:362:0x06bd, B:363:0x06c4, B:364:0x06c5, B:365:0x06cc, B:354:0x0695, B:356:0x06a2, B:357:0x06ad, B:48:0x0076, B:67:0x00bc, B:206:0x0381), top: B:439:0x001d }] */
+    /* JADX WARN: Removed duplicated region for block: B:245:0x0443 A[Catch: all -> 0x06cd, TryCatch #16 {, blocks: (B:20:0x001d, B:24:0x002b, B:26:0x002f, B:28:0x003d, B:30:0x0041, B:31:0x0046, B:42:0x0058, B:44:0x0060, B:45:0x0066, B:49:0x0081, B:51:0x0085, B:53:0x0089, B:55:0x0095, B:57:0x009e, B:61:0x00aa, B:63:0x00b4, B:65:0x00b8, B:71:0x00cc, B:73:0x00d4, B:74:0x00dc, B:76:0x00e0, B:80:0x00e8, B:87:0x0108, B:89:0x0113, B:91:0x0122, B:93:0x012f, B:95:0x0133, B:96:0x0136, B:97:0x0139, B:98:0x0140, B:90:0x011f, B:82:0x00ec, B:84:0x00f4, B:86:0x00fa, B:99:0x0141, B:101:0x017b, B:103:0x017f, B:104:0x0183, B:105:0x018a, B:106:0x018b, B:107:0x018f, B:109:0x0195, B:111:0x01b0, B:112:0x01b7, B:114:0x01cb, B:115:0x01cf, B:117:0x01e4, B:118:0x01eb, B:120:0x01f1, B:122:0x01f7, B:125:0x0207, B:126:0x020b, B:130:0x0219, B:134:0x0224, B:136:0x0230, B:140:0x023e, B:204:0x036b, B:205:0x036f, B:210:0x038d, B:214:0x0399, B:216:0x039d, B:217:0x039f, B:219:0x03a7, B:220:0x03b7, B:222:0x03bf, B:226:0x03cc, B:228:0x03d4, B:230:0x03dc, B:232:0x03e6, B:233:0x03f4, B:235:0x03fa, B:236:0x0409, B:238:0x0410, B:240:0x041b, B:242:0x042c, B:243:0x043d, B:245:0x0443, B:247:0x0448, B:249:0x0458, B:251:0x045e, B:252:0x0465, B:255:0x0471, B:256:0x0474, B:258:0x0478, B:260:0x0484, B:262:0x0493, B:264:0x0497, B:271:0x04c2, B:261:0x048c, B:267:0x04a8, B:269:0x04b2, B:270:0x04bd, B:272:0x04c6, B:274:0x04d3, B:276:0x04ee, B:278:0x04fa, B:280:0x04ff, B:281:0x0503, B:283:0x0509, B:286:0x051c, B:288:0x0520, B:289:0x0529, B:290:0x0531, B:293:0x0550, B:295:0x0556, B:297:0x055d, B:299:0x0563, B:300:0x056a, B:301:0x056d, B:302:0x0581, B:304:0x0587, B:306:0x0593, B:308:0x059b, B:312:0x05a9, B:315:0x05b3, B:317:0x05c6, B:318:0x05c9, B:320:0x05f3, B:321:0x05f6, B:327:0x063a, B:322:0x05fe, B:324:0x0611, B:326:0x0634, B:333:0x0658, B:328:0x0645, B:330:0x064b, B:332:0x0655, B:334:0x065c, B:335:0x066c, B:349:0x068b, B:358:0x06b4, B:360:0x06b8, B:362:0x06bd, B:363:0x06c4, B:364:0x06c5, B:365:0x06cc, B:354:0x0695, B:356:0x06a2, B:357:0x06ad, B:48:0x0076, B:67:0x00bc, B:206:0x0381), top: B:439:0x001d }] */
+    /* JADX WARN: Removed duplicated region for block: B:247:0x0448 A[Catch: all -> 0x06cd, TryCatch #16 {, blocks: (B:20:0x001d, B:24:0x002b, B:26:0x002f, B:28:0x003d, B:30:0x0041, B:31:0x0046, B:42:0x0058, B:44:0x0060, B:45:0x0066, B:49:0x0081, B:51:0x0085, B:53:0x0089, B:55:0x0095, B:57:0x009e, B:61:0x00aa, B:63:0x00b4, B:65:0x00b8, B:71:0x00cc, B:73:0x00d4, B:74:0x00dc, B:76:0x00e0, B:80:0x00e8, B:87:0x0108, B:89:0x0113, B:91:0x0122, B:93:0x012f, B:95:0x0133, B:96:0x0136, B:97:0x0139, B:98:0x0140, B:90:0x011f, B:82:0x00ec, B:84:0x00f4, B:86:0x00fa, B:99:0x0141, B:101:0x017b, B:103:0x017f, B:104:0x0183, B:105:0x018a, B:106:0x018b, B:107:0x018f, B:109:0x0195, B:111:0x01b0, B:112:0x01b7, B:114:0x01cb, B:115:0x01cf, B:117:0x01e4, B:118:0x01eb, B:120:0x01f1, B:122:0x01f7, B:125:0x0207, B:126:0x020b, B:130:0x0219, B:134:0x0224, B:136:0x0230, B:140:0x023e, B:204:0x036b, B:205:0x036f, B:210:0x038d, B:214:0x0399, B:216:0x039d, B:217:0x039f, B:219:0x03a7, B:220:0x03b7, B:222:0x03bf, B:226:0x03cc, B:228:0x03d4, B:230:0x03dc, B:232:0x03e6, B:233:0x03f4, B:235:0x03fa, B:236:0x0409, B:238:0x0410, B:240:0x041b, B:242:0x042c, B:243:0x043d, B:245:0x0443, B:247:0x0448, B:249:0x0458, B:251:0x045e, B:252:0x0465, B:255:0x0471, B:256:0x0474, B:258:0x0478, B:260:0x0484, B:262:0x0493, B:264:0x0497, B:271:0x04c2, B:261:0x048c, B:267:0x04a8, B:269:0x04b2, B:270:0x04bd, B:272:0x04c6, B:274:0x04d3, B:276:0x04ee, B:278:0x04fa, B:280:0x04ff, B:281:0x0503, B:283:0x0509, B:286:0x051c, B:288:0x0520, B:289:0x0529, B:290:0x0531, B:293:0x0550, B:295:0x0556, B:297:0x055d, B:299:0x0563, B:300:0x056a, B:301:0x056d, B:302:0x0581, B:304:0x0587, B:306:0x0593, B:308:0x059b, B:312:0x05a9, B:315:0x05b3, B:317:0x05c6, B:318:0x05c9, B:320:0x05f3, B:321:0x05f6, B:327:0x063a, B:322:0x05fe, B:324:0x0611, B:326:0x0634, B:333:0x0658, B:328:0x0645, B:330:0x064b, B:332:0x0655, B:334:0x065c, B:335:0x066c, B:349:0x068b, B:358:0x06b4, B:360:0x06b8, B:362:0x06bd, B:363:0x06c4, B:364:0x06c5, B:365:0x06cc, B:354:0x0695, B:356:0x06a2, B:357:0x06ad, B:48:0x0076, B:67:0x00bc, B:206:0x0381), top: B:439:0x001d }] */
+    /* JADX WARN: Removed duplicated region for block: B:272:0x04c6 A[Catch: all -> 0x06cd, TryCatch #16 {, blocks: (B:20:0x001d, B:24:0x002b, B:26:0x002f, B:28:0x003d, B:30:0x0041, B:31:0x0046, B:42:0x0058, B:44:0x0060, B:45:0x0066, B:49:0x0081, B:51:0x0085, B:53:0x0089, B:55:0x0095, B:57:0x009e, B:61:0x00aa, B:63:0x00b4, B:65:0x00b8, B:71:0x00cc, B:73:0x00d4, B:74:0x00dc, B:76:0x00e0, B:80:0x00e8, B:87:0x0108, B:89:0x0113, B:91:0x0122, B:93:0x012f, B:95:0x0133, B:96:0x0136, B:97:0x0139, B:98:0x0140, B:90:0x011f, B:82:0x00ec, B:84:0x00f4, B:86:0x00fa, B:99:0x0141, B:101:0x017b, B:103:0x017f, B:104:0x0183, B:105:0x018a, B:106:0x018b, B:107:0x018f, B:109:0x0195, B:111:0x01b0, B:112:0x01b7, B:114:0x01cb, B:115:0x01cf, B:117:0x01e4, B:118:0x01eb, B:120:0x01f1, B:122:0x01f7, B:125:0x0207, B:126:0x020b, B:130:0x0219, B:134:0x0224, B:136:0x0230, B:140:0x023e, B:204:0x036b, B:205:0x036f, B:210:0x038d, B:214:0x0399, B:216:0x039d, B:217:0x039f, B:219:0x03a7, B:220:0x03b7, B:222:0x03bf, B:226:0x03cc, B:228:0x03d4, B:230:0x03dc, B:232:0x03e6, B:233:0x03f4, B:235:0x03fa, B:236:0x0409, B:238:0x0410, B:240:0x041b, B:242:0x042c, B:243:0x043d, B:245:0x0443, B:247:0x0448, B:249:0x0458, B:251:0x045e, B:252:0x0465, B:255:0x0471, B:256:0x0474, B:258:0x0478, B:260:0x0484, B:262:0x0493, B:264:0x0497, B:271:0x04c2, B:261:0x048c, B:267:0x04a8, B:269:0x04b2, B:270:0x04bd, B:272:0x04c6, B:274:0x04d3, B:276:0x04ee, B:278:0x04fa, B:280:0x04ff, B:281:0x0503, B:283:0x0509, B:286:0x051c, B:288:0x0520, B:289:0x0529, B:290:0x0531, B:293:0x0550, B:295:0x0556, B:297:0x055d, B:299:0x0563, B:300:0x056a, B:301:0x056d, B:302:0x0581, B:304:0x0587, B:306:0x0593, B:308:0x059b, B:312:0x05a9, B:315:0x05b3, B:317:0x05c6, B:318:0x05c9, B:320:0x05f3, B:321:0x05f6, B:327:0x063a, B:322:0x05fe, B:324:0x0611, B:326:0x0634, B:333:0x0658, B:328:0x0645, B:330:0x064b, B:332:0x0655, B:334:0x065c, B:335:0x066c, B:349:0x068b, B:358:0x06b4, B:360:0x06b8, B:362:0x06bd, B:363:0x06c4, B:364:0x06c5, B:365:0x06cc, B:354:0x0695, B:356:0x06a2, B:357:0x06ad, B:48:0x0076, B:67:0x00bc, B:206:0x0381), top: B:439:0x001d }] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void run() {
-        Iterator<String> it;
+        JSONObject jSONObject;
+        String str;
         ArrayList arrayList;
-        List<ApkInfo> list;
         ArrayList arrayList2;
         ArrayList arrayList3;
-        JSONObject jSONObject;
+        ArrayList arrayList4;
+        JSONObject jSONObject2;
         PackageInfo packageInfo;
         ApkInfo apkInfo;
         JSONObject optJSONObject;
@@ -858,9 +1402,9 @@ public class U implements Runnable {
         boolean z;
         int indexOf;
         int indexOf2;
-        ArrayList arrayList4;
         ArrayList arrayList5;
         ArrayList arrayList6;
+        ArrayList arrayList7;
         JSONArray jSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -874,7 +1418,8 @@ public class U implements Runnable {
                     }
                     synchronized (U.class) {
                         handleThreadStart();
-                        if (this.mFrom != 1 && this.mFrom != 2 && this.mFrom != 3 && !this.mOut && System.currentTimeMillis() - sLastCheckTime < 600000) {
+                        int i = this.mFrom;
+                        if (i != 1 && i != 2 && i != 3 && !this.mOut && System.currentTimeMillis() - sLastCheckTime < 600000) {
                             if (this.mEndReason == 0) {
                                 this.mEndReason = 2;
                                 handleThreadEnd(null);
@@ -884,52 +1429,53 @@ public class U implements Runnable {
                             }
                             return;
                         }
-                        if (CommonMethods.isNetworkAvailable(this.context)) {
+                        if (com.baidu.sofire.k.a.l(this.context)) {
                             sLastCheckTime = System.currentTimeMillis();
                         }
-                        AlarmUtil.setCheckRTSDKUpgradeAlarm(this.context, false);
-                        TimeoutRunner.handleWork(this.context);
-                        if (this.mFrom == 1 || this.mFrom == 3) {
+                        com.baidu.sofire.a.a.a(this.context, false);
+                        com.baidu.sofire.a.a.a(this.context);
+                        int i2 = this.mFrom;
+                        if (i2 == 1 || i2 == 3) {
                             sRetryPingTimesCount = 0;
                             sRetryDownoadHostCareApksTimesCount = 0;
-                            AlarmUtil.setCheckUpdateRetryAlarm(this.context, 0, true);
+                            com.baidu.sofire.a.a.a(this.context, 0, true);
                             sSetRetrmAlarm = false;
                         }
                         if (this.mFrom == 2) {
                             sSetRetrmAlarm = false;
                         }
-                        boolean z2 = CommonMethods.PKGNAME_HUAWEI_INPUT.equals(this.context.getPackageName()) ? !this.mPreferenceManager.getCanConn() : false;
-                        if (CommonMethods.isNetworkAvailable(this.context) && !z2) {
+                        boolean z2 = "com.baidu.input_huawei".equals(this.context.getPackageName()) ? !this.mPreferenceManager.b() : false;
+                        if (com.baidu.sofire.k.a.l(this.context) && !z2) {
                             sLastCheckTime = System.currentTimeMillis();
-                            if (CommonMethods.sNetWorkReceiver != null && (sMonitorNetworkWhenUpgradeNoNet || CommonMethods.sNeedCheckConnectivity)) {
-                                try {
-                                    this.context.getApplicationContext().unregisterReceiver(CommonMethods.sNetWorkReceiver);
-                                } catch (Throwable th) {
-                                    CommonMethods.handleNuLException(th);
-                                }
+                            if (com.baidu.sofire.k.a.g != null && (sMonitorNetworkWhenUpgradeNoNet || com.baidu.sofire.k.a.a)) {
+                                this.context.getApplicationContext().unregisterReceiver(com.baidu.sofire.k.a.g);
                             }
                             sMonitorNetworkWhenUpgradeNoNet = false;
-                            CommonMethods.sNeedCheckConnectivity = false;
+                            com.baidu.sofire.k.a.a = false;
                             if (this.mFrom != 1) {
-                                this.mWholeJson = CommonMethods.requestWholeInfo(this.context);
+                                this.mWholeJson = com.baidu.sofire.k.a.o(this.context);
                             }
-                            if (this.mWholeJson == null) {
-                                if ((this.mFrom == 1 || this.mFrom == 2 || (this.mFrom == 3 && !sSetRetrmAlarm)) && this.mPreferenceManager.getHostCarePluginKeys().size() > 0) {
+                            JSONObject jSONObject3 = this.mWholeJson;
+                            if (jSONObject3 == null) {
+                                int i3 = this.mFrom;
+                                if ((i3 == 1 || i3 == 2 || (i3 == 3 && !sSetRetrmAlarm)) && ((ArrayList) this.mPreferenceManager.e()).size() > 0) {
                                     sSetRetrmAlarm = true;
-                                    AlarmUtil.setCheckUpdateRetryAlarm(this.context, sRetryPingTimesCount, false);
+                                    com.baidu.sofire.a.a.a(this.context, sRetryPingTimesCount, false);
                                     sRetryPingTimesCount++;
                                 }
                                 IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                                if (CommonMethods.sNetWorkReceiver == null) {
-                                    CommonMethods.sNetWorkReceiver = new MyReceiver().setOnlyNetSelf();
+                                MyReceiver myReceiver = com.baidu.sofire.k.a.g;
+                                if (myReceiver == null) {
+                                    com.baidu.sofire.k.a.g = new MyReceiver().a();
                                 } else {
-                                    CommonMethods.sNetWorkReceiver.setOnlyNetSelf();
+                                    myReceiver.a();
                                 }
-                                CommonMethods.registerReceiver(this.context, CommonMethods.sNetWorkReceiver, intentFilter);
+                                com.baidu.sofire.k.a.a(this.context, com.baidu.sofire.k.a.g, intentFilter);
                                 sMonitorNetworkWhenUpgradeNoNet = true;
                                 if (this.mEndReason == 0) {
-                                    if (CommonMethods.sRequestWholeErrorCode != 0) {
-                                        this.mEndReason = CommonMethods.sRequestWholeErrorCode;
+                                    int i4 = com.baidu.sofire.k.a.d;
+                                    if (i4 != 0) {
+                                        this.mEndReason = i4;
                                     } else {
                                         this.mEndReason = 4;
                                     }
@@ -937,14 +1483,15 @@ public class U implements Runnable {
                                 throw new NetworkErrorException("ping faild");
                             }
                             sRetryPingTimesCount = 0;
-                            this.forHostAPP.loadLocalPlugins(this.mWholeJson);
-                            this.loadedPluginDB.deletePluginIfAPKNotExist();
-                            this.mPreferenceManager.setRequestPluginTimes(this.mPreferenceManager.getRequestPluginTimes() + 1);
-                            List<ApkInfo> allPlugins = this.loadedPluginDB.getAllPlugins();
-                            ArrayList arrayList7 = new ArrayList();
+                            this.forHostAPP.a(jSONObject3);
+                            this.loadedPluginDB.a();
+                            com.baidu.sofire.j.a aVar = this.mPreferenceManager;
+                            aVar.d(aVar.m() + 1);
+                            List<ApkInfo> b = this.loadedPluginDB.b();
                             ArrayList arrayList8 = new ArrayList();
                             ArrayList arrayList9 = new ArrayList();
                             ArrayList arrayList10 = new ArrayList();
+                            ArrayList arrayList11 = new ArrayList();
                             JSONObject optJSONObject3 = this.mWholeJson.optJSONObject("5");
                             if (optJSONObject3 == null) {
                                 if (this.mEndReason == 0) {
@@ -952,388 +1499,405 @@ public class U implements Runnable {
                                 }
                                 throw new NetworkErrorException("plugin json is null");
                             }
-                            if (optJSONObject3 instanceof JSONObject) {
-                                Iterator<String> keys = optJSONObject3.keys();
-                                while (keys.hasNext()) {
-                                    String next = keys.next();
-                                    JSONObject optJSONObject4 = optJSONObject3.optJSONObject(next);
-                                    int optInt = optJSONObject4.optInt("l");
-                                    String optString = optJSONObject4.optString("v");
-                                    if (this.mCloudKeyMap != null) {
-                                        this.mCloudKeyMap.put(Integer.valueOf(optInt), optString);
-                                    }
-                                    String optString2 = optJSONObject4.optString("u");
-                                    String optString3 = optJSONObject4.optString("m");
-                                    String optString4 = optJSONObject4.optString("sm");
-                                    if (optString3 != null) {
-                                        optString3 = optString3.toLowerCase();
-                                    }
-                                    JSONObject jSONObject2 = optJSONObject3;
-                                    String str = optInt + optString;
-                                    if (sRealtimeMd5Map == null) {
-                                        sRealtimeMd5Map = new HashMap();
-                                    }
-                                    if (TextUtils.isEmpty(str) || TextUtils.isEmpty(optString3)) {
-                                        it = keys;
-                                    } else {
-                                        it = keys;
-                                        sRealtimeMd5Map.put(str, optString3);
-                                    }
-                                    if (optString4 != null) {
-                                        optString4 = optString4.toLowerCase();
-                                    }
-                                    boolean z3 = optJSONObject4.optInt("o") == 1;
-                                    ArrayList arrayList11 = arrayList7;
-                                    boolean z4 = optJSONObject4.optInt("d") == 1;
-                                    int optInt2 = optJSONObject4.optInt("r");
-                                    if (z3) {
-                                        arrayList = arrayList8;
-                                        this.mPreferenceManager.setOncePluginId(optInt2);
-                                    } else {
-                                        arrayList = arrayList8;
-                                    }
-                                    if (z3 && z4) {
-                                        arrayList9.add(next);
-                                        optJSONObject3 = jSONObject2;
-                                        keys = it;
-                                        arrayList7 = arrayList11;
-                                        arrayList8 = arrayList;
-                                    } else {
-                                        try {
-                                            packageInfo = new PackageInfo();
-                                            packageInfo.packageName = optJSONObject4.optString("p");
-                                            packageInfo.versionName = optString;
-                                            ApplicationInfo applicationInfo = new ApplicationInfo();
-                                            String optString5 = optJSONObject4.optString("n");
-                                            applicationInfo.className = optString5;
-                                            if (TextUtils.isEmpty(optString5)) {
-                                                arrayList2 = arrayList9;
-                                            } else {
-                                                try {
-                                                    arrayList2 = arrayList9;
-                                                    try {
-                                                        if (applicationInfo.className.startsWith(".")) {
-                                                            applicationInfo.className = next + applicationInfo.className;
-                                                        }
-                                                    } catch (Throwable th2) {
-                                                        th = th2;
-                                                        list = allPlugins;
-                                                        arrayList3 = arrayList10;
-                                                        jSONObject = optJSONObject4;
-                                                        CommonMethods.handleNuLException(th);
-                                                        packageInfo = null;
-                                                        JSONObject jSONObject3 = jSONObject;
-                                                        apkInfo = new ApkInfo(optInt, next, optString, optString2, optString3);
-                                                        apkInfo.isOnce = z3 ? 1 : 0;
-                                                        apkInfo.priority = jSONObject3.getInt("pr");
-                                                        apkInfo.isMem = jSONObject3.optInt("mem") == 1;
-                                                        if (packageInfo != null) {
-                                                        }
-                                                        optJSONObject = jSONObject3.optJSONObject("e");
-                                                        if (optJSONObject != null) {
-                                                        }
-                                                        optJSONObject2 = jSONObject3.optJSONObject("ext");
-                                                        if (optJSONObject2 != null) {
-                                                        }
-                                                        apkInfo.signMD5 = optString4;
-                                                        apkInfo.startTime = System.currentTimeMillis();
-                                                        List<ApkInfo> list2 = list;
-                                                        indexOf = list2.indexOf(apkInfo);
-                                                        ApkInfo apkInfo2 = new ApkInfo(apkInfo);
-                                                        if (!TextUtils.isEmpty(apkInfo.packageName)) {
-                                                        }
-                                                        indexOf2 = list2.indexOf(apkInfo2);
-                                                        if (indexOf2 >= 0) {
-                                                        }
-                                                        if (indexOf >= 0) {
-                                                        }
-                                                        allPlugins = list2;
-                                                        arrayList10 = arrayList6;
-                                                        arrayList7 = arrayList4;
-                                                        optJSONObject3 = jSONObject2;
-                                                        keys = it;
-                                                        arrayList9 = arrayList2;
-                                                        arrayList8 = arrayList5;
-                                                    }
-                                                } catch (Throwable th3) {
-                                                    th = th3;
-                                                    arrayList2 = arrayList9;
-                                                }
-                                            }
-                                            applicationInfo.theme = optJSONObject4.optInt("t");
-                                            packageInfo.applicationInfo = applicationInfo;
-                                            JSONArray optJSONArray = optJSONObject4.optJSONArray("a");
-                                            if (optJSONArray == null || optJSONArray.length() <= 0) {
-                                                list = allPlugins;
+                            Iterator<String> keys = optJSONObject3.keys();
+                            while (keys.hasNext()) {
+                                String next = keys.next();
+                                JSONObject optJSONObject4 = optJSONObject3.optJSONObject(next);
+                                int optInt = optJSONObject4.optInt("l");
+                                String optString = optJSONObject4.optString("v");
+                                Map<Integer, String> map = this.mCloudKeyMap;
+                                if (map != null) {
+                                    map.put(Integer.valueOf(optInt), optString);
+                                }
+                                String optString2 = optJSONObject4.optString("u");
+                                String optString3 = optJSONObject4.optString("m");
+                                String optString4 = optJSONObject4.optString("sm");
+                                if (optString3 != null) {
+                                    optString3 = optString3.toLowerCase();
+                                }
+                                String str2 = optString3;
+                                String str3 = optInt + optString;
+                                if (sRealtimeMd5Map == null) {
+                                    sRealtimeMd5Map = new HashMap();
+                                }
+                                if (TextUtils.isEmpty(str3) || TextUtils.isEmpty(str2)) {
+                                    jSONObject = optJSONObject3;
+                                    str = str2;
+                                } else {
+                                    jSONObject = optJSONObject3;
+                                    str = str2;
+                                    sRealtimeMd5Map.put(str3, str);
+                                }
+                                if (optString4 != null) {
+                                    optString4 = optString4.toLowerCase();
+                                }
+                                int i5 = optJSONObject4.optInt("o") == 1 ? 1 : 0;
+                                boolean z3 = optJSONObject4.optInt("d") == 1;
+                                int optInt2 = optJSONObject4.optInt("r");
+                                Iterator<String> it = keys;
+                                int i6 = i5;
+                                if (i6 != 0) {
+                                    arrayList = arrayList8;
+                                    this.mPreferenceManager.a(optInt2);
+                                } else {
+                                    arrayList = arrayList8;
+                                }
+                                if (i6 != 0 && z3) {
+                                    arrayList10.add(next);
+                                    arrayList6 = arrayList9;
+                                    arrayList3 = arrayList10;
+                                    arrayList7 = arrayList11;
+                                    arrayList5 = arrayList;
+                                } else {
+                                    try {
+                                        packageInfo = new PackageInfo();
+                                        packageInfo.packageName = optJSONObject4.optString("p");
+                                        packageInfo.versionName = optString;
+                                        ApplicationInfo applicationInfo = new ApplicationInfo();
+                                        String optString5 = optJSONObject4.optString("n");
+                                        applicationInfo.className = optString5;
+                                        if (TextUtils.isEmpty(optString5)) {
+                                            arrayList3 = arrayList10;
+                                        } else {
+                                            try {
                                                 arrayList3 = arrayList10;
-                                                jSONObject = optJSONObject4;
-                                            } else {
-                                                ArrayList arrayList12 = new ArrayList();
-                                                jSONObject = optJSONObject4;
-                                                int i = 0;
-                                                while (i < optJSONArray.length()) {
+                                                try {
+                                                    if (applicationInfo.className.startsWith(".")) {
+                                                        applicationInfo.className = next + applicationInfo.className;
+                                                    }
+                                                } catch (Throwable th) {
+                                                    th = th;
+                                                    arrayList2 = arrayList9;
+                                                    arrayList4 = arrayList11;
+                                                    jSONObject2 = optJSONObject4;
+                                                    com.baidu.sofire.k.a.a(th);
+                                                    packageInfo = null;
+                                                    JSONObject jSONObject4 = jSONObject2;
+                                                    apkInfo = new ApkInfo(optInt, next, optString, optString2, str);
+                                                    apkInfo.isOnce = i6;
+                                                    apkInfo.priority = jSONObject4.getInt(Config.PRINCIPAL_PART);
+                                                    apkInfo.isMem = jSONObject4.optInt("mem") == 1;
+                                                    if (packageInfo != null) {
+                                                    }
+                                                    optJSONObject = jSONObject4.optJSONObject("e");
+                                                    if (optJSONObject != null) {
+                                                    }
+                                                    optJSONObject2 = jSONObject4.optJSONObject("ext");
+                                                    if (optJSONObject2 != null) {
+                                                    }
+                                                    apkInfo.signMD5 = optString4;
+                                                    apkInfo.startTime = System.currentTimeMillis();
+                                                    ArrayList arrayList12 = (ArrayList) b;
+                                                    indexOf = arrayList12.indexOf(apkInfo);
+                                                    ApkInfo apkInfo2 = new ApkInfo(apkInfo);
+                                                    if (!TextUtils.isEmpty(apkInfo.packageName)) {
+                                                    }
+                                                    indexOf2 = arrayList12.indexOf(apkInfo2);
+                                                    if (indexOf2 >= 0) {
+                                                    }
+                                                    if (indexOf >= 0) {
+                                                    }
+                                                    arrayList11 = arrayList7;
+                                                    optJSONObject3 = jSONObject;
+                                                    keys = it;
+                                                    arrayList10 = arrayList3;
+                                                    ArrayList arrayList13 = arrayList5;
+                                                    arrayList9 = arrayList6;
+                                                    arrayList8 = arrayList13;
+                                                }
+                                            } catch (Throwable th2) {
+                                                th = th2;
+                                                arrayList3 = arrayList10;
+                                            }
+                                        }
+                                        applicationInfo.theme = optJSONObject4.optInt("t");
+                                        packageInfo.applicationInfo = applicationInfo;
+                                        JSONArray optJSONArray = optJSONObject4.optJSONArray("a");
+                                        if (optJSONArray == null || optJSONArray.length() <= 0) {
+                                            arrayList2 = arrayList9;
+                                            arrayList4 = arrayList11;
+                                            jSONObject2 = optJSONObject4;
+                                        } else {
+                                            ArrayList arrayList14 = new ArrayList();
+                                            jSONObject2 = optJSONObject4;
+                                            int i7 = 0;
+                                            while (i7 < optJSONArray.length()) {
+                                                try {
                                                     try {
-                                                        try {
-                                                            JSONObject jSONObject4 = optJSONArray.getJSONObject(i);
-                                                            if (jSONObject4 != null) {
-                                                                jSONArray = optJSONArray;
+                                                        JSONObject jSONObject5 = optJSONArray.getJSONObject(i7);
+                                                        if (jSONObject5 != null) {
+                                                            jSONArray = optJSONArray;
+                                                            try {
+                                                                ActivityInfo activityInfo = new ActivityInfo();
+                                                                arrayList2 = arrayList9;
                                                                 try {
-                                                                    ActivityInfo activityInfo = new ActivityInfo();
-                                                                    arrayList3 = arrayList10;
-                                                                    try {
-                                                                        String optString6 = jSONObject4.optString("n");
-                                                                        activityInfo.name = optString6;
-                                                                        if (TextUtils.isEmpty(optString6)) {
-                                                                            list = allPlugins;
-                                                                        } else {
-                                                                            list = allPlugins;
+                                                                    String optString6 = jSONObject5.optString("n");
+                                                                    activityInfo.name = optString6;
+                                                                    if (TextUtils.isEmpty(optString6)) {
+                                                                        arrayList4 = arrayList11;
+                                                                    } else {
+                                                                        arrayList4 = arrayList11;
+                                                                        try {
+                                                                            if (activityInfo.name.startsWith(".")) {
+                                                                                activityInfo.name = next + activityInfo.name;
+                                                                            }
+                                                                        } catch (Throwable th3) {
+                                                                            th = th3;
                                                                             try {
-                                                                                if (activityInfo.name.startsWith(".")) {
-                                                                                    activityInfo.name = next + activityInfo.name;
-                                                                                }
+                                                                                com.baidu.sofire.k.a.a(th);
+                                                                                continue;
+                                                                                i7++;
+                                                                                optJSONArray = jSONArray;
+                                                                                arrayList9 = arrayList2;
+                                                                                arrayList11 = arrayList4;
                                                                             } catch (Throwable th4) {
                                                                                 th = th4;
-                                                                                try {
-                                                                                    CommonMethods.handleNuLException(th);
-                                                                                    continue;
-                                                                                    i++;
-                                                                                    optJSONArray = jSONArray;
-                                                                                    arrayList10 = arrayList3;
-                                                                                    allPlugins = list;
-                                                                                } catch (Throwable th5) {
-                                                                                    th = th5;
-                                                                                    CommonMethods.handleNuLException(th);
-                                                                                    packageInfo = null;
-                                                                                    JSONObject jSONObject32 = jSONObject;
-                                                                                    apkInfo = new ApkInfo(optInt, next, optString, optString2, optString3);
-                                                                                    apkInfo.isOnce = z3 ? 1 : 0;
-                                                                                    apkInfo.priority = jSONObject32.getInt("pr");
-                                                                                    apkInfo.isMem = jSONObject32.optInt("mem") == 1;
-                                                                                    if (packageInfo != null) {
-                                                                                    }
-                                                                                    optJSONObject = jSONObject32.optJSONObject("e");
-                                                                                    if (optJSONObject != null) {
-                                                                                    }
-                                                                                    optJSONObject2 = jSONObject32.optJSONObject("ext");
-                                                                                    if (optJSONObject2 != null) {
-                                                                                    }
-                                                                                    apkInfo.signMD5 = optString4;
-                                                                                    apkInfo.startTime = System.currentTimeMillis();
-                                                                                    List<ApkInfo> list22 = list;
-                                                                                    indexOf = list22.indexOf(apkInfo);
-                                                                                    ApkInfo apkInfo22 = new ApkInfo(apkInfo);
-                                                                                    if (!TextUtils.isEmpty(apkInfo.packageName)) {
-                                                                                    }
-                                                                                    indexOf2 = list22.indexOf(apkInfo22);
-                                                                                    if (indexOf2 >= 0) {
-                                                                                    }
-                                                                                    if (indexOf >= 0) {
-                                                                                    }
-                                                                                    allPlugins = list22;
-                                                                                    arrayList10 = arrayList6;
-                                                                                    arrayList7 = arrayList4;
-                                                                                    optJSONObject3 = jSONObject2;
-                                                                                    keys = it;
-                                                                                    arrayList9 = arrayList2;
-                                                                                    arrayList8 = arrayList5;
+                                                                                com.baidu.sofire.k.a.a(th);
+                                                                                packageInfo = null;
+                                                                                JSONObject jSONObject42 = jSONObject2;
+                                                                                apkInfo = new ApkInfo(optInt, next, optString, optString2, str);
+                                                                                apkInfo.isOnce = i6;
+                                                                                apkInfo.priority = jSONObject42.getInt(Config.PRINCIPAL_PART);
+                                                                                apkInfo.isMem = jSONObject42.optInt("mem") == 1;
+                                                                                if (packageInfo != null) {
                                                                                 }
+                                                                                optJSONObject = jSONObject42.optJSONObject("e");
+                                                                                if (optJSONObject != null) {
+                                                                                }
+                                                                                optJSONObject2 = jSONObject42.optJSONObject("ext");
+                                                                                if (optJSONObject2 != null) {
+                                                                                }
+                                                                                apkInfo.signMD5 = optString4;
+                                                                                apkInfo.startTime = System.currentTimeMillis();
+                                                                                ArrayList arrayList122 = (ArrayList) b;
+                                                                                indexOf = arrayList122.indexOf(apkInfo);
+                                                                                ApkInfo apkInfo22 = new ApkInfo(apkInfo);
+                                                                                if (!TextUtils.isEmpty(apkInfo.packageName)) {
+                                                                                }
+                                                                                indexOf2 = arrayList122.indexOf(apkInfo22);
+                                                                                if (indexOf2 >= 0) {
+                                                                                }
+                                                                                if (indexOf >= 0) {
+                                                                                }
+                                                                                arrayList11 = arrayList7;
+                                                                                optJSONObject3 = jSONObject;
+                                                                                keys = it;
+                                                                                arrayList10 = arrayList3;
+                                                                                ArrayList arrayList132 = arrayList5;
+                                                                                arrayList9 = arrayList6;
+                                                                                arrayList8 = arrayList132;
                                                                             }
                                                                         }
-                                                                        activityInfo.packageName = next;
-                                                                        activityInfo.theme = jSONObject4.optInt("t");
-                                                                        activityInfo.labelRes = jSONObject4.optInt("l");
-                                                                        if (TextUtils.isEmpty(activityInfo.name)) {
-                                                                            continue;
-                                                                        } else {
-                                                                            arrayList12.add(activityInfo);
-                                                                            continue;
-                                                                        }
-                                                                    } catch (Throwable th6) {
-                                                                        th = th6;
-                                                                        list = allPlugins;
                                                                     }
-                                                                } catch (Throwable th7) {
-                                                                    th = th7;
-                                                                    list = allPlugins;
-                                                                    arrayList3 = arrayList10;
-                                                                    CommonMethods.handleNuLException(th);
+                                                                    activityInfo.packageName = next;
+                                                                    activityInfo.theme = jSONObject5.optInt("t");
+                                                                    activityInfo.labelRes = jSONObject5.optInt("l");
+                                                                    if (TextUtils.isEmpty(activityInfo.name)) {
+                                                                        continue;
+                                                                    } else {
+                                                                        arrayList14.add(activityInfo);
+                                                                        continue;
+                                                                    }
+                                                                } catch (Throwable th5) {
+                                                                    th = th5;
+                                                                    arrayList4 = arrayList11;
+                                                                    com.baidu.sofire.k.a.a(th);
                                                                     continue;
-                                                                    i++;
+                                                                    i7++;
                                                                     optJSONArray = jSONArray;
-                                                                    arrayList10 = arrayList3;
-                                                                    allPlugins = list;
+                                                                    arrayList9 = arrayList2;
+                                                                    arrayList11 = arrayList4;
                                                                 }
-                                                            } else {
-                                                                list = allPlugins;
-                                                                jSONArray = optJSONArray;
-                                                                arrayList3 = arrayList10;
+                                                            } catch (Throwable th6) {
+                                                                th = th6;
+                                                                arrayList2 = arrayList9;
+                                                                arrayList4 = arrayList11;
+                                                                com.baidu.sofire.k.a.a(th);
                                                                 continue;
+                                                                i7++;
+                                                                optJSONArray = jSONArray;
+                                                                arrayList9 = arrayList2;
+                                                                arrayList11 = arrayList4;
                                                             }
-                                                        } catch (Throwable th8) {
-                                                            th = th8;
-                                                            list = allPlugins;
+                                                        } else {
                                                             jSONArray = optJSONArray;
+                                                            arrayList2 = arrayList9;
+                                                            arrayList4 = arrayList11;
+                                                            continue;
                                                         }
-                                                        i++;
-                                                        optJSONArray = jSONArray;
-                                                        arrayList10 = arrayList3;
-                                                        allPlugins = list;
-                                                    } catch (Throwable th9) {
-                                                        th = th9;
-                                                        list = allPlugins;
-                                                        arrayList3 = arrayList10;
+                                                    } catch (Throwable th7) {
+                                                        th = th7;
+                                                        jSONArray = optJSONArray;
                                                     }
-                                                }
-                                                list = allPlugins;
-                                                arrayList3 = arrayList10;
-                                                if (arrayList12.size() > 0) {
-                                                    packageInfo.activities = (ActivityInfo[]) arrayList12.toArray(new ActivityInfo[arrayList12.size()]);
+                                                    i7++;
+                                                    optJSONArray = jSONArray;
+                                                    arrayList9 = arrayList2;
+                                                    arrayList11 = arrayList4;
+                                                } catch (Throwable th8) {
+                                                    th = th8;
+                                                    arrayList2 = arrayList9;
+                                                    arrayList4 = arrayList11;
                                                 }
                                             }
-                                        } catch (Throwable th10) {
-                                            th = th10;
-                                            list = allPlugins;
                                             arrayList2 = arrayList9;
-                                        }
-                                        JSONObject jSONObject322 = jSONObject;
-                                        apkInfo = new ApkInfo(optInt, next, optString, optString2, optString3);
-                                        apkInfo.isOnce = z3 ? 1 : 0;
-                                        try {
-                                            apkInfo.priority = jSONObject322.getInt("pr");
-                                        } catch (Throwable unused) {
-                                            apkInfo.priority = -1;
-                                        }
-                                        apkInfo.isMem = jSONObject322.optInt("mem") == 1;
-                                        if (packageInfo != null) {
-                                            apkInfo.cloudPkgInfo = packageInfo;
-                                        }
-                                        optJSONObject = jSONObject322.optJSONObject("e");
-                                        if (optJSONObject != null) {
-                                            int optInt3 = optJSONObject.optInt("d");
-                                            int optInt4 = optJSONObject.optInt("n");
-                                            apkInfo.duration = optInt3;
-                                            apkInfo.network = optInt4;
-                                        }
-                                        optJSONObject2 = jSONObject322.optJSONObject("ext");
-                                        if (optJSONObject2 != null) {
-                                            z = optJSONObject2.optInt("nl", 0) == 1;
-                                            if (optJSONObject2.optInt("a") == 1) {
-                                                List<Integer> hostCarePluginKeys = this.mPreferenceManager.getHostCarePluginKeys();
-                                                if (hostCarePluginKeys == null) {
-                                                    hostCarePluginKeys = new ArrayList<>();
-                                                }
-                                                if (optInt > 0 && !hostCarePluginKeys.contains(Integer.valueOf(optInt))) {
-                                                    hostCarePluginKeys.add(Integer.valueOf(optInt));
-                                                    int[] iArr = new int[hostCarePluginKeys.size()];
-                                                    for (int i2 = 0; i2 < hostCarePluginKeys.size(); i2++) {
-                                                        iArr[i2] = hostCarePluginKeys.get(i2).intValue();
-                                                    }
-                                                    this.mPreferenceManager.setHostCarePluginKeys(iArr);
-                                                }
-                                            }
-                                        } else {
-                                            z = false;
-                                        }
-                                        apkInfo.signMD5 = optString4;
-                                        apkInfo.startTime = System.currentTimeMillis();
-                                        List<ApkInfo> list222 = list;
-                                        indexOf = list222.indexOf(apkInfo);
-                                        ApkInfo apkInfo222 = new ApkInfo(apkInfo);
-                                        if (!TextUtils.isEmpty(apkInfo.packageName)) {
-                                            apkInfo222.packageName = new StringBuilder(apkInfo222.packageName).reverse().toString();
-                                        }
-                                        indexOf2 = list222.indexOf(apkInfo222);
-                                        if (indexOf2 >= 0) {
-                                            list222.remove(indexOf2);
-                                        }
-                                        if (indexOf >= 0) {
-                                            ApkInfo apkInfo3 = list222.get(indexOf);
-                                            if (CommonMethods.compareVersionNotEquals(apkInfo.versionName, apkInfo3.versionName)) {
-                                                if (apkInfo3.priority != apkInfo.priority) {
-                                                    this.loadedPluginDB.updatePriorityById(apkInfo.key, apkInfo.priority);
-                                                }
-                                                if (this.loadedPluginDB.isPluinWorking(apkInfo3.key)) {
-                                                    arrayList5 = arrayList;
-                                                    arrayList6 = arrayList3;
-                                                } else {
-                                                    if (z) {
-                                                        apkInfo.isNextLoad = true;
-                                                    }
-                                                    if (ForHostApp.sSkipList != null && ForHostApp.sSkipList.contains(Integer.valueOf(apkInfo.key))) {
-                                                        arrayList6 = arrayList3;
-                                                        arrayList6.add(apkInfo);
-                                                        arrayList5 = arrayList;
-                                                    } else {
-                                                        arrayList6 = arrayList3;
-                                                        arrayList5 = arrayList;
-                                                        arrayList5.add(apkInfo);
-                                                    }
-                                                    if (this.mDownloadPluginsList != null) {
-                                                        this.mDownloadPluginsList.add(Integer.valueOf(apkInfo.key));
-                                                    }
-                                                }
-                                                arrayList4 = arrayList11;
-                                            } else {
-                                                arrayList5 = arrayList;
-                                                arrayList6 = arrayList3;
-                                                if (apkInfo3.priority != apkInfo.priority) {
-                                                    apkInfo3.priority = apkInfo.priority;
-                                                    this.loadedPluginDB.updatePriorityById(apkInfo.key, apkInfo.priority);
-                                                }
-                                                arrayList4 = arrayList11;
-                                                arrayList4.add(apkInfo3);
-                                            }
-                                            list222.remove(indexOf);
-                                        } else {
                                             arrayList4 = arrayList11;
-                                            arrayList5 = arrayList;
-                                            arrayList6 = arrayList3;
-                                            arrayList5.add(apkInfo);
-                                            if (this.mDownloadPluginsList != null) {
-                                                this.mDownloadPluginsList.add(Integer.valueOf(apkInfo.key));
+                                            if (arrayList14.size() > 0) {
+                                                packageInfo.activities = (ActivityInfo[]) arrayList14.toArray(new ActivityInfo[arrayList14.size()]);
                                             }
                                         }
-                                        allPlugins = list222;
-                                        arrayList10 = arrayList6;
+                                    } catch (Throwable th9) {
+                                        th = th9;
+                                        arrayList2 = arrayList9;
+                                        arrayList3 = arrayList10;
+                                    }
+                                    JSONObject jSONObject422 = jSONObject2;
+                                    apkInfo = new ApkInfo(optInt, next, optString, optString2, str);
+                                    apkInfo.isOnce = i6;
+                                    apkInfo.priority = jSONObject422.getInt(Config.PRINCIPAL_PART);
+                                    apkInfo.isMem = jSONObject422.optInt("mem") == 1;
+                                    if (packageInfo != null) {
+                                        apkInfo.cloudPkgInfo = packageInfo;
+                                    }
+                                    optJSONObject = jSONObject422.optJSONObject("e");
+                                    if (optJSONObject != null) {
+                                        int optInt3 = optJSONObject.optInt("d");
+                                        int optInt4 = optJSONObject.optInt("n");
+                                        apkInfo.duration = optInt3;
+                                        apkInfo.network = optInt4;
+                                    }
+                                    optJSONObject2 = jSONObject422.optJSONObject("ext");
+                                    if (optJSONObject2 != null) {
+                                        z = optJSONObject2.optInt("nl", 0) == 1;
+                                        if (optJSONObject2.optInt("a") == 1) {
+                                            List<Integer> e = this.mPreferenceManager.e();
+                                            if (optInt > 0 && !e.contains(Integer.valueOf(optInt))) {
+                                                e.add(Integer.valueOf(optInt));
+                                                int[] iArr = new int[e.size()];
+                                                for (int i8 = 0; i8 < e.size(); i8++) {
+                                                    iArr[i8] = e.get(i8).intValue();
+                                                }
+                                                this.mPreferenceManager.a(iArr);
+                                            }
+                                        }
+                                    } else {
+                                        z = false;
+                                    }
+                                    apkInfo.signMD5 = optString4;
+                                    apkInfo.startTime = System.currentTimeMillis();
+                                    ArrayList arrayList1222 = (ArrayList) b;
+                                    indexOf = arrayList1222.indexOf(apkInfo);
+                                    ApkInfo apkInfo222 = new ApkInfo(apkInfo);
+                                    if (!TextUtils.isEmpty(apkInfo.packageName)) {
+                                        apkInfo222.packageName = new StringBuilder(apkInfo222.packageName).reverse().toString();
+                                    }
+                                    indexOf2 = arrayList1222.indexOf(apkInfo222);
+                                    if (indexOf2 >= 0) {
+                                        arrayList1222.remove(indexOf2);
+                                    }
+                                    if (indexOf >= 0) {
+                                        ApkInfo apkInfo3 = (ApkInfo) arrayList1222.get(indexOf);
+                                        if (com.baidu.sofire.k.a.b(apkInfo.versionName, apkInfo3.versionName)) {
+                                            int i9 = apkInfo3.priority;
+                                            int i10 = apkInfo.priority;
+                                            if (i9 != i10) {
+                                                this.loadedPluginDB.e(apkInfo.key, i10);
+                                            }
+                                            if (this.loadedPluginDB.f(apkInfo3.key)) {
+                                                arrayList6 = arrayList2;
+                                                arrayList7 = arrayList4;
+                                            } else {
+                                                if (z) {
+                                                    apkInfo.isNextLoad = true;
+                                                }
+                                                List<Integer> list = d.g;
+                                                if (list != null && list.contains(Integer.valueOf(apkInfo.key))) {
+                                                    arrayList7 = arrayList4;
+                                                    arrayList7.add(apkInfo);
+                                                    arrayList6 = arrayList2;
+                                                } else {
+                                                    arrayList7 = arrayList4;
+                                                    arrayList6 = arrayList2;
+                                                    arrayList6.add(apkInfo);
+                                                }
+                                                List<Integer> list2 = this.mDownloadPluginsList;
+                                                if (list2 != null) {
+                                                    list2.add(Integer.valueOf(apkInfo.key));
+                                                }
+                                            }
+                                            arrayList5 = arrayList;
+                                        } else {
+                                            arrayList6 = arrayList2;
+                                            arrayList7 = arrayList4;
+                                            int i11 = apkInfo3.priority;
+                                            int i12 = apkInfo.priority;
+                                            if (i11 != i12) {
+                                                apkInfo3.priority = i12;
+                                                this.loadedPluginDB.e(apkInfo.key, apkInfo.priority);
+                                            }
+                                            arrayList5 = arrayList;
+                                            arrayList5.add(apkInfo3);
+                                        }
+                                        arrayList1222.remove(indexOf);
+                                    } else {
+                                        arrayList5 = arrayList;
+                                        arrayList6 = arrayList2;
                                         arrayList7 = arrayList4;
-                                        optJSONObject3 = jSONObject2;
-                                        keys = it;
-                                        arrayList9 = arrayList2;
-                                        arrayList8 = arrayList5;
+                                        arrayList6.add(apkInfo);
+                                        List<Integer> list3 = this.mDownloadPluginsList;
+                                        if (list3 != null) {
+                                            list3.add(Integer.valueOf(apkInfo.key));
+                                        }
                                     }
                                 }
+                                arrayList11 = arrayList7;
+                                optJSONObject3 = jSONObject;
+                                keys = it;
+                                arrayList10 = arrayList3;
+                                ArrayList arrayList1322 = arrayList5;
+                                arrayList9 = arrayList6;
+                                arrayList8 = arrayList1322;
                             }
-                            List<ApkInfo> list3 = allPlugins;
-                            ArrayList arrayList13 = arrayList8;
-                            ArrayList arrayList14 = arrayList9;
-                            ArrayList arrayList15 = arrayList7;
-                            ArrayList arrayList16 = arrayList10;
-                            if (ForHostApp.sSkipList != null) {
-                                ForHostApp.sSkipList.clear();
+                            ArrayList arrayList15 = arrayList10;
+                            ArrayList arrayList16 = arrayList11;
+                            ArrayList arrayList17 = arrayList9;
+                            ArrayList arrayList18 = arrayList8;
+                            List<Integer> list4 = d.g;
+                            if (list4 != null) {
+                                list4.clear();
                             }
-                            for (ApkInfo apkInfo4 : list3) {
-                                ArrayList arrayList17 = arrayList14;
-                                if (!arrayList17.contains(apkInfo4.packageName)) {
-                                    if (this.mUnloadPluginsList != null) {
-                                        this.mUnloadPluginsList.add(Integer.valueOf(apkInfo4.key));
+                            Iterator it2 = ((ArrayList) b).iterator();
+                            while (it2.hasNext()) {
+                                ApkInfo apkInfo4 = (ApkInfo) it2.next();
+                                ArrayList arrayList19 = arrayList15;
+                                if (!arrayList19.contains(apkInfo4.packageName)) {
+                                    List<Integer> list5 = this.mUnloadPluginsList;
+                                    if (list5 != null) {
+                                        list5.add(Integer.valueOf(apkInfo4.key));
                                     }
-                                    this.forHostAPP.unloadPlugin(apkInfo4.packageName);
+                                    this.forHostAPP.b(apkInfo4.packageName);
                                 }
-                                arrayList14 = arrayList17;
+                                arrayList15 = arrayList19;
                             }
-                            CommonMethods.setAliveData(this.context);
-                            PluginloaderHub createSingleInstance = PluginloaderHub.createSingleInstance(this.context.getApplicationContext());
-                            List<Integer> localSetPluginKeys = this.mPreferenceManager.getLocalSetPluginKeys();
-                            List<Integer> hostCarePluginKeys2 = this.mPreferenceManager.getHostCarePluginKeys();
-                            for (int i3 = 0; i3 < hostCarePluginKeys2.size(); i3++) {
-                                if (!localSetPluginKeys.contains(hostCarePluginKeys2.get(i3))) {
-                                    localSetPluginKeys.add(hostCarePluginKeys2.get(i3));
+                            com.baidu.sofire.k.a.q(this.context);
+                            k a = k.a(this.context.getApplicationContext());
+                            List<Integer> f = this.mPreferenceManager.f();
+                            List<Integer> e2 = this.mPreferenceManager.e();
+                            int i13 = 0;
+                            while (true) {
+                                ArrayList arrayList20 = (ArrayList) e2;
+                                if (i13 >= arrayList20.size()) {
+                                    break;
                                 }
+                                ArrayList arrayList21 = (ArrayList) f;
+                                if (!arrayList21.contains(arrayList20.get(i13))) {
+                                    arrayList21.add(arrayList20.get(i13));
+                                }
+                                i13++;
                             }
-                            ArrayList arrayList18 = new ArrayList();
-                            arrayList18.addAll(arrayList15);
-                            arrayList18.addAll(arrayList13);
-                            Collections.sort(arrayList18, new Comparator<ApkInfo>(this, localSetPluginKeys) { // from class: com.baidu.sofire.ac.U.1
+                            ArrayList arrayList22 = new ArrayList();
+                            arrayList22.addAll(arrayList18);
+                            arrayList22.addAll(arrayList17);
+                            Collections.sort(arrayList22, new Comparator<ApkInfo>(this, f) { // from class: com.baidu.sofire.ac.U.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ U this$0;
@@ -1344,37 +1908,37 @@ public class U implements Runnable {
                                     if (interceptable2 != null) {
                                         InitContext newInitContext = TitanRuntime.newInitContext();
                                         newInitContext.initArgs = r2;
-                                        Object[] objArr = {this, localSetPluginKeys};
+                                        Object[] objArr = {this, f};
                                         interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i4 = newInitContext.flag;
-                                        if ((i4 & 1) != 0) {
-                                            int i5 = i4 & 2;
+                                        int i14 = newInitContext.flag;
+                                        if ((i14 & 1) != 0) {
+                                            int i15 = i14 & 2;
                                             newInitContext.thisArg = this;
                                             interceptable2.invokeInitBody(65536, newInitContext);
                                             return;
                                         }
                                     }
                                     this.this$0 = this;
-                                    this.val$localSetIds = localSetPluginKeys;
+                                    this.val$localSetIds = f;
                                 }
 
                                 /* JADX DEBUG: Method merged with bridge method */
                                 @Override // java.util.Comparator
                                 public int compare(ApkInfo apkInfo5, ApkInfo apkInfo6) {
                                     InterceptResult invokeLL;
-                                    int i4;
-                                    int i5;
+                                    int i14;
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, apkInfo5, apkInfo6)) == null) {
-                                        if (apkInfo5.priority != -1 || apkInfo6.priority == -1) {
-                                            if ((apkInfo5.priority == -1 || apkInfo6.priority != -1) && (i4 = apkInfo5.priority) >= (i5 = apkInfo6.priority)) {
-                                                if (i4 > i5) {
+                                        int i15 = apkInfo5.priority;
+                                        if (i15 != -1 || apkInfo6.priority == -1) {
+                                            if ((i15 == -1 || apkInfo6.priority != -1) && i15 >= (i14 = apkInfo6.priority)) {
+                                                if (i15 > i14) {
                                                     return 1;
                                                 }
-                                                List list4 = this.val$localSetIds;
-                                                int indexOf3 = (list4 == null || !list4.contains(Integer.valueOf(apkInfo5.key))) ? -1 : this.val$localSetIds.indexOf(Integer.valueOf(apkInfo5.key));
-                                                List list5 = this.val$localSetIds;
-                                                int indexOf4 = (list5 == null || !list5.contains(Integer.valueOf(apkInfo6.key))) ? -1 : this.val$localSetIds.indexOf(Integer.valueOf(apkInfo6.key));
+                                                List list6 = this.val$localSetIds;
+                                                int indexOf3 = (list6 == null || !list6.contains(Integer.valueOf(apkInfo5.key))) ? -1 : this.val$localSetIds.indexOf(Integer.valueOf(apkInfo5.key));
+                                                List list7 = this.val$localSetIds;
+                                                int indexOf4 = (list7 == null || !list7.contains(Integer.valueOf(apkInfo6.key))) ? -1 : this.val$localSetIds.indexOf(Integer.valueOf(apkInfo6.key));
                                                 if (indexOf3 == -1 || indexOf4 != -1) {
                                                     if ((indexOf3 != -1 || indexOf4 == -1) && indexOf3 <= indexOf4) {
                                                         return indexOf3 < indexOf4 ? -1 : 0;
@@ -1390,35 +1954,35 @@ public class U implements Runnable {
                                     return invokeLL.intValue;
                                 }
                             });
-                            for (int i4 = 0; i4 < arrayList18.size(); i4++) {
-                                ApkInfo apkInfo5 = (ApkInfo) arrayList18.get(i4);
-                                if (arrayList15.contains(apkInfo5)) {
-                                    if (createSingleInstance.getApkInfoByPackageName(apkInfo5.packageName) == null) {
-                                        boolean z5 = this.loadedPluginDB.getPluginDeleteStatus(apkInfo5.key) != 3;
-                                        if (this.mPreferenceManager.isNeedBackupAPK() && z5) {
+                            for (int i14 = 0; i14 < arrayList22.size(); i14++) {
+                                ApkInfo apkInfo5 = (ApkInfo) arrayList22.get(i14);
+                                if (arrayList18.contains(apkInfo5)) {
+                                    if (a.b(apkInfo5.packageName) == null) {
+                                        boolean z4 = this.loadedPluginDB.c(apkInfo5.key) != 3;
+                                        if (this.mPreferenceManager.n() && z4) {
                                             File file = new File(this.context.getFilesDir(), ".b");
                                             if (!file.exists()) {
                                                 file.mkdir();
                                             }
                                             File file2 = new File(apkInfo5.pkgPath);
                                             File file3 = new File(file, apkInfo5.key + "-" + apkInfo5.versionName);
-                                            if (!CommonMethods.isFileExist(file3)) {
-                                                CommonMethods.copyFile(file2, file3);
+                                            if (!com.baidu.sofire.k.a.a(file3)) {
+                                                com.baidu.sofire.k.a.a(file2, file3);
                                             }
-                                            FileDeleteObserverUtils.registerObserver(this.context, apkInfo5.key, file2, file3);
+                                            c.a(this.context, apkInfo5.key, file2, file3);
                                         } else {
                                             File file4 = new File(this.context.getFilesDir(), ".b");
                                             if (file4.exists()) {
                                                 File file5 = new File(file4, apkInfo5.key + "-" + apkInfo5.versionName);
-                                                if (CommonMethods.isFileExist(file5)) {
-                                                    FileDeleteObserverUtils.unRegisterObserver(file5);
+                                                if (com.baidu.sofire.k.a.a(file5)) {
+                                                    c.a(file5);
                                                     file5.delete();
                                                 }
                                             }
                                         }
-                                        this.forHostAPP.initPlugin(apkInfo5.key, apkInfo5.versionName, null);
+                                        this.forHostAPP.a(apkInfo5.key, apkInfo5.versionName, null);
                                     }
-                                } else if (arrayList13.contains(apkInfo5) && !this.loadedPluginDB.isPluinWorking(apkInfo5.key)) {
+                                } else if (arrayList17.contains(apkInfo5) && !this.loadedPluginDB.f(apkInfo5.key)) {
                                     handlePluginUpgrade(apkInfo5);
                                 }
                             }
@@ -1435,9 +1999,9 @@ public class U implements Runnable {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this, arrayList16};
                                         interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i5 = newInitContext.flag;
-                                        if ((i5 & 1) != 0) {
-                                            int i6 = i5 & 2;
+                                        int i15 = newInitContext.flag;
+                                        if ((i15 & 1) != 0) {
+                                            int i16 = i15 & 2;
                                             newInitContext.thisArg = this;
                                             interceptable2.invokeInitBody(65536, newInitContext);
                                             return;
@@ -1449,12 +2013,12 @@ public class U implements Runnable {
 
                                 @Override // java.util.TimerTask, java.lang.Runnable
                                 public void run() {
-                                    List<ApkInfo> list4;
+                                    List<ApkInfo> list6;
                                     Interceptable interceptable2 = $ic;
-                                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (list4 = this.val$pluginNeedDelayUpdate) == null) {
+                                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (list6 = this.val$pluginNeedDelayUpdate) == null) {
                                         return;
                                     }
-                                    for (ApkInfo apkInfo6 : list4) {
+                                    for (ApkInfo apkInfo6 : list6) {
                                         this.this$0.handlePluginUpgrade(apkInfo6);
                                     }
                                 }
@@ -1468,13 +2032,14 @@ public class U implements Runnable {
                             }
                             return;
                         }
-                        if (this.mFrom == 1 || this.mFrom == 2 || this.mFrom == 3) {
+                        int i15 = this.mFrom;
+                        if (i15 == 1 || i15 == 2 || i15 == 3) {
                             sMonitorNetworkWhenUpgradeNoNet = true;
                             IntentFilter intentFilter2 = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                            if (CommonMethods.sNetWorkReceiver == null) {
-                                CommonMethods.sNetWorkReceiver = new MyReceiver().setOnlyNetSelf();
+                            if (com.baidu.sofire.k.a.g == null) {
+                                com.baidu.sofire.k.a.g = new MyReceiver().a();
                             }
-                            CommonMethods.registerReceiver(this.context, CommonMethods.sNetWorkReceiver, intentFilter2);
+                            com.baidu.sofire.k.a.a(this.context, com.baidu.sofire.k.a.g, intentFilter2);
                         }
                         if (this.mEndReason == 0) {
                             this.mEndReason = 3;
@@ -1513,9 +2078,9 @@ public class U implements Runnable {
         this.mUpgradeResultMap = new HashMap();
         this.mStartNetwork = -2;
         this.context = context;
-        this.loadedPluginDB = D.getInstance(context);
-        this.mPreferenceManager = SharedPreferenceManager.getInstance(context);
-        this.forHostAPP = ForHostApp.getInstance(context);
+        this.loadedPluginDB = a.a(context);
+        this.mPreferenceManager = com.baidu.sofire.j.a.a(context);
+        this.forHostAPP = d.a(context);
         this.tmpDir = new File(context.getFilesDir(), ".tmp");
         this.mFrom = i;
         this.mOut = z;

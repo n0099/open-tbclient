@@ -90,7 +90,7 @@ public class gy8 {
             this.b.L(2);
             this.b.V(false);
             this.b.M(new a(this));
-            int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070232);
+            int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070230);
             int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
             int dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.tbds44);
             int dimensionPixelSize4 = this.a.getResources().getDimensionPixelSize(R.dimen.tbds50);
@@ -100,7 +100,7 @@ public class gy8 {
             this.b.i0(-dimensionPixelSize5);
             this.b.N(3000);
         }
-        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f15c9);
+        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1578);
         this.b.Y(R.drawable.obfuscated_res_0x7f080921);
         this.b.R(true);
         this.b.k0(string, "commodity_tip_show_controller");

@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class bm7 {
@@ -37,13 +37,13 @@ public class bm7 {
     public NavigationBarShadowView b;
     public BdListView c;
     public View d;
-    public gu4 e;
+    public hu4 e;
     public NoDataView f;
     public am7 g;
     public RelativeLayout h;
     public ProgressBar i;
-    public cr4 j;
-    public cr4.e k;
+    public dr4 j;
+    public dr4.e k;
     public c l;
     public boolean m;
     public AbsListView.OnScrollListener n;
@@ -95,7 +95,7 @@ public class bm7 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -115,11 +115,11 @@ public class bm7 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -186,20 +186,20 @@ public class bm7 {
         this.m = false;
         this.n = new a(this);
         this.a = threadFragment.getBaseFragmentActivity();
-        this.b = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f09157b);
-        this.i = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0919c7);
-        this.h = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916ba);
-        this.f = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.COLLECTION, pi.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07027d)), NoDataViewFactory.e.b(R.string.obfuscated_res_0x7f0f0a86, R.string.obfuscated_res_0x7f0f0a87), null);
+        this.b = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f091556);
+        this.i = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0919a2);
+        this.h = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091695);
+        this.f = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.COLLECTION, pi.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07027b)), NoDataViewFactory.e.b(R.string.obfuscated_res_0x7f0f0a72, R.string.obfuscated_res_0x7f0f0a73), null);
         am7 am7Var = new am7(threadFragment.getPageContext());
         this.g = am7Var;
         am7Var.notifyDataSetChanged();
-        this.e = new gu4(threadFragment.getPageContext());
-        BdListView bdListView = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f0912d2);
+        this.e = new hu4(threadFragment.getPageContext());
+        BdListView bdListView = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f0912ae);
         this.c = bdListView;
         bdListView.setPullRefresh(this.e);
         this.e.f(threadFragment);
         this.d = new TextView(this.a.getActivity());
-        this.d.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070308)));
+        this.d.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070306)));
         this.c.x(this.d, 0);
         this.c.setAdapter((ListAdapter) this.g);
         this.c.setOnSrollToBottomListener(threadFragment);
@@ -239,7 +239,7 @@ public class bm7 {
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), str, cm7Var}) == null) {
             if (z) {
                 BaseFragmentActivity baseFragmentActivity = this.a;
-                baseFragmentActivity.showToast(baseFragmentActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f04ad));
+                baseFragmentActivity.showToast(baseFragmentActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f04ac));
                 if (cm7Var != null && cm7Var.n() != null) {
                     this.g.j(cm7Var.n());
                     if (cm7Var.n().size() == 0) {
@@ -305,19 +305,19 @@ public class bm7 {
     public int g(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091d48 : R.id.obfuscated_res_0x7f090d34 : invokeZ.intValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091d4e : R.id.obfuscated_res_0x7f090d2d : invokeZ.intValue;
     }
 
     public int h(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091d4a : R.id.obfuscated_res_0x7f091413 : invokeZ.intValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091d50 : R.id.obfuscated_res_0x7f0913ef : invokeZ.intValue;
     }
 
     public int i(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091d49 : R.id.obfuscated_res_0x7f090d36 : invokeZ.intValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091d4f : R.id.obfuscated_res_0x7f090d2f : invokeZ.intValue;
     }
 
     public void j() {
@@ -352,9 +352,9 @@ public class bm7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             SkinManager.setBackgroundColor(this.h, R.color.CAM_X0201);
-            gu4 gu4Var = this.e;
-            if (gu4Var != null) {
-                gu4Var.H(i);
+            hu4 hu4Var = this.e;
+            if (hu4Var != null) {
+                hu4Var.H(i);
             }
             m();
             NoDataView noDataView = this.f;
@@ -368,9 +368,9 @@ public class bm7 {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            cr4 cr4Var = this.j;
-            if (cr4Var != null) {
-                cr4Var.dismiss();
+            dr4 dr4Var = this.j;
+            if (dr4Var != null) {
+                dr4Var.dismiss();
                 this.j = null;
             }
             ProgressBar progressBar = this.i;
@@ -403,7 +403,7 @@ public class bm7 {
         }
     }
 
-    public void q(cr4.e eVar) {
+    public void q(dr4.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, eVar) == null) {
             this.k = eVar;
@@ -431,14 +431,14 @@ public class bm7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             if (this.j == null) {
-                cr4 cr4Var = new cr4(this.a.getPageContext().getPageActivity());
-                this.j = cr4Var;
-                cr4Var.setTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1350));
-                this.j.setMessage(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c2b));
+                dr4 dr4Var = new dr4(this.a.getPageContext().getPageActivity());
+                this.j = dr4Var;
+                dr4Var.setTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f12ff));
+                this.j.setMessage(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c17));
                 if (this.k != null) {
-                    this.j.setPositiveButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0feb), this.k);
+                    this.j.setPositiveButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0fd4), this.k);
                 }
-                this.j.setNegativeButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0427), new b(this));
+                this.j.setNegativeButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0426), new b(this));
                 this.j.create(this.a.getPageContext());
                 this.j.setCanceledOnTouchOutside(true);
             }

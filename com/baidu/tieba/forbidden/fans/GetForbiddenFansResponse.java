@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ha6;
-import com.repackage.op4;
+import com.repackage.pp4;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -17,7 +17,7 @@ public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<ha6> fansList;
-    public op4 pageData;
+    public pp4 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetForbiddenFansResponse(int i) {
@@ -59,9 +59,9 @@ public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
                         }
                     }
                 }
-                op4 op4Var = new op4();
-                this.pageData = op4Var;
-                op4Var.i(jSONObject.optJSONObject("page"));
+                pp4 pp4Var = new pp4();
+                this.pageData = pp4Var;
+                pp4Var.i(jSONObject.optJSONObject("page"));
             }
         }
     }
@@ -72,9 +72,9 @@ public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.fansList : (ArrayList) invokeV.objValue;
     }
 
-    public op4 getPageData() {
+    public pp4 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pageData : (op4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pageData : (pp4) invokeV.objValue;
     }
 }

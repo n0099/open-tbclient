@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class eb6 extends cd6<fb6, FrsMemberHeaderViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class eb6 extends cd6<fb6, FrsMemberHeaderViewHolder> {
     public int v;
     public View.OnClickListener w;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,16 +75,16 @@ public class eb6 extends cd6<fb6, FrsMemberHeaderViewHolder> {
                     nn y = this.a.y(((Integer) tag).intValue());
                     if (y instanceof fb6) {
                         fb6 fb6Var = (fb6) y;
-                        if (view2.getId() == R.id.obfuscated_res_0x7f0912a8) {
+                        if (view2.getId() == R.id.obfuscated_res_0x7f091284) {
                             if (ViewHelper.checkUpIsLogin(this.a.k.getPageActivity())) {
                                 if (!ni.z()) {
-                                    this.a.k.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                                    this.a.k.showToast(R.string.obfuscated_res_0x7f0f0c17);
                                     return;
                                 }
                                 String a = fb6Var.a();
                                 this.a.t.R(fb6Var.b(), a);
                             }
-                        } else if (view2.getId() == R.id.obfuscated_res_0x7f09232a) {
+                        } else if (view2.getId() == R.id.obfuscated_res_0x7f09232c) {
                             String a2 = fb6Var.a();
                             this.a.k.sendMessage(new CustomMessage(2003006, new TbTitleActivityConfig(this.a.a, fb6Var.b(), a2)));
                         }
@@ -94,7 +94,7 @@ public class eb6 extends cd6<fb6, FrsMemberHeaderViewHolder> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends c9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -213,7 +213,7 @@ public class eb6 extends cd6<fb6, FrsMemberHeaderViewHolder> {
                     if (c.n() == 1) {
                         frsMemberHeaderViewHolder.a.setVisibility(8);
                         frsMemberHeaderViewHolder.b.setVisibility(0);
-                        frsMemberHeaderViewHolder.b.setText(R.string.obfuscated_res_0x7f0f0b49);
+                        frsMemberHeaderViewHolder.b.setText(R.string.obfuscated_res_0x7f0f0b35);
                         SkinManager.setImageResource(frsMemberHeaderViewHolder.c, BitmapHelper.getSmallGradeResourceIdNew(c.m()));
                         if (StringUtils.isNull(c.h())) {
                             frsMemberHeaderViewHolder.d.setVisibility(8);

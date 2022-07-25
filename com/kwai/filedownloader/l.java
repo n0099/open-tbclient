@@ -6,22 +6,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public final class l {
     public static /* synthetic */ Interceptable $ic;
-    public static a a;
+    public static a ats;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
     public interface a {
     }
 
-    public static a a() {
+    public static a CQ() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? ats : (a) invokeV.objValue;
     }
 
-    public static boolean b() {
+    public static boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a() != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? CQ() != null : invokeV.booleanValue;
     }
 }

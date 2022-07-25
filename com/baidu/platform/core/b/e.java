@@ -16,6 +16,7 @@ import com.baidu.mobstat.Config;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.searchbox.perfframe.ioc.Constant;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -158,7 +159,7 @@ public class e extends com.baidu.platform.base.d {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, jSONObject, reverseGeoCodeResult)) == null) {
-            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("result")) == null) {
+            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject(TiebaStatic.LogFields.RESULT)) == null) {
                 return false;
             }
             reverseGeoCodeResult.setCityCode(optJSONObject.optInt("cityCode"));

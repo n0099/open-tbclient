@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qz1;
-import com.repackage.ul2;
-import com.repackage.zz2;
+import com.repackage.a03;
+import com.repackage.rz1;
+import com.repackage.vl2;
 /* loaded from: classes2.dex */
 public class OpenSettingButton extends ApiButton {
     public static /* synthetic */ Interceptable $ic;
@@ -49,13 +49,13 @@ public class OpenSettingButton extends ApiButton {
     public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qz1 V = ul2.U().V();
+            rz1 V = vl2.U().V();
             if (V == null) {
-                zz2.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f01a1).G();
+                a03.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f01a1).G();
                 return;
             }
-            qz1.b i = V.i("navigateTo");
-            i.n(qz1.g, qz1.i);
+            rz1.b i = V.i("navigateTo");
+            i.n(rz1.g, rz1.i);
             i.k("authority", null).a();
         }
     }

@@ -100,10 +100,10 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01e9, (ViewGroup) this, true);
             this.a = (ClickableHeaderImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090520);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092042);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092065);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09203c);
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0907b7);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092046);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092069);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092040);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0907b5);
             setGravity(16);
             d();
             this.b.setOnClickListener(this.i);

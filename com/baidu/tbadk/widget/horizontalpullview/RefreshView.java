@@ -76,9 +76,9 @@ public class RefreshView extends FrameLayout implements rf5 {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d070d, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0717, (ViewGroup) this, true);
             this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902a4);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa9);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091fae);
         }
     }
 

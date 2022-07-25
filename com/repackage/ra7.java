@@ -233,18 +233,18 @@ public class ra7 extends jx5<oa7> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             View h = h();
-            this.i = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f0918ce);
-            this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09232d);
-            this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090954);
-            this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091951);
-            this.m = h.findViewById(R.id.obfuscated_res_0x7f0907bf);
-            this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09208f);
+            this.i = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f0918a9);
+            this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09232f);
+            this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09094d);
+            this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09192c);
+            this.m = h.findViewById(R.id.obfuscated_res_0x7f0907bd);
+            this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092093);
             this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090539);
             this.p = h.findViewById(R.id.obfuscated_res_0x7f090536);
             this.q = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090538);
-            this.r = (OriginalThreadCardView) h.findViewById(R.id.obfuscated_res_0x7f09168e);
+            this.r = (OriginalThreadCardView) h.findViewById(R.id.obfuscated_res_0x7f091669);
             this.s = (MessageCardBottomView) h.findViewById(R.id.obfuscated_res_0x7f090535);
-            this.t = h.findViewById(R.id.obfuscated_res_0x7f0915be);
+            this.t = h.findViewById(R.id.obfuscated_res_0x7f091599);
             this.r.setUsePlaceHolder(false);
             this.i.setOnClickListener(this);
             this.j.setOnClickListener(this);

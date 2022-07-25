@@ -213,7 +213,7 @@ public abstract class uy7 extends gz7 {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ni8Var) == null) || ni8Var == null || this.d == null || ni8Var.getAdvertAppInfo() == null) {
             return;
         }
-        ni8Var.getAdvertAppInfo().i = new sn4();
+        ni8Var.getAdvertAppInfo().i = new tn4();
         if (this.d.y() != null) {
             ni8Var.getAdvertAppInfo().i.b = this.d.y().a();
         }
@@ -380,19 +380,19 @@ public abstract class uy7 extends gz7 {
             jr7Var.O().setItemStar(jr7Var.F().get(0).L());
         }
         if (jr7Var.O() != null && jr7Var.O().getRawThreadInfo() != null) {
-            qq4 qq4Var = new qq4();
-            qq4Var.s = jr7Var.O();
-            qq4Var.n = true;
-            this.g.add(qq4Var);
+            rq4 rq4Var = new rq4();
+            rq4Var.s = jr7Var.O();
+            rq4Var.n = true;
+            this.g.add(rq4Var);
         }
         xr7 xr7Var = new xr7(jr7Var.O(), jr7Var.d());
         xr7Var.i(false);
         xr7Var.b = false;
         this.g.add(xr7Var);
-        if (postData == null || postData.o0 == null || (jr7Var.l() != null && TextUtils.equals(jr7Var.l().getName(), this.b.F().q1()) && this.b.F().w1())) {
+        if (postData == null || postData.i0 == null || (jr7Var.l() != null && TextUtils.equals(jr7Var.l().getName(), this.b.F().q1()) && this.b.F().w1())) {
             z2 = false;
         } else {
-            mr7 mr7Var = new mr7(postData.o0);
+            mr7 mr7Var = new mr7(postData.i0);
             mr7Var.b = this.b.F().j2();
             this.g.add(mr7Var);
             z2 = true;
@@ -449,7 +449,7 @@ public abstract class uy7 extends gz7 {
         }
         if (!z3 && ((!z || !ni.z()) && ((jr7Var2 = this.d) == null || !jr7Var2.t()))) {
             tr7 tr7Var = new tr7();
-            tr7Var.J0 = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0ab7);
+            tr7Var.J0 = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0aa3);
             tr7Var.I0 = R.drawable.new_pic_emotion_03;
             tr7Var.K0 = -2;
             tr7Var.L0 = pi.f(this.b.getContext(), R.dimen.tbds74);
@@ -470,7 +470,7 @@ public abstract class uy7 extends gz7 {
             } else if (z3) {
                 A(this.b.B().S3());
                 pr7 pr7Var = new pr7();
-                pr7Var.a = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09e5);
+                pr7Var.a = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09cf);
                 this.g.add(pr7Var);
             }
             List<ni8> Y = jr7Var.Y();
@@ -481,11 +481,11 @@ public abstract class uy7 extends gz7 {
             }
             if (!ListUtils.isEmpty(jr7Var.f())) {
                 ir7 ir7Var = new ir7();
-                ir7Var.d(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9f));
+                ir7Var.d(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f88));
                 ir7Var.c(this.a);
                 this.g.add(ir7Var);
                 int i3 = 1;
-                for (eo4 eo4Var : jr7Var.f()) {
+                for (fo4 fo4Var : jr7Var.f()) {
                     if (Y != null && i3 == i2) {
                         if (ni8Var != null) {
                             b(ni8Var);
@@ -501,7 +501,7 @@ public abstract class uy7 extends gz7 {
                             i2 = ni8Var2.getPosition();
                         }
                     }
-                    this.g.add(eo4Var);
+                    this.g.add(fo4Var);
                     i3++;
                     if (i3 == 4 && jr7Var.C() != null) {
                         this.g.add(jr7Var.C());

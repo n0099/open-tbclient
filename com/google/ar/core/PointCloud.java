@@ -38,7 +38,7 @@ public class PointCloud implements Closeable {
 
     private native void nativeReleasePointCloud(long j);
 
-    public void c() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             nativeReleasePointCloud(this.a);
@@ -50,7 +50,7 @@ public class PointCloud implements Closeable {
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c();
+            a();
         }
     }
 

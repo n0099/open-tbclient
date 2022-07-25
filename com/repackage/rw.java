@@ -16,11 +16,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ny;
 /* loaded from: classes7.dex */
-public class rw extends qw<nn4> {
+public class rw extends qw<on4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BjhArticleLayout f;
-    public nn4 g;
+    public on4 g;
     public View.OnClickListener h;
 
     /* loaded from: classes7.dex */
@@ -137,7 +137,7 @@ public class rw extends qw<nn4> {
     }
 
     @Override // com.repackage.qw
-    public void m(jy5<nn4> jy5Var) {
+    public void m(jy5<on4> jy5Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jy5Var) == null) {
             super.m(jy5Var);
@@ -156,19 +156,19 @@ public class rw extends qw<nn4> {
     public final void s(View view2, nn nnVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, nnVar) == null) {
-            nn4 nn4Var = this.g;
-            if (((nn4Var instanceof qy5) || (nn4Var instanceof ThreadData)) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            on4 on4Var = this.g;
+            if (((on4Var instanceof qy5) || (on4Var instanceof ThreadData)) && (view2.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
                 if (nnVar instanceof qy5) {
                     qy5 qy5Var = (qy5) this.g;
                     qy5Var.f = 1;
-                    ThreadCardUtils.jumpToPB((nn4) qy5Var, view2.getContext(), qy5Var.a.isFromHomPage ? 2 : 1, false);
-                    threadCardViewHolder.c().o(new ny.a(1));
+                    ThreadCardUtils.jumpToPB((on4) qy5Var, view2.getContext(), qy5Var.a.isFromHomPage ? 2 : 1, false);
+                    threadCardViewHolder.b().o(new ny.a(1));
                 } else if (nnVar instanceof ThreadData) {
                     ThreadData threadData = (ThreadData) this.g;
                     threadData.objType = 1;
-                    ThreadCardUtils.jumpToPB((nn4) threadData, view2.getContext(), 3, false);
-                    threadCardViewHolder.c().o(new ny.a(1));
+                    ThreadCardUtils.jumpToPB((on4) threadData, view2.getContext(), 3, false);
+                    threadCardViewHolder.b().o(new ny.a(1));
                 }
             }
         }
@@ -177,11 +177,11 @@ public class rw extends qw<nn4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: t */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, nn4Var) == null) {
-            this.g = nn4Var;
-            this.f.a(nn4Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, on4Var) == null) {
+            this.g = on4Var;
+            this.f.a(on4Var);
         }
     }
 }

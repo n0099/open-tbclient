@@ -1,18 +1,16 @@
 package com.kwad.components.core.webview.b.kwai;
 
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.r;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class g extends com.kwad.sdk.core.response.kwai.a {
+public final class g extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -24,25 +22,22 @@ public final class g extends com.kwad.sdk.core.response.kwai.a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = -1;
     }
 
-    @Override // com.kwad.sdk.core.response.kwai.a, com.kwad.sdk.core.b
-    public final JSONObject toJson() {
+    public final void a(com.kwad.components.core.webview.b.a.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            super.b(bVar);
+        }
+    }
+
+    @Override // com.kwad.sdk.core.webview.kwai.a
+    @NonNull
+    public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            r.a(jSONObject, "insertScreenAdShowStrategy", this.a);
-            int i = this.b;
-            if (i != -1) {
-                r.a(jSONObject, "triggerType", i);
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "registerApkInstalledListener" : (String) invokeV.objValue;
     }
 }

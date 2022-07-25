@@ -110,13 +110,13 @@ public class TestScheduler extends xr9 {
 
         /* renamed from: rx.schedulers.TestScheduler$b$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0865b implements hs9 {
+        public class C0714b implements hs9 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
             public final /* synthetic */ b b;
 
-            public C0865b(b bVar, c cVar) {
+            public C0714b(b bVar, c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -177,7 +177,7 @@ public class TestScheduler extends xr9 {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hs9Var)) == null) {
                 c cVar = new c(this, 0L, hs9Var);
                 this.b.a.add(cVar);
-                return rw9.a(new C0865b(this, cVar));
+                return rw9.a(new C0714b(this, cVar));
             }
             return (bs9) invokeL.objValue;
         }

@@ -14,7 +14,5 @@ public interface ILoggerReporter {
         public static final String ERROR_LOG = "ad_client_error_log";
     }
 
-    void reportEvent(String str, BusinessType businessType, String str2, JSONObject jSONObject);
-
-    void reportEventWithRatio(float f, String str, BusinessType businessType, String str2, JSONObject jSONObject);
+    void reportEvent(double d, String str, BusinessType businessType, String str2, JSONObject jSONObject);
 }

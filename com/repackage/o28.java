@@ -39,8 +39,8 @@ public class o28 implements CustomMessageTask.CustomRunnable<String> {
             if (customMessage == null || !(customMessage instanceof PersonBarByUidLocalMessage)) {
                 return null;
             }
-            br4.f();
-            String str = br4.g("tb.my_pages").get(TbadkCoreApplication.getCurrentAccount());
+            cr4.f();
+            String str = cr4.g("tb.my_pages").get(TbadkCoreApplication.getCurrentAccount());
             ResponsePersonBarByUidLocalMessage responsePersonBarByUidLocalMessage = new ResponsePersonBarByUidLocalMessage();
             if (str != null) {
                 try {

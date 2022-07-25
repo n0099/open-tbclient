@@ -48,14 +48,14 @@ import com.baidu.yunjiasu.tornadosdk.TornadoRuntime;
 import com.baidu.yunjiasu.tornadosdk.TornadoTokenCallback;
 import com.repackage.ef6;
 import com.repackage.nf6;
-import com.repackage.nr4;
 import com.repackage.of6;
+import com.repackage.or4;
 import com.repackage.pf6;
 import com.repackage.qg;
-import com.repackage.rl4;
 import com.repackage.rp6;
-import com.repackage.tm4;
-import com.repackage.ur4;
+import com.repackage.sl4;
+import com.repackage.um4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class AcceleratorFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -389,7 +389,7 @@ public class AcceleratorFragment extends BaseFragment {
                 this.a.a.a2();
             }
 
-            public /* synthetic */ void b(ef6 ef6Var, nr4 nr4Var, int i, View view2) {
+            public /* synthetic */ void b(ef6 ef6Var, or4 or4Var, int i, View view2) {
                 PkgNameAndNodeInfoData pkgNameAndNodeInfoData = of6.a(this.a.a.c.getAvailableTornadoNodeInfoList()).get(Integer.valueOf(i));
                 this.a.a.d = pkgNameAndNodeInfoData;
                 this.a.a.a.d = pkgNameAndNodeInfoData.getNodeInfo().getNodeTag();
@@ -415,15 +415,15 @@ public class AcceleratorFragment extends BaseFragment {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
                     final ef6 c = ef6.c(this.a.a.getPageContext());
-                    c.e(new nr4.e() { // from class: com.repackage.gf6
+                    c.e(new or4.e() { // from class: com.repackage.gf6
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
-                        @Override // com.repackage.nr4.e
-                        public final void N(nr4 nr4Var, int i, View view3) {
+                        @Override // com.repackage.or4.e
+                        public final void N(or4 or4Var, int i, View view3) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, nr4Var, i, view3) == null) {
-                                AcceleratorFragment.g.a.this.b(c, nr4Var, i, view3);
+                            if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, or4Var, i, view3) == null) {
+                                AcceleratorFragment.g.a.this.b(c, or4Var, i, view3);
                             }
                         }
                     });
@@ -523,7 +523,7 @@ public class AcceleratorFragment extends BaseFragment {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                rl4.o(this.a.getContext(), "https://tieba.baidu.com/tb/wise/speedup-SDK.html");
+                sl4.o(this.a.getContext(), "https://tieba.baidu.com/tb/wise/speedup-SDK.html");
             }
         }
     }
@@ -847,14 +847,14 @@ public class AcceleratorFragment extends BaseFragment {
             this.x = view2.findViewById(R.id.obfuscated_res_0x7f09039a);
             WebPManager.setPureDrawable(this.v, R.drawable.obfuscated_res_0x7f080935, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             WebPManager.setPureDrawable(this.w, R.drawable.obfuscated_res_0x7f0809ed, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
-            ur4 d2 = ur4.d(this.t);
+            vr4 d2 = vr4.d(this.t);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0302);
-            ur4 d3 = ur4.d(this.u);
+            vr4 d3 = vr4.d(this.u);
             d3.e(R.string.A_X11);
             d3.n(R.string.J_X01);
             d3.f(R.color.CAM_X0101);
-            ur4 d4 = ur4.d(this.p);
+            vr4 d4 = vr4.d(this.p);
             d4.n(R.string.J_X01);
             d4.f(R.color.CAM_X0613);
             TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0607).into(this.k);
@@ -1045,7 +1045,7 @@ public class AcceleratorFragment extends BaseFragment {
             Tornado tornado = Tornado.INSTANCE;
             Context applicationContext = requireContext().getApplicationContext();
             k kVar = this.a;
-            tornado.init(applicationContext, kVar.a, kVar.g, "tieba", tm4.d());
+            tornado.init(applicationContext, kVar.a, kVar.g, "tieba", um4.d());
             Tornado.INSTANCE.setEnv(TornadoENV.PRINT_LOG, "true");
             Tornado.INSTANCE.setEnv(TornadoENV.ENABLE_DEBUG, "false");
             Tornado.INSTANCE.setCallback(new b(this));

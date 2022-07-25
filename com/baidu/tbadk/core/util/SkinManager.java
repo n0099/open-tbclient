@@ -44,11 +44,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mt4;
+import com.repackage.nt4;
 import com.repackage.pi;
 import com.repackage.sg8;
-import com.repackage.sr4;
-import com.repackage.xt4;
+import com.repackage.tr4;
+import com.repackage.yt4;
 import com.repackage.z8;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
@@ -151,8 +151,8 @@ public class SkinManager {
                 }
             }
         });
-        RESOURCE_ALPHA_PRESS = sr4.a(R.string.A_X07);
-        RESOURCE_ALPHA_DISABLE = sr4.a(R.string.A_X09);
+        RESOURCE_ALPHA_PRESS = tr4.a(R.string.A_X07);
+        RESOURCE_ALPHA_DISABLE = tr4.a(R.string.A_X09);
         TYPE_ERROR = "skinType not support";
         TYPE_COLOR = "com.baidu.tieba:color/CAM_X0";
         sPackagename = null;
@@ -660,7 +660,7 @@ public class SkinManager {
             if (mPluginRes == null) {
                 mPluginRes = resources;
             }
-            mt4.a("img", -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", Build.VERSION.RELEASE, "model", Build.MODEL, Constants.PHONE_BRAND, Build.BRAND);
+            nt4.a("img", -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", Build.VERSION.RELEASE, "model", Build.MODEL, Constants.PHONE_BRAND, Build.BRAND);
             try {
                 String resourceName = resources.getResourceName(i);
                 if (StringUtils.isNull(resourceName)) {
@@ -855,8 +855,8 @@ public class SkinManager {
                     return;
                 }
                 TbadkCoreApplication.getInst().setSkinType(0);
-            } else if (xt4.k().h("key_is_dark_mode_notify_shown", false)) {
-                boolean h = xt4.k().h("key_is_follow_system_mode", false);
+            } else if (yt4.k().h("key_is_dark_mode_notify_shown", false)) {
+                boolean h = yt4.k().h("key_is_follow_system_mode", false);
                 if (z) {
                     UtilHelper.showSkinChangeAnimation(b);
                 }
@@ -868,8 +868,8 @@ public class SkinManager {
                 }
                 TbadkCoreApplication.getInst().setSkinType(i);
             } else {
-                xt4.k().u("key_is_dark_mode_notify_shown", true);
-                xt4.k().u("key_is_follow_system_mode", true);
+                yt4.k().u("key_is_dark_mode_notify_shown", true);
+                yt4.k().u("key_is_follow_system_mode", true);
                 TbadkCoreApplication.getInst().setSkinType(isCurrentSystemDarkMode() ? 4 : 0);
             }
         }
@@ -948,7 +948,7 @@ public class SkinManager {
                 mSkinPackageName = FileHelper.getApkFilePackageName(str);
                 return;
             }
-            pi.N(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f13cd);
+            pi.N(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f137c);
         } catch (Throwable th) {
             BdLog.e(th);
         }

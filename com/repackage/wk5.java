@@ -43,13 +43,13 @@ public class wk5 {
 
         /* renamed from: com.repackage.wk5$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0757a extends BdRunnable {
+        public class C0606a extends BdRunnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONObject c;
             public final /* synthetic */ a d;
 
-            public C0757a(a aVar, JSONObject jSONObject) {
+            public C0606a(a aVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +118,7 @@ public class wk5 {
                     e2.printStackTrace();
                 }
                 try {
-                    zv.f().h(new C0757a(this, new JSONObject(response.body().string())));
+                    zv.f().h(new C0606a(this, new JSONObject(response.body().string())));
                 } catch (IOException e3) {
                     e3.printStackTrace();
                 } catch (JSONException e4) {
@@ -146,7 +146,7 @@ public class wk5 {
                 return;
             }
         }
-        b = tm4.e() ? "http://" : "https://";
+        b = um4.e() ? "http://" : "https://";
         c = b + "afdconf.baidu.com/afd/download";
     }
 

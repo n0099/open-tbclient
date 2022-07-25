@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 /* loaded from: classes6.dex */
 public class oc6 extends jx5<lc6> {
     public static /* synthetic */ Interceptable $ic;
@@ -24,7 +24,7 @@ public class oc6 extends jx5<lc6> {
     public int k;
 
     /* loaded from: classes6.dex */
-    public class a implements cr4.e {
+    public class a implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,19 +44,19 @@ public class oc6 extends jx5<lc6> {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 kc6.a();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921020));
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -76,11 +76,11 @@ public class oc6 extends jx5<lc6> {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -104,8 +104,8 @@ public class oc6 extends jx5<lc6> {
             }
         }
         this.k = 3;
-        this.i = (ImageView) h().findViewById(R.id.obfuscated_res_0x7f090d14);
-        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090d19);
+        this.i = (ImageView) h().findViewById(R.id.obfuscated_res_0x7f090d0d);
+        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090d12);
         this.i.setOnClickListener(this);
     }
 
@@ -131,13 +131,13 @@ public class oc6 extends jx5<lc6> {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 == this.i) {
-            cr4 cr4Var = new cr4(this.b.getPageActivity());
-            cr4Var.setTitle(R.string.obfuscated_res_0x7f0f0429);
-            cr4Var.setCanceledOnTouchOutside(true);
-            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0427, new a(this));
-            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(this));
-            cr4Var.create(this.b);
-            cr4Var.show();
+            dr4 dr4Var = new dr4(this.b.getPageActivity());
+            dr4Var.setTitle(R.string.obfuscated_res_0x7f0f0428);
+            dr4Var.setCanceledOnTouchOutside(true);
+            dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0426, new a(this));
+            dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(this));
+            dr4Var.create(this.b);
+            dr4Var.show();
         }
     }
 

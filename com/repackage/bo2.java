@@ -1,9 +1,9 @@
 package com.repackage;
-
-import java.io.File;
 /* loaded from: classes5.dex */
 public interface bo2 {
-    void a(File file);
+    void d();
 
-    void b(String str);
+    void e();
+
+    void g();
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.core.l.j;
+import com.kwad.components.core.m.j;
 /* loaded from: classes5.dex */
 public class KsStyledLinearLayout extends LinearLayout implements e {
     public static /* synthetic */ Interceptable $ic;

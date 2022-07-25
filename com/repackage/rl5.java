@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.kk5;
-import com.repackage.s55;
+import com.repackage.t55;
 import com.repackage.zq6;
 import java.io.PrintStream;
 import java.lang.ref.WeakReference;
@@ -47,7 +47,7 @@ public class rl5 implements hm5 {
     public FrameLayout d;
     public ViewGroup e;
     public AdLoadState f;
-    public nl4 g;
+    public ol4 g;
     public ViewGroup.OnHierarchyChangeListener h;
     public boolean i;
     public long j;
@@ -141,7 +141,7 @@ public class rl5 implements hm5 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements s55.a {
+    public class b implements t55.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -164,11 +164,11 @@ public class rl5 implements hm5 {
             this.a = context;
         }
 
-        @Override // com.repackage.s55.a
+        @Override // com.repackage.t55.a
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0795, (ViewGroup) null, false) : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d079f, (ViewGroup) null, false) : invokeV.objValue;
         }
     }
 
@@ -217,7 +217,7 @@ public class rl5 implements hm5 {
                 } else {
                     this.a.f = AdLoadState.FAILED;
                     mm5.k(mm5.c, "1", str, null, 2, i, this.a.i, this.a.j);
-                    ((ViewGroup) this.a.b.get()).removeView(this.a.c);
+                    this.a.w();
                 }
                 gm5.e().n(this.a.g);
                 if (this.a.k != null) {
@@ -244,7 +244,7 @@ public class rl5 implements hm5 {
                 FunAdRecordHttpMessage.uploadRequestRecord("a064", "1", null, null, "0");
                 mm5.k(mm5.c, "1", str, null, 1, 0, this.a.i, this.a.j);
                 this.a.f = AdLoadState.FAILED;
-                ((ViewGroup) this.a.b.get()).removeView(this.a.c);
+                this.a.w();
                 gm5.e().n(this.a.g);
                 if (this.a.k != null) {
                     this.a.k.onSplashEvent(82);
@@ -254,7 +254,40 @@ public class rl5 implements hm5 {
     }
 
     /* loaded from: classes7.dex */
-    public class d implements zq6.h {
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rl5 a;
+
+        public d(rl5 rl5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rl5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rl5Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ((ViewGroup) this.a.b.get()).removeView(this.a.c);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e implements zq6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rl5 a;
@@ -266,12 +299,12 @@ public class rl5 implements hm5 {
             public final /* synthetic */ String a;
             public final /* synthetic */ int b;
 
-            public a(d dVar, String str, int i) {
+            public a(e eVar, String str, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar, str, Integer.valueOf(i)};
+                    Object[] objArr = {eVar, str, Integer.valueOf(i)};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -301,12 +334,12 @@ public class rl5 implements hm5 {
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
 
-            public b(d dVar, String str) {
+            public b(e eVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar, str};
+                    Object[] objArr = {eVar, str};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -329,7 +362,7 @@ public class rl5 implements hm5 {
             }
         }
 
-        public d(rl5 rl5Var) {
+        public e(rl5 rl5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -382,12 +415,12 @@ public class rl5 implements hm5 {
     }
 
     /* loaded from: classes7.dex */
-    public class e implements ViewGroup.OnHierarchyChangeListener {
+    public class f implements ViewGroup.OnHierarchyChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rl5 a;
 
-        public e(rl5 rl5Var) {
+        public f(rl5 rl5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -461,14 +494,14 @@ public class rl5 implements hm5 {
         this.j = -1L;
         this.l = new a(this);
         this.k = splashNativePolicy;
-        m = xt4.k().l("splash_bear_sid_type_key", 0) == 1 ? zq6.q() : zq6.p();
+        m = yt4.k().l("splash_bear_sid_type_key", 0) == 1 ? zq6.q() : zq6.p();
     }
 
-    public static void v(int i) {
+    public static void x(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65548, null, i) == null) {
+        if (interceptable == null || interceptable.invokeI(65549, null, i) == null) {
             m = i == 1 ? zq6.q() : zq6.p();
-            xt4.k().w("splash_bear_sid_type_key", i);
+            yt4.k().w("splash_bear_sid_type_key", i);
         }
     }
 
@@ -477,8 +510,8 @@ public class rl5 implements hm5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Context context = TbadkCoreApplication.getInst().getContext();
-            d dVar = new d(this);
-            zq6.m().x(context, m, (int) (pi.i(context) * 0.85d), dVar, zq6.b("spalsh", gm5.e().d() + ""));
+            e eVar = new e(this);
+            zq6.m().x(context, m, (int) (pi.i(context) * 0.85d), eVar, zq6.b("spalsh", gm5.e().d() + ""));
             n = true;
         }
     }
@@ -521,24 +554,24 @@ public class rl5 implements hm5 {
     }
 
     @Override // com.repackage.hm5
-    public void e(ql4 ql4Var) {
+    public void e(rl4 rl4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ql4Var) == null) {
-            Context context = ql4Var.b().getContext();
-            if (!(context instanceof Activity) || ql4Var.b() == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, rl4Var) == null) {
+            Context context = rl4Var.b().getContext();
+            if (!(context instanceof Activity) || rl4Var.b() == null) {
                 return;
             }
-            this.i = ql4Var.d();
-            this.j = ql4Var.c();
-            this.b = new WeakReference<>(ql4Var.b());
-            ViewGroup viewGroup = (ViewGroup) s55.e().d(1007, new b(this, context));
+            this.i = rl4Var.d();
+            this.j = rl4Var.c();
+            this.b = new WeakReference<>(rl4Var.b());
+            ViewGroup viewGroup = (ViewGroup) t55.e().d(1007, new b(this, context));
             this.c = viewGroup;
             if (viewGroup == null) {
                 return;
             }
-            this.d = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091deb);
-            q();
-            this.g = ql4Var.a();
+            this.d = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091df1);
+            r();
+            this.g = rl4Var.a();
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(pi.k(context), (int) (pi.i(this.b.get().getContext()) * 0.85d));
             layoutParams.addRule(14, -1);
             this.b.get().addView(this.c, layoutParams);
@@ -547,7 +580,7 @@ public class rl5 implements hm5 {
             }
             o = new c(this);
             if (n) {
-                t();
+                u();
                 n = false;
             } else {
                 zq6 m2 = zq6.m();
@@ -571,22 +604,22 @@ public class rl5 implements hm5 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "bear" : (String) invokeV.objValue;
     }
 
-    public final void q() {
+    public final void r() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.c != null && FunAdSplashClickRegionSwitch.isOpen()) {
-            ViewGroup viewGroup = (ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f091dea);
+            ViewGroup viewGroup = (ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f091df0);
             this.e = viewGroup;
-            ur4 d2 = ur4.d(this.e);
+            vr4 d2 = vr4.d(this.e);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0608);
-            ur4 d3 = ur4.d((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091ded));
+            vr4 d3 = vr4.d((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091df3));
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0101);
-            WebPManager.setPureDrawable((ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091dec), R.drawable.obfuscated_res_0x7f08091f, R.color.CAM_X0201, null);
+            WebPManager.setPureDrawable((ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091df2), R.drawable.obfuscated_res_0x7f08091f, R.color.CAM_X0201, null);
         }
     }
 
-    public final void r() {
+    public final void s() {
         WeakReference<ViewGroup> weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (weakReference = this.b) == null || weakReference.get().getParent() == null) {
@@ -598,27 +631,27 @@ public class rl5 implements hm5 {
         this.b.get().setLayoutParams(layoutParams);
     }
 
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.b == null || !u() || this.f == AdLoadState.FORCESHOW) {
-            return;
-        }
-        r();
-        this.f = AdLoadState.FORCESHOW;
-        w();
-    }
-
     @Override // com.repackage.hm5
     public void show() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.b != null && this.f == AdLoadState.SUCCEED) {
-            r();
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.b != null && this.f == AdLoadState.SUCCEED) {
+            s();
             this.f = AdLoadState.SHOWED;
-            w();
+            y();
         }
     }
 
-    public final void t() {
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.b == null || !v() || this.f == AdLoadState.FORCESHOW) {
+            return;
+        }
+        s();
+        this.f = AdLoadState.FORCESHOW;
+        y();
+    }
+
+    public final void u() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || o == null || kk5.c().d(f()).isEmpty()) {
             return;
@@ -643,25 +676,38 @@ public class rl5 implements hm5 {
         kk5.c().b(f());
     }
 
-    public boolean u() {
+    public boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? zq6.m().w(m) : invokeV.booleanValue;
     }
 
-    public boolean w() {
+    public final void w() {
+        WeakReference<ViewGroup> weakReference;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (weakReference = this.b) == null || weakReference.get() == null) {
+            return;
+        }
+        if (pi.C()) {
+            this.b.get().removeView(this.c);
+        } else {
+            qg.a().post(new d(this));
+        }
+    }
+
+    public boolean y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             if (this.c != null && this.d != null) {
                 if (this.h == null) {
-                    this.h = new e(this);
+                    this.h = new f(this);
                 }
                 this.d.setOnHierarchyChangeListener(this.h);
                 if (this.b.get() != null) {
                     Context context = this.b.get().getContext();
                     if (context instanceof Activity) {
-                        mt4.a("homePage", -1L, 0, "logo_splash", 0, "", "bear show");
+                        nt4.a("homePage", -1L, 0, "logo_splash", 0, "", "bear show");
                         if (hm5.a) {
                             PrintStream printStream = System.out;
                             printStream.println("IAdSdkSplash BEAR ad showSplash: " + m);

@@ -101,13 +101,13 @@ public class ck6 extends an<b36, CardViewHolder<nx5>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, b36Var, cardViewHolder})) == null) {
-            if (cardViewHolder.c() == null) {
+            if (cardViewHolder.b() == null) {
                 return null;
             }
-            cardViewHolder.c().i(b36Var);
-            cardViewHolder.c().j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            cardViewHolder.c().u(new a(this));
-            return cardViewHolder.c().h();
+            cardViewHolder.b().i(b36Var);
+            cardViewHolder.b().j(this.i, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.b().u(new a(this));
+            return cardViewHolder.b().h();
         }
         return (View) invokeCommon.objValue;
     }

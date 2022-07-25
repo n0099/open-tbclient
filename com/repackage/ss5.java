@@ -74,7 +74,7 @@ public class ss5 extends an<mt5, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLive
             if (threadData != null) {
                 lo5.b().a(new StatisticItem("c12115").param("obj_id", mt5Var.b.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, StringUtils.isNull(threadData.getThreadAlaInfo().appId) ? "" : mt5Var.b.getThreadAlaInfo().appId));
             }
-            return alaGameFrsGameLiveDoubleViewHolder.b();
+            return alaGameFrsGameLiveDoubleViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

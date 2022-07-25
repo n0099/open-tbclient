@@ -44,7 +44,7 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100379 = 2131755897;
+    public static final int obfuscated_res_0x7f10037c = 2131755900;
     public transient /* synthetic */ FieldHolder $fh;
     public final Paint borderPaint;
     public final Paint clearPaint;
@@ -284,7 +284,7 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShapeableImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100379), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f10037c), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -312,14 +312,14 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
         this.destination = new RectF();
         this.maskRect = new RectF();
         this.maskPath = new Path();
-        TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040590, R.attr.obfuscated_res_0x7f040593, R.attr.obfuscated_res_0x7f0405d6, R.attr.obfuscated_res_0x7f0405d7}, i, obfuscated_res_0x7f100379);
+        TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040592, R.attr.obfuscated_res_0x7f040595, R.attr.obfuscated_res_0x7f0405d8, R.attr.obfuscated_res_0x7f0405d9}, i, obfuscated_res_0x7f10037c);
         this.strokeColor = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 2);
         this.strokeWidth = obtainStyledAttributes.getDimensionPixelSize(3, 0);
         Paint paint2 = new Paint();
         this.borderPaint = paint2;
         paint2.setStyle(Paint.Style.STROKE);
         this.borderPaint.setAntiAlias(true);
-        this.shapeAppearanceModel = ShapeAppearanceModel.builder(context2, attributeSet, i, obfuscated_res_0x7f100379).build();
+        this.shapeAppearanceModel = ShapeAppearanceModel.builder(context2, attributeSet, i, obfuscated_res_0x7f10037c).build();
         this.shadowDrawable = new MaterialShapeDrawable(this.shapeAppearanceModel);
         if (Build.VERSION.SDK_INT >= 21) {
             setOutlineProvider(new OutlineProvider(this));

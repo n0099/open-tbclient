@@ -1,18 +1,15 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
 /* loaded from: classes5.dex */
 public class bx2 {
     public static /* synthetic */ Interceptable $ic;
@@ -32,51 +29,99 @@ public class bx2 {
                 return;
             }
         }
-        a = rg1.a;
+        a = sg1.a;
     }
 
-    public static void a(@Nullable Bundle bundle, @NonNull Class<? extends hw2> cls) {
+    public static void a(Message message) {
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, bundle, cls) == null) {
-            Iterator<gx2> it = ix2.k().q().iterator();
-            while (it.hasNext()) {
-                gx2 next = it.next();
-                if (next != null && next.T()) {
-                    b(next.b, bundle, cls, null);
-                }
-            }
-        }
-    }
-
-    public static void b(SwanAppProcessInfo swanAppProcessInfo, @Nullable Bundle bundle, @NonNull Class<? extends hw2> cls, @Nullable ow2 ow2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, null, swanAppProcessInfo, bundle, cls, ow2Var) == null) {
+        if (interceptable == null || interceptable.invokeL(65537, null, message) == null) {
             if (a) {
-                Log.d("SwanAppMessageChannel", "sendMessageToClient: delegation: " + cls.getName());
+                Log.e("ChannelMsgProcessor", "MSG_TYPE_CS_DELEGATION");
             }
-            Message obtain = Message.obtain((Handler) null, 125);
-            obtain.replyTo = ix2.k().d;
-            Bundle bundle2 = new Bundle();
-            bundle2.putString("ai_apps_delegation_name", cls.getName());
-            if (ow2Var != null) {
-                bundle2.putString("ai_apps_observer_id", ow2Var.b());
-                lw2.b().e(ow2Var);
+            int i = message.arg1;
+            Bundle bundle2 = (Bundle) message.obj;
+            String str = "";
+            String str2 = null;
+            if (bundle2 != null) {
+                str2 = bundle2.getString("ai_apps_delegation_name", null);
+                str = bundle2.getString("ai_apps_observer_id", "");
+                bundle = bundle2.getBundle("ai_apps_data");
+            } else {
+                bundle = null;
             }
-            if (bundle != null) {
-                bundle2.putBundle("ai_apps_data", bundle);
-            }
-            obtain.obj = bundle2;
-            xw2 e = xw2.e();
-            zw2 zw2Var = new zw2(obtain);
-            zw2Var.b(swanAppProcessInfo);
-            e.h(zw2Var);
+            jw2.a(i, str2, str, bundle);
         }
     }
 
-    public static void c(@Nullable Bundle bundle, @NonNull Class<? extends hw2> cls, @Nullable ow2 ow2Var) {
+    public static void b(Message message) {
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, bundle, cls, ow2Var) == null) {
-            cx2.Q().X(bundle, cls, ow2Var);
+        if (interceptable == null || interceptable.invokeL(65538, null, message) == null) {
+            Bundle bundle2 = (Bundle) message.obj;
+            String str = "";
+            String str2 = null;
+            if (bundle2 != null) {
+                str2 = bundle2.getString("ai_apps_delegation_name", null);
+                str = bundle2.getString("ai_apps_observer_id", "");
+                bundle = bundle2.getBundle("ai_apps_data");
+            } else {
+                bundle = null;
+            }
+            jw2.a(-1000, str2, str, bundle);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void c(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, message) == null) {
+            Object obj = message.obj;
+            if (!(obj instanceof Bundle)) {
+                if (a) {
+                    throw new RuntimeException("delegation msg obj is not a bundle");
+                }
+                return;
+            }
+            Bundle bundle = (Bundle) obj;
+            lw2 lw2Var = new lw2(bundle.getString("key_observer_id", ""));
+            lw2Var.setResult(bundle.getBundle("key_result_data"));
+            mw2.b().c(lw2Var);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void d(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, message) == null) {
+            Object obj = message.obj;
+            if (!(obj instanceof Bundle)) {
+                if (a) {
+                    throw new RuntimeException("delegation msg obj is not a bundle");
+                }
+                return;
+            }
+            Bundle bundle = (Bundle) obj;
+            lw2 lw2Var = new lw2(bundle.getString("key_observer_id", ""));
+            lw2Var.setResult(bundle.getBundle("key_result_data"));
+            mw2.b().c(lw2Var);
+        }
+    }
+
+    public static void e(int i, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, bundle) == null) {
+            yw2 e = yw2.e();
+            ax2 ax2Var = new ax2(126, bundle);
+            ax2Var.a(i);
+            e.h(ax2Var);
+        }
+    }
+
+    public static void f(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, bundle) == null) {
+            yw2.e().h(new ax2(21, bundle));
         }
     }
 }

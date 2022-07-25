@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.x35;
+import com.repackage.y35;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class CommonTabHorizonScrollView extends HorizontalScrollView {
@@ -26,7 +26,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
     public transient /* synthetic */ FieldHolder $fh;
     public DeskLinearLayout a;
     public int b;
-    public List<x35> c;
+    public List<y35> c;
     public CommonTabWidgetView.b d;
     public LinearLayout.LayoutParams e;
     public int f;
@@ -102,7 +102,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         d();
     }
 
-    public void b(x35.b bVar) {
+    public void b(y35.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             c(bVar);
@@ -110,7 +110,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         }
     }
 
-    public final TbImageView c(x35.b bVar) {
+    public final TbImageView c(y35.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
@@ -146,10 +146,10 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
             this.a.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
             this.a.setBaselineAligned(false);
             addView(this.a);
-            this.f = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070304);
-            this.g = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070232);
-            this.a.setPadding(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070232), 0, 0);
-            this.e = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070235), -1);
+            this.f = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070302);
+            this.g = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070230);
+            this.a.setPadding(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070230), 0, 0);
+            this.e = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070232), -1);
             this.i = new View(getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1);
             layoutParams.weight = 1.0f;
@@ -219,7 +219,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         SkinManager.setImageResource((TbImageView) linearLayout2.getChildAt(0), this.c.get(this.b).f().a);
     }
 
-    public void setDatas(List<x35> list) {
+    public void setDatas(List<y35> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.c = list;

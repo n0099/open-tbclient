@@ -1,6 +1,7 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
 import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -99,7 +100,7 @@ public class GetUserCouponStoreResponse implements IBaseJsonResponse {
                         this.uid = jSONObject.optLong("uid");
                         this.seq = jSONObject.optString("seq");
                         this.appId = jSONObject.optInt(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                        this.result = jSONObject.optInt("result");
+                        this.result = jSONObject.optInt(TiebaStatic.LogFields.RESULT);
                         this.message = jSONObject.optString("message");
                         this.serverCurrentTime = jSONObject.optLong("serverCurrentTime");
                         this.userCouponStoreList.addAll(optUserCouponStore(jSONObject.optJSONArray("userCouponList")));

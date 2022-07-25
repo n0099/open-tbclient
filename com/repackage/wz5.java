@@ -71,12 +71,12 @@ public class wz5 {
 
         /* renamed from: com.repackage.wz5$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0768a implements ef {
+        public class C0616a implements ef {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0768a(a aVar) {
+            public C0616a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -208,7 +208,7 @@ public class wz5 {
                     gfVar.c(0);
                     gfVar.i(true);
                     gfVar.h(true);
-                    gfVar.a(new C0768a(this));
+                    gfVar.a(new C0616a(this));
                     this.a.b = gfVar.b();
                     this.a.b.k(false);
                     this.a.b.l(this.a.z);
@@ -304,7 +304,7 @@ public class wz5 {
         this.r = tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
         this.s = this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
         this.t = this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
-        this.u = this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070232);
+        this.u = this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070230);
     }
 
     public boolean H() {
@@ -345,7 +345,7 @@ public class wz5 {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.k) {
             return;
         }
-        xt4.k().w(this.g, this.j + 1);
+        yt4.k().w(this.g, this.j + 1);
     }
 
     public void L(int i) {
@@ -559,7 +559,7 @@ public class wz5 {
             this.f = str;
             this.g = str2;
             this.k = z2;
-            int l = xt4.k().l(str2, 0);
+            int l = yt4.k().l(str2, 0);
             this.j = l;
             if (l < this.l || this.k) {
                 if (z) {

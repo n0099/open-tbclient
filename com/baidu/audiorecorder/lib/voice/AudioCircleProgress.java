@@ -125,7 +125,7 @@ public class AudioCircleProgress extends View {
             this.j = new RectF();
             this.g = new Point();
             this.p = new ValueAnimator();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040092, R.attr.obfuscated_res_0x7f040093, R.attr.obfuscated_res_0x7f0400d3, R.attr.obfuscated_res_0x7f040447, R.attr.obfuscated_res_0x7f04058f, R.attr.obfuscated_res_0x7f0405c6, R.attr.obfuscated_res_0x7f0405ed});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040092, R.attr.obfuscated_res_0x7f040093, R.attr.obfuscated_res_0x7f0400d3, R.attr.obfuscated_res_0x7f040447, R.attr.obfuscated_res_0x7f040591, R.attr.obfuscated_res_0x7f0405c8, R.attr.obfuscated_res_0x7f0405ef});
             this.b = obtainStyledAttributes.getColor(0, SkinManager.getColor(R.color.CAM_X0302));
             this.e = obtainStyledAttributes.getColor(2, 0);
             this.c = obtainStyledAttributes.getDimension(1, 15.0f);

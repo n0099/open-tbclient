@@ -23,22 +23,22 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 /* loaded from: classes5.dex */
 public final class i extends com.kwad.components.ad.interstitial.b.b {
     public static /* synthetic */ Interceptable $ic = null;
-    public static int f = 4;
+    public static int hE = 4;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-    public AdInfo b;
-    public AdTemplate c;
-    public a d;
-    public b e;
+    public c gh;
+    public a hC;
+    public b hD;
+    public AdInfo mAdInfo;
+    public AdTemplate mAdTemplate;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ImageView a;
-        public TextView b;
-        public TextView c;
-        public KsPriceView d;
+        public ImageView hF;
+        public TextView hG;
+        public TextView hH;
+        public KsPriceView hI;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -59,12 +59,12 @@ public final class i extends com.kwad.components.ad.interstitial.b.b {
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public CharSequence c;
-        public String d;
-        public String e;
-        public String f;
+        public String appIconUrl;
+        public String hJ;
+        public CharSequence hK;
+        public String hL;
+        public String hM;
+        public String price;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -80,82 +80,82 @@ public final class i extends com.kwad.components.ad.interstitial.b.b {
             }
         }
 
-        public final String a() {
-            InterceptResult invokeV;
+        public final void A(String str) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.hM = str;
+            }
         }
 
         public final void a(CharSequence charSequence) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
-                this.c = charSequence;
+                this.hK = charSequence;
             }
         }
 
-        public final void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.a = str;
-            }
-        }
-
-        public final String b() {
+        public final CharSequence dA() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.hK : (CharSequence) invokeV.objValue;
         }
 
-        public final void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.b = str;
-            }
-        }
-
-        public final CharSequence c() {
+        public final String dB() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (CharSequence) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.hL : (String) invokeV.objValue;
         }
 
-        public final void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-                this.d = str;
-            }
-        }
-
-        public final String d() {
+        public final String dC() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.hM : (String) invokeV.objValue;
         }
 
-        public final void d(String str) {
+        public final String dz() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.hJ : (String) invokeV.objValue;
+        }
+
+        public final String getAppIconUrl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.appIconUrl : (String) invokeV.objValue;
+        }
+
+        public final String getPrice() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.price : (String) invokeV.objValue;
+        }
+
+        public final void w(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-                this.e = str;
+                this.appIconUrl = str;
             }
         }
 
-        public final String e() {
-            InterceptResult invokeV;
+        public final void x(String str) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.e : (String) invokeV.objValue;
+            if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+                this.hJ = str;
+            }
         }
 
-        public final void e(String str) {
+        public final void y(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-                this.f = str;
+                this.hL = str;
             }
         }
 
-        public final String f() {
-            InterceptResult invokeV;
+        public final void z(String str) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f : (String) invokeV.objValue;
+            if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+                this.price = str;
+            }
         }
     }
 
@@ -187,104 +187,43 @@ public final class i extends com.kwad.components.ad.interstitial.b.b {
                 return;
             }
         }
-        this.d = new a();
-        this.e = new b();
+        this.hC = new a();
+        this.hD = new b();
     }
 
     private void a(a aVar, b bVar, AdInfo adInfo, AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65538, this, aVar, bVar, adInfo, adTemplate) == null) {
-            ImageView imageView = aVar.a;
-            if (TextUtils.isEmpty(bVar.a())) {
+            ImageView imageView = aVar.hF;
+            if (TextUtils.isEmpty(bVar.getAppIconUrl())) {
                 imageView.setVisibility(8);
             } else {
                 imageView.setVisibility(0);
-                if (com.kwad.sdk.core.response.a.a.aT(adInfo)) {
-                    KSImageLoader.loadCircleIcon(imageView, bVar.a(), u().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bc0));
+                if (com.kwad.sdk.core.response.a.a.bD(adInfo)) {
+                    KSImageLoader.loadCircleIcon(imageView, bVar.getAppIconUrl(), getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bc0));
                 } else {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f080bc0);
-                    KSImageLoader.loadWithRadius(imageView, bVar.a(), adTemplate, f);
+                    KSImageLoader.loadWithRadius(imageView, bVar.getAppIconUrl(), adTemplate, hE);
                 }
             }
-            aVar.b.setText(bVar.b());
-            if (com.kwad.components.ad.interstitial.kwai.b.b(adInfo)) {
-                aVar.d.a(bVar.e(), bVar.d(), true);
-                aVar.d.setVisibility(0);
-                aVar.c.setVisibility(8);
-                g();
+            aVar.hG.setText(bVar.dz());
+            if (com.kwad.components.ad.interstitial.kwai.b.c(adInfo)) {
+                aVar.hI.d(bVar.getPrice(), bVar.dB(), true);
+                aVar.hI.setVisibility(0);
+                aVar.hH.setVisibility(8);
+                dy();
             } else {
-                aVar.c.setText(bVar.c());
+                aVar.hH.setText(bVar.dA());
             }
-            this.a.e.a(bVar.f(), 0);
+            this.gh.gj.g(bVar.dC(), 0);
         }
     }
 
-    private void a(AdInfo adInfo) {
-        b bVar;
-        String string;
-        b bVar2;
-        String string2;
+    private void dy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, adInfo) == null) {
-            if (com.kwad.sdk.core.response.a.a.aT(adInfo)) {
-                this.e.a(com.kwad.sdk.core.response.a.a.aZ(adInfo));
-                this.e.b(com.kwad.sdk.core.response.a.a.aD(adInfo));
-                CharSequence a2 = com.kwad.sdk.core.response.a.a.a(adInfo, com.kwad.components.core.widget.f.a);
-                if (TextUtils.isEmpty(a2)) {
-                    a2 = com.kwad.sdk.core.response.a.a.aX(adInfo);
-                }
-                this.e.a(a2);
-                if (com.kwad.sdk.core.response.a.a.aU(adInfo)) {
-                    this.e.e(com.kwad.components.ad.c.b.a());
-                } else {
-                    this.e.e(com.kwad.components.ad.c.b.d());
-                }
-            } else if (com.kwad.components.ad.interstitial.kwai.b.b(adInfo)) {
-                AdProductInfo bd = com.kwad.sdk.core.response.a.a.bd(adInfo);
-                this.e.a(bd.icon);
-                this.e.b(bd.name);
-                this.e.c(bd.originPrice);
-                this.e.d(bd.price);
-                this.e.e(com.kwad.components.ad.c.b.b());
-            } else if (com.kwad.sdk.core.response.a.a.I(adInfo)) {
-                this.e.a(com.kwad.sdk.core.response.a.a.aE(adInfo));
-                if (!TextUtils.isEmpty(com.kwad.sdk.core.response.a.a.A(adInfo))) {
-                    bVar2 = this.e;
-                    string2 = com.kwad.sdk.core.response.a.a.A(adInfo);
-                } else if (TextUtils.isEmpty(adInfo.advertiserInfo.adAuthorText)) {
-                    bVar2 = this.e;
-                    string2 = u().getString(R.string.obfuscated_res_0x7f0f09a0);
-                } else {
-                    bVar2 = this.e;
-                    string2 = adInfo.advertiserInfo.adAuthorText;
-                }
-                bVar2.b(string2);
-                this.e.a((CharSequence) com.kwad.sdk.core.response.a.a.z(adInfo));
-                this.e.e(com.kwad.sdk.core.response.a.a.H(adInfo));
-            } else {
-                this.e.a(com.kwad.sdk.core.response.a.a.aE(adInfo));
-                if (!TextUtils.isEmpty(com.kwad.sdk.core.response.a.a.B(adInfo))) {
-                    bVar = this.e;
-                    string = com.kwad.sdk.core.response.a.a.B(adInfo);
-                } else if (TextUtils.isEmpty(adInfo.advertiserInfo.adAuthorText)) {
-                    bVar = this.e;
-                    string = u().getString(R.string.obfuscated_res_0x7f0f09a0);
-                } else {
-                    bVar = this.e;
-                    string = adInfo.advertiserInfo.adAuthorText;
-                }
-                bVar.b(string);
-                this.e.a((CharSequence) com.kwad.sdk.core.response.a.a.z(adInfo));
-                this.e.e(com.kwad.sdk.core.response.a.a.H(adInfo));
-            }
-        }
-    }
-
-    private void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            View findViewById = this.a.e.findViewById(R.id.obfuscated_res_0x7f090fdb);
-            View findViewById2 = this.a.e.findViewById(R.id.obfuscated_res_0x7f09119d);
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            View findViewById = this.gh.gj.findViewById(R.id.obfuscated_res_0x7f090fd2);
+            View findViewById2 = this.gh.gj.findViewById(R.id.obfuscated_res_0x7f091178);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) findViewById.getLayoutParams();
             layoutParams.weight = 2.68f;
             findViewById.setLayoutParams(layoutParams);
@@ -292,38 +231,99 @@ public final class i extends com.kwad.components.ad.interstitial.b.b {
         }
     }
 
-    @Override // com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    private void e(AdInfo adInfo) {
+        b bVar;
+        String string;
+        b bVar2;
+        String string2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, adInfo) == null) {
+            if (com.kwad.sdk.core.response.a.a.bD(adInfo)) {
+                this.hD.w(com.kwad.sdk.core.response.a.a.bI(adInfo));
+                this.hD.x(com.kwad.sdk.core.response.a.a.bm(adInfo));
+                CharSequence e = com.kwad.sdk.core.response.a.a.e(adInfo, com.kwad.components.core.widget.f.PD);
+                if (TextUtils.isEmpty(e)) {
+                    e = com.kwad.sdk.core.response.a.a.bH(adInfo);
+                }
+                this.hD.a(e);
+                if (com.kwad.sdk.core.response.a.a.bE(adInfo)) {
+                    this.hD.A(com.kwad.components.ad.c.b.ah());
+                } else {
+                    this.hD.A(com.kwad.components.ad.c.b.ak());
+                }
+            } else if (com.kwad.components.ad.interstitial.kwai.b.c(adInfo)) {
+                AdProductInfo bN = com.kwad.sdk.core.response.a.a.bN(adInfo);
+                this.hD.w(bN.icon);
+                this.hD.x(bN.name);
+                this.hD.y(bN.originPrice);
+                this.hD.z(bN.price);
+                this.hD.A(com.kwad.components.ad.c.b.ai());
+            } else if (com.kwad.sdk.core.response.a.a.am(adInfo)) {
+                this.hD.w(com.kwad.sdk.core.response.a.a.bn(adInfo));
+                if (!TextUtils.isEmpty(com.kwad.sdk.core.response.a.a.ae(adInfo))) {
+                    bVar2 = this.hD;
+                    string2 = com.kwad.sdk.core.response.a.a.ae(adInfo);
+                } else if (TextUtils.isEmpty(adInfo.advertiserInfo.adAuthorText)) {
+                    bVar2 = this.hD;
+                    string2 = getContext().getString(R.string.obfuscated_res_0x7f0f098b);
+                } else {
+                    bVar2 = this.hD;
+                    string2 = adInfo.advertiserInfo.adAuthorText;
+                }
+                bVar2.x(string2);
+                this.hD.a(com.kwad.sdk.core.response.a.a.ad(adInfo));
+                this.hD.A(com.kwad.sdk.core.response.a.a.al(adInfo));
+            } else {
+                this.hD.w(com.kwad.sdk.core.response.a.a.bn(adInfo));
+                if (!TextUtils.isEmpty(com.kwad.sdk.core.response.a.a.af(adInfo))) {
+                    bVar = this.hD;
+                    string = com.kwad.sdk.core.response.a.a.af(adInfo);
+                } else if (TextUtils.isEmpty(adInfo.advertiserInfo.adAuthorText)) {
+                    bVar = this.hD;
+                    string = getContext().getString(R.string.obfuscated_res_0x7f0f098b);
+                } else {
+                    bVar = this.hD;
+                    string = adInfo.advertiserInfo.adAuthorText;
+                }
+                bVar.x(string);
+                this.hD.a(com.kwad.sdk.core.response.a.a.ad(adInfo));
+                this.hD.A(com.kwad.sdk.core.response.a.a.al(adInfo));
+            }
+        }
+    }
+
+    @Override // com.kwad.components.ad.interstitial.b.b, com.kwad.sdk.mvp.Presenter
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            c cVar = (c) t();
-            this.a = cVar;
-            AdTemplate adTemplate = cVar.a;
-            this.c = adTemplate;
-            this.b = com.kwad.sdk.core.response.a.d.i(adTemplate);
-            this.d.a = (ImageView) this.a.e.findViewById(R.id.obfuscated_res_0x7f090ff5);
-            this.d.b = (TextView) this.a.e.findViewById(R.id.obfuscated_res_0x7f090ff9);
-            this.d.c = (TextView) this.a.e.findViewById(R.id.obfuscated_res_0x7f090ff1);
-            this.d.d = (KsPriceView) this.a.e.findViewById(R.id.obfuscated_res_0x7f0910cc);
-            a(this.b);
-            a(this.d, this.e, this.b, this.c);
+            super.aq();
+            c cVar = (c) xR();
+            this.gh = cVar;
+            AdTemplate adTemplate = cVar.mAdTemplate;
+            this.mAdTemplate = adTemplate;
+            this.mAdInfo = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
+            this.hC.hF = (ImageView) this.gh.gj.findViewById(R.id.obfuscated_res_0x7f090fec);
+            this.hC.hG = (TextView) this.gh.gj.findViewById(R.id.obfuscated_res_0x7f090ff0);
+            this.hC.hH = (TextView) this.gh.gj.findViewById(R.id.obfuscated_res_0x7f090fe8);
+            this.hC.hI = (KsPriceView) this.gh.gj.findViewById(R.id.obfuscated_res_0x7f0910c3);
+            e(this.mAdInfo);
+            a(this.hC, this.hD, this.mAdInfo, this.mAdTemplate);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void i_() {
+    public final void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.i_();
+            super.onCreate();
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void k_() {
+    public final void onUnbind() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.k_();
+            super.onUnbind();
         }
     }
 }

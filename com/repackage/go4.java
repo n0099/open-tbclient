@@ -1,22 +1,20 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.app.NotificationCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
+import tbclient.BookThread;
 /* loaded from: classes6.dex */
 public class go4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
+    public String a;
+    public long b;
 
     public go4() {
         Interceptable interceptable = $ic;
@@ -32,48 +30,27 @@ public class go4 {
         }
     }
 
-    public void a(String str) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                b(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public final void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
-            jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH);
-            JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
-            if (optJSONObject != null) {
-                this.c = optJSONObject.optInt("num");
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
-            if (optJSONObject2 != null) {
-                this.b = optJSONObject2.optInt("time");
-                this.a = optJSONObject2.optInt("num");
-            }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
-            if (optJSONObject3 != null) {
-                optJSONObject3.optInt("succ");
-                optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                optJSONObject3.optInt("slow");
-            }
-            if (this.b <= 0 || this.a <= 0) {
-                return;
-            }
-            int i = this.c;
+            this.a = jSONObject.optString("book_id", "0");
+            this.b = jSONObject.optLong(MangaBrowserActivityConfig.CHAPTER_ID, 0L);
+            jSONObject.optInt("book_type", 0);
         } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            BdLog.e(e.toString());
         }
+    }
+
+    public void b(BookThread bookThread) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bookThread) == null) || bookThread == null) {
+            return;
+        }
+        this.a = bookThread.book_id;
+        this.b = bookThread.chapter_id.longValue();
+        bookThread.book_type.intValue();
     }
 }

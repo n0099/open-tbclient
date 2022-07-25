@@ -26,70 +26,70 @@ public class h implements g {
     }
 
     @Override // com.kwad.components.core.video.g
-    public void a() {
+    public void onVideoPlayBufferingPaused() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
     @Override // com.kwad.components.core.video.g
-    public void a(int i, int i2) {
+    public void onVideoPlayBufferingPlaying() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
     @Override // com.kwad.components.core.video.g
-    public void a(long j, long j2) {
+    public void onVideoPlayCompleted() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
     @Override // com.kwad.components.core.video.g
-    public void b() {
+    public void onVideoPlayError(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
         }
     }
 
     @Override // com.kwad.components.core.video.g
-    public void c() {
+    public void onVideoPlayPaused() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
     @Override // com.kwad.components.core.video.g
-    public void d() {
+    public void onVideoPlayProgress(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
         }
     }
 
     @Override // com.kwad.components.core.video.g
-    public void e() {
+    public void onVideoPlayStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
     @Override // com.kwad.components.core.video.g
-    public void f() {
+    public void onVideoPlaying() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 
     @Override // com.kwad.components.core.video.g
-    public void g() {
+    public void onVideoPrepared() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
     @Override // com.kwad.components.core.video.g
-    public void h() {
+    public void onVideoPreparing() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
         }

@@ -31,7 +31,7 @@ import com.repackage.g47;
 import com.repackage.lx7;
 import com.repackage.oi;
 import com.repackage.pi;
-import com.repackage.ur4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class MsgrightView extends g47 {
     public static /* synthetic */ Interceptable $ic = null;
@@ -175,7 +175,7 @@ public class MsgrightView extends g47 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext, lx7 lx7Var) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d055f);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0569);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -195,17 +195,17 @@ public class MsgrightView extends g47 {
         this.L = null;
         this.L = lx7Var;
         o();
-        this.E = (TextView) a(R.id.obfuscated_res_0x7f090e93);
-        this.C = (ProgressBar) a(R.id.obfuscated_res_0x7f0919c7);
+        this.E = (TextView) a(R.id.obfuscated_res_0x7f090e8c);
+        this.C = (ProgressBar) a(R.id.obfuscated_res_0x7f0919a2);
         this.D = (ImageView) a(R.id.obfuscated_res_0x7f090421);
-        this.F = (HeadImageView) a(R.id.obfuscated_res_0x7f090e92);
-        this.J = (CenterTextView) a(R.id.obfuscated_res_0x7f092258);
-        this.K = (RelativeLayout) a(R.id.obfuscated_res_0x7f091b4e);
-        this.G = (FrameLayout) a(R.id.obfuscated_res_0x7f09147c);
-        ur4 d = ur4.d(this.K);
+        this.F = (HeadImageView) a(R.id.obfuscated_res_0x7f090e8b);
+        this.J = (CenterTextView) a(R.id.obfuscated_res_0x7f09225a);
+        this.K = (RelativeLayout) a(R.id.obfuscated_res_0x7f091b28);
+        this.G = (FrameLayout) a(R.id.obfuscated_res_0x7f091458);
+        vr4 d = vr4.d(this.K);
         d.n(R.string.J_X05);
         d.f(R.color.CAM_X0603);
-        ur4 d2 = ur4.d(this.J);
+        vr4 d2 = vr4.d(this.J);
         d2.z(R.dimen.T_X09);
         d2.A(R.string.F_X01);
         d2.v(R.color.CAM_X0101);
@@ -214,8 +214,8 @@ public class MsgrightView extends g47 {
         this.F.setRadius(pi.d(this.mContext.getContext(), 4.0f));
         this.F.setPlaceHolder(1);
         this.F.setOnClickListener(new a(this));
-        this.H = (TextView) a(R.id.obfuscated_res_0x7f090cca);
-        this.I = (TextView) a(R.id.obfuscated_res_0x7f090ccb);
+        this.H = (TextView) a(R.id.obfuscated_res_0x7f090cc3);
+        this.I = (TextView) a(R.id.obfuscated_res_0x7f090cc4);
         this.n.setIsLeft(false);
         this.o.setIsLeft(false);
     }
@@ -283,7 +283,7 @@ public class MsgrightView extends g47 {
             try {
                 I(chatMessage);
                 P(chatMessage);
-                this.F.setDefaultResource(R.drawable.obfuscated_res_0x7f080e7b);
+                this.F.setDefaultResource(R.drawable.obfuscated_res_0x7f080e82);
                 if (chatMessage.getUserInfo() != null) {
                     this.F.setUserId(chatMessage.getUserInfo().getUserId());
                     String currentAvatar = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAvatar() : null;
@@ -299,7 +299,7 @@ public class MsgrightView extends g47 {
                     this.F.setVisibility(8);
                     RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
                     layoutParams2.addRule(11);
-                    layoutParams2.addRule(3, R.id.obfuscated_res_0x7f091471);
+                    layoutParams2.addRule(3, R.id.obfuscated_res_0x7f09144d);
                     layoutParams2.rightMargin = SelectorHelper.getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X006);
                     layoutParams2.topMargin = SelectorHelper.getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X002);
                     layoutParams2.bottomMargin = SelectorHelper.getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X004);
@@ -319,7 +319,7 @@ public class MsgrightView extends g47 {
                         case 2:
                             this.D.setVisibility(0);
                             this.K.setVisibility(0);
-                            this.J.setText(R.string.obfuscated_res_0x7f0f0abe);
+                            this.J.setText(R.string.obfuscated_res_0x7f0f0aaa);
                             break;
                         case 3:
                             this.C.setVisibility(8);
@@ -338,33 +338,33 @@ public class MsgrightView extends g47 {
                         case 4:
                             this.D.setVisibility(0);
                             this.K.setVisibility(0);
-                            this.J.setText(R.string.obfuscated_res_0x7f0f0ac0);
+                            this.J.setText(R.string.obfuscated_res_0x7f0f0aac);
                             break;
                         case 5:
                             this.D.setVisibility(0);
                             this.K.setVisibility(0);
-                            this.J.setText(R.string.obfuscated_res_0x7f0f0ac1);
+                            this.J.setText(R.string.obfuscated_res_0x7f0f0aad);
                             break;
                         case 6:
                             this.D.setVisibility(0);
                             this.K.setVisibility(0);
-                            this.J.setText(R.string.obfuscated_res_0x7f0f0abf);
+                            this.J.setText(R.string.obfuscated_res_0x7f0f0aab);
                             break;
                         case 7:
                             this.D.setVisibility(0);
                             this.K.setVisibility(0);
-                            this.J.setText(R.string.obfuscated_res_0x7f0f0abd);
+                            this.J.setText(R.string.obfuscated_res_0x7f0f0aa9);
                             break;
                         case 8:
                             this.D.setVisibility(0);
                             this.K.setVisibility(0);
-                            this.J.setText(R.string.obfuscated_res_0x7f0f0abc);
+                            this.J.setText(R.string.obfuscated_res_0x7f0f0aa8);
                             break;
                         case 9:
                             this.D.setVisibility(0);
                             this.K.setVisibility(0);
                             if (oi.isEmpty(chatMessage.getLocalData().getErrorString())) {
-                                this.J.setText(R.string.obfuscated_res_0x7f0f0abe);
+                                this.J.setText(R.string.obfuscated_res_0x7f0f0aaa);
                                 break;
                             } else {
                                 e67 f = e67.f(this.J.getContext());

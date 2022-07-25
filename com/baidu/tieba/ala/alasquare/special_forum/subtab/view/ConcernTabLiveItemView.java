@@ -84,9 +84,9 @@ public class ConcernTabLiveItemView extends jx5<nr5> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0909dc && (view2.getTag() instanceof UserData)) {
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0909d5 && (view2.getTag() instanceof UserData)) {
                     if (!pi.D()) {
-                        this.a.k.j.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                        this.a.k.j.showToast(R.string.obfuscated_res_0x7f0f0c17);
                         return;
                     }
                     UserData userData = (UserData) view2.getTag();
@@ -121,21 +121,21 @@ public class ConcernTabLiveItemView extends jx5<nr5> {
             this.a = concernTabLiveItemView2;
             View h = concernTabLiveItemView2.h();
             this.b = h;
-            TbImageView tbImageView = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f0919e6);
+            TbImageView tbImageView = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f0919c0);
             this.c = tbImageView;
             tbImageView.setDefaultResource(R.drawable.icon_default_avatar100_bg);
             this.c.setIsRound(true);
             this.c.setAutoChangeStyle(false);
             this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091336);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09133d);
-            this.i = this.b.findViewById(R.id.obfuscated_res_0x7f09076d);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091312);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091319);
+            this.i = this.b.findViewById(R.id.obfuscated_res_0x7f09076c);
             Drawable drawable = SkinManager.getDrawable(concernTabLiveItemView.c.getResources(), (int) R.drawable.icon_living_seeding);
             drawable.setBounds(0, 0, concernTabLiveItemView.c.getResources().getDimensionPixelOffset(R.dimen.tbds8), concernTabLiveItemView.c.getResources().getDimensionPixelOffset(R.dimen.tbds8));
             this.e.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09232d);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909dc);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909e7);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09232f);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909d5);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909e0);
             this.g.setOnClickListener(this.j);
         }
     }
@@ -177,7 +177,7 @@ public class ConcernTabLiveItemView extends jx5<nr5> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0788 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0792 : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5

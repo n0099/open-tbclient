@@ -39,10 +39,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.id5;
+import com.repackage.jd5;
 import com.repackage.o37;
-import com.repackage.p55;
 import com.repackage.q55;
+import com.repackage.r55;
 import com.repackage.se5;
 import com.repackage.wh8;
 import com.repackage.yc6;
@@ -77,7 +77,7 @@ public class HotTopicStatic {
             String lowerCase;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
-                if (strArr == null || strArr.length == 0 || strArr[0] == null || tbPageContext == null || (lowerCase = strArr[0].toLowerCase()) == null || id5.c(tbPageContext, false, true) || !(lowerCase.startsWith("https://tieba.baidu.com/mo/q/hotmessage?topic_id=") || lowerCase.startsWith("https://tieba.baidu.com/mo/q/newhotmessage?") || lowerCase.startsWith("https://tieba.baidu.com/mo/q/hotmessage?topic_id=") || lowerCase.startsWith("https://tieba.baidu.com/mo/q/newhotmessage?"))) {
+                if (strArr == null || strArr.length == 0 || strArr[0] == null || tbPageContext == null || (lowerCase = strArr[0].toLowerCase()) == null || jd5.c(tbPageContext, false, true) || !(lowerCase.startsWith("https://tieba.baidu.com/mo/q/hotmessage?topic_id=") || lowerCase.startsWith("https://tieba.baidu.com/mo/q/newhotmessage?") || lowerCase.startsWith("https://tieba.baidu.com/mo/q/hotmessage?topic_id=") || lowerCase.startsWith("https://tieba.baidu.com/mo/q/newhotmessage?"))) {
                     return 3;
                 }
                 String c = se5.c(lowerCase, "topic_id=");
@@ -198,7 +198,7 @@ public class HotTopicStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes3.dex */
-        public class a extends p55 {
+        public class a extends q55 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ yc6 c;
@@ -221,8 +221,8 @@ public class HotTopicStatic {
                 this.c = yc6Var;
             }
 
-            @Override // com.repackage.p55
-            public q55 a() {
+            @Override // com.repackage.q55
+            public r55 a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -231,16 +231,16 @@ public class HotTopicStatic {
                     bundle.putString("fid", this.c.b());
                     bundle.putString("from", this.c.d());
                     frsHottopicFragment.setArguments(bundle);
-                    q55 q55Var = new q55();
-                    q55Var.a = frsHottopicFragment;
-                    q55Var.e = 401;
-                    q55Var.i = q55.k;
-                    return q55Var;
+                    r55 r55Var = new r55();
+                    r55Var.a = frsHottopicFragment;
+                    r55Var.e = 401;
+                    r55Var.i = r55.k;
+                    return r55Var;
                 }
-                return (q55) invokeV.objValue;
+                return (r55) invokeV.objValue;
             }
 
-            @Override // com.repackage.p55
+            @Override // com.repackage.q55
             public TbFragmentTabIndicator c(Context context) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
@@ -250,7 +250,7 @@ public class HotTopicStatic {
                 return (TbFragmentTabIndicator) invokeL.objValue;
             }
 
-            @Override // com.repackage.p55
+            @Override // com.repackage.q55
             public boolean d() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;

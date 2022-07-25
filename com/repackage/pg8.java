@@ -133,7 +133,7 @@ public class pg8 {
         }
         this.e = new a(this, Looper.getMainLooper());
         this.f = new b(this, 2005016);
-        this.b = xt4.k().l("card_show_statistic_max_count", 200);
+        this.b = yt4.k().l("card_show_statistic_max_count", 200);
         this.a = new og8();
         MessageManager.getInstance().registerListener(this.f);
     }

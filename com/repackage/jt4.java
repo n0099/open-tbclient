@@ -1,74 +1,116 @@
 package com.repackage;
 
-import android.net.Uri;
-import com.baidu.adp.framework.MessageManager;
+import android.text.TextUtils;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jt4 extends bt4 {
+public class jt4 extends ct4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zs4 c;
+    public at4 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jt4(zs4 zs4Var) {
-        super(zs4Var);
+    public jt4(at4 at4Var) {
+        super(at4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zs4Var};
+            Object[] objArr = {at4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((zs4) newInitContext.callArgs[0]);
+                super((at4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = zs4Var;
+        this.c = at4Var;
     }
 
-    @Override // com.repackage.bt4
+    @Override // com.repackage.ct4
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_SHOW_SHARE_DIALOG" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_Image" : (String) invokeV.objValue;
     }
 
-    @ct4(isAsync = false, value = "showShareDialog")
-    public void showShareDialog(JSONObject jSONObject) throws JSONException {
+    @dt4(isAsync = false, value = "scanBigImages")
+    public void sanBigImages(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        String optString = jSONObject.optString("title");
-        String optString2 = jSONObject.optString("content");
-        String optString3 = jSONObject.optString("imgUrl");
-        String optString4 = jSONObject.optString("shareUrl");
-        ShareItem shareItem = new ShareItem();
-        shareItem.u = optString;
-        shareItem.v = optString2;
-        if (optString3 == null) {
-            shareItem.y = null;
-        } else {
-            shareItem.y = Uri.parse(optString3);
+        JSONArray optJSONArray = jSONObject.optJSONArray("imageUrls");
+        int optInt = jSONObject.optInt("clickIndex");
+        int length = optJSONArray.length();
+        ArrayList<String> arrayList = new ArrayList<>();
+        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = new ConcurrentHashMap<>();
+        for (int i = 0; i < length; i++) {
+            JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+            if (jSONObject2 != null) {
+                String string = jSONObject2.getString("bigImageUrl");
+                String string2 = jSONObject2.getString("originImageUrl");
+                if (!TextUtils.isEmpty(string)) {
+                    arrayList.add(string);
+                    if (!TextUtils.isEmpty(string2)) {
+                        ImageUrlData imageUrlData = new ImageUrlData();
+                        imageUrlData.imageUrl = string;
+                        imageUrlData.originalUrl = string2;
+                        concurrentHashMap.put(string, imageUrlData);
+                    }
+                }
+            }
         }
-        shareItem.w = optString4;
-        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.c.getContext(), shareItem, true);
-        shareDialogConfig.setIsSupportNightMode(true);
-        shareDialogConfig.setIsCopyLink(true);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
+        ImageViewerConfig.Builder builder = new ImageViewerConfig.Builder();
+        builder.y(arrayList);
+        builder.C(optInt);
+        builder.D(true);
+        builder.K(arrayList.size() > 0 ? arrayList.get(0) : "");
+        builder.G(true);
+        builder.x(concurrentHashMap);
+        builder.I(true);
+        c(new CustomMessage(2010000, builder.w(this.c.getContext())));
+    }
+
+    @dt4("selectPhotos")
+    public void selectPhotos(JSONObject jSONObject) throws JSONException {
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
+            LinkedList<ImageFileInfo> linkedList = new LinkedList<>();
+            if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("selectPhotos")) != null && optJSONArray.length() > 0) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    ImageFileInfo imageFileInfo = new ImageFileInfo();
+                    imageFileInfo.setFilePath(((JSONObject) optJSONArray.get(i)).optString("filePath"));
+                    linkedList.add(imageFileInfo);
+                }
+            }
+            writeImagesInfo.setChosedFiles(linkedList);
+            writeImagesInfo.setMaxImagesAllowed(9);
+            AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(getContext(), writeImagesInfo.toJsonString(), true, true);
+            albumActivityConfig.getIntent().putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, 5);
+            albumActivityConfig.setRequestCode(12015);
+            c(new CustomMessage(2002001, albumActivityConfig));
+        }
     }
 }

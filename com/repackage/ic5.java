@@ -1,16 +1,17 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
+import android.util.SparseArray;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pb5;
-import com.repackage.qb5;
 /* loaded from: classes6.dex */
-public abstract class ic5<Q extends pb5, P extends qb5> extends hc5 implements lc5<P> {
+public abstract class ic5 implements nc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
     public ic5() {
         Interceptable interceptable = $ic;
@@ -22,19 +23,38 @@ public abstract class ic5<Q extends pb5, P extends qb5> extends hc5 implements l
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = false;
+        new SparseArray();
+    }
+
+    public void b(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            c(view2, false);
         }
     }
 
-    public abstract void e();
+    public void c(View view2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) || view2 == null || getView() == null) {
+            return;
+        }
+        View view3 = getView();
+        if (view3.getParent() != null) {
+            return;
+        }
+        i55.b(view2, this.a).a(view2, view3, z);
+        d();
+    }
 
-    public abstract void f();
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
 
-    public abstract void g();
-
-    public abstract void h();
-
-    public abstract void i(BdUniqueId bdUniqueId);
-
-    public abstract void j(pa5 pa5Var);
+    public abstract View getView();
 }

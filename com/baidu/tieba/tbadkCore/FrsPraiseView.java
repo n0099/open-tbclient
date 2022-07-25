@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ng;
-import com.repackage.sd5;
+import com.repackage.td5;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class FrsPraiseView extends LinearLayout {
@@ -66,7 +66,7 @@ public class FrsPraiseView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                sd5.b(new PraiseListActivityConfig(this.a.a, this.a.g, this.a.h, this.a.f != null ? this.a.f.getTitle() : "", this.a.i));
+                td5.b(new PraiseListActivityConfig(this.a.a, this.a.g, this.a.h, this.a.f != null ? this.a.f.getTitle() : "", this.a.i));
             }
         }
     }
@@ -191,13 +191,13 @@ public class FrsPraiseView extends LinearLayout {
                     }
                 }
                 if (num <= 2) {
-                    this.c.setText(this.a.getString(R.string.obfuscated_res_0x7f0f040e));
+                    this.c.setText(this.a.getString(R.string.obfuscated_res_0x7f0f040d));
                 } else if (num <= 999999) {
                     TextView textView2 = this.c;
-                    textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f05b3) + num + this.a.getString(R.string.obfuscated_res_0x7f0f040f));
+                    textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f05af) + num + this.a.getString(R.string.obfuscated_res_0x7f0f040e));
                 } else {
                     TextView textView3 = this.c;
-                    textView3.setText(this.a.getString(R.string.obfuscated_res_0x7f0f05b3) + "999999+" + this.a.getString(R.string.obfuscated_res_0x7f0f040f));
+                    textView3.setText(this.a.getString(R.string.obfuscated_res_0x7f0f05af) + "999999+" + this.a.getString(R.string.obfuscated_res_0x7f0f040e));
                 }
             }
         }
@@ -214,9 +214,9 @@ public class FrsPraiseView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d0325, this);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090ae9);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090b84);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090b85);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090ae2);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090b7d);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090b7e);
             setOnClickListener(new a(this));
             this.e.setOnClickListener(new b(this));
             this.d.setOnClickListener(new c(this));

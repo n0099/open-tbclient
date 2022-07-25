@@ -211,7 +211,7 @@ public class d17 extends an<i17, CardViewHolder<q17>> {
         public void b(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             q17 q17Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (view2.getTag() instanceof CardViewHolder) && (q17Var = (q17) ((CardViewHolder) view2.getTag()).c()) != null) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (view2.getTag() instanceof CardViewHolder) && (q17Var = (q17) ((CardViewHolder) view2.getTag()).b()) != null) {
                 q17Var.u();
             }
         }
@@ -265,11 +265,11 @@ public class d17 extends an<i17, CardViewHolder<q17>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, i17Var, cardViewHolder})) == null) {
-            if (i17Var == null || cardViewHolder == null || cardViewHolder.c() == null) {
+            if (i17Var == null || cardViewHolder == null || cardViewHolder.b() == null) {
                 return null;
             }
-            cardViewHolder.c().i(i17Var);
-            return cardViewHolder.b();
+            cardViewHolder.b().i(i17Var);
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

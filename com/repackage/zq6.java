@@ -405,7 +405,7 @@ public class zq6 {
     public static void B(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            if (TbadkCoreApplication.getInst().isDebugMode() || tm4.h()) {
+            if (TbadkCoreApplication.getInst().isDebugMode() || um4.h()) {
                 PrintStream printStream = System.out;
                 printStream.println("FunAdSdk，" + str + "， sid is: " + str2);
             }
@@ -428,7 +428,7 @@ public class zq6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String q = xt4.k().q("key_server_frs_bear_sid", "");
+            String q = yt4.k().q("key_server_frs_bear_sid", "");
             if (StringUtils.isNull(q)) {
                 q = "6051001001-2043781376";
             }
@@ -442,7 +442,7 @@ public class zq6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String q = xt4.k().q("key_server_pb_comment_bear_sid", "");
+            String q = yt4.k().q("key_server_pb_comment_bear_sid", "");
             if (StringUtils.isNull(q)) {
                 q = "6051002523-210422477";
             }
@@ -456,7 +456,7 @@ public class zq6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String q = xt4.k().q("key_server_homepage_bear_sid", "");
+            String q = yt4.k().q("key_server_homepage_bear_sid", "");
             if (StringUtils.isNull(q)) {
                 q = "6051001980-1210572494";
             }
@@ -489,7 +489,7 @@ public class zq6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String q = xt4.k().q("key_server_pb_banner_bear_sid", "");
+            String q = yt4.k().q("key_server_pb_banner_bear_sid", "");
             if (StringUtils.isNull(q)) {
                 q = "6051001308-627527144";
             }
@@ -503,7 +503,7 @@ public class zq6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            String q = xt4.k().q("key_server_splash_bear_sid", "");
+            String q = yt4.k().q("key_server_splash_bear_sid", "");
             if (StringUtils.isNull(q)) {
                 q = "6021002119-1732188456";
             }
@@ -517,7 +517,7 @@ public class zq6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            String q = xt4.k().q("key_server_splash_bear_sid", "");
+            String q = yt4.k().q("key_server_splash_bear_sid", "");
             if (StringUtils.isNull(q)) {
                 q = "6021002118-283136489";
             }
@@ -531,7 +531,7 @@ public class zq6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            String q = xt4.k().q("key_server_picpage_bear_sid", "");
+            String q = yt4.k().q("key_server_picpage_bear_sid", "");
             if (StringUtils.isNull(q)) {
                 q = "6051001643-679358748";
             }
@@ -545,7 +545,7 @@ public class zq6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            String q = xt4.k().q("key_server_videoflow_bear_sid", "");
+            String q = yt4.k().q("key_server_videoflow_bear_sid", "");
             if (StringUtils.isNull(q)) {
                 q = "6061002410-390177882";
             }
@@ -694,13 +694,13 @@ public class zq6 {
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? tw4.g() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? uw4.g() : invokeV.intValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? tw4.h() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? uw4.h() : invokeV.intValue;
     }
 
     public List<yq6> j(String str) {

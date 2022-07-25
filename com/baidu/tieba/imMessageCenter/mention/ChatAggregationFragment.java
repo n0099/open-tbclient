@@ -23,11 +23,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.aa7;
-import com.repackage.w75;
 import com.repackage.wa7;
 import com.repackage.x75;
+import com.repackage.y75;
 /* loaded from: classes3.dex */
-public class ChatAggregationFragment extends BaseFragment implements w75, NoNetworkView.b {
+public class ChatAggregationFragment extends BaseFragment implements x75, NoNetworkView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public aa7 a;
@@ -135,7 +135,7 @@ public class ChatAggregationFragment extends BaseFragment implements w75, NoNetw
         this.d = new b(this, 2016321);
     }
 
-    @Override // com.repackage.w75
+    @Override // com.repackage.x75
     public boolean T0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -272,11 +272,11 @@ public class ChatAggregationFragment extends BaseFragment implements w75, NoNetw
         aa7Var.r0();
     }
 
-    @Override // com.repackage.w75
-    public boolean t0(x75 x75Var) {
+    @Override // com.repackage.x75
+    public boolean t0(y75 y75Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, x75Var)) == null) ? x75Var == null : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, y75Var)) == null) ? y75Var == null : invokeL.booleanValue;
     }
 
     public ViewEventCenter t1() {

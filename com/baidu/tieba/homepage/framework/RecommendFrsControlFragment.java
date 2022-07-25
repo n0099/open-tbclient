@@ -53,12 +53,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ay4;
+import com.repackage.a95;
+import com.repackage.an4;
+import com.repackage.by4;
 import com.repackage.cz6;
-import com.repackage.fj4;
+import com.repackage.gj4;
 import com.repackage.hk8;
-import com.repackage.j05;
 import com.repackage.jz6;
+import com.repackage.k05;
 import com.repackage.ku6;
 import com.repackage.lu6;
 import com.repackage.ni;
@@ -66,22 +68,20 @@ import com.repackage.nu6;
 import com.repackage.pi;
 import com.repackage.qg;
 import com.repackage.rz6;
-import com.repackage.s95;
-import com.repackage.st4;
-import com.repackage.vd5;
+import com.repackage.t95;
+import com.repackage.tt4;
 import com.repackage.vk8;
-import com.repackage.vm4;
-import com.repackage.w85;
-import com.repackage.wc5;
-import com.repackage.wi4;
-import com.repackage.xt4;
-import com.repackage.y85;
+import com.repackage.wd5;
+import com.repackage.wm4;
+import com.repackage.x85;
+import com.repackage.xc5;
+import com.repackage.xi4;
+import com.repackage.yt4;
 import com.repackage.z85;
-import com.repackage.zm4;
 import org.json.JSONObject;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes3.dex */
-public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
+public class RecommendFrsControlFragment extends BaseFragment implements wm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ScrollFragmentTabHost a;
@@ -91,9 +91,9 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
     public boolean e;
     public boolean f;
     public boolean g;
-    public fj4 h;
+    public gj4 h;
     public Runnable i;
-    public fj4.b j;
+    public gj4.b j;
     public final CustomMessageListener k;
     public CustomMessageListener l;
     public CustomMessageListener m;
@@ -263,10 +263,10 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
         }
 
         @Override // com.repackage.lu6
-        public void c(int i, wc5 wc5Var, int i2) {
+        public void c(int i, xc5 xc5Var, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), wc5Var, Integer.valueOf(i2)}) == null) {
-                this.a.b.i(1, i, wc5Var, 1, i2);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), xc5Var, Integer.valueOf(i2)}) == null) {
+                this.a.b.i(1, i, xc5Var, 1, i2);
                 if (ni.A()) {
                     TiebaStatic.log(new StatisticItem("c11032").param("obj_source", 1));
                 }
@@ -274,10 +274,10 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
         }
 
         @Override // com.repackage.lu6
-        public void d(int i, int i2, wc5 wc5Var, int i3) {
+        public void d(int i, int i2, xc5 xc5Var, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), wc5Var, Integer.valueOf(i3)}) == null) {
-                this.a.b.i(2, i2, wc5Var, i, i3);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), xc5Var, Integer.valueOf(i3)}) == null) {
+                this.a.b.i(2, i2, xc5Var, i, i3);
                 if (ni.A()) {
                     TiebaStatic.log(new StatisticItem("c11032").param("obj_source", 2));
                 }
@@ -333,18 +333,18 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
         }
 
         @Override // com.baidu.tieba.homepage.concern.ConcernPageView.o
-        public void b(wc5 wc5Var) {
+        public void b(xc5 xc5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wc5Var) == null) {
-                this.a.b.h("", wc5Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xc5Var) == null) {
+                this.a.b.h("", xc5Var);
             }
         }
 
         @Override // com.baidu.tieba.homepage.concern.ConcernPageView.o
-        public void c(String str, wc5 wc5Var) {
+        public void c(String str, xc5 xc5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, wc5Var) == null) {
-                this.a.b.h(str, wc5Var);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, xc5Var) == null) {
+                this.a.b.h(str, xc5Var);
             }
         }
     }
@@ -377,7 +377,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                xt4.k().u("key_home_operate_dialog_click", true);
+                yt4.k().u("key_home_operate_dialog_click", true);
             }
         }
     }
@@ -387,15 +387,15 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlertDialog a;
-        public final /* synthetic */ j05 b;
+        public final /* synthetic */ k05 b;
         public final /* synthetic */ RecommendFrsControlFragment c;
 
-        public f(RecommendFrsControlFragment recommendFrsControlFragment, AlertDialog alertDialog, j05 j05Var) {
+        public f(RecommendFrsControlFragment recommendFrsControlFragment, AlertDialog alertDialog, k05 k05Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {recommendFrsControlFragment, alertDialog, j05Var};
+                Object[] objArr = {recommendFrsControlFragment, alertDialog, k05Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -407,14 +407,14 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
             }
             this.c = recommendFrsControlFragment;
             this.a = alertDialog;
-            this.b = j05Var;
+            this.b = k05Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                xt4.k().u("key_home_operate_dialog_click", true);
+                yt4.k().u("key_home_operate_dialog_click", true);
                 this.a.dismiss();
                 if (view2 == null || view2.getContext() == null) {
                     return;
@@ -538,7 +538,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
     }
 
     /* loaded from: classes3.dex */
-    public class i extends w85 {
+    public class i extends x85 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecommendFrsControlFragment b;
@@ -561,24 +561,24 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
             this.b = recommendFrsControlFragment;
         }
 
-        @Override // com.repackage.w85
-        public boolean a(y85 y85Var) {
+        @Override // com.repackage.x85
+        public boolean a(z85 z85Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, y85Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, z85Var)) == null) {
                 return false;
             }
             return invokeL.booleanValue;
         }
 
-        @Override // com.repackage.w85
+        @Override // com.repackage.x85
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? z85.b().c() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a95.b().c() : invokeV.intValue;
         }
 
-        @Override // com.repackage.w85
+        @Override // com.repackage.x85
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -660,7 +660,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
     }
 
     /* loaded from: classes3.dex */
-    public class l implements fj4.b {
+    public class l implements gj4.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecommendFrsControlFragment a;
@@ -683,7 +683,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
             this.a = recommendFrsControlFragment;
         }
 
-        @Override // com.repackage.fj4.b
+        @Override // com.repackage.gj4.b
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.isPrimary() && this.a.h != null) {
@@ -696,7 +696,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
                     TiebaStatic.log(new StatisticItem("c13394").param("obj_type", "1"));
                     return;
                 }
-                pi.N(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c2b);
+                pi.N(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c17);
                 TiebaStatic.log(new StatisticItem("c13394").param("obj_type", "2"));
             }
         }
@@ -812,7 +812,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                st4.e(this.a.getPageContext().getPageActivity(), 2);
+                tt4.e(this.a.getPageContext().getPageActivity(), 2);
                 if (this.a.a == null || this.a.a.getCurrentTabType() == 0) {
                     return;
                 }
@@ -902,7 +902,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
                     }
                 }
                 if (this.a.isPrimary() && (newGodData = TbSingleton.getInstance().getNewGodData()) != null) {
-                    vd5.g().k(1, newGodData);
+                    wd5.g().k(1, newGodData);
                 }
                 if (this.a.a != null && this.a.a.J()) {
                     if (this.a.isPrimary()) {
@@ -954,7 +954,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
                 if (ni.z() && this.a.a.getCurrentTabType() != 1) {
                     this.a.a.b0();
                 } else {
-                    pi.N(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c2b);
+                    pi.N(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c17);
                 }
             }
         }
@@ -1068,13 +1068,13 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            ay4 shakeData = TbSingleton.getInstance().getShakeData();
+            by4 shakeData = TbSingleton.getInstance().getShakeData();
             if (shakeData == null) {
-                shakeData = new ay4();
+                shakeData = new by4();
             }
             if (shakeData.c() == Long.MAX_VALUE || shakeData.b() == 0 || StringUtils.isNull(shakeData.a())) {
                 try {
-                    shakeData.parserJson(new JSONObject(xt4.k().q("shake_data", StringUtil.EMPTY_ARRAY)));
+                    shakeData.parserJson(new JSONObject(yt4.k().q("shake_data", StringUtil.EMPTY_ARRAY)));
                     TbSingleton.getInstance().setShakeData(shakeData);
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -1116,7 +1116,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_CHECK_CONCERN_RED_TIP_START_STAMP_KEY);
         if (TbadkCoreApplication.isLogin() && this.a.getCurrentTabType() != 0) {
-            boolean z = System.currentTimeMillis() > xt4.k().m(xt4.o("concern_unread_tip_next_show_time"), 0L);
+            boolean z = System.currentTimeMillis() > yt4.k().m(yt4.o("concern_unread_tip_next_show_time"), 0L);
             nu6 nu6Var = this.b;
             if (nu6Var != null) {
                 nu6Var.b(z);
@@ -1125,7 +1125,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_CHECK_CONCERN_RED_TIP_END_STAMP_KEY);
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_START_STAMP_KEY);
         ku6.d().h(System.currentTimeMillis() - ku6.d().a(1));
-        s95.b().C(System.currentTimeMillis() - ku6.d().a(1));
+        t95.b().C(System.currentTimeMillis() - ku6.d().a(1));
         if (UbsABTestHelper.isConcernForumCardShow()) {
             this.a.d0();
         } else {
@@ -1138,14 +1138,14 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
     public final void J1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            j05 homeOperateData = TbSingleton.getInstance().getHomeOperateData();
+            k05 homeOperateData = TbSingleton.getInstance().getHomeOperateData();
             if (homeOperateData != null && !TextUtils.isEmpty(homeOperateData.a()) && homeOperateData.a().contains("not_show")) {
-                xt4.k().u("key_home_operate_dialog_click", true);
+                yt4.k().u("key_home_operate_dialog_click", true);
                 return;
             }
-            boolean h2 = xt4.k().h("key_home_operate_dialog_show", true);
+            boolean h2 = yt4.k().h("key_home_operate_dialog_show", true);
             if (isPrimary() && homeOperateData != null && h2) {
-                xt4.k().u("key_home_operate_dialog_show", false);
+                yt4.k().u("key_home_operate_dialog_show", false);
                 int f2 = TBAlertBuilder.f(TbadkCoreApplication.getInst());
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(f2, (f2 * 4) / 3);
                 TbImageView tbImageView = new TbImageView(getActivity());
@@ -1163,7 +1163,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
         }
     }
 
-    @Override // com.repackage.vm4
+    @Override // com.repackage.wm4
     public void e1(Intent intent) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, intent) == null) || intent == null) {
@@ -1176,7 +1176,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1190,11 +1190,11 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v85
-    public w85 getPageStayFilter() {
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
+    public x85 getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new i(this) : (w85) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new i(this) : (x85) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -1209,7 +1209,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
     @Override // androidx.fragment.app.Fragment
     public void onActivityResult(int i2, int i3, Intent intent) {
         String stringExtra;
-        j05 homeOperateData;
+        k05 homeOperateData;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
@@ -1260,7 +1260,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
         if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(4002);
             ku6.d().g(System.currentTimeMillis(), 1);
-            s95.b().B(System.currentTimeMillis());
+            t95.b().B(System.currentTimeMillis());
             super.onCreate(bundle);
             registerListener(this.q);
             registerListener(this.p);
@@ -1275,7 +1275,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
             registerListener(this.o);
             registerListener(this.r);
             registerListener(this.w);
-            this.h = new fj4(getContext(), this.j);
+            this.h = new gj4(getContext(), this.j);
             SpeedStatsManager.getInstance().addStatsTimeStamp(4003);
         }
     }
@@ -1287,7 +1287,7 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(4004);
             if (this.a == null) {
-                ScrollFragmentTabHost scrollFragmentTabHost = (ScrollFragmentTabHost) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0729, (ViewGroup) null);
+                ScrollFragmentTabHost scrollFragmentTabHost = (ScrollFragmentTabHost) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0733, (ViewGroup) null);
                 this.a = scrollFragmentTabHost;
                 scrollFragmentTabHost.setDrawingCacheEnabled(false);
             }
@@ -1318,11 +1318,11 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
                 scrollFragmentTabHost.setPrimary(isPrimary());
                 this.a.K();
             }
-            fj4 fj4Var = this.h;
-            if (fj4Var != null && fj4Var.d()) {
+            gj4 gj4Var = this.h;
+            if (gj4Var != null && gj4Var.d()) {
                 this.h.c();
             }
-            vd5.g().i();
+            wd5.g().i();
         }
     }
 
@@ -1341,10 +1341,10 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
                 return;
             }
             if (isPrimary()) {
-                wi4.b().j(true);
+                xi4.b().j(true);
                 this.a.V();
             } else {
-                wi4.b().j(false);
+                xi4.b().j(false);
             }
             if (getActivity().getIntent() != null) {
                 str = getActivity().getIntent().getStringExtra(MainTabActivityConfig.VIDEOTHREAD_ON_SQUARE_ID);
@@ -1414,18 +1414,18 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
                 if (!LoginConstants.SMS_LOGIN.equals(str3)) {
                     NewGodData newGodData = TbSingleton.getInstance().getNewGodData();
                     if (newGodData != null) {
-                        vd5.g().k(1, newGodData);
+                        wd5.g().k(1, newGodData);
                     }
                 } else if (TbadkCoreApplication.isLogin() && getActivity() != null && getActivity().getIntent() != null) {
                     String stringExtra3 = getActivity().getIntent().getStringExtra(BdUniDispatchSchemeController.PARAM_FIELD_ID);
                     if (!StringUtils.isNull(stringExtra3)) {
                         NewGodData newGodData2 = new NewGodData();
                         newGodData2.setFieldId(stringExtra3);
-                        vd5.g().l(5, newGodData2, false);
+                        wd5.g().l(5, newGodData2, false);
                     }
                 }
             } else {
-                vd5.g().i();
+                wd5.g().i();
             }
             J1();
             if (isPrimary() && this.g) {
@@ -1446,11 +1446,11 @@ public class RecommendFrsControlFragment extends BaseFragment implements vm4 {
             super.onResume();
             Boolean bool = this.c;
             if (bool == null) {
-                this.c = Boolean.valueOf(zm4.c().g());
+                this.c = Boolean.valueOf(an4.c().g());
                 z = false;
             } else {
-                z = bool.booleanValue() != zm4.c().g();
-                this.c = Boolean.valueOf(zm4.c().g());
+                z = bool.booleanValue() != an4.c().g();
+                this.c = Boolean.valueOf(an4.c().g());
             }
             if (z) {
                 this.a.L();

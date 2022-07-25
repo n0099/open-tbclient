@@ -1,41 +1,41 @@
 package com.kwad.sdk.c;
 /* loaded from: classes5.dex */
 public interface a {
-    String a();
+    String getAppId();
 
-    String b();
+    String getDeviceId();
 
-    String c();
+    String getIccId();
 
-    String d();
+    String getIp();
 
-    String e();
+    String getLocation();
 
-    String f();
+    String getOaid();
 
-    String g();
+    String getSdkVersion();
 
-    String h();
+    String xa();
 
-    String i();
+    String xb();
 
-    String j();
+    String xc();
 
-    String k();
+    String xd();
 
-    String l();
+    String xe();
 
-    String m();
+    String xf();
 
-    String n();
+    String xg();
 
-    String o();
+    String xh();
 
-    String p();
+    String xi();
 
-    String q();
+    String xj();
 
-    String r();
+    String xk();
 
-    String s();
+    String xl();
 }

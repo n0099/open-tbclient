@@ -14,26 +14,26 @@ import com.kwad.components.core.video.a;
 import com.kwad.sdk.api.KsInterstitialAd;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.utils.az;
+import com.kwad.sdk.utils.bd;
 /* loaded from: classes5.dex */
 public final class g extends b implements a.b {
     public static /* synthetic */ Interceptable $ic = null;
-    public static long a = 1000;
+    public static long hs = 1000;
     public transient /* synthetic */ FieldHolder $fh;
-    public c b;
-    public AdTemplate c;
+    public c gh;
     @Nullable
-    public a d;
-    public int e;
+    public a ht;
+    public int hu;
+    public AdTemplate mAdTemplate;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g a;
-        public int b;
-        public boolean c;
-        public boolean d;
+        public int hv;
+        public boolean hw;
+        public boolean hx;
+        public final /* synthetic */ g hy;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -50,48 +50,48 @@ public final class g extends b implements a.b {
                     return;
                 }
             }
-            this.a = gVar;
-            this.b = Integer.MIN_VALUE;
-            this.c = false;
-            this.d = false;
+            this.hy = gVar;
+            this.hv = Integer.MIN_VALUE;
+            this.hw = false;
+            this.hx = false;
         }
 
         public /* synthetic */ a(g gVar, byte b) {
             this(gVar);
         }
 
-        public final void a(boolean z) {
+        public final void q(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.d = true;
+                this.hx = true;
             }
         }
 
-        public final void b(boolean z) {
+        public final void r(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                this.c = z;
+                this.hw = z;
             }
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.d) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.hx) {
                 return;
             }
-            if (!this.c) {
-                if (this.b == Integer.MIN_VALUE) {
-                    this.b = this.a.e;
+            if (!this.hw) {
+                if (this.hv == Integer.MIN_VALUE) {
+                    this.hv = this.hy.hu;
                 }
-                if (this.b < 0) {
+                if (this.hv < 0) {
                     return;
                 }
-                com.kwad.sdk.core.d.b.a("InterstitialPlayablePresenter", this.a.toString() + ", this: " + toString() + " PlayableTimerRunnable run : " + this.b);
-                this.a.a(this.b);
-                this.b = this.b + (-1);
+                com.kwad.sdk.core.e.b.d("InterstitialPlayablePresenter", this.hy.toString() + ", this: " + toString() + " PlayableTimerRunnable run : " + this.hv);
+                this.hy.D(this.hv);
+                this.hv = this.hv + (-1);
             }
-            az.a(this, null, g.a);
+            bd.a(this, null, g.hs);
         }
     }
 
@@ -125,151 +125,151 @@ public final class g extends b implements a.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i) {
+    public void D(int i) {
         c cVar;
         com.kwad.components.ad.interstitial.widget.f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65539, this, i) == null) || (fVar = (cVar = this.b).e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65538, this, i) == null) || (fVar = (cVar = this.gh).gj) == null) {
             return;
         }
         if (i != 0) {
-            fVar.a(true, i);
-        } else if (cVar.d()) {
+            fVar.b(true, i);
+        } else if (cVar.cB()) {
         } else {
-            this.b.a(u(), this.c);
-            h();
-            c cVar2 = this.b;
-            cVar2.a(true, cVar2.l);
+            this.gh.b(getContext(), this.mAdTemplate);
+            cY();
+            c cVar2 = this.gh;
+            cVar2.a(true, -1, cVar2.dp);
         }
     }
 
-    private void h() {
+    private void cY() {
         KsInterstitialAd.AdInteractionListener adInteractionListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            com.kwad.sdk.core.video.videoview.a aVar = this.b.l;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            com.kwad.sdk.core.video.videoview.a aVar = this.gh.dp;
             if (aVar != null) {
-                aVar.i();
+                aVar.release();
             }
-            this.b.c.dismiss();
-            c cVar = this.b;
-            if (cVar.h || (adInteractionListener = cVar.b) == null) {
+            this.gh.gi.dismiss();
+            c cVar = this.gh;
+            if (cVar.gn || (adInteractionListener = cVar.fo) == null) {
                 return;
             }
             adInteractionListener.onAdClosed();
         }
     }
 
-    @Override // com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    @Override // com.kwad.components.ad.interstitial.b.b, com.kwad.sdk.mvp.Presenter
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            com.kwad.sdk.core.d.b.a("InterstitialPlayablePresenter", this + " onBind");
-            c cVar = (c) t();
-            this.b = cVar;
-            AdTemplate adTemplate = cVar.a;
-            this.c = adTemplate;
-            AdInfo i = com.kwad.sdk.core.response.a.d.i(adTemplate);
-            long j = i.adInsertScreenInfo.autoCloseTime;
+            super.aq();
+            com.kwad.sdk.core.e.b.d("InterstitialPlayablePresenter", this + " onBind");
+            c cVar = (c) xR();
+            this.gh = cVar;
+            AdTemplate adTemplate = cVar.mAdTemplate;
+            this.mAdTemplate = adTemplate;
+            AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
+            long j = bQ.adInsertScreenInfo.autoCloseTime;
             if (j > 0) {
-                this.e = (int) Math.min(com.kwad.components.ad.interstitial.kwai.b.a(i), j);
+                this.hu = (int) Math.min(com.kwad.components.ad.interstitial.kwai.b.b(bQ), j);
             } else {
-                this.e = com.kwad.components.ad.interstitial.kwai.b.a(i);
+                this.hu = com.kwad.components.ad.interstitial.kwai.b.b(bQ);
             }
-            com.kwad.components.ad.interstitial.widget.f fVar = this.b.e;
+            com.kwad.components.ad.interstitial.widget.f fVar = this.gh.gj;
             if (fVar != null) {
-                fVar.a(true, -1);
+                fVar.b(true, -1);
             }
-            if (!com.kwad.sdk.core.response.a.a.W(i)) {
+            if (!com.kwad.sdk.core.response.a.a.aB(bQ)) {
                 a aVar = new a(this, (byte) 0);
-                this.d = aVar;
-                az.a(aVar, null, 1000L);
+                this.ht = aVar;
+                bd.a(aVar, null, 1000L);
                 return;
             }
-            this.e = (int) Math.min(this.e, com.kwad.sdk.core.response.a.a.c(i));
-            this.d = null;
-            this.b.a(this);
+            this.hu = (int) Math.min(this.hu, com.kwad.sdk.core.response.a.a.B(bQ));
+            this.ht = null;
+            this.gh.a(this);
         }
     }
 
     @Override // com.kwad.components.core.video.a.b
-    public final void a(long j) {
+    public final void bm() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            a(this.e - ((int) (j / 1000)));
-        }
-    }
-
-    @Override // com.kwad.components.ad.interstitial.b.b
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.d();
-            a aVar = this.d;
-            if (aVar != null) {
-                aVar.b(false);
-            }
-        }
-    }
-
-    @Override // com.kwad.components.ad.interstitial.b.b
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.e();
-            a aVar = this.d;
-            if (aVar != null) {
-                aVar.b(true);
-            }
-        }
-    }
-
-    @Override // com.kwad.components.core.video.a.b
-    public final void f_() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    @Override // com.kwad.components.core.video.a.b
-    public final void g_() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    @Override // com.kwad.components.core.video.a.b
-    public final void h_() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.b.d()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.gh.cB()) {
             return;
         }
-        this.b.a(u(), this.c);
-        h();
+        this.gh.b(getContext(), this.mAdTemplate);
+        cY();
     }
 
-    @Override // com.kwad.sdk.mvp.Presenter
-    public final void i_() {
+    @Override // com.kwad.components.ad.interstitial.b.b
+    public final void cv() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.i_();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.cv();
+            a aVar = this.ht;
+            if (aVar != null) {
+                aVar.r(false);
+            }
+        }
+    }
+
+    @Override // com.kwad.components.ad.interstitial.b.b
+    public final void cw() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.cw();
+            a aVar = this.ht;
+            if (aVar != null) {
+                aVar.r(true);
+            }
+        }
+    }
+
+    @Override // com.kwad.components.core.video.a.b
+    public final void d(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            D(this.hu - ((int) (j / 1000)));
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void k_() {
+    public final void onCreate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onCreate();
+        }
+    }
+
+    @Override // com.kwad.sdk.mvp.Presenter
+    public final void onUnbind() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onUnbind();
+            com.kwad.sdk.core.e.b.d("InterstitialPlayablePresenter", this + " onUnbind");
+            this.gh.b(this);
+            a aVar = this.ht;
+            if (aVar != null) {
+                aVar.q(true);
+                bd.c(this.ht);
+                this.ht = null;
+            }
+        }
+    }
+
+    @Override // com.kwad.components.core.video.a.b
+    public final void onVideoPlayStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    @Override // com.kwad.components.core.video.a.b
+    public final void onVideoPlaying() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.k_();
-            com.kwad.sdk.core.d.b.a("InterstitialPlayablePresenter", this + " onUnbind");
-            this.b.b(this);
-            a aVar = this.d;
-            if (aVar != null) {
-                aVar.a(true);
-                az.b(this.d);
-                this.d = null;
-            }
         }
     }
 }

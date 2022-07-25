@@ -1,65 +1,65 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.HttpDnsInfo;
-import java.util.ArrayList;
-import org.json.JSONArray;
+import android.net.http.Headers;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class cn implements com.kwad.sdk.core.d<HttpDnsInfo> {
+public final class cn implements com.kwad.sdk.core.d<com.kwad.components.a.kwai.a> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(HttpDnsInfo httpDnsInfo, JSONObject jSONObject) {
+    public static void a2(com.kwad.components.a.kwai.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        httpDnsInfo.recommendList = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("recommendList");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                HttpDnsInfo.IpInfo ipInfo = new HttpDnsInfo.IpInfo();
-                ipInfo.parseJson(optJSONArray.optJSONObject(i));
-                httpDnsInfo.recommendList.add(ipInfo);
-            }
+        aVar.PS = jSONObject.optString("Access-Control-Allow-Origin");
+        if (jSONObject.opt("Access-Control-Allow-Origin") == JSONObject.NULL) {
+            aVar.PS = "";
         }
-        httpDnsInfo.backUpList = new ArrayList();
-        JSONArray optJSONArray2 = jSONObject.optJSONArray("backUpList");
-        if (optJSONArray2 != null) {
-            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                HttpDnsInfo.IpInfo ipInfo2 = new HttpDnsInfo.IpInfo();
-                ipInfo2.parseJson(optJSONArray2.optJSONObject(i2));
-                httpDnsInfo.backUpList.add(ipInfo2);
-            }
+        aVar.PT = jSONObject.optString("Timing-Allow-Origin");
+        if (jSONObject.opt("Timing-Allow-Origin") == JSONObject.NULL) {
+            aVar.PT = "";
         }
-        httpDnsInfo.otherList = new ArrayList();
-        JSONArray optJSONArray3 = jSONObject.optJSONArray("otherList");
-        if (optJSONArray3 != null) {
-            for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                HttpDnsInfo.IpInfo ipInfo3 = new HttpDnsInfo.IpInfo();
-                ipInfo3.parseJson(optJSONArray3.optJSONObject(i3));
-                httpDnsInfo.otherList.add(ipInfo3);
-            }
+        aVar.PU = jSONObject.optString(Headers.CONTENT_TYPE);
+        if (jSONObject.opt(Headers.CONTENT_TYPE) == JSONObject.NULL) {
+            aVar.PU = "";
+        }
+        aVar.PV = jSONObject.optString("Date");
+        if (jSONObject.opt("Date") == JSONObject.NULL) {
+            aVar.PV = "";
         }
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(HttpDnsInfo httpDnsInfo, JSONObject jSONObject) {
+    public static JSONObject b2(com.kwad.components.a.kwai.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "recommendList", httpDnsInfo.recommendList);
-        com.kwad.sdk.utils.r.a(jSONObject, "backUpList", httpDnsInfo.backUpList);
-        com.kwad.sdk.utils.r.a(jSONObject, "otherList", httpDnsInfo.otherList);
+        String str = aVar.PS;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "Access-Control-Allow-Origin", aVar.PS);
+        }
+        String str2 = aVar.PT;
+        if (str2 != null && !str2.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "Timing-Allow-Origin", aVar.PT);
+        }
+        String str3 = aVar.PU;
+        if (str3 != null && !str3.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, Headers.CONTENT_TYPE, aVar.PU);
+        }
+        String str4 = aVar.PV;
+        if (str4 != null && !str4.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "Date", aVar.PV);
+        }
         return jSONObject;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(HttpDnsInfo httpDnsInfo, JSONObject jSONObject) {
-        a2(httpDnsInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(com.kwad.components.a.kwai.a aVar, JSONObject jSONObject) {
+        a2(aVar, jSONObject);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(HttpDnsInfo httpDnsInfo, JSONObject jSONObject) {
-        return b2(httpDnsInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.components.a.kwai.a aVar, JSONObject jSONObject) {
+        return b2(aVar, jSONObject);
     }
 }

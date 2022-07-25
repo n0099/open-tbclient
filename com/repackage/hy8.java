@@ -112,7 +112,7 @@ public class hy8 {
                 text.removeSpan(obj);
             }
         }
-        id5.j(text);
+        jd5.j(text);
         j(text);
     }
 
@@ -128,7 +128,7 @@ public class hy8 {
                 text.removeSpan(obj);
             }
         }
-        id5.k(spanGroupEditText);
+        jd5.k(spanGroupEditText);
     }
 
     public void h(EditText editText, EditText editText2) {

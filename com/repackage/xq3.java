@@ -1,79 +1,51 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xq3 {
+public class xq3 implements ar3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DownloadState a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
+    public uq3 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755162985, "Lcom/repackage/xq3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755162985, "Lcom/repackage/xq3;");
-                return;
-            }
-        }
-        boolean z = rg1.a;
-    }
-
-    public xq3() {
+    public xq3(uq3 uq3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uq3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = DownloadState.NOT_START;
-        this.d = Integer.parseInt("0");
+        this.a = uq3Var;
     }
 
-    public static xq3 a(String str, String str2) {
-        InterceptResult invokeLL;
+    private void setResult(br3 br3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            xq3 xq3Var = new xq3();
-            xq3Var.b = str;
-            xq3Var.c = str2;
-            return xq3Var;
+        if (interceptable == null || interceptable.invokeL(65537, this, br3Var) == null) {
+            this.a.d.clear();
+            if (br3Var != null) {
+                this.a.d.putString("functionType", br3Var.a());
+                this.a.d.putString("resultData", br3Var.b());
+                this.a.d.putInt("resultStatus", br3Var.c());
+            }
+            this.a.c();
         }
-        return (xq3) invokeLL.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ar3
+    public void a(br3 br3Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.e = str;
+        if (interceptable == null || interceptable.invokeL(1048576, this, br3Var) == null) {
+            setResult(br3Var);
         }
     }
 }

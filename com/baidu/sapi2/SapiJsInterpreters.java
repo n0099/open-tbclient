@@ -6,6 +6,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Bundle;
 import android.os.Message;
 import android.text.TextUtils;
 import android.widget.DatePicker;
@@ -25,6 +26,7 @@ import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.loginhistory.LoginHistoryItem;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.sapi2.result.AccountRealNameResult;
+import com.baidu.sapi2.result.CertGuardianResult;
 import com.baidu.sapi2.result.IdcardOcrImageRusult;
 import com.baidu.sapi2.result.NormalizeGuestAccountResult;
 import com.baidu.sapi2.result.SsoHashResult;
@@ -47,11 +49,13 @@ import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.Security;
 import com.baidu.sapi2.utils.StatService;
+import com.baidu.sapi2.utils.SyncAccountUtils;
 import com.baidu.sapi2.utils.ThirdPartyUtil;
 import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.sapi2.views.logindialog.view.a;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.tbadk.core.util.TbEnum;
@@ -414,10 +418,10 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.socialLoginHandler != null) {
-                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.GLORY;
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.HONOR;
                     Message message = new Message();
-                    message.what = SocialType.GLORY.getType();
-                    message.obj = SocialType.GLORY;
+                    message.what = SocialType.HONOR.getType();
+                    message.obj = SocialType.HONOR;
                     this.this$0.jsCallBacks.socialLoginHandler.sendMessage(message);
                     return null;
                 }
@@ -1179,8 +1183,8 @@ public class SapiJsInterpreters {
                             socialType = SocialType.HUAWEI;
                             break;
                         case 5:
-                            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.GLORY;
-                            socialType = SocialType.GLORY;
+                            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.HONOR;
+                            socialType = SocialType.HONOR;
                             break;
                         case 6:
                             SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.XIAOMI;
@@ -2799,6 +2803,59 @@ public class SapiJsInterpreters {
     }
 
     /* loaded from: classes2.dex */
+    public class SapiActionCertGuardianResult extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionCertGuardianResult(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
+                    CertGuardianResult certGuardianResult = new CertGuardianResult();
+                    int optInt = jSONObject.optInt("errno");
+                    String optString = jSONObject.optString("errmsg");
+                    certGuardianResult.setResultCode(optInt);
+                    certGuardianResult.setResultMsg(optString);
+                    if (this.this$0.jsCallBacks.certGuardianRusultCallback != null) {
+                        this.this$0.jsCallBacks.certGuardianRusultCallback.onFinish(certGuardianResult);
+                        return null;
+                    }
+                    return null;
+                } catch (JSONException e) {
+                    Log.e(e);
+                    return null;
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes2.dex */
     public class SapiActionCheckLoginStatus extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3102,7 +3159,7 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (command != null && command.getActionParams() != null && !command.getActionParams().isEmpty()) {
                     String str = command.getActionParams().get(0);
-                    if ("password".equals(str)) {
+                    if (a.m.equals(str)) {
                         SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.PWD;
                     } else if (LoginConstants.SMS_LOGIN.equals(str)) {
                         SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.SMS;
@@ -3290,7 +3347,7 @@ public class SapiJsInterpreters {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("errno", "0");
                     if (this.this$0.configuration != null) {
-                        jSONObject.put("textZoom", this.this$0.configuration.textZoom);
+                        jSONObject.put("textZoom", this.this$0.configuration.getTextZoom());
                         jSONObject.put("browseModeState", this.this$0.configuration.browseModeState);
                     } else {
                         jSONObject.put("textZoom", 100);
@@ -4327,6 +4384,74 @@ public class SapiJsInterpreters {
     }
 
     /* loaded from: classes2.dex */
+    public class SapiActionSyncAccountInfo extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionSyncAccountInfo(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (this.this$0.jsCallBacks != null && this.this$0.jsCallBacks.mSyncAccountCallBack != null) {
+                    try {
+                        SapiContext sapiContext = SapiContext.getInstance();
+                        if (sapiContext == null) {
+                            Log.e(SapiJsInterpreters.TAG, "sapi_action_sync_account_info SapiContext.getInstance() is null, please check pass sdk has init");
+                            return "";
+                        }
+                        SapiAccount currentAccount = sapiContext.getCurrentAccount();
+                        if (currentAccount == null) {
+                            Log.e(SapiJsInterpreters.TAG, "sapi_action_sync_account_info currentAccount is null, please check current is login");
+                            return "";
+                        }
+                        boolean syncAccount = SyncAccountUtils.syncAccount(command.getActionParams().get(0), currentAccount);
+                        JSONObject jSONObject = new JSONObject();
+                        if (syncAccount) {
+                            SapiContext.getInstance().addTouchidAccounts(currentAccount);
+                            SapiContext.getInstance().addLoginAccount(currentAccount);
+                            new ShareStorage().asyncSet(2);
+                            jSONObject.put("errno", "0");
+                            this.this$0.jsCallBacks.mSyncAccountCallBack.onSyncAccount(currentAccount);
+                        } else {
+                            jSONObject.put("errno", "1");
+                        }
+                        return jSONObject.toString();
+                    } catch (Exception e) {
+                        Log.e(e);
+                        return "";
+                    }
+                }
+                Log.e(SapiJsInterpreters.TAG, "sapi_action_sync_account_info jsCallBacks is null");
+                return "";
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes2.dex */
     public class SapiActionThirdInstalledInfo extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -4602,6 +4727,20 @@ public class SapiJsInterpreters {
                         biometricsIdentifyResult.showGuidePage = 1 - new JSONObject(command.getActionParams().get(3)).optInt("hideGuidePage", 0);
                     } catch (JSONException e) {
                         Log.e(e);
+                    }
+                }
+                if (command.getActionParams().size() > 4) {
+                    try {
+                        JSONObject jSONObject = new JSONObject(command.getActionParams().get(4));
+                        Iterator<String> keys = jSONObject.keys();
+                        Bundle bundle = new Bundle();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            bundle.putString(next, jSONObject.optString(next));
+                        }
+                        biometricsIdentifyResult.extraParams = bundle;
+                    } catch (Exception e2) {
+                        Log.e(e2);
                     }
                 }
                 biometricsIdentifyResult.subPro = TextUtils.isEmpty(biometricsIdentifyResult.subPro) ? "pp" : biometricsIdentifyResult.subPro;
@@ -5372,7 +5511,7 @@ public class SapiJsInterpreters {
                     e = e;
                 }
                 try {
-                    String optString = jSONObject.optString("portraitSign");
+                    String optString = jSONObject.optString(SyncAccountUtils.KEY_PORTRAIT_SIGN);
                     if (!TextUtils.isEmpty(optString)) {
                         SapiContext.getInstance().removeTouchidAccountByPortrait(optString);
                     }
@@ -5804,7 +5943,7 @@ public class SapiJsInterpreters {
                     try {
                         str2 = jSONObject2.optString("portrait");
                         try {
-                            str3 = jSONObject2.optString("portraitSign");
+                            str3 = jSONObject2.optString(SyncAccountUtils.KEY_PORTRAIT_SIGN);
                         } catch (JSONException e) {
                             e = e;
                             Log.e(e);
@@ -5920,7 +6059,7 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    String optString = new JSONObject(command.getActionParams().get(0)).optString("portraitSign");
+                    String optString = new JSONObject(command.getActionParams().get(0)).optString(SyncAccountUtils.KEY_PORTRAIT_SIGN);
                     int fingerPrintState = FingerprintUtil.getFingerPrintState(this.this$0.configuration);
                     boolean contains = SapiContext.getInstance().getTouchidLoginRecord().contains(optString);
                     List<SapiAccount> touchidAccounts = SapiContext.getInstance().getTouchidAccounts();
@@ -6192,7 +6331,7 @@ public class SapiJsInterpreters {
                                     try {
                                         JSONObject jSONObject2 = new JSONObject(this.val$command.getActionParams().get(0));
                                         String optString = jSONObject2.optString("portrait");
-                                        String optString2 = jSONObject2.optString("portraitSign");
+                                        String optString2 = jSONObject2.optString(SyncAccountUtils.KEY_PORTRAIT_SIGN);
                                         if (TextUtils.isEmpty(optString)) {
                                             String[] strArr = this.this$1.this$0.jsCallBacks.touchidPortraitAndSign;
                                             strArr[0] = this.this$1.this$0.configuration.environment.getConfigHttpsUrl() + SapiEnv.DEFAULT_PORTRAIT;

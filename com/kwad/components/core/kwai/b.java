@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public String title;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -26,12 +26,12 @@ public final class b {
                 return;
             }
         }
-        this.a = str;
+        this.title = str;
     }
 
-    public final String a() {
+    public final String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.title : (String) invokeV.objValue;
     }
 }

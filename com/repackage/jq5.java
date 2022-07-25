@@ -70,7 +70,7 @@ public class jq5 {
                     this.a.g.a(this.a.h);
                     return;
                 }
-                pi.L(this.a.a.getPageActivity(), this.a.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c64));
+                pi.L(this.a.a.getPageActivity(), this.a.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c50));
             }
         }
     }
@@ -92,12 +92,12 @@ public class jq5 {
         }
         this.i = new a(this);
         this.a = tbPageContext;
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0802, (ViewGroup) null);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d080c, (ViewGroup) null);
         this.b = inflate;
-        this.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ed1);
-        this.c = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f8a);
-        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092201);
-        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09224c);
+        this.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ed5);
+        this.c = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f83);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092203);
+        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09224e);
         this.b.setOnClickListener(this.i);
         this.c.setBorderWidth(pi.f(tbPageContext.getPageActivity(), R.dimen.tbds1));
         this.c.setIsRound(true);
@@ -131,7 +131,7 @@ public class jq5 {
                     this.d.setText(name_show);
                 }
                 if (qo5Var.d.getThreadAlaInfo() != null) {
-                    this.e.setText(String.format(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a0f), StringHelper.numberUniformFormatExtraWithRound(qo5Var.d.getThreadAlaInfo().audience_count)));
+                    this.e.setText(String.format(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f09fb), StringHelper.numberUniformFormatExtraWithRound(qo5Var.d.getThreadAlaInfo().audience_count)));
                 }
                 g(this.a, TbadkCoreApplication.getInst().getSkinType());
                 return;

@@ -1,10 +1,13 @@
 package com.repackage;
 
 import android.os.Bundle;
-import android.os.Message;
+import android.os.CountDownTimer;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,18 +15,74 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes5.dex */
-public class cv2 implements ll2 {
+public class cv2 implements ev2, ml2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Runnable, String> c;
+    public boolean c;
+    public CopyOnWriteArrayList<c> d;
+    public CountDownTimer e;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public class a extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cv2 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(cv2 cv2Var, long j, long j2) {
+            super(j, j2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cv2Var, Long.valueOf(j), Long.valueOf(j2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cv2Var;
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (ml2.a) {
+                    Log.d("SwanPerformance", "count down onFinish");
+                }
+                this.a.d(true);
+            }
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onTick(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                Iterator it = this.a.d.iterator();
+                while (it.hasNext()) {
+                    c cVar = (c) it.next();
+                    boolean z = ((long) (5000 - cVar.e())) >= j;
+                    if (!cVar.g() && z) {
+                        cVar.h(true);
+                        ev2 f = cVar.f();
+                        if (ml2.a) {
+                            Log.e("SwanPerformance", "triggerFmp, timeout = " + cVar.e() + ", trigger = " + f.getName());
+                        }
+                        f.d(true);
+                    }
+                }
+            }
+        }
     }
 
     /* loaded from: classes5.dex */
@@ -49,54 +108,236 @@ public class cv2 implements ll2 {
         }
     }
 
+    /* loaded from: classes5.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ev2 a;
+        public int b;
+        public boolean c;
+
+        public /* synthetic */ c(cv2 cv2Var, ev2 ev2Var, int i, a aVar) {
+            this(cv2Var, ev2Var, i);
+        }
+
+        public final int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        }
+
+        @NonNull
+        public final ev2 f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ev2) invokeV.objValue;
+        }
+
+        public final boolean g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.booleanValue;
+        }
+
+        public final void h(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+                this.c = z;
+            }
+        }
+
+        public c(@NonNull cv2 cv2Var, ev2 ev2Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cv2Var, ev2Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = false;
+            this.a = ev2Var;
+            this.b = i;
+        }
+    }
+
     public /* synthetic */ cv2(a aVar) {
         this();
     }
 
-    public static cv2 b() {
+    public static cv2 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (cv2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (cv2) invokeV.objValue;
     }
 
-    public final void a() {
+    @Override // com.repackage.ev2
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c.isEmpty()) {
-            return;
-        }
-        if (ll2.a) {
-            Log.d("SwanPerformance", "main process batch handle thread, size = " + this.c.size());
-        }
-        for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
-            if (entry != null) {
-                ExecutorUtilsExt.postOnElastic(entry.getKey(), entry.getValue(), 2);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (ml2.a) {
+                Log.e("SwanPerformance", "triggerFcp, url = " + str);
+            }
+            Iterator<c> it = this.d.iterator();
+            while (it.hasNext()) {
+                it.next().f().a(str);
             }
         }
-        this.c.clear();
     }
 
-    public void c(Message message) {
-        Object obj;
+    @Override // com.repackage.ev2
+    public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || message == null || (obj = message.obj) == null || !(obj instanceof Bundle)) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.d.isEmpty()) {
             return;
         }
-        Bundle bundle = (Bundle) obj;
-        boolean z = bundle.getBoolean("is_timeout", false);
-        String string = bundle.getString("app_id", null);
-        if (ll2.a) {
-            Log.e("SwanPerformance", "main process launch end，timeout = " + z + " ; appId = " + string);
+        if (ml2.a) {
+            Log.e("SwanPerformance", "triggerDestroy");
         }
-        a();
+        k();
+        Iterator<c> it = this.d.iterator();
+        while (it.hasNext()) {
+            it.next().f().b();
+        }
+        this.c = false;
     }
 
-    public void d(String str) {
+    @Override // com.repackage.ev2
+    public void c(@NonNull Runnable runnable, @Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (ll2.a) {
-                Log.e("SwanPerformance", "main process launch start，appId = " + str);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
+        }
+    }
+
+    @Override // com.repackage.ev2
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || this.c) {
+            return;
+        }
+        this.c = true;
+        k();
+        if (this.d.isEmpty()) {
+            return;
+        }
+        if (ml2.a) {
+            Log.e("SwanPerformance", "triggerFmp, timeout = " + z);
+        }
+        Iterator<c> it = this.d.iterator();
+        while (it.hasNext()) {
+            c next = it.next();
+            if (!next.g()) {
+                next.h(true);
+                next.f().d(z);
             }
-            System.currentTimeMillis();
+        }
+        b73.p();
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("is_timeout", z);
+        bundle.putString("app_id", h03.K().getAppId());
+        yw2 e = yw2.e();
+        ax2 ax2Var = new ax2(23, bundle);
+        ax2Var.f(true);
+        e.h(ax2Var);
+    }
+
+    @Override // com.repackage.ev2
+    @UiThread
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (ju2.k()) {
+                b73.a0(ju2.j());
+            }
+            this.c = false;
+            if (this.d.isEmpty()) {
+                return;
+            }
+            if (ml2.a) {
+                Log.e("SwanPerformance", "triggerLaunch, source = " + str);
+            }
+            Iterator<c> it = this.d.iterator();
+            while (it.hasNext()) {
+                c next = it.next();
+                next.h(false);
+                next.f().e(str);
+            }
+            k();
+            j();
+        }
+    }
+
+    @Override // com.repackage.ev2
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "SwanLaunchTriggerMgr" : (String) invokeV.objValue;
+    }
+
+    public boolean h(ev2 ev2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, ev2Var)) == null) {
+            if (ev2Var == null) {
+                return false;
+            }
+            Iterator<c> it = this.d.iterator();
+            while (it.hasNext()) {
+                if (ev2Var.equals(it.next().f())) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void i(ev2 ev2Var, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048583, this, ev2Var, i) == null) || this.c || ev2Var == null) {
+            return;
+        }
+        if (i > 5000) {
+            i = 5000;
+        }
+        if (h(ev2Var)) {
+            return;
+        }
+        this.d.add(new c(this, ev2Var, i, null));
+        if (ml2.a) {
+            Log.e("SwanPerformance", "register, task name = " + ev2Var.getName() + " ; timeout = " + i);
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            try {
+                this.e.start();
+            } catch (Throwable th) {
+                if (ml2.a) {
+                    Log.d("SwanPerformance", "start timer exception = " + th.getMessage());
+                }
+            }
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            try {
+                this.e.cancel();
+            } catch (Throwable th) {
+                if (ml2.a) {
+                    Log.d("SwanPerformance", "stop timer exception = " + th.getMessage());
+                }
+            }
         }
     }
 
@@ -113,6 +354,8 @@ public class cv2 implements ll2 {
                 return;
             }
         }
-        this.c = new ConcurrentHashMap();
+        this.c = false;
+        this.d = new CopyOnWriteArrayList<>();
+        this.e = new a(this, 5000L, 500L);
     }
 }

@@ -54,7 +54,7 @@ import com.repackage.p67;
 import com.repackage.pi;
 import com.repackage.sx8;
 import com.repackage.u87;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
@@ -575,28 +575,28 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     public final void c2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092439);
             this.a = navigationBar;
             if (this.z) {
                 this.r = navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f03a3));
             } else if (this.y) {
-                this.r = navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f10ff));
+                this.r = navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f10bb));
             }
             this.t = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0076, new g(this));
             this.a.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_LEFT).removeAllViews();
             this.o = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.w = (ImageView) this.t.findViewById(R.id.obfuscated_res_0x7f0915bb);
-            View addCustomView = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d05ea, (View.OnClickListener) null);
+            this.w = (ImageView) this.t.findViewById(R.id.obfuscated_res_0x7f091596);
+            View addCustomView = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d05f4, (View.OnClickListener) null);
             this.s = addCustomView;
             addCustomView.setVisibility(8);
             ImageView imageView = (ImageView) this.s.findViewById(R.id.obfuscated_res_0x7f0903f3);
             this.q = imageView;
             imageView.setVisibility(8);
-            this.u = (EditText) this.s.findViewById(R.id.obfuscated_res_0x7f0908ed);
-            this.x = (ImageView) this.s.findViewById(R.id.obfuscated_res_0x7f0908e9);
+            this.u = (EditText) this.s.findViewById(R.id.obfuscated_res_0x7f0908e6);
+            this.x = (ImageView) this.s.findViewById(R.id.obfuscated_res_0x7f0908e2);
             this.u.addTextChangedListener(new h(this));
             this.u.setOnFocusChangeListener(new i(this));
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0908ee);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0908e7);
             this.m = textView;
             textView.setOnClickListener(new j(this));
             this.q.setOnClickListener(new a(this));
@@ -606,12 +606,12 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     public final void d2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.i = findViewById(R.id.obfuscated_res_0x7f091d58);
-            this.p = NoDataViewFactory.b(getPageContext().getContext(), this.i, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, pi.f(getActivity(), R.dimen.obfuscated_res_0x7f0702a0)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c6c)), null, true);
+            this.i = findViewById(R.id.obfuscated_res_0x7f091d5e);
+            this.p = NoDataViewFactory.b(getPageContext().getContext(), this.i, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, pi.f(getActivity(), R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c58)), null, true);
             c2();
-            this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d66);
-            this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d45);
-            this.k = (BdListView) findViewById(R.id.obfuscated_res_0x7f0912d2);
+            this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d6c);
+            this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d4b);
+            this.k = (BdListView) findViewById(R.id.obfuscated_res_0x7f0912ae);
             sx8 sx8Var = new sx8(this);
             this.h = sx8Var;
             this.k.setAdapter((ListAdapter) sx8Var);
@@ -630,17 +630,17 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.z) {
-                a2(getString(R.string.obfuscated_res_0x7f0f0b31), this.b);
+                a2(getString(R.string.obfuscated_res_0x7f0f0b1d), this.b);
                 this.b.addAll(this.e);
             } else if (this.y) {
                 ArrayList<MetaData> a2 = u87.a();
                 this.d = a2;
                 int size = a2.size();
                 if (size == 0) {
-                    a2(getString(R.string.obfuscated_res_0x7f0f0b31), this.b);
+                    a2(getString(R.string.obfuscated_res_0x7f0f0b1d), this.b);
                     this.b.addAll(this.e);
                 } else {
-                    a2(getString(R.string.obfuscated_res_0x7f0f0c24), this.b);
+                    a2(getString(R.string.obfuscated_res_0x7f0f0c10), this.b);
                     if (size <= this.E) {
                         for (int i2 = 0; i2 < size; i2++) {
                             this.d.get(i2).setItemType(this.C);
@@ -655,7 +655,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
                     ArrayList<MetaData> arrayList = this.e;
                     if (arrayList != null && arrayList.size() != 0) {
                         Z1(this.b);
-                        a2(getString(R.string.obfuscated_res_0x7f0f0b31), this.b);
+                        a2(getString(R.string.obfuscated_res_0x7f0f0b1d), this.b);
                         for (int i4 = 0; i4 < this.e.size(); i4++) {
                             this.b.add(this.e.get(i4));
                         }
@@ -777,7 +777,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
                 this.k.setVisibility(8);
                 hideNetRefreshView(this.j);
                 this.p.setVisibility(0);
-                this.p.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c6c)));
+                this.p.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c58)));
                 this.t.setVisibility(8);
             } else if (i2 != 1) {
                 if (i2 == 0) {
@@ -788,7 +788,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
                 this.k.setVisibility(8);
                 hideNetRefreshView(this.j);
                 this.p.setVisibility(0);
-                this.p.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c6b)));
+                this.p.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c57)));
                 this.p.setImgOption(NoDataViewFactory.d.a(NoDataViewFactory.ImgType.FINDBAR));
                 this.t.setVisibility(8);
             }
@@ -809,15 +809,15 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
             WebPManager.setPureDrawable(this.x, R.drawable.obfuscated_res_0x7f080a29, R.color.CAM_X0109, null);
             SkinManager.setImageResource(this.q, R.drawable.icon_input_close_s);
             this.h.c(i2);
-            ur4 d2 = ur4.d(this.n);
+            vr4 d2 = vr4.d(this.n);
             d2.n(R.string.J_X07);
             d2.k(R.color.CAM_X0615);
             d2.f(R.color.CAM_X0209);
-            ur4.d(this.u).v(R.color.CAM_X0109);
-            ur4 d3 = ur4.d(this.m);
+            vr4.d(this.u).v(R.color.CAM_X0109);
+            vr4 d3 = vr4.d(this.m);
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0107);
-            ur4.d(this.o).v(R.color.CAM_X0109);
+            vr4.d(this.o).v(R.color.CAM_X0109);
         }
     }
 
@@ -826,7 +826,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d076f);
+            setContentView(R.layout.obfuscated_res_0x7f0d0779);
             b2(bundle);
             d2();
             h2();
@@ -980,7 +980,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
                 } else {
                     this.b.k.setVisibility(8);
                     ShareFriendActivity shareFriendActivity2 = this.b;
-                    shareFriendActivity2.showNetRefreshView(shareFriendActivity2.j, this.b.getString(R.string.obfuscated_res_0x7f0f0f9b), null, this.b.getString(R.string.obfuscated_res_0x7f0f0f9a), true, this.b.getNetRefreshListener());
+                    shareFriendActivity2.showNetRefreshView(shareFriendActivity2.j, this.b.getString(R.string.obfuscated_res_0x7f0f0f84), null, this.b.getString(R.string.obfuscated_res_0x7f0f0f83), true, this.b.getNetRefreshListener());
                 }
                 super.onPostExecute(hx8Var);
             }

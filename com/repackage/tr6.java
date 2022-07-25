@@ -12,7 +12,7 @@ public class tr6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public List<xo4> b;
+    public List<yo4> b;
 
     public tr6() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class tr6 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public List<xo4> b() {
+    public List<yo4> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
@@ -53,7 +53,7 @@ public class tr6 {
         }
     }
 
-    public void e(List<xo4> list) {
+    public void e(List<yo4> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.b = list;

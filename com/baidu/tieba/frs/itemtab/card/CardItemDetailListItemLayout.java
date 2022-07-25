@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.h9;
 import com.repackage.oi;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import com.repackage.yl6;
 /* loaded from: classes3.dex */
 public class CardItemDetailListItemLayout extends RelativeLayout {
@@ -176,12 +176,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (e == null) {
-                e = getContext().getString(R.string.obfuscated_res_0x7f0f09e2);
+                e = getContext().getString(R.string.obfuscated_res_0x7f0f09cc);
             }
             RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d03e4, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09155e);
-            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f09235f);
-            this.c = findViewById(R.id.obfuscated_res_0x7f0907b7);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091539);
+            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f092361);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0907b5);
             this.b.setOnClickListener(new a(this));
         }
     }
@@ -189,13 +189,13 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ur4.d(this.a).v(R.color.CAM_X0108);
+            vr4.d(this.a).v(R.color.CAM_X0108);
             if (oi.isEmpty(this.d)) {
-                ur4 d = ur4.d(this.b);
+                vr4 d = vr4.d(this.b);
                 d.w(R.dimen.M_T_X002);
                 d.v(R.color.CAM_X0105);
             } else {
-                ur4 d2 = ur4.d(this.b);
+                vr4 d2 = vr4.d(this.b);
                 d2.w(R.dimen.M_T_X002);
                 d2.v(R.color.CAM_X0304);
             }

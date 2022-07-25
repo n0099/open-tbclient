@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 /* loaded from: classes7.dex */
-public class w86 implements e15 {
+public class w86 implements f15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,7 +32,7 @@ public class w86 implements e15 {
         }
     }
 
-    @Override // com.repackage.e15
+    @Override // com.repackage.f15
     public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) || i == 3) {
@@ -48,7 +48,7 @@ public class w86 implements e15 {
         }
     }
 
-    @Override // com.repackage.e15
+    @Override // com.repackage.f15
     public void onFileDownloadSucceed(DownloadData downloadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
@@ -64,7 +64,7 @@ public class w86 implements e15 {
         }
     }
 
-    @Override // com.repackage.e15
+    @Override // com.repackage.f15
     public boolean onFileDownloaded(DownloadData downloadData) {
         InterceptResult invokeL;
         FileInputStream fileInputStream;
@@ -145,7 +145,7 @@ public class w86 implements e15 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.e15
+    @Override // com.repackage.f15
     public void onFileUpdateProgress(DownloadData downloadData) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) || downloadData == null) {
@@ -154,7 +154,7 @@ public class w86 implements e15 {
         x86.f().i(downloadData);
     }
 
-    @Override // com.repackage.e15
+    @Override // com.repackage.f15
     public boolean onPreDownload(DownloadData downloadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

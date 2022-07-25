@@ -10,7 +10,6 @@ import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,6 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.cmic.sso.sdk.e.c;
 import com.cmic.sso.sdk.e.g;
 import com.cmic.sso.sdk.e.m;
+import com.kuaishou.weapon.p0.h;
 import java.lang.reflect.Method;
 /* loaded from: classes4.dex */
 public class a {
@@ -28,17 +28,17 @@ public class a {
     public static a a;
     public static long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0275a c;
+    public C0289a c;
 
     /* renamed from: com.cmic.sso.sdk.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0275a {
+    public static class C0289a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
         public int b;
 
-        public C0275a() {
+        public C0289a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class a {
         TelephonyManager telephonyManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
-            if (!g.a(context, PermissionChecker.READ_PHONE_STATE) || (telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService("phone")) == null) {
+            if (!g.a(context, h.c) || (telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService("phone")) == null) {
                 return -1;
             }
             if (m.d()) {
@@ -145,14 +145,14 @@ public class a {
         return invokeL.intValue;
     }
 
-    public C0275a b() {
+    public C0289a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            C0275a c0275a = this.c;
-            return c0275a == null ? new C0275a() : c0275a;
+            C0289a c0289a = this.c;
+            return c0289a == null ? new C0289a() : c0289a;
         }
-        return (C0275a) invokeV.objValue;
+        return (C0289a) invokeV.objValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
@@ -218,15 +218,15 @@ public class a {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             long currentTimeMillis = System.currentTimeMillis() - b;
             if (currentTimeMillis >= 5000 || currentTimeMillis <= 0) {
-                this.c = new C0275a();
+                this.c = new C0289a();
                 if (z2) {
                     a(context, z);
                     if (m.e() && m.d()) {
                         c.b("UMCTelephonyManagement", "华为手机兼容性处理");
                         if (this.c.b == 0 || this.c.b == 1) {
                             if (this.c.a == -1) {
-                                C0275a c0275a = this.c;
-                                c0275a.a = c0275a.b;
+                                C0289a c0289a = this.c;
+                                c0289a.a = c0289a.b;
                             }
                             this.c.b = -1;
                         }

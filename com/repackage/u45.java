@@ -1,17 +1,20 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
+import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.concurrent.FutureTask;
 /* loaded from: classes7.dex */
-public class u45 extends v45 {
+public class u45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<FutureTask<Boolean>> a;
+    public List<t45> b;
+    public ErrorData c;
 
     public u45() {
         Interceptable interceptable = $ic;
@@ -27,24 +30,30 @@ public class u45 extends v45 {
         }
     }
 
-    @Override // com.repackage.v45
-    public String a() {
-        InterceptResult invokeV;
+    public void a(ErrorData errorData) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CloudControlRequest.REQUEST_KEY_FILTER : (String) invokeV.objValue;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, errorData) == null) && this.c == null) {
+            this.c = errorData;
+            for (FutureTask<Boolean> futureTask : this.a) {
+                futureTask.cancel(true);
+            }
+            for (t45 t45Var : this.b) {
+                t45Var.a();
+            }
+        }
     }
 
-    @Override // com.repackage.v45
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
+    public void b(List<t45> list) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) ? bitmap : (Bitmap) invokeLZ.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.b = list;
+        }
     }
 
-    @Override // com.repackage.v45
-    public void d(String str) {
+    public void c(List<FutureTask<Boolean>> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || str == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
         }
     }
 }

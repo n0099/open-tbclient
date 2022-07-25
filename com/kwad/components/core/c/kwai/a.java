@@ -23,28 +23,28 @@ public final class a extends KSFrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public final b a;
-    public final b.C0509b b;
-    public final AdTemplate c;
-    public final AdBaseFrameLayout d;
-    public d e;
-    public Presenter f;
-    public InterfaceC0508a g;
+    public final b DG;
+    public final b.C0354b DH;
+    public d DI;
+    public InterfaceC0353a DJ;
+    public final AdTemplate mAdTemplate;
+    public Presenter mPresenter;
+    public final AdBaseFrameLayout mRootContainer;
 
     /* renamed from: com.kwad.components.core.c.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0508a {
-        void a();
+    public interface InterfaceC0353a {
+        void mp();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(@Nullable b bVar, b.C0509b c0509b) {
-        super(c0509b.a);
+    public a(@Nullable b bVar, b.C0354b c0354b) {
+        super(c0354b.context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, c0509b};
+            Object[] objArr = {bVar, c0354b};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -55,68 +55,68 @@ public final class a extends KSFrameLayout {
                 return;
             }
         }
-        this.a = bVar;
-        this.b = c0509b;
-        this.c = c0509b.b;
-        FrameLayout.inflate(c0509b.a, R.layout.obfuscated_res_0x7f0d040f, this);
-        this.d = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091182);
+        this.DG = bVar;
+        this.DH = c0354b;
+        this.mAdTemplate = c0354b.adTemplate;
+        FrameLayout.inflate(c0354b.context, R.layout.obfuscated_res_0x7f0d040f, this);
+        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091160);
     }
 
-    private d c() {
+    public static Presenter ap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            Presenter presenter = new Presenter();
+            presenter.a(new e());
+            return presenter;
+        }
+        return (Presenter) invokeV.objValue;
+    }
+
+    private d mo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             d dVar = new d();
-            dVar.a = this.a;
-            dVar.b = this.b;
-            AdTemplate adTemplate = this.c;
-            dVar.c = adTemplate;
-            dVar.d = this.d;
-            if (com.kwad.sdk.core.response.a.a.I(com.kwad.sdk.core.response.a.d.i(adTemplate))) {
-                dVar.e = new com.kwad.components.core.c.a.b(this.c);
+            dVar.DG = this.DG;
+            dVar.DH = this.DH;
+            AdTemplate adTemplate = this.mAdTemplate;
+            dVar.mAdTemplate = adTemplate;
+            dVar.mRootContainer = this.mRootContainer;
+            if (com.kwad.sdk.core.response.a.a.am(com.kwad.sdk.core.response.a.d.bQ(adTemplate))) {
+                dVar.mApkDownloadHelper = new com.kwad.components.core.c.a.c(this.mAdTemplate);
             }
             return dVar;
         }
         return (d) invokeV.objValue;
     }
 
-    public static Presenter d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Presenter presenter = new Presenter();
-            presenter.a((Presenter) new e());
-            return presenter;
-        }
-        return (Presenter) invokeV.objValue;
-    }
-
     @Override // com.kwad.sdk.widget.KSFrameLayout
-    public final void a_() {
+    public final void am() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a_();
-            d dVar = this.e;
-            if (dVar != null) {
-                dVar.a();
-            }
-            Presenter presenter = this.f;
-            if (presenter != null) {
-                presenter.p();
-            }
+            super.am();
+            this.DI = mo();
+            Presenter ap = ap();
+            this.mPresenter = ap;
+            ap.B(this.mRootContainer);
+            this.mPresenter.e(this.DI);
         }
     }
 
     @Override // com.kwad.sdk.widget.KSFrameLayout
-    public final void b_() {
+    public final void an() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.b_();
-            this.e = c();
-            Presenter d = d();
-            this.f = d;
-            d.c(this.d);
-            this.f.a(this.e);
+            super.an();
+            d dVar = this.DI;
+            if (dVar != null) {
+                dVar.release();
+            }
+            Presenter presenter = this.mPresenter;
+            if (presenter != null) {
+                presenter.destroy();
+            }
         }
     }
 
@@ -125,17 +125,17 @@ public final class a extends KSFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            InterfaceC0508a interfaceC0508a = this.g;
-            if (interfaceC0508a != null) {
-                interfaceC0508a.a();
+            InterfaceC0353a interfaceC0353a = this.DJ;
+            if (interfaceC0353a != null) {
+                interfaceC0353a.mp();
             }
         }
     }
 
-    public final void setChangeListener(InterfaceC0508a interfaceC0508a) {
+    public final void setChangeListener(InterfaceC0353a interfaceC0353a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0508a) == null) {
-            this.g = interfaceC0508a;
+        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0353a) == null) {
+            this.DJ = interfaceC0353a;
         }
     }
 }

@@ -100,7 +100,7 @@ public class li6 extends cd6<zy5, a> {
                 aVar.a.j(this.k, TbadkCoreApplication.getInst().getSkinType());
             }
             aVar.a.i(zy5Var);
-            return aVar.b();
+            return aVar.a();
         }
         return (View) invokeCommon.objValue;
     }

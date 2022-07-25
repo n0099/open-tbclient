@@ -61,7 +61,7 @@ public class mx8 {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof CheckResponse)) {
                 nx8 checkResponseData = ((CheckResponse) httpResponsedMessage).getCheckResponseData();
                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                    httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1168));
+                    httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1117));
                 }
                 if (this.a.b != null) {
                     this.a.b.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());

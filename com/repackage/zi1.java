@@ -1,24 +1,17 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class zi1 implements i64 {
+public class zi1 implements hl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<String> a;
 
     public zi1() {
         Interceptable interceptable = $ic;
@@ -30,96 +23,73 @@ public class zi1 implements i64 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        SparseArray<String> sparseArray = new SparseArray<>();
-        this.a = sparseArray;
-        sparseArray.put(38, DI.BD.FAVOR);
-        if (!oj2.c0().a()) {
-            this.a.put(35, "add to launch");
-        }
-        if (oj2.n().a().equals("vivobrowser")) {
-            this.a.put(4, "share");
         }
     }
 
-    @Override // com.repackage.i64
-    public boolean a() {
+    @Override // com.repackage.hl1
+    public File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
+            return null;
         }
-        return invokeV.booleanValue;
+        return (File) invokeV.objValue;
     }
 
-    @Override // com.repackage.i64
-    public void b(Activity activity, n64 n64Var) {
+    @Override // com.repackage.zt2
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, n64Var) == null) {
-        }
-    }
-
-    @Override // com.repackage.i64
-    public void c(int i, List<n64> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, list) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.i64
-    public void d(int i, List<n64> list) {
+    @Override // com.repackage.zt2
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, list) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    @Override // com.repackage.i64
-    public void e(int i, List<n64> list) {
+    @Override // com.repackage.hl1
+    public void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, list) == null) {
-            l(i, list);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
         }
     }
 
-    @Override // com.repackage.i64
-    public void g(Activity activity, n64 n64Var) {
+    @Override // com.repackage.hl1
+    public void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, activity, n64Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, th) == null) {
         }
     }
 
-    @Override // com.repackage.i64
-    public void h(Context context, JSONObject jSONObject) {
+    @Override // com.repackage.hl1
+    public void flush(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, context, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
         }
     }
 
-    @Override // com.repackage.i64
-    public boolean j(n64 n64Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.hl1
+    public void i(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, n64Var)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
         }
-        return invokeL.booleanValue;
     }
 
-    public final void l(int i, List<n64> list) {
+    @Override // com.repackage.hl1
+    public void w(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, list) == null) || be3.G() || list == null || list.size() <= 0) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
         }
-        ArrayList arrayList = new ArrayList();
-        for (n64 n64Var : list) {
-            if (this.a.get(n64Var.c()) != null) {
-                arrayList.add(n64Var);
-            }
-        }
-        if (arrayList.size() > 0) {
-            list.removeAll(arrayList);
+    }
+
+    @Override // com.repackage.hl1
+    public void w(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, th) == null) {
         }
     }
 }

@@ -55,8 +55,8 @@ public class ew6 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof pq4)) {
-                this.a.d((pq4) customResponsedMessage.getData());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof qq4)) {
+                this.a.d((qq4) customResponsedMessage.getData());
             }
         }
     }
@@ -143,27 +143,27 @@ public class ew6 {
         }
     }
 
-    public final void d(pq4 pq4Var) {
+    public final void d(qq4 qq4Var) {
         Activity activity;
-        m05 m05Var;
+        n05 n05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pq4Var) == null) || pq4Var == null || (activity = pq4Var.b) == null || pq4Var.c == null || !"com.duowan.mobile.basemedia.watchlive.activity.LiveTemplateActivity".equals(activity.getClass().getName())) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qq4Var) == null) || qq4Var == null || (activity = qq4Var.b) == null || qq4Var.c == null || !"com.duowan.mobile.basemedia.watchlive.activity.LiveTemplateActivity".equals(activity.getClass().getName())) {
             return;
         }
-        if (!Lifecycle.Event.ON_START.equals(pq4Var.c)) {
-            if (Lifecycle.Event.ON_DESTROY.equals(pq4Var.c)) {
-                this.a.remove(pq4Var.b);
+        if (!Lifecycle.Event.ON_START.equals(qq4Var.c)) {
+            if (Lifecycle.Event.ON_DESTROY.equals(qq4Var.c)) {
+                this.a.remove(qq4Var.b);
             }
-        } else if (this.a.contains(pq4Var.b) || (m05Var = TbSingleton.getInstance().mLiveActivityGuide) == null || !m05Var.isValid()) {
+        } else if (this.a.contains(qq4Var.b) || (n05Var = TbSingleton.getInstance().mLiveActivityGuide) == null || !n05Var.isValid()) {
         } else {
-            FullScreenLayout fullScreenLayout = new FullScreenLayout(pq4Var.b);
+            FullScreenLayout fullScreenLayout = new FullScreenLayout(qq4Var.b);
             ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, -1);
-            fullScreenLayout.setFloatData(m05Var);
+            fullScreenLayout.setFloatData(n05Var);
             fullScreenLayout.setClickListener(new b(this));
-            pq4Var.b.addContentView(fullScreenLayout, layoutParams);
+            qq4Var.b.addContentView(fullScreenLayout, layoutParams);
             fw6.b();
-            this.a.add(pq4Var.b);
-            pq4Var.b.getWindow().setCallback(new dw6(pq4Var.b, fullScreenLayout));
+            this.a.add(qq4Var.b);
+            qq4Var.b.getWindow().setCallback(new dw6(qq4Var.b, fullScreenLayout));
         }
     }
 }

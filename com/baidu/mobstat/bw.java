@@ -29,7 +29,6 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobstat.bm;
 import com.baidu.mobstat.bt;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -195,7 +194,7 @@ public class bw {
         }
         format = String.format("%s_%s_%s", 0, 0, 0);
         try {
-            if ((bo.e(context, PermissionChecker.ACCESS_FINE_LOCATION) || bo.e(context, PermissionChecker.ACCESS_COARSE_LOCATION)) && (cellLocation = ((TelephonyManager) context.getSystemService("phone")).getCellLocation()) != null) {
+            if ((bo.e(context, com.kuaishou.weapon.p0.h.g) || bo.e(context, com.kuaishou.weapon.p0.h.h)) && (cellLocation = ((TelephonyManager) context.getSystemService("phone")).getCellLocation()) != null) {
                 if (cellLocation instanceof GsmCellLocation) {
                     GsmCellLocation gsmCellLocation = (GsmCellLocation) cellLocation;
                     return String.format("%s_%s_%s", String.format("%d", Integer.valueOf(gsmCellLocation.getCid())), String.format("%d", Integer.valueOf(gsmCellLocation.getLac())), 0);
@@ -215,7 +214,7 @@ public class bw {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) {
             try {
-                return (!bo.e(context, PermissionChecker.ACCESS_FINE_LOCATION) || (lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps")) == null) ? "" : String.format("%s_%s_%s", Long.valueOf(lastKnownLocation.getTime()), Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude()));
+                return (!bo.e(context, com.kuaishou.weapon.p0.h.g) || (lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps")) == null) ? "" : String.format("%s_%s_%s", Long.valueOf(lastKnownLocation.getTime()), Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude()));
             } catch (Exception unused) {
                 return "";
             }
@@ -241,7 +240,7 @@ public class bw {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
             try {
-                if (!bo.e(context, PermissionChecker.ACCESS_WIFI_STATE) || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
+                if (!bo.e(context, com.kuaishou.weapon.p0.h.d) || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
                     return "";
                 }
                 String macAddress = connectionInfo.getMacAddress();
@@ -330,10 +329,10 @@ public class bw {
         if (interceptable != null && (invokeL = interceptable.invokeL(65570, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (context == null || !bo.e(context, PermissionChecker.ACCESS_WIFI_STATE)) {
+        if (context == null || !bo.e(context, com.kuaishou.weapon.p0.h.d)) {
             return "";
         }
-        if (bo.e(context, PermissionChecker.ACCESS_FINE_LOCATION)) {
+        if (bo.e(context, com.kuaishou.weapon.p0.h.g)) {
             z = ((LocationManager) context.getSystemService("location")).isProviderEnabled("gps");
             WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
             WifiInfo wifiInfo = wifiManager.getConnectionInfo();

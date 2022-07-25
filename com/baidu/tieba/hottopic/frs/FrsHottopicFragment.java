@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f55;
+import com.repackage.g55;
 import com.repackage.h37;
 import com.repackage.ie6;
 import com.repackage.ke6;
@@ -47,7 +47,7 @@ public class FrsHottopicFragment extends BaseFragment implements ie6, p37.a, ke6
     public long d;
     public String e;
     public String f;
-    public f55 g;
+    public g55 g;
     public CustomMessageListener h;
     public HotRanklistModel.b i;
     public CustomMessageListener j;
@@ -251,8 +251,8 @@ public class FrsHottopicFragment extends BaseFragment implements ie6, p37.a, ke6
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.c.g(true);
-            f55 f55Var = this.g;
-            if (f55Var != null && f55Var.isViewAttached()) {
+            g55 g55Var = this.g;
+            if (g55Var != null && g55Var.isViewAttached()) {
                 this.g.dettachView(this.c.a());
             }
             MessageManager.getInstance().unRegisterListener(this.h);
@@ -263,8 +263,8 @@ public class FrsHottopicFragment extends BaseFragment implements ie6, p37.a, ke6
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (isPrimary()) {
-                f55 f55Var = this.g;
-                if (f55Var != null && f55Var.isViewAttached()) {
+                g55 g55Var = this.g;
+                if (g55Var != null && g55Var.isViewAttached()) {
                     registerListener(this.h);
                     return;
                 } else {
@@ -280,7 +280,7 @@ public class FrsHottopicFragment extends BaseFragment implements ie6, p37.a, ke6
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.c.g(false);
-            showLoadingView(this.c.a(), true, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07028a));
+            showLoadingView(this.c.a(), true, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070288));
         }
     }
 
@@ -290,9 +290,9 @@ public class FrsHottopicFragment extends BaseFragment implements ie6, p37.a, ke6
             this.c.g(false);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003020, Boolean.TRUE));
             if (this.g == null) {
-                f55 f55Var = new f55(getPageContext().getContext(), getNetRefreshListener());
-                this.g = f55Var;
-                f55Var.e(null);
+                g55 g55Var = new g55(getPageContext().getContext(), getNetRefreshListener());
+                this.g = g55Var;
+                g55Var.e(null);
                 this.g.d(null);
                 this.g.c(null);
                 this.g.f();
@@ -356,8 +356,8 @@ public class FrsHottopicFragment extends BaseFragment implements ie6, p37.a, ke6
             if (p37Var != null) {
                 p37Var.c();
             }
-            f55 f55Var = this.g;
-            if (f55Var == null || !f55Var.isViewAttached()) {
+            g55 g55Var = this.g;
+            if (g55Var == null || !g55Var.isViewAttached()) {
                 return;
             }
             this.g.onChangeSkinType();

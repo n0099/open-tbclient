@@ -85,14 +85,14 @@ public class ai7 implements ShareChannelService {
                 if (b) {
                     return b;
                 }
-                pi.O(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1185));
+                pi.O(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1134));
                 return b;
             } else if (i == 6) {
                 boolean b2 = sh8.b(TbadkCoreApplication.getInst(), "com.sina.weibo");
                 if (b2) {
                     return b2;
                 }
-                pi.O(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f117e));
+                pi.O(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f112d));
                 return b2;
             } else if (i != 8) {
                 return false;
@@ -101,7 +101,7 @@ public class ai7 implements ShareChannelService {
                 if (b3) {
                     return b3;
                 }
-                pi.O(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1160));
+                pi.O(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f110f));
                 return b3;
             }
         }

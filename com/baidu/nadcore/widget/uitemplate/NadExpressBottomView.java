@@ -72,12 +72,12 @@ public class NadExpressBottomView extends ViewGroup {
         l = q01.c.a(hh0.b(), 3.0f);
         m = q01.c.a(hh0.b(), 0.0f);
         n = e(R.dimen.obfuscated_res_0x7f070046);
-        o = e(R.dimen.obfuscated_res_0x7f07055a);
-        p = e(R.dimen.obfuscated_res_0x7f0704e8);
-        q = e(R.dimen.obfuscated_res_0x7f07055b) - (l * 2);
+        o = e(R.dimen.obfuscated_res_0x7f070558);
+        p = e(R.dimen.obfuscated_res_0x7f0704e6);
+        q = e(R.dimen.obfuscated_res_0x7f070559) - (l * 2);
         r = e(R.dimen.obfuscated_res_0x7f070068);
         s = e(R.dimen.obfuscated_res_0x7f070068);
-        t = e(R.dimen.obfuscated_res_0x7f070583);
+        t = e(R.dimen.obfuscated_res_0x7f070580);
         u = d(R.color.obfuscated_res_0x7f060277);
         v = d(R.color.obfuscated_res_0x7f060254);
     }
@@ -225,7 +225,7 @@ public class NadExpressBottomView extends ViewGroup {
             this.a = adImageView;
             adImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             this.a.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d80));
-            this.a.setId(R.id.obfuscated_res_0x7f091513);
+            this.a.setId(R.id.obfuscated_res_0x7f0914ee);
             this.a.setContentDescription("不感兴趣");
             g11.a(getContext(), this.a, 15.0f);
             setWillNotDraw(false);

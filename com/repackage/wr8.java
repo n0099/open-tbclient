@@ -37,7 +37,7 @@ public class wr8 {
 
         /* renamed from: com.repackage.wr8$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0762a implements TextureMovieEncoder.OnEncoderStatusUpdateListener {
+        public class C0610a implements TextureMovieEncoder.OnEncoderStatusUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ur8 a;
@@ -45,17 +45,17 @@ public class wr8 {
 
             /* renamed from: com.repackage.wr8$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class RunnableC0763a implements Runnable {
+            public class RunnableC0611a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0762a a;
+                public final /* synthetic */ C0610a a;
 
-                public RunnableC0763a(C0762a c0762a) {
+                public RunnableC0611a(C0610a c0610a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0762a};
+                        Object[] objArr = {c0610a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -65,7 +65,7 @@ public class wr8 {
                             return;
                         }
                     }
-                    this.a = c0762a;
+                    this.a = c0610a;
                 }
 
                 @Override // java.lang.Runnable
@@ -78,7 +78,7 @@ public class wr8 {
                 }
             }
 
-            public C0762a(a aVar, ur8 ur8Var) {
+            public C0610a(a aVar, ur8 ur8Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,7 +108,7 @@ public class wr8 {
             public void onStopSuccess() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    qg.a().post(new RunnableC0763a(this));
+                    qg.a().post(new RunnableC0611a(this));
                     this.a.setOnEncoderStatusUpdateListener(null);
                 }
             }
@@ -143,7 +143,7 @@ public class wr8 {
                     return;
                 }
                 if (q instanceof GLVideoPreviewView) {
-                    q.setOnEncoderStatusUpdateListener(new C0762a(this, q));
+                    q.setOnEncoderStatusUpdateListener(new C0610a(this, q));
                     this.a.o();
                     return;
                 }
@@ -181,8 +181,8 @@ public class wr8 {
             return;
         }
         ImageView imageView = (ImageView) recordVideoActivity.findViewById(R.id.obfuscated_res_0x7f09046b);
-        ImageView imageView2 = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09099e);
-        ProgressView progressView = (ProgressView) this.c.findViewById(R.id.obfuscated_res_0x7f0923d7);
+        ImageView imageView2 = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090997);
+        ProgressView progressView = (ProgressView) this.c.findViewById(R.id.obfuscated_res_0x7f0923d9);
         this.d = progressView;
         progressView.setListener(new a(this));
         if (!pr8.f(true)) {

@@ -15,7 +15,7 @@ public class et {
     public static Vector<Pair<String, Long>> a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ConcurrentHashMap<String, Long> f1045a;
+    public static ConcurrentHashMap<String, Long> f325a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class et {
             }
         }
         a = new Vector<>();
-        f1045a = new ConcurrentHashMap<>();
+        f325a = new ConcurrentHashMap<>();
     }
 
     public static String a() {

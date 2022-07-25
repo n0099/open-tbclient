@@ -174,7 +174,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((LinearLayout.LayoutParams) this.c.c.getLayoutParams()).rightMargin = (int) this.c.getResources().getDimension(R.dimen.obfuscated_res_0x7f07054f);
+                ((LinearLayout.LayoutParams) this.c.c.getLayoutParams()).rightMargin = (int) this.c.getResources().getDimension(R.dimen.obfuscated_res_0x7f07054d);
                 this.c.b.setBackgroundResource(0);
                 this.c.b.setPadding(0, 0, 0, 0);
                 this.c.c.setText(this.c.k(String.format("@%s", this.a.f.e), this.c.c.getPaint()));
@@ -343,9 +343,9 @@ public class NadVideoAdOverContainer extends RelativeLayout {
             if (this.a.getMeasuredWidth() > 0) {
                 e2 = (this.a.getMeasuredWidth() * 4) - drawable.getIntrinsicWidth();
             } else {
-                e2 = ((q01.c.e(getContext()) - getResources().getDimension(R.dimen.obfuscated_res_0x7f070531)) * 4.0f) - drawable.getIntrinsicWidth();
+                e2 = ((q01.c.e(getContext()) - getResources().getDimension(R.dimen.obfuscated_res_0x7f07052f)) * 4.0f) - drawable.getIntrinsicWidth();
             }
-            float dimension = e2 - (getResources().getDimension(R.dimen.obfuscated_res_0x7f070532) * 3.0f);
+            float dimension = e2 - (getResources().getDimension(R.dimen.obfuscated_res_0x7f070530) * 3.0f);
             int length = str.length() + 1;
             spannableStringBuilder.append((CharSequence) " ").append((CharSequence) t);
             if (dimension < this.a.getPaint().measureText(spannableStringBuilder.toString())) {
@@ -365,24 +365,24 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     public final String k(@Nullable String str, @Nullable TextPaint textPaint) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, textPaint)) == null) ? g11.b(str, "", (int) (((int) (q01.c.e(getContext()) - getResources().getDimension(R.dimen.obfuscated_res_0x7f070537))) - getResources().getDimension(R.dimen.obfuscated_res_0x7f070533)), textPaint) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, textPaint)) == null) ? g11.b(str, "", (int) (((int) (q01.c.e(getContext()) - getResources().getDimension(R.dimen.obfuscated_res_0x7f070535))) - getResources().getDimension(R.dimen.obfuscated_res_0x7f070531)), textPaint) : (String) invokeLL.objValue;
     }
 
     public final void l(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05c1, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09155c);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091512);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091542);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05cb, this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091537);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914ed);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09151d);
             this.d = (PortraitVideoTailView) findViewById(R.id.obfuscated_res_0x7f0900d4);
             this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0900d2);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091553);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09152e);
             this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900f2);
-            this.n = findViewById(R.id.obfuscated_res_0x7f091515);
-            this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091546);
-            this.p = (SimpleAdInfoView) findViewById(R.id.obfuscated_res_0x7f09150e);
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f091513);
+            this.n = findViewById(R.id.obfuscated_res_0x7f0914f0);
+            this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091521);
+            this.p = (SimpleAdInfoView) findViewById(R.id.obfuscated_res_0x7f0914e9);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f0914ee);
         }
     }
 
@@ -408,7 +408,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     public final void n(@NonNull AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, adBaseModel) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f09155a);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091535);
             if (!adBaseModel.d) {
                 findViewById.setVisibility(8);
                 return;
@@ -431,7 +431,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
             if (adBaseModel.m == null) {
                 return;
             }
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f09155a);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091535);
             findViewById.setVisibility(0);
             this.j.setVisibility(0);
             if (this.j.getChildCount() > 0) {

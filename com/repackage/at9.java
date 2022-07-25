@@ -37,12 +37,12 @@ public final class at9<T> implements ur9.b<T, T> {
 
         /* renamed from: com.repackage.at9$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0592a implements wr9 {
+        public class C0437a implements wr9 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0592a(a aVar) {
+            public C0437a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -194,7 +194,7 @@ public final class at9<T> implements ur9.b<T, T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 as9<? super T> as9Var = this.e;
-                as9Var.f(new C0592a(this));
+                as9Var.f(new C0437a(this));
                 as9Var.b(this.f);
                 as9Var.b(this);
             }

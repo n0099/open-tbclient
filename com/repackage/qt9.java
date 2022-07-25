@@ -32,13 +32,13 @@ public final class qt9 extends xr9 {
 
         /* renamed from: com.repackage.qt9$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0717a implements hs9 {
+        public class C0564a implements hs9 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ pw9 a;
             public final /* synthetic */ a b;
 
-            public C0717a(a aVar, pw9 pw9Var) {
+            public C0564a(a aVar, pw9 pw9Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -174,7 +174,7 @@ public final class qt9 extends xr9 {
                 pw9 pw9Var2 = new pw9();
                 pw9Var2.a(pw9Var);
                 this.b.a(pw9Var2);
-                bs9 a = rw9.a(new C0717a(this, pw9Var2));
+                bs9 a = rw9.a(new C0564a(this, pw9Var2));
                 ScheduledAction scheduledAction = new ScheduledAction(new b(this, pw9Var2, q, a));
                 pw9Var.a(scheduledAction);
                 try {

@@ -73,7 +73,7 @@ public class CarUUID {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (c(context, "android.permission.READ_EXTERNAL_STORAGE")) {
+            if (c(context, com.kuaishou.weapon.p0.h.i)) {
                 return a(new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".dueros_uuid"));
             }
             return null;

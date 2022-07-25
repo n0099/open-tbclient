@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.sofire.utility.CommonMethods;
 import com.heytap.mcssdk.PushManager;
 import java.io.File;
 import java.io.FileInputStream;
@@ -75,7 +74,7 @@ public class e {
                                 zipInputStream5.closeEntry();
                             } catch (Throwable unused) {
                             }
-                        } else if (CommonMethods.ANDROID_MANIFEST_FILENAME.equals(nextEntry.getName())) {
+                        } else if ("AndroidManifest.xml".equals(nextEntry.getName())) {
                             zipFile3 = null;
                             zipEntry = nextEntry;
                             fileInputStream = fileInputStream3;
@@ -135,7 +134,7 @@ public class e {
                             break;
                         }
                         zipEntry2 = entries.nextElement();
-                        if (!zipEntry2.isDirectory() && CommonMethods.ANDROID_MANIFEST_FILENAME.equals(zipEntry2.getName())) {
+                        if (!zipEntry2.isDirectory() && "AndroidManifest.xml".equals(zipEntry2.getName())) {
                             break;
                         }
                     }
@@ -153,7 +152,7 @@ public class e {
             }
             if (zipEntry != null) {
                 try {
-                    if (CommonMethods.ANDROID_MANIFEST_FILENAME.equals(zipEntry.getName())) {
+                    if ("AndroidManifest.xml".equals(zipEntry.getName())) {
                         a aVar2 = new a();
                         try {
                             aVar2.a(zipInputStream3);

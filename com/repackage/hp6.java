@@ -38,14 +38,14 @@ public class hp6 {
         }
     }
 
-    public static String b(po4 po4Var, int i) {
+    public static String b(qo4 qo4Var, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, po4Var, i)) == null) {
-            if (po4Var == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, qo4Var, i)) == null) {
+            if (qo4Var == null) {
                 return null;
             }
-            List<VideoImageColor> o = po4Var.o();
+            List<VideoImageColor> o = qo4Var.o();
             if (ListUtils.isEmpty(o)) {
                 return null;
             }
@@ -75,9 +75,9 @@ public class hp6 {
             if (frsViewData == null || frsViewData.getActivityHeadData() == null) {
                 return null;
             }
-            ArrayList<po4> b = frsViewData.getActivityHeadData().b();
-            po4 po4Var = !ListUtils.isEmpty(b) ? b.get(0) : null;
-            if (po4Var == null || (d = po4Var.d()) == null) {
+            ArrayList<qo4> b = frsViewData.getActivityHeadData().b();
+            qo4 qo4Var = !ListUtils.isEmpty(b) ? b.get(0) : null;
+            if (qo4Var == null || (d = qo4Var.d()) == null) {
                 return null;
             }
             return d.value;
@@ -205,7 +205,7 @@ public class hp6 {
             if (yg8Var == null || StringUtils.isNull(yg8Var.p())) {
                 return false;
             }
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             long m = k.m("key_frs_video_ad_last_show_time" + str, 0L);
             if (m >= 0) {
                 return !TimeHelper.isSameDay(new Date(m), new Date(System.currentTimeMillis()));

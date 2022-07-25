@@ -25,14 +25,14 @@ public class he5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public de5<T> a;
-        public jd5<T> b;
+        public kd5<T> b;
 
-        public a(de5<T> de5Var, jd5<T> jd5Var) {
+        public a(de5<T> de5Var, kd5<T> kd5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {de5Var, jd5Var};
+                Object[] objArr = {de5Var, kd5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,7 +45,7 @@ public class he5 {
             this.a = null;
             this.b = null;
             this.a = de5Var;
-            this.b = jd5Var;
+            this.b = kd5Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,12 +70,12 @@ public class he5 {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(T t) {
-            jd5<T> jd5Var;
+            kd5<T> kd5Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || (jd5Var = this.b) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || (kd5Var = this.b) == null) {
                 return;
             }
-            jd5Var.onReturnDataInUI(t);
+            kd5Var.onReturnDataInUI(t);
         }
     }
 
@@ -103,24 +103,24 @@ public class he5 {
         }
     }
 
-    public static <T> void b(de5<T> de5Var, jd5<T> jd5Var) {
+    public static <T> void b(de5<T> de5Var, kd5<T> kd5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, de5Var, jd5Var) == null) || de5Var == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, de5Var, kd5Var) == null) || de5Var == null) {
             return;
         }
-        a aVar = new a(de5Var, jd5Var);
+        a aVar = new a(de5Var, kd5Var);
         aVar.setParallel(b);
         aVar.setTag(a);
         aVar.setPriority(4);
         aVar.execute(new String[0]);
     }
 
-    public static <T> void c(de5<T> de5Var, jd5<T> jd5Var) {
+    public static <T> void c(de5<T> de5Var, kd5<T> kd5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, de5Var, jd5Var) == null) || de5Var == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, de5Var, kd5Var) == null) || de5Var == null) {
             return;
         }
-        a aVar = new a(de5Var, jd5Var);
+        a aVar = new a(de5Var, kd5Var);
         aVar.setParallel(TiebaIMConfig.getParallel());
         aVar.setTag(a);
         aVar.setPriority(4);

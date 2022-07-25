@@ -7,20 +7,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.ksad.annotation.invoker.InvokeBy;
 import com.kwad.sdk.core.config.item.d;
-import com.kwad.sdk.core.config.item.i;
-import com.kwad.sdk.core.config.item.n;
+import com.kwad.sdk.core.config.item.j;
+import com.kwad.sdk.core.config.item.o;
 /* loaded from: classes5.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-    public static i a;
-    public static i b;
-    public static n c;
-    public static n d;
-    public static n e;
-    public static i f;
-    public static i g;
-    public static i h;
-    public static d i;
+    public static j yl;
+    public static j ym;
+    public static o yn;
+    public static o yo;
+    public static o yp;
+    public static j yq;
+    public static j yr;
+    public static j ys;
+    public static d yt;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,19 +36,19 @@ public final class a {
                 return;
             }
         }
-        a = new i("splashTimeOutMilliSecond", 5000);
-        b = new i("splashVplusEnterHomeSeconds", 0);
-        c = new n("splashTimerTips", "");
-        d = new n("splashBtnText", "点击跳过详情页或第三方应用");
-        e = new n("splashVplusEnterHomeTips", "");
-        f = new i("shakeCountDaily", 3);
-        g = new i("rotateCountDaily", 3);
-        h = new i("gestureCountDaily", 5);
-        i = new d("splashCropSwitch", true);
+        yl = new j("splashTimeOutMilliSecond", 5000);
+        ym = new j("splashVplusEnterHomeSeconds", 0);
+        yn = new o("splashTimerTips", "");
+        yo = new o("splashBtnText", "点击跳过详情页或第三方应用");
+        yp = new o("splashVplusEnterHomeTips", "");
+        yq = new j("shakeCountDaily", 3);
+        yr = new j("rotateCountDaily", 3);
+        ys = new j("gestureCountDaily", 5);
+        yt = new d("splashCropSwitch", true);
     }
 
     @InvokeBy(invokerClass = com.kwad.sdk.core.config.d.class, methodId = "initConfigList")
-    public static void a() {
+    public static void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
         }

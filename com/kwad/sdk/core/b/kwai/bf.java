@@ -1,68 +1,74 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.contentalliance.coupon.model.ActivityInfo;
-import com.kwad.sdk.core.response.model.SdkConfigData;
-import com.kwad.sdk.core.response.model.TemplateConfig;
-import org.json.JSONObject;
+import com.ksad.annotation.invoker.InvokeBy;
+import com.kwad.components.core.webview.a.a;
+import com.kwad.components.core.webview.jshandler.WebCardVideoPositionHandler;
+import com.kwad.components.core.webview.jshandler.a;
+import com.kwad.components.core.webview.jshandler.ad;
+import com.kwad.components.core.webview.jshandler.ae;
+import com.kwad.components.core.webview.jshandler.ag;
+import com.kwad.components.core.webview.jshandler.e;
+import com.kwad.components.core.webview.jshandler.m;
+import com.kwad.components.core.webview.jshandler.n;
+import com.kwad.components.core.webview.jshandler.p;
+import com.kwad.components.core.webview.jshandler.q;
+import com.kwad.components.core.webview.jshandler.t;
+import com.kwad.components.core.webview.jshandler.u;
+import com.kwad.components.core.webview.jshandler.v;
+import com.kwad.components.core.webview.jshandler.x;
+import com.kwad.components.core.webview.jshandler.y;
+import com.kwad.components.splash.SplashPreloadManager;
+import com.kwad.components.splash.monitor.SplashMonitorInfo;
 /* loaded from: classes5.dex */
-public final class bf implements com.kwad.sdk.core.d<SdkConfigData.CouponActiveConfig> {
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(SdkConfigData.CouponActiveConfig couponActiveConfig, JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        couponActiveConfig.popUpShowTimeSeconds = jSONObject.optInt("popUpShowTimeSeconds");
-        couponActiveConfig.title = jSONObject.optString("title");
-        if (jSONObject.opt("title") == JSONObject.NULL) {
-            couponActiveConfig.title = "";
-        }
-        couponActiveConfig.secondTitle = jSONObject.optString("secondTitle");
-        if (jSONObject.opt("secondTitle") == JSONObject.NULL) {
-            couponActiveConfig.secondTitle = "";
-        }
-        couponActiveConfig.bottomTitle = jSONObject.optString("bottomTitle");
-        if (jSONObject.opt("bottomTitle") == JSONObject.NULL) {
-            couponActiveConfig.bottomTitle = "";
-        }
-        couponActiveConfig.videoThreshold = jSONObject.optInt("videoThreshold");
-        couponActiveConfig.videoSeconds = jSONObject.optInt("videoSeconds");
-        TemplateConfig templateConfig = new TemplateConfig();
-        couponActiveConfig.couponOpenConfig = templateConfig;
-        templateConfig.parseJson(jSONObject.optJSONObject("couponOpenConfig"));
-        TemplateConfig templateConfig2 = new TemplateConfig();
-        couponActiveConfig.couponInfoConfig = templateConfig2;
-        templateConfig2.parseJson(jSONObject.optJSONObject("couponInfoConfig"));
-        ActivityInfo activityInfo = new ActivityInfo();
-        couponActiveConfig.activityInfo = activityInfo;
-        activityInfo.parseJson(jSONObject.optJSONObject("activityInfo"));
-    }
-
-    /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(SdkConfigData.CouponActiveConfig couponActiveConfig, JSONObject jSONObject) {
-        if (jSONObject == null) {
-            jSONObject = new JSONObject();
-        }
-        com.kwad.sdk.utils.r.a(jSONObject, "popUpShowTimeSeconds", couponActiveConfig.popUpShowTimeSeconds);
-        com.kwad.sdk.utils.r.a(jSONObject, "title", couponActiveConfig.title);
-        com.kwad.sdk.utils.r.a(jSONObject, "secondTitle", couponActiveConfig.secondTitle);
-        com.kwad.sdk.utils.r.a(jSONObject, "bottomTitle", couponActiveConfig.bottomTitle);
-        com.kwad.sdk.utils.r.a(jSONObject, "videoThreshold", couponActiveConfig.videoThreshold);
-        com.kwad.sdk.utils.r.a(jSONObject, "videoSeconds", couponActiveConfig.videoSeconds);
-        com.kwad.sdk.utils.r.a(jSONObject, "couponOpenConfig", couponActiveConfig.couponOpenConfig);
-        com.kwad.sdk.utils.r.a(jSONObject, "couponInfoConfig", couponActiveConfig.couponInfoConfig);
-        com.kwad.sdk.utils.r.a(jSONObject, "activityInfo", couponActiveConfig.activityInfo);
-        return jSONObject;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
-    @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(SdkConfigData.CouponActiveConfig couponActiveConfig, JSONObject jSONObject) {
-        a2(couponActiveConfig, jSONObject);
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
-    @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(SdkConfigData.CouponActiveConfig couponActiveConfig, JSONObject jSONObject) {
-        return b2(couponActiveConfig, jSONObject);
+public final class bf {
+    @InvokeBy(invokerClass = dd.class, methodId = "registerHolder")
+    public static void tl() {
+        dd.tm().put(com.kwad.components.a.kwai.a.class, new cn());
+        dd.tm().put(t.a.class, new bi());
+        dd.tm().put(com.kwad.components.core.webview.b.a.r.class, new fz());
+        dd.tm().put(n.a.class, new eh());
+        dd.tm().put(com.kwad.components.core.webview.b.a.q.class, new ez());
+        dd.tm().put(a.b.class, new br());
+        dd.tm().put(com.kwad.components.core.webview.b.a.f.class, new ax());
+        dd.tm().put(WebCardVideoPositionHandler.VideoPosition.KSAdJSCornerModel.class, new de());
+        dd.tm().put(com.kwad.sdk.kwai.kwai.kwai.a.class, new cu());
+        dd.tm().put(com.kwad.components.core.webview.b.a.g.class, new bj());
+        dd.tm().put(v.b.class, new db());
+        dd.tm().put(q.a.class, new co());
+        dd.tm().put(a.b.class, new cj());
+        dd.tm().put(com.kwad.components.core.webview.b.a.k.class, new dw());
+        dd.tm().put(com.kwad.components.core.webview.b.a.s.class, new gc());
+        dd.tm().put(SplashPreloadManager.PreLoadItem.class, new ek());
+        dd.tm().put(p.a.class, new fx());
+        dd.tm().put(com.kwad.components.core.webview.b.a.p.class, new ey());
+        dd.tm().put(e.a.class, new o());
+        dd.tm().put(com.kwad.components.core.webview.b.a.i.class, new dp());
+        dd.tm().put(ae.a.class, new fp());
+        dd.tm().put(SplashMonitorInfo.class, new fi());
+        dd.tm().put(com.kwad.components.core.webview.b.a.n.class, new ew());
+        dd.tm().put(com.kwad.components.core.webview.b.a.c.class, new ak());
+        dd.tm().put(a.C0364a.class, new bo());
+        dd.tm().put(com.kwad.components.core.webview.b.a.o.class, new ex());
+        dd.tm().put(com.kwad.components.core.f.a.class, new n());
+        dd.tm().put(a.C0369a.class, new ci());
+        dd.tm().put(com.kwad.components.core.webview.b.a.e.class, new av());
+        dd.tm().put(com.kwad.components.a.kwai.b.class, new dk());
+        dd.tm().put(m.a.class, new eg());
+        dd.tm().put(y.a.class, new ag());
+        dd.tm().put(com.kwad.components.core.webview.a.b.class, new ds());
+        dd.tm().put(com.kwad.components.core.webview.b.a.a.class, new k());
+        dd.tm().put(v.a.class, new da());
+        dd.tm().put(ag.a.class, new dc());
+        dd.tm().put(com.kwad.components.core.webview.b.a.m.class, new ee());
+        dd.tm().put(com.kwad.components.core.webview.b.a.j.class, new dt());
+        dd.tm().put(com.kwad.components.core.webview.b.a.d.class, new am());
+        dd.tm().put(com.kwad.components.core.webview.b.a.l.class, new ec());
+        dd.tm().put(u.b.class, new cl());
+        dd.tm().put(y.b.class, new ah());
+        dd.tm().put(WebCardVideoPositionHandler.VideoPosition.class, new gb());
+        dd.tm().put(SplashPreloadManager.PreLoadPara.class, new el());
+        dd.tm().put(x.a.class, new dy());
+        dd.tm().put(ad.a.class, new gd());
+        dd.tm().put(com.kwad.components.core.webview.b.a.b.class, new ai());
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class ru1 extends nt1 {
+public class ru1 extends ot1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -29,22 +29,22 @@ public class ru1 extends nt1 {
         this.a = -1;
     }
 
-    @Override // com.repackage.nt1
-    public void a(ot1 ot1Var, Canvas canvas) {
+    @Override // com.repackage.ot1
+    public void a(pt1 pt1Var, Canvas canvas) {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, ot1Var, canvas) == null) || (i = this.a) < 0) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, pt1Var, canvas) == null) || (i = this.a) < 0) {
             return;
         }
-        ot1Var.c.setStrokeMiter(i);
+        pt1Var.c.setStrokeWidth(i);
     }
 
-    @Override // com.repackage.nt1
+    @Override // com.repackage.ot1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
             return;
         }
-        this.a = yd3.g((float) jSONArray.optDouble(0));
+        this.a = zd3.g((float) jSONArray.optDouble(0));
     }
 }

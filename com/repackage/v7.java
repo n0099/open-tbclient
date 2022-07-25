@@ -53,7 +53,7 @@ public class v7<K> implements Iterable<b<K>> {
             this.f = new b<>();
         }
 
-        public a<K> d() {
+        public a<K> c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (a) invokeV.objValue;
@@ -61,7 +61,7 @@ public class v7<K> implements Iterable<b<K>> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
-        /* renamed from: e */
+        /* renamed from: d */
         public b<K> next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class v7<K> implements Iterable<b<K>> {
                         bVar.a = kArr[i];
                         bVar.b = v7Var.c[i];
                         this.d = i;
-                        b();
+                        a();
                         return this.f;
                     }
                     throw new GdxRuntimeException("#iterator() cannot be used nested.");
@@ -100,7 +100,7 @@ public class v7<K> implements Iterable<b<K>> {
 
         @Override // java.lang.Iterable
         public /* bridge */ /* synthetic */ Iterator iterator() {
-            d();
+            c();
             return this;
         }
     }
@@ -163,10 +163,10 @@ public class v7<K> implements Iterable<b<K>> {
             }
             this.e = true;
             this.b = v7Var;
-            c();
+            b();
         }
 
-        public void b() {
+        public void a() {
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -184,12 +184,12 @@ public class v7<K> implements Iterable<b<K>> {
             }
         }
 
-        public void c() {
+        public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.d = -1;
                 this.c = -1;
-                b();
+                a();
             }
         }
 
@@ -269,13 +269,13 @@ public class v7<K> implements Iterable<b<K>> {
             }
             a aVar = this.h;
             if (!aVar.e) {
-                aVar.c();
+                aVar.b();
                 a<K> aVar2 = this.h;
                 aVar2.e = true;
                 this.i.e = false;
                 return aVar2;
             }
-            this.i.c();
+            this.i.b();
             a<K> aVar3 = this.i;
             aVar3.e = true;
             this.h.e = false;

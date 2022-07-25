@@ -99,14 +99,14 @@ public class yv5 {
         this.k = alaEnterEffectData;
         RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00e9, (ViewGroup) null);
         this.a = relativeLayout;
-        this.b = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090841);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091282);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09131f);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090694);
-        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091eb8);
-        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091eb9);
-        this.h = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090708);
-        this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090707);
+        this.b = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f09083f);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09125e);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0912fb);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090693);
+        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ebc);
+        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091ebd);
+        this.h = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090707);
+        this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090706);
         c(alaEnterEffectData);
     }
 
@@ -133,7 +133,7 @@ public class yv5 {
                 Drawable normalSkinMoneyIcon = CurrencySwitchUtil.getNormalSkinMoneyIcon();
                 int dimensionPixelSize = this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070215);
                 normalSkinMoneyIcon.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
-                this.f.setCompoundDrawablePadding(this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023d));
+                this.f.setCompoundDrawablePadding(this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b));
                 this.f.setCompoundDrawables(normalSkinMoneyIcon, null, null, null);
                 this.h.setVisibility(0);
                 this.i.setText(AlaStringHelper.formatLowercasekDou((float) TbadkCoreApplication.getInst().currentAccountTdouNum));

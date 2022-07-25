@@ -195,7 +195,7 @@ public class d48 extends x38 implements zk7, u38 {
             this.j.hideLoadingView(this.k);
             boolean z = true;
             if (e48Var == null) {
-                this.i.y(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c2b), true);
+                this.i.y(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17), true);
                 this.i.n();
                 this.i.t(8);
                 return;
@@ -215,7 +215,7 @@ public class d48 extends x38 implements zk7, u38 {
             this.d = false;
             if (this.a && e48Var.j() != null) {
                 e48Var.j().setBimg_url(TbadkCoreApplication.getInst().getDefaultBubble());
-                f45.d().i(e48Var.j());
+                g45.d().i(e48Var.j());
             }
             u08 u08Var = this.n.get(0);
             u08Var.a(e48Var.f());

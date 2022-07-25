@@ -16,8 +16,8 @@ public class i08 {
     public static volatile i08 d;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public y05 b;
-    public List<y05> c;
+    public z05 b;
+    public List<z05> c;
 
     public i08() {
         Interceptable interceptable = $ic;
@@ -67,18 +67,18 @@ public class i08 {
         virtualImageInfo.recent_incr_agree.intValue();
         virtualImageInfo.snapshoot_id.intValue();
         if (virtualImageInfo.personal_state != null) {
-            y05 y05Var = new y05();
-            this.b = y05Var;
-            y05Var.d(virtualImageInfo.personal_state);
+            z05 z05Var = new z05();
+            this.b = z05Var;
+            z05Var.d(virtualImageInfo.personal_state);
         }
         if (virtualImageInfo.state_list != null) {
             this.c = new ArrayList();
             for (int i = 0; i < virtualImageInfo.state_list.size(); i++) {
                 StateInfo stateInfo = virtualImageInfo.state_list.get(i);
                 if (stateInfo != null) {
-                    y05 y05Var2 = new y05();
-                    y05Var2.d(stateInfo);
-                    this.c.add(y05Var2);
+                    z05 z05Var2 = new z05();
+                    z05Var2.d(stateInfo);
+                    this.c.add(z05Var2);
                 }
             }
         }

@@ -1,153 +1,158 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public abstract class i93 {
+public final class i93 extends j93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public g93 a;
-    public d93 b;
-    public volatile boolean c;
-    public HandlerThread d;
-    public Handler e;
+    public boolean g;
 
     /* loaded from: classes6.dex */
-    public class a extends Handler {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i93 a;
+        public final /* synthetic */ ArrayList a;
+        public final /* synthetic */ i93 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(i93 i93Var, Looper looper) {
-            super(looper);
+        public a(i93 i93Var, ArrayList arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {i93Var, looper};
+                Object[] objArr = {i93Var, arrayList};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = i93Var;
+            this.b = i93Var;
+            this.a = arrayList;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 101) {
-                this.a.f();
-                if (!this.a.c) {
-                    this.a.e.removeMessages(101);
-                } else {
-                    this.a.a.c();
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.m(this.a);
+                this.b.j();
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755663666, "Lcom/repackage/i93;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755663666, "Lcom/repackage/i93;");
-                return;
-            }
-        }
-        f = rg1.a;
-    }
-
-    public i93(d93 d93Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i93(e93 e93Var) {
+        super(e93Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d93Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {e93Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((e93) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new g93();
-        this.b = d93Var;
     }
 
-    public synchronized void c() {
+    @Override // com.repackage.j93
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    return;
-                }
-                d();
-                this.e.sendMessage(this.e.obtainMessage(101));
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a()) {
+            long currentTimeMillis = j93.f ? System.currentTimeMillis() : 0L;
+            this.a.g(new a(this, this.b.n()));
+            if (j93.f) {
+                Log.d("SwanCookieSyncPolicy", "saveCacheToDatabase costTime:" + (System.currentTimeMillis() - currentTimeMillis));
             }
         }
     }
 
-    public final void d() {
+    public final void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.e == null) {
-            HandlerThread handlerThread = new HandlerThread("cookieSync");
-            this.d = handlerThread;
-            handlerThread.start();
-            this.e = new a(this, this.d.getLooper());
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.g) {
+            return;
+        }
+        long currentTimeMillis = j93.f ? System.currentTimeMillis() : 0L;
+        this.a.b();
+        this.g = true;
+        if (j93.f) {
+            Log.d("SwanCookieSyncPolicy", "clearExpiredCookies costTime:" + (System.currentTimeMillis() - currentTimeMillis));
         }
     }
 
-    public synchronized void e() {
+    public ArrayList<d93> k(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.c = true;
-                if (this.d != null) {
-                    this.d.quitSafely();
-                }
-                this.e = null;
-                this.d = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            long currentTimeMillis = j93.f ? System.currentTimeMillis() : 0L;
+            ArrayList<d93> arrayList = new ArrayList<>();
+            try {
+                arrayList = this.a.e(str);
+            } catch (Exception e) {
+                ix1.k("SwanCookieSyncPolicy", Log.getStackTraceString(e));
+            }
+            if (j93.f) {
+                Log.d("SwanCookieSyncPolicy", "getCookiesForDomain costTime:" + (System.currentTimeMillis() - currentTimeMillis));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long currentTimeMillis = j93.f ? System.currentTimeMillis() : 0L;
+            this.a.h();
+            if (j93.f) {
+                Log.d("SwanCookieSyncPolicy", "preInitDatabase costTime:" + (System.currentTimeMillis() - currentTimeMillis));
             }
         }
     }
 
-    public abstract void f();
-
-    public synchronized void g() {
+    public final void m(ArrayList<d93> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    return;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) || arrayList == null || arrayList.isEmpty()) {
+            return;
+        }
+        if (j93.f) {
+            Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash start");
+        }
+        Iterator<d93> it = arrayList.iterator();
+        while (it.hasNext()) {
+            d93 next = it.next();
+            if (next != null) {
+                if (j93.f) {
+                    Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash result cookie:" + next.toString());
                 }
-                d();
-                this.e.sendMessageDelayed(this.e.obtainMessage(101), 5000L);
+                int i = next.i;
+                if (i == 0) {
+                    this.a.a(next);
+                    this.b.y(next);
+                } else if (i == 2) {
+                    this.a.d(next.a, next.b, next.c);
+                    this.b.g(next);
+                } else if (i == 3) {
+                    this.a.d(next.a, next.b, next.c);
+                    this.a.a(next);
+                    this.b.y(next);
+                }
             }
         }
     }

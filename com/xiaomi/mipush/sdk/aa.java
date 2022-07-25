@@ -10,17 +10,17 @@ import com.xiaomi.push.hn;
 public class aa implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ MiTinyDataClient.a.C0854a a;
+    public final /* synthetic */ MiTinyDataClient.a.C0703a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ hn f767a;
+    public final /* synthetic */ hn f47a;
 
-    public aa(MiTinyDataClient.a.C0854a c0854a, hn hnVar) {
+    public aa(MiTinyDataClient.a.C0703a c0703a, hn hnVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c0854a, hnVar};
+            Object[] objArr = {c0703a, hnVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,15 +30,15 @@ public class aa implements Runnable {
                 return;
             }
         }
-        this.a = c0854a;
-        this.f767a = hnVar;
+        this.a = c0703a;
+        this.f47a = hnVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.f762a.add(this.f767a);
+            this.a.f42a.add(this.f47a);
             this.a.a();
         }
     }

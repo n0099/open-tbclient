@@ -30,7 +30,7 @@ import com.repackage.bk5;
 import com.repackage.ck5;
 import com.repackage.iz6;
 import com.repackage.jy5;
-import com.repackage.p85;
+import com.repackage.q85;
 import com.repackage.sx5;
 import com.repackage.uy5;
 /* loaded from: classes3.dex */
@@ -229,7 +229,7 @@ public class HomePageAlaLiveThreadAdapter extends an<uy5, HomePageAlaLiveThreadV
             statisticItem.param("tid", str2);
             statisticItem.param("obj_source", uy5Var.o());
             statisticItem.param("nid", str);
-            p85 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view2);
+            q85 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view2);
             if (findPageExtraByView != null) {
                 statisticItem.param(TiebaStatic.Params.OBJ_CUR_PAGE, findPageExtraByView.a());
             }
@@ -312,7 +312,7 @@ public class HomePageAlaLiveThreadAdapter extends an<uy5, HomePageAlaLiveThreadV
             }
             iz6.i(uy5Var.a, this.i, uy5Var.m());
             iz6.h(uy5Var.a, uy5Var.o(), uy5Var.m());
-            return homePageAlaLiveThreadViewHolder.b();
+            return homePageAlaLiveThreadViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

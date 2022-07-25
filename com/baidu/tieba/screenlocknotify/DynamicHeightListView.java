@@ -37,7 +37,7 @@ public class DynamicHeightListView extends BdListView {
                 return;
             }
         }
-        this.G = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702cf);
+        this.G = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702cd);
     }
 
     public int getMaxHeight() {
@@ -95,7 +95,7 @@ public class DynamicHeightListView extends BdListView {
                 return;
             }
         }
-        this.G = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702cf);
+        this.G = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702cd);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -117,6 +117,6 @@ public class DynamicHeightListView extends BdListView {
                 return;
             }
         }
-        this.G = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702cf);
+        this.G = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702cd);
     }
 }

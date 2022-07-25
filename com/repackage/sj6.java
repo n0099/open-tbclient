@@ -57,7 +57,7 @@ public class sj6 extends an<hj6, FrsGameStrategyItemView.FrsGameStrategyItemView
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hj6Var, frsGameStrategyItemViewHolder})) == null) {
             frsGameStrategyItemViewHolder.a.i(hj6Var);
-            return frsGameStrategyItemViewHolder.b();
+            return frsGameStrategyItemViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

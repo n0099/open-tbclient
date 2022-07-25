@@ -1,145 +1,82 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes7.dex */
 public class sn4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> i;
+    public static volatile sn4 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public boolean h;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755314792, "Lcom/repackage/sn4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755314792, "Lcom/repackage/sn4;");
-                return;
-            }
-        }
-        i = new HashSet();
-    }
+    public float a;
+    public float b;
+    public float c;
+    public boolean d;
 
     public sn4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public static sn4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? i.contains(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e == null) {
+                synchronized (sn4.class) {
+                    if (e == null) {
+                        e = new sn4();
+                    }
+                }
+            }
+            return e;
+        }
+        return (sn4) invokeV.objValue;
     }
 
-    public static void b(AdvertAppInfo advertAppInfo) {
-        sn4 sn4Var;
+    public float b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, advertAppInfo) == null) || advertAppInfo == null || (sn4Var = advertAppInfo.i) == null || sn4Var.h || a(sn4Var.g)) {
-            return;
-        }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.y(ClogBuilder.LogType.SHOW).v(advertAppInfo.j).q(String.valueOf(advertAppInfo.position + 1)).r(sn4Var.d).s(sn4Var.e).t(sn4Var.c).w(String.valueOf(sn4Var.b)).p(advertAppInfo.g);
-        iy0.b(clogBuilder);
-        bd7.b(bd7.a(advertAppInfo));
-        sn4Var.h = true;
-        i.add(sn4Var.g);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.floatValue;
     }
 
-    public static void c(sn4 sn4Var, int i2, boolean z) {
+    public float c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sn4Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || sn4Var == null || sn4Var.h || a(sn4Var.g)) {
-            return;
-        }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.y(z ? ClogBuilder.LogType.STOCK : ClogBuilder.LogType.SHOW).v(sn4Var.a).q(String.valueOf(i2 + 1)).r(sn4Var.d).s(sn4Var.e).t(sn4Var.c).w(String.valueOf(sn4Var.b)).p(sn4Var.g);
-        iy0.b(clogBuilder);
-        sn4Var.h = true;
-        i.add(sn4Var.g);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.floatValue;
     }
 
-    public static void d(py5 py5Var) {
+    public float d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, py5Var) == null) || py5Var == null || py5Var.c() == null || py5Var.c().i == null || py5Var.c().i.h || a(py5Var.c().i.g)) {
-            return;
-        }
-        py5Var.c().j = py5Var.c().i.a;
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.y(ClogBuilder.LogType.SHOW).v(py5Var.c().j).q(String.valueOf(py5Var.c().position + 1)).w(String.valueOf(py5Var.c().i.b)).p(py5Var.c().i.g);
-        iy0.b(clogBuilder);
-        bd7.b(bd7.a(py5Var.c()));
-        py5Var.c().i.h = true;
-        i.add(py5Var.c().i.g);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.floatValue;
     }
 
-    public static void e(sn4 sn4Var, int i2, boolean z) {
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{sn4Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || sn4Var == null || sn4Var.h || a(sn4Var.g)) {
-            return;
-        }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.y(z ? ClogBuilder.LogType.STOCK : ClogBuilder.LogType.SHOW).v(sn4Var.a).q(String.valueOf(i2 + 1)).w(String.valueOf(sn4Var.b)).p(sn4Var.g);
-        iy0.b(clogBuilder);
-        sn4Var.h = true;
-        i.add(sn4Var.g);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.booleanValue;
     }
 
-    public static void f(ni8 ni8Var) {
-        sn4 sn4Var;
+    public void f(float f, float f2, float f3, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, ni8Var) == null) || ni8Var == null || ni8Var.getAdvertAppInfo() == null || (sn4Var = ni8Var.getAdvertAppInfo().i) == null || sn4Var.h || a(sn4Var.g)) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)}) == null) {
+            this.a = f;
+            this.b = f2;
+            this.c = f3;
+            this.d = z;
         }
-        ni8Var.L0 = sn4Var.d;
-        ni8Var.M0 = sn4Var.e;
-        ni8Var.K0 = sn4Var.c;
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.y(ClogBuilder.LogType.SHOW).q(String.valueOf(ni8Var.Q0 + 1)).w(String.valueOf(ni8Var.O0)).v(sn4Var.a).r(sn4Var.d).s(sn4Var.e).t(sn4Var.c).p(sn4Var.g);
-        iy0.b(clogBuilder);
-        sn4Var.h = true;
-        i.add(sn4Var.g);
-    }
-
-    public static void g(sn4 sn4Var, int i2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{sn4Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || sn4Var == null || sn4Var.h || a(sn4Var.g)) {
-            return;
-        }
-        boolean equals = "PB_BANNER".equals(sn4Var.a);
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.y(z ? ClogBuilder.LogType.STOCK : ClogBuilder.LogType.SHOW).q(String.valueOf(equals ? -1 : i2 + 1)).w(String.valueOf(equals ? -1 : sn4Var.b)).v(sn4Var.a).r(sn4Var.d).s(sn4Var.e).t(sn4Var.c).p(sn4Var.g);
-        iy0.b(clogBuilder);
-        sn4Var.h = true;
-        i.add(sn4Var.g);
     }
 }

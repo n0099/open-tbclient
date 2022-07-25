@@ -32,8 +32,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.e9;
 import com.repackage.pi;
-import com.repackage.qz4;
-import com.repackage.ur4;
+import com.repackage.rz4;
+import com.repackage.vr4;
 @RequiresApi(api = 21)
 /* loaded from: classes3.dex */
 public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnClickListener {
@@ -171,11 +171,11 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d027a, (ViewGroup) this, true);
             setPadding(pi.f(getContext(), R.dimen.M_H_X009), 0, pi.f(getContext(), R.dimen.M_H_X009), pi.f(getContext(), R.dimen.M_H_X005));
-            this.a = findViewById(R.id.obfuscated_res_0x7f090929);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090927);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090928);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090925);
-            this.e = (FaceGroupDownloadButton) findViewById(R.id.obfuscated_res_0x7f090926);
+            this.a = findViewById(R.id.obfuscated_res_0x7f090922);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090920);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090921);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f09091e);
+            this.e = (FaceGroupDownloadButton) findViewById(R.id.obfuscated_res_0x7f09091f);
             this.a.setOnClickListener(this);
             this.e.setOnClickListener(this);
             setVisibility(8);
@@ -187,18 +187,18 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ur4 d = ur4.d(this.a);
+            vr4 d = vr4.d(this.a);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0215);
-            ur4 d2 = ur4.d(this.e);
+            vr4 d2 = vr4.d(this.e);
             d2.v(R.color.CAM_X0101);
             d2.z(R.dimen.T_X08);
             d2.A(R.string.F_X01);
-            ur4 d3 = ur4.d(this.c);
+            vr4 d3 = vr4.d(this.c);
             d3.v(R.color.CAM_X0101);
             d3.z(R.dimen.T_X06);
             d3.A(R.string.F_X01);
-            ur4.d(this.b).v(R.string.J_X04);
+            vr4.d(this.b).v(R.string.J_X04);
             WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f0806dd, R.color.CAM_X0101, null);
         }
     }
@@ -264,7 +264,7 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
                 int f = (((getResources().getDisplayMetrics().widthPixels - pi.f(TbadkApplication.getInst(), R.dimen.tbds94)) - pi.f(TbadkApplication.getInst(), R.dimen.tbds180)) - pi.f(TbadkApplication.getInst(), R.dimen.tbds75)) - pi.f(TbadkApplication.getInst(), R.dimen.tbds200);
                 TextPaint paint = this.c.getPaint();
                 String name = this.f.getName();
-                this.c.setText(qz4.a(name, StringHelper.STRING_MORE + j, f, paint));
+                this.c.setText(rz4.a(name, StringHelper.STRING_MORE + j, f, paint));
                 CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921699, Boolean.class, this.f.getId());
                 if (runTask != null && ((Boolean) runTask.getData()).booleanValue()) {
                     this.f.updateStatus(FaceGroupInfoData.Status.FINISH);
@@ -288,12 +288,12 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
         if (i == 1) {
             this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f00d7));
         } else if (i == 2) {
-            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f05f2));
+            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f05ee));
         } else if (i != 3) {
-            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f04f3));
+            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f04ef));
         } else {
             this.e.setProgress(this.f.getProgress());
-            this.e.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0989), Integer.valueOf(this.f.getProgress())));
+            this.e.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0974), Integer.valueOf(this.f.getProgress())));
         }
     }
 
@@ -310,9 +310,9 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f090929) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090922) {
                 e();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f090926) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09091f) {
                 f();
             }
         }

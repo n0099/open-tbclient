@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gl4;
+import com.repackage.hl4;
 import com.repackage.ig6;
-import com.repackage.yc5;
+import com.repackage.zc5;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -104,13 +104,13 @@ public class VideoMiddleModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            LinkedList<gl4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
+            LinkedList<hl4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
             if (videoRecordList != null) {
                 try {
                     if (videoRecordList.size() > 0) {
-                        Iterator<gl4> it = videoRecordList.iterator();
+                        Iterator<hl4> it = videoRecordList.iterator();
                         while (it.hasNext()) {
-                            gl4 next = it.next();
+                            hl4 next = it.next();
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("tid", next.a());
                             jSONObject.put("duration", next.b());
@@ -171,7 +171,7 @@ public class VideoMiddleModel extends BdBaseModel {
                 httpMessage.addParam("ori_ugc_vid", this.e.mBaijiahaoData.oriUgcVid);
                 httpMessage.addParam("ori_ugc_tid", this.e.mBaijiahaoData.oriUgcTid);
             }
-            httpMessage.addParam("app_transmit_data", yc5.a());
+            httpMessage.addParam("app_transmit_data", zc5.a());
             sendMessage(httpMessage);
             return true;
         }

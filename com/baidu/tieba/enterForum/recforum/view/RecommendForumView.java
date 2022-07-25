@@ -35,7 +35,7 @@ import com.repackage.g66;
 import com.repackage.hd7;
 import com.repackage.ng;
 import com.repackage.pi;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import com.repackage.z56;
 import java.util.ArrayList;
 import tbclient.ThemeColorInfo;
@@ -423,7 +423,7 @@ public class RecommendForumView extends LinearLayout {
     public final void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0728, this);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0732, this);
             setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             setOrientation(1);
         }
@@ -432,9 +432,9 @@ public class RecommendForumView extends LinearLayout {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906a0);
-            this.b = (RecommendForumInfoView) findViewById(R.id.obfuscated_res_0x7f091a99);
-            this.c = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f092054);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09069f);
+            this.b = (RecommendForumInfoView) findViewById(R.id.obfuscated_res_0x7f091a73);
+            this.c = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f092058);
         }
     }
 
@@ -489,7 +489,7 @@ public class RecommendForumView extends LinearLayout {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            ur4.d(this.a).f(R.color.CAM_X0201);
+            vr4.d(this.a).f(R.color.CAM_X0201);
             this.b.e();
         }
     }

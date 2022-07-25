@@ -64,7 +64,7 @@ public class gb6 extends cd6<hb6, FrsMemberTeamViewHolder> {
                 if (view2.getTag() instanceof BawuRoleInfoPub) {
                     BawuRoleInfoPub bawuRoleInfoPub = (BawuRoleInfoPub) view2.getTag();
                     this.a.k.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.a, "" + bawuRoleInfoPub.user_id, bawuRoleInfoPub.user_name)));
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f0920e9) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f0920eb) {
                     Object tag = view2.getTag();
                     if (tag instanceof Integer) {
                         Integer num = (Integer) tag;
@@ -146,11 +146,11 @@ public class gb6 extends cd6<hb6, FrsMemberTeamViewHolder> {
                     if (i2 > 3) {
                         break;
                     } else if (bawuRoleInfoPub != null) {
-                        frsMemberTeamViewHolder.c(bawuRoleInfoPub, i2);
+                        frsMemberTeamViewHolder.b(bawuRoleInfoPub, i2);
                         i2++;
                     }
                 }
-                frsMemberTeamViewHolder.d(this.n);
+                frsMemberTeamViewHolder.c(this.n);
                 SkinManager.setBackgroundColor(frsMemberTeamViewHolder.n, R.color.CAM_X0201);
                 SkinManager.setViewTextColor(frsMemberTeamViewHolder.a, R.color.CAM_X0105, 1);
                 SkinManager.setViewTextColor(frsMemberTeamViewHolder.j, R.color.CAM_X0106, 1);

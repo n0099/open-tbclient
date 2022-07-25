@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     @ColorInt
-    public static final int a;
+    public static final int PD;
     public transient /* synthetic */ FieldHolder $fh;
     @ColorInt
-    public int b;
+    public int PE;
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +31,7 @@ public final class f {
                 return;
             }
         }
-        a = Color.parseColor("#FFFE3666");
+        PD = Color.parseColor("#FFFE3666");
     }
 
     public f() {
@@ -47,12 +47,12 @@ public final class f {
                 return;
             }
         }
-        this.b = a;
+        this.PE = PD;
     }
 
-    public final int a() {
+    public final int qh() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.PE : invokeV.intValue;
     }
 }

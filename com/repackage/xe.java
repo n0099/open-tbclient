@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -82,7 +81,7 @@ public class xe {
             } catch (Throwable th2) {
                 th = th2;
                 try {
-                    this.a.i(th, SharedPreferenceManager.OPERATION_GET_PERFIX);
+                    this.a.i(th, "get");
                     return null;
                 } finally {
                     mg.a(cursor);

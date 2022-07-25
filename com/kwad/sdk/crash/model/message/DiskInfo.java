@@ -27,10 +27,10 @@ public class DiskInfo implements b, Serializable {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        r.a(jSONObject, "mDataTotalGB", this.mDataTotalGB);
-        r.a(jSONObject, "mDataAvailableGB", this.mDataAvailableGB);
-        r.a(jSONObject, "mExternalStorageTotalGB", this.mExternalStorageTotalGB);
-        r.a(jSONObject, "mExternalStorageAvailableGB", this.mExternalStorageAvailableGB);
+        r.putValue(jSONObject, "mDataTotalGB", this.mDataTotalGB);
+        r.putValue(jSONObject, "mDataAvailableGB", this.mDataAvailableGB);
+        r.putValue(jSONObject, "mExternalStorageTotalGB", this.mExternalStorageTotalGB);
+        r.putValue(jSONObject, "mExternalStorageAvailableGB", this.mExternalStorageAvailableGB);
         return jSONObject;
     }
 

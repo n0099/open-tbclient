@@ -8,11 +8,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.components.core.webview.jshandler.h;
 import com.kwad.sdk.core.webview.kwai.c;
 import com.kwad.sdk.core.webview.kwai.d;
 import com.kwad.sdk.core.webview.kwai.e;
 import com.kwad.sdk.core.webview.kwai.f;
-import com.kwad.sdk.utils.bd;
+import com.kwad.sdk.utils.bh;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
@@ -21,10 +22,10 @@ import org.json.JSONObject;
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, com.kwad.sdk.core.webview.kwai.a> a;
-    public WebView b;
-    public com.kwad.sdk.core.webview.kwai.a c;
-    public boolean d;
+    public WebView Fv;
+    public final Map<String, com.kwad.sdk.core.webview.kwai.a> KC;
+    public com.kwad.sdk.core.webview.kwai.a KD;
+    public boolean KE;
 
     public a(WebView webView) {
         Interceptable interceptable = $ic;
@@ -41,67 +42,65 @@ public final class a {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap(32);
-        this.c = new d();
-        this.b = webView;
-        b();
+        this.KC = new ConcurrentHashMap(32);
+        this.KD = new d();
+        this.Fv = webView;
+        pn();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, String str2) {
+    public void h(String str, String str2) {
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, str, str2) == null) {
-            if (this.d) {
+            if (this.KE) {
                 str3 = "callJS after destroy jsInterface, " + str2;
             } else if (!TextUtils.isEmpty(str)) {
-                com.kwad.sdk.core.d.b.a("KSAdJSBridge", "callJS callback:+ " + str + "--params: " + str2);
-                WebView webView = this.b;
+                com.kwad.sdk.core.e.b.d("KSAdJSBridge", "callJS callback:+ " + str + "--params: " + str2);
+                WebView webView = this.Fv;
                 if (webView == null) {
                     return;
                 }
-                bd.a(webView, str, str2);
+                bh.a(webView, str, str2);
                 return;
             } else {
                 str3 = "callJS callback is empty";
             }
-            com.kwad.sdk.core.d.b.a("KSAdJSBridge", str3);
+            com.kwad.sdk.core.e.b.d("KSAdJSBridge", str3);
         }
     }
 
-    private void b() {
+    private void pn() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             a(new com.kwad.sdk.core.webview.a.a());
             a(new com.kwad.sdk.core.webview.a.b());
-        }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.kwad.sdk.core.d.b.c("KSAdJSBridge", "destroy jsInterface");
-            for (Map.Entry<String, com.kwad.sdk.core.webview.kwai.a> entry : this.a.entrySet()) {
-                com.kwad.sdk.core.webview.kwai.a value = entry.getValue();
-                if (value != null) {
-                    value.b();
-                }
-            }
-            this.d = true;
+            a(new h());
         }
     }
 
     public final void a(com.kwad.sdk.core.webview.kwai.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (aVar == null || TextUtils.isEmpty(aVar.a())) {
-                com.kwad.sdk.core.d.b.e("KSAdJSBridge", "handler and handler'key cannot be null");
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            if (aVar == null || TextUtils.isEmpty(aVar.getKey())) {
+                com.kwad.sdk.core.e.b.e("KSAdJSBridge", "handler and handler'key cannot be null");
                 return;
             }
-            if (this.a.containsKey(aVar.a())) {
-                com.kwad.sdk.core.d.b.e("KSAdJSBridge", "cannot register handler again, handler: " + aVar.a());
+            if (this.KC.containsKey(aVar.getKey())) {
+                com.kwad.sdk.core.e.b.e("KSAdJSBridge", "cannot register handler again, handler: " + aVar.getKey());
             }
-            this.a.put(aVar.a(), aVar);
+            this.KC.put(aVar.getKey(), aVar);
+        }
+    }
+
+    public final void b(com.kwad.sdk.core.webview.kwai.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (TextUtils.isEmpty(aVar.getKey())) {
+                com.kwad.sdk.core.e.b.e("KSAdJSBridge", "handler and handler'key cannot be null");
+            } else {
+                this.KC.put(aVar.getKey(), aVar);
+            }
         }
     }
 
@@ -109,24 +108,24 @@ public final class a {
     public final void callAdBridge(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            com.kwad.sdk.core.d.b.a("KSAdJSBridge", "callAdBridge ==" + str);
+            com.kwad.sdk.core.e.b.d("KSAdJSBridge", "callAdBridge ==" + str);
             try {
                 com.kwad.sdk.core.webview.kwai.b bVar = new com.kwad.sdk.core.webview.kwai.b();
                 bVar.parseJson(new JSONObject(str));
-                com.kwad.sdk.core.webview.kwai.a aVar = this.a.get(bVar.a);
+                com.kwad.sdk.core.webview.kwai.a aVar = this.KC.get(bVar.agi);
                 if (aVar == null) {
-                    aVar = this.c;
+                    aVar = this.KD;
                 }
-                if (this.b != null && (this.b instanceof KsAdWebView)) {
-                    KsAdWebView ksAdWebView = (KsAdWebView) this.b;
-                    com.kwad.components.a.b.b.a(ksAdWebView.getLoadUrl(), ksAdWebView.getUniqueId(), bVar.a, bVar.b);
+                if (this.Fv != null && (this.Fv instanceof KsAdWebView)) {
+                    KsAdWebView ksAdWebView = (KsAdWebView) this.Fv;
+                    com.kwad.components.a.b.b.a(ksAdWebView.getLoadUrl(), ksAdWebView.getUniqueId(), bVar.agi, bVar.data);
                 }
                 if (aVar != null) {
-                    aVar.a(bVar.b, !TextUtils.isEmpty(bVar.c) ? new c(this, bVar) { // from class: com.kwad.components.core.webview.a.1
+                    aVar.a(bVar.data, !TextUtils.isEmpty(bVar.agj) ? new c(this, bVar) { // from class: com.kwad.components.core.webview.a.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ com.kwad.sdk.core.webview.kwai.b a;
-                        public final /* synthetic */ a b;
+                        public final /* synthetic */ com.kwad.sdk.core.webview.kwai.b KF;
+                        public final /* synthetic */ a KG;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -143,29 +142,29 @@ public final class a {
                                     return;
                                 }
                             }
-                            this.b = this;
-                            this.a = bVar;
-                        }
-
-                        @Override // com.kwad.sdk.core.webview.kwai.c
-                        public final void a(int i, String str2) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str2) == null) {
-                                this.b.a(this.a.c, new e(i, str2).toJson().toString());
-                            }
+                            this.KG = this;
+                            this.KF = bVar;
                         }
 
                         @Override // com.kwad.sdk.core.webview.kwai.c
                         public final void a(com.kwad.sdk.core.b bVar2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar2) == null) {
-                                this.b.a(this.a.c, new f(bVar2).toJson().toString());
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, bVar2) == null) {
+                                this.KG.h(this.KF.agj, new f(bVar2).toJson().toString());
+                            }
+                        }
+
+                        @Override // com.kwad.sdk.core.webview.kwai.c
+                        public final void onError(int i, String str2) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2) == null) {
+                                this.KG.h(this.KF.agj, new e(i, str2).toJson().toString());
                             }
                         }
                     } : new c(this) { // from class: com.kwad.components.core.webview.a.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ a a;
+                        public final /* synthetic */ a KG;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -182,30 +181,44 @@ public final class a {
                                     return;
                                 }
                             }
-                            this.a = this;
-                        }
-
-                        @Override // com.kwad.sdk.core.webview.kwai.c
-                        public final void a(int i, String str2) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str2) == null) {
-                            }
+                            this.KG = this;
                         }
 
                         @Override // com.kwad.sdk.core.webview.kwai.c
                         public final void a(com.kwad.sdk.core.b bVar2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar2) == null) {
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, bVar2) == null) {
+                            }
+                        }
+
+                        @Override // com.kwad.sdk.core.webview.kwai.c
+                        public final void onError(int i, String str2) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2) == null) {
                             }
                         }
                     });
                 } else {
-                    com.kwad.sdk.core.d.b.e("KSAdJSBridge", "bridgeHandler is null");
+                    com.kwad.sdk.core.e.b.e("KSAdJSBridge", "bridgeHandler is null");
                 }
             } catch (JSONException e) {
-                com.kwad.sdk.core.d.b.a(e);
-                com.kwad.sdk.core.d.b.e("KSAdJSBridge", "callAdBridge JSONException:" + e);
+                com.kwad.sdk.core.e.b.printStackTrace(e);
+                com.kwad.sdk.core.e.b.e("KSAdJSBridge", "callAdBridge JSONException:" + e);
             }
+        }
+    }
+
+    public final void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            com.kwad.sdk.core.e.b.i("KSAdJSBridge", "destroy jsInterface");
+            for (Map.Entry<String, com.kwad.sdk.core.webview.kwai.a> entry : this.KC.entrySet()) {
+                com.kwad.sdk.core.webview.kwai.a value = entry.getValue();
+                if (value != null) {
+                    value.onDestroy();
+                }
+            }
+            this.KE = true;
         }
     }
 }

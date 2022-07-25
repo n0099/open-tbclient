@@ -6,76 +6,58 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.diskcache.a.c;
-import com.kwad.sdk.utils.aj;
+import com.kwad.sdk.utils.am;
 import java.io.File;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public class a {
-    public static a a;
-    public com.kwad.sdk.core.diskcache.kwai.a b;
-    public Context c;
+    public static a WD;
+    public com.kwad.sdk.core.diskcache.kwai.a WE;
+    public Context WF;
 
-    public static a a() {
-        if (a == null) {
+    @Nullable
+    private File bB(String str) {
+        if (sT() || TextUtils.isEmpty(str)) {
+            return null;
+        }
+        return c.a(this.WE, str);
+    }
+
+    public static a sS() {
+        if (WD == null) {
             synchronized (a.class) {
-                if (a == null) {
-                    a = new a();
+                if (WD == null) {
+                    WD = new a();
                 }
             }
         }
-        return a;
+        return WD;
     }
 
-    private boolean c() {
-        return this.b == null;
-    }
-
-    @Nullable
-    private File d(String str) {
-        if (c() || TextUtils.isEmpty(str)) {
-            return null;
-        }
-        return c.a(this.b, str);
+    private boolean sT() {
+        return this.WE == null;
     }
 
     @SuppressLint({"MissingPermission"})
     public final void a(b bVar) {
-        if (this.b != null) {
+        if (this.WE != null) {
             return;
         }
         try {
-            this.c = bVar.a;
-            if (!bVar.d.exists()) {
-                bVar.d.mkdirs();
+            this.WF = bVar.WF;
+            if (!bVar.Wa.exists()) {
+                bVar.Wa.mkdirs();
             }
-            this.b = com.kwad.sdk.core.diskcache.kwai.a.a(bVar.d, bVar.b, 1, bVar.c * 1024 * 1024);
+            this.WE = com.kwad.sdk.core.diskcache.kwai.a.a(bVar.Wa, bVar.We, 1, bVar.maxSize * 1024 * 1024);
         } catch (Throwable unused) {
         }
     }
 
-    public final void a(String str) {
-        if (c() || TextUtils.isEmpty(str)) {
-            return;
-        }
-        c.a(this.b, str, d.a(str));
-    }
-
     public final boolean a(String str, c.a aVar) {
-        File d;
-        if (!c() && !TextUtils.isEmpty(str)) {
-            String a2 = d.a(str);
-            if (c.a(this.b, str, a2, aVar) && (d = d(a2)) != null && d.exists()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public final boolean a(String str, @NonNull String str2, c.a aVar) {
-        File d;
-        if (!c() && !TextUtils.isEmpty(str)) {
-            String a2 = d.a(str2);
-            if (c.a(this.b, str, a2, aVar) && (d = d(a2)) != null && d.exists()) {
+        File bB;
+        if (!sT() && !TextUtils.isEmpty(str)) {
+            String bC = d.bC(str);
+            if (c.a(this.WE, str, bC, aVar) && (bB = bB(bC)) != null && bB.exists()) {
                 return true;
             }
         }
@@ -83,30 +65,48 @@ public class a {
     }
 
     @Nullable
-    public final File b(String str) {
-        if (c() || TextUtils.isEmpty(str)) {
+    public final File ad(String str) {
+        if (sT() || TextUtils.isEmpty(str)) {
             return null;
         }
-        return d(d.a(str));
+        return bB(d.bC(str));
     }
 
-    public final void b() {
-        if (c()) {
+    public final boolean b(String str, @NonNull String str2, c.a aVar) {
+        File bB;
+        if (!sT() && !TextUtils.isEmpty(str)) {
+            String bC = d.bC(str2);
+            if (c.a(this.WE, str, bC, aVar) && (bB = bB(bC)) != null && bB.exists()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public final void bA(String str) {
+        if (sT() || TextUtils.isEmpty(str)) {
+            return;
+        }
+        c.a(this.WE, str, d.bC(str));
+    }
+
+    public final void delete() {
+        if (sT()) {
             return;
         }
         try {
-            this.b.e();
+            this.WE.delete();
         } catch (IOException unused) {
         }
     }
 
-    public final boolean c(String str) {
-        if (c()) {
+    public final boolean remove(String str) {
+        if (sT()) {
             return false;
         }
         try {
-            aj.a(str, "cacheKey is not allowed empty");
-            return this.b.c(d.a(str));
+            am.T(str, "cacheKey is not allowed empty");
+            return this.WE.remove(d.bC(str));
         } catch (IOException unused) {
             return false;
         }

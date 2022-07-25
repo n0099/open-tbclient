@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.ad.interstitial.widget.g;
+import com.kwad.components.ad.interstitial.widget.h;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.api.KsInterstitialAd;
 import com.kwad.sdk.api.KsVideoPlayConfig;
@@ -25,14 +25,14 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public final class d extends AlertDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout a;
-    public com.kwad.components.ad.interstitial.widget.b b;
-    public AdTemplate c;
+    public g fB;
+    public com.kwad.components.ad.interstitial.widget.b fC;
     @NonNull
-    public KsAdVideoPlayConfig d;
-    public Activity e;
-    public KsInterstitialAd.AdInteractionListener f;
-    public g g;
+    public KsAdVideoPlayConfig fD;
+    public h fE;
+    public KsInterstitialAd.AdInteractionListener fo;
+    public Activity mActivity;
+    public AdTemplate mAdTemplate;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(@NonNull Activity activity, @NonNull AdTemplate adTemplate, KsVideoPlayConfig ksVideoPlayConfig, KsInterstitialAd.AdInteractionListener adInteractionListener) {
@@ -52,10 +52,10 @@ public final class d extends AlertDialog {
                 return;
             }
         }
-        this.g = new g(this) { // from class: com.kwad.components.ad.interstitial.d.1
+        this.fE = new h(this) { // from class: com.kwad.components.ad.interstitial.d.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
+            public final /* synthetic */ d fF;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -72,86 +72,73 @@ public final class d extends AlertDialog {
                         return;
                     }
                 }
-                this.a = this;
+                this.fF = this;
             }
 
-            @Override // com.kwad.components.ad.interstitial.widget.g
-            public final void a() {
+            @Override // com.kwad.components.ad.interstitial.widget.h
+            public final void k(boolean z) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.a.d();
+                if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
+                    com.kwad.sdk.core.report.a.i(this.fF.mAdTemplate, z ? 2 : 1);
+                    this.fF.ch();
                 }
             }
         };
-        this.e = activity;
-        this.f = adInteractionListener;
-        this.d = new KsAdVideoPlayConfig.Builder().videoSoundEnable(ksVideoPlayConfig != null && ksVideoPlayConfig.isVideoSoundEnable()).dataFlowAutoStart(com.kwad.components.ad.interstitial.kwai.b.a()).build();
+        this.mActivity = activity;
+        this.fo = adInteractionListener;
+        this.fD = new KsAdVideoPlayConfig.Builder().videoSoundEnable(ksVideoPlayConfig != null && ksVideoPlayConfig.isVideoSoundEnable()).dataFlowAutoStart(com.kwad.components.ad.interstitial.kwai.b.ci()).build();
         setOwnerActivity(activity);
-        this.c = adTemplate;
-        b();
+        this.mAdTemplate = adTemplate;
+        initView();
     }
 
-    private void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            com.kwad.components.ad.interstitial.widget.b cVar = c() ? new com.kwad.components.ad.interstitial.widget.c(Wrapper.wrapContextIfNeed(this.e)) : new com.kwad.components.ad.interstitial.widget.e(Wrapper.wrapContextIfNeed(this.e));
-            this.b = cVar;
-            cVar.setOrientationChangeListener(this.g);
-            this.b.a(this.c, this, this.d, this.f);
-            FrameLayout frameLayout = new FrameLayout(Wrapper.wrapContextIfNeed(this.e));
-            this.a = frameLayout;
-            frameLayout.removeAllViews();
-            this.a.addView(this.b);
-        }
-    }
-
-    private boolean c() {
+    private boolean cg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            AdInfo i = com.kwad.sdk.core.response.a.d.i(this.c);
-            return com.kwad.sdk.core.response.a.a.aK(i) && com.kwad.components.ad.interstitial.a.a.a() < com.kwad.sdk.core.response.a.a.aN(i);
+            AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate);
+            return com.kwad.sdk.core.response.a.a.bt(bQ) && com.kwad.components.ad.interstitial.a.a.cp() < com.kwad.sdk.core.response.a.a.bw(bQ);
         }
         return invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
+    public void ch() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.a.removeAllViews();
-            com.kwad.components.ad.interstitial.widget.b cVar = c() ? new com.kwad.components.ad.interstitial.widget.c(Wrapper.wrapContextIfNeed(this.e)) : new com.kwad.components.ad.interstitial.widget.e(Wrapper.wrapContextIfNeed(this.e));
-            this.b = cVar;
-            cVar.setOrientationChangeListener(this.g);
-            this.b.a(this.c, this, this.d, this.f);
-            this.a.addView(this.b);
+            this.fB.removeAllViews();
+            com.kwad.components.ad.interstitial.widget.b cVar = cg() ? new com.kwad.components.ad.interstitial.widget.c(Wrapper.wrapContextIfNeed(this.mActivity)) : new com.kwad.components.ad.interstitial.widget.e(Wrapper.wrapContextIfNeed(this.mActivity));
+            this.fC = cVar;
+            cVar.a(this.mAdTemplate, this, this.fD, this.fo);
+            this.fB.addView(this.fC);
         }
     }
 
-    public final void a(KsInterstitialAd.AdInteractionListener adInteractionListener) {
+    private void initView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, adInteractionListener) == null) {
-            this.f = adInteractionListener;
-            com.kwad.components.ad.interstitial.widget.b bVar = this.b;
-            if (bVar != null) {
-                bVar.setAdInteractionListener(adInteractionListener);
-            }
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            this.fC = cg() ? new com.kwad.components.ad.interstitial.widget.c(Wrapper.wrapContextIfNeed(this.mActivity)) : new com.kwad.components.ad.interstitial.widget.e(Wrapper.wrapContextIfNeed(this.mActivity));
+            g gVar = new g(Wrapper.wrapContextIfNeed(this.mActivity));
+            this.fB = gVar;
+            gVar.setOrientationChangeListener(this.fE);
+            this.fB.removeAllViews();
+            this.fB.addView(this.fC);
         }
     }
 
-    public final boolean a() {
+    public final boolean cf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                if (isShowing() || this.e == null || this.e.isFinishing()) {
+                if (isShowing() || this.mActivity == null || this.mActivity.isFinishing()) {
                     return true;
                 }
                 show();
-                com.kwad.components.ad.interstitial.a.b.a(this.e);
+                com.kwad.components.ad.interstitial.a.b.I(this.mActivity);
                 return true;
             } catch (Throwable th) {
-                com.kwad.sdk.core.d.b.a(th);
+                com.kwad.sdk.core.e.b.printStackTrace(th);
                 return false;
             }
         }
@@ -161,9 +148,10 @@ public final class d extends AlertDialog {
     @Override // android.app.Dialog, android.content.DialogInterface
     public final void dismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.dismiss();
-            KsInterstitialAd.AdInteractionListener adInteractionListener = this.f;
+            com.kwad.sdk.kwai.kwai.c.rd().rg();
+            KsInterstitialAd.AdInteractionListener adInteractionListener = this.fo;
             if (adInteractionListener != null) {
                 adInteractionListener.onPageDismiss();
             }
@@ -173,7 +161,7 @@ public final class d extends AlertDialog {
     @Override // android.app.Dialog
     public final void onBackPressed() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && com.kwad.components.ad.interstitial.kwai.b.e()) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && com.kwad.components.ad.interstitial.kwai.b.cm()) {
             super.onBackPressed();
         }
     }
@@ -181,10 +169,12 @@ public final class d extends AlertDialog {
     @Override // android.app.AlertDialog, android.app.Dialog
     public final void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(this.a);
+            setContentView(this.fB);
+            this.fC.a(this.mAdTemplate, this, this.fD, this.fo);
             setCanceledOnTouchOutside(false);
+            getWindow().getDecorView().setPadding(0, 0, 0, 0);
             getWindow().setBackgroundDrawable(new ColorDrawable(0));
             getWindow().setLayout(-1, -1);
         }
@@ -193,9 +183,9 @@ public final class d extends AlertDialog {
     @Override // android.app.Dialog
     public final void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onStart();
-            com.kwad.sdk.core.d.b.a("InterstitialDialog", "onStart");
+            com.kwad.sdk.core.e.b.d("InterstitialDialog", "onStart");
             setTitle((CharSequence) null);
         }
     }
@@ -203,13 +193,23 @@ public final class d extends AlertDialog {
     @Override // android.app.Dialog, android.view.Window.Callback
     public final void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             super.onWindowFocusChanged(z);
-            com.kwad.sdk.core.d.b.a("InterstitialDialog", "onWindowFocusChanged , hasFocus: " + z);
             if (z) {
-                this.b.a();
+                this.fC.dM();
             } else {
-                this.b.b();
+                this.fC.dN();
+            }
+        }
+    }
+
+    public final void setAdInteractionListener(KsInterstitialAd.AdInteractionListener adInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, adInteractionListener) == null) {
+            this.fo = adInteractionListener;
+            com.kwad.components.ad.interstitial.widget.b bVar = this.fC;
+            if (bVar != null) {
+                bVar.setAdInteractionListener(adInteractionListener);
             }
         }
     }

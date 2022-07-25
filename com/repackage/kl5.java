@@ -39,14 +39,14 @@ public class kl5 implements CustomMessageTask.CustomRunnable<Object> {
             }
             int cmd = customMessage.getCmd();
             if (customMessage.getData() != null && (cmd == 2001179 || cmd == 2001180)) {
-                az4 az4Var = (az4) customMessage.getData();
+                bz4 bz4Var = (bz4) customMessage.getData();
                 if (cmd == 2001179) {
-                    d = ml5.f().a(az4Var);
+                    d = ml5.f().a(bz4Var);
                 } else {
-                    d = ml5.f().d(az4Var.d());
+                    d = ml5.f().d(bz4Var.d());
                 }
                 if (!d) {
-                    xt4 k = xt4.k();
+                    yt4 k = yt4.k();
                     k.u("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
                 }
             }

@@ -98,13 +98,13 @@ public class no6 implements io6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
                 if (view2 == null) {
-                    view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d07f3, (ViewGroup) null);
+                    view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d07fd, (ViewGroup) null);
                     view2.setLayoutParams(new AbsListView.LayoutParams(-1, viewGroup.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070275)));
                     mo6.f fVar = new mo6.f();
-                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ecd);
-                    fVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091eca);
-                    fVar.c = view2.findViewById(R.id.obfuscated_res_0x7f091ecc);
-                    fVar.d = view2.findViewById(R.id.obfuscated_res_0x7f091ecb);
+                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ed1);
+                    fVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ece);
+                    fVar.c = view2.findViewById(R.id.obfuscated_res_0x7f091ed0);
+                    fVar.d = view2.findViewById(R.id.obfuscated_res_0x7f091ecf);
                     view2.setTag(fVar);
                 }
                 SkinManager.setBackgroundResource(view2, R.color.CAM_X0201);

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.m86;
 import com.repackage.q06;
-import com.repackage.sr4;
+import com.repackage.tr4;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -91,7 +91,7 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
         h2.draw(canvas);
         canvas.restore();
         if (q06Var.g() == 8) {
-            float[] y = sr4.y(R.string.J_X04);
+            float[] y = tr4.y(R.string.J_X04);
             paint = defaultRenderer.e;
             float strokeWidth = paint.getStrokeWidth() * 0.2f;
             i = defaultRenderer.a;

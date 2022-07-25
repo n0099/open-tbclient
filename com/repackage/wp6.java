@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import com.repackage.xm6;
 import tbclient.FrsPage.ActivityConfig;
 import tbclient.ItemInfo;
@@ -190,7 +190,7 @@ public class wp6 implements ei6 {
     }
 
     /* loaded from: classes7.dex */
-    public class d implements cr4.e {
+    public class d implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -210,18 +210,18 @@ public class wp6 implements ei6 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) || cr4Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) || dr4Var == null) {
                 return;
             }
-            cr4Var.dismiss();
+            dr4Var.dismiss();
         }
     }
 
     /* loaded from: classes7.dex */
-    public class e implements cr4.e {
+    public class e implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BlockPopInfoData a;
@@ -246,15 +246,15 @@ public class wp6 implements ei6 {
             this.a = blockPopInfoData;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 UrlManager.getInstance().dealOneLink(this.b.a.getPageContext(), new String[]{this.a.ahead_url});
-                if (cr4Var == null) {
+                if (dr4Var == null) {
                     return;
                 }
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
@@ -374,7 +374,7 @@ public class wp6 implements ei6 {
             StatisticItem statisticItem = new StatisticItem("c13604");
             FrsFragment frsFragment = this.a;
             if (frsFragment != null) {
-                u85.b(frsFragment.getContext(), statisticItem);
+                v85.b(frsFragment.getContext(), statisticItem);
                 kn6.b(statisticItem, this.a.d(), this.a.c());
             }
             kn6.a(statisticItem);
@@ -630,15 +630,15 @@ public class wp6 implements ei6 {
             if (blockPopInfoData == null || blockPopInfoData.can_post.intValue() == 1 || !TbadkCoreApplication.isLogin()) {
                 return false;
             }
-            String string = StringUtils.isNull(blockPopInfoData.block_info) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06d0) : blockPopInfoData.block_info;
+            String string = StringUtils.isNull(blockPopInfoData.block_info) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06cc) : blockPopInfoData.block_info;
             if (i == 1 || i == 2) {
-                cr4 cr4Var = new cr4(this.a.getPageContext().getPageActivity());
-                cr4Var.setMessage(StringHelper.getFixedText(string, 50, true));
-                cr4Var.setNegativeButton(StringHelper.getFixedText(StringUtils.isNull(blockPopInfoData.ok_info) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f07ee) : blockPopInfoData.ok_info, 4, true), new d(this));
+                dr4 dr4Var = new dr4(this.a.getPageContext().getPageActivity());
+                dr4Var.setMessage(StringHelper.getFixedText(string, 50, true));
+                dr4Var.setNegativeButton(StringHelper.getFixedText(StringUtils.isNull(blockPopInfoData.ok_info) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f07ea) : blockPopInfoData.ok_info, 4, true), new d(this));
                 if (!StringUtils.isNull(blockPopInfoData.ahead_info) && !StringUtils.isNull(blockPopInfoData.ahead_url)) {
-                    cr4Var.setPositiveButton(StringHelper.getFixedText(blockPopInfoData.ahead_info, 4, true), new e(this, blockPopInfoData));
+                    dr4Var.setPositiveButton(StringHelper.getFixedText(blockPopInfoData.ahead_info, 4, true), new e(this, blockPopInfoData));
                 }
-                cr4Var.create(this.a.getPageContext()).show();
+                dr4Var.create(this.a.getPageContext()).show();
                 return true;
             }
             return false;

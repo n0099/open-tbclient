@@ -27,8 +27,8 @@ public class mh8 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String[] stringArray = TbadkCoreApplication.getInst().getApp().getResources().getStringArray(R.array.obfuscated_res_0x7f030014);
-            String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0650);
+            String[] stringArray = TbadkCoreApplication.getInst().getApp().getResources().getStringArray(R.array.obfuscated_res_0x7f030013);
+            String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f064c);
             int length = stringArray.length;
             for (int i = 0; i < length; i++) {
                 if (stringArray[i].equals(str)) {

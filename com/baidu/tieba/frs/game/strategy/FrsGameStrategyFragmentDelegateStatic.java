@@ -19,10 +19,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.be6;
-import com.repackage.p55;
 import com.repackage.q55;
+import com.repackage.r55;
 /* loaded from: classes3.dex */
-public class FrsGameStrategyFragmentDelegateStatic extends p55 {
+public class FrsGameStrategyFragmentDelegateStatic extends q55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,7 +54,7 @@ public class FrsGameStrategyFragmentDelegateStatic extends p55 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            q55 b;
+            r55 b;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001616 || customResponsedMessage.getData() == null) {
                 return;
@@ -104,21 +104,21 @@ public class FrsGameStrategyFragmentDelegateStatic extends p55 {
         }
     }
 
-    @Override // com.repackage.p55
-    public q55 a() {
+    @Override // com.repackage.q55
+    public r55 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            q55 q55Var = new q55();
-            q55Var.a = new FrsGameStrategyMainFragment();
-            q55Var.e = 3;
-            q55Var.i = q55.k;
-            return q55Var;
+            r55 r55Var = new r55();
+            r55Var.a = new FrsGameStrategyMainFragment();
+            r55Var.e = 3;
+            r55Var.i = r55.k;
+            return r55Var;
         }
-        return (q55) invokeV.objValue;
+        return (r55) invokeV.objValue;
     }
 
-    @Override // com.repackage.p55
+    @Override // com.repackage.q55
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class FrsGameStrategyFragmentDelegateStatic extends p55 {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.repackage.p55
+    @Override // com.repackage.q55
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -39,16 +39,16 @@ public class bn8 extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        w05 w05Var;
+        x05 x05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof w05) || (w05Var = (w05) customResponsedMessage.getData()) == null || StringUtils.isNull(w05Var.a)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof x05) || (x05Var = (x05) customResponsedMessage.getData()) == null || StringUtils.isNull(x05Var.a)) {
             return;
         }
-        id5.h(w05Var);
-        if (StringUtils.isNull(w05Var.c)) {
-            UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{w05Var.a});
+        jd5.h(x05Var);
+        if (StringUtils.isNull(x05Var.c)) {
+            UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{x05Var.a});
         } else {
-            UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{w05Var.a, w05Var.c});
+            UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{x05Var.a, x05Var.c});
         }
     }
 }

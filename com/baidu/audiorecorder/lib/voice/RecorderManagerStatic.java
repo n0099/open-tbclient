@@ -18,7 +18,7 @@ import com.repackage.no;
 import com.repackage.po;
 import com.repackage.qo;
 import com.repackage.ro;
-import com.repackage.u15;
+import com.repackage.v15;
 /* loaded from: classes.dex */
 public class RecorderManagerStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -71,7 +71,7 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<u15> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<v15> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
@@ -158,7 +158,7 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<u15> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<v15> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
@@ -191,7 +191,7 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<u15> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<v15> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {

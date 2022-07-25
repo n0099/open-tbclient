@@ -42,11 +42,11 @@ public class u40 implements CallFactory.CallFactoryProducer {
 
         /* renamed from: com.repackage.u40$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0737a implements b50 {
+        public class C0585a implements b50 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0737a(a aVar, Request request) {
+            public C0585a(a aVar, Request request) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class u40 implements CallFactory.CallFactoryProducer {
                     }
                     newBuilder.eventListener(new w40(this.c.c));
                     if (this.c.d != null) {
-                        Dns a = this.c.d.a(e, new C0737a(this, e));
+                        Dns a = this.c.d.a(e, new C0585a(this, e));
                         newBuilder.dns(a);
                         newBuilder.addNetworkInterceptor(new y40(a));
                     }

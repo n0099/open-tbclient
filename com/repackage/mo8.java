@@ -124,19 +124,19 @@ public class mo8 extends BaseAdapter {
             } else {
                 view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0237, viewGroup, false);
                 aVar = new a();
-                HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090812);
+                HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090810);
                 aVar.a = headImageView;
                 headImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f080b9b);
                 aVar.a.setDefaultBgResource(R.color.CAM_X0204);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090811);
-                aVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0920b6);
-                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907ca);
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09080f);
+                aVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0920ba);
+                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907c8);
                 view2.setTag(aVar);
             }
             if (item != null) {
                 aVar.a.J(item.a(), 10, false);
                 aVar.b.setText(item.b());
-                xt4 k = xt4.k();
+                yt4 k = yt4.k();
                 if (item.c() - k.m("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), 0L) > 0) {
                     aVar.c.setVisibility(0);
                 } else {

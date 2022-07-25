@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.p0.i1;
 import com.repackage.qi;
 import com.repackage.vi;
 import java.io.BufferedInputStream;
@@ -193,7 +194,7 @@ public class DownloaderHelper {
             return (String) invokeLLL.objValue;
         }
         OutputStream outputStream = null;
-        if (inputStream == null || StringUtils.isNull(str2) || str2.contains("/.")) {
+        if (inputStream == null || StringUtils.isNull(str2) || str2.contains(i1.j)) {
             return null;
         }
         try {

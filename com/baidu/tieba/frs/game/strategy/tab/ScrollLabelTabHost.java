@@ -318,23 +318,23 @@ public class ScrollLabelTabHost extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0307, this);
             this.e = new FrsGameTabPagerAdapter(context, this.n, this.o);
-            CustomViewPager customViewPager = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f090ae1);
+            CustomViewPager customViewPager = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f090ada);
             this.d = customViewPager;
             customViewPager.setAdapter(this.e);
-            ScrollHorizontalTabView scrollHorizontalTabView = (ScrollHorizontalTabView) findViewById(R.id.obfuscated_res_0x7f090ae6);
+            ScrollHorizontalTabView scrollHorizontalTabView = (ScrollHorizontalTabView) findViewById(R.id.obfuscated_res_0x7f090adf);
             this.a = scrollHorizontalTabView;
             scrollHorizontalTabView.setViewPager(this.d);
             this.a.setScrollTabPageListener(new c(this));
             this.c = new pj6(getContext());
-            FoldedGridView foldedGridView = (FoldedGridView) findViewById(R.id.obfuscated_res_0x7f090ad4);
+            FoldedGridView foldedGridView = (FoldedGridView) findViewById(R.id.obfuscated_res_0x7f090acd);
             this.b = foldedGridView;
             foldedGridView.setArrowResouceId(R.drawable.icon_arrow_gray_down, R.drawable.icon_arrow_gray_up);
             this.b.setNumColumns(5);
             this.b.setFoldAdapter(this.c);
             this.b.setExpandedBottomShadeResourceId(R.drawable.shape_frs_game_lable_bottom_shade);
             this.b.setFoldGridViewOnItemClickListener(new d(this));
-            this.f = findViewById(R.id.obfuscated_res_0x7f090ae5);
-            this.g = findViewById(R.id.obfuscated_res_0x7f090ad2);
+            this.f = findViewById(R.id.obfuscated_res_0x7f090ade);
+            this.g = findViewById(R.id.obfuscated_res_0x7f090acb);
         }
     }
 
@@ -401,9 +401,9 @@ public class ScrollLabelTabHost extends RelativeLayout {
             layoutParams.addRule(10);
             TextView e = this.l.e();
             if (i == 0) {
-                e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0f84));
+                e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0f6d));
             } else {
-                e.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0f85), Integer.valueOf(i)));
+                e.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0f6e), Integer.valueOf(i)));
             }
             addView(e, layoutParams);
             this.l.d();

@@ -1,21 +1,67 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.swan.menu.BaseMenuView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mz2;
 /* loaded from: classes7.dex */
-public class qf3 implements h64 {
+public class qf3 implements mz2.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrameLayout a;
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ qf3 b;
+
+        public a(qf3 qf3Var, ViewGroup viewGroup) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qf3Var, viewGroup};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = qf3Var;
+            this.a = viewGroup;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.b.a == null) {
+                    this.b.a = new FrameLayout(this.a.getContext());
+                    this.b.a.setBackgroundResource(R.color.obfuscated_res_0x7f0603cb);
+                }
+                this.a.removeView(this.b.a);
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+                layoutParams.gravity = 17;
+                this.a.addView(this.b.a, layoutParams);
+            }
+        }
+    }
 
     public qf3() {
         Interceptable interceptable = $ic;
@@ -33,33 +79,32 @@ public class qf3 implements h64 {
         this.a = null;
     }
 
-    @Override // com.repackage.h64
-    public void a(BaseMenuView baseMenuView) {
+    @Override // com.repackage.mz2.c
+    public void a(mz2 mz2Var, mz2.b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, baseMenuView) == null) || baseMenuView == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, mz2Var, bVar) == null) || mz2Var == null || bVar == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
             return;
         }
-        if (oj2.M().a()) {
-            b(baseMenuView);
-        } else {
-            c(baseMenuView);
-        }
-    }
-
-    public final void b(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) && viewGroup != null && (viewGroup instanceof FrameLayout)) {
-            if (this.a == null) {
-                FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
-                this.a = frameLayout;
-                frameLayout.setBackgroundResource(R.color.obfuscated_res_0x7f0603cb);
+        f(mz2Var);
+        ViewGroup viewGroup = (ViewGroup) mz2Var.findViewById(16908290);
+        if (viewGroup != null) {
+            if (pj2.M().a()) {
+                d(viewGroup, bVar.r);
+            } else {
+                e(viewGroup);
             }
-            viewGroup.removeView(this.a);
-            viewGroup.addView(this.a, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
-    public final void c(ViewGroup viewGroup) {
+    public final void d(ViewGroup viewGroup, View view2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2) == null) || viewGroup == null || view2 == null || !(viewGroup instanceof FrameLayout)) {
+            return;
+        }
+        view2.post(new a(this, viewGroup));
+    }
+
+    public final void e(ViewGroup viewGroup) {
         FrameLayout frameLayout;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.a) == null) {
@@ -67,5 +112,18 @@ public class qf3 implements h64 {
         }
         viewGroup.removeView(frameLayout);
         this.a = null;
+    }
+
+    public final void f(mz2 mz2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mz2Var) == null) {
+            Context context = mz2Var.getContext();
+            if (mz2Var.getContext() instanceof ContextWrapper) {
+                context = ((ContextWrapper) mz2Var.getContext()).getBaseContext();
+            }
+            if (context instanceof Activity) {
+                rc3.b((Activity) context, mz2Var);
+            }
+        }
     }
 }

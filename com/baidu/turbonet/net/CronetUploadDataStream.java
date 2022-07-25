@@ -138,7 +138,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
                     if (this.a.g != null) {
                         this.a.j = UserCallback.READ;
                         try {
-                            this.a.b.d(this.a, this.a.g);
+                            this.a.b.b(this.a, this.a.g);
                             return;
                         } catch (Exception e) {
                             this.a.p(e);
@@ -186,7 +186,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
                     this.a.l(UserCallback.NOT_IN_CALLBACK);
                     this.a.j = UserCallback.REWIND;
                     try {
-                        this.a.b.e(this.a);
+                        this.a.b.c(this.a);
                     } catch (Exception e) {
                         this.a.p(e);
                     }
@@ -385,9 +385,9 @@ public final class CronetUploadDataStream implements UploadDataSink {
                 this.j = UserCallback.GET_LENGTH;
             }
             try {
-                long c2 = this.b.c();
-                this.d = c2;
-                this.e = c2;
+                long a2 = this.b.a();
+                this.d = a2;
+                this.e = a2;
             } catch (Throwable th) {
                 p(th);
             }

@@ -24,12 +24,12 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.repackage.c9;
 import com.repackage.d9;
 import com.repackage.di;
-import com.repackage.jy4;
+import com.repackage.ky4;
 import com.repackage.pi;
-import com.repackage.py4;
-import com.repackage.sw4;
-import com.repackage.xt4;
-import com.repackage.xy4;
+import com.repackage.qy4;
+import com.repackage.tw4;
+import com.repackage.yt4;
+import com.repackage.yy4;
 /* loaded from: classes4.dex */
 public class AboutModel extends BdBaseModel<AboutActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -104,7 +104,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends BdAsyncTask<String, Integer, xy4> {
+    public class b extends BdAsyncTask<String, Integer, yy4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -132,13 +132,13 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public xy4 doInBackground(String... strArr) {
+        public yy4 doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, strArr)) != null) {
-                return (xy4) invokeL.objValue;
+                return (yy4) invokeL.objValue;
             }
-            xy4 xy4Var = null;
+            yy4 yy4Var = null;
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_SYNC_ADDRESS);
                 this.a = netWork;
@@ -148,7 +148,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                 stringBuffer.append(",");
                 stringBuffer.append(String.valueOf(pi.i(TbadkCoreApplication.getInst().getApp())));
                 this.a.addPostData("_phone_screen", stringBuffer.toString());
-                if (py4.d().f() > 0) {
+                if (qy4.d().f() > 0) {
                     this.a.addPostData("_msg_status", "0");
                 } else {
                     this.a.addPostData("_msg_status", "1");
@@ -174,27 +174,27 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                 netWork4.addPostData("support_abi", str);
                 String postNetData = this.a.postNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    xy4 xy4Var2 = new xy4();
+                    yy4 yy4Var2 = new yy4();
                     try {
-                        xy4Var2.z(postNetData);
-                        if (TbadkCoreApplication.getClientId() == null && xy4Var2.i().a() != null && xy4Var2.i().a().length() > 0) {
-                            TbadkCoreApplication.saveClientId(this.b.b, xy4Var2.i().a());
-                            TbadkCoreApplication.setClientId(xy4Var2.i().a());
+                        yy4Var2.z(postNetData);
+                        if (TbadkCoreApplication.getClientId() == null && yy4Var2.i().a() != null && yy4Var2.i().a().length() > 0) {
+                            TbadkCoreApplication.saveClientId(this.b.b, yy4Var2.i().a());
+                            TbadkCoreApplication.setClientId(yy4Var2.i().a());
                         }
-                        jy4 t = xy4Var2.t();
+                        ky4 t = yy4Var2.t();
                         if (t != null) {
-                            xt4.k().u("localvideo_open", t.y());
+                            yt4.k().u("localvideo_open", t.y());
                         }
-                        sw4 e = xy4Var2.e();
+                        tw4 e = yy4Var2.e();
                         if (e != null && !TextUtils.isEmpty(e.c())) {
-                            xt4.k().y("sync_ad_privacy_url", e.c());
+                            yt4.k().y("sync_ad_privacy_url", e.c());
                         }
-                        return xy4Var2;
+                        return yy4Var2;
                     } catch (Exception e2) {
                         e = e2;
-                        xy4Var = xy4Var2;
+                        yy4Var = yy4Var2;
                         BdLog.e(e.getMessage());
-                        return xy4Var;
+                        return yy4Var;
                     }
                 }
                 return null;
@@ -206,15 +206,15 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(xy4 xy4Var) {
+        public void onPostExecute(yy4 yy4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xy4Var) == null) {
-                super.onPostExecute(xy4Var);
-                if (xy4Var != null && xy4Var.e() != null) {
-                    TbadkCoreApplication.getInst().setAdAdSense(xy4Var.e());
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yy4Var) == null) {
+                super.onPostExecute(yy4Var);
+                if (yy4Var != null && yy4Var.e() != null) {
+                    TbadkCoreApplication.getInst().setAdAdSense(yy4Var.e());
                 }
                 this.b.a = null;
-                this.b.mLoadDataCallBack.c(xy4Var);
+                this.b.mLoadDataCallBack.c(yy4Var);
             }
         }
 

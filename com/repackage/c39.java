@@ -42,7 +42,7 @@ public class c39 extends Base64OutputStream {
         this.c = 0L;
     }
 
-    public long c() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.longValue;

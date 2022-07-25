@@ -35,12 +35,12 @@ public class hl6 extends an<sl6, a> {
 
         /* renamed from: com.repackage.hl6$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0650a implements View.OnClickListener {
+        public class View$OnClickListenerC0496a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0650a(a aVar, hl6 hl6Var) {
+            public View$OnClickListenerC0496a(a aVar, hl6 hl6Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,7 +67,7 @@ public class hl6 extends an<sl6, a> {
                 lo6 lo6Var = new lo6();
                 lo6Var.e = 16;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, lo6Var));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new dv4(4, this.a.d, 2)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ev4(4, this.a.d, 2)));
             }
         }
 
@@ -90,16 +90,16 @@ public class hl6 extends an<sl6, a> {
                 }
             }
             view2.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b20);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b1f);
-            this.a.setOnClickListener(new View$OnClickListenerC0650a(this, hl6Var));
+            this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b19);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b18);
+            this.a.setOnClickListener(new View$OnClickListenerC0496a(this, hl6Var));
         }
 
-        public void f() {
+        public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ur4.d(this.a).v(R.color.CAM_X0304);
-                ur4 d = ur4.d(this.itemView);
+                vr4.d(this.a).v(R.color.CAM_X0304);
+                vr4 d = vr4.d(this.itemView);
                 d.m(2);
                 d.n(R.string.J_X06);
                 d.f(R.color.CAM_X0205);
@@ -107,7 +107,7 @@ public class hl6 extends an<sl6, a> {
             }
         }
 
-        public void g(int i) {
+        public void f(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 this.c = i;
@@ -153,10 +153,10 @@ public class hl6 extends an<sl6, a> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sl6Var, aVar})) == null) {
-            aVar.g(sl6Var.c());
+            aVar.f(sl6Var.c());
             aVar.d = sl6Var.getPositionInFrsItemTab();
-            aVar.f();
-            return aVar.b();
+            aVar.e();
+            return aVar.a();
         }
         return (View) invokeCommon.objValue;
     }

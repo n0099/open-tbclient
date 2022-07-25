@@ -67,9 +67,9 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    this.a.h();
+                    this.a.g();
                 } else {
-                    this.a.c();
+                    this.a.b();
                 }
             }
         }
@@ -95,19 +95,19 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         }
         this.i = new a(this, 2921471);
         this.a = view2;
-        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091768);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091765);
-        this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0915f7);
+        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091743);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091740);
+        this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0915d2);
         this.h = pi.f(this.a.getContext(), R.dimen.tbds156);
-        this.f = this.a.findViewById(R.id.obfuscated_res_0x7f09089a);
-        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0919c7);
+        this.f = this.a.findViewById(R.id.obfuscated_res_0x7f090898);
+        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0919a2);
         this.b.setVisibility(0);
         this.i.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.i);
-        d();
+        c();
     }
 
-    public void c() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.d.setVisibility(8);
@@ -115,12 +115,12 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
             if (str != null) {
                 this.c.setText(str);
             } else {
-                this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0dc1));
+                this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0daa));
             }
         }
     }
 
-    public void d() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.c.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0109));
@@ -128,14 +128,14 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void e(View.OnClickListener onClickListener) {
+    public void d(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
             this.a.setOnClickListener(onClickListener);
         }
     }
 
-    public void f(String str, int i) {
+    public void e(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
             this.g = str;
@@ -149,7 +149,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void g(String str) {
+    public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             this.c.setText(str);
@@ -165,11 +165,11 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void h() {
+    public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.d.setVisibility(0);
-            this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0a2c));
+            this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0a18));
         }
     }
 }

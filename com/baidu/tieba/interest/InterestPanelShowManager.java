@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pb7;
 import com.repackage.qb7;
 import com.repackage.rb7;
-import com.repackage.sx4;
-import com.repackage.xt4;
+import com.repackage.tx4;
+import com.repackage.yt4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class InterestPanelShowManager {
@@ -126,12 +126,12 @@ public class InterestPanelShowManager {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            sx4 interestBoardConfigData = TbadkCoreApplication.getInst().getInterestBoardConfigData();
+            tx4 interestBoardConfigData = TbadkCoreApplication.getInst().getInterestBoardConfigData();
             if (interestBoardConfigData == null) {
                 return false;
             }
-            long m = xt4.k().m("key_app_launch_time", 0L);
-            return m != 0 && ((int) (((((j - m) / 1000) / 60) / 60) / 24)) >= interestBoardConfigData.b && TbSingleton.getInstance().interestGuideShowCountInLimit(xt4.k().q("key_interest_guide_show", ""), interestBoardConfigData);
+            long m = yt4.k().m("key_app_launch_time", 0L);
+            return m != 0 && ((int) (((((j - m) / 1000) / 60) / 60) / 24)) >= interestBoardConfigData.b && TbSingleton.getInstance().interestGuideShowCountInLimit(yt4.k().q("key_interest_guide_show", ""), interestBoardConfigData);
         }
         return invokeJ.booleanValue;
     }
@@ -163,7 +163,7 @@ public class InterestPanelShowManager {
         if (this.b) {
             interestGuideActivityConfig.setScene(8);
         } else {
-            interestGuideActivityConfig.setCustomTitle(new String[]{context.getResources().getString(R.string.obfuscated_res_0x7f0f0910), context.getResources().getString(R.string.obfuscated_res_0x7f0f0911), context.getResources().getString(R.string.obfuscated_res_0x7f0f090c)});
+            interestGuideActivityConfig.setCustomTitle(new String[]{context.getResources().getString(R.string.obfuscated_res_0x7f0f08fb), context.getResources().getString(R.string.obfuscated_res_0x7f0f08fc), context.getResources().getString(R.string.obfuscated_res_0x7f0f08f7)});
             interestGuideActivityConfig.setScene(9);
         }
         if (z) {
@@ -178,7 +178,7 @@ public class InterestPanelShowManager {
         rb7 rb7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!TimeHelper.isSameDay(xt4.k().m("key_interest_panel_show_time", 0L), System.currentTimeMillis()) && (rb7Var = this.a) != null && rb7Var.b() != null && this.a.a() != null) {
+            if (!TimeHelper.isSameDay(yt4.k().m("key_interest_panel_show_time", 0L), System.currentTimeMillis()) && (rb7Var = this.a) != null && rb7Var.b() != null && this.a.a() != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int registerTime = (int) (((currentTimeMillis - (this.a.b().getRegisterTime() * 1000)) / 86400000) + 1);
                 pb7 a = this.a.a();

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-import org.apache.http.client.methods.HttpTrace;
+import org.apache.http.client.methods.HttpOptions;
 /* loaded from: classes6.dex */
 public class n74 extends HttpCommonRequest<a> {
     public static /* synthetic */ Interceptable $ic;
@@ -136,6 +136,6 @@ public class n74 extends HttpCommonRequest<a> {
     public Request buildOkRequest(RequestBody requestBody) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, requestBody)) == null) ? this.okRequestBuilder.method(HttpTrace.METHOD_NAME, requestBody).build() : (Request) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, requestBody)) == null) ? this.okRequestBuilder.method(HttpOptions.METHOD_NAME, requestBody).build() : (Request) invokeL.objValue;
     }
 }

@@ -203,7 +203,7 @@ public class rt8 extends a78 {
         this.X0 = TbSingleton.getInstance().isNotchScreen(tbPageContext.getPageActivity()) || TbSingleton.getInstance().isCutoutScreen(tbPageContext.getPageActivity());
         X(true);
         Y(true);
-        this.i0 = false;
+        this.c0 = false;
     }
 
     public jr7 D0() {
@@ -394,7 +394,7 @@ public class rt8 extends a78 {
     public int a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? R.layout.obfuscated_res_0x7f0d0649 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? R.layout.obfuscated_res_0x7f0d0653 : invokeV.intValue;
     }
 
     @Override // com.repackage.a78
@@ -462,7 +462,7 @@ public class rt8 extends a78 {
                 operableVideoMediaControllerView.setVisibility((i5 > 0 || (i & 128) > 0) ? 0 : 8);
                 ((VideoMediaController) this.F).setBottomBarShow(i5 > 0);
             }
-            if (UbsABTestHelper.isShowVideoPlayDanmuABTest() && (findViewById = this.Q.findViewById(R.id.obfuscated_res_0x7f092391)) != null) {
+            if (UbsABTestHelper.isShowVideoPlayDanmuABTest() && (findViewById = this.Q.findViewById(R.id.obfuscated_res_0x7f092393)) != null) {
                 findViewById.setVisibility((i & 64) > 0 ? 0 : 8);
             }
             if (!this.Y && !this.X0 && (this.O instanceof Activity)) {
@@ -497,9 +497,9 @@ public class rt8 extends a78 {
             return;
         }
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f0918fb) {
+        if (id == R.id.obfuscated_res_0x7f0918d6) {
             TbSingleton.getInstance().setHasAgreeToPlay(true);
-        } else if (id == R.id.obfuscated_res_0x7f092391 && (qs8Var = this.d1) != null) {
+        } else if (id == R.id.obfuscated_res_0x7f092393 && (qs8Var = this.d1) != null) {
             qs8Var.i();
             VideoItemData videoItemData = this.T0;
             if (videoItemData != null) {
@@ -576,12 +576,12 @@ public class rt8 extends a78 {
             threadData.getAuthor().setIsLike(threadData.getAuthor().hadConcerned());
         }
         if (!TextUtils.isEmpty(this.U) && UbsABTestHelper.isShowVideoPlayDanmuABTest()) {
-            VideoDanmuController videoDanmuController = new VideoDanmuController(this.R0, this.S0, this.Q, R.id.obfuscated_res_0x7f092392, this.T0, this.U0);
+            VideoDanmuController videoDanmuController = new VideoDanmuController(this.R0, this.S0, this.Q, R.id.obfuscated_res_0x7f092394, this.T0, this.U0);
             this.c1 = videoDanmuController;
             videoDanmuController.W(UtilHelper.getDimenPixelSize(R.dimen.T_X05));
         }
-        View findViewById = this.Q.findViewById(R.id.obfuscated_res_0x7f092398);
-        View findViewById2 = this.Q.findViewById(R.id.obfuscated_res_0x7f0923b7);
+        View findViewById = this.Q.findViewById(R.id.obfuscated_res_0x7f09239a);
+        View findViewById2 = this.Q.findViewById(R.id.obfuscated_res_0x7f0923b9);
         ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
         ViewGroup.LayoutParams layoutParams2 = findViewById2.getLayoutParams();
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds44);
@@ -591,7 +591,7 @@ public class rt8 extends a78 {
                 qs8Var.f();
                 this.d1 = null;
             }
-            qs8 qs8Var2 = new qs8(this.Q, R.id.obfuscated_res_0x7f092391);
+            qs8 qs8Var2 = new qs8(this.Q, R.id.obfuscated_res_0x7f092393);
             this.d1 = qs8Var2;
             qs8Var2.g(this);
             this.d1.h(new c(this));

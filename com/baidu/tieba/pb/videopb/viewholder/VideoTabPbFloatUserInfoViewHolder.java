@@ -81,12 +81,12 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: com.baidu.tieba.pb.videopb.viewholder.VideoTabPbFloatUserInfoViewHolder$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0236a extends pg {
+        public class C0250a extends pg {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0236a(a aVar) {
+            public C0250a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,7 +140,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
                 alphaAnimation.setStartOffset(500L);
                 alphaAnimation.setDuration(500L);
-                alphaAnimation.setAnimationListener(new C0236a(this));
+                alphaAnimation.setAnimationListener(new C0250a(this));
                 this.a.m.startAnimation(alphaAnimation);
             }
         }
@@ -200,8 +200,8 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
         this.a = 3;
         this.b = view2;
         this.v = absVideoPbFragment;
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923eb);
-        HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) view2.findViewById(R.id.obfuscated_res_0x7f0923e7);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923ed);
+        HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) view2.findViewById(R.id.obfuscated_res_0x7f0923e9);
         this.d = headPendantClickableView;
         headPendantClickableView.setHasPendantStyle();
         this.d.getHeadView().setIsRound(true);
@@ -210,21 +210,21 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
         this.d.getHeadView().setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         this.d.getHeadView().setPlaceHolder(1);
         this.d.setBigVDimenSize(R.dimen.tbds36);
-        this.e = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0923f2);
-        this.f = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f0923f9);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923f3);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923f0);
-        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923ef);
-        this.j = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f0923f4);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e1);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e4);
-        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e5);
-        PbFirstFloorUserLikeButton pbFirstFloorUserLikeButton = (PbFirstFloorUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0923e2);
+        this.e = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0923f4);
+        this.f = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f0923fb);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923f5);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923f2);
+        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923f1);
+        this.j = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f0923f6);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e3);
+        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e6);
+        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e7);
+        PbFirstFloorUserLikeButton pbFirstFloorUserLikeButton = (PbFirstFloorUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0923e4);
         this.m = pbFirstFloorUserLikeButton;
         pbFirstFloorUserLikeButton.setIsShowIcon(true);
         this.m.setAfterStatusUpdateListener(new a(this));
-        this.n = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923f6);
-        TbRichTextView tbRichTextView = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ec);
+        this.n = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923f8);
+        TbRichTextView tbRichTextView = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ee);
         this.o = tbRichTextView;
         tbRichTextView.setLayoutStrategy(new ut7(this.o.getLayoutStrategy()));
         this.o.getLayoutStrategy().n(1.0f);
@@ -234,7 +234,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
         if (this.u) {
             this.p.setVisibility(0);
         }
-        TbRichTextView tbRichTextView2 = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f0923f5);
+        TbRichTextView tbRichTextView2 = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f0923f7);
         this.p = tbRichTextView2;
         tbRichTextView2.setIsNeedResizeEmotion(true);
         ut7 ut7Var = new ut7(this.p.getLayoutStrategy());
@@ -244,15 +244,15 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
         this.p.setLayoutStrategy(ut7Var);
         this.p.setMaxLines(3);
         this.p.setAddExpandableListener(true);
-        FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923ee);
+        FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923f0);
         this.s = frameLayout;
         ew7 ew7Var = new ew7(absVideoPbFragment, frameLayout);
         this.t = ew7Var;
         ew7Var.f = 2;
-        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ed);
+        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ef);
     }
 
-    public final void c(List<TbRichTextData> list, HeadItem headItem) {
+    public final void b(List<TbRichTextData> list, HeadItem headItem) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, list, headItem) == null) {
@@ -276,7 +276,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public final void d(int i) {
+    public final void c(int i) {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (tBLottieAnimationView = this.e) == null) {
@@ -285,7 +285,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
         SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.card_live_header_bg);
     }
 
-    public void e(boolean z) {
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
@@ -305,7 +305,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void f(TbRichText tbRichText) {
+    public void e(TbRichText tbRichText) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, tbRichText) == null) || tbRichText == null) {
             return;
@@ -319,7 +319,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
         tbRichTextData.f0(rg5.s());
     }
 
-    public void g(TbRichText tbRichText, List<HeadItem> list) {
+    public void f(TbRichText tbRichText, List<HeadItem> list) {
         int count;
         int i;
         Interceptable interceptable = $ic;
@@ -349,12 +349,12 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
         for (int size = list.size() - 1; size >= 0; size--) {
             HeadItem headItem2 = list.get(size);
             if (headItem2 != null) {
-                c(C, headItem2);
+                b(C, headItem2);
             }
         }
     }
 
-    public void h(int i) {
+    public void g(int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || i <= 0) {
             return;
@@ -362,7 +362,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
         SkinManager.setImageResource(this.i, BitmapHelper.getGradeResourceIdInEnterForum(i));
     }
 
-    public void i() {
+    public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
@@ -376,26 +376,26 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
             this.p.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.t.d();
             if (this.a != skinType) {
-                d(skinType);
+                c(skinType);
             }
             this.a = skinType;
         }
     }
 
-    public void j(boolean z, boolean z2, boolean z3) {
+    public void i(boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
             if (z) {
-                this.c.setImageResource(R.drawable.obfuscated_res_0x7f080ea6);
+                this.c.setImageResource(R.drawable.obfuscated_res_0x7f080ead);
                 this.c.setVisibility(0);
             } else if (z2 && z3) {
-                this.c.setImageResource(R.drawable.obfuscated_res_0x7f080ee6);
+                this.c.setImageResource(R.drawable.obfuscated_res_0x7f080eed);
                 this.c.setVisibility(0);
             } else if (z2) {
-                this.c.setImageResource(R.drawable.obfuscated_res_0x7f080ee4);
+                this.c.setImageResource(R.drawable.obfuscated_res_0x7f080eeb);
                 this.c.setVisibility(0);
             } else if (z3) {
-                this.c.setImageResource(R.drawable.obfuscated_res_0x7f080ee5);
+                this.c.setImageResource(R.drawable.obfuscated_res_0x7f080eec);
                 this.c.setVisibility(0);
             } else {
                 this.c.setVisibility(8);
@@ -403,7 +403,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void k(boolean z) {
+    public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             if (z) {
@@ -414,7 +414,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void l(View.OnClickListener onClickListener) {
+    public void k(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, onClickListener) == null) {
             this.d.setOnClickListener(onClickListener);
@@ -424,30 +424,30 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void m(int i, String str) {
+    public void l(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048586, this, i, str) == null) {
             this.t.g(i);
             this.t.f(str);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.n.getLayoutParams();
             if (i == 8) {
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0923f1);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0923f3);
                 layoutParams.setMargins(0, pi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002), 0, 0);
             } else {
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0923ee);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0923f0);
                 layoutParams.setMargins(0, pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds4), 0, 0);
             }
             this.n.setLayoutParams(layoutParams);
         }
     }
 
-    public void n(Context context, PostData postData) {
+    public void m(Context context, PostData postData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, context, postData) == null) {
-            if (postData != null && ListUtils.getCount(postData.m0) >= 2) {
-                List<PbContent> list = postData.m0;
+            if (postData != null && ListUtils.getCount(postData.g0) >= 2) {
+                List<PbContent> list = postData.g0;
                 TbRichText X = TbRichTextView.X(ListUtils.subList(list, 1, list.size()), true);
-                g(X, postData.L());
+                f(X, postData.L());
                 this.p.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X07));
                 this.p.setText(X);
                 this.u = true;
@@ -457,7 +457,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void o(List<PbContent> list, String str, ThreadData threadData, boolean z, boolean z2) {
+    public void n(List<PbContent> list, String str, ThreadData threadData, boolean z, boolean z2) {
         TbRichText tbRichText;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{list, str, threadData, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
@@ -473,9 +473,9 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
                 tbRichText = new TbRichText(b47.c(str, 1));
             }
             TbRichText tbRichText2 = tbRichText;
-            g(tbRichText2, threadData.getItemStar());
+            f(tbRichText2, threadData.getItemStar());
             if (z2) {
-                f(tbRichText2);
+                e(tbRichText2);
             }
             this.o.setText(tbRichText2, false, this.v, false, true);
         }

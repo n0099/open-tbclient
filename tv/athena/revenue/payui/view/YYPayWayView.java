@@ -251,7 +251,7 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
         if (bVar == null) {
             RLog.error("YYPayWayView", "YYPayWayView construct error viewParams null", new Object[0]);
         }
-        LayoutInflater.from(new ContextThemeWrapper(activity, nz9.a.a(payUIKitConfig))).inflate(R.layout.obfuscated_res_0x7f0d066b, (ViewGroup) this, true);
+        LayoutInflater.from(new ContextThemeWrapper(activity, nz9.a.a(payUIKitConfig))).inflate(R.layout.obfuscated_res_0x7f0d0675, (ViewGroup) this, true);
         this.l = bVar;
         this.k = bVar.b;
         this.m = activity;
@@ -261,21 +261,21 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
         this.r = py9Var;
         this.q = bVar.c;
         this.c = new vz9(activity, payUIKitConfig, this.a);
-        GridView gridView = (GridView) findViewById(R.id.obfuscated_res_0x7f090c9f);
+        GridView gridView = (GridView) findViewById(R.id.obfuscated_res_0x7f090c98);
         this.b = gridView;
-        gridView.setSelector(R.drawable.obfuscated_res_0x7f080e49);
+        gridView.setSelector(R.drawable.obfuscated_res_0x7f080e50);
         this.b.setAdapter((ListAdapter) this.c);
         this.b.setOnItemClickListener(new a(this));
         Button button = (Button) findViewById(R.id.obfuscated_res_0x7f09040b);
         this.j = button;
         button.setOnClickListener(new b(this));
-        this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f0922a5);
-        this.t = (TextView) findViewById(R.id.obfuscated_res_0x7f0922a4);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0922aa);
+        this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f0922a7);
+        this.t = (TextView) findViewById(R.id.obfuscated_res_0x7f0922a6);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0922ac);
         this.n = textView;
         textView.setOnClickListener(new c(this));
-        this.d = findViewById(R.id.obfuscated_res_0x7f091b6b);
-        this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090faa);
+        this.d = findViewById(R.id.obfuscated_res_0x7f091b45);
+        this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fa3);
         IYYPayWayView.b bVar2 = this.l;
         yy9.d(this.f, this.g, (bVar2 != null ? bVar2.f : null) == PayFlowType.WALLET_PAY_FLOW ? "11" : "4", "", "", "");
         o();

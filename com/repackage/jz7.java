@@ -311,7 +311,7 @@ public class jz7 extends a78 {
         }
         X(true);
         Y(true);
-        this.i0 = false;
+        this.c0 = false;
     }
 
     public final void J0() {
@@ -640,7 +640,7 @@ public class jz7 extends a78 {
     public int a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? R.layout.obfuscated_res_0x7f0d0695 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? R.layout.obfuscated_res_0x7f0d069f : invokeV.intValue;
     }
 
     @Override // com.repackage.a78
@@ -648,10 +648,10 @@ public class jz7 extends a78 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.d0();
-            this.N0 = (PbVideoFullscreenAttentionLayout) this.Q.findViewById(R.id.obfuscated_res_0x7f09239a);
-            this.O0 = (PbNextVideoLayout) this.Q.findViewById(R.id.obfuscated_res_0x7f0923be);
-            this.P0 = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923d3);
-            this.Q0 = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923bd);
+            this.N0 = (PbVideoFullscreenAttentionLayout) this.Q.findViewById(R.id.obfuscated_res_0x7f09239c);
+            this.O0 = (PbNextVideoLayout) this.Q.findViewById(R.id.obfuscated_res_0x7f0923c0);
+            this.P0 = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923d5);
+            this.Q0 = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923bf);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.P0, R.drawable.obfuscated_res_0x7f080620, R.color.CAM_X0101, null);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.Q0, R.drawable.obfuscated_res_0x7f080612, R.color.CAM_X0101, null);
             this.u.s();
@@ -809,28 +809,28 @@ public class jz7 extends a78 {
             return;
         }
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f0918fb) {
+        if (id == R.id.obfuscated_res_0x7f0918d6) {
             TbSingleton.getInstance().setHasAgreeToPlay(true);
         }
         super.onClick(view2);
-        if (id == R.id.obfuscated_res_0x7f090691) {
+        if (id == R.id.obfuscated_res_0x7f090690) {
             Q0();
             qg.a().post(this.j1);
-        } else if (id == R.id.obfuscated_res_0x7f0923bd || id == R.id.obfuscated_res_0x7f0923be) {
+        } else if (id == R.id.obfuscated_res_0x7f0923bf || id == R.id.obfuscated_res_0x7f0923c0) {
             VideoPbViewModel videoPbViewModel = this.V0;
             if (videoPbViewModel != null) {
-                videoPbViewModel.p(id == R.id.obfuscated_res_0x7f0923be);
+                videoPbViewModel.p(id == R.id.obfuscated_res_0x7f0923c0);
             }
-            if (id == R.id.obfuscated_res_0x7f0923bd) {
+            if (id == R.id.obfuscated_res_0x7f0923bf) {
                 TiebaStatic.log(new StatisticItem("c13595"));
             }
-        } else if (id == R.id.obfuscated_res_0x7f0923d3) {
+        } else if (id == R.id.obfuscated_res_0x7f0923d5) {
             VideoPbViewModel videoPbViewModel2 = this.V0;
             if (videoPbViewModel2 != null) {
                 videoPbViewModel2.q();
             }
             TiebaStatic.log(new StatisticItem("c13594"));
-        } else if (id == R.id.obfuscated_res_0x7f09177d) {
+        } else if (id == R.id.obfuscated_res_0x7f091758) {
             this.i &= -131073;
             this.p &= -131073;
             this.O0.setVisibility(8);
@@ -924,19 +924,19 @@ public class jz7 extends a78 {
     public void t0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
-            if (i == R.id.obfuscated_res_0x7f092398) {
+            if (i == R.id.obfuscated_res_0x7f09239a) {
                 if (!isFullScreen()) {
                     TiebaStatic.log(new StatisticItem("c13598"));
                 } else {
                     TiebaStatic.log(new StatisticItem("c13599"));
                 }
-            } else if (i == R.id.obfuscated_res_0x7f0923d9) {
+            } else if (i == R.id.obfuscated_res_0x7f0923db) {
                 TiebaStatic.log(K0("c13602"));
-            } else if (i == R.id.obfuscated_res_0x7f0923ca) {
+            } else if (i == R.id.obfuscated_res_0x7f0923cc) {
                 TiebaStatic.log(new StatisticItem("c13597"));
-            } else if (i == R.id.obfuscated_res_0x7f0923bf) {
+            } else if (i == R.id.obfuscated_res_0x7f0923c1) {
                 TiebaStatic.log(new StatisticItem("c13596"));
-            } else if (i == R.id.obfuscated_res_0x7f0923be) {
+            } else if (i == R.id.obfuscated_res_0x7f0923c0) {
                 TiebaStatic.log(K0("c13601").param("obj_type", this.O0.h ? 1 : 2));
             }
         }

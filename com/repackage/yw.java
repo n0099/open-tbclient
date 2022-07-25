@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ny;
 /* loaded from: classes7.dex */
-public class yw extends qw<nn4> {
+public class yw extends qw<on4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static int o;
@@ -35,7 +35,7 @@ public class yw extends qw<nn4> {
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public TextView g;
-    public nn4 h;
+    public on4 h;
     public RoundCornerFrameLayout i;
     public FakeVideoContainer j;
     public int k;
@@ -172,8 +172,8 @@ public class yw extends qw<nn4> {
             if (this.f == null) {
                 View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01be, (ViewGroup) null, true);
                 this.f = inflate;
-                this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923dd);
-                this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090a85);
+                this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923df);
+                this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090a7e);
                 FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.b);
                 this.j = fakeVideoContainer;
                 fakeVideoContainer.setBackgroundResource(R.color.transparent);
@@ -194,9 +194,9 @@ public class yw extends qw<nn4> {
 
     @Override // com.repackage.hx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        nn4 nn4Var;
+        on4 on4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) || (nn4Var = this.h) == null || nn4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) || (on4Var = this.h) == null || on4Var.getThreadData() == null) {
             return;
         }
         ux5.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
@@ -222,10 +222,10 @@ public class yw extends qw<nn4> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nn4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, on4Var) == null) {
             int k = pi.k(TbadkCoreApplication.getInst());
             if (k != this.k) {
                 int k2 = pi.k(TbadkCoreApplication.getInst());
@@ -236,11 +236,11 @@ public class yw extends qw<nn4> {
                 r = i / 3;
                 this.k = k;
             }
-            this.h = nn4Var;
-            if (nn4Var == null || nn4Var.getThreadData() == null || this.h.getThreadData().getThreadVideoInfo() == null) {
+            this.h = on4Var;
+            if (on4Var == null || on4Var.getThreadData() == null || this.h.getThreadData().getThreadVideoInfo() == null) {
                 return;
             }
-            this.j.setData(nn4Var.getThreadData());
+            this.j.setData(on4Var.getThreadData());
             ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
             int i2 = layoutParams.width;
             int i3 = layoutParams.height;

@@ -91,7 +91,7 @@ public class db7 {
         public ImageView g;
         public ImageView h;
         public MultiImageView i;
-        public jz4 j;
+        public kz4 j;
         public final /* synthetic */ db7 k;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -114,7 +114,7 @@ public class db7 {
             }
             this.k = db7Var;
             this.a = activity;
-            this.j = new jz4(activity, null);
+            this.j = new kz4(activity, null);
             setWidth(pi.k(activity) - (db7Var.f * 2));
             setHeight(-2);
             setFocusable(false);
@@ -130,12 +130,12 @@ public class db7 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03c1, (ViewGroup) null);
                 this.b = inflate;
-                this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920bc);
-                ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091a2c);
+                this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920be);
+                ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091a06);
                 this.d = imageView;
                 imageView.setImageDrawable(this.a.getDrawable(R.drawable.obfuscated_res_0x7f080801));
                 this.d.setOnClickListener(this);
-                ImageView imageView2 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091a31);
+                ImageView imageView2 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091a0b);
                 this.e = imageView2;
                 imageView2.setImageDrawable(this.a.getDrawable(R.drawable.obfuscated_res_0x7f080802));
                 this.e.setOnClickListener(this);
@@ -223,7 +223,7 @@ public class db7 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
-                ur4 d = ur4.d(this.b);
+                vr4 d = vr4.d(this.b);
                 d.n(R.string.J_X06);
                 d.f(R.color.CAM_X0204);
             }
@@ -253,11 +253,11 @@ public class db7 {
                 return;
             }
             if (!ni.z()) {
-                pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1153);
+                pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1102);
             } else if (view2 == this.d) {
                 if (sh8.b(this.a, "com.tencent.mobileqq")) {
                     if (c(b) && b.a() != null && b.a().contains(4)) {
-                        dz4.e(b, this.a, 8, null);
+                        ez4.e(b, this.a, 8, null);
                         return;
                     } else {
                         this.j.o(b);
@@ -265,11 +265,11 @@ public class db7 {
                     }
                 }
                 Activity activity = this.a;
-                BdToast.b(activity, activity.getText(R.string.obfuscated_res_0x7f0f115f)).h();
+                BdToast.b(activity, activity.getText(R.string.obfuscated_res_0x7f0f110e)).h();
             } else if (view2 == this.e) {
                 if (sh8.b(this.a, "com.tencent.mobileqq")) {
                     if (c(b) && b.a() != null && b.a().contains(4)) {
-                        dz4.e(b, this.a, 4, null);
+                        ez4.e(b, this.a, 4, null);
                         return;
                     } else {
                         this.j.p(b);
@@ -277,17 +277,17 @@ public class db7 {
                     }
                 }
                 Activity activity2 = this.a;
-                BdToast.b(activity2, activity2.getText(R.string.obfuscated_res_0x7f0f115f)).h();
+                BdToast.b(activity2, activity2.getText(R.string.obfuscated_res_0x7f0f110e)).h();
             } else if (view2 == this.f) {
                 if (c(b) && b.a() != null && b.a().contains(3)) {
-                    dz4.e(b, this.a, 3, null);
+                    ez4.e(b, this.a, 3, null);
                 } else if (b.o0 != 1) {
                     this.j.t(b);
                 }
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_source", 22).param("tid", b.N).param("fid", b.M));
             } else if (view2 == this.g) {
                 if (c(b) && b.a() != null && b.a().contains(2)) {
-                    dz4.e(b, this.a, 2, null);
+                    ez4.e(b, this.a, 2, null);
                 } else if (b.o0 != 1) {
                     if (b.b) {
                         b.v = "【" + b.u + "】 " + b.v;

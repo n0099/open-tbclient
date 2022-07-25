@@ -106,7 +106,7 @@ public class yu7 extends b9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0213);
-            ur4 d = ur4.d(this.r);
+            vr4 d = vr4.d(this.r);
             d.n(R.string.J_X14);
             d.f(R.color.CAM_X0213);
             SkinManager.setBackgroundResource(this.u, R.color.CAM_X0213);
@@ -190,9 +190,9 @@ public class yu7 extends b9 {
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             this.q.setVisibility(z ? 0 : 8);
             if (z2) {
-                this.q.setText(R.string.obfuscated_res_0x7f0f0832);
+                this.q.setText(R.string.obfuscated_res_0x7f0f082e);
             } else {
-                this.q.setText(R.string.obfuscated_res_0x7f0f0833);
+                this.q.setText(R.string.obfuscated_res_0x7f0f082f);
             }
         }
     }
@@ -202,11 +202,11 @@ public class yu7 extends b9 {
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             this.o.setVisibility(z ? 0 : 8);
             if (z2) {
-                this.o.setText(R.string.obfuscated_res_0x7f0f07f4);
+                this.o.setText(R.string.obfuscated_res_0x7f0f07f0);
                 R(this.o, R.drawable.obfuscated_res_0x7f08094a);
                 return;
             }
-            this.o.setText(R.string.obfuscated_res_0x7f0f1549);
+            this.o.setText(R.string.obfuscated_res_0x7f0f14f8);
             R(this.o, R.drawable.obfuscated_res_0x7f08095a);
         }
     }
@@ -243,11 +243,11 @@ public class yu7 extends b9 {
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             this.m.setVisibility(z ? 0 : 8);
             if (z2) {
-                this.m.setText(R.string.obfuscated_res_0x7f0f0dad);
+                this.m.setText(R.string.obfuscated_res_0x7f0f0d96);
                 R(this.m, R.drawable.obfuscated_res_0x7f08094c);
                 return;
             }
-            this.m.setText(R.string.obfuscated_res_0x7f0f0405);
+            this.m.setText(R.string.obfuscated_res_0x7f0f0404);
             R(this.m, R.drawable.obfuscated_res_0x7f08094b);
         }
     }
@@ -257,11 +257,11 @@ public class yu7 extends b9 {
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             this.j.setVisibility(z ? 0 : 8);
             if (z2) {
-                this.j.setText(R.string.obfuscated_res_0x7f0f0dae);
+                this.j.setText(R.string.obfuscated_res_0x7f0f0d97);
                 R(this.j, R.drawable.obfuscated_res_0x7f080969);
                 return;
             }
-            this.j.setText(R.string.obfuscated_res_0x7f0f1445);
+            this.j.setText(R.string.obfuscated_res_0x7f0f13f4);
             R(this.j, R.drawable.obfuscated_res_0x7f080968);
         }
     }
@@ -273,11 +273,11 @@ public class yu7 extends b9 {
             if (runTask != null && !StringUtils.isNull((String) runTask.getData())) {
                 this.l.setVisibility(z ? 0 : 8);
                 if (z2) {
-                    this.l.setText(R.string.obfuscated_res_0x7f0f0c85);
+                    this.l.setText(R.string.obfuscated_res_0x7f0f0c71);
                     R(this.l, R.drawable.obfuscated_res_0x7f080952);
                     return;
                 }
-                this.l.setText(R.string.obfuscated_res_0x7f0f05d7);
+                this.l.setText(R.string.obfuscated_res_0x7f0f05d3);
                 R(this.l, R.drawable.obfuscated_res_0x7f08095f);
                 return;
             }
@@ -304,11 +304,11 @@ public class yu7 extends b9 {
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             this.k.setVisibility(z ? 0 : 8);
             if (z2) {
-                this.k.setText(R.string.obfuscated_res_0x7f0f1550);
+                this.k.setText(R.string.obfuscated_res_0x7f0f14ff);
             } else {
-                this.k.setText(R.string.obfuscated_res_0x7f0f048f);
+                this.k.setText(R.string.obfuscated_res_0x7f0f048e);
             }
-            this.k.setText(R.string.obfuscated_res_0x7f0f11c3);
+            this.k.setText(R.string.obfuscated_res_0x7f0f1172);
         }
     }
 
@@ -445,57 +445,57 @@ public class yu7 extends b9 {
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0690, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d069a, (ViewGroup) null);
             this.b = inflate;
-            this.c = (FlowLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091763);
-            EMTextView eMTextView = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09176f);
+            this.c = (FlowLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09173e);
+            EMTextView eMTextView = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09174a);
             this.o = eMTextView;
             eMTextView.setOnClickListener(this.v);
-            EMTextView eMTextView2 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091776);
+            EMTextView eMTextView2 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091751);
             this.k = eMTextView2;
             eMTextView2.setOnClickListener(this.v);
-            EMTextView eMTextView3 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091770);
+            EMTextView eMTextView3 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09174b);
             this.d = eMTextView3;
             eMTextView3.setOnClickListener(this.v);
-            EMTextView eMTextView4 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091773);
+            EMTextView eMTextView4 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09174e);
             this.l = eMTextView4;
             eMTextView4.setOnClickListener(this.v);
-            EMTextView eMTextView5 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091771);
+            EMTextView eMTextView5 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09174c);
             this.e = eMTextView5;
             eMTextView5.setOnClickListener(this.v);
-            EMTextView eMTextView6 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09176b);
+            EMTextView eMTextView6 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091746);
             this.f = eMTextView6;
             eMTextView6.setOnClickListener(this.v);
-            EMTextView eMTextView7 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091775);
+            EMTextView eMTextView7 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091750);
             this.n = eMTextView7;
             eMTextView7.setOnClickListener(this.v);
-            EMTextView eMTextView8 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09176a);
+            EMTextView eMTextView8 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091745);
             this.g = eMTextView8;
             eMTextView8.setOnClickListener(this.v);
-            EMTextView eMTextView9 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09176c);
+            EMTextView eMTextView9 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091747);
             this.h = eMTextView9;
             eMTextView9.setOnClickListener(this.v);
-            EMTextView eMTextView10 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09176d);
+            EMTextView eMTextView10 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091748);
             this.i = eMTextView10;
             eMTextView10.setOnClickListener(this.v);
-            EMTextView eMTextView11 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091772);
+            EMTextView eMTextView11 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09174d);
             this.j = eMTextView11;
             eMTextView11.setOnClickListener(this.v);
-            EMTextView eMTextView12 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091769);
+            EMTextView eMTextView12 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091744);
             this.m = eMTextView12;
             eMTextView12.setOnClickListener(this.v);
-            EMTextView eMTextView13 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091774);
+            EMTextView eMTextView13 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09174f);
             this.p = eMTextView13;
             eMTextView13.setOnClickListener(this.v);
-            EMTextView eMTextView14 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09176e);
+            EMTextView eMTextView14 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091749);
             this.q = eMTextView14;
             eMTextView14.setOnClickListener(this.v);
-            this.s = (TextSizeSeekBar) this.b.findViewById(R.id.obfuscated_res_0x7f091766);
-            this.r = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091db6);
-            EMTextView eMTextView15 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091762);
+            this.s = (TextSizeSeekBar) this.b.findViewById(R.id.obfuscated_res_0x7f091741);
+            this.r = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091dbc);
+            EMTextView eMTextView15 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09173d);
             this.t = eMTextView15;
             eMTextView15.setOnClickListener(this.v);
-            this.u = this.b.findViewById(R.id.obfuscated_res_0x7f091761);
+            this.u = this.b.findViewById(R.id.obfuscated_res_0x7f09173c);
             if (y()) {
                 return;
             }

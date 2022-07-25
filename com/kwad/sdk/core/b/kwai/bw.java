@@ -1,38 +1,46 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.AdStyleInfo;
+import com.kwad.sdk.core.report.a;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class bw implements com.kwad.sdk.core.d<AdStyleInfo.ExposeTagInfo> {
+public final class bw implements com.kwad.sdk.core.d<a.C0390a> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(AdStyleInfo.ExposeTagInfo exposeTagInfo, JSONObject jSONObject) {
+    public static void a2(a.C0390a c0390a, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        exposeTagInfo.text = jSONObject.optString("text");
-        if (jSONObject.opt("text") == JSONObject.NULL) {
-            exposeTagInfo.text = "";
+        c0390a.code = jSONObject.optInt("code");
+        c0390a.Qd = jSONObject.optString("msg");
+        if (jSONObject.opt("msg") == JSONObject.NULL) {
+            c0390a.Qd = "";
         }
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(AdStyleInfo.ExposeTagInfo exposeTagInfo, JSONObject jSONObject) {
+    public static JSONObject b2(a.C0390a c0390a, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "text", exposeTagInfo.text);
+        int i = c0390a.code;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "code", i);
+        }
+        String str = c0390a.Qd;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "msg", c0390a.Qd);
+        }
         return jSONObject;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(AdStyleInfo.ExposeTagInfo exposeTagInfo, JSONObject jSONObject) {
-        a2(exposeTagInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(a.C0390a c0390a, JSONObject jSONObject) {
+        a2(c0390a, jSONObject);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(AdStyleInfo.ExposeTagInfo exposeTagInfo, JSONObject jSONObject) {
-        return b2(exposeTagInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(a.C0390a c0390a, JSONObject jSONObject) {
+        return b2(c0390a, jSONObject);
     }
 }

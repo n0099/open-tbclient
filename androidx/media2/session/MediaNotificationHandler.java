@@ -60,11 +60,11 @@ public class MediaNotificationHandler extends MediaSession.SessionCallback.Foreg
         MediaSessionService mediaSessionService2 = this.mServiceInstance;
         this.mStartSelfIntent = new Intent(mediaSessionService2, mediaSessionService2.getClass());
         this.mNotificationManager = (NotificationManager) this.mServiceInstance.getSystemService(ActionJsonData.TAG_NOTIFICATION);
-        this.mNotificationChannelName = this.mServiceInstance.getResources().getString(R.string.obfuscated_res_0x7f0f0489);
-        this.mPlayAction = createNotificationAction(R.drawable.obfuscated_res_0x7f080ce4, R.string.obfuscated_res_0x7f0f0e70, 4L);
-        this.mPauseAction = createNotificationAction(R.drawable.obfuscated_res_0x7f080ce3, R.string.obfuscated_res_0x7f0f0d57, 2L);
-        this.mSkipToPrevAction = createNotificationAction(R.drawable.obfuscated_res_0x7f080ce6, R.string.obfuscated_res_0x7f0f11ba, 16L);
-        this.mSkipToNextAction = createNotificationAction(R.drawable.obfuscated_res_0x7f080ce5, R.string.obfuscated_res_0x7f0f11b9, 32L);
+        this.mNotificationChannelName = this.mServiceInstance.getResources().getString(R.string.obfuscated_res_0x7f0f0488);
+        this.mPlayAction = createNotificationAction(R.drawable.obfuscated_res_0x7f080ce4, R.string.obfuscated_res_0x7f0f0e59, 4L);
+        this.mPauseAction = createNotificationAction(R.drawable.obfuscated_res_0x7f080ce3, R.string.obfuscated_res_0x7f0f0d40, 2L);
+        this.mSkipToPrevAction = createNotificationAction(R.drawable.obfuscated_res_0x7f080ce6, R.string.obfuscated_res_0x7f0f1169, 16L);
+        this.mSkipToNextAction = createNotificationAction(R.drawable.obfuscated_res_0x7f080ce5, R.string.obfuscated_res_0x7f0f1168, 32L);
     }
 
     private NotificationCompat.Action createNotificationAction(int i, int i2, long j) {

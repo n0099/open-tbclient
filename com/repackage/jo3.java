@@ -1,19 +1,15 @@
 package com.repackage;
 
-import com.baidu.swan.game.ad.downloader.exception.DownloadException;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 /* loaded from: classes6.dex */
 public interface jo3 {
-    void a();
+    void a(DownloadInfo downloadInfo);
 
-    void b(DownloadException downloadException);
+    void b();
 
-    void c();
+    DownloadInfo c(String str);
 
-    void d();
+    void close();
 
-    void e(long j, long j2);
-
-    void f(long j, long j2);
-
-    void onStart();
+    void delete(DownloadInfo downloadInfo);
 }

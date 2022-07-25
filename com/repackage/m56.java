@@ -109,8 +109,8 @@ public class m56 {
                     this.a.d.l(this.a.h);
                 }
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(new f56(this.a.c.getString(R.string.obfuscated_res_0x7f0f09d4), 2));
-                arrayList.add(new f56(this.a.c.getString(R.string.obfuscated_res_0x7f0f14d7), 1));
+                arrayList.add(new f56(this.a.c.getString(R.string.obfuscated_res_0x7f0f09be), 2));
+                arrayList.add(new f56(this.a.c.getString(R.string.obfuscated_res_0x7f0f1486), 1));
                 this.a.d.k(arrayList, this.a.b);
                 this.a.d.n(this.a.a);
             }
@@ -232,9 +232,9 @@ public class m56 {
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && n() && (textView = this.a) != null) {
             int i = this.b;
             if (i == 1) {
-                textView.setText(R.string.obfuscated_res_0x7f0f14d7);
+                textView.setText(R.string.obfuscated_res_0x7f0f1486);
             } else if (i == 2) {
-                textView.setText(R.string.obfuscated_res_0x7f0f09d4);
+                textView.setText(R.string.obfuscated_res_0x7f0f09be);
             }
             this.a.setOnClickListener(this.i);
             s(this.g);

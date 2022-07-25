@@ -49,21 +49,21 @@ public class jl6 extends an<sl6, a> {
                 ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
                 marginLayoutParams.topMargin = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
                 this.a.setLayoutParams(marginLayoutParams);
-                this.a.setText(R.string.obfuscated_res_0x7f0f0708);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0704);
                 this.a.setPadding(pi.f(jl6Var.a, R.dimen.M_W_X005), pi.f(jl6Var.a, R.dimen.M_H_X005), 0, 0);
-                ur4 d = ur4.d(this.a);
+                vr4 d = vr4.d(this.a);
                 d.z(R.dimen.T_X07);
                 d.A(R.string.F_X02);
             }
         }
 
-        public void c() {
+        public void b() {
             TextView textView;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (textView = this.a) == null) {
                 return;
             }
-            ur4 d = ur4.d(textView);
+            vr4 d = vr4.d(textView);
             d.v(R.color.CAM_X0105);
             d.m(1);
             d.n(R.string.J_X06);
@@ -109,8 +109,8 @@ public class jl6 extends an<sl6, a> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sl6Var, aVar})) == null) {
-            aVar.c();
-            return aVar.b();
+            aVar.b();
+            return aVar.a();
         }
         return (View) invokeCommon.objValue;
     }

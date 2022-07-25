@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.de5;
 import com.repackage.he5;
-import com.repackage.ym4;
+import com.repackage.zm4;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class InitLaunchSyncTask extends LaunchTask {
@@ -138,9 +138,9 @@ public class InitLaunchSyncTask extends LaunchTask {
                     return invokeL.booleanValue;
                 }
             });
-            ym4 ym4Var = new ym4();
-            TbadkCoreApplication.getInst().setCoreActivityLifecycleCallbacks(ym4Var);
-            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(ym4Var);
+            zm4 zm4Var = new zm4();
+            TbadkCoreApplication.getInst().setCoreActivityLifecycleCallbacks(zm4Var);
+            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(zm4Var);
             InputMethodManagerLeaksFixer.fixFocusedViewLeak(TbadkCoreApplication.getInst());
             cleanDirectoryNewStatIfNeed();
         }

@@ -9,31 +9,31 @@ import java.util.Arrays;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public final class e {
-    public static String a(String str) {
+    public static void a(String str, Map<String, String> map, String str2) {
+        map.put("Ks-Sig1", bS(x(str, str2)));
+    }
+
+    public static String bQ(String str) {
         if (TextUtils.isEmpty(str)) {
-            return b(str);
+            return bR(str);
         }
         String[] split = str.split("&");
         Arrays.sort(split);
         return TextUtils.join("&", split);
     }
 
-    public static String a(String str, String str2) {
-        Uri parse = Uri.parse(str);
-        return parse.getPath() + "&" + a(parse.getQuery()) + "&" + str2;
-    }
-
-    public static void a(String str, Map<String, String> map, String str2) {
-        map.put("Ks-Sig1", c(a(str, str2)));
-    }
-
-    public static String b(String str) {
+    public static String bR(String str) {
         return str == null ? "" : str;
     }
 
-    public static String c(String str) {
+    public static String bS(String str) {
         String doSign;
-        Context a = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).a();
-        return (a == null || (doSign = KWEGIDDFP.doSign(a, str)) == null) ? "" : doSign;
+        Context context = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext();
+        return (context == null || (doSign = KWEGIDDFP.doSign(context, str)) == null) ? "" : doSign;
+    }
+
+    public static String x(String str, String str2) {
+        Uri parse = Uri.parse(str);
+        return parse.getPath() + "&" + bQ(parse.getQuery()) + "&" + str2;
     }
 }

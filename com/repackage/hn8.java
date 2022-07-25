@@ -85,7 +85,7 @@ public class hn8 {
     private boolean isCrabSdkSwitchOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? xt4.k().l("pref_key_crab_sdk_enable", 1) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? yt4.k().l("pref_key_crab_sdk_enable", 1) == 1 : invokeV.booleanValue;
     }
 
     public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {

@@ -12,18 +12,18 @@ public final class c extends b<Integer> {
         super("batchReportCacheType", 2);
     }
 
-    public static int a(@Nullable Context context) {
+    public static int bm(@Nullable Context context) {
         SharedPreferences sharedPreferences;
-        com.kwad.sdk.core.d.b.a("batchReportCacheType", "loadBatchReportCacheType");
+        com.kwad.sdk.core.e.b.d("batchReportCacheType", "loadBatchReportCacheType");
         if (context == null || (sharedPreferences = context.getSharedPreferences("ksadsdk_rep", 0)) == null) {
             return 2;
         }
         return sharedPreferences.getInt("batchReportCacheType", 2);
     }
 
-    public static void a(@Nullable Context context, int i) {
+    public static void d(@Nullable Context context, int i) {
         SharedPreferences sharedPreferences;
-        com.kwad.sdk.core.d.b.a("batchReportCacheType", "saveBatchReportCacheType");
+        com.kwad.sdk.core.e.b.d("batchReportCacheType", "saveBatchReportCacheType");
         if (context == null || (sharedPreferences = context.getSharedPreferences("ksadsdk_rep", 0)) == null) {
             return;
         }
@@ -33,17 +33,17 @@ public final class c extends b<Integer> {
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void a(@NonNull SharedPreferences.Editor editor) {
-        a(KsAdSDK.getContext(), b().intValue());
-    }
-
-    @Override // com.kwad.sdk.core.config.item.b
     public final void a(@NonNull SharedPreferences sharedPreferences) {
-        a((c) Integer.valueOf(a(KsAdSDK.getContext())));
+        setValue(Integer.valueOf(bm(KsAdSDK.getContext())));
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void a(JSONObject jSONObject) {
-        a((c) (jSONObject != null ? Integer.valueOf(jSONObject.optInt(a(), c().intValue())) : c()));
+    public final void b(@NonNull SharedPreferences.Editor editor) {
+        d(KsAdSDK.getContext(), getValue().intValue());
+    }
+
+    @Override // com.kwad.sdk.core.config.item.b
+    public final void e(JSONObject jSONObject) {
+        setValue(jSONObject != null ? Integer.valueOf(jSONObject.optInt(getKey(), sx().intValue())) : sx());
     }
 }

@@ -211,9 +211,9 @@ public class a41 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
             if (this.f) {
-                return context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07050f);
+                return context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07050d);
             }
-            return context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07050e);
+            return context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07050c);
         }
         return invokeL.intValue;
     }
@@ -314,7 +314,7 @@ public class a41 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, i41Var)) == null) {
             float f = this.f ? 0.0f : 15.0f;
             Context context = i41Var.c.getContext();
-            int a2 = q01.c.a(context, f) + context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07050e) + (context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070508) / 2);
+            int a2 = q01.c.a(context, f) + context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07050c) + (context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070506) / 2);
             return a2 <= f(i41Var) && a2 <= c(i41Var);
         }
         return invokeL.booleanValue;
@@ -326,7 +326,7 @@ public class a41 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, i41Var)) == null) {
             float f = this.f ? 0.0f : 15.0f;
             Context context = i41Var.c.getContext();
-            int a2 = q01.c.a(context, f) + (h(context) / 2) + (context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070515) / 2);
+            int a2 = q01.c.a(context, f) + (h(context) / 2) + (context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070513) / 2);
             return a2 <= d(i41Var) && a2 <= e(i41Var);
         }
         return invokeL.booleanValue;

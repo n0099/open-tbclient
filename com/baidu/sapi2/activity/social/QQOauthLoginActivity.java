@@ -91,14 +91,6 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
                 this.b.a();
             }
         }
-
-        @Override // com.tencent.tauth.IUiListener
-        public void onWarning(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-                Log.e(QQOauthLoginActivity.p, Integer.valueOf(i));
-            }
-        }
     }
 
     /* loaded from: classes2.dex */
@@ -154,14 +146,6 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uiError) == null) {
                 this.a.a();
-            }
-        }
-
-        @Override // com.tencent.tauth.IUiListener
-        public void onWarning(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-                Log.e(QQOauthLoginActivity.p, Integer.valueOf(i));
             }
         }
     }

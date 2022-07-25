@@ -43,7 +43,7 @@ public class lj5 {
     public transient /* synthetic */ FieldHolder $fh;
     public View A;
     public String B;
-    public au4 C;
+    public bu4 C;
     public CompoundButton.OnCheckedChangeListener D;
     public PopupWindow.OnDismissListener E;
     public CustomMessageListener F;
@@ -51,7 +51,7 @@ public class lj5 {
     public TbPageContext b;
     public PopupWindow c;
     public ViewGroup d;
-    public kp4 e;
+    public lp4 e;
     public SparseArray<String> f;
     public List<gj5.b> g;
     public boolean h;
@@ -335,14 +335,14 @@ public class lj5 {
             ((ViewGroup) s.getParent()).removeView(s);
         }
         p();
-        this.i = t() - pi.f(this.a, R.dimen.obfuscated_res_0x7f07023d);
+        this.i = t() - pi.f(this.a, R.dimen.obfuscated_res_0x7f07023b);
         PopupWindow popupWindow = new PopupWindow(s, this.j, this.i);
         this.c = popupWindow;
         popupWindow.setFocusable(true);
         this.c.setTouchable(true);
         this.c.setOnDismissListener(this.E);
         v();
-        PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0897, (ViewGroup) null), -1, -1);
+        PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08a1, (ViewGroup) null), -1, -1);
         this.m = popupWindow2;
         if (Build.VERSION.SDK_INT >= 22) {
             popupWindow2.setAttachedInDecor(false);
@@ -363,9 +363,9 @@ public class lj5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.C == null) {
-                this.C = new au4(this.b);
+                this.C = new bu4(this.b);
             }
-            this.C.i(R.string.obfuscated_res_0x7f0f0a2c);
+            this.C.i(R.string.obfuscated_res_0x7f0f0a18);
             this.C.h(true);
         }
     }
@@ -456,14 +456,14 @@ public class lj5 {
                 return null;
             }
             if (this.d == null) {
-                ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05f0, (ViewGroup) null);
+                ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05fa, (ViewGroup) null);
                 this.d = viewGroup;
-                TextView textView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090cdd);
+                TextView textView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090cd6);
                 this.x = textView;
                 if (this.h) {
-                    textView.setText(R.string.obfuscated_res_0x7f0f118c);
+                    textView.setText(R.string.obfuscated_res_0x7f0f113b);
                 }
-                this.y = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091e49);
+                this.y = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091e4d);
             }
             View g2 = this.o.g();
             if (g2 != null && g2.getParent() == null) {
@@ -472,12 +472,12 @@ public class lj5 {
                 this.d.addView(g2);
             }
             if (this.s == null) {
-                LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05ef, (ViewGroup) null);
+                LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05f9, (ViewGroup) null);
                 this.s = linearLayout;
-                this.w = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090771);
-                this.v = (TextView) this.s.findViewById(R.id.obfuscated_res_0x7f090772);
-                this.z = this.s.findViewById(R.id.obfuscated_res_0x7f092148);
-                this.A = this.s.findViewById(R.id.obfuscated_res_0x7f091486);
+                this.w = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090770);
+                this.v = (TextView) this.s.findViewById(R.id.obfuscated_res_0x7f090771);
+                this.z = this.s.findViewById(R.id.obfuscated_res_0x7f09214a);
+                this.A = this.s.findViewById(R.id.obfuscated_res_0x7f091461);
                 this.d.addView(this.s);
                 this.w.setOnClickListener(new d(this));
                 TextView textView2 = this.v;
@@ -500,7 +500,7 @@ public class lj5 {
                 return 0;
             }
             viewGroup.measure(0, 0);
-            int measuredHeight = this.d.getMeasuredHeight() + pi.f(this.a, R.dimen.obfuscated_res_0x7f07023d);
+            int measuredHeight = this.d.getMeasuredHeight() + pi.f(this.a, R.dimen.obfuscated_res_0x7f07023b);
             this.k = measuredHeight;
             return measuredHeight;
         }
@@ -533,20 +533,20 @@ public class lj5 {
         }
     }
 
-    public void x(kp4 kp4Var) {
+    public void x(lp4 lp4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, kp4Var) == null) || kp4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, lp4Var) == null) || lp4Var == null) {
             return;
         }
-        this.e = kp4Var;
-        SparseArray<String> b2 = kp4Var.b();
+        this.e = lp4Var;
+        SparseArray<String> b2 = lp4Var.b();
         this.f = b2;
         if (b2 != null && b2.size() > 8) {
             for (int size = this.f.size() - 1; size >= 8; size--) {
                 this.f.removeAt(size);
             }
         }
-        this.o.j(kp4Var);
+        this.o.j(lp4Var);
     }
 
     public void y(String[] strArr) {

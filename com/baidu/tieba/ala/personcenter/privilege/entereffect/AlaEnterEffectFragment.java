@@ -40,8 +40,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ig;
-import com.repackage.j55;
 import com.repackage.jg;
+import com.repackage.k55;
 import com.repackage.ni;
 import com.repackage.nn;
 import com.repackage.uv5;
@@ -61,7 +61,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
     public BdTypeListView f;
     public wv5 g;
     public uv5 h;
-    public j55 i;
+    public k55 i;
     public AlaNetRefreshView j;
     public TextView k;
     public View l;
@@ -351,11 +351,11 @@ public class AlaEnterEffectFragment extends AbsFragment {
         this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0901c4);
         this.k = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0901c6);
         this.m = this.a.findViewById(R.id.obfuscated_res_0x7f0901d0);
-        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090896);
-        this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090898);
+        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090894);
+        this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090896);
         this.p = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0901cd);
         this.f = (BdTypeListView) this.a.findViewById(R.id.obfuscated_res_0x7f0901ce);
-        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0908a0);
+        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f09089e);
         this.l = findViewById;
         this.f.setEmptyView(findViewById);
         this.g = new wv5(getPageContext(), this.f);
@@ -366,7 +366,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.i == null) {
-                this.i = new j55(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b6));
+                this.i = new k55(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b2));
             }
             this.i.attachView(this.a, false);
         }
@@ -420,12 +420,12 @@ public class AlaEnterEffectFragment extends AbsFragment {
     }
 
     public final void m() {
-        j55 j55Var;
+        k55 k55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (j55Var = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (k55Var = this.i) == null) {
             return;
         }
-        j55Var.dettachView(this.a);
+        k55Var.dettachView(this.a);
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -444,9 +444,9 @@ public class AlaEnterEffectFragment extends AbsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             super.onChangeSkinType(i);
-            j55 j55Var = this.i;
-            if (j55Var != null) {
-                j55Var.onChangeSkinType();
+            k55 k55Var = this.i;
+            if (k55Var != null) {
+                k55Var.onChangeSkinType();
             }
             AlaNetRefreshView alaNetRefreshView = this.j;
             if (alaNetRefreshView != null) {

@@ -32,10 +32,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dv4;
+import com.repackage.ev4;
 import com.repackage.hx;
 import com.repackage.pi;
-import com.repackage.uu4;
+import com.repackage.vu4;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -109,13 +109,13 @@ public class CardItemInfoTagLayout extends FrameLayout implements hx {
 
             /* renamed from: com.baidu.tieba.frs.itemtab.card.CardItemInfoTagLayout$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class View$OnClickListenerC0197a implements View.OnClickListener {
+            public class View$OnClickListenerC0211a implements View.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ View a;
                 public final /* synthetic */ a b;
 
-                public View$OnClickListenerC0197a(a aVar, b bVar, View view2) {
+                public View$OnClickListenerC0211a(a aVar, b bVar, View view2) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -144,7 +144,7 @@ public class CardItemInfoTagLayout extends FrameLayout implements hx {
                             if (tBSpecificationBtn.a instanceof HashMap) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkApplication.getInst().getApplicationContext(), "CatetoryRecommendList", (HashMap) tBSpecificationBtn.a)));
                                 if (valueOf instanceof Integer) {
-                                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new dv4(2, valueOf.intValue())));
+                                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ev4(2, valueOf.intValue())));
                                 }
                             }
                         }
@@ -172,22 +172,22 @@ public class CardItemInfoTagLayout extends FrameLayout implements hx {
                 }
                 this.b = bVar;
                 FrameLayout frameLayout = (FrameLayout) view2;
-                uu4 uu4Var = new uu4();
-                uu4Var.i(0, R.drawable.icon_pure_arrow12_right, TBSpecificationButtonConfig.IconType.WEBP);
-                uu4Var.h(R.color.CAM_X0107);
-                uu4Var.g(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds31));
-                uu4Var.f(0);
-                uu4Var.t(R.color.CAM_X0105);
-                uu4Var.j(1, 0);
-                uu4Var.n(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003));
-                uu4Var.m(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
+                vu4 vu4Var = new vu4();
+                vu4Var.i(0, R.drawable.icon_pure_arrow12_right, TBSpecificationButtonConfig.IconType.WEBP);
+                vu4Var.h(R.color.CAM_X0107);
+                vu4Var.g(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds31));
+                vu4Var.f(0);
+                vu4Var.t(R.color.CAM_X0105);
+                vu4Var.j(1, 0);
+                vu4Var.n(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003));
+                vu4Var.m(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
                 TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(view2.getContext());
                 this.a = tBSpecificationBtn;
-                tBSpecificationBtn.setConfig(uu4Var);
+                tBSpecificationBtn.setConfig(vu4Var);
                 if (this.a.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                     ((ViewGroup.MarginLayoutParams) this.a.getLayoutParams()).rightMargin = TbadkApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006);
                 }
-                this.a.setOnClickListener(new View$OnClickListenerC0197a(this, bVar, view2));
+                this.a.setOnClickListener(new View$OnClickListenerC0211a(this, bVar, view2));
                 frameLayout.addView(this.a);
             }
 

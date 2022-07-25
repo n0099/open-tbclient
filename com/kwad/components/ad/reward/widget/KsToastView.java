@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class KsToastView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView a;
-    public int b;
-    public String c;
-    public Runnable d;
+    public int countDown;
+    public TextView wC;
+    public String wD;
+    public Runnable wE;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KsToastView(Context context) {
@@ -38,10 +38,10 @@ public class KsToastView extends LinearLayout {
                 return;
             }
         }
-        this.b = 3;
-        this.c = "%ss后自动进入";
-        this.d = null;
-        a(context);
+        this.countDown = 3;
+        this.wD = "%ss后自动进入";
+        this.wE = null;
+        init(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -63,10 +63,10 @@ public class KsToastView extends LinearLayout {
                 return;
             }
         }
-        this.b = 3;
-        this.c = "%ss后自动进入";
-        this.d = null;
-        a(context);
+        this.countDown = 3;
+        this.wD = "%ss后自动进入";
+        this.wE = null;
+        init(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -88,10 +88,10 @@ public class KsToastView extends LinearLayout {
                 return;
             }
         }
-        this.b = 3;
-        this.c = "%ss后自动进入";
-        this.d = null;
-        a(context);
+        this.countDown = 3;
+        this.wD = "%ss后自动进入";
+        this.wE = null;
+        init(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -112,42 +112,42 @@ public class KsToastView extends LinearLayout {
                 return;
             }
         }
-        this.b = 3;
-        this.c = "%ss后自动进入";
-        this.d = null;
-        a(context);
-    }
-
-    private void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0433, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0911bd);
-        }
+        this.countDown = 3;
+        this.wD = "%ss后自动进入";
+        this.wE = null;
+        init(context);
     }
 
     public static /* synthetic */ int b(KsToastView ksToastView) {
-        int i = ksToastView.b;
-        ksToastView.b = i - 1;
+        int i = ksToastView.countDown;
+        ksToastView.countDown = i - 1;
         return i;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(int i) {
+    private void init(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65544, this, i) == null) {
-            this.a.setText(String.format(this.c, Integer.valueOf(i)));
+        if (interceptable == null || interceptable.invokeL(65543, this, context) == null) {
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0433, this);
+            this.wC = (TextView) findViewById(R.id.obfuscated_res_0x7f091199);
         }
     }
 
-    public final void a(int i) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void x(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65544, this, i) == null) {
+            this.wC.setText(String.format(this.wD, Integer.valueOf(i)));
+        }
+    }
+
+    public final void U(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (this.d == null) {
-                this.d = new Runnable(this) { // from class: com.kwad.components.ad.reward.widget.KsToastView.1
+            if (this.wE == null) {
+                this.wE = new Runnable(this) { // from class: com.kwad.components.ad.reward.widget.KsToastView.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ KsToastView a;
+                    public final /* synthetic */ KsToastView wF;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -164,24 +164,24 @@ public class KsToastView extends LinearLayout {
                                 return;
                             }
                         }
-                        this.a = this;
+                        this.wF = this;
                     }
 
                     @Override // java.lang.Runnable
                     public final void run() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a.b == 0) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.wF.countDown == 0) {
                             return;
                         }
-                        KsToastView ksToastView = this.a;
-                        ksToastView.b(ksToastView.b);
-                        KsToastView.b(this.a);
-                        this.a.postDelayed(this, 1000L);
+                        KsToastView ksToastView = this.wF;
+                        ksToastView.x(ksToastView.countDown);
+                        KsToastView.b(this.wF);
+                        this.wF.postDelayed(this, 1000L);
                     }
                 };
             }
-            this.b = 3;
-            post(this.d);
+            this.countDown = 3;
+            post(this.wE);
         }
     }
 
@@ -190,7 +190,7 @@ public class KsToastView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDetachedFromWindow();
-            removeCallbacks(this.d);
+            removeCallbacks(this.wE);
         }
     }
 }

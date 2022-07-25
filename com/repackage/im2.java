@@ -1,16 +1,15 @@
 package com.repackage;
 
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class im2 {
+public class im2 implements nb1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public rb1<gm2> a;
 
     public im2() {
         Interceptable interceptable = $ic;
@@ -22,18 +21,20 @@ public class im2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        a();
     }
 
-    public void a() {
+    @Override // com.repackage.nb1
+    public Object get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            pb1 b = pb1.b();
-            this.a = b;
-            b.a(new hm2());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new z82());
+            arrayList.add(new b92());
+            return arrayList;
         }
+        return invokeV.objValue;
     }
 }

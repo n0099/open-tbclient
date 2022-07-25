@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import com.repackage.nn;
 import com.repackage.rn;
 import com.repackage.vo5;
@@ -56,14 +56,14 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
     public int g;
     public AlaSquareRefreshManager h;
     public IAlaSquareTabController i;
-    public fu4.g j;
+    public gu4.g j;
     public BdListView.p k;
     public BdListView.o l;
     public AbsListView.OnScrollListener m;
     public AlaSquareLiveModel.b n;
 
     /* loaded from: classes3.dex */
-    public class a implements fu4.g {
+    public class a implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaSquareLiveFragment a;
@@ -86,7 +86,7 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
             this.a = alaSquareLiveFragment;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.d == null) {
@@ -279,7 +279,7 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
             }
             if (ListUtils.getCount(P) == 0) {
                 AlaSquareLiveFragment alaSquareLiveFragment2 = this.a;
-                alaSquareLiveFragment2.showNetRefreshView(alaSquareLiveFragment2.a.e(), this.a.getString(R.string.obfuscated_res_0x7f0f0c45), false);
+                alaSquareLiveFragment2.showNetRefreshView(alaSquareLiveFragment2.a.e(), this.a.getString(R.string.obfuscated_res_0x7f0f0c31), false);
                 return;
             }
             AlaSquareLiveFragment alaSquareLiveFragment3 = this.a;
@@ -436,7 +436,7 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

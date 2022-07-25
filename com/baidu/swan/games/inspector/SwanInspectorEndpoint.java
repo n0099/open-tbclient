@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p72;
-import com.repackage.rg1;
-import com.repackage.uw3;
+import com.repackage.q72;
+import com.repackage.sg1;
+import com.repackage.vw3;
 import java.nio.ByteBuffer;
 import java.util.Map;
 import java.util.UUID;
@@ -38,13 +38,13 @@ public class SwanInspectorEndpoint {
     public String d;
     public boolean e;
     public boolean f;
-    public uw3.a g;
+    public vw3.a g;
     public boolean h;
     public Runnable i;
     public ConnectionState j;
     public ConnectionState k;
     public Throwable l;
-    public p72 m;
+    public q72 m;
     public int n;
     public WebSocketTask o;
     public int p;
@@ -285,7 +285,7 @@ public class SwanInspectorEndpoint {
                 return;
             }
         }
-        t = rg1.a;
+        t = sg1.a;
         u = new SwanInspectorEndpoint();
     }
 
@@ -365,18 +365,18 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public void r(uw3 uw3Var, p72 p72Var, uw3.a aVar, Runnable runnable) {
+    public void r(vw3 vw3Var, q72 q72Var, vw3.a aVar, Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, uw3Var, p72Var, aVar, runnable) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, vw3Var, q72Var, aVar, runnable) == null) {
             p(false);
             w(aVar);
             try {
-                t(p72Var);
-                if (uw3Var.d()) {
+                t(q72Var);
+                if (vw3Var.d()) {
                     this.i = runnable;
-                    s(uw3Var);
+                    s(vw3Var);
                 } else {
-                    s(uw3Var);
+                    s(vw3Var);
                     runnable.run();
                 }
             } catch (Exception e) {
@@ -388,13 +388,13 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public final void s(uw3 uw3Var) {
+    public final void s(vw3 vw3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, uw3Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, vw3Var) == null) {
             this.j = ConnectionState.CONNECTING;
-            this.c = uw3Var.a();
-            this.f = uw3Var.b();
-            this.e = uw3Var.d();
+            this.c = vw3Var.a();
+            this.f = vw3Var.b();
+            this.e = vw3Var.d();
             this.d = "ws://" + this.c + "/inspect/inspectorTarget/" + this.a;
             if (t) {
                 Log.i("SwanInspector", "Starting inspector to " + this.d);
@@ -408,13 +408,13 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public final void t(p72 p72Var) throws Exception {
+    public final void t(q72 q72Var) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, p72Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, q72Var) == null) {
             this.k = ConnectionState.CONNECTING;
-            if (this.n != p72Var.hashCode()) {
-                this.m = p72Var;
-                this.n = p72Var.hashCode();
+            if (this.n != q72Var.hashCode()) {
+                this.m = q72Var;
+                this.n = q72Var.hashCode();
                 c cVar = new c(this, null);
                 this.s = cVar;
                 this.r = this.m.s0(cVar);
@@ -434,9 +434,9 @@ public class SwanInspectorEndpoint {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, resources)) == null) {
             StringBuilder sb = new StringBuilder();
             long currentTimeMillis = System.currentTimeMillis();
-            uw3.a aVar = this.g;
+            vw3.a aVar = this.g;
             if (aVar == null) {
-                aVar = uw3.a.c();
+                aVar = vw3.a.c();
             }
             sb.append(aVar.a());
             sb.append("\n");
@@ -492,7 +492,7 @@ public class SwanInspectorEndpoint {
         return (String) invokeL.objValue;
     }
 
-    public void w(uw3.a aVar) {
+    public void w(vw3.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             this.g = aVar;

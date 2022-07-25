@@ -1,49 +1,49 @@
 package com.kwad.sdk.core.diskcache.a;
 
 import android.content.Context;
-import com.kwad.sdk.utils.aj;
+import com.kwad.sdk.utils.am;
 import java.io.File;
 /* loaded from: classes5.dex */
 public final class b {
-    public Context a;
-    public int b;
-    public long c;
-    public File d;
+    public Context WF;
+    public File Wa;
+    public int We;
+    public long maxSize;
 
     /* loaded from: classes5.dex */
     public static class a {
-        public Context a;
-        public int b = 1;
-        public long c = 100;
-        public File d;
+        public Context WF;
+        public File Wa;
+        public int We = 1;
+        public long maxSize = 100;
 
         public a(Context context) {
-            this.a = context.getApplicationContext();
+            this.WF = context.getApplicationContext();
         }
 
-        public final a a(int i) {
-            this.b = 1;
+        public final a ay(int i) {
+            this.We = 1;
             return this;
         }
 
-        public final a a(long j) {
-            this.c = 200L;
+        public final a m(File file) {
+            am.e(file, "directory is not allow null");
+            this.Wa = file;
             return this;
         }
 
-        public final a a(File file) {
-            aj.a(file, "directory is not allow null");
-            this.d = file;
-            return this;
-        }
-
-        public final b a() {
+        public final b sU() {
             b bVar = new b((byte) 0);
-            bVar.a = this.a;
-            bVar.b = this.b;
-            bVar.c = this.c;
-            bVar.d = this.d;
+            bVar.WF = this.WF;
+            bVar.We = this.We;
+            bVar.maxSize = this.maxSize;
+            bVar.Wa = this.Wa;
             return bVar;
+        }
+
+        public final a w(long j) {
+            this.maxSize = 200L;
+            return this;
         }
     }
 

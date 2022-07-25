@@ -41,10 +41,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cu7;
-import com.repackage.fu4;
 import com.repackage.fv7;
 import com.repackage.fz7;
 import com.repackage.gu4;
+import com.repackage.hu4;
 import com.repackage.jr7;
 import com.repackage.jw7;
 import com.repackage.kz7;
@@ -62,7 +62,7 @@ public class ReplyFragment extends BaseVideoPBReplyFragment implements py7, rz7.
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView.OnScrollListener A;
     public MultiNestedLayout.b B;
-    public final fu4.g C;
+    public final gu4.g C;
     public CustomMessageListener D;
     public final BdListView.p E;
     public AbsPbActivity a;
@@ -84,7 +84,7 @@ public class ReplyFragment extends BaseVideoPBReplyFragment implements py7, rz7.
     public kz7 q;
     public View r;
     public BdSwipeRefreshLayout s;
-    public gu4 t;
+    public hu4 t;
     public boolean u;
     public int v;
     public int w;
@@ -194,7 +194,7 @@ public class ReplyFragment extends BaseVideoPBReplyFragment implements py7, rz7.
     }
 
     /* loaded from: classes3.dex */
-    public class c implements fu4.g {
+    public class c implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ReplyFragment a;
@@ -217,7 +217,7 @@ public class ReplyFragment extends BaseVideoPBReplyFragment implements py7, rz7.
             this.a = replyFragment;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -512,7 +512,7 @@ public class ReplyFragment extends BaseVideoPBReplyFragment implements py7, rz7.
                     if (this.n) {
                         G1();
                         if (jr7Var.y().b() != 0) {
-                            this.h.C(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0dc1));
+                            this.h.C(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0daa));
                         }
                     } else {
                         this.h.z();
@@ -526,15 +526,15 @@ public class ReplyFragment extends BaseVideoPBReplyFragment implements py7, rz7.
             } else {
                 if (ListUtils.getCount(F) != 0 && (ListUtils.getCount(F) != 1 || F.get(0) == null || F.get(0).B() != 1)) {
                     if (jr7Var.y().b() == 0) {
-                        this.h.C(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09e5));
+                        this.h.C(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09cf));
                     } else {
-                        this.h.C(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a29));
+                        this.h.C(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a15));
                     }
                     this.h.k();
                 } else if (T1()) {
-                    this.h.H(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0dc8), this.x);
+                    this.h.H(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0db1), this.x);
                 } else {
-                    this.h.H(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0dc9), this.x);
+                    this.h.H(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0db2), this.x);
                 }
                 if (jr7Var.y().b() == 0 || F == null) {
                     X1();
@@ -560,7 +560,7 @@ public class ReplyFragment extends BaseVideoPBReplyFragment implements py7, rz7.
                     this.g.setMaxOffset();
                     this.d.setSelection(i3 > 0 ? i3 + size : 0);
                     this.h.f();
-                    this.h.C(getString(R.string.obfuscated_res_0x7f0f0dc2));
+                    this.h.C(getString(R.string.obfuscated_res_0x7f0f0dab));
                     this.h.x();
                 }
             } else if (i4 == 1) {
@@ -569,7 +569,7 @@ public class ReplyFragment extends BaseVideoPBReplyFragment implements py7, rz7.
                     this.d.onRestoreInstanceState(e3);
                     if (ListUtils.getCount(F) > 1 && jr7Var.y().b() > 0) {
                         this.h.f();
-                        this.h.C(getString(R.string.obfuscated_res_0x7f0f0dc2));
+                        this.h.C(getString(R.string.obfuscated_res_0x7f0f0dab));
                         this.h.x();
                     }
                 }
@@ -605,7 +605,7 @@ public class ReplyFragment extends BaseVideoPBReplyFragment implements py7, rz7.
             if (pbListView == null || TextUtils.isEmpty(pbListView.h())) {
                 return false;
             }
-            return this.h.h().equals(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09e5));
+            return this.h.h().equals(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09cf));
         }
         return invokeV.booleanValue;
     }
@@ -728,10 +728,10 @@ public class ReplyFragment extends BaseVideoPBReplyFragment implements py7, rz7.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             this.x = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds120);
-            MultiNestedLayout multiNestedLayout = (MultiNestedLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0914f0);
+            MultiNestedLayout multiNestedLayout = (MultiNestedLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0914cb);
             this.g = multiNestedLayout;
             multiNestedLayout.setScrollStateChangeListener(this.B);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f0923c4);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f0923c6);
             this.d = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             ry7 ry7Var = new ry7(this, this.d);
@@ -741,10 +741,10 @@ public class ReplyFragment extends BaseVideoPBReplyFragment implements py7, rz7.
             this.e.k(B().W3());
             this.e.j(this.f.i());
             this.e.m(this.f.l());
-            this.k = this.c.findViewById(R.id.obfuscated_res_0x7f091af6);
+            this.k = this.c.findViewById(R.id.obfuscated_res_0x7f091ad0);
             PbListView pbListView = new PbListView(getPageContext().getPageActivity());
             this.h = pbListView;
-            View findViewById = pbListView.b().findViewById(R.id.obfuscated_res_0x7f091768);
+            View findViewById = pbListView.b().findViewById(R.id.obfuscated_res_0x7f091743);
             this.i = findViewById;
             if (findViewById != null) {
                 findViewById.setOnClickListener(B().S3());
@@ -758,19 +758,19 @@ public class ReplyFragment extends BaseVideoPBReplyFragment implements py7, rz7.
             this.d.addOnScrollListener(this.A);
             this.d.setOnTouchListener(B().X3());
             if (this.t == null) {
-                gu4 gu4Var = new gu4(getPageContext());
-                this.t = gu4Var;
-                gu4Var.n();
+                hu4 hu4Var = new hu4(getPageContext());
+                this.t = hu4Var;
+                hu4Var.n();
                 this.t.f(this.C);
             }
             if (this.s == null) {
-                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0917c0);
+                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09179b);
                 this.s = bdSwipeRefreshLayout;
                 bdSwipeRefreshLayout.setProgressView(this.t);
                 this.s.setEnabled(false);
                 SkinManager.setBackgroundColor(this.s, R.color.CAM_X0205);
             }
-            View findViewById2 = this.c.findViewById(R.id.obfuscated_res_0x7f0923c3);
+            View findViewById2 = this.c.findViewById(R.id.obfuscated_res_0x7f0923c5);
             this.r = findViewById2;
             kz7 kz7Var = new kz7(findViewById2);
             this.q = kz7Var;
@@ -793,15 +793,15 @@ public class ReplyFragment extends BaseVideoPBReplyFragment implements py7, rz7.
         if (R1.y().b() == 0 || F == null || F.size() < R1.y().e()) {
             if (ListUtils.getCount(F) != 0 && (ListUtils.getCount(F) != 1 || F.get(0) == null || F.get(0).B() != 1)) {
                 if (R1.y().b() == 0) {
-                    this.h.C(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09e5));
+                    this.h.C(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09cf));
                 } else {
-                    this.h.C(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a29));
+                    this.h.C(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a15));
                 }
                 this.h.k();
             } else if (T1()) {
-                this.h.H(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0dc8), this.x);
+                this.h.H(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0db1), this.x);
             } else {
-                this.h.H(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0dc9), this.x);
+                this.h.H(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0db2), this.x);
             }
         }
         B().X4(R1);
@@ -1012,7 +1012,7 @@ public class ReplyFragment extends BaseVideoPBReplyFragment implements py7, rz7.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048613, this, layoutInflater, viewGroup, bundle)) == null) {
             this.f = new fz7(this);
-            this.c = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d069d, (ViewGroup) null);
+            this.c = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d06a7, (ViewGroup) null);
             R1();
             return this.c;
         }

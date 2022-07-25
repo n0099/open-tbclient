@@ -31,7 +31,7 @@ public class ln7 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements e15 {
+    public static class a implements f15 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ pn7 a;
@@ -40,13 +40,13 @@ public class ln7 {
 
         /* renamed from: com.repackage.ln7$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0673a extends BdAsyncTask<Void, Void, Boolean> {
+        public class C0518a extends BdAsyncTask<Void, Void, Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DownloadData a;
             public final /* synthetic */ a b;
 
-            public C0673a(a aVar, DownloadData downloadData) {
+            public C0518a(a aVar, DownloadData downloadData) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +116,7 @@ public class ln7 {
             this.c = qn7Var;
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
@@ -131,16 +131,16 @@ public class ln7 {
             }
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public void onFileDownloadSucceed(DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
                 kn7.a("【表情下载】 onFileDownloadSucceed = " + this.b);
-                new C0673a(this, downloadData).execute(new Void[0]);
+                new C0518a(this, downloadData).execute(new Void[0]);
             }
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public boolean onFileDownloaded(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -150,7 +150,7 @@ public class ln7 {
             return invokeL.booleanValue;
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public void onFileUpdateProgress(DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) {
@@ -162,7 +162,7 @@ public class ln7 {
             }
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public boolean onPreDownload(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -191,20 +191,20 @@ public class ln7 {
         }
     }
 
-    public static void d(qn7 qn7Var, String str, e15 e15Var) {
+    public static void d(qn7 qn7Var, String str, f15 f15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, qn7Var, str, e15Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65539, null, qn7Var, str, f15Var) == null) {
             if (qn7Var == null || TextUtils.isEmpty(qn7Var.d)) {
-                if (e15Var != null) {
-                    e15Var.onFileDownloadFailed(null, 0, ADConfigError.REASON_NULL_DATA);
+                if (f15Var != null) {
+                    f15Var.onFileDownloadFailed(null, 0, ADConfigError.REASON_NULL_DATA);
                     return;
                 }
                 return;
             }
             String str2 = qn7Var.a + ".zip";
-            DownloadData downloadData = new DownloadData(qn7Var.a, str2, Uri.encode(qn7Var.d, "-![.:/,%?&=]"), e15Var);
+            DownloadData downloadData = new DownloadData(qn7Var.a, str2, Uri.encode(qn7Var.d, "-![.:/,%?&=]"), f15Var);
             downloadData.setPath(str + str2);
-            f15.k().l(downloadData);
+            g15.k().l(downloadData);
         }
     }
 

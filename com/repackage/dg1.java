@@ -1,5 +1,9 @@
 package com.repackage;
+
+import android.content.Context;
 /* loaded from: classes5.dex */
 public interface dg1 {
-    void a();
+    String a();
+
+    void a(Context context, eg1 eg1Var);
 }

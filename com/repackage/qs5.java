@@ -55,6 +55,6 @@ public class qs5 extends an<ys5, AlaFrsLiveListGatherNoDataTitleView.AlaFrsLiveL
     public View S(int i, View view2, ViewGroup viewGroup, ys5 ys5Var, AlaFrsLiveListGatherNoDataTitleView.AlaFrsLiveListNoDataViewHolder alaFrsLiveListNoDataViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ys5Var, alaFrsLiveListNoDataViewHolder})) == null) ? alaFrsLiveListNoDataViewHolder.b() : (View) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ys5Var, alaFrsLiveListNoDataViewHolder})) == null) ? alaFrsLiveListNoDataViewHolder.a() : (View) invokeCommon.objValue;
     }
 }

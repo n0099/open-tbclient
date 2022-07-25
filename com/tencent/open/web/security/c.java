@@ -2,6 +2,7 @@ package com.tencent.open.web.security;
 
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,8 +11,8 @@ import com.tencent.open.a;
 import com.tencent.open.log.SLog;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class c extends a.C0849a {
+/* loaded from: classes8.dex */
+public class c extends a.C0698a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String d;
@@ -57,7 +58,7 @@ public class c extends a.C0849a {
         webView.loadUrl(stringBuffer2);
     }
 
-    @Override // com.tencent.open.a.C0849a
+    @Override // com.tencent.open.a.C0698a
     public void a(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
@@ -65,7 +66,7 @@ public class c extends a.C0849a {
         }
     }
 
-    @Override // com.tencent.open.a.C0849a
+    @Override // com.tencent.open.a.C0698a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -73,14 +74,14 @@ public class c extends a.C0849a {
         }
     }
 
-    @Override // com.tencent.open.a.C0849a
+    @Override // com.tencent.open.a.C0698a
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             SLog.v("openSDK_LOG.SecureJsListener", "-->onCustomCallback, js: " + str);
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("result", !com.tencent.open.b.c.a ? -4 : 0);
+                jSONObject.put(TiebaStatic.LogFields.RESULT, !com.tencent.open.b.c.a ? -4 : 0);
                 jSONObject.put("sn", this.b);
                 jSONObject.put("data", str);
             } catch (JSONException e) {

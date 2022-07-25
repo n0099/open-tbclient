@@ -39,8 +39,8 @@ public class s87 implements CustomMessageTask.CustomRunnable<Object> {
             if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
                 return null;
             }
-            br4.f();
-            List<te.b<String>> b = ui.b(br4.g("tb.im_group_search_history"));
+            cr4.f();
+            List<te.b<String>> b = ui.b(cr4.g("tb.im_group_search_history"));
             ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage();
             responseSearchGroupLocalMessage.setCacheList(b);
             return responseSearchGroupLocalMessage;

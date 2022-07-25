@@ -13,59 +13,59 @@ import java.io.File;
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})
-    public static Context a;
+    public static Context awK;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
     public interface a {
-        int a(long j);
+        int V(long j);
     }
 
     /* loaded from: classes5.dex */
     public interface b {
-        com.kwai.filedownloader.kwai.b a(String str);
+        com.kwai.filedownloader.kwai.b r(String str);
     }
 
     /* renamed from: com.kwai.filedownloader.e.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0561c {
-        com.kwai.filedownloader.a.a a();
+    public interface InterfaceC0409c {
+        com.kwai.filedownloader.a.a EK();
     }
 
     /* loaded from: classes5.dex */
     public interface d {
-        int a(String str, String str2, boolean z);
+        int j(String str, String str2, boolean z);
 
-        int b(String str, String str2, boolean z);
+        int k(String str, String str2, boolean z);
     }
 
     /* loaded from: classes5.dex */
     public interface e {
-        com.kwai.filedownloader.d.a a(File file);
+        com.kwai.filedownloader.d.a ae(File file);
     }
 
-    public static Context a() {
+    public static void D(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
+            awK = context;
+        }
+    }
+
+    public static Context EJ() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : (Context) invokeV.objValue;
-    }
-
-    public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            a = context;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? awK : (Context) invokeV.objValue;
     }
 
     public static boolean a(int i, long j, String str, String str2, y yVar) {
         InterceptResult invokeCommon;
-        int a2;
+        int p;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, str2, yVar})) == null) {
-            if (str2 == null || str == null || (a2 = yVar.a(str, i)) == 0) {
+            if (str2 == null || str == null || (p = yVar.p(str, i)) == 0) {
                 return false;
             }
-            com.kwai.filedownloader.message.e.a().a(com.kwai.filedownloader.message.f.a(i, j, new PathConflictException(a2, str, str2)));
+            com.kwai.filedownloader.message.e.Eg().s(com.kwai.filedownloader.message.f.a(i, j, new PathConflictException(p, str, str2)));
             return true;
         }
         return invokeCommon.booleanValue;
@@ -76,7 +76,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), cVar, yVar, Boolean.valueOf(z)})) == null) {
             if (yVar.a(cVar)) {
-                com.kwai.filedownloader.message.e.a().a(com.kwai.filedownloader.message.f.a(i, cVar.g(), cVar.h(), z));
+                com.kwai.filedownloader.message.e.Eg().s(com.kwai.filedownloader.message.f.a(i, cVar.Em(), cVar.getTotal(), z));
                 return true;
             }
             return false;
@@ -91,7 +91,7 @@ public final class c {
             if (!z && str != null) {
                 File file = new File(str);
                 if (file.exists()) {
-                    com.kwai.filedownloader.message.e.a().a(com.kwai.filedownloader.message.f.a(i, file, z2));
+                    com.kwai.filedownloader.message.e.Eg().s(com.kwai.filedownloader.message.f.a(i, file, z2));
                     return true;
                 }
             }

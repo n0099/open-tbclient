@@ -4,20 +4,23 @@ import android.content.Context;
 import java.io.File;
 /* loaded from: classes5.dex */
 public final class h {
-    public static File a;
-
-    public static File a(Context context) {
-        if (a == null) {
-            a = b(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
-        }
-        return a;
-    }
+    public static File Sq;
 
     public static String a(Context context, String str) {
-        return b(new File(a(context), "apk-".concat(String.valueOf(str)))).getPath();
+        return e(new File(aG(context), "apk-".concat(String.valueOf(str)))).getPath();
     }
 
-    public static void a(File file) {
+    public static File aG(Context context) {
+        if (Sq == null) {
+            Sq = e(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
+        }
+        return Sq;
+    }
+
+    public static void d(File file) {
+        if (file == null) {
+            return;
+        }
         if (file.isFile()) {
             file.delete();
             return;
@@ -25,17 +28,13 @@ public final class h {
         File[] listFiles = file.listFiles();
         if (listFiles != null && listFiles.length > 0) {
             for (File file2 : listFiles) {
-                a(file2);
+                d(file2);
             }
         }
         file.delete();
     }
 
-    public static File b(Context context, String str) {
-        return b(new File(a(context), "apk-".concat(String.valueOf(str))));
-    }
-
-    public static File b(File file) {
+    public static File e(File file) {
         if (file.exists() && file.isFile()) {
             file.delete();
         }
@@ -51,15 +50,26 @@ public final class h {
         throw new RuntimeException("Can not ensureDir:".concat(String.valueOf(file)));
     }
 
-    public static String c(Context context, String str) {
+    public static void f(File file) {
+        try {
+            d(file);
+        } catch (Exception unused) {
+        }
+    }
+
+    public static File l(Context context, String str) {
+        return e(new File(aG(context), "apk-".concat(String.valueOf(str))));
+    }
+
+    public static String m(Context context, String str) {
         return new File(a(context, str), "dynamic.apk").getPath();
     }
 
-    public static String d(Context context, String str) {
-        return b(new File(a(context, str), "dex")).getPath();
+    public static String n(Context context, String str) {
+        return e(new File(a(context, str), "dex")).getPath();
     }
 
-    public static String e(Context context, String str) {
-        return b(new File(a(context, str), "libs")).getPath();
+    public static String o(Context context, String str) {
+        return e(new File(a(context, str), "libs")).getPath();
     }
 }

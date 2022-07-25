@@ -32,8 +32,8 @@ public class EntryPackage extends URLPackage {
     @Override // com.kwad.sdk.core.response.kwai.a, com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject json = super.toJson();
-        r.a(json, "entryPageSource", this.entryPageSource);
-        r.a(json, "entryId", this.entryId);
+        r.putValue(json, "entryPageSource", this.entryPageSource);
+        r.putValue(json, "entryId", this.entryId);
         return json;
     }
 }

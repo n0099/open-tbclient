@@ -81,10 +81,10 @@ public class MsgIceBreakItemAdapter extends MsgCommonItemAdapter<e47> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.S(i, view2, viewGroup, chatMessage, msgViewHolder);
-            e47 c = msgViewHolder.c();
-            c.n(this.j);
-            c.o(chatMessage);
-            c.m(TbadkCoreApplication.getInst().getSkinType());
+            e47 b = msgViewHolder.b();
+            b.n(this.j);
+            b.o(chatMessage);
+            b.m(TbadkCoreApplication.getInst().getSkinType());
             return view2;
         }
         return (View) invokeCommon.objValue;

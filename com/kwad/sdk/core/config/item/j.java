@@ -4,44 +4,35 @@ import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class j extends b<String> {
-    public boolean a;
-
-    public j(String str, String str2) {
-        super(str, str2);
-        this.a = false;
-    }
-
-    public j(String str, String str2, boolean z) {
-        this(str, str2);
-        this.a = false;
-    }
-
-    @Override // com.kwad.sdk.core.config.item.b
-    public final void a(@NonNull SharedPreferences.Editor editor) {
-        if (this.a) {
-            editor.putString(a(), b());
-        }
+public final class j extends a<Integer> {
+    public j(String str, Integer num) {
+        super(str, num);
     }
 
     @Override // com.kwad.sdk.core.config.item.b
     public final void a(@NonNull SharedPreferences sharedPreferences) {
-        if (this.a) {
-            a((j) sharedPreferences.getString(a(), c()));
-        }
+        setValue(Integer.valueOf(sharedPreferences.getInt(getKey(), sx().intValue())));
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void a(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        a((j) ((jSONObject == null || (optJSONObject = jSONObject.optJSONObject(a())) == null) ? c() : optJSONObject.toString()));
+    public final void b(@NonNull SharedPreferences.Editor editor) {
+        editor.putInt(getKey(), getValue().intValue());
+    }
+
+    @Override // com.kwad.sdk.core.config.item.b
+    public final void e(JSONObject jSONObject) {
+        setValue(jSONObject != null ? Integer.valueOf(jSONObject.optInt(getKey(), sx().intValue())) : sx());
+    }
+
+    public final boolean sB() {
+        return getValue().intValue() == 1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.config.item.b
     @NonNull
-    /* renamed from: d */
-    public final String b() {
-        return (String) super.b();
+    /* renamed from: sC */
+    public final Integer getValue() {
+        return (Integer) super.getValue();
     }
 }

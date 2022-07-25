@@ -18,10 +18,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rg1;
-import com.repackage.rz2;
+import com.repackage.sg1;
+import com.repackage.sz2;
 /* loaded from: classes2.dex */
-public class BdContextMenuView extends FrameLayout implements rz2.g {
+public class BdContextMenuView extends FrameLayout implements sz2.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
@@ -82,7 +82,7 @@ public class BdContextMenuView extends FrameLayout implements rz2.g {
                 return;
             }
         }
-        boolean z = rg1.a;
+        boolean z = sg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

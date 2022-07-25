@@ -132,7 +132,7 @@ public class zc0 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             if (context != null && (packageManager = context.getPackageManager()) != null) {
                 try {
-                    if (packageManager.checkPermission("android.permission.READ_EXTERNAL_STORAGE", context.getPackageName()) == 0) {
+                    if (packageManager.checkPermission(com.kuaishou.weapon.p0.h.i, context.getPackageName()) == 0) {
                         return packageManager.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", context.getPackageName()) == 0;
                     }
                     return false;

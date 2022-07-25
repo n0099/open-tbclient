@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.sg8;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 /* loaded from: classes4.dex */
 public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
@@ -147,7 +147,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             this.d.setSingleLine();
             this.d.setGravity(17);
             this.d.setPadding(f, 0, g, 0);
-            ur4.d(this.d).z(R.dimen.T_X08);
+            vr4.d(this.d).z(R.dimen.T_X08);
         }
     }
 
@@ -157,7 +157,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
         if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (textView = this.d) == null) {
             return;
         }
-        ur4.d(textView).v(R.color.CAM_X0105);
+        vr4.d(textView).v(R.color.CAM_X0105);
     }
 
     public void setData(String str, String str2, String str3) {
@@ -168,7 +168,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             if (TextUtils.isEmpty(str2)) {
                 str4 = "";
             } else {
-                str4 = String.format(getContext().getString(R.string.obfuscated_res_0x7f0f155f), str2);
+                str4 = String.format(getContext().getString(R.string.obfuscated_res_0x7f0f150e), str2);
                 if (!TextUtils.isEmpty(this.e)) {
                     str4 = " " + str4;
                 }
@@ -237,7 +237,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
-            this.e += String.format(getContext().getString(R.string.obfuscated_res_0x7f0f155f), str2);
+            this.e += String.format(getContext().getString(R.string.obfuscated_res_0x7f0f150e), str2);
         }
     }
 }

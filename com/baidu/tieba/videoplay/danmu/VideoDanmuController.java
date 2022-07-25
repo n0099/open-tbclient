@@ -54,17 +54,17 @@ import com.repackage.j16;
 import com.repackage.jr7;
 import com.repackage.k16;
 import com.repackage.l86;
-import com.repackage.lv4;
 import com.repackage.m16;
+import com.repackage.mv4;
 import com.repackage.n16;
 import com.repackage.n26;
 import com.repackage.oi;
-import com.repackage.op4;
 import com.repackage.p06;
+import com.repackage.pp4;
 import com.repackage.q06;
 import com.repackage.q26;
 import com.repackage.qs8;
-import com.repackage.sr4;
+import com.repackage.tr4;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -152,7 +152,7 @@ public final class VideoDanmuController {
 
         @Override // com.repackage.q26
         public void a(p06 item) {
-            op4 y;
+            pp4 y;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, item) == null) {
                 Intrinsics.checkNotNullParameter(item, "item");
@@ -481,7 +481,7 @@ public final class VideoDanmuController {
             String sb2 = sb.toString();
             Intrinsics.checkNotNullExpressionValue(sb2, "sb.toString()");
             if ((TextUtils.isEmpty(sb2) || !StringsKt__StringsJVMKt.endsWith$default(sb2, StringHelper.STRING_MORE, false, 2, null)) && !TextUtils.isEmpty(sb2) && z) {
-                return sb2 + '[' + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f052d) + ']';
+                return sb2 + '[' + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0529) + ']';
             }
             return sb2;
         }
@@ -796,14 +796,14 @@ public final class VideoDanmuController {
                     if (!TextUtils.isEmpty(A)) {
                         if (Intrinsics.areEqual(postData.s().getUserId(), this.e.author_info.user_id)) {
                             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(Intrinsics.stringPlus("楼主", A));
-                            float[] y = sr4.y(R.string.J_X04);
+                            float[] y = tr4.y(R.string.J_X04);
                             int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.T_X10);
                             dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
                             int dimenPixelSize4 = UtilHelper.getDimenPixelSize(R.dimen.tbds6);
-                            lv4 lv4Var = new lv4(R.color.CAM_X0302, (int) y[i2], dimenPixelSize3, R.color.CAM_X0101, 0, 0, 0);
-                            lv4Var.a(dimenPixelSize2);
-                            lv4Var.b(dimenPixelSize4);
-                            spannableStringBuilder.setSpan(lv4Var, i2, 2, 17);
+                            mv4 mv4Var = new mv4(R.color.CAM_X0302, (int) y[i2], dimenPixelSize3, R.color.CAM_X0101, 0, 0, 0);
+                            mv4Var.a(dimenPixelSize2);
+                            mv4Var.b(dimenPixelSize4);
+                            spannableStringBuilder.setSpan(mv4Var, i2, 2, 17);
                             dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds73);
                             str2 = spannableStringBuilder;
                         } else if (postData.p().agreeNum >= this.n) {

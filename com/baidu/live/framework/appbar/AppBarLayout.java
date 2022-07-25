@@ -661,10 +661,10 @@ public class AppBarLayout extends LinearLayout {
             }
             int[] iArr = this.l;
             int[] onCreateDrawableState = super.onCreateDrawableState(i + iArr.length);
-            iArr[0] = this.i ? R.attr.obfuscated_res_0x7f0405d0 : -2130970064;
-            iArr[1] = (this.i && this.j) ? R.attr.obfuscated_res_0x7f0405d1 : -2130970065;
-            iArr[2] = this.i ? R.attr.obfuscated_res_0x7f0405ce : -2130970062;
-            iArr[3] = (this.i && this.j) ? R.attr.obfuscated_res_0x7f0405cd : -2130970061;
+            iArr[0] = this.i ? R.attr.obfuscated_res_0x7f0405d2 : -2130970066;
+            iArr[1] = (this.i && this.j) ? R.attr.obfuscated_res_0x7f0405d3 : -2130970067;
+            iArr[2] = this.i ? R.attr.obfuscated_res_0x7f0405d0 : -2130970064;
+            iArr[3] = (this.i && this.j) ? R.attr.obfuscated_res_0x7f0405cf : -2130970063;
             return LinearLayout.mergeDrawableStates(onCreateDrawableState, iArr);
         }
         return (int[]) invokeI.objValue;
@@ -1507,9 +1507,9 @@ public class AppBarLayout extends LinearLayout {
         setOrientation(1);
         if (Build.VERSION.SDK_INT >= 21) {
             u90.a(this);
-            u90.c(this, attributeSet, 0, R.style.obfuscated_res_0x7f100323);
+            u90.c(this, attributeSet, 0, R.style.obfuscated_res_0x7f100326);
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842964, 16843919, 16844096, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f040260, R.attr.obfuscated_res_0x7f0403e9, R.attr.obfuscated_res_0x7f0403ea, R.attr.obfuscated_res_0x7f0405d4}, 0, R.style.obfuscated_res_0x7f100323);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842964, 16843919, 16844096, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f040260, R.attr.obfuscated_res_0x7f0403e9, R.attr.obfuscated_res_0x7f0403ea, R.attr.obfuscated_res_0x7f0405d6}, 0, R.style.obfuscated_res_0x7f100326);
         if (obtainStyledAttributes.hasValue(4)) {
             l(obtainStyledAttributes.getBoolean(4, false), false, false);
         }

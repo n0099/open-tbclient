@@ -45,15 +45,15 @@ public class ar extends ContentObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             ao aoVar = this.a;
-            context = aoVar.f776a;
-            aoVar.f780a = Integer.valueOf(bn.a(context).a());
-            num = this.a.f780a;
+            context = aoVar.f56a;
+            aoVar.f60a = Integer.valueOf(bn.a(context).a());
+            num = this.a.f60a;
             if (num.intValue() != 0) {
-                context2 = this.a.f776a;
+                context2 = this.a.f56a;
                 context2.getContentResolver().unregisterContentObserver(this);
-                context3 = this.a.f776a;
+                context3 = this.a.f56a;
                 if (bj.b(context3)) {
-                    this.a.m1066c();
+                    this.a.m128c();
                 }
             }
         }

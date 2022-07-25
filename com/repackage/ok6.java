@@ -21,35 +21,35 @@ import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.ss.android.download.api.constant.BaseConstants;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ok6 extends bt4 {
+public class ok6 extends ct4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zs4 c;
+    public at4 c;
     public String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ok6(zs4 zs4Var, String str) {
-        super(zs4Var);
+    public ok6(at4 at4Var, String str) {
+        super(at4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zs4Var, str};
+            Object[] objArr = {at4Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((zs4) newInitContext.callArgs[0]);
+                super((at4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = zs4Var;
+        this.c = at4Var;
         this.d = str;
     }
 
-    @ct4(isAsync = false, value = "downloadGame")
+    @dt4(isAsync = false, value = "downloadGame")
     private void downloadGame(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65537, this, jSONObject) == null) || jSONObject == null) {
@@ -62,7 +62,7 @@ public class ok6 extends bt4 {
             return;
         }
         if (!ni.z()) {
-            UtilHelper.showToast(getContext(), (int) R.string.obfuscated_res_0x7f0f0c2b);
+            UtilHelper.showToast(getContext(), (int) R.string.obfuscated_res_0x7f0f0c17);
             return;
         }
         if (StringUtils.isNull(optString2)) {
@@ -73,7 +73,7 @@ public class ok6 extends bt4 {
         TiebaStatic.log(new StatisticItem("c12775").param("fid", StringUtils.isNull(this.d) ? "" : this.d));
     }
 
-    @Override // com.repackage.bt4
+    @Override // com.repackage.ct4
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

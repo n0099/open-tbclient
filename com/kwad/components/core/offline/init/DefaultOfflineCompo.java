@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.offline.api.IOfflineCompo;
 import com.kwad.sdk.api.SdkConfig;
 import com.kwad.sdk.components.d;
-import com.kwad.sdk.utils.aj;
+import com.kwad.sdk.utils.am;
 /* loaded from: classes5.dex */
 public abstract class DefaultOfflineCompo extends d implements IOfflineCompo {
     public static /* synthetic */ Interceptable $ic;
@@ -33,7 +33,7 @@ public abstract class DefaultOfflineCompo extends d implements IOfflineCompo {
                 return;
             }
         }
-        aj.a(iOfflineCompo);
+        am.checkNotNull(iOfflineCompo);
         this.mOfflineComponents = iOfflineCompo;
     }
 

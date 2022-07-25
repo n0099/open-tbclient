@@ -11,111 +11,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.repackage.ol2;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public final class nl2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean d;
+    public static final Map<String, nl2> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public af3<nl2> b;
-    public final List<b> c;
-    public String d;
+    public Map<String, String> a;
+    public final ol2 b;
+    public final String c;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public class a implements bf3<ol2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ nl2 a;
 
-    /* loaded from: classes6.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final List<String> a;
-        public final List<String> b;
-        public String c;
-        public final List<StackTraceElement> d;
-        public final /* synthetic */ nl2 e;
-
-        public /* synthetic */ b(nl2 nl2Var, a aVar) {
-            this(nl2Var);
-        }
-
-        public synchronized b a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                synchronized (this) {
-                    List<String> list = this.a;
-                    if (TextUtils.isEmpty(str)) {
-                        str = "";
-                    }
-                    list.add(str);
-                }
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.c = str;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public synchronized b c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                synchronized (this) {
-                    d(this.d.size());
-                }
-                return this;
-            }
-            return (b) invokeV.objValue;
-        }
-
-        public synchronized b d(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                synchronized (this) {
-                    if (i < 1) {
-                        i = 1;
-                    }
-                    if (i > this.d.size()) {
-                        i = this.d.size();
-                    }
-                    for (int i2 = 0; i2 < i; i2++) {
-                        nl2 nl2Var = this.e;
-                        nl2Var.e("[Trace]==> " + this.d.get(i2).toString());
-                    }
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public synchronized b e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                synchronized (this) {
-                    d(1);
-                }
-                return this;
-            }
-            return (b) invokeV.objValue;
-        }
-
-        public b(nl2 nl2Var) {
-            StackTraceElement[] stackTrace;
+        public a(nl2 nl2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -130,66 +46,49 @@ public final class nl2 {
                     return;
                 }
             }
-            this.e = nl2Var;
-            this.a = new ArrayList();
-            this.b = new ArrayList();
-            this.d = new ArrayList();
-            int i3 = 0;
-            for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
-                i3++;
-                if (i3 > 2 && !stackTraceElement.getClassName().startsWith(nl2Var.d)) {
-                    this.d.add(stackTraceElement);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements af3<nl2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(nl2 nl2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nl2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+            this.a = nl2Var;
         }
 
         public final void b(String str, String str2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && nl2.e) {
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && nl2.d) {
                 Log.i(str, str2);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.af3
+        @Override // com.repackage.bf3
         /* renamed from: c */
-        public void a(nl2 nl2Var) {
+        public void a(ol2 ol2Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nl2Var) == null) && nl2.e) {
-                for (b bVar : nl2Var.c) {
-                    for (String str : bVar.a) {
-                        String h = nl2Var.h();
-                        String str2 = TextUtils.isEmpty(bVar.c) ? h : bVar.c;
-                        b(str2, h + " >>> " + str);
-                    }
-                }
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ol2Var) == null) && nl2.d) {
+                d();
             }
         }
 
-        public /* synthetic */ c(nl2 nl2Var, a aVar) {
-            this(nl2Var);
+        public final synchronized void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                synchronized (this) {
+                    b("SwanLaunch", "\n\n\n");
+                    b("SwanLaunch", ">>>>>> SWAN Launch Log For " + this.a.c);
+                    StringBuilder sb = new StringBuilder();
+                    for (Map.Entry entry : this.a.a.entrySet()) {
+                        sb.append(String.format("%s[%s] ", entry.getKey(), entry.getValue()));
+                    }
+                    for (ol2.b bVar : this.a.b.i()) {
+                        StringBuilder sb2 = new StringBuilder();
+                        for (String str : bVar.b) {
+                            sb2.append(str);
+                            sb2.append(" ");
+                        }
+                        for (String str2 : bVar.a) {
+                            String h = this.a.b.h();
+                            b(TextUtils.isEmpty(bVar.c) ? h : bVar.c, String.format(Locale.getDefault(), "[%s]> %s%s>>> %s", h, sb, sb2, str2));
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -206,13 +105,16 @@ public final class nl2 {
                 return;
             }
         }
-        e = rg1.a;
+        d = sg1.a;
+        e = new HashMap();
     }
 
-    public nl2() {
+    public nl2(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -222,119 +124,62 @@ public final class nl2 {
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.d = nl2.class.getPackage().getName();
+        this.a = new HashMap();
+        ol2 ol2Var = new ol2();
+        ol2Var.g("SwanLaunch");
+        ol2Var.l(c());
+        this.b = ol2Var;
+        this.c = str;
     }
 
-    public synchronized b d() {
-        InterceptResult invokeV;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                bVar = new b(this, null);
-                this.c.add(bVar);
-            }
-            return bVar;
-        }
-        return (b) invokeV.objValue;
-    }
-
-    public synchronized b e(String str) {
-        InterceptResult invokeL;
-        b d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                d = d();
-                d.a(str);
-            }
-            return d;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    public synchronized b f(String str, String str2) {
-        InterceptResult invokeLL;
-        b e2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            synchronized (this) {
-                e2 = e(str2);
-                e2.b(str);
-            }
-            return e2;
-        }
-        return (b) invokeLL.objValue;
-    }
-
-    public nl2 g(String str) {
+    public static nl2 d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.a = str;
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            nl2 nl2Var = e.get(str);
+            if (nl2Var == null) {
+                nl2 nl2Var2 = new nl2(str);
+                e.put(str, nl2Var2);
+                return nl2Var2;
+            }
+            return nl2Var;
         }
         return (nl2) invokeL.objValue;
     }
 
-    public String h() {
+    public final bf3<ol2> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (bf3) invokeV.objValue;
     }
 
-    public synchronized List<b> i() {
+    public ol2.b e() {
         InterceptResult invokeV;
-        ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                arrayList = new ArrayList(this.c);
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.d() : (ol2.b) invokeV.objValue;
     }
 
-    public synchronized nl2 j() {
+    public ol2.b f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.b.e(str) : (ol2.b) invokeL.objValue;
+    }
+
+    public ol2.b g(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) ? this.b.f(str, str2) : (ol2.b) invokeLL.objValue;
+    }
+
+    public synchronized nl2 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                k(this.b);
+                this.b.j();
             }
             return this;
         }
         return (nl2) invokeV.objValue;
-    }
-
-    public synchronized nl2 k(af3<nl2> af3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, af3Var)) == null) {
-            synchronized (this) {
-                if (af3Var == null) {
-                    try {
-                        af3Var = new c(this, null);
-                    } catch (Throwable th) {
-                        throw th;
-                    }
-                }
-                af3Var.a(this);
-            }
-            return this;
-        }
-        return (nl2) invokeL.objValue;
-    }
-
-    public nl2 l(af3<nl2> af3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, af3Var)) == null) {
-            this.b = af3Var;
-            return this;
-        }
-        return (nl2) invokeL.objValue;
     }
 }

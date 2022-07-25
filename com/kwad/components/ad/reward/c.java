@@ -10,19 +10,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.az;
+import com.kwad.sdk.utils.bd;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes5.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<com.kwad.components.ad.reward.c.i> a;
+    public final Set<com.kwad.components.ad.reward.d.h> ly;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final c a;
+        public static final c lA;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -38,7 +38,7 @@ public final class c {
                     return;
                 }
             }
-            a = new c((byte) 0);
+            lA = new c((byte) 0);
         }
     }
 
@@ -55,53 +55,60 @@ public final class c {
                 return;
             }
         }
-        this.a = new HashSet();
+        this.ly = new HashSet();
     }
 
     public /* synthetic */ c(byte b) {
         this();
     }
 
-    public static c a() {
+    public static c eZ() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.lA : (c) invokeV.objValue;
     }
 
-    public static boolean c() {
+    private void fa() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.ly.size() == 0) {
+            return;
+        }
+        for (com.kwad.components.ad.reward.d.h hVar : this.ly) {
+            hVar.onRewardVerify();
+        }
+    }
+
+    public static boolean isMainThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Looper.getMainLooper() == Looper.myLooper() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Looper.getMainLooper() == Looper.myLooper() : invokeV.booleanValue;
     }
 
-    private void d() {
+    public final void a(com.kwad.components.ad.reward.d.h hVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.a.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, hVar) == null) || hVar == null) {
             return;
         }
-        for (com.kwad.components.ad.reward.c.i iVar : this.a) {
-            iVar.a();
+        this.ly.add(hVar);
+    }
+
+    public final void b(com.kwad.components.ad.reward.d.h hVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar) == null) {
+            this.ly.remove(hVar);
         }
     }
 
-    public final void a(com.kwad.components.ad.reward.c.i iVar) {
+    public final void notifyRewardVerify() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) || iVar == null) {
-            return;
-        }
-        this.a.add(iVar);
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (c()) {
-                d();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (isMainThread()) {
+                fa();
             } else {
-                az.a(new Runnable(this) { // from class: com.kwad.components.ad.reward.c.1
+                bd.runOnUiThread(new Runnable(this) { // from class: com.kwad.components.ad.reward.c.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ c a;
+                    public final /* synthetic */ c lz;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -118,25 +125,18 @@ public final class c {
                                 return;
                             }
                         }
-                        this.a = this;
+                        this.lz = this;
                     }
 
                     @Override // java.lang.Runnable
                     public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.a.b();
+                            this.lz.notifyRewardVerify();
                         }
                     }
                 });
             }
-        }
-    }
-
-    public final void b(com.kwad.components.ad.reward.c.i iVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) {
-            this.a.remove(iVar);
         }
     }
 }

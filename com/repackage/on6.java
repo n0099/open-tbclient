@@ -166,14 +166,14 @@ public class on6 extends ln6 {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             n();
             o();
-            this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091de3);
+            this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091de9);
         }
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c.findViewById(R.id.obfuscated_res_0x7f090b0c).setVisibility(8);
+            this.c.findViewById(R.id.obfuscated_res_0x7f090b05).setVisibility(8);
             this.c.findViewById(R.id.obfuscated_res_0x7f0924ed).setVisibility(8);
         }
     }
@@ -181,22 +181,22 @@ public class on6 extends ln6 {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f09224e);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f092250);
             this.d = tBSpecificationBtn;
             tBSpecificationBtn.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f02a7));
             this.d.setTextSize(R.dimen.T_X08);
-            uu4 uu4Var = new uu4();
-            uu4Var.p(R.color.CAM_X0901, R.color.CAM_X0105);
-            this.d.setConfig(uu4Var);
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f09228b);
+            vu4 vu4Var = new vu4();
+            vu4Var.p(R.color.CAM_X0901, R.color.CAM_X0105);
+            this.d.setConfig(vu4Var);
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f09228d);
             this.e = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.T_X08);
-            uu4 uu4Var2 = new uu4();
-            uu4Var2.u(R.color.CAM_X0105);
-            uu4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds39));
-            uu4Var2.i(R.drawable.obfuscated_res_0x7f08091b, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            this.e.setConfig(uu4Var2);
-            this.e.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1191));
+            vu4 vu4Var2 = new vu4();
+            vu4Var2.u(R.color.CAM_X0105);
+            vu4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds39));
+            vu4Var2.i(R.drawable.obfuscated_res_0x7f08091b, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            this.e.setConfig(vu4Var2);
+            this.e.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1140));
         }
     }
 }

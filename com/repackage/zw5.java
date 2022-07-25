@@ -9,7 +9,7 @@ public interface zw5 {
 
     /* loaded from: classes7.dex */
     public interface b {
-        float a();
+        float getSpeed();
     }
 
     /* loaded from: classes7.dex */

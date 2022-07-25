@@ -32,16 +32,16 @@ public class wj5 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             try {
                 String versionName = TbadkCoreApplication.getInst().getVersionName();
-                String q = xt4.k().q("version_name", "");
+                String q = yt4.k().q("version_name", "");
                 if (TextUtils.isEmpty(versionName)) {
                     return null;
                 }
                 if (versionName.equals(q)) {
-                    return xt4.k().q("apk_md5", "");
+                    return yt4.k().q("apk_md5", "");
                 }
-                xt4.k().y("version_name", versionName);
+                yt4.k().y("version_name", versionName);
                 String aPKMd5 = TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
-                xt4.k().y("apk_md5", aPKMd5);
+                yt4.k().y("apk_md5", aPKMd5);
                 return aPKMd5;
             } catch (PackageManager.NameNotFoundException e) {
                 BdLog.detailException(e);
@@ -138,7 +138,7 @@ public class wj5 {
         if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || TbSingleton.getInstance().getSyncModel() == null) {
             return;
         }
-        xy4 syncModel = TbSingleton.getInstance().getSyncModel();
+        yy4 syncModel = TbSingleton.getInstance().getSyncModel();
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), TbSingleton.getInstance().getSyncModel().s(), syncModel.j())));
     }
 }

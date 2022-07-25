@@ -79,9 +79,9 @@ public class lm5 {
     public static void f(int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (i != 3 || vc5.v()) {
+            if (i != 3 || wc5.v()) {
                 b = true;
-                e = vc5.m(i);
+                e = wc5.m(i);
                 f = j;
                 b();
             }

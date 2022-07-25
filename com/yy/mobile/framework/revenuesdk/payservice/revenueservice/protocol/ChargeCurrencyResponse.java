@@ -1,6 +1,7 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
 import android.text.TextUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -63,7 +64,7 @@ public class ChargeCurrencyResponse implements IBaseJsonResponse {
                         this.uid = jSONObject.optLong("uid");
                         this.seq = jSONObject.optString("seq");
                         this.usedChannel = jSONObject.optInt("usedChannel");
-                        this.result = jSONObject.optInt("result");
+                        this.result = jSONObject.optInt(TiebaStatic.LogFields.RESULT);
                         this.message = jSONObject.optString("message");
                         this.orderId = jSONObject.optString("orderId");
                         this.payUrl = jSONObject.optString("payUrl");

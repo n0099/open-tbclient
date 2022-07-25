@@ -18,7 +18,6 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -502,7 +501,7 @@ public class yn9 {
             }
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
-                return (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class).invoke(cls, "ro.serialno", "unknown");
+                return (String) cls.getMethod("get", String.class, String.class).invoke(cls, "ro.serialno", "unknown");
             } catch (Exception unused) {
                 return "";
             }

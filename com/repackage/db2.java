@@ -2,6 +2,8 @@ package com.repackage;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
@@ -13,27 +15,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m53;
+import com.repackage.c72;
+import com.repackage.n53;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class db2 extends e23 {
+public class db2 extends f23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements af3<k53<m53.e>> {
+    public static class a implements bf3<l53<n53.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ JSONObject d;
 
-        public a(db2 db2Var, CallbackHandler callbackHandler, String str, String str2) {
+        public a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, Context context, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {db2Var, callbackHandler, str, str2};
+                Object[] objArr = {callbackHandler, unitedSchemeEntity, context, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,33 +49,41 @@ public class db2 extends e23 {
                 }
             }
             this.a = callbackHandler;
-            this.b = str;
-            this.c = str2;
+            this.b = unitedSchemeEntity;
+            this.c = context;
+            this.d = jSONObject;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.af3
+        @Override // com.repackage.bf3
         /* renamed from: b */
-        public void a(k53<m53.e> k53Var) {
+        public void a(l53<n53.e> l53Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k53Var) == null) {
-                if (!f53.h(k53Var)) {
-                    f53.q(k53Var, this.a, this.b);
-                } else {
-                    wa2.e(this.c, this.a, this.b);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l53Var) == null) {
+                if (g53.h(l53Var)) {
+                    try {
+                        db2.l(this.c, this.d);
+                        UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(this.d, 0));
+                        return;
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, "json exception");
+                        return;
+                    }
                 }
+                g53.p(l53Var, this.a, this.b);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public db2(e13 e13Var) {
-        super(e13Var, "/swanAPI/debug/replaceDependency");
+    public db2(f13 f13Var) {
+        super(f13Var, "/swanAPI/debug/getDebugConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e13Var};
+            Object[] objArr = {f13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -84,32 +97,155 @@ public class db2 extends e23 {
         }
     }
 
-    @Override // com.repackage.e23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+    public static JSONObject k(String str, Object obj) throws JSONException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, obj)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("name", str);
+            jSONObject.put("value", obj);
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r1v14 */
+    /* JADX WARN: Type inference failed for: r1v15, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r1v51 */
+    public static void l(@NonNull Context context, @NonNull JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, jSONObject) == null) {
+            String string = context.getString(R.string.obfuscated_res_0x7f0f013b);
+            boolean s = hw2.s();
+            wa2.a(s);
+            jSONObject.put("loadCts", k(string, Integer.valueOf(s ? 1 : 0)));
+            String string2 = context.getString(R.string.obfuscated_res_0x7f0f011e);
+            boolean r = hw2.r();
+            wa2.a(r);
+            jSONObject.put("emitLive", k(string2, Integer.valueOf(r ? 1 : 0)));
+            String string3 = context.getString(R.string.obfuscated_res_0x7f0f011c);
+            boolean o = hw2.o();
+            wa2.a(o);
+            jSONObject.put("emitHttps", k(string3, Integer.valueOf(o ? 1 : 0)));
+            String string4 = context.getString(R.string.obfuscated_res_0x7f0f014f);
+            boolean y = hw2.y();
+            wa2.a(y);
+            jSONObject.put("useExtension", k(string4, Integer.valueOf(y ? 1 : 0)));
+            String string5 = context.getString(R.string.obfuscated_res_0x7f0f011a);
+            ?? r1 = (hw2.w() || hw2.A()) ? 0 : 1;
+            wa2.a(r1);
+            jSONObject.put("emitDomain", k(string5, Integer.valueOf((int) r1)));
+            String string6 = context.getString(R.string.obfuscated_res_0x7f0f0125);
+            boolean q = hw2.q();
+            wa2.a(q);
+            jSONObject.put("emitWss", k(string6, Integer.valueOf(q ? 1 : 0)));
+            String string7 = context.getString(R.string.obfuscated_res_0x7f0f011d);
+            boolean x = hw2.x();
+            wa2.a(x);
+            jSONObject.put("emitLaunchMode", k(string7, Integer.valueOf(x ? 1 : 0)));
+            jSONObject.put("debugEnvData", k(context.getString(R.string.obfuscated_res_0x7f0f0132), hw2.g()));
+            String string8 = context.getString(R.string.obfuscated_res_0x7f0f0123);
+            boolean k = hw2.k();
+            wa2.a(k);
+            jSONObject.put("emitReplaceSwanCore", k(string8, Integer.valueOf(k ? 1 : 0)));
+            String string9 = context.getString(R.string.obfuscated_res_0x7f0f0121);
+            boolean h = hw2.h();
+            wa2.a(h);
+            jSONObject.put("emitReplaceGameCore", k(string9, Integer.valueOf(h ? 1 : 0)));
+            String string10 = context.getString(R.string.obfuscated_res_0x7f0f0122);
+            boolean p = hw2.p();
+            wa2.a(p);
+            jSONObject.put("emitReplaceJsNative", k(string10, Integer.valueOf(p ? 1 : 0)));
+            boolean d = c72.v.d();
+            String string11 = context.getString(R.string.obfuscated_res_0x7f0f0124);
+            wa2.a(d);
+            jSONObject.put("emitReplaceV8Core", k(string11, Integer.valueOf(d ? 1 : 0)));
+            String string12 = context.getString(R.string.obfuscated_res_0x7f0f0120);
+            boolean m = ya2.m();
+            wa2.a(m);
+            jSONObject.put("emitReplaceDynamicLib", k(string12, Integer.valueOf(m ? 1 : 0)));
+            jSONObject.put("emitHostEnv", k(context.getString(R.string.obfuscated_res_0x7f0f011b), Integer.valueOf(hw2.t())));
+            String string13 = context.getString(R.string.obfuscated_res_0x7f0f0142);
+            boolean a2 = bb2.a();
+            wa2.a(a2);
+            jSONObject.put("openStabilityCollector", k(string13, Integer.valueOf(a2 ? 1 : 0)));
+            String string14 = context.getString(R.string.obfuscated_res_0x7f0f0141);
+            boolean a3 = ab2.a();
+            wa2.a(a3);
+            jSONObject.put("openPerformanceTesting", k(string14, Integer.valueOf(a3 ? 1 : 0)));
+            String string15 = context.getString(R.string.obfuscated_res_0x7f0f011f);
+            boolean k2 = xa2.k();
+            wa2.a(k2);
+            jSONObject.put("emitReplaceDependency", k(string15, Integer.valueOf(k2 ? 1 : 0)));
+        }
+    }
+
+    public static boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
-            JSONObject a2 = e23.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                zz2.f(context, R.string.obfuscated_res_0x7f0f0144).G();
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "params is null");
-                return false;
-            }
-            String optString = a2.optString("url");
-            if (TextUtils.isEmpty(optString)) {
-                zz2.f(context, R.string.obfuscated_res_0x7f0f0145).G();
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "dynamic lib url is empty");
-                return false;
-            }
-            String optString2 = a2.optString("cb");
-            if (TextUtils.isEmpty(optString2)) {
-                zz2.f(context, R.string.obfuscated_res_0x7f0f0143).G();
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "dynamic lib 'cb' is empty");
-                return false;
-            }
-            h03Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, optString2, optString));
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
+            i03Var.e0().g(context, "mapp_cts_debug", new a(callbackHandler, unitedSchemeEntity, context, new JSONObject()));
             return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public static boolean n(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, unitedSchemeEntity, callbackHandler)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ix1.i("getDebugConfig", "swangame getDebugConfig");
+            if (!f23.b) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
+                return false;
+            }
+            JSONObject a2 = f23.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                ix1.c("getDebugConfig", "params is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (!TextUtils.equals(a2.optString("category"), "swanGame")) {
+                ix1.c("getDebugConfig", "params is not swangame");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else {
+                try {
+                    boolean o = hw2.o();
+                    wa2.a(o);
+                    jSONObject.put("emitHttps", o ? 1 : 0);
+                    boolean q = hw2.q();
+                    wa2.a(q);
+                    jSONObject.put("emitWss", q ? 1 : 0);
+                    jSONObject.put("debugEnvData", hw2.g());
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                    return true;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "json exception");
+                    return false;
+                }
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.repackage.f23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
+            ix1.i("getDebugConfig", "swan getDebugConfig");
+            int k = h03.K().k();
+            if (k != 0) {
+                if (k != 1) {
+                    ix1.c("getDebugConfig", "frame type error");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "frame type error");
+                    return false;
+                }
+                return n(unitedSchemeEntity, callbackHandler);
+            }
+            return m(context, unitedSchemeEntity, callbackHandler, i03Var);
         }
         return invokeLLLL.booleanValue;
     }

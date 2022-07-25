@@ -89,12 +89,12 @@ public class bb8 implements fa8 {
     }
 
     @Override // com.repackage.fa8
-    public void g(@NonNull wc5 wc5Var) {
+    public void g(@NonNull xc5 xc5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, wc5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, xc5Var) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("forum_id", wc5Var.c);
-            hashMap.put("forum_name", wc5Var.d);
+            hashMap.put("forum_id", xc5Var.c);
+            hashMap.put("forum_name", xc5Var.d);
             this.a.d(this.d, hashMap);
         }
     }

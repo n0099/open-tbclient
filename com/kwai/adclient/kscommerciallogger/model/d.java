@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
-    public static final d t;
+    public static final d asl;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    public final String value;
 
     static {
         InterceptResult invokeClinit;
@@ -27,7 +27,7 @@ public class d {
                 return;
             }
         }
-        t = new d("OTHER");
+        asl = new d("OTHER");
     }
 
     public d(String str) {
@@ -45,12 +45,12 @@ public class d {
                 return;
             }
         }
-        this.a = str;
+        this.value = str;
     }
 
-    public final String a() {
+    public final String getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : (String) invokeV.objValue;
     }
 }

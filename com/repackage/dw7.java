@@ -102,16 +102,16 @@ public class dw7 {
             return;
         }
         if (jr7Var.j) {
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080ea6);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080ead);
             this.e.setVisibility(0);
         } else if (z && z2) {
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080ee6);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080eed);
             this.e.setVisibility(0);
         } else if (z) {
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080ee4);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080eeb);
             this.e.setVisibility(0);
         } else if (z2) {
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080ee5);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080eec);
             this.e.setVisibility(0);
         } else {
             this.e.setVisibility(8);
@@ -125,17 +125,17 @@ public class dw7 {
     public final void c() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.c == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0605, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d060f, (ViewGroup) null);
             this.c = relativeLayout;
-            ImageView imageView = (ImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0917a5);
+            ImageView imageView = (ImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091780);
             this.e = imageView;
             imageView.setScaleType(ImageView.ScaleType.MATRIX);
             Matrix matrix = new Matrix();
             matrix.postTranslate(0.0f, -lv7.h());
             this.e.setImageMatrix(matrix);
-            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09226c);
+            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09226e);
             this.d = textView;
-            ur4 d = ur4.d(textView);
+            vr4 d = vr4.d(textView);
             d.z(R.dimen.T_X03);
             d.w(R.dimen.M_T_X003);
             d.v(R.color.CAM_X0105);

@@ -14,24 +14,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 /* loaded from: classes6.dex */
 public class ln8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements cr4.e {
+    public static class a implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
 
-        public a(cr4 cr4Var) {
+        public a(dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cr4Var};
+                Object[] objArr = {dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,30 +41,30 @@ public class ln8 {
                     return;
                 }
             }
-            this.a = cr4Var;
+            this.a = dr4Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements cr4.e {
+    public static class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
 
-        public b(cr4 cr4Var) {
+        public b(dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cr4Var};
+                Object[] objArr = {dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -74,35 +74,35 @@ public class ln8 {
                     return;
                 }
             }
-            this.a = cr4Var;
+            this.a = dr4Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class c implements cr4.e {
+    public static class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
         public final /* synthetic */ int b;
         public final /* synthetic */ TbPageContext c;
         public final /* synthetic */ int d;
         public final /* synthetic */ String e;
         public final /* synthetic */ String f;
 
-        public c(cr4 cr4Var, int i, TbPageContext tbPageContext, int i2, String str, String str2) {
+        public c(dr4 dr4Var, int i, TbPageContext tbPageContext, int i2, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cr4Var, Integer.valueOf(i), tbPageContext, Integer.valueOf(i2), str, str2};
+                Object[] objArr = {dr4Var, Integer.valueOf(i), tbPageContext, Integer.valueOf(i2), str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -112,7 +112,7 @@ public class ln8 {
                     return;
                 }
             }
-            this.a = cr4Var;
+            this.a = dr4Var;
             this.b = i;
             this.c = tbPageContext;
             this.d = i2;
@@ -120,11 +120,11 @@ public class ln8 {
             this.f = str2;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.dismiss();
                 int i2 = this.b;
                 String str = null;
@@ -162,17 +162,17 @@ public class ln8 {
     }
 
     /* loaded from: classes6.dex */
-    public static class d implements cr4.e {
+    public static class d implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
 
-        public d(cr4 cr4Var) {
+        public d(dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cr4Var};
+                Object[] objArr = {dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -182,32 +182,32 @@ public class ln8 {
                     return;
                 }
             }
-            this.a = cr4Var;
+            this.a = dr4Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class e implements cr4.e {
+    public static class e implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
         public final /* synthetic */ String b;
         public final /* synthetic */ TbPageContext c;
 
-        public e(cr4 cr4Var, String str, TbPageContext tbPageContext) {
+        public e(dr4 dr4Var, String str, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cr4Var, str, tbPageContext};
+                Object[] objArr = {dr4Var, str, tbPageContext};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -217,21 +217,21 @@ public class ln8 {
                     return;
                 }
             }
-            this.a = cr4Var;
+            this.a = dr4Var;
             this.b = str;
             this.c = tbPageContext;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.dismiss();
                 if (this.b == null) {
                     return;
                 }
                 TbadkCoreApplication.getInst().setThemeWebviewOpen(true);
-                rl4.n(this.c.getPageActivity(), this.b);
+                sl4.n(this.c.getPageActivity(), this.b);
             }
         }
     }
@@ -254,12 +254,12 @@ public class ln8 {
         if (!(interceptable == null || interceptable.invokeLIL(65537, null, tbPageContext, i, str) == null) || tbPageContext == null) {
             return;
         }
-        cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
-        cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f1415);
-        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new d(cr4Var));
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1414, new e(cr4Var, str, tbPageContext));
-        cr4Var.create(tbPageContext);
-        cr4Var.show();
+        dr4 dr4Var = new dr4(tbPageContext.getPageActivity());
+        dr4Var.setMessageId(R.string.obfuscated_res_0x7f0f13c4);
+        dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new d(dr4Var));
+        dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f13c3, new e(dr4Var, str, tbPageContext));
+        dr4Var.create(tbPageContext);
+        dr4Var.show();
     }
 
     public static void c(TbPageContext<?> tbPageContext, int i, String str, int i2) {
@@ -267,14 +267,14 @@ public class ln8 {
         if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{tbPageContext, Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) || tbPageContext == null) {
             return;
         }
-        cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
-        cr4Var.setButtonTextColor(R.color.CAM_X0305);
-        cr4Var.setTitle(str);
-        a aVar = new a(cr4Var);
-        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, aVar);
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f099e, aVar);
-        cr4Var.create(tbPageContext);
-        cr4Var.show();
+        dr4 dr4Var = new dr4(tbPageContext.getPageActivity());
+        dr4Var.setButtonTextColor(R.color.CAM_X0305);
+        dr4Var.setTitle(str);
+        a aVar = new a(dr4Var);
+        dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, aVar);
+        dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0989, aVar);
+        dr4Var.create(tbPageContext);
+        dr4Var.show();
     }
 
     public static void d(TbPageContext<?> tbPageContext, int i, String str, int i2, String str2, String str3) {
@@ -282,12 +282,12 @@ public class ln8 {
         if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{tbPageContext, Integer.valueOf(i), str, Integer.valueOf(i2), str2, str3}) == null) || tbPageContext == null) {
             return;
         }
-        cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
-        cr4Var.setButtonTextColor(R.color.CAM_X0305);
-        cr4Var.setMessage(str);
-        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(cr4Var));
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0ce3, new c(cr4Var, i, tbPageContext, i2, str2, str3));
-        cr4Var.create(tbPageContext);
-        cr4Var.show();
+        dr4 dr4Var = new dr4(tbPageContext.getPageActivity());
+        dr4Var.setButtonTextColor(R.color.CAM_X0305);
+        dr4Var.setMessage(str);
+        dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(dr4Var));
+        dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0ccf, new c(dr4Var, i, tbPageContext, i2, str2, str3));
+        dr4Var.create(tbPageContext);
+        dr4Var.show();
     }
 }

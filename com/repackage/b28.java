@@ -31,7 +31,7 @@ public class b28 {
     public wt8 g;
     public View h;
     public FrameLayout i;
-    public k55 j;
+    public l55 j;
     public c k;
     public AbsListView.OnScrollListener l;
 
@@ -144,11 +144,11 @@ public class b28 {
             return;
         }
         this.b = tbPageContext;
-        this.c = (NoNetworkView) view2.findViewById(R.id.obfuscated_res_0x7f09181a);
-        this.d = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f091819);
-        this.i = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09122e);
-        this.e = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f091809);
-        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, (int) tbPageContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f07026e));
+        this.c = (NoNetworkView) view2.findViewById(R.id.obfuscated_res_0x7f0917f5);
+        this.d = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f0917f4);
+        this.i = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09120a);
+        this.e = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f0917e4);
+        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, (int) tbPageContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f07026c));
         View view3 = new View(tbPageContext.getPageActivity());
         this.h = view3;
         view3.setLayoutParams(layoutParams);
@@ -168,12 +168,12 @@ public class b28 {
     }
 
     public void e() {
-        k55 k55Var;
+        l55 l55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (k55Var = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (l55Var = this.j) == null) {
             return;
         }
-        k55Var.dettachView(this.i);
+        l55Var.dettachView(this.i);
         this.j = null;
     }
 
@@ -191,9 +191,9 @@ public class b28 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            k55 k55Var = this.j;
-            if (k55Var != null) {
-                return k55Var.isViewAttached();
+            l55 l55Var = this.j;
+            if (l55Var != null) {
+                return l55Var.isViewAttached();
             }
             return false;
         }
@@ -220,9 +220,9 @@ public class b28 {
         this.f.c();
         this.c.d(this.b, i);
         this.g.m(i);
-        k55 k55Var = this.j;
-        if (k55Var != null) {
-            k55Var.onChangeSkinType();
+        l55 l55Var = this.j;
+        if (l55Var != null) {
+            l55Var.onChangeSkinType();
         }
         this.a = i;
     }
@@ -254,7 +254,7 @@ public class b28 {
             return;
         }
         if (this.j == null) {
-            this.j = new k55(this.b.getPageActivity(), new b(this));
+            this.j = new l55(this.b.getPageActivity(), new b(this));
         }
         this.j.attachView(this.i, false);
         this.j.p();

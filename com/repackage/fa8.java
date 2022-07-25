@@ -16,7 +16,7 @@ public interface fa8 extends IAdBaseAsyncController {
 
     boolean f(@NonNull String str);
 
-    void g(@NonNull wc5 wc5Var);
+    void g(@NonNull xc5 xc5Var);
 
     int getAdCount();
 

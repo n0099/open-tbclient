@@ -26,7 +26,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.baidu.webkit.sdk.PermissionRequest;
+import com.repackage.dr4;
 /* loaded from: classes6.dex */
 public class nu5 extends an<dv5, CardViewHolder<aw5>> {
     public static /* synthetic */ Interceptable $ic;
@@ -76,7 +77,7 @@ public class nu5 extends an<dv5, CardViewHolder<aw5>> {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -96,11 +97,11 @@ public class nu5 extends an<dv5, CardViewHolder<aw5>> {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -193,7 +194,7 @@ public class nu5 extends an<dv5, CardViewHolder<aw5>> {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, dv5Var) == null) || dv5Var == null || dv5Var.c() == null) {
             return;
         }
-        xt4.k().u(xt4.o("live_publish_live_has_showed"), true);
+        yt4.k().u(yt4.o("live_publish_live_has_showed"), true);
         o0(this.o, null, false);
         j0();
         TiebaStatic.log("c13618");
@@ -215,12 +216,12 @@ public class nu5 extends an<dv5, CardViewHolder<aw5>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dv5Var, cardViewHolder})) == null) {
-            if (cardViewHolder.c() == null) {
+            if (cardViewHolder.b() == null) {
                 return null;
             }
-            e0(dv5Var, cardViewHolder.c());
-            cardViewHolder.c().h().setOnClickListener(new a(this, dv5Var));
-            return cardViewHolder.c().h();
+            e0(dv5Var, cardViewHolder.b());
+            cardViewHolder.b().h().setOnClickListener(new a(this, dv5Var));
+            return cardViewHolder.b().h();
         }
         return (View) invokeCommon.objValue;
     }
@@ -233,8 +234,8 @@ public class nu5 extends an<dv5, CardViewHolder<aw5>> {
         PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         permissionJudgePolicy.clearRequestPermissionList();
         permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.CAMERA");
-        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.RECORD_AUDIO");
+        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_AUDIO_CAPTURE);
         permissionJudgePolicy.setOnPermissionsGrantedListener(new c(this, tbPageContext));
         permissionJudgePolicy.startRequestPermission(tbPageContext.getPageActivity());
     }
@@ -243,14 +244,14 @@ public class nu5 extends an<dv5, CardViewHolder<aw5>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (Build.VERSION.SDK_INT < 21) {
-                cr4 cr4Var = new cr4(this.i.getPageActivity());
-                cr4Var.setAutoNight(false);
-                cr4Var.setTitle(R.string.obfuscated_res_0x7f0f0f14);
-                cr4Var.setMessage(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f04e9));
-                cr4Var.setTitleShowCenter(true);
-                cr4Var.setMessageShowCenter(true);
-                cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f099e, new b(this));
-                cr4Var.create(this.i).show();
+                dr4 dr4Var = new dr4(this.i.getPageActivity());
+                dr4Var.setAutoNight(false);
+                dr4Var.setTitle(R.string.obfuscated_res_0x7f0f0efd);
+                dr4Var.setMessage(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f04e5));
+                dr4Var.setTitleShowCenter(true);
+                dr4Var.setMessageShowCenter(true);
+                dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0989, new b(this));
+                dr4Var.create(this.i).show();
             } else if (ViewHelper.checkUpIsLogin(this.i.getPageActivity())) {
                 if (this.j == null) {
                     this.j = new xo8(this.i);
@@ -294,8 +295,8 @@ public class nu5 extends an<dv5, CardViewHolder<aw5>> {
             return;
         }
         this.p = true;
-        if (!xt4.k().h(xt4.o("live_publish_live_has_showed"), false)) {
-            xt4.k().u(xt4.o("live_publish_live_has_showed"), true);
+        if (!yt4.k().h(yt4.o("live_publish_live_has_showed"), false)) {
+            yt4.k().u(yt4.o("live_publish_live_has_showed"), true);
             o0(this.o, null, true);
             return;
         }

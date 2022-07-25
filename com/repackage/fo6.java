@@ -129,7 +129,7 @@ public class fo6 {
         }
         this.a = new a(this, 2005016);
         this.c = new b(this, Looper.getMainLooper());
-        e = xt4.k().l("card_show_statistic_max_count", 200);
+        e = yt4.k().l("card_show_statistic_max_count", 200);
         MessageManager.getInstance().registerListener(this.a);
     }
 
@@ -156,7 +156,7 @@ public class fo6 {
         }
         StatisticItem param = new StatisticItem("c11440").param("fid", frsViewData.getForum().getId()).param("obj_locate", i).param("obj_type", i2);
         if (context != null) {
-            u85.b(context, param);
+            v85.b(context, param);
         }
         TiebaStatic.log(param);
     }

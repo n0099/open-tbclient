@@ -103,11 +103,11 @@ public class a57 extends BaseAdapter {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, x67Var, msgViewHolder})) == null) {
-            x47 c = msgViewHolder.c();
+            x47 b = msgViewHolder.b();
             w67.a d = x67Var.d();
             d.m = x67Var.b();
             LongSparseArray<l67> longSparseArray = this.c;
-            c.n(this.a.getPageActivity().getBaseContext(), d, x67Var.c(), longSparseArray == null ? null : longSparseArray.get(d.h), x67Var.e(), x67Var.f(), i);
+            b.n(this.a.getPageActivity().getBaseContext(), d, x67Var.c(), longSparseArray == null ? null : longSparseArray.get(d.h), x67Var.e(), x67Var.f(), i);
             StatisticItem statisticItem = new StatisticItem(this.f ? "c13865" : "c13863");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             String str = d.n;

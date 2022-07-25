@@ -15,7 +15,7 @@ public class zc2 {
     @V8JavascriptField
     public String errMsg;
     @V8JavascriptField
-    public nc2 stats;
+    public String savedFilePath;
 
     public zc2() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class zc2 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "StatCallBack" + this.b;
+            return "SaveFileCallBack" + this.b;
         }
         return (String) invokeV.objValue;
     }

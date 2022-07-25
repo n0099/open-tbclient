@@ -3,31 +3,23 @@ package com.kwad.sdk.e.kwai;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.ksad.json.annotation.KsJson;
-import com.kwad.sdk.utils.at;
+import com.kwad.sdk.utils.ax;
 @KsJson
 /* loaded from: classes5.dex */
 public class b extends com.kwad.sdk.core.response.kwai.a {
-    public String a;
-    public String b;
-    public String c;
-    public long d;
-    public String e;
-    public String f;
-    public String g;
-    public int h;
-    public int i;
-    public boolean j;
+    public String ait;
+    public String aiu;
+    public String aiv;
+    public long aiw;
+    public String aix;
+    public boolean aiy;
+    public int loadType;
+    public int packageType;
+    public String packageUrl;
+    public String version;
 
-    public final long a() {
-        return this.d;
-    }
-
-    public final void a(long j) {
-        this.d = j;
-    }
-
-    public final boolean b() {
-        return (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.e) || TextUtils.isEmpty(this.f) || TextUtils.isEmpty(this.b)) ? false : true;
+    public final void N(long j) {
+        this.aiw = j;
     }
 
     public boolean equals(Object obj) {
@@ -36,7 +28,7 @@ public class b extends com.kwad.sdk.core.response.kwai.a {
         }
         if (obj != null && b.class == obj.getClass()) {
             b bVar = (b) obj;
-            if (at.a(this.a, bVar.a) && at.a(this.g, bVar.g) && at.a(this.f, bVar.f)) {
+            if (ax.V(this.ait, bVar.ait) && ax.V(this.aix, bVar.aix) && ax.V(this.version, bVar.version)) {
                 return true;
             }
         }
@@ -45,17 +37,25 @@ public class b extends com.kwad.sdk.core.response.kwai.a {
 
     public int hashCode() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.a);
+        sb.append(this.ait);
         sb.append("_");
-        sb.append(this.g);
+        sb.append(this.aix);
         sb.append("_");
-        sb.append(this.f);
+        sb.append(this.version);
         return TextUtils.isEmpty(sb.toString()) ? super.hashCode() : sb.toString().hashCode();
+    }
+
+    public final boolean isValid() {
+        return (TextUtils.isEmpty(this.ait) || TextUtils.isEmpty(this.packageUrl) || TextUtils.isEmpty(this.version) || TextUtils.isEmpty(this.aiu)) ? false : true;
     }
 
     @Override // com.kwad.sdk.core.response.kwai.a
     @NonNull
     public String toString() {
-        return "PackageInfoBean{packageId='" + this.a + "', zipFileName='" + this.b + "', zipPath='" + this.c + "', startDownloadTime=" + this.d + ", packageUrl='" + this.e + "', version='" + this.f + "', checksum='" + this.g + "', loadType=" + this.h + ", packageType=" + this.i + ", isPublic=" + this.j + '}';
+        return "PackageInfoBean{packageId='" + this.ait + "', zipFileName='" + this.aiu + "', zipPath='" + this.aiv + "', startDownloadTime=" + this.aiw + ", packageUrl='" + this.packageUrl + "', version='" + this.version + "', checksum='" + this.aix + "', loadType=" + this.loadType + ", packageType=" + this.packageType + ", isPublic=" + this.aiy + '}';
+    }
+
+    public final long xo() {
+        return this.aiw;
     }
 }

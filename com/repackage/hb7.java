@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class hb7 extends l15 {
+public class hb7 extends m15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -38,7 +38,7 @@ public class hb7 extends l15 {
     public boolean e;
 
     /* loaded from: classes6.dex */
-    public class a implements k15 {
+    public class a implements l15 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ gb7 a;
@@ -63,25 +63,25 @@ public class hb7 extends l15 {
             this.a = gb7Var;
         }
 
-        @Override // com.repackage.k15
-        public void C(j15 j15Var) {
+        @Override // com.repackage.l15
+        public void C(k15 k15Var) {
             gb7 gb7Var;
             int size;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, j15Var) == null) || (gb7Var = this.a) == null || gb7Var.a() == null || j15Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, k15Var) == null) || (gb7Var = this.a) == null || gb7Var.a() == null || k15Var == null) {
                 return;
             }
-            int i = j15Var.a;
+            int i = k15Var.a;
             if (i == 4) {
-                this.a.o0(j15Var.c.toString());
-                Object obj = j15Var.c;
+                this.a.o0(k15Var.c.toString());
+                Object obj = k15Var.c;
                 if (obj instanceof SpanGroupManager) {
                     this.a.t0((SpanGroupManager) obj);
                 }
                 this.b.d = false;
             } else if (i == 18) {
-                boolean h = xt4.k().h("key_post_thread_has_request_location", false);
-                if (j15Var.c != null) {
+                boolean h = yt4.k().h("key_post_thread_has_request_location", false);
+                if (k15Var.c != null) {
                     if (h) {
                         this.a.R();
                         return;
@@ -96,24 +96,24 @@ public class hb7 extends l15 {
                     this.a.A();
                 }
             } else if (i == 20) {
-                this.a.a().A(new j15(2, 7, null));
+                this.a.a().A(new k15(2, 7, null));
                 nj8.a().f(true);
                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
             } else if (i == 32) {
-                this.a.a().A(new j15(1, 11, null));
+                this.a.a().A(new k15(1, 11, null));
             } else if (i == 36) {
                 if (this.b.j(this.a.getContext(), 11040)) {
                     this.a.a0();
                 }
             } else if (i == 7) {
-                pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f0d07);
+                pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f0cf3);
                 this.b.d = true;
             } else if (i == 8) {
                 if (this.b.j(this.a.getContext(), 11001)) {
                     this.a.M(null, null);
                 }
             } else if (i == 10) {
-                Object obj2 = j15Var.c;
+                Object obj2 = k15Var.c;
                 if (obj2 instanceof VoiceData.VoiceModel) {
                     this.a.w0((VoiceData.VoiceModel) obj2);
                     this.a.z(true, null);
@@ -126,7 +126,7 @@ public class hb7 extends l15 {
                             albumFloatActivityConfig.getIntent().putExtra("forum_id", this.b.b);
                         }
                         albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
-                        if (j35.a().b() == 1) {
+                        if (k35.a().b() == 1) {
                             albumFloatActivityConfig.setRequestFrom(2);
                             if (this.a.y() != null) {
                                 this.a.y().setMaxImagesAllowed(1);
@@ -138,7 +138,7 @@ public class hb7 extends l15 {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
                         return;
                     case 15:
-                        int intValue = ((Integer) j15Var.c).intValue();
+                        int intValue = ((Integer) k15Var.c).intValue();
                         if (this.a.y() != null && this.a.y().getChosedFiles() != null && (size = this.a.y().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.a.getContext().getPageActivity(), 12012, this.a.y(), intValue)));
                             return;
@@ -146,7 +146,7 @@ public class hb7 extends l15 {
                         return;
                     case 16:
                         if (this.b.d) {
-                            pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f0d07);
+                            pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f0cf3);
                         }
                         if (this.b.j(this.a.getContext(), 11025)) {
                             AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.a.getContext().getPageActivity(), 12004, true);
@@ -189,8 +189,8 @@ public class hb7 extends l15 {
         this.d = false;
     }
 
-    @Override // com.repackage.l15
-    public n15 b(Context context) {
+    @Override // com.repackage.m15
+    public o15 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
@@ -205,15 +205,15 @@ public class hb7 extends l15 {
             editorTools.setHideBigEmotion(this.e);
             return new gb7(editorTools);
         }
-        return (n15) invokeL.objValue;
+        return (o15) invokeL.objValue;
     }
 
-    @Override // com.repackage.l15
-    public void c(n15 n15Var) {
+    @Override // com.repackage.m15
+    public void c(o15 o15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n15Var) == null) && (n15Var instanceof gb7)) {
-            EditorTools a2 = n15Var.a();
-            a aVar = new a(this, (gb7) n15Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o15Var) == null) && (o15Var instanceof gb7)) {
+            EditorTools a2 = o15Var.a();
+            a aVar = new a(this, (gb7) o15Var);
             a2.setActionListener(5, aVar);
             a2.setActionListener(4, aVar);
             a2.setActionListener(7, aVar);
@@ -230,47 +230,47 @@ public class hb7 extends l15 {
         }
     }
 
-    @Override // com.repackage.l15
-    public void d(n15 n15Var) {
+    @Override // com.repackage.m15
+    public void d(o15 o15Var) {
         CustomResponsedMessage runTask;
-        u15 u15Var;
+        v15 v15Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n15Var) == null) {
-            EditorTools a2 = n15Var.a();
-            if (ik8.a() && mh8.a(this.a, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), u15.class)) != null && (u15Var = (u15) runTask.getData()) != null) {
-                u15Var.l = 2;
-                a2.d(u15Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, o15Var) == null) {
+            EditorTools a2 = o15Var.a();
+            if (ik8.a() && mh8.a(this.a, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), v15.class)) != null && (v15Var = (v15) runTask.getData()) != null) {
+                v15Var.l = 2;
+                a2.d(v15Var);
             }
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
             a2.h(arrayList);
-            u15 n = a2.n(5);
+            v15 n = a2.n(5);
             if (n != null) {
                 n.e(!this.e);
                 n.f(!this.e);
                 n.l = this.e ? 1 : 3;
             }
-            w15 w15Var = new w15(a2.getContext(), 4);
-            w15Var.i = false;
-            a2.d(w15Var);
+            x15 x15Var = new x15(a2.getContext(), 4);
+            x15Var.i = false;
+            a2.d(x15Var);
             if (!this.e) {
-                a2.d(new g25(a2.getContext(), 1));
-                CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, a2.getContext()), u15.class);
+                a2.d(new h25(a2.getContext(), 1));
+                CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, a2.getContext()), v15.class);
                 if (runTask2 != null && runTask2.getData() != null) {
-                    u15 u15Var2 = (u15) runTask2.getData();
-                    u15Var2.l = 6;
-                    a2.d(u15Var2);
+                    v15 v15Var2 = (v15) runTask2.getData();
+                    v15Var2.l = 6;
+                    a2.d(v15Var2);
                 }
-                a2.d(new o35(a2.getContext(), false, true, 12004));
-                CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, a2.getContext()), u15.class);
+                a2.d(new p35(a2.getContext(), false, true, 12004));
+                CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, a2.getContext()), v15.class);
                 if (runTask3 != null && runTask3.getData() != null) {
-                    u15 u15Var3 = (u15) runTask3.getData();
-                    u15Var3.l = 7;
-                    a2.d(u15Var3);
+                    v15 v15Var3 = (v15) runTask3.getData();
+                    v15Var3.l = 7;
+                    a2.d(v15Var3);
                 }
-                a2.d(new c25(a2.getContext(), 5));
+                a2.d(new d25(a2.getContext(), 5));
             } else {
-                a2.d(new o35(a2.getContext(), false, false, 12004));
+                a2.d(new p35(a2.getContext(), false, false, 12004));
             }
             a2.f();
         }
@@ -280,7 +280,7 @@ public class hb7 extends l15 {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, tbPageContext, i)) == null) {
-            if (p65.k()) {
+            if (q65.k()) {
                 return true;
             }
             TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));

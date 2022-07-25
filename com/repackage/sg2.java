@@ -1,79 +1,29 @@
 package com.repackage;
 
+import android.view.Surface;
 import androidx.annotation.NonNull;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public interface sg2 extends tg2 {
+public interface sg2 extends ug2 {
 
     /* loaded from: classes7.dex */
     public interface a {
     }
 
-    void D(int i);
+    void R(int i, int i2);
 
-    void E();
+    void X(long j);
 
-    void F(long j);
+    int getVideoHeight();
 
-    void I(int i);
+    int getVideoWidth();
 
-    void J(int i);
+    void m(String str);
 
-    void K(int i);
+    void o(@NonNull a aVar);
 
-    void M(boolean z);
+    void s(int i, int i2, int i3, int i4);
 
-    void S();
+    void setSurface(Surface surface);
 
-    void V(int i);
-
-    void Y(int i);
-
-    void Z(@NonNull a aVar);
-
-    void a0();
-
-    void d();
-
-    void d0(boolean z);
-
-    void e(int i);
-
-    void e0(long j, boolean z);
-
-    void exitRoom();
-
-    void f();
-
-    void g(boolean z);
-
-    ArrayList<wg2> h();
-
-    void i(boolean z);
-
-    void i0(String str);
-
-    void j(long j);
-
-    void l0(long j);
-
-    void m0(boolean z);
-
-    void n();
-
-    void p(long j, boolean z);
-
-    void r(String str);
-
-    void setCameraFace(boolean z);
-
-    void t(boolean z);
-
-    void u(vg2 vg2Var);
-
-    ArrayList<ug2> v();
-
-    void x(boolean z);
-
-    void y(boolean z);
+    void z(int i);
 }

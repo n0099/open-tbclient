@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jl4;
+import com.repackage.kl4;
 /* loaded from: classes5.dex */
-public class dm7 extends jl4 {
+public class dm7 extends kl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MarkModel a;
@@ -36,7 +36,7 @@ public class dm7 extends jl4 {
         this.a = new MarkModel(baseActivity);
     }
 
-    @Override // com.repackage.jl4
+    @Override // com.repackage.kl4
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -44,7 +44,7 @@ public class dm7 extends jl4 {
         }
     }
 
-    @Override // com.repackage.jl4
+    @Override // com.repackage.kl4
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -52,28 +52,28 @@ public class dm7 extends jl4 {
         }
     }
 
-    @Override // com.repackage.jl4
+    @Override // com.repackage.kl4
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.F() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.jl4
+    @Override // com.repackage.kl4
     public MarkData f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.G() : (MarkData) invokeV.objValue;
     }
 
-    @Override // com.repackage.jl4
+    @Override // com.repackage.kl4
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.H() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.jl4
+    @Override // com.repackage.kl4
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
@@ -81,7 +81,7 @@ public class dm7 extends jl4 {
         }
     }
 
-    @Override // com.repackage.jl4
+    @Override // com.repackage.kl4
     public void i(MarkData markData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, markData) == null) {
@@ -89,8 +89,8 @@ public class dm7 extends jl4 {
         }
     }
 
-    @Override // com.repackage.jl4
-    public void j(jl4.a aVar) {
+    @Override // com.repackage.kl4
+    public void j(kl4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.a.K(aVar);

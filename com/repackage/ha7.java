@@ -18,11 +18,11 @@ import tbclient.ReplyMe.DataRes;
 import tbclient.ReplyMe.ReplyList;
 import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes6.dex */
-public class ha7 implements u75 {
+public class ha7 implements v75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<FeedData> a;
-    public op4 b;
+    public pp4 b;
     public fa7 c;
 
     public ha7() {
@@ -39,7 +39,7 @@ public class ha7 implements u75 {
             }
         }
         this.a = new ArrayList<>();
-        this.b = new op4();
+        this.b = new pp4();
         this.c = new fa7();
     }
 
@@ -49,13 +49,13 @@ public class ha7 implements u75 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
     }
 
-    public op4 b() {
+    public pp4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (op4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (pp4) invokeV.objValue;
     }
 
-    @Override // com.repackage.u75
+    @Override // com.repackage.v75
     public void initByJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
@@ -82,7 +82,7 @@ public class ha7 implements u75 {
         }
     }
 
-    @Override // com.repackage.u75
+    @Override // com.repackage.v75
     public void initByProtobuf(Message message) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && (message instanceof ReplyMeResIdl)) {

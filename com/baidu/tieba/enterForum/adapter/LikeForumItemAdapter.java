@@ -139,7 +139,7 @@ public class LikeForumItemAdapter extends RecyclerView.Adapter<RecyclerView.View
         if (interceptable == null || interceptable.invokeLI(1048581, this, viewHolder, i) == null) {
             if (i == getItemCount() - 1) {
                 if (viewHolder instanceof LikeForumCreateViewHolder) {
-                    ((LikeForumCreateViewHolder) viewHolder).b();
+                    ((LikeForumCreateViewHolder) viewHolder).a();
                     return;
                 }
                 return;
@@ -159,11 +159,11 @@ public class LikeForumItemAdapter extends RecyclerView.Adapter<RecyclerView.View
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
             if (i == 1) {
-                View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0535, viewGroup, false);
+                View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d053f, viewGroup, false);
                 inflate.setOnClickListener(new a(this));
                 return new LikeForumCreateViewHolder(inflate);
             }
-            LikeForumItemViewHolder likeForumItemViewHolder = new LikeForumItemViewHolder(this.a, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d04f7, viewGroup, false), this.c);
+            LikeForumItemViewHolder likeForumItemViewHolder = new LikeForumItemViewHolder(this.a, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0501, viewGroup, false), this.c);
             likeForumItemViewHolder.h(this.e);
             return likeForumItemViewHolder;
         }

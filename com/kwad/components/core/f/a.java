@@ -15,10 +15,10 @@ import java.util.Date;
 /* loaded from: classes5.dex */
 public class a extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
-    public static SimpleDateFormat c;
+    public static SimpleDateFormat EB;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
+    public int ED;
+    public long EE;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +33,7 @@ public class a extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk
                 return;
             }
         }
-        c = new SimpleDateFormat("yyyy-MM-dd");
+        EB = new SimpleDateFormat("yyyy-MM-dd");
     }
 
     public a() {
@@ -50,41 +50,41 @@ public class a extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk
         }
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = System.currentTimeMillis();
-            this.a++;
-            com.kwad.sdk.core.d.b.a("AdForceActiveInfo", "doAddCount, lastForceActiveTimestamp: " + this.b + ", currentActiveCount " + this.a);
-        }
-    }
-
-    public final boolean a(int i, int i2) {
+    public final boolean h(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
-            com.kwad.sdk.core.d.b.a("AdForceActiveInfo", "checkAndAddCount forceActiveIntervalHour: " + i + ", forceActiveThreshold: " + i2);
-            if (this.b <= 0) {
-                a();
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            com.kwad.sdk.core.e.b.d("AdForceActiveInfo", "checkAndAddCount forceActiveIntervalHour: " + i + ", forceActiveThreshold: " + i2);
+            if (this.EE <= 0) {
+                ni();
                 return true;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            String format = c.format(new Date(this.b));
-            String format2 = c.format(new Date(currentTimeMillis));
-            com.kwad.sdk.core.d.b.a("AdForceActiveInfo", "checkAndAddCount lastDate: " + format + ", currentDate: " + format2);
+            String format = EB.format(new Date(this.EE));
+            String format2 = EB.format(new Date(currentTimeMillis));
+            com.kwad.sdk.core.e.b.d("AdForceActiveInfo", "checkAndAddCount lastDate: " + format + ", currentDate: " + format2);
             if (!format.equals(format2)) {
-                this.a = 0;
-                a();
+                this.ED = 0;
+                ni();
                 return true;
             }
-            long j = this.b + (i * 60 * 60 * 1000);
-            com.kwad.sdk.core.d.b.a("AdForceActiveInfo", "checkAndAddCount minTimestamp: " + j + ", currentActiveCount: " + this.a);
-            if (j >= currentTimeMillis || this.a > i2) {
+            long j = this.EE + (i * 60 * 60 * 1000);
+            com.kwad.sdk.core.e.b.d("AdForceActiveInfo", "checkAndAddCount minTimestamp: " + j + ", currentActiveCount: " + this.ED);
+            if (j >= currentTimeMillis || this.ED > i2) {
                 return false;
             }
-            a();
+            ni();
             return true;
         }
         return invokeII.booleanValue;
+    }
+
+    public final void ni() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.EE = System.currentTimeMillis();
+            this.ED++;
+            com.kwad.sdk.core.e.b.d("AdForceActiveInfo", "doAddCount, lastForceActiveTimestamp: " + this.EE + ", currentActiveCount " + this.ED);
+        }
     }
 }

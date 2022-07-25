@@ -49,16 +49,46 @@ public final class ae implements com.kwad.sdk.core.d<AdInfo.AdvertiserInfo> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "userId", advertiserInfo.userId);
-        com.kwad.sdk.utils.r.a(jSONObject, TbEnum.SystemMessage.KEY_USER_NAME, advertiserInfo.userName);
-        com.kwad.sdk.utils.r.a(jSONObject, "rawUserName", advertiserInfo.rawUserName);
-        com.kwad.sdk.utils.r.a(jSONObject, "userGender", advertiserInfo.userGender);
-        com.kwad.sdk.utils.r.a(jSONObject, "portraitUrl", advertiserInfo.portraitUrl);
-        com.kwad.sdk.utils.r.a(jSONObject, "adAuthorText", advertiserInfo.adAuthorText);
-        com.kwad.sdk.utils.r.a(jSONObject, "authorIconGuide", advertiserInfo.authorIconGuide);
-        com.kwad.sdk.utils.r.a(jSONObject, "followed", advertiserInfo.followed);
-        com.kwad.sdk.utils.r.a(jSONObject, "fansCount", advertiserInfo.fansCount);
-        com.kwad.sdk.utils.r.a(jSONObject, DBTableDefine.GroupInfoColumns.COLUMN_BRIEF, advertiserInfo.brief);
+        long j = advertiserInfo.userId;
+        if (j != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "userId", j);
+        }
+        String str = advertiserInfo.userName;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, TbEnum.SystemMessage.KEY_USER_NAME, advertiserInfo.userName);
+        }
+        String str2 = advertiserInfo.rawUserName;
+        if (str2 != null && !str2.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "rawUserName", advertiserInfo.rawUserName);
+        }
+        String str3 = advertiserInfo.userGender;
+        if (str3 != null && !str3.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "userGender", advertiserInfo.userGender);
+        }
+        String str4 = advertiserInfo.portraitUrl;
+        if (str4 != null && !str4.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "portraitUrl", advertiserInfo.portraitUrl);
+        }
+        String str5 = advertiserInfo.adAuthorText;
+        if (str5 != null && !str5.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "adAuthorText", advertiserInfo.adAuthorText);
+        }
+        String str6 = advertiserInfo.authorIconGuide;
+        if (str6 != null && !str6.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "authorIconGuide", advertiserInfo.authorIconGuide);
+        }
+        boolean z = advertiserInfo.followed;
+        if (z) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "followed", z);
+        }
+        int i = advertiserInfo.fansCount;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "fansCount", i);
+        }
+        String str7 = advertiserInfo.brief;
+        if (str7 != null && !str7.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, DBTableDefine.GroupInfoColumns.COLUMN_BRIEF, advertiserInfo.brief);
+        }
         return jSONObject;
     }
 

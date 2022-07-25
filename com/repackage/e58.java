@@ -1,7 +1,7 @@
 package com.repackage;
 
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface e58 {
     boolean V0();
 

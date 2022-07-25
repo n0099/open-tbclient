@@ -62,33 +62,33 @@ public class t97 {
             }
         }
         this.a = personalTalkSettingActivity;
-        personalTalkSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d0651);
-        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0918a2);
+        personalTalkSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d065b);
+        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f09187d);
         this.c = findViewById;
-        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.obfuscated_res_0x7f092437);
+        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.obfuscated_res_0x7f092439);
         this.b = navigationBar;
-        navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f137f));
+        navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f132e));
         this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView = (PersonalTalkSettingViewSettingView) this.a.findViewById(R.id.obfuscated_res_0x7f091d25);
+        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView = (PersonalTalkSettingViewSettingView) this.a.findViewById(R.id.obfuscated_res_0x7f091d2b);
         this.n = personalTalkSettingViewSettingView;
         personalTalkSettingViewSettingView.b.setSwitchStateChangeListener(this.a);
-        this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092325);
-        this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091e1b);
-        this.j = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091e1c);
+        this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092327);
+        this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091e21);
+        this.j = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091e22);
         this.k = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09011b);
         this.i.setOnClickListener(this.a);
         this.j.setOnClickListener(this.a);
         this.k.setOnClickListener(this.a);
         this.l.setOnClickListener(this.a);
-        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0918ce);
+        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0918a9);
         this.d = headImageView;
         headImageView.setIsRound(true);
         this.d.setGodIconWidth(R.dimen.tbds47);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090e0e);
-        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090e0c);
-        this.f = (UserIconBox) this.a.findViewById(R.id.obfuscated_res_0x7f09231e);
-        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092314);
-        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f0907df);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090e07);
+        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090e05);
+        this.f = (UserIconBox) this.a.findViewById(R.id.obfuscated_res_0x7f092320);
+        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092316);
+        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f0907dd);
     }
 
     public void a(PermissionList permissionList) {
@@ -149,11 +149,11 @@ public class t97 {
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.a.getLayoutMode().j(this.c);
             this.b.onChangeSkinType(this.a.getPageContext(), i);
-            ur4 d = ur4.d(this.e);
+            vr4 d = vr4.d(this.e);
             d.A(R.string.F_X02);
             d.z(R.dimen.T_X04);
             d.v(R.color.CAM_X0105);
-            ur4 d2 = ur4.d(this.g);
+            vr4 d2 = vr4.d(this.g);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X08);
             d2.v(R.color.CAM_X0109);

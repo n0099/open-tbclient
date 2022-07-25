@@ -31,13 +31,13 @@ public class yk7 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            Pattern compile = Pattern.compile(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1378));
+            Pattern compile = Pattern.compile(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1327));
             boolean z = false;
             int i = 0;
             while (!z && i < 1000) {
                 Matcher matcher = compile.matcher(str);
                 if (matcher.find()) {
-                    str = matcher.replaceAll(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1379));
+                    str = matcher.replaceAll(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1328));
                     i++;
                 } else {
                     z = true;
@@ -75,9 +75,9 @@ public class yk7 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             String c = c(str);
             if (StringUtils.isNull(c)) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1373);
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1322);
             }
-            return !e(c) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1374) : "";
+            return !e(c) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1323) : "";
         }
         return (String) invokeL.objValue;
     }

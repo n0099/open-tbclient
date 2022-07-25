@@ -454,7 +454,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && i == 904) {
                 this.b.Z2();
                 View findViewByPosition = this.b.o.getLayoutManager().findViewByPosition(this.b.K);
-                if (findViewByPosition == null || (liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091300)) == null) {
+                if (findViewByPosition == null || (liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f0912dc)) == null) {
                     return;
                 }
                 this.b.M.attachToContainer(liveFeedPageRoundRect);
@@ -547,7 +547,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && i == 904) {
                 this.b.b3();
                 View findViewByPosition = this.b.o.getLayoutManager().findViewByPosition(this.b.L);
-                if (findViewByPosition == null || (liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091300)) == null) {
+                if (findViewByPosition == null || (liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f0912dc)) == null) {
                     return;
                 }
                 this.b.N.attachToContainer(liveFeedPageRoundRect);
@@ -882,10 +882,10 @@ public class LiveSubTabFragment extends LiveBaseFragment {
     public final void K2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.n.findViewById(R.id.obfuscated_res_0x7f091e48);
+            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.n.findViewById(R.id.obfuscated_res_0x7f091e4c);
             this.r = bdSwipeRefreshLayout;
             bdSwipeRefreshLayout.setOnRefreshListener(this.H);
-            RecyclerView recyclerView = (RecyclerView) this.n.findViewById(R.id.obfuscated_res_0x7f091e47);
+            RecyclerView recyclerView = (RecyclerView) this.n.findViewById(R.id.obfuscated_res_0x7f091e4b);
             this.o = recyclerView;
             recyclerView.setLayoutManager(new i(this, 2, 1));
             this.o.setItemAnimator(null);
@@ -896,17 +896,17 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             this.q = s80Var;
             this.r.setProgressView(s80Var);
             this.q.y(this.d);
-            LoadingView loadingView = (LoadingView) this.n.findViewById(R.id.obfuscated_res_0x7f091e46);
+            LoadingView loadingView = (LoadingView) this.n.findViewById(R.id.obfuscated_res_0x7f091e4a);
             this.s = loadingView;
             loadingView.c(this.d);
-            ErrorView errorView = (ErrorView) this.n.findViewById(R.id.obfuscated_res_0x7f091e45);
+            ErrorView errorView = (ErrorView) this.n.findViewById(R.id.obfuscated_res_0x7f091e49);
             this.t = errorView;
             errorView.c(this.d);
-            EmptyView emptyView = (EmptyView) this.n.findViewById(R.id.obfuscated_res_0x7f091e44);
+            EmptyView emptyView = (EmptyView) this.n.findViewById(R.id.obfuscated_res_0x7f091e48);
             this.u = emptyView;
             emptyView.a(this.d);
             this.t.setActionCallback(new j(this));
-            this.p = this.n.findViewById(R.id.obfuscated_res_0x7f09130b);
+            this.p = this.n.findViewById(R.id.obfuscated_res_0x7f0912e7);
             J2();
         }
     }
@@ -1318,7 +1318,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             LiveFeedPageSdk.m("LiveSubTabFragment onCreateView :  tab " + this.i + "  subTab " + this.k);
             View view2 = this.n;
             if (view2 == null) {
-                this.n = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d051c, viewGroup, false);
+                this.n = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0526, viewGroup, false);
                 K2();
             } else {
                 ViewGroup viewGroup2 = (ViewGroup) view2.getParent();
@@ -1424,7 +1424,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         if (!(interceptable == null || interceptable.invokeV(1048614, this) == null) || (findViewByPosition = this.o.getLayoutManager().findViewByPosition(this.K)) == null || this.K >= this.w.size()) {
             return;
         }
-        LiveFeedPageRoundRect liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091300);
+        LiveFeedPageRoundRect liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f0912dc);
         LiveRoomEntity liveRoomEntity = (LiveRoomEntity) na0.b(this.w, this.K);
         if (this.M == null) {
             m90 a2 = n90.a(String.valueOf(this.D));
@@ -1470,7 +1470,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         if (!(interceptable == null || interceptable.invokeV(1048615, this) == null) || (findViewByPosition = this.o.getLayoutManager().findViewByPosition(this.L)) == null || this.L >= this.w.size()) {
             return;
         }
-        LiveFeedPageRoundRect liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091300);
+        LiveFeedPageRoundRect liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f0912dc);
         LiveRoomEntity liveRoomEntity = (LiveRoomEntity) na0.b(this.w, this.L);
         if (this.N == null) {
             m90 a2 = n90.a(String.valueOf(this.D));

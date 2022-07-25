@@ -65,9 +65,9 @@ public class AppDownloadView extends LinearLayout {
             setGravity(16);
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d011c, (ViewGroup) this, true);
             this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09028d);
-            this.b = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f090aa6);
-            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090aa4);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090aa5);
+            this.b = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f090a9f);
+            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090a9d);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a9e);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }

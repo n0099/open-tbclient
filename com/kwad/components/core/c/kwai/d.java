@@ -13,12 +13,12 @@ public final class d extends com.kwad.sdk.mvp.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public b a;
-    public b.C0509b b;
-    public AdTemplate c;
-    public AdBaseFrameLayout d;
+    public b DG;
+    public b.C0354b DH;
+    public AdTemplate mAdTemplate;
     @Nullable
-    public com.kwad.components.core.c.a.b e;
+    public com.kwad.components.core.c.a.c mApkDownloadHelper;
+    public AdBaseFrameLayout mRootContainer;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -35,12 +35,12 @@ public final class d extends com.kwad.sdk.mvp.a {
     }
 
     @Override // com.kwad.sdk.mvp.a
-    public final void a() {
-        com.kwad.components.core.c.a.b bVar;
+    public final void release() {
+        com.kwad.components.core.c.a.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.mApkDownloadHelper) == null) {
             return;
         }
-        bVar.i();
+        cVar.clear();
     }
 }

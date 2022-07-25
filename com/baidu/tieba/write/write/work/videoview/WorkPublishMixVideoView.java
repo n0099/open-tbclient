@@ -224,7 +224,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements yz8 {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08da, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08e4, (ViewGroup) this, true);
             Intrinsics.checkNotNullExpressionValue(inflate, "from(context).inflate(R.…x_video_view, this, true)");
             this.f = inflate;
             View view2 = null;
@@ -372,7 +372,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements yz8 {
                 Intrinsics.throwUninitializedPropertyAccessException("mContext");
                 tbPageContext = null;
             }
-            String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f1520);
+            String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f14cf);
             Intrinsics.checkNotNullExpressionValue(string, "mContext.getString(R.string.video_mix_percent)");
             String format = String.format(string, Arrays.copyOf(new Object[]{Integer.valueOf(i2)}, 1));
             Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
@@ -396,7 +396,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements yz8 {
                         Intrinsics.throwUninitializedPropertyAccessException("mContext");
                         tbPageContext2 = null;
                     }
-                    textView3.setText(tbPageContext2.getString(R.string.obfuscated_res_0x7f0f1523));
+                    textView3.setText(tbPageContext2.getString(R.string.obfuscated_res_0x7f0f14d2));
                     TextView textView4 = this.k;
                     if (textView4 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mixPercentText");
@@ -420,7 +420,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements yz8 {
                         Intrinsics.throwUninitializedPropertyAccessException("mContext");
                         tbPageContext3 = null;
                     }
-                    textView6.setText(tbPageContext3.getString(R.string.obfuscated_res_0x7f0f151f));
+                    textView6.setText(tbPageContext3.getString(R.string.obfuscated_res_0x7f0f14ce));
                     TextView textView7 = this.k;
                     if (textView7 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mixPercentText");
@@ -444,7 +444,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements yz8 {
                         Intrinsics.throwUninitializedPropertyAccessException("mContext");
                         tbPageContext4 = null;
                     }
-                    textView9.setText(tbPageContext4.getString(R.string.obfuscated_res_0x7f0f1522));
+                    textView9.setText(tbPageContext4.getString(R.string.obfuscated_res_0x7f0f14d1));
                     TextView textView10 = this.k;
                     if (textView10 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mixPercentText");

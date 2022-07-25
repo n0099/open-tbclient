@@ -11,10 +11,6 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes5.dex */
 public final class c {
-    public static Process a(String[] strArr) {
-        return Runtime.getRuntime().exec(strArr);
-    }
-
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0071 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x0074 */
     /* JADX WARN: Multi-variable type inference failed */
@@ -46,7 +42,7 @@ public final class c {
         ArrayList arrayList = new ArrayList(20);
         InputStream inputStream2 = null;
         try {
-            Process process3 = a(strArr);
+            Process process3 = f(strArr);
             try {
                 inputStream = process3.getInputStream();
                 try {
@@ -67,10 +63,10 @@ public final class c {
                         process2 = process3;
                         outputStream4 = outputStream2;
                         outputStream3 = r5;
-                        b.a(inputStream2);
-                        b.a(outputStream);
-                        b.a(outputStream4);
-                        b.a(outputStream3);
+                        b.closeQuietly(inputStream2);
+                        b.closeQuietly(outputStream);
+                        b.closeQuietly(outputStream4);
+                        b.closeQuietly(outputStream3);
                         if (process2 != null) {
                             process2.destroy();
                         }
@@ -103,10 +99,10 @@ public final class c {
                                 process2 = process3;
                                 outputStream4 = outputStream2;
                                 outputStream3 = r5;
-                                b.a(inputStream2);
-                                b.a(outputStream);
-                                b.a(outputStream4);
-                                b.a(outputStream3);
+                                b.closeQuietly(inputStream2);
+                                b.closeQuietly(outputStream);
+                                b.closeQuietly(outputStream4);
+                                b.closeQuietly(outputStream3);
                                 if (process2 != null) {
                                 }
                                 throw th;
@@ -116,10 +112,10 @@ public final class c {
                         if (process3.exitValue() != 0) {
                             throw new IOException("Command line returned OS error code '" + process3.exitValue() + "' for command " + Arrays.asList(strArr));
                         }
-                        b.a(inputStream);
-                        b.a(outputStream);
-                        b.a(outputStream2);
-                        b.a((Closeable) r5);
+                        b.closeQuietly(inputStream);
+                        b.closeQuietly(outputStream);
+                        b.closeQuietly(outputStream2);
+                        b.closeQuietly((Closeable) r5);
                         if (process3 != 0) {
                             process3.destroy();
                         }
@@ -146,10 +142,10 @@ public final class c {
                     process2 = process3;
                     outputStream4 = outputStream2;
                     outputStream3 = r5;
-                    b.a(inputStream2);
-                    b.a(outputStream);
-                    b.a(outputStream4);
-                    b.a(outputStream3);
+                    b.closeQuietly(inputStream2);
+                    b.closeQuietly(outputStream);
+                    b.closeQuietly(outputStream4);
+                    b.closeQuietly(outputStream3);
                     if (process2 != null) {
                     }
                     throw th;
@@ -166,10 +162,10 @@ public final class c {
                 outputStream3 = outputStream5;
                 process2 = process;
                 outputStream4 = outputStream5;
-                b.a(inputStream2);
-                b.a(outputStream);
-                b.a(outputStream4);
-                b.a(outputStream3);
+                b.closeQuietly(inputStream2);
+                b.closeQuietly(outputStream);
+                b.closeQuietly(outputStream4);
+                b.closeQuietly(outputStream3);
                 if (process2 != null) {
                 }
                 throw th;
@@ -185,5 +181,9 @@ public final class c {
             process = null;
             outputStream = null;
         }
+    }
+
+    public static Process f(String[] strArr) {
+        return Runtime.getRuntime().exec(strArr);
     }
 }

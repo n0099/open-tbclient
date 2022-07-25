@@ -25,50 +25,50 @@ public class a {
         }
     }
 
-    public static void a(String str, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, objArr) == null) {
-            d.d(a.class, str + ", but the download service isn't connected yet.\nYou can use FileDownloader#isServiceConnected() to check whether the service has been connected, \nbesides you can use following functions easier to control your requestHttpCode invoke after the service has been connected: \n1. FileDownloader#bindService(Runnable)\n2. FileDownloader#insureServiceBind()\n3. FileDownloader#insureServiceBindAsync()", objArr);
-        }
-    }
-
-    public static boolean a(int i) {
+    public static boolean bW(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            a("request pause the task[%d] in the download service", Integer.valueOf(i));
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            g("request pause the task[%d] in the download service", Integer.valueOf(i));
             return false;
         }
         return invokeI.booleanValue;
     }
 
-    public static boolean a(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, str, str2, z)) == null) {
-            a("request start the task([%s], [%s], [%B]) in the download service", str, str2, Boolean.valueOf(z));
-            return false;
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static byte b(int i) {
+    public static byte bX(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            a("request get the status for the task[%d] in the download service", Integer.valueOf(i));
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            g("request get the status for the task[%d] in the download service", Integer.valueOf(i));
             return (byte) 0;
         }
         return invokeI.byteValue;
     }
 
-    public static boolean c(int i) {
+    public static boolean bY(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            a("request clear the task[%d] data in the database", Integer.valueOf(i));
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            g("request clear the task[%d] data in the database", Integer.valueOf(i));
             return false;
         }
         return invokeI.booleanValue;
+    }
+
+    public static void g(String str, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, objArr) == null) {
+            d.f(a.class, str + ", but the download service isn't connected yet.\nYou can use FileDownloader#isServiceConnected() to check whether the service has been connected, \nbesides you can use following functions easier to control your requestHttpCode invoke after the service has been connected: \n1. FileDownloader#bindService(Runnable)\n2. FileDownloader#insureServiceBind()\n3. FileDownloader#insureServiceBindAsync()", objArr);
+        }
+    }
+
+    public static boolean l(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, str, str2, z)) == null) {
+            g("request start the task([%s], [%s], [%B]) in the download service", str, str2, Boolean.valueOf(z));
+            return false;
+        }
+        return invokeLLZ.booleanValue;
     }
 }

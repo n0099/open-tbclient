@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.du7;
 import com.repackage.gz5;
 import com.repackage.qy7;
-import com.repackage.ur4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class PbRecomChildTitleAdapter extends du7<gz5, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
@@ -51,32 +51,32 @@ public class PbRecomChildTitleAdapter extends du7<gz5, ViewHolder> {
                 }
             }
             this.a = 3;
-            d(view2);
+            c(view2);
         }
 
-        public void c(gz5 gz5Var) {
+        public void b(gz5 gz5Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, gz5Var) == null) {
                 this.b.setText(gz5Var.a);
             }
         }
 
-        public final void d(View view2) {
+        public final void c(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a1);
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a3);
                 this.b = textView;
-                ur4.d(textView).A(R.string.F_X02);
+                vr4.d(textView).A(R.string.F_X02);
             }
         }
 
-        public void e() {
+        public void d() {
             int skinType;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
                 return;
             }
-            SkinManager.setBackgroundColor(b(), R.color.CAM_X0202);
+            SkinManager.setBackgroundColor(a(), R.color.CAM_X0202);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
             this.a = skinType;
         }
@@ -122,7 +122,7 @@ public class PbRecomChildTitleAdapter extends du7<gz5, ViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            ViewHolder viewHolder = new ViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0699, viewGroup, false));
+            ViewHolder viewHolder = new ViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06a3, viewGroup, false));
             this.o = viewHolder;
             return viewHolder;
         }
@@ -134,8 +134,8 @@ public class PbRecomChildTitleAdapter extends du7<gz5, ViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gz5Var, viewHolder})) == null) {
             super.S(i, view2, viewGroup, gz5Var, viewHolder);
-            viewHolder.c(gz5Var);
-            viewHolder.e();
+            viewHolder.b(gz5Var);
+            viewHolder.d();
             return view2;
         }
         return (View) invokeCommon.objValue;

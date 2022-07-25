@@ -9,8 +9,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a45 implements b45 {
+public class a45 implements c45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -43,29 +46,29 @@ public class a45 implements b45 {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0290, (ViewGroup) null);
+        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d028e, (ViewGroup) null);
         this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0909b9);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909bb);
-        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909b7);
-        this.e = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0909ba);
-        this.d.setText(R.string.obfuscated_res_0x7f0f06d8);
+        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0909b2);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909b4);
+        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909b0);
+        this.e = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0909b3);
+        this.d.setText(R.string.obfuscated_res_0x7f0f06d1);
         b();
     }
 
-    @Override // com.repackage.b45
+    @Override // com.repackage.c45
     public void b() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
             return;
         }
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-        this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_arrow12_right_n, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
-        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0302).setShape(0).setAlpha(211).tlRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
-        this.b.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0807dc, WebPManager.ResourceStateType.NORMAL));
+        SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080ea8);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0805e4, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0305).setShape(0).setAlpha(211).tlRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
     }
 
-    @Override // com.repackage.b45
+    @Override // com.repackage.c45
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -76,10 +79,11 @@ public class a45 implements b45 {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.b45
+    @Override // com.repackage.c45
     public void onClick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_FORUM_FLOAT_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()));
         }
     }
 }

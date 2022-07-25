@@ -1,24 +1,22 @@
 package com.kwad.components.core.offline.init.kwai;
 
-import android.view.View;
-import android.widget.ImageView;
-import androidx.annotation.Nullable;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.offline.api.core.api.IImageLoader;
-import com.kwad.sdk.core.imageloader.KSImageLoader;
-import com.kwad.sdk.core.imageloader.core.DisplayImageOptionsCompat;
-import com.kwad.sdk.core.imageloader.core.assist.FailReason;
-import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
-import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
-import com.kwad.sdk.core.response.model.AdTemplate;
-import java.io.InputStream;
+import com.kwad.components.offline.api.BuildConfig;
+import com.kwad.components.offline.api.core.api.IEnvironment;
+import com.kwad.sdk.KsAdSDKImpl;
+import com.kwad.sdk.core.network.o;
+import com.kwad.sdk.utils.AbiUtil;
+import com.kwad.sdk.utils.SystemUtil;
+import com.kwad.sdk.utils.az;
 /* loaded from: classes5.dex */
-public final class d implements IImageLoader {
+public final class d implements IEnvironment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,125 +34,83 @@ public final class d implements IImageLoader {
         }
     }
 
-    public static DisplayImageOptionsCompat a(IImageLoader.DisplayImageOptionsCompat displayImageOptionsCompat) {
+    @Override // com.kwad.components.offline.api.core.api.IEnvironment
+    public final String getAppId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? KsAdSDKImpl.get().getAppId() : (String) invokeV.objValue;
+    }
+
+    @Override // com.kwad.components.offline.api.core.api.IEnvironment
+    public final Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? KsAdSDKImpl.get().getContext() : (Context) invokeV.objValue;
+    }
+
+    @Override // com.kwad.components.offline.api.core.api.IEnvironment
+    public final String getDeviceId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? az.getDeviceId() : (String) invokeV.objValue;
+    }
+
+    @Override // com.kwad.components.offline.api.core.api.IEnvironment
+    public final String getProcessName(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, displayImageOptionsCompat)) == null) {
-            if (displayImageOptionsCompat == null) {
-                return null;
-            }
-            return new DisplayImageOptionsCompat.Builder().showImageOnLoading(displayImageOptionsCompat.getImageOnLoading()).showImageForEmptyUri(displayImageOptionsCompat.getImageForEmptyUri()).showImageOnFail(displayImageOptionsCompat.getImageOnFail()).cacheInMemory(displayImageOptionsCompat.isCacheInMemory()).cacheOnDisk(displayImageOptionsCompat.isCacheOnDisk()).bitmapConfig(displayImageOptionsCompat.getDecodingOptions().inPreferredConfig).considerExifParams(displayImageOptionsCompat.isConsiderExifParams()).setBlurRadius(displayImageOptionsCompat.getBlurRadius()).setFrameSequence(displayImageOptionsCompat.isFrameSequence()).setCornerRound(displayImageOptionsCompat.getCornerRound()).setCircle(displayImageOptionsCompat.isCircle()).setStrokeColor(displayImageOptionsCompat.getStrokeColor()).setStrokeWidth(displayImageOptionsCompat.getStrokeWidth()).build();
-        }
-        return (DisplayImageOptionsCompat) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? SystemUtil.getProcessName(context) : (String) invokeL.objValue;
     }
 
-    private ImageLoadingListener a(IImageLoader.ImageLoadingListener imageLoadingListener) {
+    @Override // com.kwad.components.offline.api.core.api.IEnvironment
+    public final String getSdkVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? BuildConfig.VERSION_NAME : (String) invokeV.objValue;
+    }
+
+    @Override // com.kwad.components.offline.api.core.api.IEnvironment
+    public final String getUserAgent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? o.getUserAgent() : (String) invokeV.objValue;
+    }
+
+    @Override // com.kwad.components.offline.api.core.api.IEnvironment
+    public final boolean isArm64(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, imageLoadingListener)) == null) {
-            if (imageLoadingListener == null) {
-                return null;
-            }
-            return new ImageLoadingListener(this, imageLoadingListener) { // from class: com.kwad.components.core.offline.init.kwai.d.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ IImageLoader.ImageLoadingListener a;
-                public final /* synthetic */ d b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, imageLoadingListener};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.b = this;
-                    this.a = imageLoadingListener;
-                }
-
-                @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
-                public final boolean onDecode(String str, InputStream inputStream, DecodedResult decodedResult) {
-                    InterceptResult invokeLLL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, str, inputStream, decodedResult)) == null) {
-                        return this.a.onDecode(str, inputStream, decodedResult == null ? null : decodedResult.mBitmap);
-                    }
-                    return invokeLLL.booleanValue;
-                }
-
-                @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
-                public final void onLoadingCancelled(String str, View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view2) == null) {
-                        this.a.onLoadingCancelled(str, view2);
-                    }
-                }
-
-                @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
-                public final void onLoadingComplete(String str, View view2, DecodedResult decodedResult) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, view2, decodedResult) == null) {
-                        this.a.onLoadingComplete(str, view2, decodedResult == null ? null : decodedResult.mBitmap);
-                    }
-                }
-
-                @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
-                public final void onLoadingFailed(String str, View view2, FailReason failReason) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLLL(1048579, this, str, view2, failReason) == null) {
-                        this.a.onLoadingFailed(str, view2, failReason.getType().toString(), failReason.getCause());
-                    }
-                }
-
-                @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
-                public final void onLoadingStarted(String str, View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048580, this, str, view2) == null) {
-                        this.a.onLoadingStarted(str, view2);
-                    }
-                }
-            };
-        }
-        return (ImageLoadingListener) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? AbiUtil.isArm64(context) : invokeL.booleanValue;
     }
 
-    @Override // com.kwad.components.offline.api.core.api.IImageLoader
-    public final void loadImage(ImageView imageView, @Nullable String str) {
+    @Override // com.kwad.components.offline.api.core.api.IEnvironment
+    public final boolean isDebug() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, imageView, str) == null) {
-            KSImageLoader.loadImage(imageView, str, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.kwad.components.offline.api.core.api.IImageLoader
-    public final void loadImage(ImageView imageView, @Nullable String str, IImageLoader.DisplayImageOptionsCompat displayImageOptionsCompat) {
+    @Override // com.kwad.components.offline.api.core.api.IEnvironment
+    public final boolean isDevelopEnable() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageView, str, displayImageOptionsCompat) == null) {
-            KSImageLoader.loadImage(imageView, str, (AdTemplate) null, a(displayImageOptionsCompat));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? com.kwad.components.core.a.aw.booleanValue() : invokeV.booleanValue;
     }
 
-    @Override // com.kwad.components.offline.api.core.api.IImageLoader
-    public final void loadImage(ImageView imageView, @Nullable String str, IImageLoader.DisplayImageOptionsCompat displayImageOptionsCompat, IImageLoader.ImageLoadingListener imageLoadingListener) {
+    @Override // com.kwad.components.offline.api.core.api.IEnvironment
+    public final boolean isInMainProcess(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, imageView, str, displayImageOptionsCompat, imageLoadingListener) == null) {
-            KSImageLoader.loadImage(imageView, str, null, a(displayImageOptionsCompat), a(imageLoadingListener));
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) ? SystemUtil.isInMainProcess(context) : invokeL.booleanValue;
     }
 
-    @Override // com.kwad.components.offline.api.core.api.IImageLoader
-    public final void loadImage(ImageView imageView, @Nullable String str, IImageLoader.ImageLoadingListener imageLoadingListener) {
+    @Override // com.kwad.components.offline.api.core.api.IEnvironment
+    public final String localIpAddress() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, imageView, str, imageLoadingListener) == null) {
-            KSImageLoader.loadImage(imageView, str, (AdTemplate) null, a(imageLoadingListener));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "10.244.50.216" : (String) invokeV.objValue;
     }
 }

@@ -104,7 +104,7 @@ public class LPDownloadManager {
                 d.z(true);
                 d.m();
             } else if (i2 != 2 && i2 != 3) {
-                yz0.a().b(this.d, R.string.obfuscated_res_0x7f0f0b88);
+                yz0.a().b(this.d, R.string.obfuscated_res_0x7f0f0b74);
             } else if ((this.d instanceof Activity) && (qn0Var = zi0Var.b) != null) {
                 LPDownloadManager.g(this.b, qn0Var);
                 dj0 d2 = LPDownloadManager.d(this.a, this.b, this.c);

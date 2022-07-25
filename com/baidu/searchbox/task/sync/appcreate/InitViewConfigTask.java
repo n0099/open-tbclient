@@ -18,11 +18,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.an4;
 import com.repackage.dq8;
-import com.repackage.l45;
+import com.repackage.m45;
 import com.repackage.pi;
-import com.repackage.s95;
-import com.repackage.zm4;
+import com.repackage.t95;
 /* loaded from: classes2.dex */
 public class InitViewConfigTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -94,7 +94,7 @@ public class InitViewConfigTask extends LaunchTask {
                     }
                 };
                 pi.I(TbadkCoreApplication.getInst().mToast);
-                s95.b().H(System.currentTimeMillis() - currentTimeMillis);
+                t95.b().H(System.currentTimeMillis() - currentTimeMillis);
             }
         }
     }
@@ -104,13 +104,13 @@ public class InitViewConfigTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ViewHelper.initSkinDataOnStartup(AppRuntime.getAppContext());
-            zm4.c().f();
+            an4.c().f();
             TbConfig.initBigImageWidth(TbadkCoreApplication.getInst());
             TbConfig.initBigImageMaxUsedMemory(TbadkCoreApplication.getInst().getContext());
             if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                l45.k().q(TbConfig.getMaxPhotoMemoryCache(), TbConfig.getBigImageMaxUsedMemory());
+                m45.k().q(TbConfig.getMaxPhotoMemoryCache(), TbConfig.getBigImageMaxUsedMemory());
             } else {
-                l45.k().q(TbConfig.getMaxPhotoMemoryCacheForRemoteProcess(), TbConfig.getBigImageMaxUsedMemoryForRemoteProcess());
+                m45.k().q(TbConfig.getMaxPhotoMemoryCacheForRemoteProcess(), TbConfig.getBigImageMaxUsedMemoryForRemoteProcess());
             }
             TbConfig.initFriendPhotoConfig(TbadkCoreApplication.getInst());
             TbadkCoreApplication.getInst().setFontSize(TbadkSettings.getInst().loadInt("font_size", 2));

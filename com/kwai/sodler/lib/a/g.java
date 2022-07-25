@@ -10,7 +10,7 @@ public interface g {
         void a(f fVar, File file);
     }
 
-    f a(@NonNull f fVar);
+    g b(a aVar);
 
-    g a(a aVar);
+    f i(@NonNull f fVar);
 }

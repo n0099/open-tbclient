@@ -225,8 +225,8 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements xn7 {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             this.j = getPageContext().getPageActivity();
-            setContentView(R.layout.obfuscated_res_0x7f0d06eb);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091ec6);
+            setContentView(R.layout.obfuscated_res_0x7f0d06f5);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091eca);
             this.e = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.e.setOnPageChangeListener(this.k);
@@ -279,12 +279,12 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements xn7 {
                     z0();
                 }
             }
-            t0(this.f, 1, this.j.getText(R.string.obfuscated_res_0x7f0f05e5).toString());
-            t0(this.h, 3, this.j.getText(R.string.obfuscated_res_0x7f0f05e1).toString());
-            t0(this.g, 2, this.j.getText(R.string.obfuscated_res_0x7f0f0b3e).toString());
+            t0(this.f, 1, this.j.getText(R.string.obfuscated_res_0x7f0f05e1).toString());
+            t0(this.h, 3, this.j.getText(R.string.obfuscated_res_0x7f0f05dd).toString());
+            t0(this.g, 2, this.j.getText(R.string.obfuscated_res_0x7f0f0b2a).toString());
             this.e.n(1);
             this.e.setCurrentTab(0);
-            this.e.getFragmentTabWidget().getLayoutParams().height = pi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070238);
+            this.e.getFragmentTabWidget().getLayoutParams().height = pi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070236);
             this.e.getFragmentTabWidget().setBackgroundColor(getResources().getColor(R.color.cp_bg_line_d_alpha90));
         }
     }
@@ -292,12 +292,12 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements xn7 {
     public final void x0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091251);
-            this.b = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09158d);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09122d);
+            this.b = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091568);
             this.c = new FaceGroupMakeTitleBar(getPageContext().getPageActivity());
             this.c.setLayoutParams(new RelativeLayout.LayoutParams(pi.k(getPageContext().getPageActivity()), -1));
             this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.c, (View.OnClickListener) null);
-            this.d = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f092439);
+            this.d = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f09243b);
             this.c.setRightListener(new a(this));
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
             y0(0);
@@ -311,12 +311,12 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements xn7 {
             return;
         }
         if (i == 0) {
-            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f05e9).toString());
+            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f05e5).toString());
         } else if (i == 1) {
             this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f024d).toString());
         } else if (i != 2) {
         } else {
-            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f0b3e).toString());
+            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f0b2a).toString());
         }
     }
 

@@ -4,39 +4,39 @@ import java.util.Arrays;
 import java.util.zip.Inflater;
 /* loaded from: classes5.dex */
 public final class j extends DeflatedChunksSet {
-    public byte[] g;
-    public byte[] h;
-    public final k i;
-    public final e j;
-    public final p k;
-    public int[] l;
+    public final e ajN;
+    public byte[] akH;
+    public byte[] akI;
+    public final k akJ;
+    public final p akK;
+    public int[] akL;
 
     /* renamed from: com.kwad.sdk.pngencrypt.j$1  reason: invalid class name */
     /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
-        public static final /* synthetic */ int[] a;
+        public static final /* synthetic */ int[] akM;
 
         static {
             int[] iArr = new int[FilterType.values().length];
-            a = iArr;
+            akM = iArr;
             try {
                 iArr[FilterType.FILTER_NONE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[FilterType.FILTER_SUB.ordinal()] = 2;
+                akM[FilterType.FILTER_SUB.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[FilterType.FILTER_UP.ordinal()] = 3;
+                akM[FilterType.FILTER_UP.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                a[FilterType.FILTER_AVERAGE.ordinal()] = 4;
+                akM[FilterType.FILTER_AVERAGE.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                a[FilterType.FILTER_PAETH.ordinal()] = 5;
+                akM[FilterType.FILTER_PAETH.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -47,152 +47,152 @@ public final class j extends DeflatedChunksSet {
     }
 
     public j(String str, boolean z, k kVar, e eVar, Inflater inflater, byte[] bArr) {
-        super(str, z, (eVar != null ? eVar.g() : kVar.k) + 1, kVar.k + 1, null, null);
-        this.l = new int[5];
-        this.i = kVar;
-        this.j = eVar;
-        this.k = new p(kVar, eVar);
-        com.kwad.sdk.core.d.b.a("PNG_ENCRYPT", "Creating IDAT set ");
+        super(str, z, (eVar != null ? eVar.ys() : kVar.akV) + 1, kVar.akV + 1, null, null);
+        this.akL = new int[5];
+        this.akJ = kVar;
+        this.ajN = eVar;
+        this.akK = new p(kVar, eVar);
+        com.kwad.sdk.core.e.b.d("PNG_ENCRYPT", "Creating IDAT set ");
     }
 
-    private void b(int i) {
-        byte[] bArr = this.g;
-        if (bArr == null || bArr.length < this.a.length) {
-            byte[] bArr2 = this.a;
-            this.g = new byte[bArr2.length];
-            this.h = new byte[bArr2.length];
+    private void bl(int i) {
+        byte[] bArr = this.akH;
+        if (bArr == null || bArr.length < this.akg.length) {
+            byte[] bArr2 = this.akg;
+            this.akH = new byte[bArr2.length];
+            this.akI = new byte[bArr2.length];
         }
-        if (this.k.j == 0) {
-            Arrays.fill(this.g, (byte) 0);
+        if (this.akK.alo == 0) {
+            Arrays.fill(this.akH, (byte) 0);
         }
-        byte[] bArr3 = this.g;
-        this.g = this.h;
-        this.h = bArr3;
-        byte b = this.a[0];
+        byte[] bArr3 = this.akH;
+        this.akH = this.akI;
+        this.akI = bArr3;
+        byte b = this.akg[0];
         if (!FilterType.isValidStandard(b)) {
             throw new PngjException("Filter type " + ((int) b) + " invalid");
         }
         FilterType byVal = FilterType.getByVal(b);
-        int[] iArr = this.l;
+        int[] iArr = this.akL;
         iArr[b] = iArr[b] + 1;
-        this.g[0] = this.a[0];
-        int i2 = AnonymousClass1.a[byVal.ordinal()];
+        this.akH[0] = this.akg[0];
+        int i2 = AnonymousClass1.akM[byVal.ordinal()];
         if (i2 == 1) {
-            d(i);
+            bn(i);
         } else if (i2 == 2) {
-            f(i);
+            bp(i);
         } else if (i2 == 3) {
-            g(i);
+            bq(i);
         } else if (i2 == 4) {
-            c(i);
+            bm(i);
         } else if (i2 == 5) {
-            e(i);
+            bo(i);
         } else {
             throw new PngjException("Filter type " + ((int) b) + " not implemented");
         }
     }
 
-    private void c(int i) {
+    private void bm(int i) {
         int i2 = 1;
-        int i3 = 1 - this.i.j;
+        int i3 = 1 - this.akJ.akU;
         while (i2 <= i) {
-            this.g[i2] = (byte) (this.a[i2] + (((i3 > 0 ? this.g[i3] & 255 : 0) + (this.h[i2] & 255)) / 2));
+            this.akH[i2] = (byte) (this.akg[i2] + (((i3 > 0 ? this.akH[i3] & 255 : 0) + (this.akI[i2] & 255)) / 2));
             i2++;
             i3++;
         }
     }
 
-    private void d(int i) {
+    private void bn(int i) {
         for (int i2 = 1; i2 <= i; i2++) {
-            this.g[i2] = this.a[i2];
+            this.akH[i2] = this.akg[i2];
         }
     }
 
-    private void e(int i) {
+    private void bo(int i) {
         int i2 = 1;
-        int i3 = 1 - this.i.j;
+        int i3 = 1 - this.akJ.akU;
         while (i2 <= i) {
             int i4 = 0;
-            int i5 = i3 > 0 ? this.g[i3] & 255 : 0;
+            int i5 = i3 > 0 ? this.akH[i3] & 255 : 0;
             if (i3 > 0) {
-                i4 = this.h[i3] & 255;
+                i4 = this.akI[i3] & 255;
             }
-            this.g[i2] = (byte) (this.a[i2] + n.a(i5, this.h[i2] & 255, i4));
+            this.akH[i2] = (byte) (this.akg[i2] + n.b(i5, this.akI[i2] & 255, i4));
             i2++;
             i3++;
         }
     }
 
-    private void f(int i) {
+    private void bp(int i) {
         int i2;
         int i3 = 1;
         while (true) {
-            i2 = this.i.j;
+            i2 = this.akJ.akU;
             if (i3 > i2) {
                 break;
             }
-            this.g[i3] = this.a[i3];
+            this.akH[i3] = this.akg[i3];
             i3++;
         }
         int i4 = i2 + 1;
         int i5 = 1;
         while (i4 <= i) {
-            byte[] bArr = this.g;
-            bArr[i4] = (byte) (this.a[i4] + bArr[i5]);
+            byte[] bArr = this.akH;
+            bArr[i4] = (byte) (this.akg[i4] + bArr[i5]);
             i4++;
             i5++;
         }
     }
 
-    private void g(int i) {
+    private void bq(int i) {
         for (int i2 = 1; i2 <= i; i2++) {
-            this.g[i2] = (byte) (this.a[i2] + this.h[i2]);
+            this.akH[i2] = (byte) (this.akg[i2] + this.akI[i2]);
         }
     }
 
-    private void h() {
-        b(this.k.m);
+    private void yt() {
+        bl(this.akK.alr);
     }
 
-    private int i() {
-        int g;
-        e eVar = this.j;
+    private int yu() {
+        int ys;
+        e eVar = this.ajN;
         int i = 0;
         if (eVar == null) {
-            int g2 = g();
-            k kVar = this.i;
-            if (g2 < kVar.b - 1) {
-                g = kVar.k;
-                i = g + 1;
+            int yk = yk();
+            k kVar = this.akJ;
+            if (yk < kVar.aku - 1) {
+                ys = kVar.akV;
+                i = ys + 1;
             }
-        } else if (eVar.a()) {
-            g = this.j.g();
-            i = g + 1;
+        } else if (eVar.yl()) {
+            ys = this.ajN.ys();
+            i = ys + 1;
         }
-        if (!this.c) {
-            a(i);
+        if (!this.ajQ) {
+            bh(i);
         }
         return i;
     }
 
     @Override // com.kwad.sdk.pngencrypt.DeflatedChunksSet
-    public final void a() {
-        super.a();
-        this.k.a(g());
-        h();
-        p pVar = this.k;
-        pVar.a(this.g, pVar.m + 1);
+    public final void close() {
+        super.close();
+        this.akH = null;
+        this.akI = null;
     }
 
     @Override // com.kwad.sdk.pngencrypt.DeflatedChunksSet
-    public final int b() {
-        return i();
+    public final void yh() {
+        super.yh();
+        this.akK.update(yk());
+        yt();
+        p pVar = this.akK;
+        pVar.h(this.akH, pVar.alr + 1);
     }
 
     @Override // com.kwad.sdk.pngencrypt.DeflatedChunksSet
-    public final void e() {
-        super.e();
-        this.g = null;
-        this.h = null;
+    public final int yi() {
+        return yu();
     }
 }

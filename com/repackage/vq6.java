@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.il4;
+import com.repackage.jl4;
 import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
@@ -27,14 +27,14 @@ public final class vq6 {
     public static final class a implements NetModel.k<tq6, uq6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hl4<List<VoiceRoomWrapper>> a;
+        public final /* synthetic */ il4<List<VoiceRoomWrapper>> a;
 
-        public a(hl4<List<VoiceRoomWrapper>> hl4Var) {
+        public a(il4<List<VoiceRoomWrapper>> il4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hl4Var};
+                Object[] objArr = {il4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,7 +44,7 @@ public final class vq6 {
                     return;
                 }
             }
-            this.a = hl4Var;
+            this.a = il4Var;
         }
 
         @Override // com.baidu.tbadk.mvc.model.NetModel.m
@@ -54,13 +54,13 @@ public final class vq6 {
                 return;
             }
             if (mvcSocketResponsedMessage.getError() == 0) {
-                this.a.a(new il4.c(mvcSocketResponsedMessage.getData().a()));
+                this.a.a(new jl4.c(mvcSocketResponsedMessage.getData().a()));
                 return;
             }
-            hl4<List<VoiceRoomWrapper>> hl4Var = this.a;
+            il4<List<VoiceRoomWrapper>> il4Var = this.a;
             String errorString = mvcSocketResponsedMessage.getErrorString();
             Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
-            hl4Var.a(new il4.a(errorString, null, 2, null));
+            il4Var.a(new jl4.a(errorString, null, 2, null));
         }
 
         @Override // com.baidu.tbadk.mvc.model.NetModel.l
@@ -70,13 +70,13 @@ public final class vq6 {
                 return;
             }
             if (mvcHttpResponsedMessage.getError() == 0) {
-                this.a.a(new il4.c(mvcHttpResponsedMessage.getData().a()));
+                this.a.a(new jl4.c(mvcHttpResponsedMessage.getData().a()));
                 return;
             }
-            hl4<List<VoiceRoomWrapper>> hl4Var = this.a;
+            il4<List<VoiceRoomWrapper>> il4Var = this.a;
             String errorString = mvcHttpResponsedMessage.getErrorString();
             Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
-            hl4Var.a(new il4.a(errorString, null, 2, null));
+            il4Var.a(new jl4.a(errorString, null, 2, null));
         }
     }
 
@@ -96,7 +96,7 @@ public final class vq6 {
         this.a = new VoiceRoomListNetModel();
     }
 
-    public final void a(TbPageContext<?> tbPageContext, long j, long j2, hl4<List<VoiceRoomWrapper>> callback) {
+    public final void a(TbPageContext<?> tbPageContext, long j, long j2, il4<List<VoiceRoomWrapper>> callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, Long.valueOf(j), Long.valueOf(j2), callback}) == null) {
             Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
@@ -106,7 +106,7 @@ public final class vq6 {
             this.a.d0(tq6Var);
             this.a.c0(new a(callback));
             this.a.loadData();
-            callback.a(new il4.b(null, 1, null));
+            callback.a(new jl4.b(null, 1, null));
         }
     }
 }

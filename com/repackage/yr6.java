@@ -22,7 +22,7 @@ public class yr6 {
     public c d;
     public ArrayList<a> e;
     public long f;
-    public yo4 g;
+    public zo4 g;
     public int h;
 
     /* loaded from: classes7.dex */
@@ -153,11 +153,11 @@ public class yr6 {
         dataRes.scene_id.intValue();
         this.f = dataRes.blue_diamond.intValue();
         if (dataRes.blue_diamond_txt != null) {
-            yo4 yo4Var = new yo4();
-            this.g = yo4Var;
+            zo4 zo4Var = new zo4();
+            this.g = zo4Var;
             String str = dataRes.blue_diamond_txt.txt;
             if (str != null) {
-                yo4Var.a = str;
+                zo4Var.a = str;
             }
             String str2 = dataRes.blue_diamond_txt.url;
             if (str2 != null) {

@@ -2,10 +2,10 @@ package com.qq.e.comm;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.kuaishou.weapon.p0.h;
 import com.qq.e.comm.constants.CustomPkgConstants;
 import com.qq.e.comm.util.GDTLogger;
 /* loaded from: classes5.dex */
@@ -29,7 +29,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             try {
-                String[] strArr = {PermissionChecker.INTERNET, "android.permission.ACCESS_NETWORK_STATE", PermissionChecker.ACCESS_WIFI_STATE};
+                String[] strArr = {h.a, "android.permission.ACCESS_NETWORK_STATE", h.d};
                 int i = 0;
                 while (true) {
                     if (i >= 3) {

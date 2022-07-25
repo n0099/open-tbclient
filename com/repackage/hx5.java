@@ -105,7 +105,7 @@ public class hx5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                xt4.k().u("key_call_fans_no_tip_again", !((Boolean) this.a.getTag()).booleanValue());
+                yt4.k().u("key_call_fans_no_tip_again", !((Boolean) this.a.getTag()).booleanValue());
                 this.b.c();
             }
         }
@@ -134,8 +134,8 @@ public class hx5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!TbSingleton.getInstance().mCanCallFans) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f082c);
-            } else if (xt4.k().h("key_call_fans_no_tip_again", false)) {
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0828);
+            } else if (yt4.k().h("key_call_fans_no_tip_again", false)) {
                 c();
             } else {
                 TbPageContext tbPageContext = this.a;
@@ -151,9 +151,9 @@ public class hx5 {
                 imageView.setImageDrawable(SvgManager.getInstance().getMaskDrawable(R.drawable.obfuscated_res_0x7f0805dc, null));
                 linearLayout.addView(imageView, new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds39), UtilHelper.getDimenPixelSize(R.dimen.tbds39)));
                 TextView textView = new TextView(pageActivity);
-                textView.setText(R.string.obfuscated_res_0x7f0f0c77);
+                textView.setText(R.string.obfuscated_res_0x7f0f0c63);
                 textView.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, 0, 0);
-                ur4 d = ur4.d(textView);
+                vr4 d = vr4.d(textView);
                 d.z(R.dimen.T_X07);
                 d.v(R.color.CAM_X0108);
                 d.A(R.string.F_X01);
@@ -161,12 +161,12 @@ public class hx5 {
                 imageView.setTag(Boolean.FALSE);
                 imageView.setOnClickListener(new a(this, imageView));
                 TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(pageActivity);
-                tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0430);
+                tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f042f);
                 tBAlertBuilder.l(R.string.obfuscated_res_0x7f0f035e);
                 tBAlertBuilder.m(3);
                 tBAlertBuilder.n(true);
                 tBAlertBuilder.j(linearLayout);
-                tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0c37, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f035d, TBAlertConfig.OperateBtnStyle.MAIN, new b(this, imageView)));
+                tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0c23, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f035d, TBAlertConfig.OperateBtnStyle.MAIN, new b(this, imageView)));
                 tBAlertBuilder.g();
                 tBAlertBuilder.w();
             }
@@ -179,7 +179,7 @@ public class hx5 {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CALL_FANS);
             httpMessage.addParam("thread_id", this.b);
             MessageManager.getInstance().sendMessage(httpMessage);
-            this.a.showToast(R.string.obfuscated_res_0x7f0f1630);
+            this.a.showToast(R.string.obfuscated_res_0x7f0f15df);
             TbSingleton.getInstance().mCallFansTid = this.b;
             TbSingleton.getInstance().mCanCallFans = false;
         }

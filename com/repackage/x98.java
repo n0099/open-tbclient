@@ -69,9 +69,9 @@ public class x98 extends cd6<ThreadData, FrsAppEmptyHolder> implements o98 {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, threadData, frsAppEmptyHolder})) == null) {
             if (threadData instanceof AdvertAppInfo) {
                 AdvertAppInfo advertAppInfo = (AdvertAppInfo) threadData;
-                sn4.c(advertAppInfo.i, threadData.position, advertAppInfo.c == -1001);
+                tn4.c(advertAppInfo.i, threadData.position, advertAppInfo.c == -1001);
             }
-            return frsAppEmptyHolder.b();
+            return frsAppEmptyHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

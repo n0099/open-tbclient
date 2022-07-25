@@ -21,7 +21,7 @@ import com.kwad.sdk.widget.h;
 public class KSCornerImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h a;
+    public h Pq;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KSCornerImageView(Context context) {
@@ -41,7 +41,7 @@ public class KSCornerImageView extends ImageView {
                 return;
             }
         }
-        a(context, null);
+        c(context, null);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -63,7 +63,7 @@ public class KSCornerImageView extends ImageView {
                 return;
             }
         }
-        a(context, attributeSet);
+        c(context, attributeSet);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -85,7 +85,7 @@ public class KSCornerImageView extends ImageView {
                 return;
             }
         }
-        a(context, attributeSet);
+        c(context, attributeSet);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -108,22 +108,22 @@ public class KSCornerImageView extends ImageView {
                 return;
             }
         }
-        a(context, attributeSet);
+        c(context, attributeSet);
     }
 
-    private void a(Context context, @Nullable AttributeSet attributeSet) {
+    private void c(Context context, @Nullable AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet) == null) {
             h.a aVar = new h.a();
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040348, R.attr.obfuscated_res_0x7f04036e, R.attr.obfuscated_res_0x7f040378, R.attr.obfuscated_res_0x7f04039d});
-            aVar.a(obtainStyledAttributes.getBoolean(1, true));
-            aVar.b(obtainStyledAttributes.getBoolean(3, true));
-            aVar.c(obtainStyledAttributes.getBoolean(2, true));
-            aVar.d(obtainStyledAttributes.getBoolean(0, true));
+            aVar.bt(obtainStyledAttributes.getBoolean(1, true));
+            aVar.bu(obtainStyledAttributes.getBoolean(3, true));
+            aVar.bv(obtainStyledAttributes.getBoolean(2, true));
+            aVar.bw(obtainStyledAttributes.getBoolean(0, true));
             obtainStyledAttributes.recycle();
             h hVar = new h(aVar);
-            this.a = hVar;
-            hVar.a(context, attributeSet);
+            this.Pq = hVar;
+            hVar.d(context, attributeSet);
         }
     }
 
@@ -131,9 +131,9 @@ public class KSCornerImageView extends ImageView {
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.a.c(canvas);
+            this.Pq.f(canvas);
             super.dispatchDraw(canvas);
-            this.a.d(canvas);
+            this.Pq.g(canvas);
         }
     }
 
@@ -141,9 +141,9 @@ public class KSCornerImageView extends ImageView {
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            this.a.a(canvas);
+            this.Pq.d(canvas);
             super.draw(canvas);
-            this.a.b(canvas);
+            this.Pq.e(canvas);
         }
     }
 
@@ -152,14 +152,14 @@ public class KSCornerImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            this.a.a(i, i2);
+            this.Pq.w(i, i2);
         }
     }
 
     public void setRadius(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
-            this.a.a(f);
+            this.Pq.setRadius(f);
             postInvalidate();
         }
     }

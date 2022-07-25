@@ -12,7 +12,6 @@ import com.baidu.nad.jni.NADNativeHelper;
 import com.baidu.nadcore.net.request.Headers;
 import com.baidu.prologue.business.data.BaseVM;
 import com.baidu.prologue.business.data.ParseError;
-import com.baidu.sofire.d.D;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
@@ -471,7 +470,7 @@ public class na1 {
                 sb.append(TextUtils.equals(str, "update") ? "?action=update" : "?action=query");
                 String sb2 = sb.toString();
                 HashMap<String, String> hashMap = new HashMap<>();
-                hashMap.put(D.COLUMN_PLUGIN_ACTIVITY_INFO_LIST, TextUtils.equals(str, "update") ? String.valueOf(ya1.p()) : "1");
+                hashMap.put("ac", TextUtils.equals(str, "update") ? String.valueOf(ya1.p()) : "1");
                 hashMap.put("pid", str2);
                 hashMap.put("product_id ", hh0.a().l());
                 f(hashMap);

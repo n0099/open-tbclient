@@ -9,58 +9,58 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class b implements com.kwad.sdk.core.webview.kwai.a {
-    public c a;
+    public c ago;
 
     @KsJson
     /* loaded from: classes5.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
-        public String a;
-        public String b;
-        public String c;
+        public String method;
+        public String params;
+        public String url;
     }
 
     private void a(a aVar) {
         new com.kwad.sdk.core.webview.request.b().a(aVar, new b.a() { // from class: com.kwad.sdk.core.webview.a.b.1
             @Override // com.kwad.sdk.core.webview.request.b.a
-            public final void a(int i, String str) {
-                if (b.this.a != null) {
-                    b.this.a.a(i, str);
+            public final void a(@NonNull WebCardGetDataResponse webCardGetDataResponse) {
+                if (b.this.ago != null) {
+                    b.this.ago.a(webCardGetDataResponse);
                 }
             }
 
             @Override // com.kwad.sdk.core.webview.request.b.a
-            public final void a(@NonNull WebCardGetDataResponse webCardGetDataResponse) {
-                if (b.this.a != null) {
-                    b.this.a.a(webCardGetDataResponse);
+            public final void onError(int i, String str) {
+                if (b.this.ago != null) {
+                    b.this.ago.onError(i, str);
                 }
             }
         });
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
-    public final String a() {
-        return "requestData";
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
     public final void a(String str, @NonNull c cVar) {
-        this.a = cVar;
+        this.ago = cVar;
         a aVar = new a();
         try {
             aVar.parseJson(new JSONObject(str));
             a(aVar);
         } catch (JSONException e) {
-            c cVar2 = this.a;
+            c cVar2 = this.ago;
             if (cVar2 != null) {
-                cVar2.a(-1, "data parse json error.");
+                cVar2.onError(-1, "data parse json error.");
             }
-            com.kwad.sdk.core.d.b.b(e);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
         }
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void b() {
-        this.a = null;
+    @NonNull
+    public final String getKey() {
+        return "requestData";
+    }
+
+    @Override // com.kwad.sdk.core.webview.kwai.a
+    public final void onDestroy() {
+        this.ago = null;
     }
 }

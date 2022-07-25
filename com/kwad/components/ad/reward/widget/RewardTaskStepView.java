@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.ad.reward.g.c;
+import com.kwad.components.ad.reward.i.c;
 import com.kwad.sdk.widget.DividerView;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +24,8 @@ import java.util.List;
 public class RewardTaskStepView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<c> a;
-    public String b;
+    public String no;
+    public List<c> wG;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RewardTaskStepView(Context context) {
@@ -45,8 +45,8 @@ public class RewardTaskStepView extends LinearLayout {
                 return;
             }
         }
-        this.a = new ArrayList();
-        a();
+        this.wG = new ArrayList();
+        je();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,8 +68,8 @@ public class RewardTaskStepView extends LinearLayout {
                 return;
             }
         }
-        this.a = new ArrayList();
-        a();
+        this.wG = new ArrayList();
+        je();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -91,8 +91,8 @@ public class RewardTaskStepView extends LinearLayout {
                 return;
             }
         }
-        this.a = new ArrayList();
-        a();
+        this.wG = new ArrayList();
+        je();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -115,21 +115,14 @@ public class RewardTaskStepView extends LinearLayout {
                 return;
             }
         }
-        this.a = new ArrayList();
-        a();
-    }
-
-    private void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            setOrientation(1);
-        }
+        this.wG = new ArrayList();
+        je();
     }
 
     private void a(int i, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i), str, str2, Boolean.valueOf(z)}) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(z ? R.layout.obfuscated_res_0x7f0d0460 : R.layout.obfuscated_res_0x7f0d0461, (ViewGroup) this, false);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i), str, str2, Boolean.valueOf(z)}) == null) {
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(z ? R.layout.obfuscated_res_0x7f0d045c : R.layout.obfuscated_res_0x7f0d045d, (ViewGroup) this, false);
             if (z) {
                 a(viewGroup, str);
             } else {
@@ -141,41 +134,48 @@ public class RewardTaskStepView extends LinearLayout {
 
     private void a(ViewGroup viewGroup, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65542, this, viewGroup, i, str) == null) {
-            ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091175)).setText(String.format(str, this.b));
-            ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091174)).setText(String.valueOf(i));
+        if (interceptable == null || interceptable.invokeLIL(65541, this, viewGroup, i, str) == null) {
+            ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091153)).setText(String.format(str, this.no));
+            ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091152)).setText(String.valueOf(i));
         }
     }
 
     public static void a(ViewGroup viewGroup, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, viewGroup, str) == null) {
-            ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091175)).setText(str);
+        if (interceptable == null || interceptable.invokeLL(65542, null, viewGroup, str) == null) {
+            ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091153)).setText(str);
         }
     }
 
-    private void a(boolean z) {
+    private void ac(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65544, this, z) == null) {
-            DividerView dividerView = (DividerView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d045e, (ViewGroup) this, false);
-            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703aa);
-            int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703a8);
+        if (interceptable == null || interceptable.invokeZ(65543, this, z) == null) {
+            DividerView dividerView = (DividerView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d045a, (ViewGroup) this, false);
+            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703a8);
+            int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703a6);
             dividerView.setDividerColor(getResources().getColor(z ? R.color.obfuscated_res_0x7f06075f : R.color.obfuscated_res_0x7f060761));
             addView(dividerView, dimensionPixelSize, dimensionPixelSize2);
         }
     }
 
-    private void b() {
+    private void je() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+            setOrientation(1);
+        }
+    }
+
+    private void jf() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            int size = this.a.size();
+            int size = this.wG.size();
             int i = 0;
             while (i < size) {
-                c cVar = this.a.get(i);
+                c cVar = this.wG.get(i);
                 int i2 = i + 1;
-                a(i2, cVar.e(), cVar.f(), cVar.g());
+                a(i2, cVar.iv(), cVar.iw(), cVar.isCompleted());
                 if (i < size - 1) {
-                    a(this.a.get(i2).g());
+                    ac(this.wG.get(i2).isCompleted());
                 }
                 i = i2;
             }
@@ -187,10 +187,10 @@ public class RewardTaskStepView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, list, str) == null) || list == null || list.isEmpty()) {
             return;
         }
-        this.b = str;
-        this.a.clear();
-        this.a.addAll(list);
-        b();
+        this.no = str;
+        this.wG.clear();
+        this.wG.addAll(list);
+        jf();
     }
 
     @Override // android.widget.LinearLayout, android.view.View

@@ -41,8 +41,14 @@ public final class aa implements com.kwad.sdk.core.d<AdStyleInfo> {
         com.kwad.sdk.utils.r.a(jSONObject, "feedAdInfo", adStyleInfo.feedAdInfo);
         com.kwad.sdk.utils.r.a(jSONObject, "adBrowseInfo", adStyleInfo.adBrowseInfo);
         com.kwad.sdk.utils.r.a(jSONObject, "extraDisplayInfo", adStyleInfo.extraDisplayInfo);
-        com.kwad.sdk.utils.r.a(jSONObject, "playableExtraData", adStyleInfo.playableExtraData);
-        com.kwad.sdk.utils.r.a(jSONObject, "slideClick", adStyleInfo.slideClick);
+        String str = adStyleInfo.playableExtraData;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "playableExtraData", adStyleInfo.playableExtraData);
+        }
+        boolean z = adStyleInfo.slideClick;
+        if (z) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "slideClick", z);
+        }
         return jSONObject;
     }
 

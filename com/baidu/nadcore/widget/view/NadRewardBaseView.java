@@ -72,7 +72,7 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
         public void a(List<wm0.a> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0b7f, 0).show();
+                Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0b6b, 0).show();
                 this.a.p = true;
             }
         }
@@ -111,7 +111,7 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.p) {
-                Toast.makeText(getContext(), (int) R.string.obfuscated_res_0x7f0f0b80, 0).show();
+                Toast.makeText(getContext(), (int) R.string.obfuscated_res_0x7f0f0b6c, 0).show();
                 if (this.d != null) {
                     this.d = null;
                     return;
@@ -220,7 +220,7 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
     public final void p(AdBaseModel adBaseModel) {
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, adBaseModel) == null) || (viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091b0d)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, adBaseModel) == null) || (viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091ae7)) == null) {
             return;
         }
         viewGroup.setVisibility(8);
@@ -242,7 +242,7 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
     public void q(AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, adBaseModel) == null) {
-            NadRewardCountDownView nadRewardCountDownView = (NadRewardCountDownView) findViewById(R.id.obfuscated_res_0x7f09154d);
+            NadRewardCountDownView nadRewardCountDownView = (NadRewardCountDownView) findViewById(R.id.obfuscated_res_0x7f091528);
             this.n = nadRewardCountDownView;
             if (nadRewardCountDownView == null) {
                 return;

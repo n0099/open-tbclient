@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Singleton
 @Service
 /* loaded from: classes7.dex */
-public class ym5 extends ni1 {
+public class ym5 extends oi1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,7 +31,7 @@ public class ym5 extends ni1 {
         }
     }
 
-    @Override // com.repackage.rk1
+    @Override // com.repackage.sk1
     @Nullable
     public String A() {
         InterceptResult invokeV;
@@ -39,14 +39,14 @@ public class ym5 extends ni1 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SpeedRuntimeProvider.MAIN_ACTIVITY_NAME : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.rk1
+    @Override // com.repackage.sk1
     public boolean N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? isDebug() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.rk1
+    @Override // com.repackage.sk1
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

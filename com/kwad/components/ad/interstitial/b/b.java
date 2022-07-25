@@ -11,6 +11,7 @@ import java.util.List;
 public class b extends Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public c gh;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -26,28 +27,37 @@ public class b extends Presenter {
         }
     }
 
-    public void d() {
-        List<Presenter> r;
+    @Override // com.kwad.sdk.mvp.Presenter
+    public void aq() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (r = r()) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.aq();
+            this.gh = (c) xR();
+        }
+    }
+
+    public void cv() {
+        List<Presenter> xQ;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (xQ = xQ()) == null) {
             return;
         }
-        for (Presenter presenter : r) {
+        for (Presenter presenter : xQ) {
             if (presenter instanceof b) {
-                ((b) presenter).d();
+                ((b) presenter).cv();
             }
         }
     }
 
-    public void e() {
-        List<Presenter> r;
+    public void cw() {
+        List<Presenter> xQ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (r = r()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (xQ = xQ()) == null) {
             return;
         }
-        for (Presenter presenter : r) {
+        for (Presenter presenter : xQ) {
             if (presenter instanceof b) {
-                ((b) presenter).e();
+                ((b) presenter).cw();
             }
         }
     }

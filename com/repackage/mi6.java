@@ -49,7 +49,7 @@ public class mi6 extends cd6<xh8, FrsU9ViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             Log.e("Adapter", "Frs U9 Context:" + this.a + "   Resource:" + this.a.getResources() + "  Asset:" + this.a.getResources().getAssets());
-            return new FrsU9ViewHolder(this.k, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0856, (ViewGroup) null, true), this.e);
+            return new FrsU9ViewHolder(this.k, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0860, (ViewGroup) null, true), this.e);
         }
         return (FrsU9ViewHolder) invokeL.objValue;
     }
@@ -65,9 +65,9 @@ public class mi6 extends cd6<xh8, FrsU9ViewHolder> {
             if (xh8Var == null || frsU9ViewHolder == null) {
                 return null;
             }
-            frsU9ViewHolder.h(xh8Var);
-            frsU9ViewHolder.i(TbadkCoreApplication.getInst().getSkinType());
-            return frsU9ViewHolder.b();
+            frsU9ViewHolder.g(xh8Var);
+            frsU9ViewHolder.h(TbadkCoreApplication.getInst().getSkinType());
+            return frsU9ViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

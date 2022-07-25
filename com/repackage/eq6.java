@@ -60,9 +60,9 @@ public class eq6 {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a == null || this.a.c == null || this.a.b == null || this.a.b.getContentView() == null) {
                 return;
             }
-            int f = pi.f(this.a.a, R.dimen.obfuscated_res_0x7f070290);
+            int f = pi.f(this.a.a, R.dimen.obfuscated_res_0x7f07028e);
             this.a.b.getContentView().measure(0, 0);
-            sg.l(this.a.b, this.a.c, (-pi.f(this.a.a, R.dimen.obfuscated_res_0x7f0702c3)) + (this.a.c.getMeasuredWidth() / 2) + 30, -f);
+            sg.l(this.a.b, this.a.c, (-pi.f(this.a.a, R.dimen.obfuscated_res_0x7f0702c1)) + (this.a.c.getMeasuredWidth() / 2) + 30, -f);
             qg.a().postDelayed(this.a.g, 5000L);
             TiebaStatic.log(new StatisticItem("c13016").param("obj_locate", 2));
         }
@@ -188,8 +188,8 @@ public class eq6 {
         this.d = frsViewData;
         this.c = view2;
         View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d0347, (ViewGroup) null);
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920b7)).setText(StringHelper.cutHotTopicShow(frsViewData.postTopic.recom_title, 24, StringHelper.STRING_MORE));
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920b9)).setText(R.string.obfuscated_res_0x7f0f144d);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920bb)).setText(StringHelper.cutHotTopicShow(frsViewData.postTopic.recom_title, 24, StringHelper.STRING_MORE));
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920bc)).setText(R.string.obfuscated_res_0x7f0f13fc);
         inflate.setOnClickListener(this.h);
         this.b = new PopupWindow(inflate, -2, -2);
         qg.a().removeCallbacks(this.f);

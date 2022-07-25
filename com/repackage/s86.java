@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class s86 extends b25 {
+public class s86 extends c25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String e;
@@ -46,7 +46,7 @@ public class s86 extends b25 {
         u();
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public String b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -59,42 +59,42 @@ public class s86 extends b25 {
         return (String) invokeI.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i.size() : invokeV.intValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public EmotionGroupType h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? EmotionGroupType.BIG_EMOTION : (EmotionGroupType) invokeV.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : invokeV.intValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -104,21 +104,21 @@ public class s86 extends b25 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : invokeV.intValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public boolean m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? this.i.contains(str) : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public ym n(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -128,7 +128,7 @@ public class s86 extends b25 {
         return (ym) invokeL.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public ym o(String str) {
         InterceptResult invokeL;
         String b;

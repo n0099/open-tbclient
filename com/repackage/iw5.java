@@ -44,7 +44,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import tbclient.ElectionInfo.NoticeContent;
 import tbclient.ManagerElection;
 /* loaded from: classes6.dex */
@@ -60,7 +60,7 @@ public class iw5 {
     public PbListView G;
     public NoNetworkView H;
     public NoDataView I;
-    public k55 J;
+    public l55 J;
     public ViewGroup K;
     public View.OnClickListener L;
     public View.OnClickListener M;
@@ -284,7 +284,7 @@ public class iw5 {
                         this.a.b.C1();
                         return;
                     }
-                    this.a.G.C(this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f09e5));
+                    this.a.G.C(this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f09cf));
                     this.a.G.f();
                     return;
                 }
@@ -300,7 +300,7 @@ public class iw5 {
         public final /* synthetic */ iw5 a;
 
         /* loaded from: classes6.dex */
-        public class a implements cr4.e {
+        public class a implements dr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -320,11 +320,11 @@ public class iw5 {
                 }
             }
 
-            @Override // com.repackage.cr4.e
-            public void onClick(cr4 cr4Var) {
+            @Override // com.repackage.dr4.e
+            public void onClick(dr4 dr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                    cr4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                    dr4Var.dismiss();
                 }
             }
         }
@@ -351,16 +351,16 @@ public class iw5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                cr4 cr4Var = new cr4(this.a.b);
+                dr4 dr4Var = new dr4(this.a.b);
                 View inflate = LayoutInflater.from(this.a.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d013a, (ViewGroup) null);
                 TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090346);
-                textView.setText(this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f1593) + "\n" + this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f1594));
+                textView.setText(this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f1542) + "\n" + this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f1543));
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
-                cr4Var.setContentView(inflate);
-                cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f099e, new a(this));
-                cr4Var.create(this.a.b.getPageContext());
-                SkinManager.setBackgroundShapeDrawable(cr4Var.getRealView(), pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds30), R.color.CAM_X0201, R.color.CAM_X0201);
-                cr4Var.show();
+                dr4Var.setContentView(inflate);
+                dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0989, new a(this));
+                dr4Var.create(this.a.b.getPageContext());
+                SkinManager.setBackgroundShapeDrawable(dr4Var.getRealView(), pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds30), R.color.CAM_X0201, R.color.CAM_X0201);
+                dr4Var.show();
             }
         }
     }
@@ -427,11 +427,11 @@ public class iw5 {
         this.j = relativeLayout;
         this.b.addContentView(relativeLayout, new FrameLayout.LayoutParams(-1, -1));
         BarVoteActivity barVoteActivity2 = this.b;
-        barVoteActivity2.showLoadingView(this.j, false, pi.f(barVoteActivity2, R.dimen.obfuscated_res_0x7f0702bd));
-        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f0912d6);
-        this.K = (ViewGroup) this.j.findViewById(R.id.obfuscated_res_0x7f0915f5);
-        this.o = this.j.findViewById(R.id.obfuscated_res_0x7f091569);
-        View findViewById = this.j.findViewById(R.id.obfuscated_res_0x7f09156a);
+        barVoteActivity2.showLoadingView(this.j, false, pi.f(barVoteActivity2, R.dimen.obfuscated_res_0x7f0702bb));
+        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f0912b2);
+        this.K = (ViewGroup) this.j.findViewById(R.id.obfuscated_res_0x7f0915d0);
+        this.o = this.j.findViewById(R.id.obfuscated_res_0x7f091544);
+        View findViewById = this.j.findViewById(R.id.obfuscated_res_0x7f091545);
         this.q = findViewById;
         findViewById.setAlpha(0.0f);
         NavigationBar navigationBar = (NavigationBar) this.j.findViewById(R.id.obfuscated_res_0x7f0924a6);
@@ -442,7 +442,7 @@ public class iw5 {
         }
         this.a = pi.f(this.b, R.dimen.tbds402);
         this.p.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        TextView textView = (TextView) this.p.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d05e8, this.b).findViewById(R.id.obfuscated_res_0x7f091b3d);
+        TextView textView = (TextView) this.p.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d05f2, this.b).findViewById(R.id.obfuscated_res_0x7f091b17);
         this.r = textView;
         textView.setText(R.string.obfuscated_res_0x7f0f02d9);
         this.r.setOnClickListener(this.b);
@@ -453,9 +453,9 @@ public class iw5 {
         VoteAdapter voteAdapter = new VoteAdapter(barVoteActivity.getPageContext());
         this.C = voteAdapter;
         this.s.setAdapter(voteAdapter);
-        this.l = (ViewGroup) LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d08b4, (ViewGroup) null, false);
+        this.l = (ViewGroup) LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d08be, (ViewGroup) null, false);
         this.l.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.m = (TbImageView) this.l.findViewById(R.id.obfuscated_res_0x7f090cd9);
+        this.m = (TbImageView) this.l.findViewById(R.id.obfuscated_res_0x7f090cd2);
         this.m.setLayoutParams(new LinearLayout.LayoutParams(-1, (pi.k(this.b) * 884) / 1076));
         this.s.s(this.l);
         this.s.addOnScrollListener(this.P);
@@ -482,7 +482,7 @@ public class iw5 {
         SearchView searchView = (SearchView) this.l.findViewById(R.id.obfuscated_res_0x7f0924a8);
         this.B = searchView;
         searchView.a(new f(this));
-        this.D = (FloatMyRecordCard) this.j.findViewById(R.id.obfuscated_res_0x7f0909b1);
+        this.D = (FloatMyRecordCard) this.j.findViewById(R.id.obfuscated_res_0x7f0909aa);
         this.E = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f0924b2);
         PbListView pbListView = new PbListView(this.b);
         this.G = pbListView;
@@ -494,7 +494,7 @@ public class iw5 {
         this.G.E(SkinManager.getColor(R.color.CAM_X0107));
         this.G.A(R.color.CAM_X0110);
         this.G.s();
-        this.H = (NoNetworkView) this.j.findViewById(R.id.obfuscated_res_0x7f091607);
+        this.H = (NoNetworkView) this.j.findViewById(R.id.obfuscated_res_0x7f0915e2);
     }
 
     public void A(int i, boolean z) {
@@ -502,9 +502,9 @@ public class iw5 {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             if (z || this.c != i) {
                 this.c = i;
-                k55 k55Var = this.J;
-                if (k55Var != null) {
-                    k55Var.onChangeSkinType();
+                l55 l55Var = this.J;
+                if (l55Var != null) {
+                    l55Var.onChangeSkinType();
                 }
                 SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201, i);
                 SkinManager.setBackgroundColor(this.s, R.color.CAM_X0204, i);
@@ -570,7 +570,7 @@ public class iw5 {
                 this.G.M();
                 return;
             }
-            this.G.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f09e5));
+            this.G.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f09cf));
             this.G.f();
         }
     }
@@ -594,7 +594,7 @@ public class iw5 {
             if (e2 != null && !TextUtils.isEmpty(e2.public_notice)) {
                 G(e2.public_notice + "占");
             } else {
-                G(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1592) + "占");
+                G(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1541) + "占");
             }
         }
         this.t.setData(ow5Var);
@@ -653,10 +653,10 @@ public class iw5 {
                 x();
             }
             if (this.J == null) {
-                this.J = new k55(this.b, this.M);
+                this.J = new l55(this.b, this.M);
             }
             this.J.k(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds340));
-            this.J.m(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c2b));
+            this.J.m(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17));
             this.J.attachView(this.k, true);
             this.J.p();
             this.J.onChangeSkinType();
@@ -666,9 +666,9 @@ public class iw5 {
     public void F(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            k55 k55Var = this.J;
-            if (k55Var != null) {
-                k55Var.dettachView(this.k);
+            l55 l55Var = this.J;
+            if (l55Var != null) {
+                l55Var.dettachView(this.k);
                 this.J = null;
             }
             this.b.hideLoadingView(w());

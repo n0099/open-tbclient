@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.ac;
+import com.kwad.sdk.utils.ae;
 /* loaded from: classes5.dex */
 public final class d extends com.kwad.components.ad.e.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View c;
+    public View jV;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -29,27 +29,27 @@ public final class d extends com.kwad.components.ad.e.kwai.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
+    public void eq() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.c.getVisibility() == 0) {
-            this.c.setVisibility(8);
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.jV.getVisibility() == 0) {
+            this.jV.setVisibility(8);
         }
     }
 
     @Override // com.kwad.components.ad.e.kwai.a, com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            if (ac.b(this.c.getContext())) {
-                this.c.setVisibility(8);
+            super.aq();
+            if (ae.isNetworkConnected(this.jV.getContext())) {
+                this.jV.setVisibility(8);
                 return;
             }
-            this.c.setVisibility(0);
+            this.jV.setVisibility(0);
             com.kwad.components.core.video.h hVar = new com.kwad.components.core.video.h(this) { // from class: com.kwad.components.ad.e.a.d.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ d a;
+                public final /* synthetic */ d jW;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -66,38 +66,38 @@ public final class d extends com.kwad.components.ad.e.kwai.a {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.jW = this;
                 }
 
                 @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-                public final void b() {
+                public final void onVideoPlayStart() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        super.b();
-                        this.a.d();
+                        super.onVideoPlayStart();
+                        this.jW.eq();
                     }
                 }
 
                 @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-                public final void c() {
+                public final void onVideoPlaying() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        super.c();
-                        this.a.d();
+                        super.onVideoPlaying();
+                        this.jW.eq();
                     }
                 }
             };
-            ((com.kwad.components.ad.e.kwai.a) this).b = hVar;
-            ((com.kwad.components.ad.e.kwai.a) this).a.f.a(hVar);
+            this.mVideoPlayStateListener = hVar;
+            this.jL.jM.a(hVar);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void i_() {
+    public final void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.i_();
-            this.c = b(R.id.obfuscated_res_0x7f0911d5);
+            super.onCreate();
+            this.jV = findViewById(R.id.obfuscated_res_0x7f0911b1);
         }
     }
 }

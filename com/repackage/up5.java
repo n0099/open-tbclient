@@ -55,14 +55,14 @@ public class up5 extends an<yp5, LiveTabConcernNotificationViewHolder> {
         public void a(View view2, yp5 yp5Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, yp5Var) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090df9) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090df2) {
                     if (this.b.j) {
                         return;
                     }
                     this.b.j = true;
                     AlaSharedPrefHelper.getInstance().putLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, System.currentTimeMillis());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921421));
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090dfa) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090df3) {
                     bq5.b(this.b.i);
                 }
             }
@@ -120,7 +120,7 @@ public class up5 extends an<yp5, LiveTabConcernNotificationViewHolder> {
             }
             this.j = false;
             hq5Var.i(yp5Var);
-            return liveTabConcernNotificationViewHolder.b();
+            return liveTabConcernNotificationViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

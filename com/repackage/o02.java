@@ -6,14 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
 public final class o02 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<k02> a;
-    public boolean b;
+    public final m02 a;
 
     public o02() {
         Interceptable interceptable = $ic;
@@ -28,55 +25,38 @@ public final class o02 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = false;
+        this.a = new m02();
     }
 
-    public String a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String g = vc3.g(System.currentTimeMillis(), "【HH:mm:ss】");
-            List<k02> list = this.a;
-            if (list != null && !list.isEmpty()) {
-                int i = 0;
-                int i2 = 0;
-                int i3 = 0;
-                for (k02 k02Var : this.a) {
-                    if (k02Var.c()) {
-                        i++;
-                        if (k02Var.b()) {
-                            i2++;
-                        } else {
-                            i3++;
-                        }
-                    }
-                }
-                return String.format("\n%s jserror：共%d个，影响渲染%d个（框架%d个，开发者%d个）；", g, Integer.valueOf(this.a.size()), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3));
-            }
-            return String.format("\n%s jserror：共0个；", g);
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.c() : invokeV.booleanValue;
     }
 
-    public boolean b() {
+    public void b(l02 l02Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l02Var) == null) {
+            this.a.a(l02Var);
+        }
+    }
+
+    public p02 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public void c(List<k02> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null || list.isEmpty()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            p02 p02Var = new p02();
+            p02Var.c(this.a.d());
+            p02Var.d(this.a.c());
+            return p02Var;
         }
-        this.a = list;
+        return (p02) invokeV.objValue;
     }
 
-    public void d(boolean z) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.b();
         }
     }
 }

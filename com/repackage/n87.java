@@ -42,8 +42,8 @@ public class n87 implements CustomMessageTask.CustomRunnable<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
             if (customMessage != null && (customMessage instanceof RequestLocalHistoryMessage)) {
-                br4.f();
-                te<byte[]> d = br4.d("tb.im_official_history");
+                cr4.f();
+                te<byte[]> d = cr4.d("tb.im_official_history");
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 byte[] bArr = d.get(currentAccount + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
                 if (bArr == null) {

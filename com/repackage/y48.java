@@ -55,7 +55,7 @@ public class y48 {
     public UserData c;
     public x48 d;
     public boolean e;
-    public ty4 f;
+    public uy4 f;
     public b48 g;
     public View.OnClickListener h;
     public CustomMessageListener i;
@@ -185,7 +185,7 @@ public class y48 {
                     return;
                 }
                 if (!updateAttentionMessage.getData().j) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f14cd);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f147c);
                 }
                 this.a.c.setLike(false);
                 return;
@@ -197,7 +197,7 @@ public class y48 {
             this.a.d.N(this.a.c.isLike());
             if (updateAttentionMessage.getData() == null || oi.isEmpty(updateAttentionMessage.getData().b)) {
                 if (this.a.c.getIsLike()) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f14cc);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f147b);
                     return;
                 } else {
                     this.a.a.showToast(R.string.obfuscated_res_0x7f0f02b0);
@@ -338,7 +338,7 @@ public class y48 {
     public final void J(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            BdToast b2 = BdToast.b(this.a.getPageActivity(), String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0e4d), StringHelper.getUserDescByGender(i)));
+            BdToast b2 = BdToast.b(this.a.getPageActivity(), String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0e36), StringHelper.getUserDescByGender(i)));
             b2.f(BdToast.ToastIcon.FAILURE);
             b2.h();
         }
@@ -377,9 +377,9 @@ public class y48 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
             if (this.f == null) {
-                ty4 ty4Var = new ty4(this.a);
-                this.f = ty4Var;
-                ty4Var.i(true);
+                uy4 uy4Var = new uy4(this.a);
+                this.f = uy4Var;
+                uy4Var.i(true);
             }
             this.f.l(!this.c.isLike(), this.c.getPortrait(), this.c.getUserId(), this.c.isGod(), "2", this.a.getUniqueId(), null, "0");
             this.d.N(true ^ this.c.isLike());
@@ -392,11 +392,11 @@ public class y48 {
             }
             TbPageContext tbPageContext2 = this.a;
             if (tbPageContext2 != null) {
-                u85.e(tbPageContext2.getPageActivity(), statisticItem);
+                v85.e(tbPageContext2.getPageActivity(), statisticItem);
             }
             TbPageContext tbPageContext3 = this.a;
-            if (tbPageContext3 != null && tbPageContext3.getPageActivity() != null && u85.j(this.a.getPageActivity()) != null && u85.j(this.a.getPageActivity()).b() != null && !TextUtils.isEmpty(u85.j(this.a.getPageActivity()).b().locatePage) && "a002".equals(u85.j(this.a.getPageActivity()).b().locatePage)) {
-                statisticItem.param(TiebaStatic.Params.OBJ_PRE_PAGE, u85.j(this.a.getPageActivity()).b().locatePage);
+            if (tbPageContext3 != null && tbPageContext3.getPageActivity() != null && v85.j(this.a.getPageActivity()) != null && v85.j(this.a.getPageActivity()).b() != null && !TextUtils.isEmpty(v85.j(this.a.getPageActivity()).b().locatePage) && "a002".equals(v85.j(this.a.getPageActivity()).b().locatePage)) {
+                statisticItem.param(TiebaStatic.Params.OBJ_PRE_PAGE, v85.j(this.a.getPageActivity()).b().locatePage);
                 statisticItem.param(TiebaStatic.Params.OBJ_CUR_PAGE, "a011");
             }
             TiebaStatic.log(statisticItem);
@@ -468,19 +468,19 @@ public class y48 {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.a.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_ATTENTION, null, false, "")));
                 return;
             }
-            x05 x05Var = new x05();
+            y05 y05Var = new y05();
             if (!StringUtils.isNull(this.c.getPortrait()) && this.c.getPortrait().startsWith("http")) {
-                x05Var.d(this.c.getPortrait());
-                x05Var.h(HeadIconRefreshHelper.headPortraitFilter(this.c.getPortrait()));
-                x05Var.g(true);
+                y05Var.d(this.c.getPortrait());
+                y05Var.h(HeadIconRefreshHelper.headPortraitFilter(this.c.getPortrait()));
+                y05Var.g(true);
             } else {
-                x05Var.d(HeadIconRefreshHelper.headPortraitFilter(this.c.getPortraitH()));
-                x05Var.h(HeadIconRefreshHelper.headPortraitFilter(this.c.getPortrait()));
-                x05Var.g(true);
+                y05Var.d(HeadIconRefreshHelper.headPortraitFilter(this.c.getPortraitH()));
+                y05Var.h(HeadIconRefreshHelper.headPortraitFilter(this.c.getPortrait()));
+                y05Var.g(true);
             }
             ArrayList arrayList = new ArrayList();
-            arrayList.add(x05Var);
-            this.g.s(x05Var, arrayList, 0);
+            arrayList.add(y05Var);
+            this.g.s(y05Var, arrayList, 0);
         }
     }
 
@@ -524,7 +524,7 @@ public class y48 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "4"));
-            rl4.s(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f14ed), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.c.getUserId() + "&opacity=0", true, true, true);
+            sl4.s(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f149c), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.c.getUserId() + "&opacity=0", true, true, true);
         }
     }
 }

@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class ia6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public op4 a;
+    public pp4 a;
     public ArrayList<ha6> b;
     public b c;
     public HttpMessageListener d;
@@ -109,8 +109,8 @@ public class ia6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            op4 op4Var = this.a;
-            return op4Var != null && op4Var.b() == 1;
+            pp4 pp4Var = this.a;
+            return pp4Var != null && pp4Var.b() == 1;
         }
         return invokeV.booleanValue;
     }
@@ -128,10 +128,10 @@ public class ia6 {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            op4 op4Var = this.a;
-            if (op4Var == null || op4Var.b() == 1) {
-                op4 op4Var2 = this.a;
-                int a2 = op4Var2 != null ? 1 + op4Var2.a() : 1;
+            pp4 pp4Var = this.a;
+            if (pp4Var == null || pp4Var.b() == 1) {
+                pp4 pp4Var2 = this.a;
+                int a2 = pp4Var2 != null ? 1 + pp4Var2.a() : 1;
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
                 httpMessage.addParam("rn", 20);
                 httpMessage.addParam(Config.PACKAGE_NAME, a2);

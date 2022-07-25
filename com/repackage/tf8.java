@@ -42,7 +42,7 @@ public class tf8 extends BaseAdapter {
     public TbPageContext<Object> a;
     public Activity b;
     public uf8 c;
-    public ArrayList<nq4> d;
+    public ArrayList<oq4> d;
     public ArrayList<uf8.b> e;
     public ArrayList<uf8.a> f;
     public xf8 g;
@@ -383,35 +383,35 @@ public class tf8 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), viewGroup, Integer.valueOf(i2)})) == null) {
             if (i2 == 1) {
-                return LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07a2, (ViewGroup) null);
+                return LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07ac, (ViewGroup) null);
             }
             if (i2 == 2) {
-                inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07a4, (ViewGroup) null);
+                inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07ae, (ViewGroup) null);
                 h hVar = new h(null);
-                hVar.i = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0920d5);
-                hVar.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920e7);
-                hVar.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914b8);
+                hVar.i = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0920d7);
+                hVar.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920e9);
+                hVar.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091493);
                 inflate.setTag(hVar);
             } else if (i2 != 3) {
                 if (i2 == 4) {
-                    View inflate2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07a3, (ViewGroup) null);
+                    View inflate2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07ad, (ViewGroup) null);
                     inflate2.setOnClickListener(new a(this));
                     return inflate2;
                 }
                 return null;
             } else {
-                inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d079b, (ViewGroup) null);
+                inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07a5, (ViewGroup) null);
                 h hVar2 = new h(null);
-                hVar2.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a3f);
-                hVar2.a = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090a2b);
-                hVar2.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a46);
-                hVar2.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a2e);
-                hVar2.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0912ae);
-                hVar2.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09204d);
+                hVar2.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a38);
+                hVar2.a = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090a24);
+                hVar2.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a3f);
+                hVar2.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a27);
+                hVar2.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09128a);
+                hVar2.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092051);
                 hVar2.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090585);
-                hVar2.h = inflate.findViewById(R.id.obfuscated_res_0x7f092366);
-                hVar2.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0908b3);
-                hVar2.l = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0908b6);
+                hVar2.h = inflate.findViewById(R.id.obfuscated_res_0x7f092368);
+                hVar2.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0908b1);
+                hVar2.l = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0908b4);
                 inflate.setTag(hVar2);
             }
             return inflate;
@@ -431,8 +431,8 @@ public class tf8 extends BaseAdapter {
             if (size > 4) {
                 size = 4;
             }
-            View[] viewArr = {view2.findViewById(R.id.obfuscated_res_0x7f09089b), view2.findViewById(R.id.obfuscated_res_0x7f09089c), view2.findViewById(R.id.obfuscated_res_0x7f09089d), view2.findViewById(R.id.obfuscated_res_0x7f09089e), view2.findViewById(R.id.obfuscated_res_0x7f09089f)};
-            View[] viewArr2 = {view2.findViewById(R.id.obfuscated_res_0x7f0908d6), view2.findViewById(R.id.obfuscated_res_0x7f0908d7), view2.findViewById(R.id.obfuscated_res_0x7f0908d8), view2.findViewById(R.id.obfuscated_res_0x7f0908d9)};
+            View[] viewArr = {view2.findViewById(R.id.obfuscated_res_0x7f090899), view2.findViewById(R.id.obfuscated_res_0x7f09089a), view2.findViewById(R.id.obfuscated_res_0x7f09089b), view2.findViewById(R.id.obfuscated_res_0x7f09089c), view2.findViewById(R.id.obfuscated_res_0x7f09089d)};
+            View[] viewArr2 = {view2.findViewById(R.id.obfuscated_res_0x7f0908d4), view2.findViewById(R.id.obfuscated_res_0x7f0908d5), view2.findViewById(R.id.obfuscated_res_0x7f0908d6), view2.findViewById(R.id.obfuscated_res_0x7f0908d7)};
             for (int i = 0; i < 4; i++) {
                 if (i < size) {
                     uf8.a aVar = this.f.get(i);
@@ -483,9 +483,9 @@ public class tf8 extends BaseAdapter {
                 uf8.b bVar = (uf8.b) item;
                 h hVar = (h) view2.getTag();
                 if (bVar.m == 0) {
-                    hVar.i.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070201), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f0), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070232));
+                    hVar.i.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070201), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f0), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070230));
                 } else {
-                    hVar.i.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070201), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702e8), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070232));
+                    hVar.i.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070201), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702e6), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070230));
                 }
                 hVar.j.setText(bVar.b);
                 if (bVar.c) {
@@ -514,7 +514,7 @@ public class tf8 extends BaseAdapter {
                 long j2 = bVar2.k;
                 long j3 = j2 >= 0 ? j2 : 0L;
                 hVar2.e.setText(this.a.getString(R.string.obfuscated_res_0x7f0f02a7) + StringHelper.numFormatOver10000wan(j));
-                hVar2.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f13c6) + StringHelper.numFormatOver10000wan(j3));
+                hVar2.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1375) + StringHelper.numFormatOver10000wan(j3));
                 if (bVar2.c && !StringUtils.isNull(bVar2.g)) {
                     hVar2.g.setText(UtilHelper.getFixedText(bVar2.g, 5));
                     hVar2.g.setVisibility(0);
@@ -548,7 +548,7 @@ public class tf8 extends BaseAdapter {
             if (arrayList != null && arrayList.size() != 0) {
                 i = 0 + this.e.size();
             }
-            ArrayList<nq4> arrayList2 = this.d;
+            ArrayList<oq4> arrayList2 = this.d;
             if (arrayList2 != null && arrayList2.size() != 0) {
                 i++;
             }
@@ -578,7 +578,7 @@ public class tf8 extends BaseAdapter {
                 if (itemViewType != 2 && itemViewType != 3) {
                     return null;
                 }
-                ArrayList<nq4> arrayList = this.d;
+                ArrayList<oq4> arrayList = this.d;
                 i2 = (arrayList == null || arrayList.size() == 0) ? 0 : 0;
                 ArrayList<uf8.a> arrayList2 = this.f;
                 if (arrayList2 != null && arrayList2.size() != 0) {
@@ -605,13 +605,13 @@ public class tf8 extends BaseAdapter {
     public int getItemViewType(int i) {
         InterceptResult invokeI;
         uf8.b bVar;
-        ArrayList<nq4> arrayList;
+        ArrayList<oq4> arrayList;
         ArrayList<uf8.a> arrayList2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
             int i2 = 0;
             if (i == 0) {
-                ArrayList<nq4> arrayList3 = this.d;
+                ArrayList<oq4> arrayList3 = this.d;
                 if (arrayList3 != null && arrayList3.size() != 0) {
                     return 0;
                 }
@@ -624,7 +624,7 @@ public class tf8 extends BaseAdapter {
                 if (i == getCount() - 1) {
                     return 4;
                 }
-                ArrayList<nq4> arrayList5 = this.d;
+                ArrayList<oq4> arrayList5 = this.d;
                 if (arrayList5 != null && arrayList5.size() != 0) {
                     i2 = 1;
                 }

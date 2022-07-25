@@ -40,11 +40,11 @@ public class sk7 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0812, (ViewGroup) null);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d081c, (ViewGroup) null);
             this.a = inflate;
             inflate.setTag(this);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f71);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f72);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f75);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f76);
             return this.a;
         }
         return (View) invokeL.objValue;

@@ -19,10 +19,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class mp7 extends an<op7, b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jm4<op7> i;
+    public km4<op7> i;
 
     /* loaded from: classes6.dex */
-    public class a implements jm4<op7> {
+    public class a implements km4<op7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,7 +43,7 @@ public class mp7 extends an<op7, b> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: a */
         public void d(View view2, op7 op7Var, int i, long j) {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class mp7 extends an<op7, b> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: b */
         public void c(View view2, op7 op7Var, int i, long j) {
             Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class mp7 extends an<op7, b> {
             this.a = hotTopicListInfoItem;
         }
 
-        public void c(op7 op7Var) {
+        public void b(op7 op7Var) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, op7Var) == null) || op7Var == null) {
                 return;
@@ -98,7 +98,7 @@ public class mp7 extends an<op7, b> {
             this.a.a(op7Var);
         }
 
-        public void d(int i) {
+        public void c(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 this.a.d(i);
@@ -139,7 +139,7 @@ public class mp7 extends an<op7, b> {
             hotTopicListInfoItem.setOnItemCoverListener(this.i);
             hotTopicListInfoItem.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
             b bVar = new b(hotTopicListInfoItem);
-            bVar.d(TbadkCoreApplication.getInst().getSkinType());
+            bVar.c(TbadkCoreApplication.getInst().getSkinType());
             return bVar;
         }
         return (b) invokeL.objValue;
@@ -155,9 +155,9 @@ public class mp7 extends an<op7, b> {
             if (op7Var == null || bVar == null) {
                 return null;
             }
-            bVar.c(op7Var);
-            bVar.d(TbadkCoreApplication.getInst().getSkinType());
-            return bVar.b();
+            bVar.b(op7Var);
+            bVar.c(TbadkCoreApplication.getInst().getSkinType());
+            return bVar.a();
         }
         return (View) invokeCommon.objValue;
     }

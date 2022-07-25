@@ -436,7 +436,7 @@ public class pb8 {
                 }
                 sb8Var.e = sb8Var.b + ":" + a97.y(chatMessage.getMsgType(), chatMessage.getContent());
                 sb8Var.j = chatMessage.getGroupId();
-                if (!py4.d().r()) {
+                if (!qy4.d().r()) {
                     sb8Var.n = false;
                 } else {
                     sb8Var.n = q77.k().c(TbadkCoreApplication.getCurrentAccount(), sb8Var.j);
@@ -453,14 +453,14 @@ public class pb8 {
                 sb8Var.a = chatMessage.getUserInfo().getUserName();
                 sb8Var.e = a97.y(chatMessage.getMsgType(), chatMessage.getContent());
                 if (sb8Var.o) {
-                    if (!py4.d().t()) {
+                    if (!qy4.d().t()) {
                         sb8Var.n = false;
                     } else {
                         sb8Var.n = t77.j().c(TbadkCoreApplication.getCurrentAccount(), sb8Var.j);
                     }
-                } else if (!py4.d().t()) {
+                } else if (!qy4.d().t()) {
                     sb8Var.n = false;
-                } else if (!py4.d().D()) {
+                } else if (!qy4.d().D()) {
                     sb8Var.n = false;
                 } else {
                     sb8Var.n = t77.j().c(TbadkCoreApplication.getCurrentAccount(), sb8Var.j);
@@ -492,7 +492,7 @@ public class pb8 {
                 } else {
                     sb8Var.e = a97.y(chatMessage.getMsgType(), chatMessage.getContent());
                 }
-                if (!py4.d().n()) {
+                if (!qy4.d().n()) {
                     sb8Var.n = false;
                 }
             }
@@ -504,7 +504,7 @@ public class pb8 {
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? py4.d().i() && py4.d().w() && SwitchManager.getInstance().findType(ScreenLockSyncSwitch.KEY) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? qy4.d().i() && qy4.d().w() && SwitchManager.getInstance().findType(ScreenLockSyncSwitch.KEY) == 1 : invokeV.booleanValue;
     }
 
     public void h(sb8 sb8Var) {
@@ -531,12 +531,12 @@ public class pb8 {
         return (String) invokeL.objValue;
     }
 
-    public final Intent k(Context context, mp4 mp4Var, String str) {
+    public final Intent k(Context context, np4 np4Var, String str) {
         InterceptResult invokeLLL;
         String substring;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, context, mp4Var, str)) == null) {
-            if (context == null || mp4Var == null || TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, context, np4Var, str)) == null) {
+            if (context == null || np4Var == null || TextUtils.isEmpty(str)) {
                 return null;
             }
             Intent intent = new Intent(context, DealIntentService.class);
@@ -586,10 +586,10 @@ public class pb8 {
             }
             intent.putExtra("is_notify", true);
             intent.putExtra("link", str);
-            intent.putExtra("message_id", mp4Var.c());
-            intent.putExtra("task_id", mp4Var.e());
-            if (!TextUtils.isEmpty(mp4Var.d())) {
-                intent.putExtra("stat", mp4Var.d());
+            intent.putExtra("message_id", np4Var.c());
+            intent.putExtra("task_id", np4Var.e());
+            if (!TextUtils.isEmpty(np4Var.d())) {
+                intent.putExtra("stat", np4Var.d());
             }
             return intent;
         }
@@ -649,7 +649,7 @@ public class pb8 {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, remindRecommendMessage) == null) || remindRecommendMessage == null || (str = remindRecommendMessage.url) == null || str.length() <= 0) {
             return;
         }
-        Intent k = k(this.a, new mp4(-1L, -1L, remindRecommendMessage.url, remindRecommendMessage.title, "", -1L), str);
+        Intent k = k(this.a, new np4(-1L, -1L, remindRecommendMessage.url, remindRecommendMessage.title, "", -1L), str);
         if (k == null) {
             return;
         }

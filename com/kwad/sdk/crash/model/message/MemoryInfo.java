@@ -37,7 +37,7 @@ public class MemoryInfo implements b, Serializable {
             }
             parseJson(new JSONObject(str));
         } catch (JSONException e) {
-            com.kwad.sdk.core.d.b.b(e);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
         }
     }
 
@@ -100,26 +100,26 @@ public class MemoryInfo implements b, Serializable {
                 }
             }
         } catch (Exception e) {
-            com.kwad.sdk.core.d.b.b(e);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
         }
     }
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        r.a(jSONObject, "mTotalMB", this.mTotalMB);
-        r.a(jSONObject, "mAvailableMB", this.mAvailableMB);
-        r.a(jSONObject, "mJavaHeapLimitMB", this.mJavaHeapLimitMB);
-        r.a(jSONObject, "mJavaHeapMB", this.mJavaHeapMB);
-        r.a(jSONObject, "mVssMB", this.mVssMB);
-        r.a(jSONObject, "mRssMB", this.mRssMB);
-        r.a(jSONObject, "mPssMB", this.mPssMB);
-        r.a(jSONObject, "mThreadsCount", this.mThreadsCount);
-        r.a(jSONObject, "mFdCount", this.mFdCount);
-        r.a(jSONObject, "mFds", this.mFds);
-        r.a(jSONObject, "mJavaThreads", this.mJavaThreads);
-        r.a(jSONObject, "mNativeThreads", this.mNativeThreads);
-        r.a(jSONObject, "mAllThreads", this.mAllThreads);
+        r.putValue(jSONObject, "mTotalMB", this.mTotalMB);
+        r.putValue(jSONObject, "mAvailableMB", this.mAvailableMB);
+        r.putValue(jSONObject, "mJavaHeapLimitMB", this.mJavaHeapLimitMB);
+        r.putValue(jSONObject, "mJavaHeapMB", this.mJavaHeapMB);
+        r.putValue(jSONObject, "mVssMB", this.mVssMB);
+        r.putValue(jSONObject, "mRssMB", this.mRssMB);
+        r.putValue(jSONObject, "mPssMB", this.mPssMB);
+        r.putValue(jSONObject, "mThreadsCount", this.mThreadsCount);
+        r.putValue(jSONObject, "mFdCount", this.mFdCount);
+        r.putValue(jSONObject, "mFds", this.mFds);
+        r.putValue(jSONObject, "mJavaThreads", this.mJavaThreads);
+        r.putValue(jSONObject, "mNativeThreads", this.mNativeThreads);
+        r.putValue(jSONObject, "mAllThreads", this.mAllThreads);
         return jSONObject;
     }
 

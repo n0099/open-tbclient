@@ -52,7 +52,7 @@ public class ml6 extends qw<tl6> {
             if (this.f == null) {
                 View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d019d, (ViewGroup) null, true);
                 this.f = inflate;
-                this.g = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f34);
+                this.g = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f2d);
             }
             return this.f;
         }
@@ -63,10 +63,10 @@ public class ml6 extends qw<tl6> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            ur4 d = ur4.d(this.f);
+            vr4 d = vr4.d(this.f);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0205);
-            ur4 d2 = ur4.d(this.g);
+            vr4 d2 = vr4.d(this.g);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
             for (int i2 = 0; i2 < ((ViewGroup) this.f).getChildCount(); i2++) {

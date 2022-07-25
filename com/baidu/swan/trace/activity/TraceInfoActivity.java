@@ -16,10 +16,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.df4;
 import com.repackage.ef4;
 import com.repackage.ff4;
 import com.repackage.gf4;
+import com.repackage.hf4;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -30,7 +30,7 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public Button b;
-    public List<df4> c;
+    public List<ef4> c;
     public Set<String> d;
     public int e;
 
@@ -128,8 +128,8 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (df4 df4Var : this.c) {
-                this.d.add(df4Var.f());
+            for (ef4 ef4Var : this.c) {
+                this.d.add(ef4Var.f());
             }
         }
     }
@@ -143,12 +143,12 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
             this.e = i + 1;
             String str = (String) arrayList.get(i % arrayList.size());
             ArrayList arrayList2 = new ArrayList();
-            for (df4 df4Var : this.c) {
-                if (TextUtils.equals(df4Var.f(), str)) {
-                    arrayList2.add(df4Var);
+            for (ef4 ef4Var : this.c) {
+                if (TextUtils.equals(ef4Var.f(), str)) {
+                    arrayList2.add(ef4Var);
                 }
             }
-            return gf4.c(arrayList2, null);
+            return hf4.c(arrayList2, null);
         }
         return (String) invokeV.objValue;
     }
@@ -156,8 +156,8 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0921c0);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091eb2);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0921c2);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091eb6);
             this.b = button;
             button.setOnClickListener(this);
             this.d = new HashSet();
@@ -174,12 +174,12 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ff4<List<df4>> c = ef4.b().c();
+            gf4<List<ef4>> c = ff4.b().c();
             if (c == null) {
                 this.a.setText("NO DATA");
                 return;
             }
-            List<df4> a2 = c.a();
+            List<ef4> a2 = c.a();
             if (a2 != null && a2.size() > 0) {
                 this.c = a2;
                 this.e = 0;
@@ -193,9 +193,9 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        List<df4> list;
+        List<ef4> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, view2) == null) || view2.getId() != R.id.obfuscated_res_0x7f091eb2 || (list = this.c) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, view2) == null) || view2.getId() != R.id.obfuscated_res_0x7f091eb6 || (list = this.c) == null || list.size() <= 0) {
             return;
         }
         d();

@@ -1,8 +1,7 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.os.Bundle;
+import android.content.Context;
 /* loaded from: classes6.dex */
 public interface ok1 {
-    void a(Activity activity, Bundle bundle, do2 do2Var);
+    void a(Context context, String str, String str2, yg1 yg1Var);
 }

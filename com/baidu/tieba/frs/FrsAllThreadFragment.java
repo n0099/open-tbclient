@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ie6;
 import com.repackage.ld6;
-import com.repackage.p85;
+import com.repackage.q85;
 /* loaded from: classes3.dex */
 public class FrsAllThreadFragment extends BaseFragment implements ie6 {
     public static /* synthetic */ Interceptable $ic;
@@ -48,14 +48,14 @@ public class FrsAllThreadFragment extends BaseFragment implements ie6 {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public p85 getTbPageExtra() {
+    public q85 getTbPageExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
-            return new p85(getUniqueId(), "a006", this.mTbPageExtraPageTabName, baseFragmentActivity == null ? null : baseFragmentActivity.getIntent());
+            return new q85(getUniqueId(), "a006", this.mTbPageExtraPageTabName, baseFragmentActivity == null ? null : baseFragmentActivity.getIntent());
         }
-        return (p85) invokeV.objValue;
+        return (q85) invokeV.objValue;
     }
 
     @Override // com.repackage.ie6
@@ -123,7 +123,7 @@ public class FrsAllThreadFragment extends BaseFragment implements ie6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
             this.a = view2;
-            this.b = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090b5a);
+            this.b = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090b53);
             t1();
         }
     }

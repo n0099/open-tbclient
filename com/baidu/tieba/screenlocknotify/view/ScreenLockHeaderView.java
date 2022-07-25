@@ -21,7 +21,7 @@ import com.repackage.sb8;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ScreenLockHeaderView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,20 +55,20 @@ public class ScreenLockHeaderView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0742, (ViewGroup) this, true);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090a8e);
-        this.b = findViewById(R.id.obfuscated_res_0x7f090a8d);
-        this.c = findViewById(R.id.obfuscated_res_0x7f0914bf);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091206);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091662);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0922f6);
-        this.g = findViewById(R.id.obfuscated_res_0x7f0912b0);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d074c, (ViewGroup) this, true);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090a87);
+        this.b = findViewById(R.id.obfuscated_res_0x7f090a86);
+        this.c = findViewById(R.id.obfuscated_res_0x7f09149a);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0911e2);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09163d);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0922f8);
+        this.g = findViewById(R.id.obfuscated_res_0x7f09128c);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f081013);
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f081016);
         setOrientation(1);
-        this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c86);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091c87);
-        this.j = (EditText) findViewById(R.id.obfuscated_res_0x7f091c85);
+        this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c8c);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091c8d);
+        this.j = (EditText) findViewById(R.id.obfuscated_res_0x7f091c8b);
         this.k.setVisibility(8);
     }
 

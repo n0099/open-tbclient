@@ -3,7 +3,6 @@ package com.baidu.searchbox.bddownload.statistic;
 import androidx.transition.Transition;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.BdDownload;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +22,7 @@ public final class StatisticManager implements IBDDownloadStatistic {
     public transient /* synthetic */ FieldHolder $fh;
     public IBDDownloadStatistic mDownloadReport;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\n\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\t\u0010\nJ\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003R$\u0010\u0004\u001a\u0004\u0018\u00010\u00018B@\u0002X\u0082\u000e¢\u0006\u0012\n\u0004\b\u0004\u0010\u0005\u001a\u0004\b\u0006\u0010\u0003\"\u0004\b\u0007\u0010\b¨\u0006\u000b"}, d2 = {"Lcom/baidu/searchbox/bddownload/statistic/StatisticManager$Companion;", "Lcom/baidu/searchbox/bddownload/statistic/StatisticManager;", SharedPreferenceManager.OPERATION_GET_PERFIX, "()Lcom/baidu/searchbox/bddownload/statistic/StatisticManager;", Transition.MATCH_INSTANCE_STR, "Lcom/baidu/searchbox/bddownload/statistic/StatisticManager;", "getInstance", "setInstance", "(Lcom/baidu/searchbox/bddownload/statistic/StatisticManager;)V", "<init>", "()V", "lib-bddownload_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\n\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\t\u0010\nJ\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003R$\u0010\u0004\u001a\u0004\u0018\u00010\u00018B@\u0002X\u0082\u000e¢\u0006\u0012\n\u0004\b\u0004\u0010\u0005\u001a\u0004\b\u0006\u0010\u0003\"\u0004\b\u0007\u0010\b¨\u0006\u000b"}, d2 = {"Lcom/baidu/searchbox/bddownload/statistic/StatisticManager$Companion;", "Lcom/baidu/searchbox/bddownload/statistic/StatisticManager;", "get", "()Lcom/baidu/searchbox/bddownload/statistic/StatisticManager;", Transition.MATCH_INSTANCE_STR, "Lcom/baidu/searchbox/bddownload/statistic/StatisticManager;", "getInstance", "setInstance", "(Lcom/baidu/searchbox/bddownload/statistic/StatisticManager;)V", "<init>", "()V", "lib-bddownload_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;

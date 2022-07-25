@@ -65,16 +65,16 @@ import com.repackage.i96;
 import com.repackage.j96;
 import com.repackage.jn7;
 import com.repackage.ln7;
-import com.repackage.m45;
 import com.repackage.m96;
 import com.repackage.mn7;
+import com.repackage.n45;
 import com.repackage.nn7;
 import com.repackage.pi;
 import com.repackage.pn7;
 import com.repackage.q86;
 import com.repackage.qg;
 import com.repackage.qn7;
-import com.repackage.r65;
+import com.repackage.s65;
 import com.repackage.v86;
 import com.repackage.y86;
 import java.util.ArrayList;
@@ -92,25 +92,25 @@ public class FaceshopStatic {
 
         /* renamed from: com.baidu.tieba.faceshop.FaceshopStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0187a implements Runnable {
+        public class RunnableC0201a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
 
             /* renamed from: com.baidu.tieba.faceshop.FaceshopStatic$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class RunnableC0188a implements Runnable {
+            public class RunnableC0202a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ StringBuilder a;
-                public final /* synthetic */ RunnableC0187a b;
+                public final /* synthetic */ RunnableC0201a b;
 
-                public RunnableC0188a(RunnableC0187a runnableC0187a, StringBuilder sb) {
+                public RunnableC0202a(RunnableC0201a runnableC0201a, StringBuilder sb) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0187a, sb};
+                        Object[] objArr = {runnableC0201a, sb};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -120,7 +120,7 @@ public class FaceshopStatic {
                             return;
                         }
                     }
-                    this.b = runnableC0187a;
+                    this.b = runnableC0201a;
                     this.a = sb;
                 }
 
@@ -133,7 +133,7 @@ public class FaceshopStatic {
                 }
             }
 
-            public RunnableC0187a(a aVar, int i) {
+            public RunnableC0201a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -166,7 +166,7 @@ public class FaceshopStatic {
                             }
                         }
                     }
-                    qg.a().post(new RunnableC0188a(this, sb));
+                    qg.a().post(new RunnableC0202a(this, sb));
                 }
             }
         }
@@ -196,7 +196,7 @@ public class FaceshopStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                jn7.b().a(new RunnableC0187a(this, ((Integer) customResponsedMessage.getData()).intValue()));
+                jn7.b().a(new RunnableC0201a(this, ((Integer) customResponsedMessage.getData()).intValue()));
             }
         }
     }
@@ -322,13 +322,13 @@ public class FaceshopStatic {
 
             /* renamed from: com.baidu.tieba.faceshop.FaceshopStatic$e$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C0189a extends BdAsyncTask<Void, Void, Boolean> {
+            public class C0203a extends BdAsyncTask<Void, Void, Boolean> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
                 public final /* synthetic */ a b;
 
-                public C0189a(a aVar, String str) {
+                public C0203a(a aVar, String str) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -379,7 +379,7 @@ public class FaceshopStatic {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
                         if (bool != null && bool.booleanValue()) {
-                            r65.i(new EmotionReloadEvent());
+                            s65.i(new EmotionReloadEvent());
                             pn7 pn7Var = this.b.b;
                             if (pn7Var != null) {
                                 pn7Var.onSuccess(this.a);
@@ -440,7 +440,7 @@ public class FaceshopStatic {
             public void onSuccess(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                    new C0189a(this, str).execute(new Void[0]);
+                    new C0203a(this, str).execute(new Void[0]);
                 }
             }
         }
@@ -679,11 +679,11 @@ public class FaceshopStatic {
             }
             if (customResponsedMessage.getData() instanceof String) {
                 i96.t().g((String) customResponsedMessage.getData(), null);
-            } else if (customResponsedMessage.getData() instanceof m45.a) {
-                m45.a aVar = (m45.a) customResponsedMessage.getData();
+            } else if (customResponsedMessage.getData() instanceof n45.a) {
+                n45.a aVar = (n45.a) customResponsedMessage.getData();
                 i96.t().g(aVar.a, aVar.b);
-            } else if (customResponsedMessage.getData() instanceof m45.b) {
-                m45.b bVar = (m45.b) customResponsedMessage.getData();
+            } else if (customResponsedMessage.getData() instanceof n45.b) {
+                n45.b bVar = (n45.b) customResponsedMessage.getData();
                 i96.t().h(bVar.a, bVar.b, null, bVar.c);
             }
         }
@@ -731,7 +731,7 @@ public class FaceshopStatic {
                             return;
                         }
                     }
-                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f110d);
+                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f10c9);
                 }
             }
         }
@@ -873,10 +873,10 @@ public class FaceshopStatic {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || TextUtils.isEmpty(intent.getStringExtra(m45.b)) || !TbadkCoreApplication.getInst().isMainProcess(false)) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || TextUtils.isEmpty(intent.getStringExtra(n45.b)) || !TbadkCoreApplication.getInst().isMainProcess(false)) {
                 return;
             }
-            i96.t().h(intent.getStringExtra(m45.b), intent.getStringExtra(m45.c), intent.getStringExtra(m45.e), intent.getStringExtra(m45.d));
+            i96.t().h(intent.getStringExtra(n45.b), intent.getStringExtra(n45.c), intent.getStringExtra(n45.e), intent.getStringExtra(n45.d));
         }
     }
 
@@ -1008,7 +1008,7 @@ public class FaceshopStatic {
         MessageManager.getInstance().registerListener(new j(2921704));
         k kVar = new k();
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(m45.a);
+        intentFilter.addAction(n45.a);
         TbadkCoreApplication.getInst().registerReceiver(kVar, intentFilter);
         CustomMessageTask customMessageTask = new CustomMessageTask(2004611, new l());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

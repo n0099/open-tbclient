@@ -26,19 +26,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class JinniuCouponLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Paint a;
-    public float b;
-    public float c;
-    public Rect d;
-    public RectF e;
-    public RectF f;
-    public RectF g;
-    public RectF h;
-    public Path i;
     @ColorInt
-    public int j;
+    public int endColor;
+    public Paint mPaint;
     @ColorInt
-    public int k;
+    public int startColor;
+    public float wl;
+    public float wm;
+    public Rect wn;
+    public RectF wo;
+    public RectF wp;
+    public RectF wq;
+    public RectF wr;
+    public Path ws;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public JinniuCouponLayout(Context context) {
@@ -58,17 +58,17 @@ public class JinniuCouponLayout extends LinearLayout {
                 return;
             }
         }
-        this.a = new Paint();
-        this.b = 4.0f;
-        this.c = 10.0f;
-        this.d = new Rect();
-        this.e = new RectF();
-        this.f = new RectF();
-        this.g = new RectF();
-        this.h = new RectF();
-        this.i = new Path();
-        this.j = Color.parseColor("#FFFE3666");
-        this.k = Color.parseColor("#FFFD7200");
+        this.mPaint = new Paint();
+        this.wl = 4.0f;
+        this.wm = 10.0f;
+        this.wn = new Rect();
+        this.wo = new RectF();
+        this.wp = new RectF();
+        this.wq = new RectF();
+        this.wr = new RectF();
+        this.ws = new Path();
+        this.startColor = Color.parseColor("#FFFE3666");
+        this.endColor = Color.parseColor("#FFFD7200");
         a(context, null, 0);
     }
 
@@ -91,17 +91,17 @@ public class JinniuCouponLayout extends LinearLayout {
                 return;
             }
         }
-        this.a = new Paint();
-        this.b = 4.0f;
-        this.c = 10.0f;
-        this.d = new Rect();
-        this.e = new RectF();
-        this.f = new RectF();
-        this.g = new RectF();
-        this.h = new RectF();
-        this.i = new Path();
-        this.j = Color.parseColor("#FFFE3666");
-        this.k = Color.parseColor("#FFFD7200");
+        this.mPaint = new Paint();
+        this.wl = 4.0f;
+        this.wm = 10.0f;
+        this.wn = new Rect();
+        this.wo = new RectF();
+        this.wp = new RectF();
+        this.wq = new RectF();
+        this.wr = new RectF();
+        this.ws = new Path();
+        this.startColor = Color.parseColor("#FFFE3666");
+        this.endColor = Color.parseColor("#FFFD7200");
         a(context, attributeSet, 0);
     }
 
@@ -124,17 +124,17 @@ public class JinniuCouponLayout extends LinearLayout {
                 return;
             }
         }
-        this.a = new Paint();
-        this.b = 4.0f;
-        this.c = 10.0f;
-        this.d = new Rect();
-        this.e = new RectF();
-        this.f = new RectF();
-        this.g = new RectF();
-        this.h = new RectF();
-        this.i = new Path();
-        this.j = Color.parseColor("#FFFE3666");
-        this.k = Color.parseColor("#FFFD7200");
+        this.mPaint = new Paint();
+        this.wl = 4.0f;
+        this.wm = 10.0f;
+        this.wn = new Rect();
+        this.wo = new RectF();
+        this.wp = new RectF();
+        this.wq = new RectF();
+        this.wr = new RectF();
+        this.ws = new Path();
+        this.startColor = Color.parseColor("#FFFE3666");
+        this.endColor = Color.parseColor("#FFFD7200");
         a(context, attributeSet, i);
     }
 
@@ -158,17 +158,17 @@ public class JinniuCouponLayout extends LinearLayout {
                 return;
             }
         }
-        this.a = new Paint();
-        this.b = 4.0f;
-        this.c = 10.0f;
-        this.d = new Rect();
-        this.e = new RectF();
-        this.f = new RectF();
-        this.g = new RectF();
-        this.h = new RectF();
-        this.i = new Path();
-        this.j = Color.parseColor("#FFFE3666");
-        this.k = Color.parseColor("#FFFD7200");
+        this.mPaint = new Paint();
+        this.wl = 4.0f;
+        this.wm = 10.0f;
+        this.wn = new Rect();
+        this.wo = new RectF();
+        this.wp = new RectF();
+        this.wq = new RectF();
+        this.wr = new RectF();
+        this.ws = new Path();
+        this.startColor = Color.parseColor("#FFFE3666");
+        this.endColor = Color.parseColor("#FFFD7200");
         a(context, attributeSet, i);
     }
 
@@ -176,10 +176,10 @@ public class JinniuCouponLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet, i) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040371, R.attr.obfuscated_res_0x7f0403a0}, i, 0);
-            this.c = obtainStyledAttributes.getDimension(0, 4.0f);
-            this.b = obtainStyledAttributes.getDimension(1, 10.0f);
+            this.wm = obtainStyledAttributes.getDimension(0, 4.0f);
+            this.wl = obtainStyledAttributes.getDimension(1, 10.0f);
             obtainStyledAttributes.recycle();
-            this.a.setAntiAlias(true);
+            this.mPaint.setAntiAlias(true);
         }
     }
 
@@ -187,39 +187,39 @@ public class JinniuCouponLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65541, this, path, rectF, rectF2, rectF3) == null) {
             path.reset();
-            RectF rectF4 = this.e;
-            path.moveTo(rectF4.left, rectF4.top + this.c);
-            this.h.set(rectF);
-            RectF rectF5 = this.h;
+            RectF rectF4 = this.wo;
+            path.moveTo(rectF4.left, rectF4.top + this.wm);
+            this.wr.set(rectF);
+            RectF rectF5 = this.wr;
             float f = rectF5.top;
-            float f2 = this.c;
+            float f2 = this.wm;
             rectF5.bottom = f + (f2 * 2.0f);
             rectF5.right = rectF5.left + (f2 * 2.0f);
             path.arcTo(rectF5, 180.0f, 90.0f);
             path.lineTo(rectF2.left, rectF2.top);
             path.arcTo(rectF2, -180.0f, -180.0f);
-            path.lineTo(rectF.width() - this.c, rectF.top);
-            this.h.set(rectF);
-            RectF rectF6 = this.h;
+            path.lineTo(rectF.width() - this.wm, rectF.top);
+            this.wr.set(rectF);
+            RectF rectF6 = this.wr;
             float f3 = rectF6.right;
-            float f4 = this.c;
+            float f4 = this.wm;
             rectF6.left = f3 - (f4 * 2.0f);
             rectF6.bottom = rectF6.top + (f4 * 2.0f);
             path.arcTo(rectF6, 270.0f, 90.0f);
-            this.h.set(rectF);
-            RectF rectF7 = this.h;
+            this.wr.set(rectF);
+            RectF rectF7 = this.wr;
             float f5 = rectF7.right;
-            float f6 = this.c;
+            float f6 = this.wm;
             rectF7.left = f5 - (f6 * 2.0f);
             rectF7.top = rectF7.bottom - (f6 * 2.0f);
             path.arcTo(rectF7, 0.0f, 90.0f);
             path.lineTo(rectF3.right, rectF3.bottom);
             path.arcTo(rectF3, 0.0f, -180.0f);
-            path.lineTo(rectF.left + this.c, rectF.bottom);
-            this.h.set(rectF);
-            RectF rectF8 = this.h;
+            path.lineTo(rectF.left + this.wm, rectF.bottom);
+            this.wr.set(rectF);
+            RectF rectF8 = this.wr;
             float f7 = rectF8.left;
-            float f8 = this.c;
+            float f8 = this.wm;
             rectF8.right = f7 + (f8 * 2.0f);
             rectF8.top = rectF8.bottom - (f8 * 2.0f);
             path.arcTo(rectF8, 90.0f, 90.0f);
@@ -229,7 +229,7 @@ public class JinniuCouponLayout extends LinearLayout {
     private void setGradientPaint(RectF rectF) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, rectF) == null) {
-            this.a.setShader(new LinearGradient(rectF.left, rectF.top, rectF.right, rectF.bottom, this.j, this.k, Shader.TileMode.CLAMP));
+            this.mPaint.setShader(new LinearGradient(rectF.left, rectF.top, rectF.right, rectF.bottom, this.startColor, this.endColor, Shader.TileMode.CLAMP));
         }
     }
 
@@ -237,38 +237,38 @@ public class JinniuCouponLayout extends LinearLayout {
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.d.setEmpty();
-            getDrawingRect(this.d);
-            this.e.set(this.d);
+            this.wn.setEmpty();
+            getDrawingRect(this.wn);
+            this.wo.set(this.wn);
             if (getChildCount() > 1) {
                 View childAt = getChildAt(0);
-                RectF rectF = this.f;
+                RectF rectF = this.wp;
                 if (rectF == null) {
-                    this.f = new RectF();
+                    this.wp = new RectF();
                 } else {
                     rectF.setEmpty();
                 }
-                RectF rectF2 = this.g;
+                RectF rectF2 = this.wq;
                 if (rectF2 == null) {
-                    this.g = new RectF();
+                    this.wq = new RectF();
                 } else {
                     rectF2.setEmpty();
                 }
-                Rect rect = this.d;
+                Rect rect = this.wn;
                 float measuredWidth = rect.left + childAt.getMeasuredWidth();
-                RectF rectF3 = this.f;
+                RectF rectF3 = this.wp;
                 int i = rect.top;
-                float f = this.b;
+                float f = this.wl;
                 rectF3.set(measuredWidth, i - f, (2.0f * f) + measuredWidth, i + f);
-                RectF rectF4 = this.g;
-                RectF rectF5 = this.f;
+                RectF rectF4 = this.wq;
+                RectF rectF5 = this.wp;
                 float f2 = rectF5.left;
-                int i2 = this.d.bottom;
-                float f3 = this.b;
+                int i2 = this.wn.bottom;
+                float f3 = this.wl;
                 rectF4.set(f2, i2 - f3, rectF5.right, i2 + f3);
-                a(this.i, this.e, this.f, this.g);
-                setGradientPaint(this.e);
-                canvas.drawPath(this.i, this.a);
+                a(this.ws, this.wo, this.wp, this.wq);
+                setGradientPaint(this.wo);
+                canvas.drawPath(this.ws, this.mPaint);
             }
             super.dispatchDraw(canvas);
         }

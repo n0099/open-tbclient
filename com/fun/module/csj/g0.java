@@ -110,18 +110,18 @@ public class g0 extends LinearLayout {
             if (interactionType == 2 || interactionType == 3) {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f076b;
+                i = R.string.obfuscated_res_0x7f0f0767;
             } else if (interactionType == 4) {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f076d;
+                i = R.string.obfuscated_res_0x7f0f0769;
             } else if (interactionType != 5) {
                 this.e.setVisibility(8);
                 return;
             } else {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f076c;
+                i = R.string.obfuscated_res_0x7f0f0768;
             }
             button.setText(i);
         }

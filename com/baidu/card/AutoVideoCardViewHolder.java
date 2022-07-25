@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.c68;
 import com.repackage.cy;
 import com.repackage.ky;
-import com.repackage.nn4;
+import com.repackage.on4;
 import com.repackage.s68;
 /* loaded from: classes.dex */
-public class AutoVideoCardViewHolder<T extends nn4> extends ThreadCardViewHolder<T> implements c68 {
+public class AutoVideoCardViewHolder<T extends on4> extends ThreadCardViewHolder<T> implements c68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ky j;
@@ -147,13 +147,13 @@ public class AutoVideoCardViewHolder<T extends nn4> extends ThreadCardViewHolder
         kyVar.stopPlay();
     }
 
-    public ky v() {
+    public ky u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.j : (ky) invokeV.objValue;
     }
 
-    public void w(s68 s68Var) {
+    public void v(s68 s68Var) {
         ky kyVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048585, this, s68Var) == null) || (kyVar = this.j) == null) {

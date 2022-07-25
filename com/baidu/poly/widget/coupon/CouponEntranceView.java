@@ -59,9 +59,9 @@ public class CouponEntranceView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f6, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0906dc);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0906db);
-            this.c = findViewById(R.id.obfuscated_res_0x7f090dce);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0906db);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0906da);
+            this.c = findViewById(R.id.obfuscated_res_0x7f090dc7);
         }
     }
 

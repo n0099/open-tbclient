@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.ksad.json.annotation.KsJson;
-import com.kwad.sdk.core.d.b;
+import com.kwad.sdk.core.e.b;
 import com.kwad.sdk.core.response.kwai.a;
 import com.kwad.sdk.utils.s;
 import java.io.Serializable;
@@ -42,7 +42,7 @@ public class URLPackage extends a implements Serializable {
         try {
             this.mJsonObjectParams = new JSONObject(optString);
         } catch (JSONException e) {
-            b.a(e);
+            b.printStackTrace(e);
         }
     }
 
@@ -51,7 +51,7 @@ public class URLPackage extends a implements Serializable {
         super.afterToJson(jSONObject);
         JSONObject jSONObject2 = this.mJsonObjectParams;
         if (jSONObject2 != null) {
-            s.a(jSONObject, "params", jSONObject2.toString());
+            s.putValue(jSONObject, "params", jSONObject2.toString());
         }
     }
 
@@ -59,6 +59,6 @@ public class URLPackage extends a implements Serializable {
         if (this.mJsonObjectParams == null) {
             this.mJsonObjectParams = new JSONObject();
         }
-        s.a(this.mJsonObjectParams, str, j);
+        s.putValue(this.mJsonObjectParams, str, j);
     }
 }

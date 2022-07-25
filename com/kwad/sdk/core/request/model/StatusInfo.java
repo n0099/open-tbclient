@@ -8,10 +8,10 @@ import java.util.List;
 @KsJson
 /* loaded from: classes5.dex */
 public class StatusInfo extends com.kwad.sdk.core.response.kwai.a {
-    public SplashAdInfo c;
-    public int a = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).g() ? 1 : 0;
-    public int b = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).h() ? 1 : 0;
-    public List<f> d = com.kwad.sdk.core.c.a.b();
+    public SplashAdInfo acU;
+    public int acS = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).isPersonalRecommend() ? 1 : 0;
+    public int acT = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).isProgrammaticRecommend() ? 1 : 0;
+    public List<f> acV = com.kwad.sdk.core.d.a.ts();
 
     @KsJson
     /* loaded from: classes5.dex */
@@ -22,8 +22,8 @@ public class StatusInfo extends com.kwad.sdk.core.response.kwai.a {
 
         public static SplashAdInfo create(SceneImpl sceneImpl) {
             SplashAdInfo splashAdInfo = new SplashAdInfo();
-            splashAdInfo.dailyShowCount = com.kwad.sdk.utils.b.a();
-            splashAdInfo.splashStyleControl = com.kwad.sdk.utils.b.a(sceneImpl);
+            splashAdInfo.dailyShowCount = com.kwad.sdk.utils.b.yU();
+            splashAdInfo.splashStyleControl = com.kwad.sdk.utils.b.d(sceneImpl);
             return splashAdInfo;
         }
     }
@@ -38,7 +38,7 @@ public class StatusInfo extends com.kwad.sdk.core.response.kwai.a {
     }
 
     public StatusInfo(SceneImpl sceneImpl) {
-        this.c = SplashAdInfo.create(sceneImpl);
+        this.acU = SplashAdInfo.create(sceneImpl);
     }
 
     public static StatusInfo a(long j, SceneImpl sceneImpl) {

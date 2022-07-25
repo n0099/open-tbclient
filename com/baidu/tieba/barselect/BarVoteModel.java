@@ -55,12 +55,12 @@ public class BarVoteModel extends BdBaseModel {
 
         /* renamed from: com.baidu.tieba.barselect.BarVoteModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0185a implements Runnable {
+        public class RunnableC0199a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0185a(a aVar) {
+            public RunnableC0199a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -195,7 +195,7 @@ public class BarVoteModel extends BdBaseModel {
                         this.a.c.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.b);
                     }
                 } else if (this.a.a != null) {
-                    qg.a().postDelayed(new RunnableC0185a(this), 5000L);
+                    qg.a().postDelayed(new RunnableC0199a(this), 5000L);
                 }
             }
         }
@@ -250,7 +250,7 @@ public class BarVoteModel extends BdBaseModel {
                     BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
                     blockPopInfoData.block_info = oi.isEmpty(httpResponsedMessage.getErrorString()) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f031e) : httpResponsedMessage.getErrorString();
                     blockPopInfoData.ahead_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f031c);
-                    blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f099e);
+                    blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0989);
                     blockPopInfoData.ahead_url = "https://tieba.baidu.com/mo/q/userappeal";
                     AntiHelper.s(this.a.a, blockPopInfoData);
                     return;

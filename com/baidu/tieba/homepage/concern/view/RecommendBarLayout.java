@@ -36,7 +36,7 @@ import com.repackage.du6;
 import com.repackage.hx;
 import com.repackage.nn;
 import com.repackage.pi;
-import com.repackage.ur4;
+import com.repackage.vr4;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes3.dex */
 public class RecommendBarLayout extends LinearLayout implements hx, View.OnClickListener {
@@ -187,13 +187,13 @@ public class RecommendBarLayout extends LinearLayout implements hx, View.OnClick
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d071e, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0728, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091a94);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091a92);
-            this.e = (ViewPager) findViewById(R.id.obfuscated_res_0x7f091a95);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a90);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091a6e);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091a6c);
+            this.e = (ViewPager) findViewById(R.id.obfuscated_res_0x7f091a6f);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a6a);
             this.e.setOffscreenPageLimit(2);
             RecommendBarPageAdapter recommendBarPageAdapter = new RecommendBarPageAdapter(this.i, this.j);
             this.h = recommendBarPageAdapter;
@@ -217,7 +217,7 @@ public class RecommendBarLayout extends LinearLayout implements hx, View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
             if (i != this.b) {
-                ur4 d = ur4.d(this.d);
+                vr4 d = vr4.d(this.d);
                 d.A(R.string.F_X02);
                 d.v(R.color.CAM_X0105);
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
@@ -230,7 +230,7 @@ public class RecommendBarLayout extends LinearLayout implements hx, View.OnClick
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091a94) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091a6e) {
             nn b2 = this.h.b(this.e.getCurrentItem());
             if (b2 instanceof du6) {
                 du6 du6Var = (du6) b2;

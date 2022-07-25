@@ -64,7 +64,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     public static final int[] CHECKED_STATE_SET;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100329 = 2131755817;
+    public static final int obfuscated_res_0x7f100330 = 2131755824;
     public static final int[] DISABLED_STATE_SET;
     public static final int PRESENTER_NAVIGATION_VIEW_ID = 1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -648,7 +648,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100329), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100330), attributeSet, i);
         ColorStateList createDefaultColorStateList;
         int i2;
         boolean z;
@@ -672,7 +672,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         this.tmpLocation = new int[2];
         Context context2 = getContext();
         this.menu = new NavigationMenu(context2);
-        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{16842964, 16842973, 16843039, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f0402ba, R.attr.obfuscated_res_0x7f040317, R.attr.obfuscated_res_0x7f040319, R.attr.obfuscated_res_0x7f04031b, R.attr.obfuscated_res_0x7f04031c, R.attr.obfuscated_res_0x7f04031d, R.attr.obfuscated_res_0x7f04031e, R.attr.obfuscated_res_0x7f040321, R.attr.obfuscated_res_0x7f040322, R.attr.obfuscated_res_0x7f040323, R.attr.obfuscated_res_0x7f040324, R.attr.obfuscated_res_0x7f040325, R.attr.obfuscated_res_0x7f040326, R.attr.obfuscated_res_0x7f040327, R.attr.obfuscated_res_0x7f04032b, R.attr.obfuscated_res_0x7f04032e, R.attr.obfuscated_res_0x7f040470}, i, obfuscated_res_0x7f100329, new int[0]);
+        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{16842964, 16842973, 16843039, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f0402ba, R.attr.obfuscated_res_0x7f040317, R.attr.obfuscated_res_0x7f040319, R.attr.obfuscated_res_0x7f04031b, R.attr.obfuscated_res_0x7f04031c, R.attr.obfuscated_res_0x7f04031d, R.attr.obfuscated_res_0x7f04031e, R.attr.obfuscated_res_0x7f040321, R.attr.obfuscated_res_0x7f040322, R.attr.obfuscated_res_0x7f040323, R.attr.obfuscated_res_0x7f040324, R.attr.obfuscated_res_0x7f040325, R.attr.obfuscated_res_0x7f040326, R.attr.obfuscated_res_0x7f040327, R.attr.obfuscated_res_0x7f04032b, R.attr.obfuscated_res_0x7f04032e, R.attr.obfuscated_res_0x7f040470}, i, obfuscated_res_0x7f100330, new int[0]);
         if (obtainTintedStyledAttributes.hasValue(0)) {
             ViewCompat.setBackground(this, obtainTintedStyledAttributes.getDrawable(0));
         }

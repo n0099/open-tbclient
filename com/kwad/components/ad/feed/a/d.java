@@ -27,14 +27,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class d extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView a;
-    public ImageView b;
-    public ImageView c;
-    public int d;
-    public Animator e;
-    public Animator f;
-    public Animation g;
-    public Animation h;
+    public int count;
+    public ImageView dA;
+    public ImageView dB;
+    public Animator dC;
+    public Animator dD;
+    public Animation dE;
+    public Animation dF;
+    public ImageView dz;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public d(@NonNull Context context) {
@@ -97,23 +97,18 @@ public final class d extends FrameLayout {
                 return;
             }
         }
-        this.d = 0;
-        a(context);
+        this.count = 0;
+        E(context);
     }
 
-    private Animator a(View view2) {
-        InterceptResult invokeL;
+    private void E(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, "rotation", 0.0f, -10.0f);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, "translationX", 0.0f, -com.kwad.sdk.b.kwai.a.a(getContext(), 9.5f));
-            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(view2, "translationY", 0.0f, -com.kwad.sdk.b.kwai.a.a(getContext(), 9.5f));
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.setDuration(250L);
-            animatorSet.playTogether(ofFloat, ofFloat2, ofFloat3);
-            return animatorSet;
+        if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0443, this);
+            this.dz = (ImageView) findViewById(R.id.obfuscated_res_0x7f09104a);
+            this.dA = (ImageView) findViewById(R.id.obfuscated_res_0x7f091095);
+            this.dB = (ImageView) findViewById(R.id.obfuscated_res_0x7f091047);
         }
-        return (Animator) invokeL.objValue;
     }
 
     private Animation a(View view2, float f, int i) {
@@ -130,8 +125,8 @@ public final class d extends FrameLayout {
             animationSet.setAnimationListener(new Animation.AnimationListener(this, view2) { // from class: com.kwad.components.ad.feed.a.d.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ View a;
-                public final /* synthetic */ d b;
+                public final /* synthetic */ d dG;
+                public final /* synthetic */ View dH;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -148,15 +143,15 @@ public final class d extends FrameLayout {
                             return;
                         }
                     }
-                    this.b = this;
-                    this.a = view2;
+                    this.dG = this;
+                    this.dH = view2;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public final void onAnimationEnd(Animation animation) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animation) == null) {
-                        this.a.setVisibility(4);
+                        this.dH.setVisibility(4);
                     }
                 }
 
@@ -171,7 +166,7 @@ public final class d extends FrameLayout {
                 public final void onAnimationStart(Animation animation) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-                        this.a.setVisibility(0);
+                        this.dH.setVisibility(0);
                     }
                 }
             });
@@ -180,20 +175,103 @@ public final class d extends FrameLayout {
         return (Animation) invokeCommon.objValue;
     }
 
-    private void a(Context context) {
+    private void bp() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0443, this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091053);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09109e);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091050);
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            this.dC = c(this.dB);
+            this.dD = d(this.dB);
+            this.dE = a(this.dz, 0.45f, com.kwad.sdk.b.kwai.a.a(getContext(), 34.0f));
+            this.dF = a(this.dA, 0.5f, com.kwad.sdk.b.kwai.a.a(getContext(), 50.0f));
+            this.dC.addListener(new AnimatorListenerAdapter(this) { // from class: com.kwad.components.ad.feed.a.d.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ d dG;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.dG = this;
+                }
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public final void onAnimationEnd(Animator animator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
+                        this.dG.dz.startAnimation(this.dG.dE);
+                        this.dG.dA.startAnimation(this.dG.dF);
+                        this.dG.dD.start();
+                    }
+                }
+            });
+            this.dD.addListener(new AnimatorListenerAdapter(this) { // from class: com.kwad.components.ad.feed.a.d.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ d dG;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.dG = this;
+                }
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public final void onAnimationEnd(Animator animator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
+                        d.f(this.dG);
+                        if (this.dG.count >= 5) {
+                            return;
+                        }
+                        this.dG.dC.start();
+                    }
+                }
+            });
         }
     }
 
-    private Animator b(View view2) {
+    private Animator c(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, view2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, view2)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, "rotation", 0.0f, -10.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, "translationX", 0.0f, -com.kwad.sdk.b.kwai.a.a(getContext(), 9.5f));
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(view2, "translationY", 0.0f, -com.kwad.sdk.b.kwai.a.a(getContext(), 9.5f));
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.setDuration(250L);
+            animatorSet.playTogether(ofFloat, ofFloat2, ofFloat3);
+            return animatorSet;
+        }
+        return (Animator) invokeL.objValue;
+    }
+
+    private Animator d(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, view2)) == null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, "rotation", -10.0f, 0.0f);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, "translationX", -com.kwad.sdk.b.kwai.a.a(getContext(), 9.5f), 0.0f);
             ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(view2, "translationY", -com.kwad.sdk.b.kwai.a.a(getContext(), 9.5f), 0.0f);
@@ -205,114 +283,36 @@ public final class d extends FrameLayout {
         return (Animator) invokeL.objValue;
     }
 
-    private void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            this.e = a(this.c);
-            this.f = b(this.c);
-            this.g = a(this.a, 0.45f, com.kwad.sdk.b.kwai.a.a(getContext(), 34.0f));
-            this.h = a(this.b, 0.5f, com.kwad.sdk.b.kwai.a.a(getContext(), 50.0f));
-            this.e.addListener(new AnimatorListenerAdapter(this) { // from class: com.kwad.components.ad.feed.a.d.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ d a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public final void onAnimationEnd(Animator animator) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                        this.a.a.startAnimation(this.a.g);
-                        this.a.b.startAnimation(this.a.h);
-                        this.a.f.start();
-                    }
-                }
-            });
-            this.f.addListener(new AnimatorListenerAdapter(this) { // from class: com.kwad.components.ad.feed.a.d.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ d a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public final void onAnimationEnd(Animator animator) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                        d.f(this.a);
-                        if (this.a.d >= 5) {
-                            return;
-                        }
-                        this.a.e.start();
-                    }
-                }
-            });
-        }
-    }
-
     public static /* synthetic */ int f(d dVar) {
-        int i = dVar.d;
-        dVar.d = i + 1;
+        int i = dVar.count;
+        dVar.count = i + 1;
         return i;
     }
 
-    public final void a() {
+    public final void bn() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c();
-            this.e.start();
+            bp();
+            this.dC.start();
         }
     }
 
-    public final void b() {
+    public final void bo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Animator animator = this.e;
+            Animator animator = this.dC;
             if (animator != null) {
                 animator.cancel();
             }
-            Animator animator2 = this.f;
+            Animator animator2 = this.dD;
             if (animator2 != null) {
                 animator2.cancel();
             }
-            Animation animation = this.g;
+            Animation animation = this.dE;
             if (animation != null) {
                 animation.cancel();
             }
-            Animation animation2 = this.h;
+            Animation animation2 = this.dF;
             if (animation2 != null) {
                 animation2.cancel();
             }

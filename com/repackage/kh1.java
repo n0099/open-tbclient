@@ -1,52 +1,80 @@
 package com.repackage;
 
+import android.os.Bundle;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.swan.game.ad.downloader.model.DownloadParams;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Autowired
 /* loaded from: classes6.dex */
-public class kh1 {
+public class kh1 extends pw2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hk1 a;
+    public io3 c;
+    public DownloadParams.SwanAppDownloadType d;
 
-    public kh1() {
+    public kh1(io3 io3Var, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {io3Var, swanAppDownloadType};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = io3Var;
+        this.d = swanAppDownloadType;
     }
 
-    @NonNull
-    public hk1 a() {
+    @Override // com.repackage.nw2
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == null) {
-                this.a = b();
-            }
-            return this.a;
+            return 0L;
         }
-        return (hk1) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    @Inject(force = false)
-    public hk1 b() {
+    @Override // com.repackage.nw2
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new bh3() : (hk1) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.pw2, com.repackage.nw2
+    public void onEvent(@NonNull lw2 lw2Var) {
+        Bundle a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lw2Var) == null) || (a = lw2Var.a()) == null || this.c == null) {
+            return;
+        }
+        int i = a.getInt("state", DownloadState.NOT_START.value());
+        int i2 = a.getInt("progress", 0);
+        this.c.c(DownloadState.convert(i), i2);
+        this.c.a(i2);
+        String string = a.getString("packageName", "");
+        if (!TextUtils.isEmpty(string)) {
+            this.c.d(string);
+        }
+        if (this.d == DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD) {
+            this.c.f(true);
+        }
     }
 }

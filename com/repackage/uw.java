@@ -25,7 +25,7 @@ public class uw {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, tnVar, view2, i)) == null) {
             if (view2.getTag() instanceof AutoVideoCardViewHolder) {
-                return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) view2.getTag()).v().getVideoContainer());
+                return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) view2.getTag()).u().getVideoContainer());
             }
             if (!(tnVar instanceof BdTypeRecyclerView) || (layoutManager = (bdTypeRecyclerView = (BdTypeRecyclerView) tnVar).getLayoutManager()) == null) {
                 return null;
@@ -40,7 +40,7 @@ public class uw {
                 for (int i2 = firstVisiblePosition > headerViewsCount ? firstVisiblePosition - headerViewsCount : headerViewsCount; i2 <= lastVisiblePosition; i2++) {
                     Object item2 = ListUtils.getItem(data, i2 - headerViewsCount);
                     if ((item2 instanceof BaseCardInfo) && baseCardInfo.position == ((BaseCardInfo) item2).position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null && (findViewByPosition.getTag() instanceof AutoVideoCardViewHolder)) {
-                        return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) findViewByPosition.getTag()).v().getVideoContainer());
+                        return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) findViewByPosition.getTag()).u().getVideoContainer());
                     }
                 }
                 return null;

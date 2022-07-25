@@ -223,8 +223,8 @@ public class mn {
                 if (B instanceof BaseCardInfo) {
                     return ((BaseCardInfo) B).position;
                 }
-                if (B instanceof bp4) {
-                    return ((bp4) B).j();
+                if (B instanceof cp4) {
+                    return ((cp4) B).j();
                 }
             }
             return -1;
@@ -249,7 +249,7 @@ public class mn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             if (i > 0) {
-                return vc5.p(this.a.B(i - this.a.getHeaderViewsCount()));
+                return wc5.p(this.a.B(i - this.a.getHeaderViewsCount()));
             }
             return false;
         }

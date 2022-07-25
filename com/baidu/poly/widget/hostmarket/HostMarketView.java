@@ -97,7 +97,7 @@ public class HostMarketView extends FrameLayout {
                 }
                 if (aVar.a != 0) {
                     this.a.c.i();
-                    Toast.makeText(this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f086b), 0).show();
+                    Toast.makeText(this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0856), 0).show();
                 }
                 this.a.d.setIsSelected(this.a.c.isChecked() ? 1 : 0);
             }
@@ -136,9 +136,9 @@ public class HostMarketView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0393, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0920bc);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091e5e);
-            SwitchButton switchButton = (SwitchButton) findViewById(R.id.obfuscated_res_0x7f091eaf);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0920be);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091e62);
+            SwitchButton switchButton = (SwitchButton) findViewById(R.id.obfuscated_res_0x7f091eb3);
             this.c = switchButton;
             switchButton.setOnCheckedChangeListener(new a(this));
         }

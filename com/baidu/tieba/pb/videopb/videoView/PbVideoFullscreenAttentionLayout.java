@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.kv7;
 import com.repackage.oi;
 import com.repackage.pi;
-import com.repackage.tu4;
+import com.repackage.uu4;
 /* loaded from: classes3.dex */
 public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -79,14 +79,14 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d06a1, this);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d06ab, this);
             this.a = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0902c1);
-            this.b = (PbVideoFullscreenLikeBtn) findViewById(R.id.obfuscated_res_0x7f090691);
+            this.b = (PbVideoFullscreenLikeBtn) findViewById(R.id.obfuscated_res_0x7f090690);
             this.a.setIsRound(true);
             this.a.setBorderWidth(pi.f(context, R.dimen.tbds3));
             this.a.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
             this.a.setAutoChangeStyle(false);
-            this.b.setConfig(new tu4());
+            this.b.setConfig(new uu4());
         }
     }
 

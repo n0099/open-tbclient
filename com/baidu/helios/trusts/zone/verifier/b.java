@@ -64,12 +64,12 @@ public class b {
 
     /* renamed from: com.baidu.helios.trusts.zone.verifier.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0099b implements c {
+    public static final class C0100b implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ByteBuffer a;
 
-        public C0099b(ByteBuffer byteBuffer) {
+        public C0100b(ByteBuffer byteBuffer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -691,29 +691,29 @@ public class b {
     }
 
     public static void k(Map<Integer, byte[]> map, RandomAccessFile randomAccessFile, FileDescriptor fileDescriptor, long j, long j2, long j3, ByteBuffer byteBuffer) throws SecurityException {
-        c c0099b;
-        c c0099b2;
+        c c0100b;
+        c c0100b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{map, randomAccessFile, fileDescriptor, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), byteBuffer}) == null) {
             if (map.isEmpty()) {
                 throw new SecurityException("No digests provided");
             }
             if (j > 1048576) {
-                c0099b = new d(randomAccessFile.getChannel(), 0L, j);
-                c0099b2 = new d(randomAccessFile.getChannel(), j2, j3 - j2);
+                c0100b = new d(randomAccessFile.getChannel(), 0L, j);
+                c0100b2 = new d(randomAccessFile.getChannel(), j2, j3 - j2);
             } else {
                 ByteBuffer allocate = ByteBuffer.allocate((int) j);
                 allocate.order(ByteOrder.LITTLE_ENDIAN);
                 try {
                     randomAccessFile.seek(0L);
                     randomAccessFile.readFully(allocate.array(), allocate.arrayOffset(), allocate.capacity());
-                    c0099b = new C0099b(allocate);
+                    c0100b = new C0100b(allocate);
                     ByteBuffer allocate2 = ByteBuffer.allocate((int) (j3 - j2));
                     allocate2.order(ByteOrder.LITTLE_ENDIAN);
                     try {
                         randomAccessFile.seek(j2);
                         randomAccessFile.readFully(allocate2.array(), allocate2.arrayOffset(), allocate2.capacity());
-                        c0099b2 = new C0099b(allocate2);
+                        c0100b2 = new C0100b(allocate2);
                     } catch (IOException e2) {
                         throw new SecurityException("Failed to get apk contents", e2);
                     }
@@ -724,7 +724,7 @@ public class b {
             ByteBuffer duplicate = byteBuffer.duplicate();
             duplicate.order(ByteOrder.LITTLE_ENDIAN);
             s40.f(duplicate, j);
-            C0099b c0099b3 = new C0099b(duplicate);
+            C0100b c0100b3 = new C0100b(duplicate);
             int size = map.size();
             int[] iArr = new int[size];
             int i = 0;
@@ -733,7 +733,7 @@ public class b {
                 i++;
             }
             try {
-                byte[][] m = m(iArr, new c[]{c0099b, c0099b2, c0099b3});
+                byte[][] m = m(iArr, new c[]{c0100b, c0100b2, c0100b3});
                 for (int i2 = 0; i2 < size; i2++) {
                     int i3 = iArr[i2];
                     if (!MessageDigest.isEqual(map.get(Integer.valueOf(i3)), m[i2])) {

@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jm4;
+import com.repackage.km4;
 import com.repackage.op7;
 import com.repackage.pi;
 /* loaded from: classes3.dex */
@@ -42,7 +42,7 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
     public TextView g;
     public View h;
     public op7 i;
-    public jm4<op7> j;
+    public km4<op7> j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicListInfoItem(Context context) {
@@ -88,7 +88,7 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
             this.f.setVisibility(0);
             String numberUniformFormatExtraWithRoundInt = StringHelper.numberUniformFormatExtraWithRoundInt(op7Var.e);
             TextView textView = this.f;
-            textView.setText(textView.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f088d, numberUniformFormatExtraWithRoundInt));
+            textView.setText(textView.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0878, numberUniformFormatExtraWithRoundInt));
         } else {
             this.f.setVisibility(4);
         }
@@ -116,17 +116,17 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03a1, (ViewGroup) this, true);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091b5d);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0906e0);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090ec1);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0920c3);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091ee4);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091641);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090757);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091b37);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0906df);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090eba);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0920c5);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091ee8);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09161c);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090756);
             this.b.setPlaceHolder(1);
             this.b.setRadius(pi.f(getContext(), R.dimen.tbds10));
             this.b.setConrers(15);
-            findViewById(R.id.obfuscated_res_0x7f091b5d).setOnClickListener(this);
+            findViewById(R.id.obfuscated_res_0x7f091b37).setOnClickListener(this);
         }
     }
 
@@ -156,9 +156,9 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
         if (j <= 0) {
             return;
         }
-        jm4<op7> jm4Var = this.j;
-        if (jm4Var != null) {
-            jm4Var.c(view2, op7Var, op7Var.b, j);
+        km4<op7> km4Var = this.j;
+        if (km4Var != null) {
+            km4Var.c(view2, op7Var, op7Var.b, j);
         }
         String tryFixDefaultValue = StringUtils.tryFixDefaultValue(String.valueOf(this.i.a));
         String tryFixDefaultValue2 = StringUtils.tryFixDefaultValue(this.i.c);
@@ -169,10 +169,10 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
         new HotTopicActivityConfig(getContext()).createNormalConfig(tryFixDefaultValue, null, String.valueOf(this.i.a()), "5", locate).start();
     }
 
-    public void setOnItemCoverListener(jm4<op7> jm4Var) {
+    public void setOnItemCoverListener(km4<op7> km4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jm4Var) == null) {
-            this.j = jm4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, km4Var) == null) {
+            this.j = km4Var;
         }
     }
 

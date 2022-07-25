@@ -12,6 +12,7 @@ import com.baidu.location.Address;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Poi;
 import com.baidu.location.b.i;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -692,12 +693,12 @@ public class l extends i {
                 } else if (bDLocation.getLocType() == 161) {
                     if (Build.VERSION.SDK_INT >= 19 && ((b2 = com.baidu.location.e.k.b(com.baidu.location.f.getServiceContext())) == 0 || b2 == 2)) {
                         com.baidu.location.b.b.a().a(161, 1, "NetWork location successful, open gps will be better!");
-                    } else if (bDLocation.getRadius() >= 100.0f && bDLocation.getNetworkLocationType() != null && bDLocation.getNetworkLocationType().equals("cl") && (g2 = com.baidu.location.c.i.a().g()) != null && !g2.equals("&wifio=1")) {
+                    } else if (bDLocation.getRadius() >= 100.0f && bDLocation.getNetworkLocationType() != null && bDLocation.getNetworkLocationType().equals(Config.CELL_LOCATION) && (g2 = com.baidu.location.c.i.a().g()) != null && !g2.equals("&wifio=1")) {
                         com.baidu.location.b.b.a().a(161, 2, "NetWork location successful, open wifi will be better!");
                     }
                 }
                 this.l = null;
-                if (bDLocation.getLocType() == 161 && "cl".equals(bDLocation.getNetworkLocationType()) && (bDLocation2 = this.k) != null && bDLocation2.getLocType() == 161 && "wf".equals(this.k.getNetworkLocationType()) && System.currentTimeMillis() - this.u < 30000) {
+                if (bDLocation.getLocType() == 161 && Config.CELL_LOCATION.equals(bDLocation.getNetworkLocationType()) && (bDLocation2 = this.k) != null && bDLocation2.getLocType() == 161 && "wf".equals(this.k.getNetworkLocationType()) && System.currentTimeMillis() - this.u < 30000) {
                     this.l = bDLocation;
                     z = true;
                 }

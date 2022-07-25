@@ -64,7 +64,7 @@ public final class i49 implements Application.ActivityLifecycleCallbacks {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
             synchronized (this.a.b()) {
                 for (b49.a aVar : this.a.b()) {
-                    aVar.b();
+                    aVar.U();
                 }
             }
         }
@@ -76,7 +76,7 @@ public final class i49 implements Application.ActivityLifecycleCallbacks {
         if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
             synchronized (this.a.b()) {
                 for (b49.a aVar : this.a.b()) {
-                    aVar.a();
+                    aVar.b();
                 }
             }
         }

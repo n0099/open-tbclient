@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class oc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, mk4> a;
+    public final HashMap<String, nk4> a;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -135,17 +135,17 @@ public class oc7 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a : (oc7) invokeV.objValue;
     }
 
-    public void b(jk4 jk4Var) {
+    public void b(kk4 kk4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jk4Var) == null) {
-            c(jk4Var.c(), jk4Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, kk4Var) == null) {
+            c(kk4Var.c(), kk4Var);
         }
     }
 
-    public void c(String str, mk4 mk4Var) {
+    public void c(String str, nk4 nk4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, mk4Var) == null) {
-            this.a.put(str, mk4Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, nk4Var) == null) {
+            this.a.put(str, nk4Var);
         }
     }
 
@@ -155,11 +155,11 @@ public class oc7 {
             return;
         }
         b a2 = b.a(str);
-        mk4 mk4Var = this.a.get(a2.b());
-        if (mk4Var == null || !a2.e()) {
+        nk4 nk4Var = this.a.get(a2.b());
+        if (nk4Var == null || !a2.e()) {
             return;
         }
-        mk4Var.b(obj, a2.c(), str);
+        nk4Var.b(obj, a2.c(), str);
     }
 
     public void e(Object obj, String str, HashMap<String, String> hashMap, c9 c9Var) {
@@ -168,14 +168,14 @@ public class oc7 {
             return;
         }
         b a2 = b.a(str);
-        mk4 mk4Var = this.a.get(a2.b());
-        if (mk4Var == null || !a2.e()) {
+        nk4 nk4Var = this.a.get(a2.b());
+        if (nk4Var == null || !a2.e()) {
             return;
         }
         if (hashMap != null && !hashMap.isEmpty()) {
             a2.c().putAll(hashMap);
         }
-        mk4Var.a(obj, a2.c(), str, c9Var);
+        nk4Var.a(obj, a2.c(), str, c9Var);
     }
 
     public oc7() {

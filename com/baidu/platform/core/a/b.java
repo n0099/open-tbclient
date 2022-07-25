@@ -8,6 +8,7 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.district.DistrictResult;
 import com.baidu.mapapi.search.district.OnGetDistricSearchResultListener;
 import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,7 +60,7 @@ public class b extends com.baidu.platform.base.d {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("result");
+                JSONObject optJSONObject2 = jSONObject.optJSONObject(TiebaStatic.LogFields.RESULT);
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("city_result");
                 if (optJSONObject2 == null || optJSONObject3 == null) {
                     return false;
@@ -140,7 +141,7 @@ public class b extends com.baidu.platform.base.d {
             if (str != null && !str.equals("") && districtResult != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    JSONObject optJSONObject = jSONObject.optJSONObject("result");
+                    JSONObject optJSONObject = jSONObject.optJSONObject(TiebaStatic.LogFields.RESULT);
                     JSONObject optJSONObject2 = jSONObject.optJSONObject("content");
                     if (optJSONObject == null || optJSONObject2 == null || optJSONObject.optInt("error") != 0) {
                         return false;

@@ -80,9 +80,9 @@ public class p58 extends jx5<n48> implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             this.i = view2.findViewById(R.id.obfuscated_res_0x7f09054f);
-            this.k = view2.findViewById(R.id.obfuscated_res_0x7f09213d);
-            this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091397);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091663);
+            this.k = view2.findViewById(R.id.obfuscated_res_0x7f09213f);
+            this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091373);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09163e);
             this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09050e);
             this.l.setOnClickListener(this);
         }

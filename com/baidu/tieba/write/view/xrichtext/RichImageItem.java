@@ -23,11 +23,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ig;
 import com.repackage.jg;
-import com.repackage.k45;
-import com.repackage.o45;
+import com.repackage.l45;
 import com.repackage.oi;
+import com.repackage.p45;
 import com.repackage.pi;
-import com.repackage.x45;
+import com.repackage.y45;
 import com.repackage.ym;
 import java.io.File;
 /* loaded from: classes4.dex */
@@ -83,7 +83,7 @@ public class RichImageItem extends FrameLayout {
                     }
                     return;
                 }
-                pi.K(this.a.getContext(), R.string.obfuscated_res_0x7f0f0531);
+                pi.K(this.a.getContext(), R.string.obfuscated_res_0x7f0f052d);
             }
         }
     }
@@ -123,7 +123,7 @@ public class RichImageItem extends FrameLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements k45 {
+    public class c implements l45 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RichImageItem a;
@@ -146,7 +146,7 @@ public class RichImageItem extends FrameLayout {
             this.a = richImageItem;
         }
 
-        @Override // com.repackage.k45
+        @Override // com.repackage.l45
         public void a(ym ymVar, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, ymVar, str, z) == null) || ymVar == null) {
@@ -260,8 +260,8 @@ public class RichImageItem extends FrameLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d073a, this);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090f83);
+            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0744, this);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090f7c);
             this.a = tbImageView;
             tbImageView.setTagTextSize(pi.f(getContext(), R.dimen.T_X10));
             this.a.setDrawBorder(true);
@@ -269,13 +269,13 @@ public class RichImageItem extends FrameLayout {
             this.a.setAutoChangeStyle(true);
             this.a.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f09074f);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090749);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09074e);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090748);
             this.a.setVisibility(0);
             findViewById.setVisibility(0);
             this.a.setGifIconSupport(true);
             this.a.setLongIconSupport(true);
-            this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f051e));
+            this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f051a));
             setOnClickListener(new a(this));
             findViewById.setOnClickListener(new b(this));
             f();
@@ -300,16 +300,16 @@ public class RichImageItem extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a.setIsLongPic(this.d.isLong());
             int i = this.e;
-            ImageOperation g = x45.g(i, i * 2);
+            ImageOperation g = y45.g(i, i * 2);
             this.d.clearPageActions();
             this.d.addPageAction(g);
             if (this.d.getImageType() == 0) {
                 this.a.setTag(this.d.toCachedKey(true));
-                ym d2 = new o45().d(this.d, new c(this), true);
+                ym d2 = new p45().d(this.d, new c(this), true);
                 if (d2 != null && d2.r() > 0 && d2.m() > 0) {
                     post(new d(this, d2));
                 }
-                this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f051e));
+                this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f051a));
             } else if (this.d.getImageType() == 1) {
                 String filePath = this.d.getFilePath();
                 if (!oi.isEmpty(filePath) && filePath.startsWith(SmallTailInfo.EMOTION_PREFIX)) {

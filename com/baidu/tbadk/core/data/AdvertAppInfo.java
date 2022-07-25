@@ -18,23 +18,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bp4;
+import com.repackage.an4;
+import com.repackage.cp4;
 import com.repackage.da8;
 import com.repackage.gd7;
 import com.repackage.kg0;
 import com.repackage.ng;
-import com.repackage.pn4;
-import com.repackage.sn4;
+import com.repackage.qn4;
 import com.repackage.t98;
+import com.repackage.tn4;
 import com.repackage.uc7;
-import com.repackage.zm4;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes3.dex */
-public class AdvertAppInfo extends ThreadData implements bp4, da8 {
+public class AdvertAppInfo extends ThreadData implements cp4, da8 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId A;
     public static final BdUniqueId B;
@@ -59,7 +59,7 @@ public class AdvertAppInfo extends ThreadData implements bp4, da8 {
     public String f;
     public String g;
     public ILegoAdvert h;
-    public sn4 i;
+    public tn4 i;
     public String j;
     public int k;
     public String l;
@@ -78,7 +78,7 @@ public class AdvertAppInfo extends ThreadData implements bp4, da8 {
 
         AdvertAppInfo getAdvertAppInfo();
 
-        pn4 getAppInfoModel();
+        qn4 getAppInfoModel();
 
         @NonNull
         String getDownloadId();
@@ -220,7 +220,7 @@ public class AdvertAppInfo extends ThreadData implements bp4, da8 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.bp4
+    @Override // com.repackage.cp4
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -255,7 +255,7 @@ public class AdvertAppInfo extends ThreadData implements bp4, da8 {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             int i = this.c;
             if (i != 1001 && i != -1001) {
-                if (!zm4.c().g() && (iLegoAdvert = this.h) != null && iLegoAdvert.isNoPicAd()) {
+                if (!an4.c().g() && (iLegoAdvert = this.h) != null && iLegoAdvert.isNoPicAd()) {
                     return t;
                 }
                 ILegoAdvert iLegoAdvert2 = this.h;
@@ -310,7 +310,7 @@ public class AdvertAppInfo extends ThreadData implements bp4, da8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.bp4
+    @Override // com.repackage.cp4
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -367,8 +367,8 @@ public class AdvertAppInfo extends ThreadData implements bp4, da8 {
                 if (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.a.trim())) {
                     return 24;
                 }
-                if (this.h.getAppInfoModel() == null || pn4.c(this.h.getAppInfoModel())) {
-                    if (zm4.c().g() || this.h.isNoPicAd()) {
+                if (this.h.getAppInfoModel() == null || qn4.c(this.h.getAppInfoModel())) {
+                    if (an4.c().g() || this.h.isNoPicAd()) {
                         int i3 = this.m;
                         if (i3 == 3 || i3 == 1) {
                             if (this.m == 3) {
@@ -413,7 +413,7 @@ public class AdvertAppInfo extends ThreadData implements bp4, da8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.bp4
+    @Override // com.repackage.cp4
     public AdvertAppInfo q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -440,7 +440,7 @@ public class AdvertAppInfo extends ThreadData implements bp4, da8 {
         }
     }
 
-    @Override // com.repackage.bp4
+    @Override // com.repackage.cp4
     public void setPosition(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {

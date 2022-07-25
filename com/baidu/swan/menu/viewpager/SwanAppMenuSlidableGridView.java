@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q64;
+import com.repackage.r64;
 /* loaded from: classes2.dex */
 public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public static /* synthetic */ Interceptable $ic;
@@ -83,11 +83,11 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            PointPageIndicator e = new q64(context).e(R.drawable.obfuscated_res_0x7f080cf2, R.drawable.obfuscated_res_0x7f080cf3);
-            e.f((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0701ca));
+            PointPageIndicator e = new r64(context).e(R.drawable.obfuscated_res_0x7f080cf2, R.drawable.obfuscated_res_0x7f080cf3);
+            e.f((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0701c8));
             this.h = e;
-            this.i[0] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0700df);
-            this.i[1] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0700df);
+            this.i[0] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0700dd);
+            this.i[1] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0700dd);
             addView(this.h, e());
         }
     }
@@ -114,7 +114,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0700df) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0700dd) : invokeV.intValue;
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
@@ -131,9 +131,9 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
             setOrientation(1);
             b(context);
             Resources resources = context.getResources();
-            addView(new View(context), new LinearLayout.LayoutParams(-1, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700e1)));
+            addView(new View(context), new LinearLayout.LayoutParams(-1, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700df)));
             a(context);
-            addView(new View(context), new LinearLayout.LayoutParams(-1, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700e2)));
+            addView(new View(context), new LinearLayout.LayoutParams(-1, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700e0)));
         }
     }
 

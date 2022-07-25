@@ -132,7 +132,7 @@ public abstract class ReporterPidLoader<A> extends BasePidLoader<A> {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{a, Boolean.valueOf(z), strArr}) == null) {
             super.onAdClicked(a, strArr);
             PidLoaderSession<A> session = getSession(a);
-            this.mReporter.recordOnClicked(a, z, getLid(session), getShowMeta(a, session), strArr);
+            this.mReporter.recordOnClicked(a, z, getLid(session), getShowMeta(a, session), this.mAdRipper.getRippedAd(a, false), strArr);
         }
     }
 
@@ -172,7 +172,7 @@ public abstract class ReporterPidLoader<A> extends BasePidLoader<A> {
             PidLoaderSession<A> session = getSession(a);
             SidSessionMeta showMeta = getShowMeta(a, session);
             long lid = getLid(session);
-            this.mReporter.recordShowSucceed(a, z, lid, showMeta, strArr);
+            this.mReporter.recordShowSucceed(a, z, lid, showMeta, this.mAdRipper.getRippedAd(a, false), strArr);
             this.mAdRipper.report(a, showMeta.sid, lid);
         }
     }
@@ -226,7 +226,7 @@ public abstract class ReporterPidLoader<A> extends BasePidLoader<A> {
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{a, Boolean.valueOf(z), Integer.valueOf(i), strArr}) == null) {
             super.onRewardedVideo(a, z, i, strArr);
             PidLoaderSession<A> session = getSession(a);
-            this.mReporter.recordReward(a, z, getLid(session), getShowMeta(a, session), i, strArr);
+            this.mReporter.recordReward(a, z, getLid(session), getShowMeta(a, session), i, this.mAdRipper.getRippedAd(a, false), strArr);
         }
     }
 

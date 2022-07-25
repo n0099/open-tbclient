@@ -84,7 +84,7 @@ public class PostForumData extends my5 implements Serializable {
             return;
         }
         this.showTopDivider = true;
-        this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f90);
+        this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f79);
         this.mRelateForumDataList = new ArrayList();
         for (RelateForum relateForum : list) {
             if (relateForum != null && !StringUtils.isNull(relateForum.forum_name)) {

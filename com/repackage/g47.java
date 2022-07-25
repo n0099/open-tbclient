@@ -423,7 +423,7 @@ public class g47 extends a9<MsglistActivity<?>> {
             if (text.toString().contains("删贴") || text.toString().contains("删除")) {
                 if (text.toString().contains("http://") || text.toString().contains("https://")) {
                     UrlManager.getInstance().dealOneLink((TbPageContext) h9.a(view2.getContext()), new String[]{"https://tieba.baidu.com/mo/q/wise-bawu-core/recycle-station#/recycle-post?noshare=1"});
-                    xt4.k().u(xt4.o("key_person_post_recycle_bin_red_tip_show"), false);
+                    yt4.k().u(yt4.o("key_person_post_recycle_bin_red_tip_show"), false);
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SITE_SERVICE).param("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
             }
@@ -1002,24 +1002,24 @@ public class g47 extends a9<MsglistActivity<?>> {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.i = (TextView) a(R.id.obfuscated_res_0x7f091fa6);
-            TbRichTextView tbRichTextView = (TbRichTextView) a(R.id.obfuscated_res_0x7f091fa5);
+            this.i = (TextView) a(R.id.obfuscated_res_0x7f091faa);
+            TbRichTextView tbRichTextView = (TbRichTextView) a(R.id.obfuscated_res_0x7f091fa9);
             this.j = tbRichTextView;
             tbRichTextView.setLinkTextColor(-14845754);
             this.j.setFaceSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X04));
-            this.q = (ChatImageWithTailView) a(R.id.obfuscated_res_0x7f090e90);
+            this.q = (ChatImageWithTailView) a(R.id.obfuscated_res_0x7f090e89);
             this.y = (TbCheckBox) a(R.id.obfuscated_res_0x7f090612);
-            this.z = (LinearLayout) a(R.id.obfuscated_res_0x7f09134c);
-            this.m = (Invite2GroupView) a(R.id.obfuscated_res_0x7f091211);
-            this.n = (ShareFromPBView) a(R.id.obfuscated_res_0x7f091214);
-            this.o = (ShareFromFrsView) a(R.id.obfuscated_res_0x7f091212);
-            this.p = (ShareFromGameCenter) a(R.id.obfuscated_res_0x7f091213);
-            ChatVoiceView chatVoiceView = (ChatVoiceView) a(R.id.obfuscated_res_0x7f091215);
+            this.z = (LinearLayout) a(R.id.obfuscated_res_0x7f091328);
+            this.m = (Invite2GroupView) a(R.id.obfuscated_res_0x7f0911ed);
+            this.n = (ShareFromPBView) a(R.id.obfuscated_res_0x7f0911f0);
+            this.o = (ShareFromFrsView) a(R.id.obfuscated_res_0x7f0911ee);
+            this.p = (ShareFromGameCenter) a(R.id.obfuscated_res_0x7f0911ef);
+            ChatVoiceView chatVoiceView = (ChatVoiceView) a(R.id.obfuscated_res_0x7f0911f1);
             this.k = chatVoiceView;
             chatVoiceView.setClickable(true);
             ChatVoiceView chatVoiceView2 = this.k;
             chatVoiceView2.setOnClickListener(chatVoiceView2);
-            this.r = (ChatShareCard) a(R.id.obfuscated_res_0x7f091d37);
+            this.r = (ChatShareCard) a(R.id.obfuscated_res_0x7f091d3d);
             q();
             this.j.setOnClickListener(new i(this));
             this.k.setLongClickable(true);
@@ -1032,7 +1032,7 @@ public class g47 extends a9<MsglistActivity<?>> {
             this.q.getTail().setOnClickListener(new m(this));
             this.j.setLongClickable(true);
             this.j.setOnLongClickListener(new n(this));
-            GifView gifView = (GifView) a(R.id.obfuscated_res_0x7f09087c);
+            GifView gifView = (GifView) a(R.id.obfuscated_res_0x7f09087a);
             this.l = gifView;
             gifView.setSupportNoImage(false);
             this.l.setOnClickListener(new o(this));

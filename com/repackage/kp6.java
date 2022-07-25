@@ -195,11 +195,11 @@ public class kp6 {
         if (!(interceptable == null || interceptable.invokeLI(1048583, this, bitmap, i) == null) || this.a == null || bitmap == null || b()) {
             return;
         }
-        he5.b(new a(this, bitmap, i), new jd5() { // from class: com.repackage.yo6
+        he5.b(new a(this, bitmap, i), new kd5() { // from class: com.repackage.yo6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.repackage.jd5
+            @Override // com.repackage.kd5
             public final void onReturnDataInUI(Object obj) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {

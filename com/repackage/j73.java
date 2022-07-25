@@ -2,7 +2,9 @@ package com.repackage;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,23 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class j73 {
+public class j73 extends l73 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean j;
+    public static final boolean x;
+    public static int y;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public JSONObject h;
-    public JSONObject i;
+    public boolean v;
+    public JSONObject w;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +36,8 @@ public class j73 {
                 return;
             }
         }
-        j = rg1.a;
+        x = sg1.a;
+        y = 35;
     }
 
     public j73() {
@@ -57,156 +53,160 @@ public class j73 {
                 return;
             }
         }
-        this.a = "swan";
+        this.v = false;
+        this.c = "NA";
     }
 
-    public void a(@NonNull String str, Object obj) {
+    @Override // com.repackage.l73, com.repackage.k73
+    public JSONObject f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.h == null) {
                 this.h = new JSONObject();
             }
             try {
-                this.h.put(str, obj);
+                if (this.w != null) {
+                    if (this.v) {
+                        String z = ce3.z(y);
+                        if (!TextUtils.isEmpty(z)) {
+                            this.w.put("stacktrace", z);
+                        }
+                    }
+                    if (this.w.length() != 0) {
+                        this.h.put("info", this.w);
+                    }
+                }
+                ExtensionCore T = c72.U().T();
+                if (T != null) {
+                    this.h.put("extension_ver", T.extensionCoreVersionName);
+                }
             } catch (JSONException e) {
-                if (j) {
+                if (x) {
                     e.printStackTrace();
                 }
             }
-        }
-    }
-
-    public void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        if (this.h == null) {
-            this.h = new JSONObject();
-        }
-        JSONObject optJSONObject = this.h.optJSONObject("extlog");
-        this.i = optJSONObject;
-        if (optJSONObject == null) {
-            this.i = new JSONObject();
-        }
-        Iterator<String> keys = jSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            try {
-                this.i.put(next, jSONObject.opt(next));
-            } catch (JSONException e) {
-                if (j) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        try {
-            this.h.put("extlog", this.i);
-        } catch (JSONException e2) {
-            if (j) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public JSONObject c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.h == null) {
-                return null;
-            }
-            try {
-                return new JSONObject(this.h.toString());
-            } catch (JSONException e) {
-                if (j) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
+            return super.f();
         }
         return (JSONObject) invokeV.objValue;
     }
 
-    public void d(String str) {
+    public j73 l(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            e(new JSONObject(str));
-        } catch (JSONException e) {
-            if (j) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            if (str != null && str2 != null) {
+                if (this.w == null) {
+                    this.w = new JSONObject();
+                }
+                try {
+                    this.w.put(str, str2);
+                } catch (JSONException e) {
+                    if (x) {
+                        e.printStackTrace();
+                    }
+                }
             }
+            return this;
         }
+        return (j73) invokeLL.objValue;
     }
 
-    public void e(JSONObject jSONObject) {
+    public j73 m(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.f = str;
+            return this;
         }
-        if (this.h == null) {
-            this.h = new JSONObject();
-        }
-        Iterator<String> keys = jSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            try {
-                this.h.put(next, jSONObject.opt(next));
-            } catch (JSONException e) {
-                if (j) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        return (j73) invokeL.objValue;
     }
 
-    public JSONObject f() {
-        InterceptResult invokeV;
+    public j73 n(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (!TextUtils.isEmpty(this.a)) {
-                    jSONObject.put("from", this.a);
-                }
-                if (!TextUtils.isEmpty(this.b)) {
-                    jSONObject.put("type", this.b);
-                }
-                if (!TextUtils.isEmpty(this.e)) {
-                    jSONObject.put("value", this.e);
-                }
-                if (TextUtils.isEmpty(this.c)) {
-                    this.c = "NA";
-                }
-                jSONObject.put("source", this.c);
-                if (!TextUtils.isEmpty(this.g)) {
-                    String b = z63.b(this.g);
-                    this.g = b;
-                    jSONObject.put("page", b);
-                }
-                if (this.h == null) {
-                    this.h = new JSONObject();
-                }
-                if (!TextUtils.isEmpty(this.f)) {
-                    this.h.put("appid", this.f);
-                }
-                if (!TextUtils.isEmpty(this.d)) {
-                    this.h.put("launchid", this.d);
-                }
-                z63.a(this.h);
-                jSONObject.put("ext", this.h);
-                return jSONObject;
-            } catch (JSONException e) {
-                if (j) {
-                    e.printStackTrace();
-                    return null;
-                }
-                return null;
-            }
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            this.v = z;
+            return this;
         }
-        return (JSONObject) invokeV.objValue;
+        return (j73) invokeZ.objValue;
+    }
+
+    public j73 o(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.b = String.valueOf(i);
+            return this;
+        }
+        return (j73) invokeI.objValue;
+    }
+
+    public j73 p(@NonNull bc3 bc3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bc3Var)) == null) {
+            this.b = String.valueOf(bc3Var.a());
+            String sb = bc3Var.g().toString();
+            if (!TextUtils.isEmpty(sb)) {
+                l("detail", sb);
+            }
+            return this;
+        }
+        return (j73) invokeL.objValue;
+    }
+
+    public j73 q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            this.a = str;
+            return this;
+        }
+        return (j73) invokeL.objValue;
+    }
+
+    public j73 r(il2 il2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, il2Var)) == null) {
+            if (il2Var == null) {
+                return this;
+            }
+            if (!TextUtils.isEmpty(il2Var.T())) {
+                this.c = il2Var.T();
+            }
+            if (!TextUtils.isEmpty(il2Var.H())) {
+                this.f = il2Var.H();
+            }
+            if (!TextUtils.isEmpty(il2Var.W())) {
+                this.p = il2Var.W();
+            }
+            if (!TextUtils.isEmpty(il2Var.e0())) {
+                this.s = il2Var.e0();
+            }
+            return this;
+        }
+        return (j73) invokeL.objValue;
+    }
+
+    public j73 s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            this.g = str;
+            return this;
+        }
+        return (j73) invokeL.objValue;
+    }
+
+    public j73 t(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            this.c = str;
+            return this;
+        }
+        return (j73) invokeL.objValue;
     }
 }

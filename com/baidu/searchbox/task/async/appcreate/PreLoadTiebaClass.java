@@ -11,9 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li4;
+import com.repackage.mi4;
 import com.repackage.pi;
-import com.repackage.ud5;
+import com.repackage.vd5;
 /* loaded from: classes2.dex */
 public class PreLoadTiebaClass extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -43,9 +43,9 @@ public class PreLoadTiebaClass extends LaunchTask {
                 Class.forName("com.baidu.tieba.im.memorycache.ImMemoryCacheRegister");
             } catch (ClassNotFoundException unused) {
             }
-            li4.w();
+            mi4.w();
             ItemCardHelper.i();
-            ud5.b();
+            vd5.b();
             pi.y(TbadkCoreApplication.getInst());
         }
     }

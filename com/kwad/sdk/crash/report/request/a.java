@@ -11,6 +11,6 @@ public final class a extends d {
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
     public final String getUrl() {
-        return com.kwad.sdk.b.j();
+        return com.kwad.sdk.b.qR();
     }
 }

@@ -41,7 +41,7 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
     public volatile int[] sync;
 
     /* renamed from: view  reason: collision with root package name */
-    public SurfaceHolder.Callback f1748view;
+    public SurfaceHolder.Callback f1028view;
     public int viewFormat;
     public int viewHeight;
     public int viewWidth;
@@ -271,7 +271,7 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                     androidLiveWallpaperService2.viewFormat = this.b;
                     androidLiveWallpaperService2.viewWidth = this.c;
                     androidLiveWallpaperService2.viewHeight = this.d;
-                    SurfaceHolder.Callback callback = androidLiveWallpaperService2.f1748view;
+                    SurfaceHolder.Callback callback = androidLiveWallpaperService2.f1028view;
                     SurfaceHolder surfaceHolder = getSurfaceHolder();
                     AndroidLiveWallpaperService androidLiveWallpaperService3 = this.o;
                     callback.surfaceChanged(surfaceHolder, androidLiveWallpaperService3.viewFormat, androidLiveWallpaperService3.viewWidth, androidLiveWallpaperService3.viewHeight);
@@ -352,9 +352,9 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                 if (this.o.linkedEngine != null) {
                     if (this.o.linkedEngine != this) {
                         this.o.setLinkedEngine(this);
-                        this.o.f1748view.surfaceDestroyed(getSurfaceHolder());
+                        this.o.f1028view.surfaceDestroyed(getSurfaceHolder());
                         d(this.b, this.c, this.d, false);
-                        this.o.f1748view.surfaceCreated(getSurfaceHolder());
+                        this.o.f1028view.surfaceCreated(getSurfaceHolder());
                     } else {
                         d(this.b, this.c, this.d, false);
                     }
@@ -528,18 +528,18 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                     }
                 }
                 AndroidLiveWallpaperService androidLiveWallpaperService5 = this.o;
-                androidLiveWallpaperService5.f1748view = androidLiveWallpaperService5.app.b.a;
-                getSurfaceHolder().removeCallback(this.o.f1748view);
+                androidLiveWallpaperService5.f1028view = androidLiveWallpaperService5.app.b.a;
+                getSurfaceHolder().removeCallback(this.o.f1028view);
                 AndroidLiveWallpaperService androidLiveWallpaperService6 = this.o;
                 this.b = androidLiveWallpaperService6.viewFormat;
                 this.c = androidLiveWallpaperService6.viewWidth;
                 this.d = androidLiveWallpaperService6.viewHeight;
                 if (androidLiveWallpaperService6.engines == 1) {
-                    androidLiveWallpaperService6.f1748view.surfaceCreated(surfaceHolder);
+                    androidLiveWallpaperService6.f1028view.surfaceCreated(surfaceHolder);
                 } else {
-                    androidLiveWallpaperService6.f1748view.surfaceDestroyed(surfaceHolder);
+                    androidLiveWallpaperService6.f1028view.surfaceDestroyed(surfaceHolder);
                     d(this.b, this.c, this.d, false);
-                    this.o.f1748view.surfaceCreated(surfaceHolder);
+                    this.o.f1028view.surfaceCreated(surfaceHolder);
                 }
                 c();
                 b();
@@ -573,7 +573,7 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                 if (androidLiveWallpaperService.engines == 0) {
                     androidLiveWallpaperService.onDeepPauseApplication();
                 }
-                if (this.o.linkedEngine == this && (callback = this.o.f1748view) != null) {
+                if (this.o.linkedEngine == this && (callback = this.o.f1028view) != null) {
                     callback.surfaceDestroyed(surfaceHolder);
                 }
                 this.b = 0;
@@ -647,7 +647,7 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
             }
         }
         this.app = null;
-        this.f1748view = null;
+        this.f1028view = null;
         this.engines = 0;
         this.visibleEngines = 0;
         this.linkedEngine = null;
@@ -757,7 +757,7 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
             if (this.app != null) {
                 this.app.h();
                 this.app = null;
-                this.f1748view = null;
+                this.f1028view = null;
             }
         }
     }

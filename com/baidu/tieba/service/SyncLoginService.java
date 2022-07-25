@@ -21,12 +21,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitFactory;
+import com.repackage.an4;
 import com.repackage.cl7;
 import com.repackage.di;
 import com.repackage.pi;
-import com.repackage.py4;
+import com.repackage.qy4;
 import com.repackage.wj5;
-import com.repackage.zm4;
 /* loaded from: classes4.dex */
 public class SyncLoginService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
@@ -204,7 +204,7 @@ public class SyncLoginService extends BdBaseService {
                 this.a.addPostData("scr_h", String.valueOf(pi.i(TbadkCoreApplication.getInst().getApp())));
                 this.a.addPostData("scr_dip", String.valueOf(pi.h(TbadkCoreApplication.getInst().getApp())));
                 String str = "0";
-                if (py4.d().f() > 0) {
+                if (qy4.d().f() > 0) {
                     this.a.addPostData("_msg_status", "0");
                 } else {
                     this.a.addPostData("_msg_status", "1");
@@ -216,7 +216,7 @@ public class SyncLoginService extends BdBaseService {
                     }
                     this.a.addPostData("_active", str);
                 }
-                this.a.addPostData("_pic_quality", String.valueOf(zm4.c().e()));
+                this.a.addPostData("_pic_quality", String.valueOf(an4.c().e()));
                 if (SyncLoginService.mStatistics != null) {
                     this.a.addPostData("_msg_type", SyncLoginService.mStatistics);
                 }

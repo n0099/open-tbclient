@@ -13,21 +13,21 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdTemplate a;
-    public InterfaceC0457a b;
     @Nullable
-    public b c;
-    public boolean d;
+    public b bA;
+    public boolean bB;
+    public InterfaceC0303a bz;
+    public AdTemplate mAdTemplate;
 
     /* renamed from: com.kwad.components.ad.draw.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0457a {
-        void a();
+    public interface InterfaceC0303a {
+        void ax();
     }
 
     /* loaded from: classes5.dex */
     public interface b {
-        boolean a();
+        boolean ay();
     }
 
     public a(AdTemplate adTemplate) {
@@ -45,39 +45,39 @@ public final class a {
                 return;
             }
         }
-        this.a = adTemplate;
-        this.d = false;
-    }
-
-    public final void a() {
-        InterfaceC0457a interfaceC0457a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.d) {
-            return;
-        }
-        this.d = true;
-        if (d.i(this.a).status == 1 || d.i(this.a).status == 2 || d.i(this.a).status == 3) {
-            return;
-        }
-        b bVar = this.c;
-        if ((bVar == null || !bVar.a()) && (interfaceC0457a = this.b) != null) {
-            interfaceC0457a.a();
-        }
+        this.mAdTemplate = adTemplate;
+        this.bB = false;
     }
 
     @MainThread
-    public final void a(InterfaceC0457a interfaceC0457a) {
+    public final void a(InterfaceC0303a interfaceC0303a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0457a) == null) {
-            this.b = interfaceC0457a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0303a) == null) {
+            this.bz = interfaceC0303a;
         }
     }
 
     @MainThread
     public final void a(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.c = bVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.bA = bVar;
+        }
+    }
+
+    public final void aw() {
+        InterfaceC0303a interfaceC0303a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.bB) {
+            return;
+        }
+        this.bB = true;
+        if (d.bQ(this.mAdTemplate).status == 1 || d.bQ(this.mAdTemplate).status == 2 || d.bQ(this.mAdTemplate).status == 3) {
+            return;
+        }
+        b bVar = this.bA;
+        if ((bVar == null || !bVar.ay()) && (interfaceC0303a = this.bz) != null) {
+            interfaceC0303a.ax();
         }
     }
 }

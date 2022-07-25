@@ -44,15 +44,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.repackage.a67;
-import com.repackage.f45;
 import com.repackage.f97;
-import com.repackage.gs4;
+import com.repackage.g45;
+import com.repackage.hs4;
 import com.repackage.mj8;
-import com.repackage.mm4;
-import com.repackage.rr4;
+import com.repackage.nm4;
+import com.repackage.sr4;
 import com.repackage.wh8;
-import com.repackage.wl4;
 import com.repackage.x37;
+import com.repackage.xl4;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class LaunchStatic {
@@ -192,12 +192,12 @@ public class LaunchStatic {
         x37.a();
         ImMemoryCacheRegister.l();
         a67.i();
-        wl4.f();
+        xl4.f();
         ServiceStaticInit.init();
         WalletStaticInit.init();
-        rr4.d();
-        gs4.a();
-        mm4.d();
+        sr4.d();
+        hs4.a();
+        nm4.d();
         a();
     }
 
@@ -251,7 +251,7 @@ public class LaunchStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            f45.d().f();
+            g45.d().f();
             wh8.f(303039, ClientConfigSocketResponse.class, false);
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, wh8.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);

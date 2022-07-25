@@ -66,21 +66,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a97;
-import com.repackage.bz4;
+import com.repackage.cz4;
 import com.repackage.d47;
 import com.repackage.de5;
 import com.repackage.eg;
 import com.repackage.he5;
-import com.repackage.j85;
 import com.repackage.j97;
-import com.repackage.jd5;
-import com.repackage.kz4;
+import com.repackage.k85;
+import com.repackage.kd5;
 import com.repackage.l77;
+import com.repackage.lz4;
 import com.repackage.m57;
 import com.repackage.n57;
 import com.repackage.ng;
-import com.repackage.ny4;
 import com.repackage.oi;
+import com.repackage.oy4;
 import com.repackage.p67;
 import com.repackage.pi;
 import com.repackage.q97;
@@ -89,7 +89,7 @@ import com.repackage.s67;
 import com.repackage.t77;
 import com.repackage.v87;
 import com.repackage.v97;
-import com.repackage.xt4;
+import com.repackage.yt4;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -126,7 +126,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
     public Handler w;
     public UserData x;
     public long y;
-    public bz4 z;
+    public cz4 z;
 
     /* loaded from: classes3.dex */
     public class a extends de5<Void> {
@@ -542,7 +542,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
             }
             BdTopToast bdTopToast = new BdTopToast(this.a.getPageContext().getPageActivity());
             bdTopToast.i(false);
-            bdTopToast.h(this.a.getString(R.string.obfuscated_res_0x7f0f0a95));
+            bdTopToast.h(this.a.getString(R.string.obfuscated_res_0x7f0f0a81));
             bdTopToast.j(this.a.E.y());
         }
     }
@@ -744,7 +744,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
     }
 
     /* loaded from: classes3.dex */
-    public class o implements jd5<Boolean> {
+    public class o implements kd5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalChatActivity a;
@@ -768,7 +768,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -902,12 +902,12 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(this).areNotificationsEnabled();
-            boolean h2 = xt4.k().h("key_private_chat_show_notification", false);
+            boolean h2 = yt4.k().h("key_private_chat_show_notification", false);
             if (areNotificationsEnabled || h2 || UbsABTestHelper.isPushOpenNewStyle()) {
                 return false;
             }
-            kz4.h(getPageContext(), new boolean[]{true, false}, 3);
-            xt4.k().u("key_private_chat_show_notification", true);
+            lz4.h(getPageContext(), new boolean[]{true, false}, 3);
+            yt4.k().u("key_private_chat_show_notification", true);
             return true;
         }
         return invokeV.booleanValue;
@@ -1052,7 +1052,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j2)) == null) {
             if (j2 > 0) {
-                xt4 k2 = xt4.k();
+                yt4 k2 = yt4.k();
                 return k2.h("im_ice_break_msg_is_closed_" + j2, false);
             }
             return false;
@@ -1278,7 +1278,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
             } else if (view2 == this.E.w()) {
                 if (this.D.J() != PersonalMsglistModel.CardStatus.APPLY && this.D.J() != PersonalMsglistModel.CardStatus.WAIT) {
                     if (this.D.J() == PersonalMsglistModel.CardStatus.AGREE) {
-                        j85.a(ng.g(this.D.getUser().getUserId(), 0L), AddFriendActivityConfig.TYPE_STRANGER_CHAT);
+                        k85.a(ng.g(this.D.getUser().getUserId(), 0L), AddFriendActivityConfig.TYPE_STRANGER_CHAT);
                         TiebaStatic.eventStat(getActivity(), "add_fri_aio", "click", 1, new Object[0]);
                         return;
                     }
@@ -1392,7 +1392,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         if (!(interceptable == null || interceptable.invokeJ(1048612, this, j2) == null) || j2 <= 0) {
             return;
         }
-        xt4 k2 = xt4.k();
+        yt4 k2 = yt4.k();
         k2.u("im_ice_break_msg_is_closed_" + j2, true);
         O0();
     }
@@ -1424,7 +1424,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 this.C = false;
                 a2();
             }
-            ny4.f0().r(curId);
+            oy4.f0().r(curId);
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(curId, 2)));
             MsglistModel msglistModel = this.c;
             if (msglistModel != null && (msglistModel instanceof PersonalMsglistModel)) {

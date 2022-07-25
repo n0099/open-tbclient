@@ -1,81 +1,78 @@
 package com.repackage;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.identifier.IdentifierIdClient;
 /* loaded from: classes6.dex */
-public class lg1 implements cg1 {
+public class lg1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kg1 a;
-    public String b;
-    public Context c;
-    public jg1 d;
+    public Context a;
 
-    public lg1() {
+    public lg1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context;
     }
 
-    @Override // com.repackage.cg1
-    public String a() {
-        InterceptResult invokeV;
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0040  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String a(int i, String str) {
+        InterceptResult invokeIL;
+        String str2;
+        Uri parse;
+        Cursor query;
+        StringBuilder sb;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                this.b = this.a.a(0, null);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
+            if (i != 0) {
+                if (i == 1) {
+                    sb = new StringBuilder();
+                    str3 = "content://com.vivo.vms.IdProvider/IdentifierId/VAID_";
+                } else if (i != 2) {
+                    parse = null;
+                    query = this.a.getContentResolver().query(parse, null, null, null, null);
+                    if (query != null) {
+                        r0 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
+                        query.close();
+                    }
+                    return r0;
+                } else {
+                    sb = new StringBuilder();
+                    str3 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
+                }
+                sb.append(str3);
+                sb.append(str);
+                str2 = sb.toString();
+            } else {
+                str2 = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
             }
-            return this.b;
+            parse = Uri.parse(str2);
+            query = this.a.getContentResolver().query(parse, null, null, null, null);
+            if (query != null) {
+            }
+            return r0;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.cg1
-    public void a(Context context, dg1 dg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, dg1Var) == null) {
-            this.a = new kg1(context);
-            this.c = context;
-            if (b()) {
-                this.d = new jg1(this);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.d);
-            }
-            if (dg1Var != null) {
-                dg1Var.a();
-            }
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
-                str = (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class).invoke(cls, IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "0");
-            } catch (Throwable unused) {
-                str = null;
-            }
-            return "1".equals(str);
-        }
-        return invokeV.booleanValue;
+        return (String) invokeIL.objValue;
     }
 }

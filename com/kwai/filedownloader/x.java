@@ -7,43 +7,43 @@ public interface x extends s.a {
 
     /* loaded from: classes5.dex */
     public interface a {
-        MessageSnapshot a(Throwable th);
+        t Cy();
 
         boolean a(MessageSnapshot messageSnapshot);
 
         boolean b(MessageSnapshot messageSnapshot);
 
-        t c();
-
         boolean c(MessageSnapshot messageSnapshot);
 
         boolean d(MessageSnapshot messageSnapshot);
+
+        MessageSnapshot n(Throwable th);
     }
 
     /* loaded from: classes5.dex */
     public interface b {
-        void o();
+        void start();
     }
 
-    void d();
+    long CA();
 
-    boolean e();
+    byte Ca();
 
-    byte f();
+    Throwable Cc();
 
-    long g();
+    int Ce();
 
-    void h();
+    boolean Cg();
 
-    long i();
+    void Cz();
 
-    long j();
+    void free();
 
-    Throwable k();
+    long getStatusUpdateTime();
 
-    int l();
+    long getTotalBytes();
 
-    boolean m();
+    boolean pause();
 
-    void n();
+    void reset();
 }

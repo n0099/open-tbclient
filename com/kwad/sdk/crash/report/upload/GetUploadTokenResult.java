@@ -21,7 +21,7 @@ public class GetUploadTokenResult extends BaseResultData implements com.kwad.sdk
         try {
             this.uploadToken = jSONObject.optString("uploadToken");
         } catch (Exception e) {
-            com.kwad.sdk.core.d.b.a(e);
+            com.kwad.sdk.core.e.b.printStackTrace(e);
         }
     }
 

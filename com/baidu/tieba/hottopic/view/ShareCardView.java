@@ -63,10 +63,10 @@ public class ShareCardView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0839, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0843, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d3a);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d6b);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d40);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d71);
             this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f0905da);
             this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905d3);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905d2);

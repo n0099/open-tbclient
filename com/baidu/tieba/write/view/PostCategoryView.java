@@ -177,13 +177,13 @@ public class PostCategoryView extends TextView {
         this.i = drawable2;
         drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), this.h.getIntrinsicHeight());
         setCompoundDrawables(null, null, this.h, null);
-        setPadding(0, 0, pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702d4), 0);
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06f3, (ViewGroup) null);
+        setPadding(0, 0, pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702d2), 0);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06fd, (ViewGroup) null);
         this.d = linearLayout;
-        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f09193e);
+        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091919);
         this.e = linearLayout2;
-        this.f = (TabMenuPopView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f09193f);
-        View findViewById = this.d.findViewById(R.id.obfuscated_res_0x7f09193d);
+        this.f = (TabMenuPopView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f09191a);
+        View findViewById = this.d.findViewById(R.id.obfuscated_res_0x7f091918);
         this.g = findViewById;
         findViewById.setOnClickListener(new a(this));
     }
@@ -216,7 +216,7 @@ public class PostCategoryView extends TextView {
     public final void d(PostCategoryView postCategoryView) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, postCategoryView) == null) && this.c == null) {
-            MorePopupWindow morePopupWindow = new MorePopupWindow((Activity) this.a, this.d, this, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0811a4), new b(this));
+            MorePopupWindow morePopupWindow = new MorePopupWindow((Activity) this.a, this.d, this, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0811a8), new b(this));
             this.c = morePopupWindow;
             morePopupWindow.setOnDismissListener(new c(this, postCategoryView));
         }

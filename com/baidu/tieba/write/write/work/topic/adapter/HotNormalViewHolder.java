@@ -25,8 +25,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ur4;
 import com.repackage.v37;
+import com.repackage.vr4;
 /* loaded from: classes4.dex */
 public class HotNormalViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -98,17 +98,17 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0921b0);
-        this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092171);
-        this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090da8);
-        this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091640);
+        this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0921b2);
+        this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092173);
+        this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090da1);
+        this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09161b);
     }
 
     public void b(@NonNull HotNormalViewHolder hotNormalViewHolder, int i, v37 v37Var, TbPageContext tbPageContext, String str, VideoHotTopicSearchAdapter.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{hotNormalViewHolder, Integer.valueOf(i), v37Var, tbPageContext, str, aVar}) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(HotSelectActivityConfig.HOT_TOPIC_SING + v37Var.e() + HotSelectActivityConfig.HOT_TOPIC_SING);
-            ur4.d(hotNormalViewHolder.a).v(R.color.CAM_X0106);
+            vr4.d(hotNormalViewHolder.a).v(R.color.CAM_X0106);
             int indexOf = spannableStringBuilder.toString().indexOf(str);
             if (c(str) && indexOf != -1) {
                 spannableStringBuilder.setSpan(new StyleSpan(1), 1, indexOf, 34);
@@ -126,15 +126,15 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
             hotNormalViewHolder.a.setText(spannableStringBuilder);
             if (v37Var.a() > 0 && c(str) && v37Var.j()) {
                 hotNormalViewHolder.b.setVisibility(0);
-                hotNormalViewHolder.b.setText(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0897), StringHelper.numberUniformFormatExtra(v37Var.a())));
+                hotNormalViewHolder.b.setText(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0882), StringHelper.numberUniformFormatExtra(v37Var.a())));
             } else if (v37Var.a() == 0 && v37Var.d().longValue() == 0 && c(str)) {
                 hotNormalViewHolder.b.setVisibility(0);
-                hotNormalViewHolder.b.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0896));
+                hotNormalViewHolder.b.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0881));
             } else {
                 hotNormalViewHolder.b.setVisibility(8);
             }
             d(tbPageContext, hotNormalViewHolder.c, v37Var.c());
-            ur4.d(hotNormalViewHolder.b).v(R.color.CAM_X0110);
+            vr4.d(hotNormalViewHolder.b).v(R.color.CAM_X0110);
             SkinManager.setBackgroundResource(hotNormalViewHolder.c, R.drawable.hot_select_tag_bg);
             SkinManager.setViewTextColor(hotNormalViewHolder.c, R.color.CAM_X0302, 1);
             hotNormalViewHolder.d.setOnClickListener(new a(this, aVar, v37Var, str));
@@ -154,10 +154,10 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
         }
         if (i == 10) {
             textView.setVisibility(0);
-            textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f1456));
+            textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f1405));
         } else if (i == 11) {
             textView.setVisibility(0);
-            textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f1455));
+            textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f1404));
         } else {
             textView.setVisibility(8);
         }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.s95;
+import com.repackage.t95;
 /* loaded from: classes2.dex */
 public class InitStatisticTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -35,7 +35,7 @@ public class InitStatisticTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             TiebaStatic.init(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().isMainProcess(false));
-            s95.b().G(System.currentTimeMillis() - currentTimeMillis);
+            t95.b().G(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 

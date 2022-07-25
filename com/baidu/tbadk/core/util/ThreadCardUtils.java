@@ -39,20 +39,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bu4;
+import com.repackage.aq4;
 import com.repackage.bu8;
+import com.repackage.cu4;
 import com.repackage.dd6;
-import com.repackage.mv4;
 import com.repackage.ng;
-import com.repackage.nn4;
+import com.repackage.nv4;
 import com.repackage.oi;
-import com.repackage.pd5;
+import com.repackage.on4;
 import com.repackage.pi;
+import com.repackage.qd5;
 import com.repackage.sg5;
-import com.repackage.ur4;
 import com.repackage.ux5;
+import com.repackage.vr4;
 import com.repackage.xi;
-import com.repackage.zp4;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
@@ -179,7 +179,7 @@ public final class ThreadCardUtils {
         String str = i == 3 ? "frs" : i == 2 ? "index" : "";
         videoItemData.buildWithThreadData(threadData);
         arrayList.add(videoItemData);
-        pd5.e(context, arrayList, threadData.getBaijiahaoData() != null ? threadData.getBaijiahaoData().oriUgcNid : null, videoItemData.isVerticalVideo == 1, 0, rect, "from_nani_video", "personalize_page", "", str, str, false, threadData.isJumpToFrsVideoTabPlay, true);
+        qd5.e(context, arrayList, threadData.getBaijiahaoData() != null ? threadData.getBaijiahaoData().oriUgcNid : null, videoItemData.isVerticalVideo == 1, 0, rect, "from_nani_video", "personalize_page", "", str, str, false, threadData.isJumpToFrsVideoTabPlay, true);
     }
 
     public static boolean isNoThreadAbstract(ThreadData threadData) {
@@ -238,14 +238,14 @@ public final class ThreadCardUtils {
         return invokeL.booleanValue;
     }
 
-    public static void jumpToPB(nn4 nn4Var, Context context, int i, boolean z, boolean z2, boolean z3, Rect rect, boolean z4, String str, String str2) {
+    public static void jumpToPB(on4 on4Var, Context context, int i, boolean z, boolean z2, boolean z3, Rect rect, boolean z4, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{nn4Var, context, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), rect, Boolean.valueOf(z4), str, str2}) == null) || nn4Var == null || nn4Var.getThreadData() == null || context == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{on4Var, context, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), rect, Boolean.valueOf(z4), str, str2}) == null) || on4Var == null || on4Var.getThreadData() == null || context == null) {
             return;
         }
-        ThreadData threadData = nn4Var.getThreadData();
+        ThreadData threadData = on4Var.getThreadData();
         if (threadData.getType() == ThreadData.TYPE_FAKE_VIDEO) {
-            BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f151b));
+            BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f14ca));
             b.f(BdToast.ToastIcon.FAILURE);
             b.h();
         } else if (threadData.getThreadVideoInfo() != null && !TextUtils.isEmpty(threadData.getThreadVideoInfo().video_url)) {
@@ -271,16 +271,16 @@ public final class ThreadCardUtils {
             }
             createFromThreadCfg.setForumName(threadData.getForum_name());
             createFromThreadCfg.setStartFrom(i);
-            if (nn4Var.getPbInputLocate() != null) {
-                createFromThreadCfg.addLocateParam(nn4Var.getPbInputLocate());
+            if (on4Var.getPbInputLocate() != null) {
+                createFromThreadCfg.addLocateParam(on4Var.getPbInputLocate());
             }
             if (i == 3) {
                 createFromThreadCfg.setVideo_source("frs");
             } else if (i == 2) {
                 createFromThreadCfg.setVideo_source("index");
-                zp4 zp4Var = new zp4();
-                zp4Var.b(threadData);
-                createFromThreadCfg.setRecomData(zp4Var);
+                aq4 aq4Var = new aq4();
+                aq4Var.b(threadData);
+                createFromThreadCfg.setRecomData(aq4Var);
             }
             createFromThreadCfg.setJumpGodReply(z);
             if (!z) {
@@ -299,12 +299,12 @@ public final class ThreadCardUtils {
         }
     }
 
-    public static void jumpToPBCommentArea(nn4 nn4Var, Context context, int i, int i2) {
+    public static void jumpToPBCommentArea(on4 on4Var, Context context, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLII(65562, null, nn4Var, context, i, i2) == null) || nn4Var == null || context == null || nn4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeLLII(65562, null, on4Var, context, i, i2) == null) || on4Var == null || context == null || on4Var.getThreadData() == null) {
             return;
         }
-        ThreadData threadData = nn4Var.getThreadData();
+        ThreadData threadData = on4Var.getThreadData();
         String g = ux5.g();
         if (i == 3) {
             g = ux5.f();
@@ -321,16 +321,16 @@ public final class ThreadCardUtils {
         } else {
             createFromThreadCfg.setFrom("from_personalize");
         }
-        if (nn4Var.getPbInputLocate() != null) {
-            createFromThreadCfg.addLocateParam(nn4Var.getPbInputLocate());
+        if (on4Var.getPbInputLocate() != null) {
+            createFromThreadCfg.addLocateParam(on4Var.getPbInputLocate());
         }
         if (i == 3) {
             createFromThreadCfg.setVideo_source("frs");
         } else if (i == 2) {
             createFromThreadCfg.setVideo_source("index");
-            zp4 zp4Var = new zp4();
-            zp4Var.b(threadData);
-            createFromThreadCfg.setRecomData(zp4Var);
+            aq4 aq4Var = new aq4();
+            aq4Var.b(threadData);
+            createFromThreadCfg.setRecomData(aq4Var);
         }
         if (threadData.isQualityReplyThread) {
             createFromThreadCfg.setFromHomePageQuality(true);
@@ -354,7 +354,7 @@ public final class ThreadCardUtils {
         if (!(interceptable == null || interceptable.invokeL(65568, null, textView) == null) || textView == null) {
             return;
         }
-        ur4.d(textView).z(R.dimen.T_X05);
+        vr4.d(textView).z(R.dimen.T_X05);
     }
 
     public static void setOfficialPrefix(SpannableStringBuilder spannableStringBuilder) {
@@ -369,13 +369,13 @@ public final class ThreadCardUtils {
         int f4 = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
         pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds2);
         int f5 = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-        bu4 bu4Var = new bu4(f, -1, R.color.CAM_X0306, f3, R.color.CAM_X0101, f4, pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
-        bu4Var.b(f2);
-        bu4Var.i(f5);
-        bu4Var.f(true);
-        bu4Var.g(true);
-        bu4Var.d(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds7));
-        spannableStringBuilder.setSpan(bu4Var, 0, 2, 17);
+        cu4 cu4Var = new cu4(f, -1, R.color.CAM_X0306, f3, R.color.CAM_X0101, f4, pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+        cu4Var.b(f2);
+        cu4Var.i(f5);
+        cu4Var.f(true);
+        cu4Var.g(true);
+        cu4Var.d(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds7));
+        spannableStringBuilder.setSpan(cu4Var, 0, 2, 17);
     }
 
     public static void setTitle(TextView textView, ThreadData threadData) {
@@ -392,9 +392,9 @@ public final class ThreadCardUtils {
         }
         setAbstractStyleAb(textView);
         if (threadData.threadType != 40) {
-            ur4.d(textView).A(R.string.F_X02);
+            vr4.d(textView).A(R.string.F_X02);
         } else {
-            ur4.d(textView).A(R.string.F_X01);
+            vr4.d(textView).A(R.string.F_X01);
         }
     }
 
@@ -453,7 +453,7 @@ public final class ThreadCardUtils {
         }
         Context context = view2.getContext();
         if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-            pi.N(context, R.string.obfuscated_res_0x7f0f0e8a);
+            pi.N(context, R.string.obfuscated_res_0x7f0f0e73);
             return;
         }
         ArrayList<String> arrayList = new ArrayList<>();
@@ -527,11 +527,11 @@ public final class ThreadCardUtils {
                 }
                 if (threadData.getTabId() > 0 && !oi.isEmpty(threadData.getTabName()) && isNoThreadTitle(threadData) && (spannableStringBuilder == null || oi.isEmptyStringAfterTrim(spannableStringBuilder.toString()))) {
                     if (threadData.isShareThread && threadData.originalThreadData != null) {
-                        spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1172));
+                        spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1121));
                     } else if (threadData.isVoiceThreadType()) {
-                        spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1582));
+                        spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1531));
                     } else {
-                        spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13d6));
+                        spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1385));
                     }
                 }
                 if (spannableStringBuilder != null && !oi.isEmptyStringAfterTrim(spannableStringBuilder.toString())) {
@@ -625,13 +625,13 @@ public final class ThreadCardUtils {
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
             SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(" ");
-            spannableStringBuilder2.setSpan(new mv4(pi.f(textView.getContext(), i2)), 0, spannableStringBuilder2.length(), 17);
+            spannableStringBuilder2.setSpan(new nv4(pi.f(textView.getContext(), i2)), 0, spannableStringBuilder2.length(), 17);
             SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(i));
             if (z) {
                 spannableStringBuilder3.setSpan(new sg5(2, null), 0, spannableStringBuilder3.length(), 33);
             }
             SpannableStringBuilder spannableStringBuilder4 = new SpannableStringBuilder(" ");
-            spannableStringBuilder4.setSpan(new mv4(pi.f(textView.getContext(), R.dimen.tbds1)), 0, spannableStringBuilder2.length(), 17);
+            spannableStringBuilder4.setSpan(new nv4(pi.f(textView.getContext(), R.dimen.tbds1)), 0, spannableStringBuilder2.length(), 17);
             SpannableStringBuilder spannableStringBuilder5 = new SpannableStringBuilder(str);
             spannableStringBuilder5.append((CharSequence) spannableStringBuilder2);
             if (z2) {
@@ -775,38 +775,38 @@ public final class ThreadCardUtils {
         }
     }
 
-    public static void jumpToPB(nn4 nn4Var, Context context, int i, boolean z) {
+    public static void jumpToPB(on4 on4Var, Context context, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65556, null, new Object[]{nn4Var, context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            jumpToPB(nn4Var, context, i, z, false, false, null, false, "", "");
+        if (interceptable == null || interceptable.invokeCommon(65556, null, new Object[]{on4Var, context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            jumpToPB(on4Var, context, i, z, false, false, null, false, "", "");
         }
     }
 
-    public static void jumpToPB(nn4 nn4Var, Context context, int i, boolean z, String str, String str2) {
+    public static void jumpToPB(on4 on4Var, Context context, int i, boolean z, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65559, null, new Object[]{nn4Var, context, Integer.valueOf(i), Boolean.valueOf(z), str, str2}) == null) {
-            jumpToPB(nn4Var, context, i, z, null, str, str2);
+        if (interceptable == null || interceptable.invokeCommon(65559, null, new Object[]{on4Var, context, Integer.valueOf(i), Boolean.valueOf(z), str, str2}) == null) {
+            jumpToPB(on4Var, context, i, z, null, str, str2);
         }
     }
 
-    public static void jumpToPB(nn4 nn4Var, Context context, int i, boolean z, Rect rect, String str, String str2) {
+    public static void jumpToPB(on4 on4Var, Context context, int i, boolean z, Rect rect, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{nn4Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect, str, str2}) == null) {
-            jumpToPB(nn4Var, context, i, z, false, false, rect, false, str, str2);
+        if (interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{on4Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect, str, str2}) == null) {
+            jumpToPB(on4Var, context, i, z, false, false, rect, false, str, str2);
         }
     }
 
-    public static void jumpToPB(nn4 nn4Var, Context context, int i, boolean z, Rect rect) {
+    public static void jumpToPB(on4 on4Var, Context context, int i, boolean z, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{nn4Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect}) == null) {
-            jumpToPB(nn4Var, context, i, z, false, false, rect, false, "", "");
+        if (interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{on4Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect}) == null) {
+            jumpToPB(on4Var, context, i, z, false, false, rect, false, "", "");
         }
     }
 
-    public static void jumpToPB(nn4 nn4Var, Context context, int i, boolean z, boolean z2) {
+    public static void jumpToPB(on4 on4Var, Context context, int i, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{nn4Var, context, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            jumpToPB(nn4Var, context, i, z, false, false, null, z2, "", "");
+        if (interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{on4Var, context, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            jumpToPB(on4Var, context, i, z, false, false, null, z2, "", "");
         }
     }
 

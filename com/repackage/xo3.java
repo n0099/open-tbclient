@@ -1,19 +1,20 @@
 package com.repackage;
 
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.game.ad.entity.AdResponseInfo;
+import android.view.View;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface xo3 {
-    void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback);
+    void a(String str, JSONObject jSONObject);
 
-    void b(String str, JSONObject jSONObject, ResponseCallback<po3> responseCallback);
+    boolean b();
 
-    void c(String str, ResponseCallback<yn3> responseCallback);
+    boolean c(View view2);
 
-    void d(String str);
+    boolean d(View view2, rn3 rn3Var);
 
-    void e(String str);
+    void e();
 
-    void f(String str, ResponseCallback<AdResponseInfo> responseCallback);
+    boolean f(View view2, rn3 rn3Var);
+
+    boolean removeView(View view2);
 }

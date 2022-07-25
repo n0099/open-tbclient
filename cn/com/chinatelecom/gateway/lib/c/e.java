@@ -1,323 +1,94 @@
 package cn.com.chinatelecom.gateway.lib.c;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.Network;
-import android.net.NetworkInfo;
-import android.net.NetworkRequest;
-import android.os.Build;
-import androidx.appcompat.widget.TooltipCompatHandler;
 import cn.com.chinatelecom.gateway.lib.CtAuth;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import cn.com.chinatelecom.gateway.lib.PreCodeListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
-import java.net.InetAddress;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 /* loaded from: classes.dex */
-public class e {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "e";
+public final class e implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
-    public ConnectivityManager c;
-    public ConnectivityManager.NetworkCallback d;
-    public a e;
-    public long f;
-    public long g;
+    public /* synthetic */ Future a;
+    public /* synthetic */ int b;
+    public /* synthetic */ r c;
+    public /* synthetic */ String d;
+    public /* synthetic */ Context e;
+    public /* synthetic */ PreCodeListener f;
+    public /* synthetic */ a g;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void a();
-
-        void a(int i, String str, long j);
-
-        void a(Network network, long j);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1293515328, "Lcn/com/chinatelecom/gateway/lib/c/e;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1293515328, "Lcn/com/chinatelecom/gateway/lib/c/e;");
-        }
-    }
-
-    public e() {
+    public e(a aVar, Future future, int i, r rVar, String str, Context context, PreCodeListener preCodeListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar, future, Integer.valueOf(i), rVar, str, context, preCodeListener};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.c = null;
-        this.d = null;
-        this.f = 0L;
-        this.g = 0L;
+        this.g = aVar;
+        this.a = future;
+        this.b = i;
+        this.c = rVar;
+        this.d = str;
+        this.e = context;
+        this.f = preCodeListener;
     }
 
-    public static int a(String str) {
-        InterceptResult invokeL;
+    @Override // java.lang.Runnable
+    public final void run() {
+        String str;
+        Context context;
+        String str2;
+        PreCodeListener preCodeListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                byte[] address = InetAddress.getByName(str).getAddress();
-                return (address[0] & 255) | ((address[3] & 255) << 24) | ((address[2] & 255) << 16) | ((address[1] & 255) << 8);
+                this.a.get(this.b, TimeUnit.MILLISECONDS);
             } catch (Throwable th) {
-                CtAuth.warn(a, "When InetAddress.getByName(),throws exception", th);
-                return -1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    @TargetApi(21)
-    private void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
-            this.f = 0L;
-            this.c = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
-            this.g = System.currentTimeMillis();
-            NetworkRequest.Builder builder = new NetworkRequest.Builder();
-            builder.addCapability(12);
-            builder.addTransportType(0);
-            NetworkRequest build = builder.build();
-            ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback(this) { // from class: cn.com.chinatelecom.gateway.lib.c.e.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ e a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
+                try {
+                    this.c.a(true);
+                    String str3 = "{\"result\":80000,\"msg\":\"请求超时\"}";
+                    if (th instanceof TimeoutException) {
+                        cn.com.chinatelecom.gateway.lib.b.d.a(this.d, "{\"result\":80000,\"msg\":\"请求超时\"}", "");
+                        cn.com.chinatelecom.gateway.lib.b.d.a(this.d).h("submitOnTimeoutInterrupted()");
+                        context = this.e;
+                        str2 = this.d;
+                        preCodeListener = this.f;
+                    } else {
+                        cn.com.chinatelecom.gateway.lib.b.d.a(this.d, "{\"result\":80001,\"msg\":\"请求异常\"}", "");
+                        cn.com.chinatelecom.gateway.lib.b.a a = cn.com.chinatelecom.gateway.lib.b.d.a(this.d);
+                        a.h("submitOnTimeoutInterrupted other exception : " + th.getMessage());
+                        str = a.a;
+                        CtAuth.warn(str, "submitOnTimeoutInterrupted other exception", th);
+                        context = this.e;
+                        str2 = this.d;
+                        preCodeListener = this.f;
+                        str3 = "{\"result\":80001,\"msg\":\"请求异常\"}";
                     }
-                    this.a = this;
-                }
-
-                @Override // android.net.ConnectivityManager.NetworkCallback
-                public void onAvailable(Network network) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, network) == null) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        e eVar = this.a;
-                        eVar.f = currentTimeMillis - eVar.g;
-                        this.a.b = true;
-                        if (this.a.e != null) {
-                            this.a.e.a(network, this.a.f);
-                        }
-                        if (this.a.c != null) {
-                            try {
-                                this.a.c.unregisterNetworkCallback(this);
-                                this.a.c = null;
-                            } catch (Throwable th) {
-                                CtAuth.warn(e.a, "switchToMobileForAboveL", th);
-                            }
-                        }
+                    CtAuth.postResult(context, str3, str2, preCodeListener);
+                    Future future = this.a;
+                    if (future == null || future.isDone()) {
+                        return;
+                    }
+                } finally {
+                    Future future2 = this.a;
+                    if (future2 != null && !future2.isDone()) {
+                        this.a.cancel(true);
                     }
                 }
-            };
-            this.d = networkCallback;
-            this.c.requestNetwork(build, networkCallback);
-        }
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            int indexOf = str.indexOf("://");
-            if (indexOf > 0) {
-                str = str.substring(indexOf + 3);
-            }
-            int indexOf2 = str.indexOf(58);
-            if (indexOf2 >= 0) {
-                str = str.substring(0, indexOf2);
-            }
-            int indexOf3 = str.indexOf(47);
-            if (indexOf3 >= 0) {
-                str = str.substring(0, indexOf3);
-            }
-            int indexOf4 = str.indexOf(63);
-            return indexOf4 >= 0 ? str.substring(0, indexOf4) : str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        ConnectivityManager connectivityManager;
-        ConnectivityManager.NetworkCallback networkCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || Build.VERSION.SDK_INT < 21 || (connectivityManager = this.c) == null || (networkCallback = this.d) == null) {
-            return;
-        }
-        try {
-            connectivityManager.unregisterNetworkCallback(networkCallback);
-        } catch (Throwable th) {
-            CtAuth.warn(a, "unregisterNetworkCallback", th);
-        }
-        this.c = null;
-    }
-
-    private boolean b(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, context, str)) == null) {
-            boolean z = false;
-            try {
-                Class<?> cls = Class.forName("android.net.ConnectivityManager");
-                this.f = 0L;
-                this.g = System.currentTimeMillis();
-                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-                this.c = connectivityManager;
-                if (connectivityManager.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) != 0) {
-                    Method method = cls.getMethod("startUsingNetworkFeature", Integer.TYPE, String.class);
-                    ConnectivityManager connectivityManager2 = this.c;
-                    Object[] objArr = new Object[2];
-                    objArr[0] = 0;
-                    objArr[1] = "enableHIPRI";
-                    method.invoke(connectivityManager2, objArr);
-                    for (int i = 0; i < 5 && this.c.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) != 0; i++) {
-                        Thread.sleep(500L);
-                    }
-                }
-                z = ((Boolean) cls.getMethod("requestRouteToHost", Integer.TYPE, Integer.TYPE).invoke(this.c, 5, Integer.valueOf(a(b(str))))).booleanValue();
-                this.f = System.currentTimeMillis() - this.g;
-                String str2 = a;
-                StringBuilder sb = new StringBuilder();
-                sb.append("Switch network result ： ");
-                sb.append(z);
-                sb.append(" (4.x) , expendTime ：");
-                sb.append(this.f);
-                CtAuth.info(str2, sb.toString());
-            } catch (Throwable th) {
-                CtAuth.warn(a, "4.x网络切换异常", th);
-            }
-            return z;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            i.a().a(new Runnable(this, i) { // from class: cn.com.chinatelecom.gateway.lib.c.e.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ int a;
-                public final /* synthetic */ e b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.b = this;
-                    this.a = i;
-                }
-
-                /* JADX WARN: Can't wrap try/catch for region: R(8:3|(4:25|26|27|(5:29|(1:31)|32|15|16))|5|6|(1:8)(1:22)|9|10|(2:12|(3:14|15|16)(2:18|19))(1:20)) */
-                /* JADX WARN: Code restructure failed: missing block: B:24:0x0056, code lost:
-                    r0 = move-exception;
-                 */
-                /* JADX WARN: Code restructure failed: missing block: B:25:0x0057, code lost:
-                    cn.com.chinatelecom.gateway.lib.CtAuth.warn(cn.com.chinatelecom.gateway.lib.c.e.a, "timeoutCheckRunnable exception!", r0);
-                 */
-                @Override // java.lang.Runnable
-                /*
-                    Code decompiled incorrectly, please refer to instructions dump.
-                */
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.a > 2500) {
-                            try {
-                                Thread.sleep(TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
-                            } catch (Throwable th) {
-                                CtAuth.warn(e.a, "timeoutCheckRunnable exception!", th);
-                            }
-                            if (!this.b.b) {
-                                if (this.b.e != null) {
-                                    this.b.e.a(80800, "WIFI切换超时", TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
-                                }
-                                CtAuth.info(e.a, "切换网络超时(L)");
-                                this.b.b();
-                            }
-                        }
-                        Thread.sleep(this.a <= 2500 ? this.a : this.a - 2500);
-                        if (this.b.e != null) {
-                            if (this.b.b) {
-                                this.b.e.a();
-                                return;
-                            }
-                            this.b.e.a(80800, "WIFI切换超时", TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
-                            this.b.b();
-                        }
-                    }
-                }
-            });
-        }
-    }
-
-    public void a(Context context, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, aVar) == null) {
-            this.e = aVar;
-            try {
-                a(context);
-            } catch (Throwable th) {
-                CtAuth.warn(a, "switchToMobileForAboveL", th);
-                a aVar2 = this.e;
-                if (aVar2 != null) {
-                    aVar2.a(80801, "WIFI切换异常", -1L);
-                }
             }
         }
-    }
-
-    public boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) ? b(context, str) : invokeLL.booleanValue;
     }
 }

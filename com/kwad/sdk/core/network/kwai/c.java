@@ -7,20 +7,20 @@ import java.util.List;
 import okhttp3.Dns;
 /* loaded from: classes5.dex */
 public final class c implements Dns {
-    public static final Dns a = Dns.SYSTEM;
+    public static final Dns SYSTEM = Dns.SYSTEM;
 
     @Override // okhttp3.Dns
     public final List<InetAddress> lookup(String str) {
-        String a2 = com.kwad.sdk.f.kwai.a.a(str);
-        if (TextUtils.isEmpty(a2)) {
-            com.kwad.sdk.core.d.b.a("IpDirect_OkHttpDns", "Dns.SYSTEM.lookup(hostname):" + Dns.SYSTEM.lookup(str));
+        String dj = com.kwad.sdk.ip.direct.a.dj(str);
+        if (TextUtils.isEmpty(dj)) {
+            com.kwad.sdk.core.e.b.d("IpDirect_OkHttpDns", "Dns.SYSTEM.lookup(hostname):" + Dns.SYSTEM.lookup(str));
         } else {
-            List<InetAddress> asList = Arrays.asList(InetAddress.getAllByName(a2));
+            List<InetAddress> asList = Arrays.asList(InetAddress.getAllByName(dj));
             if (asList != null && !asList.isEmpty()) {
-                com.kwad.sdk.core.d.b.a("IpDirect_OkHttpDns", "inetAddresses:" + asList);
+                com.kwad.sdk.core.e.b.d("IpDirect_OkHttpDns", "inetAddresses:" + asList);
                 return asList;
             }
         }
-        return a.lookup(str);
+        return SYSTEM.lookup(str);
     }
 }

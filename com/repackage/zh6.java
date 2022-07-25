@@ -55,13 +55,13 @@ public class zh6 extends cd6<ih8, FrsVideoActivityViewHolder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log(new StatisticItem("c12587").param("fid", this.b.t));
-                xt4 k = xt4.k();
+                yt4 k = yt4.k();
                 k.x("frs_video_activity_tip" + this.b.t, System.currentTimeMillis());
                 ih8 ih8Var = this.a;
                 if (ih8Var == null || StringUtils.isNull(ih8Var.b)) {
                     return;
                 }
-                rl4.n(this.b.a, this.a.b);
+                sl4.n(this.b.a, this.a.b);
             }
         }
     }
@@ -140,13 +140,13 @@ public class zh6 extends cd6<ih8, FrsVideoActivityViewHolder> {
             }
             view2.setOnClickListener(new a(this, ih8Var));
             frsVideoActivityViewHolder.a.setText(ih8Var != null ? ih8Var.a : "");
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             if (n0(k.m("frs_video_activity_tip" + this.t, 0L))) {
                 frsVideoActivityViewHolder.b.setVisibility(0);
             } else {
                 frsVideoActivityViewHolder.b.setVisibility(8);
             }
-            return frsVideoActivityViewHolder.b();
+            return frsVideoActivityViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

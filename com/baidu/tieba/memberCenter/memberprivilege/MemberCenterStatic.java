@@ -62,7 +62,7 @@ import com.repackage.nk7;
 import com.repackage.oi7;
 import com.repackage.pi;
 import com.repackage.se5;
-import com.repackage.u15;
+import com.repackage.v15;
 import com.repackage.wh8;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
@@ -90,7 +90,7 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<u15> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<v15> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
@@ -123,7 +123,7 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<u15> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<v15> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
@@ -237,7 +237,7 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<u15> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<v15> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
@@ -565,7 +565,7 @@ public class MemberCenterStatic {
                 UrlManager.getInstance().dealOneLink(tbPageContext, strArr);
                 return;
             } else {
-                pi.N(tbPageContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0eb0);
+                pi.N(tbPageContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0e99);
                 return;
             }
         }

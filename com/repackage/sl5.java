@@ -40,7 +40,7 @@ public class sl5 implements hm5 {
     public int b;
     public volatile AdLoadState c;
     public WeakReference<ViewGroup> d;
-    public nl4 e;
+    public ol4 e;
     public boolean f;
     public long g;
     public final SplashNativePolicy h;
@@ -56,12 +56,12 @@ public class sl5 implements hm5 {
 
         /* renamed from: com.repackage.sl5$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0727a implements Runnable {
+        public class RunnableC0573a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0727a(a aVar) {
+            public RunnableC0573a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -156,9 +156,9 @@ public class sl5 implements hm5 {
                         z = sl5.l.b().optInt(TiebaStatic.Params.AD_TYPE, 0) == 1;
                         z2 = sl5.l.b().optInt("full_type", 0) == 1;
                     }
-                    nl4 nl4Var = this.a.e;
+                    ol4 ol4Var = this.a.e;
                     sl5 sl5Var = this.a;
-                    nl4Var.e(z, z2, sl5Var.b, null, vc5.m(sl5Var.i), null);
+                    ol4Var.e(z, z2, sl5Var.b, null, wc5.m(sl5Var.i), null);
                 }
             }
         }
@@ -207,7 +207,7 @@ public class sl5 implements hm5 {
                     System.out.println("IAdSdkSplash prologue ad finish");
                 }
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, this.a.e == null ? 0 : this.a.e.hashCode()));
-                new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 5).param("obj_type", "a064").param("obj_param1", 2).param(TiebaStatic.Params.OBJ_TO, vc5.m(this.a.i)).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.OBJ_PARAM2, this.a.f ? 2 : 1).param(TiebaStatic.Params.SPLASH_UNI, this.a.g).eventStat();
+                new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 5).param("obj_type", "a064").param("obj_param1", 2).param(TiebaStatic.Params.OBJ_TO, wc5.m(this.a.i)).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.OBJ_PARAM2, this.a.f ? 2 : 1).param(TiebaStatic.Params.SPLASH_UNI, this.a.g).eventStat();
                 if (this.a.e != null) {
                     this.a.e.onAdDismiss();
                 }
@@ -228,7 +228,7 @@ public class sl5 implements hm5 {
                 if (pi.C()) {
                     gm5.e().n(this.a.e);
                 } else {
-                    qg.a().post(new RunnableC0727a(this));
+                    qg.a().post(new RunnableC0573a(this));
                 }
                 h("advert_load", 1);
                 if (this.a.h != null) {
@@ -244,7 +244,7 @@ public class sl5 implements hm5 {
                         this.a.h.onSplashEvent(65, this.a.i);
                     }
                 }
-                mm5.k(mm5.b, "0", null, vc5.m(this.a.i), 0, 0, this.a.f, this.a.g);
+                mm5.k(mm5.b, "0", null, wc5.m(this.a.i), 0, 0, this.a.f, this.a.g);
                 lm5.f(this.a.i, this.a.g);
             }
         }
@@ -273,7 +273,7 @@ public class sl5 implements hm5 {
         public final void h(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) {
-                vg a = r95.a();
+                vg a = s95.a();
                 a.b("type", "prologue");
                 a.b("locate", SpeedStatsUtils.UBC_VALUE_SPLASH);
                 a.c(SetImageWatermarkTypeReqMsg.SWITCH, Integer.valueOf(gm5.e().d()));
@@ -295,7 +295,7 @@ public class sl5 implements hm5 {
                 mm5.a();
                 if (!this.a.j) {
                     this.a.j = true;
-                    mm5.l(mm5.b, "0", null, vc5.m(this.a.i), null, null, this.a.g);
+                    mm5.l(mm5.b, "0", null, wc5.m(this.a.i), null, null, this.a.g);
                 }
                 h("advert_show", 1);
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 0).param(TiebaStatic.Params.OBJ_PARAM2, this.a.e != null ? this.a.e.hashCode() : 0));
@@ -312,7 +312,7 @@ public class sl5 implements hm5 {
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://ignore"));
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 2).param(TiebaStatic.Params.OBJ_PARAM2, this.a.e == null ? 0 : this.a.e.hashCode()));
-                new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 5).param("obj_type", "a064").param("obj_param1", 3).param(TiebaStatic.Params.OBJ_TO, vc5.m(this.a.i)).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.OBJ_PARAM2, this.a.f ? 2 : 1).param(TiebaStatic.Params.SPLASH_UNI, this.a.g).eventStat();
+                new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 5).param("obj_type", "a064").param("obj_param1", 3).param(TiebaStatic.Params.OBJ_TO, wc5.m(this.a.i)).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.OBJ_PARAM2, this.a.f ? 2 : 1).param(TiebaStatic.Params.SPLASH_UNI, this.a.g).eventStat();
             }
         }
     }
@@ -513,7 +513,7 @@ public class sl5 implements hm5 {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? vc5.m(this.i) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? wc5.m(this.i) : (String) invokeV.objValue;
     }
 
     @Override // com.repackage.hm5
@@ -536,15 +536,15 @@ public class sl5 implements hm5 {
     }
 
     @Override // com.repackage.hm5
-    public void e(ql4 ql4Var) {
+    public void e(rl4 rl4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, ql4Var) == null) || ql4Var == null || ql4Var.b() == null || ql4Var.b().getContext() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, rl4Var) == null) || rl4Var == null || rl4Var.b() == null || rl4Var.b().getContext() == null) {
             return;
         }
-        this.e = ql4Var.a();
-        this.f = ql4Var.d();
-        this.g = ql4Var.c();
-        this.d = new WeakReference<>(ql4Var.b());
+        this.e = rl4Var.a();
+        this.f = rl4Var.d();
+        this.g = rl4Var.c();
+        this.d = new WeakReference<>(rl4Var.b());
         a aVar = new a(this);
         n = aVar;
         if (m) {
@@ -637,9 +637,9 @@ public class sl5 implements hm5 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? !kk5.c().d(f()).isEmpty() : invokeV.booleanValue;
     }
 
-    public final void x(pa1 pa1Var, nl4 nl4Var) {
+    public final void x(pa1 pa1Var, ol4 ol4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, pa1Var, nl4Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048588, this, pa1Var, ol4Var) == null) {
             try {
                 Context context = TbadkCoreApplication.getInst().getContext();
                 rc1.b bVar = new rc1.b();
@@ -653,8 +653,8 @@ public class sl5 implements hm5 {
                 }
             } catch (OutOfMemoryError unused) {
                 TbadkCoreApplication.getInst().onLowMemory();
-                if (nl4Var != null) {
-                    nl4Var.b("oom");
+                if (ol4Var != null) {
+                    ol4Var.b("oom");
                 }
             }
         }

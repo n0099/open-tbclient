@@ -162,12 +162,12 @@ public class MultiImageTextTopView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0562, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09213a);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d056c, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09213c);
             this.b = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092153);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d83);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092155);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d89);
             setOnLongClickListener(new a(this));
         }
     }

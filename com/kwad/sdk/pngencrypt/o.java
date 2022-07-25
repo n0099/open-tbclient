@@ -5,118 +5,118 @@ import java.io.Closeable;
 import java.io.InputStream;
 /* loaded from: classes5.dex */
 public final class o implements Closeable {
-    public final k a;
-    public final boolean b;
-    public final c c;
-    public final a d;
-    public final w e;
-    public int f;
-    public ErrorBehaviour g = ErrorBehaviour.STRICT;
-    public i<? extends Object> h;
+    public ErrorBehaviour ajJ = ErrorBehaviour.STRICT;
+    public final k akJ;
+    public final boolean alf;
+    public final c alg;
+    public final a alh;
+    public final w ali;
+    public int alj;
+    public i<? extends Object> alk;
 
     public o(InputStream inputStream, boolean z) {
-        this.f = -1;
+        this.alj = -1;
         a aVar = new a(inputStream);
-        this.d = aVar;
+        this.alh = aVar;
         boolean z2 = true;
-        aVar.a(true);
-        c f = f();
-        this.c = f;
+        aVar.aV(true);
+        c yD = yD();
+        this.alg = yD;
         try {
-            if (this.d.a(f, 36) != 36) {
-                com.kwad.sdk.core.d.b.a(new PngjException("Could not read first 36 bytes (PNG signature+IHDR chunk)"));
+            if (this.alh.b(yD, 36) != 36) {
+                com.kwad.sdk.core.e.b.printStackTrace(new PngjException("Could not read first 36 bytes (PNG signature+IHDR chunk)"));
             }
-            this.a = this.c.g();
-            if (this.c.h() == null) {
+            this.akJ = this.alg.yd();
+            if (this.alg.ye() == null) {
                 z2 = false;
             }
-            this.b = z2;
-            b(5024024L);
-            a(901001001L);
-            c(2024024L);
-            this.e = new w(this.c.i);
-            a(m.a());
-            this.f = -1;
+            this.alf = z2;
+            Q(5024024L);
+            O(901001001L);
+            P(2024024L);
+            this.ali = new w(this.alg.ajP);
+            a(m.yw());
+            this.alj = -1;
         } catch (RuntimeException e) {
-            this.d.close();
-            this.c.close();
+            this.alh.close();
+            this.alg.close();
             throw e;
         }
     }
 
-    private void a(long j) {
-        this.c.a(901001001L);
+    private void O(long j) {
+        this.alg.O(901001001L);
+    }
+
+    private void P(long j) {
+        this.alg.P(2024024L);
+    }
+
+    private void Q(long j) {
+        this.alg.Q(5024024L);
     }
 
     private void a(i<? extends Object> iVar) {
-        this.h = iVar;
+        this.alk = iVar;
     }
 
-    private void b(long j) {
-        this.c.c(5024024L);
+    private void yC() {
+        this.alg.aX(false);
     }
 
-    private void c(long j) {
-        this.c.b(2024024L);
-    }
-
-    private void d() {
-        while (true) {
-            c cVar = this.c;
-            if (cVar.h >= 4) {
-                return;
-            }
-            if (this.d.a(cVar) <= 0) {
-                com.kwad.sdk.core.d.b.a(new PngjException("Premature ending reading first chunks"));
-            }
-        }
-    }
-
-    private void e() {
-        this.c.a(false);
-    }
-
-    public static c f() {
+    public static c yD() {
         return new c(false);
     }
 
-    public final w a() {
-        if (this.c.e()) {
-            d();
+    private void yz() {
+        while (true) {
+            c cVar = this.alg;
+            if (cVar.ajO >= 4) {
+                return;
+            }
+            if (this.alh.a(cVar) <= 0) {
+                com.kwad.sdk.core.e.b.printStackTrace(new PngjException("Premature ending reading first chunks"));
+            }
         }
-        return this.e;
     }
 
-    public final void b() {
-        e();
-        if (this.c.e()) {
-            d();
-        }
-        c();
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public final void close() {
+        com.kwad.sdk.crash.utils.b.closeQuietly(this.alg);
+        com.kwad.sdk.crash.utils.b.closeQuietly(this.alh);
     }
 
-    public final void c() {
+    public final void end() {
         try {
-            if (this.c.e()) {
-                d();
+            if (this.alg.yb()) {
+                yz();
             }
-            if (this.c.f() != null && !this.c.f().c()) {
-                this.c.f().f();
+            if (this.alg.yc() != null && !this.alg.yc().isDone()) {
+                this.alg.yc().yj();
             }
-            while (!this.c.b() && this.d.a(this.c) > 0) {
+            while (!this.alg.isDone() && this.alh.a(this.alg) > 0) {
             }
         } finally {
             close();
         }
     }
 
-    @Override // java.io.Closeable, java.lang.AutoCloseable
-    public final void close() {
-        com.kwad.sdk.crash.utils.b.a(this.c);
-        com.kwad.sdk.crash.utils.b.a(this.d);
+    public final String toString() {
+        return this.akJ.toString() + " interlaced=" + this.alf;
     }
 
-    public final String toString() {
-        return this.a.toString() + " interlaced=" + this.b;
+    public final w yA() {
+        if (this.alg.yb()) {
+            yz();
+        }
+        return this.ali;
+    }
+
+    public final void yB() {
+        yC();
+        if (this.alg.yb()) {
+            yz();
+        }
+        end();
     }
 }

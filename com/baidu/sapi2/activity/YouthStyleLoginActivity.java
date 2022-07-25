@@ -36,16 +36,16 @@ public class YouthStyleLoginActivity extends LoginActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d04e2);
+            setContentView(R.layout.obfuscated_res_0x7f0d04ec);
             this.mNeedSetContentView = false;
             super.onCreate(bundle);
-            this.I = (SwipeBackLayout) findViewById(R.id.obfuscated_res_0x7f091c76);
-            this.J = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fb7);
+            this.I = (SwipeBackLayout) findViewById(R.id.obfuscated_res_0x7f091c7c);
+            this.J = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fb0);
             this.I.setDirectionMode(4);
             ((LoginActivity) this).sapiWebView.setOverScrollMode(2);
             SapiWebView sapiWebView = ((LoginActivity) this).sapiWebView;
             if (sapiWebView instanceof RoundWebview) {
-                ((RoundWebview) sapiWebView).a(getResources().getDimension(R.dimen.obfuscated_res_0x7f07063b), getResources().getDimension(R.dimen.obfuscated_res_0x7f07063b), 0.0f, 0.0f);
+                ((RoundWebview) sapiWebView).a(getResources().getDimension(R.dimen.obfuscated_res_0x7f07062b), getResources().getDimension(R.dimen.obfuscated_res_0x7f07062b), 0.0f, 0.0f);
             }
             this.J.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.sapi2.activity.YouthStyleLoginActivity.1
                 public static /* synthetic */ Interceptable $ic;

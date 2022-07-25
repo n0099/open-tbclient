@@ -17,6 +17,7 @@ import com.repackage.vw9;
 import com.repackage.ww9;
 import com.repackage.xw9;
 import com.yy.mobile.framework.revenuesdk.baseapi.Env;
+import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import com.yy.mobile.framework.revenuesdk.baseapi.data.DataSenderConfig;
 import com.yy.mobile.framework.revenuesdk.baseapi.data.IDataSenderAdapter;
@@ -104,7 +105,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
                 int i2 = this.b;
                 String str = this.c;
                 int cmd = this.e.getCmd();
-                revenueDataParser.onRequestError(i, i2, str, cmd, -500, "服务请求失败message:" + exc.getMessage());
+                revenueDataParser.onRequestError(i, i2, str, cmd, ErrorCode.SERVER_ERROR, "服务请求失败message:" + exc.getMessage());
             }
         }
 
@@ -205,14 +206,14 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
                 } else {
                     RevenueDataParser revenueDataParser2 = RevenueDataParser.INSTANCE;
                     int cmd2 = pSCIMessageRequest.getCmd();
-                    revenueDataParser2.onRequestError(i, i2, str, cmd2, -500, "服务请求失败code:" + i3);
+                    revenueDataParser2.onRequestError(i, i2, str, cmd2, ErrorCode.SERVER_ERROR, "服务请求失败code:" + i3);
                     RLog.error("HttpDataSenderAdapter", "sendByHttpPost onRequestError code:" + i3, new Object[0]);
                 }
             } catch (Exception e2) {
                 e = e2;
                 RevenueDataParser revenueDataParser3 = RevenueDataParser.INSTANCE;
                 int cmd3 = pSCIMessageRequest.getCmd();
-                revenueDataParser3.onRequestError(i, i2, str, cmd3, -500, "服务请求失败error:" + e.getLocalizedMessage());
+                revenueDataParser3.onRequestError(i, i2, str, cmd3, ErrorCode.SERVER_ERROR, "服务请求失败error:" + e.getLocalizedMessage());
                 RLog.error("HttpDataSenderAdapter", "sendByHttpPost onRequestError error exception:" + e.getLocalizedMessage(), new Object[0]);
             }
         }

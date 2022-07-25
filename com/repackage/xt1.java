@@ -1,283 +1,158 @@
 package com.repackage;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Rect;
-import android.net.Uri;
+import android.graphics.Color;
+import android.graphics.Matrix;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
+import android.util.Base64;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.canvas.view.CanvasView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.executors.UiThreadImmediateExecutorService;
-import com.facebook.common.references.CloseableReference;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
-import com.facebook.imagepipeline.image.CloseableImage;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.io.File;
-import java.net.URI;
-import java.util.HashMap;
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xt1 extends nt1 {
+public class xt1 extends ot1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public Rect d;
-    public Rect e;
-    public Bitmap f;
-    public int g;
-    public Uri h;
-    public String i;
+    public Bitmap a;
+    public String b;
+    public Matrix c;
 
-    /* loaded from: classes7.dex */
-    public class a extends BaseBitmapDataSubscriber {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ DataSource a;
-        public final /* synthetic */ ot1 b;
-        public final /* synthetic */ xt1 c;
-
-        public a(xt1 xt1Var, DataSource dataSource, ot1 ot1Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755160164, "Lcom/repackage/xt1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xt1Var, dataSource, ot1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = xt1Var;
-            this.a = dataSource;
-            this.b = ot1Var;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.facebook.datasource.DataSource] */
-        @Override // com.facebook.datasource.BaseDataSubscriber
-        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
-                if (dataSource != null) {
-                    dataSource.close();
-                }
-                this.c.g = 3;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755160164, "Lcom/repackage/xt1;");
+                return;
             }
         }
-
-        @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
-        public void onNewResultImpl(@Nullable Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                if (this.a.isFinished() && bitmap != null) {
-                    this.c.f = Bitmap.createBitmap(bitmap);
-                    this.a.close();
-                    CanvasView canvasView = this.b.h;
-                    if (canvasView != null) {
-                        canvasView.postInvalidate();
-                    }
-                }
-                this.c.g = 2;
-            }
-        }
+        d = sg1.a;
     }
 
-    public xt1() {
+    public xt1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.g = 0;
+        this.b = str;
     }
 
-    @Override // com.repackage.nt1
-    public void a(ot1 ot1Var, Canvas canvas) {
+    @Override // com.repackage.ot1
+    public void a(pt1 pt1Var, Canvas canvas) {
+        Bitmap bitmap;
+        Matrix matrix;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, ot1Var, canvas) == null) {
-            if (h(ot1Var)) {
-                int alpha = ot1Var.d.getAlpha();
-                ot1Var.c(ot1Var.d);
-                Rect rect = this.e;
-                if (rect != null) {
-                    canvas.drawBitmap(this.f, this.d, rect, ot1Var.d);
-                } else {
-                    canvas.drawBitmap(this.f, this.b, this.c, ot1Var.d);
-                }
-                ot1Var.d.setAlpha(alpha);
-                return;
-            }
-            try {
-                j(ot1Var);
-            } catch (Exception e) {
-                if (rg1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, pt1Var, canvas) == null) || (bitmap = this.a) == null || (matrix = this.c) == null) {
+            return;
         }
+        canvas.drawBitmap(bitmap, matrix, pt1Var.d);
     }
 
-    @Override // com.repackage.nt1
+    @Override // com.repackage.ot1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            h03 b0 = h03.b0();
+        }
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                int length = jSONArray.length();
-                if (length > 0) {
-                    this.i = this.a;
-                    String optString = jSONArray.optString(0);
-                    this.a = optString;
-                    this.a = f(b0, optString);
+                JSONObject jSONObject = new JSONObject(this.b);
+                int g = zd3.g((float) jSONObject.optDouble("x"));
+                int g2 = zd3.g((float) jSONObject.optDouble("y"));
+                int optInt = jSONObject.optInt("width");
+                int optInt2 = jSONObject.optInt("height");
+                if (optInt <= 0 || optInt2 <= 0) {
+                    return 2002;
                 }
-                if (length > 2) {
-                    this.b = i(jSONArray, 1);
-                    this.c = i(jSONArray, 2);
+                float g3 = zd3.g(optInt);
+                float g4 = zd3.g(optInt2);
+                String optString = jSONObject.optString("data");
+                if (TextUtils.isEmpty(optString)) {
+                    return 2001;
                 }
-                if (length > 4) {
-                    int i = this.b;
-                    int i2 = this.c;
-                    int i3 = i(jSONArray, 3);
-                    int i4 = i(jSONArray, 4);
-                    if (i3 > 0 && i4 > 0) {
-                        this.e = new Rect(i, i2, i3 + i, i4 + i2);
-                    }
-                }
-                if (length > 8) {
-                    int optInt = jSONArray.optInt(5);
-                    int optInt2 = jSONArray.optInt(6);
-                    int optInt3 = jSONArray.optInt(7);
-                    int optInt4 = jSONArray.optInt(8);
-                    if (optInt3 > 0 && optInt4 > 0) {
-                        this.d = new Rect(optInt, optInt2, optInt3 + optInt, optInt4 + optInt2);
-                    }
-                }
-                if (b0 != null) {
-                    String g = g(this.a, b0);
-                    if (!TextUtils.isEmpty(g)) {
-                        this.f = BitmapFactory.decodeFile(g);
-                    } else if (TextUtils.isEmpty(this.a)) {
-                    } else {
-                        if (this.h == null || !TextUtils.equals(this.a, this.i)) {
-                            this.h = Uri.parse(this.a);
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                if (rg1.a) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public void e(HashMap<String, Bitmap> hashMap) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) || hashMap == null || TextUtils.isEmpty(this.a) || this.f == null || hashMap.containsKey(this.a)) {
-            return;
-        }
-        hashMap.put(this.a, this.f);
-    }
-
-    public final String f(h03 h03Var, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, h03Var, str)) == null) {
-            if (!TextUtils.isEmpty(str) && h03Var != null) {
                 try {
-                    return ("bdfile".equalsIgnoreCase(URI.create(str).getScheme()) || str.startsWith(be3.x(h03Var).getPath())) ? str : be3.w(h03Var, str);
-                } catch (Exception unused) {
+                    byte[] decode = Base64.decode(optString, 2);
+                    int i = optInt * optInt2 * 4;
+                    if (decode != null && decode.length == i) {
+                        this.a = e(d(decode, optInt, optInt2), g3, g4);
+                        Matrix matrix = new Matrix();
+                        this.c = matrix;
+                        matrix.postTranslate(g, g2);
+                        return 0;
+                    }
+                    return 2001;
+                } catch (Exception e) {
+                    if (d) {
+                        e.printStackTrace();
+                    }
+                    ix1.c("canvasPutImageData", "canvasGetImageData meets exception in decoding bitmap");
+                    return 1001;
                 }
-            }
-            return "";
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final String g(String str, h03 h03Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, h03Var)) == null) {
-            if (!TextUtils.isEmpty(str) && h03Var != null) {
-                try {
-                    if ("bdfile".equalsIgnoreCase(URI.create(str).getScheme())) {
-                        str = p73.M(str, h03Var.b);
-                    }
-                    if (TextUtils.isEmpty(str)) {
-                        return null;
-                    }
-                    File file = new File(str);
-                    if (file.exists() && file.isFile()) {
-                        return file.getAbsolutePath();
-                    }
-                } catch (Exception unused) {
+            } catch (JSONException e2) {
+                if (d) {
+                    e2.printStackTrace();
                 }
+                return 1001;
             }
-            return null;
         }
-        return (String) invokeLL.objValue;
+        return invokeV.intValue;
     }
 
-    public final boolean h(ot1 ot1Var) {
-        InterceptResult invokeL;
-        CanvasView canvasView;
+    @NonNull
+    public final Bitmap d(@NonNull byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ot1Var)) == null) {
-            if (this.f != null) {
-                return true;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
+            int i3 = i * i2;
+            int[] iArr = new int[i3];
+            for (int i4 = 0; i4 < i3; i4++) {
+                int i5 = i4 * 4;
+                iArr[i4] = Color.argb(bArr[i5 + 3] & 255, bArr[i5] & 255, bArr[i5 + 1] & 255, bArr[i5 + 2] & 255);
             }
-            if (this.h == null || ot1Var == null || (canvasView = ot1Var.h) == null) {
-                return false;
-            }
-            Bitmap e = canvasView.e(this.a);
-            this.f = e;
-            if (e != null) {
-                return true;
-            }
-            Bitmap c = ed3.c(this.h, ot1Var.h.getContext());
-            this.f = c;
-            return c != null;
+            Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_4444);
+            createBitmap.setPixels(iArr, 0, i, 0, 0, i, i2);
+            return createBitmap;
         }
-        return invokeL.booleanValue;
+        return (Bitmap) invokeLII.objValue;
     }
 
-    public final int i(JSONArray jSONArray, int i) {
-        InterceptResult invokeLI;
+    @NonNull
+    public final Bitmap e(@NonNull Bitmap bitmap, float f, float f2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, jSONArray, i)) == null) ? yd3.g((float) jSONArray.optDouble(i)) : invokeLI.intValue;
-    }
-
-    @UiThread
-    public final void j(ot1 ot1Var) {
-        CanvasView canvasView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, ot1Var) == null) || this.g != 0 || (canvasView = ot1Var.h) == null || canvasView.getContext() == null || TextUtils.isEmpty(this.a)) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{bitmap, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            Matrix matrix = new Matrix();
+            matrix.postScale(f / bitmap.getWidth(), f2 / bitmap.getHeight());
+            return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
         }
-        this.g = 1;
-        DataSource<CloseableReference<CloseableImage>> fetchDecodedImage = Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(Uri.parse(this.a)).build(), ot1Var.h.getContext());
-        fetchDecodedImage.subscribe(new a(this, fetchDecodedImage, ot1Var), UiThreadImmediateExecutorService.getInstance());
+        return (Bitmap) invokeCommon.objValue;
     }
 }

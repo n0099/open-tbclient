@@ -1,7 +1,9 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class nf2 extends be2<sg2> {
+public class nf2 extends ce2<tg2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,25 +29,32 @@ public class nf2 extends be2<sg2> {
         }
     }
 
-    @Override // com.repackage.be2
+    @Override // com.repackage.ce2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableMicPhone" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableLocalMirror" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.be2
+    @Override // com.repackage.ce2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull sg2 sg2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull tg2 tg2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, sg2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, tg2Var) == null) {
             String str = command.what;
-            d(sg2Var, str, "" + command.obj, true);
+            d(tg2Var, str, "" + command.obj, true);
             Object obj = command.obj;
-            if (obj instanceof Boolean) {
-                sg2Var.d0(((Boolean) obj).booleanValue());
+            if (obj instanceof String) {
+                String str2 = (String) obj;
+                if (TextUtils.equals("auto", str2)) {
+                    tg2Var.i0(str2);
+                } else if (TextUtils.equals("enable", str2)) {
+                    tg2Var.i0(str2);
+                } else if (TextUtils.equals(PackageTable.DISABLE, str2)) {
+                    tg2Var.i0(str2);
+                }
             }
         }
     }

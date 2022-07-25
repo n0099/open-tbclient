@@ -1,254 +1,130 @@
 package com.repackage;
 
-import android.database.Cursor;
-import android.media.MediaMetadataRetriever;
-import android.os.Handler;
-import android.os.Message;
-import android.provider.MediaStore;
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.media.chooser.model.ImageModel;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.swan.apps.media.chooser.model.MediaModel;
-import com.baidu.swan.apps.media.chooser.model.VideoModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class io2 implements Runnable {
+public class io2 implements Comparable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ho2> a;
-    public ArrayList<MediaModel> b;
-    public String c;
-    public Handler d;
+    public String a;
+    public String b;
+    public long c;
+    public ArrayList<MediaModel> d;
 
-    public io2(String str, Handler handler) {
+    public io2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
-        this.c = str;
-        this.d = handler;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.equals(this.c, "video")) {
-            return;
-        }
-        Cursor cursor = null;
-        try {
-            try {
-                cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
-            } catch (Exception e) {
-                if (wn2.a) {
-                    e.printStackTrace();
-                }
-            }
-            if (cursor == null) {
-                return;
-            }
-            while (cursor.moveToNext()) {
-                String string = cursor.getString(cursor.getColumnIndex("_data"));
-                long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
-                long j2 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
-                File file = new File(string);
-                if (file.exists() && (wn2.d || !xn2.d(string))) {
-                    ImageModel imageModel = new ImageModel(string);
-                    imageModel.setAddDate(j);
-                    imageModel.setSize(j2);
-                    d(file, imageModel);
-                }
-            }
-        } finally {
-            jg4.d(null);
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00e3 */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x009f, code lost:
-        if (r11 != null) goto L30;
-     */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r15v0, types: [com.repackage.io2, java.lang.Object] */
-    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r1v2 */
-    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.Closeable] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void b() {
-        Throwable th;
-        Cursor cursor;
-        Exception e;
-        MediaMetadataRetriever mediaMetadataRetriever;
-        Throwable th2;
+    public void a(MediaModel mediaModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ?? r1 = "Image";
-            if (TextUtils.equals(this.c, "Image")) {
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, mediaModel) == null) {
+            if (this.d == null) {
+                this.d = new ArrayList<>();
             }
-            try {
-                try {
-                    cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
-                } catch (Throwable th3) {
-                    th = th3;
-                    jg4.d(r1);
-                    throw th;
-                }
-            } catch (Exception e2) {
-                cursor = null;
-                e = e2;
-            } catch (Throwable th4) {
-                r1 = 0;
-                th = th4;
-                jg4.d(r1);
-                throw th;
-            }
-            if (cursor == null) {
-                jg4.d(cursor);
-                return;
-            }
-            while (cursor.moveToNext()) {
-                try {
-                    String string = cursor.getString(cursor.getColumnIndexOrThrow("_data"));
-                    long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
-                    long j2 = cursor.getInt(cursor.getColumnIndexOrThrow("duration"));
-                    long j3 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
-                    int i = cursor.getInt(cursor.getColumnIndexOrThrow("width"));
-                    int i2 = cursor.getInt(cursor.getColumnIndexOrThrow("height"));
-                    if (i <= 0 || i2 <= 0) {
-                        try {
-                            mediaMetadataRetriever = new MediaMetadataRetriever();
-                            try {
-                                try {
-                                    mediaMetadataRetriever.setDataSource(string);
-                                    String extractMetadata = mediaMetadataRetriever.extractMetadata(18);
-                                    String extractMetadata2 = mediaMetadataRetriever.extractMetadata(19);
-                                    i = Integer.parseInt(extractMetadata);
-                                    i2 = Integer.parseInt(extractMetadata2);
-                                } catch (Exception e3) {
-                                    e = e3;
-                                    if (wn2.a) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            } catch (Throwable th5) {
-                                th2 = th5;
-                                if (mediaMetadataRetriever != null) {
-                                    mediaMetadataRetriever.release();
-                                }
-                                throw th2;
-                            }
-                        } catch (Exception e4) {
-                            e = e4;
-                            mediaMetadataRetriever = null;
-                        } catch (Throwable th6) {
-                            mediaMetadataRetriever = null;
-                            th2 = th6;
-                        }
-                        mediaMetadataRetriever.release();
-                    }
-                    File file = new File(string);
-                    if (file.exists()) {
-                        VideoModel videoModel = new VideoModel(string);
-                        videoModel.setAddDate(j);
-                        videoModel.setDuration(j2);
-                        videoModel.setSize(j3);
-                        videoModel.setWidth(i);
-                        videoModel.setHeight(i2);
-                        d(file, videoModel);
-                    }
-                } catch (Exception e5) {
-                    e = e5;
-                    if (wn2.a) {
-                        e.printStackTrace();
-                    }
-                    jg4.d(cursor);
-                }
-            }
-            jg4.d(cursor);
+            this.d.add(mediaModel);
         }
     }
 
-    public final void c(ArrayList<ho2> arrayList) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            Iterator<ho2> it = arrayList.iterator();
-            while (it.hasNext()) {
-                ho2 next = it.next();
-                next.i(new File(next.b()).lastModified());
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    @Override // java.lang.Comparable
+    public int compareTo(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? Long.valueOf(((io2) obj).e()).compareTo(Long.valueOf(this.c)) : invokeL.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d.size() : invokeV.intValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : invokeV.longValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            if (obj instanceof io2) {
+                return this.a.equals(((io2) obj).a);
             }
-            Collections.sort(arrayList);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public ArrayList<MediaModel> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (ArrayList) invokeV.objValue;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.b = str;
         }
     }
 
-    public final void d(File file, MediaModel mediaModel) {
-        String name;
-        String path;
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, file, mediaModel) == null) {
-            if (file.getParentFile() != null) {
-                name = file.getParentFile().getName();
-                path = file.getParent();
-            } else {
-                name = file.getName();
-                path = file.getPath();
-            }
-            ho2 ho2Var = new ho2();
-            ho2Var.h(name);
-            ho2Var.g(path);
-            int indexOf = this.a.indexOf(ho2Var);
-            if (indexOf >= 0) {
-                this.a.get(indexOf).a(mediaModel);
-            } else {
-                ho2Var.a(mediaModel);
-                this.a.add(ho2Var);
-            }
-            this.b.add(mediaModel);
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.a = str;
         }
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a();
-            b();
-            c(this.a);
-            ho2 ho2Var = new ho2();
-            ho2Var.h(xn2.b(AppRuntime.getAppContext(), this.c));
-            ho2Var.d = this.b;
-            this.a.add(0, ho2Var);
-            Iterator<ho2> it = this.a.iterator();
-            while (it.hasNext()) {
-                Collections.sort(it.next().f());
-            }
-            Handler handler = this.d;
-            if (handler != null) {
-                Message obtainMessage = handler.obtainMessage(0);
-                obtainMessage.obj = this.a;
-                this.d.sendMessage(obtainMessage);
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? super.hashCode() : invokeV.intValue;
+    }
+
+    public void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.c = j;
         }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return "MediaDir [firstImgPath=, dirName=" + this.a + ", imageCount=" + d() + PreferencesUtil.RIGHT_MOUNT;
+        }
+        return (String) invokeV.objValue;
     }
 }

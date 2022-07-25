@@ -201,7 +201,7 @@ public class td7 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !this.a.r() && view2.getId() == this.a.b.getId()) {
                 if (!ni.z()) {
-                    pi.L(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f0c2b));
+                    pi.L(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f0c17));
                 }
                 if (this.a.o == null || !this.a.c.isPlaying()) {
                     return;
@@ -416,10 +416,10 @@ public class td7 {
         this.p = a2;
         a2.F0(this);
         this.c = this.p.d0();
-        TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0923fb);
+        TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0923fd);
         this.f = tbImageView;
         tbImageView.setEvent(this.q);
-        this.g = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e99);
+        this.g = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e92);
         this.j = this.p.Z();
         this.k = pi.k(this.a.getPageActivity());
         this.l = pi.i(this.a.getPageActivity());

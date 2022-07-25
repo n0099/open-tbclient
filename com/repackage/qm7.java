@@ -20,8 +20,8 @@ public class qm7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(65536, null, str, obj, i, str2) == null) {
             StatisticItem statisticItem = new StatisticItem(str);
-            if (obj instanceof cq4) {
-                statisticItem.param("fid", ((cq4) obj).i());
+            if (obj instanceof dq4) {
+                statisticItem.param("fid", ((dq4) obj).i());
             } else if (obj instanceof hn7) {
                 hn7 hn7Var = (hn7) obj;
                 ThreadData threadData = hn7Var.h;
@@ -36,26 +36,26 @@ public class qm7 {
         }
     }
 
-    public static void b(tm7 tm7Var, nn4 nn4Var) {
+    public static void b(tm7 tm7Var, on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, tm7Var, nn4Var) == null) {
-            d(tm7Var, nn4Var, true);
+        if (interceptable == null || interceptable.invokeLL(65537, null, tm7Var, on4Var) == null) {
+            d(tm7Var, on4Var, true);
         }
     }
 
-    public static void c(tm7 tm7Var, nn4 nn4Var) {
+    public static void c(tm7 tm7Var, on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, tm7Var, nn4Var) == null) {
-            d(tm7Var, nn4Var, false);
+        if (interceptable == null || interceptable.invokeLL(65538, null, tm7Var, on4Var) == null) {
+            d(tm7Var, on4Var, false);
         }
     }
 
-    public static void d(tm7 tm7Var, nn4 nn4Var, boolean z) {
+    public static void d(tm7 tm7Var, on4 on4Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65539, null, tm7Var, nn4Var, z) == null) || nn4Var == null || nn4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(65539, null, tm7Var, on4Var, z) == null) || on4Var == null || on4Var.getThreadData() == null) {
             return;
         }
-        ThreadData threadData = nn4Var.getThreadData();
+        ThreadData threadData = on4Var.getThreadData();
         boolean Z = tm7Var.Z();
         StatisticItem statisticItem = new StatisticItem(z ? Z ? "c13823" : "c13822" : Z ? "c13824" : "c13821");
         statisticItem.param("tid", threadData.getTid());

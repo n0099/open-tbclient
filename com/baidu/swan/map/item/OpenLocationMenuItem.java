@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yd3;
+import com.repackage.zd3;
 /* loaded from: classes2.dex */
 public class OpenLocationMenuItem {
     public static /* synthetic */ Interceptable $ic;
@@ -148,7 +148,7 @@ public class OpenLocationMenuItem {
                 return;
             }
         }
-        e = yd3.g(45.0f);
+        e = zd3.g(45.0f);
     }
 
     public OpenLocationMenuItem(Context context, String str, MenuItemType menuItemType) {
@@ -167,7 +167,7 @@ public class OpenLocationMenuItem {
             }
         }
         this.c = new TextView(context);
-        this.d = yd3.g(1.0f);
+        this.d = zd3.g(1.0f);
         this.c.setText(str);
         this.c.setTextSize(16.0f);
         this.c.setBackground(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df3));

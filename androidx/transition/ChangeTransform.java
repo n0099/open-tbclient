@@ -379,7 +379,7 @@ public class ChangeTransform extends Transition {
     private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, transitionValues) == null) {
-            View view2 = transitionValues.f1747view;
+            View view2 = transitionValues.f1027view;
             if (view2.getVisibility() == 8) {
                 return;
             }
@@ -402,14 +402,14 @@ public class ChangeTransform extends Transition {
     private void createGhostView(ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, viewGroup, transitionValues, transitionValues2) == null) {
-            View view2 = transitionValues2.f1747view;
+            View view2 = transitionValues2.f1027view;
             Matrix matrix = new Matrix((Matrix) transitionValues2.values.get(PROPNAME_PARENT_MATRIX));
             ViewUtils.transformMatrixToLocal(viewGroup, matrix);
             GhostView addGhost = GhostViewUtils.addGhost(view2, viewGroup, matrix);
             if (addGhost == null) {
                 return;
             }
-            addGhost.reserveEndViewTransition((ViewGroup) transitionValues.values.get(PROPNAME_PARENT), transitionValues.f1747view);
+            addGhost.reserveEndViewTransition((ViewGroup) transitionValues.values.get(PROPNAME_PARENT), transitionValues.f1027view);
             Transition transition = this;
             while (true) {
                 Transition transition2 = transition.mParent;
@@ -420,8 +420,8 @@ public class ChangeTransform extends Transition {
             }
             transition.addListener(new GhostListener(view2, addGhost));
             if (SUPPORTS_VIEW_REMOVAL_SUPPRESSION) {
-                View view3 = transitionValues.f1747view;
-                if (view3 != transitionValues2.f1747view) {
+                View view3 = transitionValues.f1027view;
+                if (view3 != transitionValues2.f1027view) {
                     ViewUtils.setTransitionAlpha(view3, 0.0f);
                 }
                 ViewUtils.setTransitionAlpha(view2, 1.0f);
@@ -446,7 +446,7 @@ public class ChangeTransform extends Transition {
                 return null;
             }
             Transforms transforms = (Transforms) transitionValues2.values.get(PROPNAME_TRANSFORMS);
-            View view2 = transitionValues2.f1747view;
+            View view2 = transitionValues2.f1027view;
             setIdentityTransforms(view2);
             float[] fArr = new float[9];
             matrix.getValues(fArr);
@@ -548,7 +548,7 @@ public class ChangeTransform extends Transition {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x001b, code lost:
-        if (r6 == r5.f1747view) goto L12;
+        if (r6 == r5.f1027view) goto L12;
      */
     /* JADX WARN: Code restructure failed: missing block: B:14:0x001e, code lost:
         if (r5 == r6) goto L12;
@@ -588,7 +588,7 @@ public class ChangeTransform extends Transition {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, this, transitionValues, transitionValues2) == null) {
             Matrix matrix = (Matrix) transitionValues2.values.get(PROPNAME_PARENT_MATRIX);
-            transitionValues2.f1747view.setTag(R$id.parent_matrix, matrix);
+            transitionValues2.f1027view.setTag(R$id.parent_matrix, matrix);
             Matrix matrix2 = this.mTempMatrix;
             matrix2.reset();
             matrix.invert(matrix2);
@@ -632,7 +632,7 @@ public class ChangeTransform extends Transition {
             if (SUPPORTS_VIEW_REMOVAL_SUPPRESSION) {
                 return;
             }
-            ((ViewGroup) transitionValues.f1747view.getParent()).startViewTransition(transitionValues.f1747view);
+            ((ViewGroup) transitionValues.f1027view.getParent()).startViewTransition(transitionValues.f1027view);
         }
     }
 
@@ -661,7 +661,7 @@ public class ChangeTransform extends Transition {
             if (z && createTransformAnimator != null && this.mUseOverlay) {
                 createGhostView(viewGroup, transitionValues, transitionValues2);
             } else if (!SUPPORTS_VIEW_REMOVAL_SUPPRESSION) {
-                viewGroup2.endViewTransition(transitionValues.f1747view);
+                viewGroup2.endViewTransition(transitionValues.f1027view);
             }
             return createTransformAnimator;
         }

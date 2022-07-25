@@ -9,23 +9,23 @@ import com.ksad.download.DownloadTask;
 import com.ksad.download.b;
 import com.kwad.sdk.core.download.DownloadParams;
 import com.kwad.sdk.export.proxy.AdDownloadProxy;
-import com.kwad.sdk.utils.z;
+import com.kwad.sdk.utils.ab;
 import java.io.File;
 /* loaded from: classes5.dex */
 public final class a implements AdDownloadProxy {
-    public final boolean a;
+    public final boolean Xo;
 
     public a(boolean z) {
-        this.a = z;
+        this.Xo = z;
     }
 
-    public static String a(String str) {
-        return z.a(str) + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
+    public static String bL(String str) {
+        return ab.dI(str) + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
     }
 
     @Override // com.kwad.sdk.export.proxy.AdDownloadProxy
     public final void cancelDownload(Context context, String str, DownloadParams downloadParams) {
-        com.ksad.download.kwai.a.b(context, str);
+        com.ksad.download.kwai.a.f(context, str);
     }
 
     @Override // com.kwad.sdk.export.proxy.AdDownloadProxy
@@ -34,12 +34,12 @@ public final class a implements AdDownloadProxy {
         if (TextUtils.isEmpty(downloadParams.mFileUrl)) {
             return null;
         }
-        return b.b() + File.separator + a(downloadParams.mFileUrl);
+        return b.M() + File.separator + bL(downloadParams.mFileUrl);
     }
 
     @Override // com.kwad.sdk.export.proxy.AdDownloadProxy
     public final void pauseDownload(Context context, String str, DownloadParams downloadParams) {
-        com.ksad.download.kwai.a.a(context, str);
+        com.ksad.download.kwai.a.e(context, str);
     }
 
     @Override // com.kwad.sdk.export.proxy.AdDownloadProxy
@@ -49,10 +49,10 @@ public final class a implements AdDownloadProxy {
             return;
         }
         DownloadTask.DownloadRequest downloadRequest = new DownloadTask.DownloadRequest(downloadParams.mFileUrl);
-        downloadRequest.setDestinationFileName(a(downloadParams.mFileUrl));
+        downloadRequest.setDestinationFileName(bL(downloadParams.mFileUrl));
         downloadRequest.setTag(downloadParams);
         downloadRequest.setDownloadEnablePause(downloadParams.downloadEnablePause);
-        downloadRequest.setNotificationVisibility(this.a ? 3 : 0);
+        downloadRequest.setNotificationVisibility(this.Xo ? 3 : 0);
         com.ksad.download.kwai.a.a(context, str, downloadRequest);
     }
 }

@@ -13,6 +13,7 @@ import com.baidu.location.e.k;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -596,7 +597,7 @@ public final class BDLocation implements Parcelable {
             try {
                 try {
                     JSONObject jSONObject2 = new JSONObject(str);
-                    JSONObject jSONObject3 = jSONObject2.getJSONObject("result");
+                    JSONObject jSONObject3 = jSONObject2.getJSONObject(TiebaStatic.LogFields.RESULT);
                     int parseInt = Integer.parseInt(jSONObject3.getString("error"));
                     setLocType(parseInt);
                     setTime(jSONObject3.getString("time"));
@@ -650,7 +651,7 @@ public final class BDLocation implements Parcelable {
                                 int i5 = 0;
                                 while (i5 < jSONArray.length()) {
                                     JSONObject jSONObject9 = jSONArray.getJSONObject(i5);
-                                    arrayList.add(new Poi(jSONObject9.getString("pid"), jSONObject9.getString("pname"), jSONObject9.getDouble("pr")));
+                                    arrayList.add(new Poi(jSONObject9.getString("pid"), jSONObject9.getString("pname"), jSONObject9.getDouble(Config.PRINCIPAL_PART)));
                                     i5++;
                                     str24 = str24;
                                 }

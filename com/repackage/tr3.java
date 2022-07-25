@@ -1,181 +1,41 @@
 package com.repackage;
 
-import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class tr3 extends hw2 {
+public class tr3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String f;
-    public String g;
-    public JSONObject h;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final tr3 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ tr3 b;
 
-        public a(tr3 tr3Var, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tr3Var, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(24232319, "Lcom/repackage/tr3$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(24232319, "Lcom/repackage/tr3$a;");
                     return;
                 }
             }
-            this.b = tr3Var;
-            this.a = jSONObject;
-        }
-
-        /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-        @Override // java.lang.Runnable
-        public void run() {
-            char c;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                fr3.n().G(this.b.h);
-                String str = this.b.f;
-                switch (str.hashCode()) {
-                    case -1261560102:
-                        if (str.equals("queryStatus")) {
-                            c = 1;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -625158317:
-                        if (str.equals("deleteDownload")) {
-                            c = 5;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -606050596:
-                        if (str.equals("resumeAllDownload")) {
-                            c = 6;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -534830837:
-                        if (str.equals("queryAllStatus")) {
-                            c = 2;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -451216226:
-                        if (str.equals("pauseDownload")) {
-                            c = 3;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -417021581:
-                        if (str.equals("pauseAllDownload")) {
-                            c = 7;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 184711125:
-                        if (str.equals("resumeDownload")) {
-                            c = 4;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1554935562:
-                        if (str.equals("startDownload")) {
-                            c = 0;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    default:
-                        c = 65535;
-                        break;
-                }
-                switch (c) {
-                    case 0:
-                        this.b.w(this.a);
-                        return;
-                    case 1:
-                        this.b.t(this.a);
-                        return;
-                    case 2:
-                        this.b.s();
-                        return;
-                    case 3:
-                        this.b.r(this.a);
-                        return;
-                    case 4:
-                        this.b.v(this.a);
-                        return;
-                    case 5:
-                        this.b.p(this.a);
-                        return;
-                    case 6:
-                        this.b.u();
-                        return;
-                    case 7:
-                        this.b.q();
-                        return;
-                    default:
-                        this.b.setResult(new as3(31009, "invalid operation"));
-                        return;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements zr3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tr3 a;
-
-        public b(tr3 tr3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tr3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tr3Var;
-        }
-
-        @Override // com.repackage.zr3
-        public void a(bs3 bs3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bs3Var) == null) {
-                this.a.setResult(bs3Var);
-            }
+            a = new tr3();
         }
     }
 
@@ -193,92 +53,70 @@ public class tr3 extends hw2 {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setResult(bs3 bs3Var) {
+    public static tr3 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, this, bs3Var) == null) {
-            this.d.clear();
-            if (bs3Var != null) {
-                this.d.putString("functionType", bs3Var.a());
-                this.d.putString("resultData", bs3Var.b());
-                this.d.putInt("resultStatus", bs3Var.c());
-                if (bs3Var.d()) {
-                    if (!TextUtils.equals(this.f, "startDownload")) {
-                        hs3.a(this.g, this.f, "success", null, new fs3(this.h));
-                    }
-                } else {
-                    hs3.a(this.g, this.f, com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(bs3Var.c()), new fs3(this.h));
-                }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (tr3) invokeV.objValue;
+    }
+
+    public void a(@NonNull JSONObject jSONObject, @NonNull as3 as3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, as3Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            String optString = jSONObject.optString("url");
+            if (!optBoolean) {
+                as3Var.a(new bs3(31008, "download is not exist"));
+            } else {
+                yw3.c().c(optString);
             }
-            c();
         }
     }
 
-    @Override // com.repackage.hw2
-    public void b(@NonNull Bundle bundle) {
+    public void c(@NonNull JSONObject jSONObject, @NonNull as3 as3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            this.f = bundle.getString("operation", "");
-            this.h = hd3.d(bundle.getString("ubc_params", ""));
-            JSONObject d = hd3.d(bundle.getString("data", ""));
-            this.g = d.optString("packageName");
-            ir3.d.execute(new a(this, d));
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, as3Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            String optString = jSONObject.optString("url");
+            if (!optBoolean) {
+                as3Var.a(new bs3(31008, "download is not exist"));
+            } else {
+                yw3.c().e(optString);
+            }
         }
     }
 
-    public final void p(@NonNull JSONObject jSONObject) {
+    public void d(@NonNull JSONObject jSONObject, @NonNull as3 as3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            fr3.n().m(jSONObject, new b(this));
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, as3Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            if (!optBoolean) {
+                as3Var.a(new bs3(31008, "download is not exist"));
+                return;
+            }
+            String optString = jSONObject.optString("packageName");
+            String optString2 = jSONObject.optString("apkId");
+            String optString3 = jSONObject.optString("url");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                if (yw3.c().a(optString3, optString, optString2, optBoolean, new vr3(as3Var))) {
+                    return;
+                }
+                as3Var.a(new bs3(31006, "is not in main process"));
+                return;
+            }
+            as3Var.a(new bs3(31007, "invalid params"));
         }
     }
 
-    public final void q() {
+    public void e(@NonNull JSONObject jSONObject, @NonNull as3 as3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            fr3.n().u();
-        }
-    }
-
-    public final void r(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            fr3.n().v(jSONObject, new b(this));
-        }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            fr3.n().w(new b(this));
-        }
-    }
-
-    public final void t(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            fr3.n().x(jSONObject, new b(this));
-        }
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            fr3.n().D();
-        }
-    }
-
-    public final void v(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
-            fr3.n().E(jSONObject, new b(this));
-        }
-    }
-
-    public final void w(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
-            fr3.n().H(jSONObject.optString("url"), jSONObject.optString("packageName"), jSONObject.optString("apkId"), new b(this));
+        if (interceptable == null || interceptable.invokeLL(1048579, this, jSONObject, as3Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            String optString = jSONObject.optString("url");
+            if (!optBoolean) {
+                as3Var.a(new bs3(31008, "download is not exist"));
+            } else {
+                yw3.c().f(optString);
+            }
         }
     }
 }

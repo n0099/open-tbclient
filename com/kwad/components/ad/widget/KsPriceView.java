@@ -24,30 +24,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.core.widget.e;
 import com.kwad.components.core.widget.f;
-import com.kwad.sdk.core.d.b;
+import com.kwad.sdk.core.e.b;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes5.dex */
 public class KsPriceView extends TextView implements e {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String b = "¥%s 到手约 ¥%s";
-    public static String c = "¥%s  ¥%s";
-    public static String d = "¥%s";
+    public static String Cw = "¥%s 到手约 ¥%s";
+    public static String Cx = "¥%s  ¥%s";
+    public static String Cy = "¥%s";
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public String e;
-    public String f;
-    public boolean g;
+    public String CA;
+    public boolean CB;
+    public a Cv;
+    public String Cz;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public int d;
-        public int e;
-        public int f;
+        public int CC;
+        public int CD;
+        public int CE;
+        public int CF;
+        public int CG;
+        public int CH;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -63,70 +63,70 @@ public class KsPriceView extends TextView implements e {
             }
         }
 
-        public final int a() {
-            InterceptResult invokeV;
+        public final a ab(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                this.CD = i;
+                return this;
+            }
+            return (a) invokeI.objValue;
         }
 
-        public final a a(int i) {
+        public final a ac(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-                this.b = i;
+                this.CG = i;
                 return this;
             }
             return (a) invokeI.objValue;
         }
 
-        public final int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.intValue;
-        }
-
-        public final a b(int i) {
+        public final a ad(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                this.e = i;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.CH = i;
                 return this;
             }
             return (a) invokeI.objValue;
         }
 
-        public final int c() {
+        public final int kX() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.CE : invokeV.intValue;
         }
 
-        public final a c(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-                this.f = i;
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        public final int d() {
+        public final int kY() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.CG : invokeV.intValue;
         }
 
-        public final int e() {
+        public final int kZ() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.CF : invokeV.intValue;
         }
 
-        public final int f() {
+        public final int la() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.CH : invokeV.intValue;
+        }
+
+        public final int lb() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.CC : invokeV.intValue;
+        }
+
+        public final int lc() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.CD : invokeV.intValue;
         }
     }
 
@@ -163,8 +163,8 @@ public class KsPriceView extends TextView implements e {
                 return;
             }
         }
-        this.a = new a();
-        a(context);
+        this.Cv = new a();
+        L(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -186,8 +186,8 @@ public class KsPriceView extends TextView implements e {
                 return;
             }
         }
-        this.a = new a();
-        a(context);
+        this.Cv = new a();
+        L(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -209,8 +209,8 @@ public class KsPriceView extends TextView implements e {
                 return;
             }
         }
-        this.a = new a();
-        a(context);
+        this.Cv = new a();
+        L(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -233,8 +233,21 @@ public class KsPriceView extends TextView implements e {
                 return;
             }
         }
-        this.a = new a();
-        a(context);
+        this.Cv = new a();
+        L(context);
+    }
+
+    private void L(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
+            setMaxLines(1);
+            this.Cv.CE = context.getResources().getColor(R.color.obfuscated_res_0x7f06075f);
+            this.Cv.CF = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e0);
+            this.Cv.CG = context.getResources().getColor(R.color.obfuscated_res_0x7f060760);
+            this.Cv.CH = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703df);
+            this.Cv.CC = context.getResources().getColor(R.color.obfuscated_res_0x7f06075f);
+            this.Cv.CD = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e0);
+        }
     }
 
     @Nullable
@@ -242,29 +255,29 @@ public class KsPriceView extends TextView implements e {
         InterceptResult invokeCommon;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, str2, Boolean.valueOf(z), aVar})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, Boolean.valueOf(z), aVar})) == null) {
             if (str2 == null) {
-                format = String.format(d, str);
+                format = String.format(Cy, str);
             } else {
-                format = String.format(z ? c : b, str, str2);
+                format = String.format(z ? Cx : Cw, str, str2);
             }
             SpannableString spannableString = new SpannableString(format);
             if (format.startsWith("¥")) {
-                spannableString.setSpan(new ForegroundColorSpan(aVar.e()), 0, 1, 17);
-                spannableString.setSpan(new AbsoluteSizeSpan(aVar.f()), 0, 1, 17);
+                spannableString.setSpan(new ForegroundColorSpan(aVar.lb()), 0, 1, 17);
+                spannableString.setSpan(new AbsoluteSizeSpan(aVar.lc()), 0, 1, 17);
             }
             int indexOf = format.indexOf(str);
             if (indexOf < 0) {
                 return null;
             }
             int length = str.length() + indexOf;
-            spannableString.setSpan(new ForegroundColorSpan(aVar.a()), indexOf, length, 18);
-            spannableString.setSpan(new AbsoluteSizeSpan(aVar.c()), indexOf, length, 18);
+            spannableString.setSpan(new ForegroundColorSpan(aVar.kX()), indexOf, length, 18);
+            spannableString.setSpan(new AbsoluteSizeSpan(aVar.kZ()), indexOf, length, 18);
             if (str2 != null) {
                 int lastIndexOf = format.lastIndexOf(str2) - 1;
                 int length2 = str2.length() + 1 + lastIndexOf;
-                spannableString.setSpan(new ForegroundColorSpan(aVar.b()), lastIndexOf, length2, 18);
-                spannableString.setSpan(new AbsoluteSizeSpan(aVar.d()), lastIndexOf, length2, 18);
+                spannableString.setSpan(new ForegroundColorSpan(aVar.kY()), lastIndexOf, length2, 18);
+                spannableString.setSpan(new AbsoluteSizeSpan(aVar.la()), lastIndexOf, length2, 18);
                 spannableString.setSpan(new StrikethroughSpan(), lastIndexOf, length2, 18);
             }
             return spannableString;
@@ -272,56 +285,36 @@ public class KsPriceView extends TextView implements e {
         return (SpannableString) invokeCommon.objValue;
     }
 
-    private void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
-            setMaxLines(1);
-            this.a.c = context.getResources().getColor(R.color.obfuscated_res_0x7f06075f);
-            this.a.d = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e2);
-            this.a.e = context.getResources().getColor(R.color.obfuscated_res_0x7f060760);
-            this.a.f = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e1);
-            this.a.a = context.getResources().getColor(R.color.obfuscated_res_0x7f06075f);
-            this.a.b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e2);
-        }
-    }
-
     @Override // com.kwad.components.core.widget.e
     public final void a(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            this.a.c = fVar.a();
-            a(this.e, this.f, this.g);
+            this.Cv.CE = fVar.qh();
+            d(this.Cz, this.CA, this.CB);
         }
     }
 
-    public final void a(String str, String str2) {
+    public final void d(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            a(str, str2, false);
-        }
-    }
-
-    public final void a(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, str2, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) == null) {
             if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
                 return;
             }
-            this.e = str;
-            this.f = str2;
-            this.g = z;
+            this.Cz = str;
+            this.CA = str2;
+            this.CB = z;
             SpannableString spannableString = null;
             if (TextUtils.isEmpty(str2)) {
-                this.f = null;
+                this.CA = null;
             }
             if (str != null && str.startsWith("¥")) {
                 str = str.replaceFirst("¥", "");
             }
-            setTextColor(this.a.a());
+            setTextColor(this.Cv.kX());
             try {
-                spannableString = a(str, this.f, z, this.a);
+                spannableString = a(str, this.CA, z, this.Cv);
             } catch (Exception e) {
-                b.b(e);
+                b.printStackTraceOnly(e);
             }
             if (spannableString != null) {
                 setText(spannableString);
@@ -329,10 +322,17 @@ public class KsPriceView extends TextView implements e {
         }
     }
 
+    public final void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            d(str, str2, false);
+        }
+    }
+
     @NonNull
     public a getConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.Cv : (a) invokeV.objValue;
     }
 }

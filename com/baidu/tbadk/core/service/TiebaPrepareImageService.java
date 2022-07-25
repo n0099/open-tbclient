@@ -13,6 +13,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -138,17 +139,17 @@ public class TiebaPrepareImageService extends BdBaseService {
                     if (FileHelper.saveBitmapByRelativelyPath(null, TbConfig.IMAGE_RESIZED_FILE, c, 85) != null) {
                         Bitmap resizeBitmap = BitmapHelper.resizeBitmap(c, this.e.mDisplaySize > 0 ? this.e.mDisplaySize : 100);
                         if (resizeBitmap == null || FileHelper.saveBitmapByRelativelyPath(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85) == null) {
-                            this.d = this.e.getString(R.string.obfuscated_res_0x7f0f05a4);
+                            this.d = this.e.getString(R.string.obfuscated_res_0x7f0f05a0);
                         } else {
                             TiebaPrepareImageService.IS_DECODING = false;
                             z2 = z;
                             return Boolean.valueOf(z2);
                         }
                     } else {
-                        this.d = this.e.getString(R.string.obfuscated_res_0x7f0f05a4);
+                        this.d = this.e.getString(R.string.obfuscated_res_0x7f0f05a0);
                     }
                 } else {
-                    this.d = this.e.getString(R.string.obfuscated_res_0x7f0f0e62);
+                    this.d = this.e.getString(R.string.obfuscated_res_0x7f0f0e4b);
                 }
                 z = false;
                 TiebaPrepareImageService.IS_DECODING = false;
@@ -175,7 +176,7 @@ public class TiebaPrepareImageService extends BdBaseService {
                 super.onPostExecute((b) bool);
                 Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
                 intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-                intent.putExtra("result", bool);
+                intent.putExtra(TiebaStatic.LogFields.RESULT, bool);
                 String str = this.d;
                 if (str != null) {
                     intent.putExtra("error", str);

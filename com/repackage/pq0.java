@@ -76,11 +76,11 @@ public class pq0 extends iu0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.B();
-            LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.obfuscated_res_0x7f0d05b6, null);
+            LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.obfuscated_res_0x7f0d05c0, null);
             this.e = linearLayout;
-            this.f = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091fe3);
-            this.g = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091fde);
-            this.h = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091fd5);
+            this.f = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091fe7);
+            this.g = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091fe2);
+            this.h = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091fd9);
             this.g.setText(PlayerStatus.IDLE.name());
         }
     }

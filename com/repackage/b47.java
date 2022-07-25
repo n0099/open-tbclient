@@ -10,7 +10,7 @@ import com.baidu.tbadk.widget.richText.TbRichTextData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.j45;
+import com.repackage.k45;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class b47 {
@@ -27,7 +27,7 @@ public class b47 {
                 if (arrayList != null) {
                     arrayList.add(d);
                 }
-                j45.a g = TbFaceManager.i().g(str);
+                k45.a g = TbFaceManager.i().g(str);
                 if (g != null) {
                     int a = (int) (g.a() * 0.5d);
                     d.setBounds(new Rect(0, 0, a, a));

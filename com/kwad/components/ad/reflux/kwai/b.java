@@ -26,7 +26,7 @@ import java.io.InputStream;
 public final class b extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView i;
+    public ImageView lr;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(@NonNull Context context) {
@@ -49,19 +49,19 @@ public final class b extends a {
     }
 
     @Override // com.kwad.components.ad.reflux.kwai.a
-    public final void a(@NonNull Context context) {
+    public final void M(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0447, this);
-            ((a) this).a = (TextView) findViewById(R.id.obfuscated_res_0x7f0910dd);
-            ((a) this).e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910db);
-            ((a) this).f = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910dc);
-            ((a) this).d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910d6);
-            ((a) this).b = (TextView) findViewById(R.id.obfuscated_res_0x7f0910d7);
-            ((a) this).c = (TextView) findViewById(R.id.obfuscated_res_0x7f0910d4);
-            ((a) this).g = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f0910de);
-            ((a) this).h = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f0910d5);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910d9);
+            this.li = (TextView) findViewById(R.id.obfuscated_res_0x7f0910d4);
+            this.lm = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910d2);
+            this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910d3);
+            this.ll = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ca);
+            this.lj = (TextView) findViewById(R.id.obfuscated_res_0x7f0910cb);
+            this.lk = (TextView) findViewById(R.id.obfuscated_res_0x7f0910c8);
+            this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f0910d5);
+            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f0910c9);
+            this.lr = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910d0);
         }
     }
 
@@ -70,13 +70,13 @@ public final class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             super.a(aVar);
-            if (aVar == null || aVar.c() == null || this.i == null) {
+            if (aVar == null || aVar.getAdTemplate() == null || this.lr == null) {
                 return;
             }
-            ImageLoaderProxy.INSTANCE.load(getContext(), aVar.h(), this.i, new DisplayImageOptionsCompat.Builder().setBlurRadius(50).build(), new SimpleImageLoadingListener(this) { // from class: com.kwad.components.ad.reflux.kwai.b.1
+            ImageLoaderProxy.INSTANCE.load(getContext(), aVar.eO(), this.lr, new DisplayImageOptionsCompat.Builder().setBlurRadius(50).build(), new SimpleImageLoadingListener(this) { // from class: com.kwad.components.ad.reflux.kwai.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ b a;
+                public final /* synthetic */ b ls;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -93,7 +93,7 @@ public final class b extends a {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.ls = this;
                 }
 
                 @Override // com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener, com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener

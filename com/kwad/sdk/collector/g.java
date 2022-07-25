@@ -6,43 +6,43 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class g {
-    public static int a = 0;
-    public static int b = 1;
-    public static int c = 2;
-    public String d;
-    public int e;
+    public static int PERMISSION_DENIED = 2;
+    public static int PERMISSION_GRANTED = 1;
+    public static int SP;
+    public String SO;
+    public int state;
 
     public g(String str, int i) {
-        this.e = a;
-        this.d = str;
-        this.e = i;
+        this.state = SP;
+        this.SO = str;
+        this.state = i;
     }
 
-    public static JSONArray a(List<g> list) {
+    public static JSONArray l(List<g> list) {
         JSONArray jSONArray = new JSONArray();
         if (list == null) {
             return jSONArray;
         }
         for (g gVar : list) {
-            jSONArray.put(gVar.a());
+            jSONArray.put(gVar.toJson());
         }
         return jSONArray;
     }
 
-    private JSONObject a() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("name", b());
-            jSONObject.put("state", this.e);
-        } catch (JSONException e) {
-            com.kwad.sdk.core.d.b.a(e);
-        }
-        return jSONObject;
+    private String rs() {
+        int lastIndexOf;
+        String str = this.SO;
+        return ((str.startsWith("com.android.") || this.SO.startsWith("android.permission")) && (lastIndexOf = this.SO.lastIndexOf(".")) < this.SO.length() + (-1)) ? this.SO.substring(lastIndexOf + 1) : str;
     }
 
-    private String b() {
-        int lastIndexOf;
-        String str = this.d;
-        return ((str.startsWith("com.android.") || this.d.startsWith("android.permission")) && (lastIndexOf = this.d.lastIndexOf(".")) < this.d.length() + (-1)) ? this.d.substring(lastIndexOf + 1) : str;
+    private JSONObject toJson() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("name", rs());
+            jSONObject.put("state", this.state);
+        } catch (JSONException e) {
+            com.kwad.sdk.core.e.b.printStackTrace(e);
+        }
+        return jSONObject;
     }
 }

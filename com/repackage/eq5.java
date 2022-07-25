@@ -43,9 +43,9 @@ public class eq5 extends jx5<mr5> {
             }
         }
         this.k = h();
-        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f092227);
-        this.j = (ImageView) h().findViewById(R.id.obfuscated_res_0x7f090f9c);
-        this.l = h().findViewById(R.id.obfuscated_res_0x7f090df5);
+        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f092229);
+        this.j = (ImageView) h().findViewById(R.id.obfuscated_res_0x7f090f95);
+        this.l = h().findViewById(R.id.obfuscated_res_0x7f090dee);
         j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -53,7 +53,7 @@ public class eq5 extends jx5<mr5> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07fd : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0807 : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5
@@ -81,11 +81,11 @@ public class eq5 extends jx5<mr5> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, mr5Var) == null) {
             if (mr5Var.a == 1) {
-                this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a08));
+                this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f09f4));
                 SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_07);
                 return;
             }
-            this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a07));
+            this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f09f3));
             SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_06);
         }
     }

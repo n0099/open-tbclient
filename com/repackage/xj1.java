@@ -1,5 +1,9 @@
 package com.repackage;
+
+import android.content.Context;
 /* loaded from: classes7.dex */
 public interface xj1 {
-    boolean a();
+    void a(Context context, int i);
+
+    int b(Context context);
 }

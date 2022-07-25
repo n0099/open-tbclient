@@ -33,10 +33,10 @@ public class k86 implements j86 {
     public List<DownloadData> c;
     public b d;
     public QmStickerItem e;
-    public e15 f;
+    public f15 f;
 
     /* loaded from: classes6.dex */
-    public class a implements e15 {
+    public class a implements f15 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k86 a;
@@ -59,7 +59,7 @@ public class k86 implements j86 {
             this.a = k86Var;
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
@@ -76,7 +76,7 @@ public class k86 implements j86 {
         }
 
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0089 */
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public void onFileDownloadSucceed(DownloadData downloadData) {
             File file;
             Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public class k86 implements j86 {
             String str = k86.g + "/" + substring;
             try {
                 try {
-                    ft4.c(new File(downloadData.getPath()), str);
+                    gt4.c(new File(downloadData.getPath()), str);
                     this.a.b.put(substring, str);
                     this.a.e.localPath = str;
                     this.a.d.c(this.a.e);
@@ -120,7 +120,7 @@ public class k86 implements j86 {
             }
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public boolean onFileDownloaded(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public class k86 implements j86 {
             return invokeL.booleanValue;
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public void onFileUpdateProgress(DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
@@ -146,7 +146,7 @@ public class k86 implements j86 {
             }
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public boolean onPreDownload(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -288,7 +288,7 @@ public class k86 implements j86 {
                 downloadData.setPath(g + "/" + nameMd5FromUrl + sb2);
                 downloadData.setCallback(this.f);
                 this.c.add(downloadData);
-                f15.k().l(downloadData);
+                g15.k().l(downloadData);
                 return;
             }
             b(null);

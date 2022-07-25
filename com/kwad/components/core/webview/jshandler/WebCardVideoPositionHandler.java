@@ -18,9 +18,9 @@ import org.json.JSONObject;
 public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public VideoPosition a;
-    public a b;
-    public Handler c;
+    public VideoPosition MT;
+    public a MU;
+    public Handler mHandler;
 
     @KsJson
     /* loaded from: classes5.dex */
@@ -113,30 +113,22 @@ public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webv
                 return;
             }
         }
-        this.a = new VideoPosition();
-        this.c = new Handler(Looper.getMainLooper());
-        this.b = aVar;
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
-    public final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "videoPosition" : (String) invokeV.objValue;
+        this.MT = new VideoPosition();
+        this.mHandler = new Handler(Looper.getMainLooper());
+        this.MU = aVar;
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
             try {
-                this.a.parseJson(new JSONObject(str));
-                if (this.b != null) {
-                    this.c.post(new Runnable(this) { // from class: com.kwad.components.core.webview.jshandler.WebCardVideoPositionHandler.1
+                this.MT.parseJson(new JSONObject(str));
+                if (this.MU != null) {
+                    this.mHandler.post(new Runnable(this) { // from class: com.kwad.components.core.webview.jshandler.WebCardVideoPositionHandler.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ WebCardVideoPositionHandler a;
+                        public final /* synthetic */ WebCardVideoPositionHandler MV;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -153,14 +145,14 @@ public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webv
                                     return;
                                 }
                             }
-                            this.a = this;
+                            this.MV = this;
                         }
 
                         @Override // java.lang.Runnable
                         public final void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.a.b.a(this.a.a);
+                                this.MV.MU.a(this.MV.MT);
                             }
                         }
                     });
@@ -173,10 +165,18 @@ public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webv
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void b() {
+    @NonNull
+    public final String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "videoPosition" : (String) invokeV.objValue;
+    }
+
+    @Override // com.kwad.sdk.core.webview.kwai.a
+    public final void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.removeCallbacksAndMessages(null);
+            this.mHandler.removeCallbacksAndMessages(null);
         }
     }
 }

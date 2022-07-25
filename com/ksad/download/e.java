@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f a;
+    public f aj;
 
     /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final e a;
+        public static final e ak;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -33,7 +33,7 @@ public final class e {
                     return;
                 }
             }
-            a = new e();
+            ak = new e();
         }
     }
 
@@ -51,48 +51,22 @@ public final class e {
         }
     }
 
-    public static e a() {
+    public static e S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (e) invokeV.objValue;
-    }
-
-    public final synchronized void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            synchronized (this) {
-                if (this.a != null) {
-                    this.a.a(i);
-                }
-            }
-        }
-    }
-
-    public final synchronized void a(DownloadTask downloadTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask) == null) {
-            synchronized (this) {
-                if (downloadTask.isCanceled()) {
-                    a(downloadTask.getId());
-                    return;
-                }
-                if (this.a != null) {
-                    this.a.a(downloadTask);
-                }
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.ak : (e) invokeV.objValue;
     }
 
     public final synchronized void a(DownloadTask downloadTask, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, downloadTask, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, downloadTask, z) == null) {
             synchronized (this) {
                 if (downloadTask.isCanceled()) {
-                    a(downloadTask.getId());
+                    v(downloadTask.getId());
                     return;
                 }
-                if (this.a != null) {
-                    this.a.a(downloadTask, z);
+                if (this.aj != null) {
+                    this.aj.a(downloadTask, z);
                 }
             }
         }
@@ -100,45 +74,71 @@ public final class e {
 
     public final void a(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-            this.a = fVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
+            this.aj = fVar;
         }
     }
 
-    public final synchronized void a(String str) {
+    public final synchronized void h(DownloadTask downloadTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            synchronized (this) {
-                if (this.a != null) {
-                    this.a.a(str);
-                }
-            }
-        }
-    }
-
-    public final synchronized void b(DownloadTask downloadTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, downloadTask) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadTask) == null) {
             synchronized (this) {
                 if (downloadTask.isCanceled()) {
-                    a(downloadTask.getId());
+                    v(downloadTask.getId());
                     return;
                 }
-                if (this.a != null) {
-                    this.a.b(downloadTask);
+                if (this.aj != null) {
+                    this.aj.h(downloadTask);
                 }
             }
         }
     }
 
-    public final synchronized void c(DownloadTask downloadTask) {
+    public final synchronized void i(DownloadTask downloadTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, downloadTask) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, downloadTask) == null) {
             synchronized (this) {
-                if (this.a != null) {
-                    this.a.c(downloadTask);
+                if (downloadTask.isCanceled()) {
+                    v(downloadTask.getId());
+                    return;
+                }
+                if (this.aj != null) {
+                    this.aj.i(downloadTask);
+                }
+            }
+        }
+    }
+
+    public final synchronized void j(DownloadTask downloadTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, downloadTask) == null) {
+            synchronized (this) {
+                if (this.aj != null) {
+                    this.aj.j(downloadTask);
                 }
                 downloadTask.getTag();
+            }
+        }
+    }
+
+    public final synchronized void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            synchronized (this) {
+                if (this.aj != null) {
+                    this.aj.o(str);
+                }
+            }
+        }
+    }
+
+    public final synchronized void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            synchronized (this) {
+                if (this.aj != null) {
+                    this.aj.v(i);
+                }
             }
         }
     }

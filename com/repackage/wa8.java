@@ -57,10 +57,10 @@ public class wa8 {
             wi0 wi0Var = new wi0();
             wi0Var.j = adCard.adId;
             wi0Var.a = adCard.getExtInfo();
-            pn4 pn4Var = adCard.appInfoModel;
-            if (pn4Var != null) {
-                wi0Var.g = pn4Var.b;
-                wi0Var.h = pn4Var.c;
+            qn4 qn4Var = adCard.appInfoModel;
+            if (qn4Var != null) {
+                wi0Var.g = qn4Var.b;
+                wi0Var.h = qn4Var.c;
             }
             if (eh0.n(adCard.cmdScheme)) {
                 wi0Var.c = adCard.cmdScheme;
@@ -101,7 +101,7 @@ public class wa8 {
     public static Drawable f(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, null, i, i2, i3, i4)) == null) ? sr4.D(sr4.k(tr4.y(), i), i2, i3, i4) : (Drawable) invokeIIII.objValue;
+        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, null, i, i2, i3, i4)) == null) ? tr4.D(tr4.k(ur4.y(), i), i2, i3, i4) : (Drawable) invokeIIII.objValue;
     }
 
     public static int g(float f, int i, int i2) {

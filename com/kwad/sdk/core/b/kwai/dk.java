@@ -1,62 +1,66 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.webkit.internal.ETAG;
+import com.baidubce.http.Headers;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class dk implements com.kwad.sdk.core.d<com.kwad.sdk.core.network.i> {
+public final class dk implements com.kwad.sdk.core.d<com.kwad.components.a.kwai.b> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(com.kwad.sdk.core.network.i iVar, JSONObject jSONObject) {
+    public static void a2(com.kwad.components.a.kwai.b bVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        iVar.a = jSONObject.optString("url");
-        if (jSONObject.opt("url") == JSONObject.NULL) {
-            iVar.a = "";
+        bVar.status = jSONObject.optInt("Status");
+        bVar.contentEncoding = jSONObject.optString("Content-Encoding");
+        if (jSONObject.opt("Content-Encoding") == JSONObject.NULL) {
+            bVar.contentEncoding = "";
         }
-        iVar.b = jSONObject.optString("host");
-        if (jSONObject.opt("host") == JSONObject.NULL) {
-            iVar.b = "";
+        bVar.PW = jSONObject.optString(Headers.CACHE_CONTROL);
+        if (jSONObject.opt(Headers.CACHE_CONTROL) == JSONObject.NULL) {
+            bVar.PW = "";
         }
-        iVar.c = jSONObject.optInt(ETAG.KEY_HTTP_CODE);
-        iVar.d = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-        if (jSONObject.opt(GameCodeGetResponseMsg.PARAM_ERROR_MSG) == JSONObject.NULL) {
-            iVar.d = "";
+        bVar.PU = jSONObject.optString("Content-Type");
+        if (jSONObject.opt("Content-Type") == JSONObject.NULL) {
+            bVar.PU = "";
         }
-        iVar.e = jSONObject.optString("req_type");
-        if (jSONObject.opt("req_type") == JSONObject.NULL) {
-            iVar.e = "";
-        }
-        iVar.f = jSONObject.optInt("use_ip");
-        iVar.g = jSONObject.optInt("rate_reciprocal");
-        iVar.h = jSONObject.optInt("rate");
+        com.kwad.components.a.kwai.a aVar = new com.kwad.components.a.kwai.a();
+        bVar.PX = aVar;
+        aVar.parseJson(jSONObject.optJSONObject("headers"));
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(com.kwad.sdk.core.network.i iVar, JSONObject jSONObject) {
+    public static JSONObject b2(com.kwad.components.a.kwai.b bVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "url", iVar.a);
-        com.kwad.sdk.utils.r.a(jSONObject, "host", iVar.b);
-        com.kwad.sdk.utils.r.a(jSONObject, ETAG.KEY_HTTP_CODE, iVar.c);
-        com.kwad.sdk.utils.r.a(jSONObject, GameCodeGetResponseMsg.PARAM_ERROR_MSG, iVar.d);
-        com.kwad.sdk.utils.r.a(jSONObject, "req_type", iVar.e);
-        com.kwad.sdk.utils.r.a(jSONObject, "use_ip", iVar.f);
-        com.kwad.sdk.utils.r.a(jSONObject, "rate_reciprocal", iVar.g);
-        com.kwad.sdk.utils.r.a(jSONObject, "rate", iVar.h);
+        int i = bVar.status;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "Status", i);
+        }
+        String str = bVar.contentEncoding;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "Content-Encoding", bVar.contentEncoding);
+        }
+        String str2 = bVar.PW;
+        if (str2 != null && !str2.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, Headers.CACHE_CONTROL, bVar.PW);
+        }
+        String str3 = bVar.PU;
+        if (str3 != null && !str3.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "Content-Type", bVar.PU);
+        }
+        com.kwad.sdk.utils.r.a(jSONObject, "headers", bVar.PX);
         return jSONObject;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.network.i iVar, JSONObject jSONObject) {
-        a2(iVar, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(com.kwad.components.a.kwai.b bVar, JSONObject jSONObject) {
+        a2(bVar, jSONObject);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.network.i iVar, JSONObject jSONObject) {
-        return b2(iVar, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.components.a.kwai.b bVar, JSONObject jSONObject) {
+        return b2(bVar, jSONObject);
     }
 }

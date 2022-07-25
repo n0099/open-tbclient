@@ -58,20 +58,20 @@ public class a extends Dialog {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d04a2);
+            setContentView(R.layout.obfuscated_res_0x7f0d04a1);
             setCanceledOnTouchOutside(false);
-            this.b = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f092443);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090792);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09078a);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0914ce);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0916cb);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0916ca);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0916cc);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091949);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0915a7);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0915b3);
-            this.m = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092090);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0916c9);
+            this.b = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f092445);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090790);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090788);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0914a9);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0916a6);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0916a5);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0916a7);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091924);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091582);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09158e);
+            this.m = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092094);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0916a4);
             CommonViewUtility.setViewClickAlpha(this.j, 0.2f);
             CommonViewUtility.setViewClickAlpha(this.k, 0.2f);
             CommonViewUtility.setViewClickAlpha(this.l, 0.2f);

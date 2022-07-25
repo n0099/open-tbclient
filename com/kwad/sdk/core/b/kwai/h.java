@@ -27,11 +27,26 @@ public final class h implements com.kwad.sdk.core.d<AdBid> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "creativeId", adBid.creativeId);
-        com.kwad.sdk.utils.r.a(jSONObject, "ecpm", adBid.ecpm);
-        com.kwad.sdk.utils.r.a(jSONObject, "bidEcpm", adBid.bidEcpm);
-        com.kwad.sdk.utils.r.a(jSONObject, "winNoticeUrl", adBid.winNoticeUrl);
-        com.kwad.sdk.utils.r.a(jSONObject, "materialId", adBid.materialId);
+        long j = adBid.creativeId;
+        if (j != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "creativeId", j);
+        }
+        long j2 = adBid.ecpm;
+        if (j2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "ecpm", j2);
+        }
+        int i = adBid.bidEcpm;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "bidEcpm", i);
+        }
+        String str = adBid.winNoticeUrl;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "winNoticeUrl", adBid.winNoticeUrl);
+        }
+        String str2 = adBid.materialId;
+        if (str2 != null && !str2.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "materialId", adBid.materialId);
+        }
         return jSONObject;
     }
 

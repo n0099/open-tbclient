@@ -10,7 +10,6 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.core.ForHostApp;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.VisitedForumData;
@@ -72,8 +71,8 @@ public class k56 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                br4.f();
-                te<String> h = br4.h("tb.recently_visited_forum", TbadkCoreApplication.getCurrentAccount() == null ? ForHostApp.KEY_NAME_LOCAL : TbadkCoreApplication.getCurrentAccount());
+                cr4.f();
+                te<String> h = cr4.h("tb.recently_visited_forum", TbadkCoreApplication.getCurrentAccount() == null ? "local" : TbadkCoreApplication.getCurrentAccount());
                 if (h != null && this.a.a != null) {
                     h.g("recently_visited_forum", OrmObject.jsonStrWithObject(this.a.a));
                 }
@@ -114,16 +113,16 @@ public class k56 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                br4.f();
-                te<String> h = br4.h("tb.recently_visited_forum", ForHostApp.KEY_NAME_LOCAL);
+                cr4.f();
+                te<String> h = cr4.h("tb.recently_visited_forum", "local");
                 RecentlyVisitedForumData recentlyVisitedForumData = null;
                 RecentlyVisitedForumData recentlyVisitedForumData2 = (h == null || oi.isEmpty(h.get("recently_visited_forum"))) ? null : (RecentlyVisitedForumData) OrmObject.objectWithJsonStr(h.get("recently_visited_forum"), RecentlyVisitedForumData.class);
                 if (TbadkCoreApplication.getCurrentAccount() != null) {
                     if (h != null) {
                         h.g("recently_visited_forum", "");
                     }
-                    br4.f();
-                    te<String> h2 = br4.h("tb.recently_visited_forum", TbadkCoreApplication.getCurrentAccount());
+                    cr4.f();
+                    te<String> h2 = cr4.h("tb.recently_visited_forum", TbadkCoreApplication.getCurrentAccount());
                     if (h2 == null || StringUtils.isNull(h2.get("recently_visited_forum"))) {
                         return recentlyVisitedForumData2;
                     }

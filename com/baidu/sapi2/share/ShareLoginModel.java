@@ -26,6 +26,7 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
+import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -347,18 +348,31 @@ public class ShareLoginModel {
                 ShareLoginStat.MakeShareLoginStat.upload();
                 return;
             }
-            ShareAccountAccessor.getAccessor().setAccountPkg(sapiAccount, intent.getStringExtra(AUTH_APP_PKG_NAME));
+            String stringExtra = intent.getStringExtra(AUTH_APP_PKG_NAME);
+            String stringExtra2 = intent.getStringExtra(SHARE_LOGIN_FROM_TPL);
+            ShareAccountAccessor.getAccessor().setAccountPkg(sapiAccount, stringExtra);
             intent.getStringExtra(AUTH_PASS_SDK_VERSION);
             SapiContext sapiContext = SapiContext.getInstance();
             sapiContext.setCurrentAccount(sapiAccount);
             sapiContext.addLoginAccount(sapiAccount);
             new ShareCallPacking().asyncMarkLoginState(2);
             sapiContext.setAccountActionType(ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE);
+            JSONObject jSONObject = new JSONObject();
+            if (stringExtra2 == null) {
+                stringExtra2 = "";
+            }
+            try {
+                jSONObject.put(ShareLoginStat.MakeShareLoginStat.KEY_FROM_TPL, stringExtra2);
+                jSONObject.put(ShareLoginStat.MakeShareLoginStat.KEY_FROM_PKG, stringExtra);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            SapiAccountManager.getInstance().getUserInfoAndRefershAccount(sapiAccount, Enums.LastLoginType.CHOICE_SHARE_V2.getValue(), jSONObject.toString());
             if (sapiContext.shareLivingunameEnable()) {
                 ArrayList arrayList = new ArrayList();
-                String stringExtra = intent.getStringExtra(FACE_LOGIN_UIDS);
-                if (!TextUtils.isEmpty(stringExtra)) {
-                    arrayList.addAll(new FaceLoginService().str2ShareModelV2List(stringExtra));
+                String stringExtra3 = intent.getStringExtra(FACE_LOGIN_UIDS);
+                if (!TextUtils.isEmpty(stringExtra3)) {
+                    arrayList.addAll(new FaceLoginService().str2ShareModelV2List(stringExtra3));
                 }
                 if (!arrayList.isEmpty()) {
                     new FaceLoginService().syncFaceLoginUidList(context, arrayList);

@@ -24,11 +24,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.v85;
-import com.repackage.xv4;
+import com.repackage.w85;
+import com.repackage.yv4;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class LikeButtonWithHeadPortrait extends FrameLayout implements xv4 {
+public class LikeButtonWithHeadPortrait extends FrameLayout implements yv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -107,7 +107,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements xv4 {
         f(context);
     }
 
-    @Override // com.repackage.xv4
+    @Override // com.repackage.yv4
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
@@ -116,9 +116,9 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements xv4 {
                 return;
             }
             Context context = getContext();
-            if ((context instanceof Activity) && (context instanceof v85)) {
+            if ((context instanceof Activity) && (context instanceof w85)) {
                 String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
-                List<String> currentPageSourceKeyList = ((v85) context).getCurrentPageSourceKeyList();
+                List<String> currentPageSourceKeyList = ((w85) context).getCurrentPageSourceKeyList();
                 if (currentPageSourceKeyList == null || !StringHelper.equals((String) ListUtils.getItem(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") || oi.isEmpty(stringExtra)) {
                     return;
                 }
@@ -127,7 +127,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements xv4 {
         }
     }
 
-    @Override // com.repackage.xv4
+    @Override // com.repackage.yv4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -135,7 +135,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements xv4 {
         }
     }
 
-    @Override // com.repackage.xv4
+    @Override // com.repackage.yv4
     public void c(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -143,14 +143,14 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements xv4 {
         }
     }
 
-    @Override // com.repackage.xv4
+    @Override // com.repackage.yv4
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.xv4
+    @Override // com.repackage.yv4
     public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -161,13 +161,13 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements xv4 {
     public final void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0895, this);
-            HeadPendantView headPendantView = (HeadPendantView) findViewById(R.id.obfuscated_res_0x7f090cd8);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d089f, this);
+            HeadPendantView headPendantView = (HeadPendantView) findViewById(R.id.obfuscated_res_0x7f090cd1);
             this.b = headPendantView;
             headPendantView.getHeadView().setIsRound(true);
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090418);
-            this.c = findViewById(R.id.obfuscated_res_0x7f092417);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091b30);
+            this.c = findViewById(R.id.obfuscated_res_0x7f092419);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091b0a);
         }
     }
 

@@ -240,7 +240,7 @@ public class c67 {
         ImMessageCenterPojo imMessageCenterPojo12 = new ImMessageCenterPojo();
         imMessageCenterPojo12.setGid(TbEnum.CustomGroupId.GROUP_VALIDATION);
         imMessageCenterPojo12.setCustomGroupType(-4);
-        imMessageCenterPojo12.setIs_hidden(!xt4.k().h("is_show_validate", true));
+        imMessageCenterPojo12.setIs_hidden(!yt4.k().h("is_show_validate", true));
         imMessageCenterPojo12.setUnread_count(v57.f().g("apply_join_group", 1));
         LinkedList<GroupNewsPojo> c = v57.f().c(0L, 1, 0, "apply_join_group");
         if (c != null && c.size() > 0) {

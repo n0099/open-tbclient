@@ -671,9 +671,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
     public void initialize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            float dimensionPixelOffset = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704c4);
-            float dimensionPixelOffset2 = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070488);
-            int dimensionPixelOffset3 = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07048a);
+            float dimensionPixelOffset = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704c2);
+            float dimensionPixelOffset2 = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070486);
+            int dimensionPixelOffset3 = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070488);
             MaterialShapeDrawable popUpMaterialShapeDrawable = getPopUpMaterialShapeDrawable(dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, dimensionPixelOffset3);
             MaterialShapeDrawable popUpMaterialShapeDrawable2 = getPopUpMaterialShapeDrawable(0.0f, dimensionPixelOffset, dimensionPixelOffset2, dimensionPixelOffset3);
             this.outlinedPopupBackground = popUpMaterialShapeDrawable;
@@ -683,7 +683,7 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
             this.filledPopupBackground.addState(new int[0], popUpMaterialShapeDrawable2);
             this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, IS_LOLLIPOP ? R.drawable.obfuscated_res_0x7f080d03 : R.drawable.obfuscated_res_0x7f080d04));
             TextInputLayout textInputLayout = this.textInputLayout;
-            textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f05d6));
+            textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f05d2));
             this.textInputLayout.setEndIconOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.textfield.DropdownMenuEndIconDelegate.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

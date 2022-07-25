@@ -35,7 +35,7 @@ import com.repackage.f86;
 import com.repackage.g86;
 import com.repackage.h06;
 import com.repackage.ke5;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import com.repackage.zv8;
 import com.repackage.zw5;
 import java.util.ArrayList;
@@ -471,7 +471,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
             f86 f86Var = this.e;
             if (f86Var != null && f86Var.g()) {
                 this.k = true;
-                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f0b19);
+                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f0b05);
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
@@ -516,23 +516,23 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0730, this);
-            RecordEffectLayout recordEffectLayout = (RecordEffectLayout) findViewById(R.id.obfuscated_res_0x7f091233);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d073a, this);
+            RecordEffectLayout recordEffectLayout = (RecordEffectLayout) findViewById(R.id.obfuscated_res_0x7f09120f);
             this.q = recordEffectLayout;
-            ur4 d2 = ur4.d(recordEffectLayout);
+            vr4 d2 = vr4.d(recordEffectLayout);
             d2.n(R.string.J_X14);
             d2.f(R.color.CAM_X0214);
-            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09124e);
-            CaptureRecordButton captureRecordButton = (CaptureRecordButton) findViewById(R.id.obfuscated_res_0x7f09124f);
+            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09122a);
+            CaptureRecordButton captureRecordButton = (CaptureRecordButton) findViewById(R.id.obfuscated_res_0x7f09122b);
             this.b = captureRecordButton;
             captureRecordButton.setOnTouchListener(this);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091250);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09122c);
             this.c = textView;
-            ur4 d3 = ur4.d(textView);
+            vr4 d3 = vr4.d(textView);
             d3.A(R.string.F_X02);
             d3.y(R.array.S_O_X001);
-            this.p.add(0, new dw8(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b1a), new MusicData(MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0b1a)), R.drawable.obfuscated_res_0x7f080ae1));
-            this.p.add(1, new dw8(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b18), new MusicData(MusicData.MUSIC_CLOUD_ID, 2, getResources().getString(R.string.obfuscated_res_0x7f0f0b18)), R.drawable.obfuscated_res_0x7f080acb));
+            this.p.add(0, new dw8(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b06), new MusicData(MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0b06)), R.drawable.obfuscated_res_0x7f080ae1));
+            this.p.add(1, new dw8(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b04), new MusicData(MusicData.MUSIC_CLOUD_ID, 2, getResources().getString(R.string.obfuscated_res_0x7f0f0b04)), R.drawable.obfuscated_res_0x7f080acb));
             return true;
         }
         return invokeV.booleanValue;

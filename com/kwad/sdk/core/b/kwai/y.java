@@ -28,7 +28,9 @@ public final class y implements com.kwad.sdk.core.d<AdInfo.AdSplashInfo> {
         adSplashInfo.videoDisplaySecond = jSONObject.optInt("videoDisplaySecond", new Integer("5").intValue());
         adSplashInfo.countdownShow = jSONObject.optInt("countdownShow");
         adSplashInfo.fullScreenClickSwitch = jSONObject.optInt("fullScreenClickSwitch");
+        adSplashInfo.skipButtonPosition = jSONObject.optInt("skipButtonPosition");
         adSplashInfo.splashShowClickButtonSwitch = jSONObject.optInt("splashShowClickButtonSwitch", new Integer("1").intValue());
+        adSplashInfo.skipSecond = jSONObject.optInt("skipSecond");
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
@@ -36,17 +38,43 @@ public final class y implements com.kwad.sdk.core.d<AdInfo.AdSplashInfo> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "logoPosition", adSplashInfo.logoPosition);
-        com.kwad.sdk.utils.r.a(jSONObject, "mute", adSplashInfo.mute);
-        com.kwad.sdk.utils.r.a(jSONObject, "skipType", adSplashInfo.skipType);
-        com.kwad.sdk.utils.r.a(jSONObject, "skipTips", adSplashInfo.skipTips);
-        com.kwad.sdk.utils.r.a(jSONObject, "speakerMuteIconUrl", adSplashInfo.speakerMuteIconUrl);
-        com.kwad.sdk.utils.r.a(jSONObject, "speakerIconUrl", adSplashInfo.speakerIconUrl);
-        com.kwad.sdk.utils.r.a(jSONObject, "imageDisplaySecond", adSplashInfo.imageDisplaySecond);
-        com.kwad.sdk.utils.r.a(jSONObject, "videoDisplaySecond", adSplashInfo.videoDisplaySecond);
-        com.kwad.sdk.utils.r.a(jSONObject, "countdownShow", adSplashInfo.countdownShow);
-        com.kwad.sdk.utils.r.a(jSONObject, "fullScreenClickSwitch", adSplashInfo.fullScreenClickSwitch);
-        com.kwad.sdk.utils.r.a(jSONObject, "splashShowClickButtonSwitch", adSplashInfo.splashShowClickButtonSwitch);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "logoPosition", adSplashInfo.logoPosition);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "mute", adSplashInfo.mute);
+        int i = adSplashInfo.skipType;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "skipType", i);
+        }
+        String str = adSplashInfo.skipTips;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "skipTips", adSplashInfo.skipTips);
+        }
+        String str2 = adSplashInfo.speakerMuteIconUrl;
+        if (str2 != null && !str2.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "speakerMuteIconUrl", adSplashInfo.speakerMuteIconUrl);
+        }
+        String str3 = adSplashInfo.speakerIconUrl;
+        if (str3 != null && !str3.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "speakerIconUrl", adSplashInfo.speakerIconUrl);
+        }
+        com.kwad.sdk.utils.r.putValue(jSONObject, "imageDisplaySecond", adSplashInfo.imageDisplaySecond);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "videoDisplaySecond", adSplashInfo.videoDisplaySecond);
+        int i2 = adSplashInfo.countdownShow;
+        if (i2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "countdownShow", i2);
+        }
+        int i3 = adSplashInfo.fullScreenClickSwitch;
+        if (i3 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "fullScreenClickSwitch", i3);
+        }
+        int i4 = adSplashInfo.skipButtonPosition;
+        if (i4 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "skipButtonPosition", i4);
+        }
+        com.kwad.sdk.utils.r.putValue(jSONObject, "splashShowClickButtonSwitch", adSplashInfo.splashShowClickButtonSwitch);
+        int i5 = adSplashInfo.skipSecond;
+        if (i5 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "skipSecond", i5);
+        }
         return jSONObject;
     }
 

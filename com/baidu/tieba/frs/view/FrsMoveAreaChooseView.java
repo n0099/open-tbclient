@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.jq6;
 import com.repackage.pi;
 import com.repackage.sc6;
-import com.repackage.ur4;
-import com.repackage.xt4;
+import com.repackage.vr4;
+import com.repackage.yt4;
 import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes3.dex */
@@ -66,11 +66,11 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
             setOrientation(1);
             setGravity(80);
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0333, this);
-            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090b66);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090b6a);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090b68);
-            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090b67);
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090b69);
+            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090b5f);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090b63);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090b61);
+            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090b60);
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090b62);
             this.e = recyclerView;
             recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
             this.e.addItemDecoration(new GridSpacingItemDecoration(3, pi.f(getContext(), R.dimen.M_W_X004), pi.f(getContext(), R.dimen.M_H_X003), false));
@@ -99,7 +99,7 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0605);
-            ur4 d = ur4.d(this.b);
+            vr4 d = vr4.d(this.b);
             d.n(R.string.J_X14);
             d.f(R.color.CAM_X0204);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
@@ -120,7 +120,7 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
                 if (this.a == null || getParent() == null || this.f.e() < 0) {
                     return;
                 }
-                boolean h = xt4.k().h("key_frs_move_area_tip", true);
+                boolean h = yt4.k().h("key_frs_move_area_tip", true);
                 List<FrsTabInfo> g = sc6.h().g();
                 FrsTabInfo frsTabInfo = (FrsTabInfo) ListUtils.getItem(g, this.f.d());
                 FrsTabInfo frsTabInfo2 = (FrsTabInfo) ListUtils.getItem(g, this.f.e());

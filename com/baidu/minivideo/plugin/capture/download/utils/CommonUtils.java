@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.p0.h;
 import java.text.DecimalFormat;
 /* loaded from: classes2.dex */
 public class CommonUtils {
@@ -33,7 +34,7 @@ public class CommonUtils {
             }
         }
         DF = new DecimalFormat("0.00");
-        PERMISSIONS_STORAGE = new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"};
+        PERMISSIONS_STORAGE = new String[]{h.i, "android.permission.WRITE_EXTERNAL_STORAGE"};
     }
 
     public CommonUtils() {

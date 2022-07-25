@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hg2 extends be2<sg2> {
+public class hg2 extends ce2<tg2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,30 +28,30 @@ public class hg2 extends be2<sg2> {
         }
     }
 
-    @Override // com.repackage.be2
+    @Override // com.repackage.ce2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRemoteVideoPlayState" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRemoteAudioPlayState" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.be2
+    @Override // com.repackage.ce2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull sg2 sg2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull tg2 tg2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, sg2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, tg2Var) == null) {
             String str = command.what;
-            d(sg2Var, str, "" + command.obj, true);
+            d(tg2Var, str, "" + command.obj, true);
             Object obj = command.obj;
             if (obj instanceof JSONObject) {
                 JSONObject jSONObject = (JSONObject) obj;
                 if (jSONObject.has("status") && jSONObject.has("userId")) {
                     long optLong = jSONObject.optLong("userId", -1L);
                     boolean optBoolean = jSONObject.optBoolean("status");
-                    if (qg2.a(optLong)) {
-                        sg2Var.e0(optLong, optBoolean);
+                    if (rg2.a(optLong)) {
+                        tg2Var.p(optLong, optBoolean);
                     }
                 }
             }

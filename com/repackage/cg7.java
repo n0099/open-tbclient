@@ -96,14 +96,14 @@ public class cg7 {
     public class b implements IMasterSwitchCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xk4 a;
+        public final /* synthetic */ yk4 a;
 
-        public b(cg7 cg7Var, xk4 xk4Var) {
+        public b(cg7 cg7Var, yk4 yk4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cg7Var, xk4Var};
+                Object[] objArr = {cg7Var, yk4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -113,7 +113,7 @@ public class cg7 {
                     return;
                 }
             }
-            this.a = xk4Var;
+            this.a = yk4Var;
         }
 
         @Override // com.baidu.searchbox.live.impl.IMasterSwitchCallback
@@ -370,10 +370,10 @@ public class cg7 {
         return invokeL.longValue;
     }
 
-    public void l(@Nullable xk4 xk4Var) {
+    public void l(@Nullable yk4 yk4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048592, this, xk4Var) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            LiveNpsGetSwitchManager.INSTANCE.getMasterSwitch("", new b(this, xk4Var));
+        if ((interceptable == null || interceptable.invokeL(1048592, this, yk4Var) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
+            LiveNpsGetSwitchManager.INSTANCE.getMasterSwitch("", new b(this, yk4Var));
         }
     }
 

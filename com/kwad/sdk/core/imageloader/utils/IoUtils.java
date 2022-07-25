@@ -53,17 +53,17 @@ public final class IoUtils {
                 try {
                     int read = inputStreamReader.read(cArr, 0, 1024);
                     if (read < 0) {
-                        b.a(inputStreamReader);
+                        b.closeQuietly(inputStreamReader);
                         return sb.toString();
                     }
                     sb.append(cArr, 0, read);
                 } catch (Exception unused) {
-                    b.a(inputStreamReader);
+                    b.closeQuietly(inputStreamReader);
                     return null;
                 } catch (Throwable th) {
                     th = th;
                     inputStreamReader2 = inputStreamReader;
-                    b.a(inputStreamReader2);
+                    b.closeQuietly(inputStreamReader2);
                     throw th;
                 }
             }
@@ -80,7 +80,7 @@ public final class IoUtils {
             } catch (IOException unused) {
                 return;
             } finally {
-                b.a(inputStream);
+                b.closeQuietly(inputStream);
             }
         } while (inputStream.read(new byte[32768], 0, 32768) != -1);
     }

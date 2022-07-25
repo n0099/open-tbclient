@@ -44,7 +44,7 @@ public class PassHttpClient implements com.baidu.pass.a {
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
         a = availableProcessors;
-        b = availableProcessors > 4 ? availableProcessors / 2 : 2;
+        b = availableProcessors > 16 ? availableProcessors / 2 : 8;
         c = new AtomicInteger();
         d = new c();
         f = new PassHttpClient();

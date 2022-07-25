@@ -1,142 +1,172 @@
 package com.repackage;
 
-import com.baidu.swan.apps.publisher.draft.DraftData;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.publisher.ReplyEditorParams;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mz2;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class sx2 {
+public class sx2 extends f23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            File file = new File(b(), "publisher_draft");
-            if (file.exists()) {
-                file.delete();
-            }
-        }
-    }
+    /* loaded from: classes7.dex */
+    public class a implements kx2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ String c;
 
-    public static final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            h03 M = h03.M();
-            String v = p73.v(M != null ? M.b : null);
-            Intrinsics.checkNotNullExpressionValue(v, "StorageUtil.getSwanAppStoreDirectory(appId)");
-            return v;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:32:0x005b  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final DraftData c() {
-        InterceptResult invokeV;
-        ObjectInputStream objectInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File file = new File(b(), "publisher_draft");
-            ObjectInputStream objectInputStream2 = null;
-            try {
-                try {
-                    if (file.exists()) {
-                        objectInputStream = new ObjectInputStream(new FileInputStream(file));
-                        try {
-                            Object readObject = objectInputStream.readObject();
-                            if (readObject != null) {
-                                DraftData draftData = (DraftData) readObject;
-                                if (System.currentTimeMillis() - draftData.getTimeStamp() > 432000000) {
-                                    objectInputStream.close();
-                                    return null;
-                                }
-                                objectInputStream.close();
-                                return draftData;
-                            }
-                            throw new NullPointerException("null cannot be cast to non-null type com.baidu.swan.apps.publisher.draft.DraftData");
-                        } catch (Exception e) {
-                            e = e;
-                            e.printStackTrace();
-                            if (objectInputStream != null) {
-                                objectInputStream.close();
-                            }
-                            return null;
-                        }
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    objectInputStream2 = "publisher_draft";
-                    if (objectInputStream2 != null) {
-                        objectInputStream2.close();
-                    }
-                    throw th;
+        public a(sx2 sx2Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sx2Var, callbackHandler, unitedSchemeEntity, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-            } catch (Exception e2) {
-                e = e2;
-                objectInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                if (objectInputStream2 != null) {
-                }
-                throw th;
             }
-            return null;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+            this.c = str;
         }
-        return (DraftData) invokeV.objValue;
+
+        @Override // com.repackage.kx2
+        public void a(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+                if (jSONObject == null) {
+                    UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.c);
+                } else {
+                    UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.c);
+                }
+            }
+        }
+
+        @Override // com.repackage.kx2
+        public void onCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.c);
+            }
+        }
     }
 
-    public static final void d(DraftData draftData) {
-        ObjectOutputStream objectOutputStream;
+    /* loaded from: classes7.dex */
+    public class b implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(sx2 sx2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sx2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sx2(f13 f13Var) {
+        super(f13Var, "/swanAPI/community/openReplyEditor");
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, draftData) == null) || draftData == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {f13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        File file = new File(b(), "publisher_draft");
-        try {
-            if (file.exists()) {
-                file.delete();
-                file.createNewFile();
+    }
+
+    @Override // com.repackage.f23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
+            if (i03Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal app info");
+                return false;
+            } else if (i03Var.n0()) {
+                if (f23.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                return false;
+            } else {
+                JSONObject d = id3.d(unitedSchemeEntity.getParam("params"));
+                String optString = d.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                a aVar = new a(this, callbackHandler, unitedSchemeEntity, optString);
+                ReplyEditorParams fromJson = ReplyEditorParams.fromJson(d);
+                if (fromJson == null) {
+                    j(context);
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal params info");
+                    return false;
+                }
+                ox2.c().e(i03Var, fromJson, aVar);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
-        ObjectOutputStream objectOutputStream2 = null;
-        try {
-            try {
-                objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));
-            } catch (Exception e2) {
-                e = e2;
-            }
-        } catch (Throwable th) {
-            th = th;
-        }
-        try {
-            objectOutputStream.writeObject(draftData);
-            objectOutputStream.close();
-        } catch (Exception e3) {
-            e = e3;
-            objectOutputStream2 = objectOutputStream;
-            e.printStackTrace();
-            if (objectOutputStream2 != null) {
-                objectOutputStream2.close();
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            objectOutputStream2 = objectOutputStream;
-            if (objectOutputStream2 != null) {
-                objectOutputStream2.close();
-            }
-            throw th;
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void j(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            mz2.a aVar = new mz2.a(context);
+            aVar.m(false);
+            aVar.U(R.string.obfuscated_res_0x7f0f12a0);
+            aVar.v(R.string.obfuscated_res_0x7f0f12a4);
+            aVar.O(R.string.obfuscated_res_0x7f0f0115, new b(this));
+            aVar.X();
         }
     }
 }

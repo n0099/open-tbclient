@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
@@ -89,7 +89,7 @@ public class hm6 extends qm6 {
                 if (!this.a.l(postWriteCallBackData)) {
                     this.a.e(postWriteCallBackData);
                 } else {
-                    pz4.c(this.a.b.o(), postWriteCallBackData, 1);
+                    qz4.c(this.a.b.o(), postWriteCallBackData, 1);
                 }
             }
         }
@@ -133,7 +133,7 @@ public class hm6 extends qm6 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements cr4.e {
+    public class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Thread2GroupShareView a;
@@ -168,14 +168,14 @@ public class hm6 extends qm6 {
             this.f = shareFromPBMsgData;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 InputMethodManager inputMethodManager = (InputMethodManager) this.g.b.getActivity().getSystemService("input_method");
                 pi.x(this.g.b.getActivity(), this.a.getChatMsgView());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.g.b.getActivity(), this.b, this.c, this.d, this.e, 0, this.a.getLeaveMsg(), this.f.toChatMessageContent())));
-                cr4Var.dismiss();
+                dr4Var.dismiss();
                 ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
                 if (shareItem == null || shareItem.e() == null) {
                     return;
@@ -187,7 +187,7 @@ public class hm6 extends qm6 {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements cr4.e {
+    public class d implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Thread2GroupShareView a;
@@ -212,12 +212,12 @@ public class hm6 extends qm6 {
             this.a = thread2GroupShareView;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 pi.x(this.b.b.getActivity(), this.a.getChatMsgView());
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
@@ -271,7 +271,7 @@ public class hm6 extends qm6 {
             if (postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || oi.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
                 return false;
             }
-            if (xt4.k().h(xt4.o(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
+            if (yt4.k().h(yt4.o(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.b.getActivity()).createNormalConfig("from_frs", postWriteCallBackData.getVideoEasterEggData())));
                 return true;
             }
@@ -538,15 +538,15 @@ public class hm6 extends qm6 {
         if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{shareFromPBMsgData, Long.valueOf(j), str, str2, str3}) == null) || shareFromPBMsgData == null) {
             return;
         }
-        cr4 cr4Var = new cr4(this.b.getActivity());
+        dr4 dr4Var = new dr4(this.b.getActivity());
         Thread2GroupShareView thread2GroupShareView = new Thread2GroupShareView(this.b.getActivity());
         thread2GroupShareView.setData(shareFromPBMsgData);
-        cr4Var.setContentViewSize(1);
-        cr4Var.setContentView(thread2GroupShareView);
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f113c, new c(this, thread2GroupShareView, j, str, str2, str3, shareFromPBMsgData));
-        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new d(this, thread2GroupShareView));
-        cr4Var.setCanceledOnTouchOutside(true);
-        cr4Var.create(this.b.getPageContext()).show();
+        dr4Var.setContentViewSize(1);
+        dr4Var.setContentView(thread2GroupShareView);
+        dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f10eb, new c(this, thread2GroupShareView, j, str, str2, str3, shareFromPBMsgData));
+        dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new d(this, thread2GroupShareView));
+        dr4Var.setCanceledOnTouchOutside(true);
+        dr4Var.create(this.b.getPageContext()).show();
         if (oi.isEmpty(shareFromPBMsgData.getImageUrl())) {
             return;
         }

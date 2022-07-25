@@ -15,7 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.core.view.DisplayCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,6 +26,7 @@ import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.ExoPlayerLibraryInfo;
 import com.google.android.exoplayer2.ParserException;
 import com.google.android.exoplayer2.upstream.DataSource;
+import com.kuaishou.weapon.p0.h;
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
 import java.io.File;
@@ -559,8 +559,8 @@ public final class Util {
                     break;
                 } else if (!isLocalFileUri(uriArr[i])) {
                     i++;
-                } else if (activity.checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") != 0) {
-                    activity.requestPermissions(new String[]{"android.permission.READ_EXTERNAL_STORAGE"}, 0);
+                } else if (activity.checkSelfPermission(h.i) != 0) {
+                    activity.requestPermissions(new String[]{h.i}, 0);
                     return true;
                 }
             }
@@ -896,7 +896,7 @@ public final class Util {
                     String str = null;
                     try {
                         Class<?> cls = Class.forName("android.os.SystemProperties");
-                        str = (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, "sys.display-size");
+                        str = (String) cls.getMethod("get", String.class).invoke(cls, "sys.display-size");
                     } catch (Exception e) {
                         Log.e("Util", "Failed to read sys.display-size", e);
                     }

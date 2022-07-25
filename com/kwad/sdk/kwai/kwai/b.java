@@ -1,226 +1,316 @@
 package com.kwad.sdk.kwai.kwai;
 
-import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.FrameLayout;
-import androidx.annotation.MainThread;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
 import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.api.KsAdSDK;
-import com.kwad.sdk.api.loader.Wrapper;
-import com.kwad.sdk.core.config.d;
-import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.service.ServiceProvider;
-import com.kwad.sdk.utils.af;
-import com.kwad.sdk.utils.az;
+import com.kwad.sdk.utils.ai;
+import com.kwad.sdk.utils.as;
 import com.kwad.sdk.utils.g;
+import com.kwad.sdk.utils.o;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.Iterator;
 import java.util.Stack;
-import java.util.concurrent.TimeUnit;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class b {
-    public static b a;
-    public c b;
-    public final Map<String, Integer> c = new HashMap();
-    public final Map<String, Integer> d = new HashMap();
-    public final Stack<AdTemplate> e = new Stack<>();
+    public static volatile b Re;
+    public Stack<AdTemplate> Rb = new Stack<>();
+    public String Rc;
+    public File Rd;
+    public boolean mHasInit;
 
-    public static b a() {
-        if (a == null) {
-            synchronized (b.class) {
-                if (a == null) {
-                    a = new b();
-                }
-            }
-        }
-        return a;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void fT();
+
+        void rc();
+    }
+
+    public b() {
+        qZ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final AdTemplate adTemplate, final boolean z) {
-        az.a(new Runnable() { // from class: com.kwad.sdk.kwai.kwai.b.3
+    public synchronized void Y(AdTemplate adTemplate) {
+        ObjectOutputStream objectOutputStream;
+        Throwable th;
+        Exception e;
+        boolean z = false;
+        Iterator<AdTemplate> it = this.Rb.iterator();
+        while (it.hasNext()) {
+            if (com.kwad.sdk.core.response.a.d.ca(it.next()) == com.kwad.sdk.core.response.a.d.ca(adTemplate)) {
+                it.remove();
+                z = true;
+            }
+        }
+        if (!z) {
+            return;
+        }
+        try {
+            objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.Rd));
+            try {
+                try {
+                    objectOutputStream.writeObject(this.Rb);
+                    com.kwad.sdk.crash.utils.b.closeQuietly(objectOutputStream);
+                } catch (Exception e2) {
+                    e = e2;
+                    com.kwad.sdk.core.e.b.d("InstallTipsDataManager", " removeApkDownloadedData e" + e);
+                    com.kwad.sdk.crash.utils.b.closeQuietly(objectOutputStream);
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                com.kwad.sdk.crash.utils.b.closeQuietly(objectOutputStream);
+                throw th;
+            }
+        } catch (Exception e3) {
+            objectOutputStream = null;
+            e = e3;
+        } catch (Throwable th3) {
+            objectOutputStream = null;
+            th = th3;
+            com.kwad.sdk.crash.utils.b.closeQuietly(objectOutputStream);
+            throw th;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public synchronized void Z(AdTemplate adTemplate) {
+        ObjectOutputStream objectOutputStream;
+        this.Rb.add(adTemplate);
+        ObjectOutputStream objectOutputStream2 = null;
+        try {
+            try {
+                if (!this.Rd.exists()) {
+                    com.kwad.sdk.core.e.b.d("InstallTipsDataManager", "getCanShowDownloadData mDownloadFile is not exists");
+                }
+                objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.Rd));
+            } catch (Throwable th) {
+                th = th;
+            }
+        } catch (Exception e) {
+            e = e;
+        }
+        try {
+            objectOutputStream.writeObject(this.Rb);
+            com.kwad.sdk.crash.utils.b.closeQuietly(objectOutputStream);
+        } catch (Exception e2) {
+            e = e2;
+            objectOutputStream2 = objectOutputStream;
+            com.kwad.sdk.core.e.b.printStackTrace(e);
+            com.kwad.sdk.crash.utils.b.closeQuietly(objectOutputStream2);
+        } catch (Throwable th2) {
+            th = th2;
+            objectOutputStream2 = objectOutputStream;
+            com.kwad.sdk.crash.utils.b.closeQuietly(objectOutputStream2);
+            throw th;
+        }
+    }
+
+    public static File ac(AdTemplate adTemplate) {
+        File file = new File(com.kwad.sdk.core.download.a.w(com.kwad.sdk.core.response.a.d.bQ(adTemplate)));
+        if (o.I(file)) {
+            return file;
+        }
+        return null;
+    }
+
+    private synchronized void qZ() {
+        Context context = KsAdSDKImpl.get().getContext();
+        if (context != null) {
+            this.Rc = as.db(context);
+            File file = new File(this.Rc);
+            if (!file.exists()) {
+                file.mkdir();
+            }
+            File file2 = new File(this.Rc + File.separator + "uninstall_ad");
+            this.Rd = file2;
+            if (!file2.exists()) {
+                try {
+                    this.Rd.createNewFile();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static b ra() {
+        if (Re == null) {
+            synchronized (b.class) {
+                if (Re == null) {
+                    Re = new b();
+                }
+            }
+        }
+        return Re;
+    }
+
+    public final synchronized void a(final a aVar) {
+        if (this.mHasInit) {
+            return;
+        }
+        this.mHasInit = true;
+        g.runOnDefaultExecutor(new Runnable() { // from class: com.kwad.sdk.kwai.kwai.b.1
+            /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: java.io.ObjectOutputStream */
+            /* JADX WARN: Multi-variable type inference failed */
+            /* JADX WARN: Removed duplicated region for block: B:60:0x0118 A[Catch: all -> 0x0128, TryCatch #6 {all -> 0x0128, blocks: (B:3:0x0002, B:28:0x00ac, B:43:0x00f1, B:58:0x0114, B:60:0x0118, B:62:0x011e, B:63:0x0121, B:55:0x010d, B:57:0x0111, B:39:0x00d4, B:66:0x0124, B:67:0x0127), top: B:76:0x0002 }] */
+            /* JADX WARN: Removed duplicated region for block: B:93:? A[RETURN, SYNTHETIC] */
             @Override // java.lang.Runnable
+            /*
+                Code decompiled incorrectly, please refer to instructions dump.
+            */
             public final void run() {
-                int r = d.r();
-                if (z && r == 2) {
-                    b.this.f(adTemplate);
-                } else {
-                    b.this.a(adTemplate, z, r);
+                ObjectInputStream objectInputStream;
+                ObjectOutputStream objectOutputStream;
+                try {
+                    HashMap hashMap = new HashMap();
+                    ObjectInputStream objectInputStream2 = null;
+                    try {
+                        if (!b.this.Rd.exists()) {
+                            com.kwad.sdk.core.e.b.d("InstallTipsDataManager", "getCanShowDownloadData mDownloadFile is not exists");
+                        }
+                        b.this.Rb.clear();
+                        objectInputStream = new ObjectInputStream(new FileInputStream(b.this.Rd));
+                        try {
+                            try {
+                                b.this.Rb = (Stack) objectInputStream.readObject();
+                                if (!b.this.Rb.isEmpty()) {
+                                    Stack stack = new Stack();
+                                    while (!b.this.Rb.isEmpty()) {
+                                        AdTemplate adTemplate = (AdTemplate) b.this.Rb.pop();
+                                        if (adTemplate != null) {
+                                            String valueOf = String.valueOf(com.kwad.sdk.core.response.a.d.ca(adTemplate));
+                                            File ac = b.ac(adTemplate);
+                                            if (ac == null || !ac.exists() || ac.lastModified() + 604800000 <= System.currentTimeMillis()) {
+                                                hashMap.put(valueOf, Boolean.TRUE);
+                                            } else {
+                                                stack.push(adTemplate);
+                                            }
+                                        }
+                                    }
+                                    while (!stack.isEmpty()) {
+                                        b.this.Rb.push((AdTemplate) stack.pop());
+                                    }
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                com.kwad.sdk.core.e.b.d("InstallTipsDataManager", " getCanShowDownloadBannerData e" + e);
+                                if (aVar != null) {
+                                    aVar.rc();
+                                    com.kwad.sdk.crash.utils.b.closeQuietly(objectInputStream);
+                                    com.kwad.sdk.crash.utils.b.closeQuietly(objectInputStream);
+                                    return;
+                                }
+                                com.kwad.sdk.crash.utils.b.closeQuietly(objectInputStream);
+                                try {
+                                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(b.this.Rd));
+                                    objectOutputStream.writeObject(b.this.Rb);
+                                    com.kwad.sdk.crash.utils.b.closeQuietly(objectOutputStream);
+                                } catch (Exception e2) {
+                                    e = e2;
+                                }
+                                if (aVar != null) {
+                                }
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            objectInputStream2 = objectInputStream;
+                            com.kwad.sdk.crash.utils.b.closeQuietly(objectInputStream2);
+                            throw th;
+                        }
+                    } catch (Exception e3) {
+                        e = e3;
+                        objectInputStream = null;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        com.kwad.sdk.crash.utils.b.closeQuietly(objectInputStream2);
+                        throw th;
+                    }
+                    com.kwad.sdk.crash.utils.b.closeQuietly(objectInputStream);
+                    try {
+                        objectOutputStream = new ObjectOutputStream(new FileOutputStream(b.this.Rd));
+                    } catch (Throwable th3) {
+                        th = th3;
+                    }
+                    try {
+                        objectOutputStream.writeObject(b.this.Rb);
+                        com.kwad.sdk.crash.utils.b.closeQuietly(objectOutputStream);
+                    } catch (Exception e4) {
+                        e = e4;
+                        objectInputStream2 = objectOutputStream;
+                        com.kwad.sdk.core.e.b.printStackTrace(e);
+                        if (aVar != null) {
+                            aVar.rc();
+                            com.kwad.sdk.crash.utils.b.closeQuietly(objectInputStream);
+                            com.kwad.sdk.crash.utils.b.closeQuietly(objectInputStream2);
+                            return;
+                        }
+                        com.kwad.sdk.crash.utils.b.closeQuietly(objectInputStream2);
+                        if (aVar != null) {
+                        }
+                    } catch (Throwable th4) {
+                        th = th4;
+                        objectInputStream2 = objectOutputStream;
+                        com.kwad.sdk.crash.utils.b.closeQuietly(objectInputStream2);
+                        throw th;
+                    }
+                    if (aVar != null) {
+                        aVar.fT();
+                    }
+                } catch (Throwable th5) {
+                    com.kwad.components.core.b.a.b(th5);
                 }
             }
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    @MainThread
-    public void a(AdTemplate adTemplate, boolean z, int i) {
-        if (this.b != null || com.kwad.components.core.c.kwai.b.a()) {
-            return;
-        }
-        boolean z2 = true;
-        a(adTemplate, z, (z && i == 1) ? false : false);
-    }
-
-    @UiThread
-    private void a(AdTemplate adTemplate, boolean z, boolean z2) {
-        Context a2;
-        Context wrapContextIfNeed;
-        com.kwad.sdk.core.lifecycle.a.c();
-        Activity e = com.kwad.sdk.core.lifecycle.a.e();
-        if (e == null || (a2 = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).a()) == null || (wrapContextIfNeed = Wrapper.wrapContextIfNeed(a2)) == null) {
-            return;
-        }
-        c cVar = new c(wrapContextIfNeed, adTemplate, z, z2);
-        View findViewById = e.getWindow().getDecorView().findViewById(16908290);
-        if (findViewById instanceof FrameLayout) {
-            cVar.a((FrameLayout) findViewById);
-            this.b = cVar;
-            b(adTemplate, z);
-        }
-    }
-
-    public static void a(Map<String, Integer> map, String str) {
-        map.put(str, map.containsKey(str) ? Integer.valueOf(map.get(str).intValue() + 1) : 1);
-    }
-
-    private void b(AdTemplate adTemplate, boolean z) {
-        String valueOf = String.valueOf(com.kwad.sdk.core.response.a.d.t(adTemplate));
-        if (z) {
-            a(this.c, valueOf);
-            com.kwad.sdk.core.report.a.c(adTemplate, 92, (JSONObject) null);
-            return;
-        }
-        com.kwad.sdk.core.report.a.d(adTemplate, 93, null);
-        a(this.d, valueOf);
-    }
-
-    public static boolean e(AdTemplate adTemplate) {
-        String a2;
+    public final void aa(final AdTemplate adTemplate) {
         if (adTemplate == null) {
-            return false;
-        }
-        AdInfo i = com.kwad.sdk.core.response.a.d.i(adTemplate);
-        Context context = KsAdSDKImpl.get().getContext();
-        if (context == null || af.a(context, com.kwad.sdk.core.response.a.a.C(i)) || (a2 = com.kwad.sdk.core.download.a.a(i)) == null || TextUtils.isEmpty(a2)) {
-            return false;
-        }
-        return new File(a2).exists();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    @MainThread
-    public void f(AdTemplate adTemplate) {
-        if (a.b()) {
             return;
         }
-        com.kwad.sdk.core.lifecycle.a.c();
-        Activity e = com.kwad.sdk.core.lifecycle.a.e();
-        if (e != null && a.a(e, adTemplate, null, null)) {
-            b(adTemplate, true);
-        }
-    }
-
-    public final void a(AdTemplate adTemplate) {
-        if (e(adTemplate)) {
-            this.e.add(adTemplate);
-        }
-    }
-
-    @Nullable
-    public final AdTemplate b() {
-        AdTemplate adTemplate = null;
-        while (!this.e.isEmpty()) {
-            AdTemplate pop = this.e.pop();
-            if (e(pop)) {
-                adTemplate = pop;
+        g.runOnDefaultExecutor(new Runnable() { // from class: com.kwad.sdk.kwai.kwai.b.2
+            @Override // java.lang.Runnable
+            public final void run() {
+                b.this.Z(adTemplate);
             }
+        });
+    }
+
+    public final void ab(final AdTemplate adTemplate) {
+        if (adTemplate == null) {
+            return;
         }
-        if (adTemplate != null) {
-            this.e.add(0, adTemplate);
+        g.runOnDefaultExecutor(new Runnable() { // from class: com.kwad.sdk.kwai.kwai.b.3
+            @Override // java.lang.Runnable
+            public final void run() {
+                b.this.Y(adTemplate);
+            }
+        });
+    }
+
+    public final synchronized AdTemplate rb() {
+        AdTemplate adTemplate;
+        adTemplate = null;
+        Stack stack = (Stack) this.Rb.clone();
+        while (true) {
+            if (stack.isEmpty()) {
+                break;
+            }
+            AdTemplate adTemplate2 = (AdTemplate) stack.pop();
+            if (adTemplate2 != null) {
+                String str = com.kwad.sdk.core.response.a.d.bQ(adTemplate2).adBaseInfo.appPackageName;
+                Context context = KsAdSDKImpl.get().getContext();
+                File ac = ac(adTemplate2);
+                if (ac != null && ac.exists() && ac.lastModified() + 604800000 > System.currentTimeMillis() && !ai.U(context, str)) {
+                    adTemplate = adTemplate2;
+                    break;
+                }
+            }
         }
         return adTemplate;
-    }
-
-    public final void b(AdTemplate adTemplate) {
-        if (adTemplate == null) {
-            return;
-        }
-        this.e.remove(adTemplate);
-    }
-
-    public final void c() {
-        this.b = null;
-    }
-
-    public final void c(final AdTemplate adTemplate) {
-        int q = d.q();
-        if (adTemplate == null || q <= 0) {
-            return;
-        }
-        final AdInfo i = com.kwad.sdk.core.response.a.d.i(adTemplate);
-        if (adTemplate.mAdScene.getAdStyle() == 0) {
-            return;
-        }
-        String valueOf = String.valueOf(com.kwad.sdk.core.response.a.d.t(adTemplate));
-        int i2 = 0;
-        if (this.c.containsKey(valueOf)) {
-            i2 = this.c.get(valueOf).intValue();
-            this.c.put(valueOf, Integer.valueOf(i2));
-        }
-        if (i2 > 0) {
-            return;
-        }
-        g.a(new Runnable() { // from class: com.kwad.sdk.kwai.kwai.b.1
-            @Override // java.lang.Runnable
-            public final void run() {
-                int i3 = i.status;
-                if (i3 == 12 || i3 == 10) {
-                    return;
-                }
-                b.this.a(adTemplate, true);
-            }
-        }, q, TimeUnit.SECONDS);
-    }
-
-    public final void d() {
-        a.c();
-        c cVar = this.b;
-        if (cVar != null) {
-            cVar.a();
-            this.b = null;
-        }
-    }
-
-    public final void d(final AdTemplate adTemplate) {
-        int F = d.F();
-        if (F < 0) {
-            return;
-        }
-        final AdInfo i = com.kwad.sdk.core.response.a.d.i(adTemplate);
-        String valueOf = String.valueOf(i.adBaseInfo.creativeId);
-        int i2 = 0;
-        if (this.d.containsKey(valueOf)) {
-            i2 = this.d.get(valueOf).intValue();
-            this.d.put(valueOf, Integer.valueOf(i2));
-        }
-        if (i2 > 0) {
-            return;
-        }
-        g.a(new Runnable() { // from class: com.kwad.sdk.kwai.kwai.b.2
-            @Override // java.lang.Runnable
-            public final void run() {
-                if (af.b(KsAdSDK.getContext(), com.kwad.sdk.core.response.a.a.C(i)) == 1) {
-                    return;
-                }
-                b.this.a(adTemplate, false);
-            }
-        }, F, TimeUnit.SECONDS);
     }
 }

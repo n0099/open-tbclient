@@ -84,13 +84,13 @@ public final class FeedType {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, adTemplate)) == null) {
-            int Y = a.Y(d.i(adTemplate));
+            int aD = a.aD(d.bQ(adTemplate));
             int i = adTemplate.type;
             if (i > FEED_TYPE_TEXT_ABOVE_GROUP.type) {
                 return true;
             }
             FeedType fromInt = fromInt(i);
-            return Y != 1 ? Y != 2 ? Y == 3 && fromInt != FEED_TYPE_UNKNOWN : (fromInt == FEED_TYPE_UNKNOWN || fromInt == FEED_TYPE_TEXT_ABOVE_GROUP) ? false : true : fromInt == FEED_TYPE_TEXT_ABOVE || fromInt == FEED_TYPE_TEXT_BELOW;
+            return aD != 1 ? aD != 2 ? aD == 3 && fromInt != FEED_TYPE_UNKNOWN : (fromInt == FEED_TYPE_UNKNOWN || fromInt == FEED_TYPE_TEXT_ABOVE_GROUP) ? false : true : fromInt == FEED_TYPE_TEXT_ABOVE || fromInt == FEED_TYPE_TEXT_BELOW;
         }
         return invokeL.booleanValue;
     }
@@ -114,7 +114,7 @@ public final class FeedType {
     public static boolean isH5Type(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i == 7 || i == 8 || i >= 2000 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i == 7 || i == 8 || i == 14 || i == 15 || i == 16 || i >= 2000 : invokeI.booleanValue;
     }
 
     public static FeedType valueOf(String str) {

@@ -88,7 +88,7 @@ public class MemberPayFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.h = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0540, viewGroup, false);
+            this.h = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d054a, viewGroup, false);
             nj7 nj7Var = new nj7(getPageContext(), this.h, this.a, this.b, this.c, this.d, this.e);
             this.f = nj7Var;
             nj7Var.s(this.g);

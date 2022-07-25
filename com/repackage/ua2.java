@@ -1,9 +1,9 @@
 package com.repackage;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,214 +11,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ub2;
+import com.repackage.xb2;
 /* loaded from: classes7.dex */
-public class ua2 {
+public abstract class ua2<P extends ub2, R extends xb2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile ua2 b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public class a implements af3<Exception> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ af3 a;
-        public final /* synthetic */ int b;
-
-        /* renamed from: com.repackage.ua2$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0738a implements af3<Exception> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0738a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.af3
-            /* renamed from: b */
-            public void a(Exception exc) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                    hx1.l("SwanAppCoresManager", "ensureSwanCore: update swan-js finish. ", exc);
-                    af3 af3Var = this.a.a;
-                    if (af3Var != null) {
-                        af3Var.a(exc);
-                    }
-                }
-            }
-        }
-
-        public a(ua2 ua2Var, af3 af3Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ua2Var, af3Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = af3Var;
-            this.b = i;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.af3
-        /* renamed from: b */
-        public void a(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                if (exc == null) {
-                    hx1.k("SwanAppCoresManager", "ensureSwanCore: done by update preset ");
-                    af3 af3Var = this.a;
-                    if (af3Var != null) {
-                        af3Var.a(null);
-                        return;
-                    }
-                    return;
-                }
-                hx1.k("SwanAppCoresManager", "ensureSwanCore: update preset failed ");
-                m93.o(this.b, new C0738a(this));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements af3<Exception> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ af3 a;
-        public final /* synthetic */ int b;
-
-        /* loaded from: classes7.dex */
-        public class a implements af3<Exception> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.af3
-            /* renamed from: b */
-            public void a(Exception exc) {
-                af3 af3Var;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) || (af3Var = this.a.a) == null) {
-                    return;
-                }
-                af3Var.a(exc);
-            }
-        }
-
-        public b(ua2 ua2Var, af3 af3Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ua2Var, af3Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = af3Var;
-            this.b = i;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.af3
-        /* renamed from: b */
-        public void a(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                if (exc != null) {
-                    af3 af3Var = this.a;
-                    if (af3Var != null) {
-                        af3Var.a(exc);
-                        return;
-                    }
-                    return;
-                }
-                qa2.h(this.b, new a(this));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ua2 a;
-
-        public c(ua2 ua2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ua2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ua2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
-            }
-        }
-    }
+    @NonNull
+    public P a;
+    @NonNull
+    public R b;
 
     static {
         InterceptResult invokeClinit;
@@ -233,79 +36,103 @@ public class ua2 {
                 return;
             }
         }
-        a = rg1.a;
+        c = sg1.a;
     }
 
-    public ua2() {
+    public ua2(@NonNull P p, @NonNull R r) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {p, r};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = p;
+        this.b = r;
     }
 
-    public static ua2 d() {
+    public <T extends ob2> Exception a(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+            if (t == null) {
+                return new Exception("ExtCore-Manager doRemoteUpdate: null updateInfo");
+            }
+            return this.b.e(t);
+        }
+        return (Exception) invokeL.objValue;
+    }
+
+    public abstract String b(int i);
+
+    @Nullable
+    public abstract ExtensionCore c();
+
+    @NonNull
+    public ExtensionCore d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (ua2.class) {
-                    if (b == null) {
-                        b = new ua2();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int c2 = this.a.a.c();
+            if (zb2.f(c2)) {
+                ExtensionCore extensionCore = new ExtensionCore();
+                extensionCore.extensionCoreVersionCode = 0L;
+                extensionCore.extensionCoreVersionName = "0";
+                extensionCore.extensionCorePath = b(c2);
+                extensionCore.extensionCoreType = 2;
+                if (c) {
+                    Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: debug=>" + extensionCore.toString());
                 }
+                return extensionCore;
             }
-            return b;
-        }
-        return (ua2) invokeV.objValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            q93.b().e(null, 0);
-            q93.b().e(null, 1);
-            qa2.h(0, null);
-            qa2.h(1, null);
-        }
-    }
-
-    public void c(@Nullable af3<Exception> af3Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, af3Var, i) == null) {
-            hx1.k("SwanAppCoresManager", "ensureSwanCore: invoke frameType = " + i);
-            g(new a(this, af3Var, i), i);
-        }
-    }
-
-    public void e(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            if (a) {
-                Log.d("SwanAppCoresManager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
+            ExtensionCore h = this.a.h();
+            ExtensionCore f = this.b.f();
+            if (h.extensionCoreVersionCode < f.extensionCoreVersionCode && f.isAvailable()) {
+                if (c) {
+                    Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + f.toString());
+                }
+                return f;
             }
-            m93.l(i, i2);
-            qa2.g(i, i2);
+            if (c) {
+                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + h.toString());
+            }
+            return h;
+        }
+        return (ExtensionCore) invokeV.objValue;
+    }
+
+    @NonNull
+    public P e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (P) invokeV.objValue;
+    }
+
+    @NonNull
+    public R f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (R) invokeV.objValue;
+    }
+
+    public void g(@Nullable bf3<Exception> bf3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bf3Var) == null) {
+            this.a.p(bf3Var);
         }
     }
 
-    public void f() {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ExecutorUtilsExt.postOnElastic(new c(this), "tryUpdateAllPresetCoresAsync", 2);
-        }
-    }
-
-    public final void g(@Nullable af3<Exception> af3Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, af3Var, i) == null) {
-            q93.b().e(new b(this, af3Var, i), i);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a.q();
         }
     }
 }

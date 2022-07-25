@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ga5;
+import com.repackage.ha5;
 import com.repackage.l56;
 import com.repackage.n56;
 import com.repackage.pg8;
@@ -188,7 +188,7 @@ public class EnterForumFragment extends BaseFragment {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -207,7 +207,7 @@ public class EnterForumFragment extends BaseFragment {
                 l56Var.I(i);
             }
             if (this.e != null) {
-                ga5.a(getPageContext(), this.e);
+                ha5.a(getPageContext(), this.e);
             }
         }
     }
@@ -326,14 +326,14 @@ public class EnterForumFragment extends BaseFragment {
     public final void x1(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, view2) == null) {
-            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0908bf);
-            this.d = (ObservedChangeLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ec9);
+            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0908bd);
+            this.d = (ObservedChangeLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ecd);
             l56 l56Var = new l56(this);
             this.a = l56Var;
             l56Var.S(getUniqueId());
             this.c.addView(this.a.B(), 0);
             this.a.C();
-            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f0908b4);
+            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f0908b2);
             if (findViewById != null) {
                 this.c.removeView(findViewById);
                 this.c.addView(findViewById, 0);

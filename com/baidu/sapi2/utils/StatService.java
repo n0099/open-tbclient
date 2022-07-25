@@ -1,7 +1,6 @@
 package com.baidu.sapi2.utils;
 
 import android.annotation.TargetApi;
-import android.os.Build;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
@@ -52,7 +51,7 @@ public final class StatService implements NoProguard {
         commonParams = hashMap;
         hashMap.put("pid", "111");
         commonParams.put("type", SmartLaunchStats.UBC_START_LAUNCH_ID);
-        commonParams.put(Config.DEVICE_PART, Build.MODEL);
+        commonParams.put(Config.DEVICE_PART, "android");
         ArrayList arrayList = new ArrayList();
         delayRequestName = arrayList;
         arrayList.add("share_read");

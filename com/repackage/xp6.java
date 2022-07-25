@@ -241,7 +241,7 @@ public class xp6 implements hx {
             this.d = textView;
             textView.setOnClickListener(new d(this));
             this.d.setGravity(17);
-            this.d.setText(R.string.obfuscated_res_0x7f0f06ed);
+            this.d.setText(R.string.obfuscated_res_0x7f0f06e9);
             int dimensionPixelSize = this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
             int dimensionPixelSize2 = this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225);
             this.d.setPadding(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
@@ -250,7 +250,7 @@ public class xp6 implements hx {
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(14);
-            layoutParams.topMargin = this.c.N0().getBottom() + pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070304);
+            layoutParams.topMargin = this.c.N0().getBottom() + pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070302);
             this.d.setLayoutParams(layoutParams);
         }
     }

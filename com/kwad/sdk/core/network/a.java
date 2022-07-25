@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 /* loaded from: classes5.dex */
 public abstract class a<R extends g> {
-    public static final ExecutorService sExecutors = com.kwad.sdk.core.threads.b.g();
+    public static final ExecutorService sExecutors = com.kwad.sdk.core.threads.b.vn();
     public Future<?> mTask;
 
     @CallSuper
@@ -30,12 +30,12 @@ public abstract class a<R extends g> {
                     try {
                         a.this.fetchImpl();
                     } catch (Exception e) {
-                        com.kwad.sdk.core.d.b.b(e);
+                        com.kwad.sdk.core.e.b.printStackTraceOnly(e);
                     }
                 }
             });
         } catch (Throwable th) {
-            com.kwad.sdk.core.d.b.a(th);
+            com.kwad.sdk.core.e.b.printStackTrace(th);
         }
     }
 

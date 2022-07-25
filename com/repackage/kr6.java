@@ -60,7 +60,7 @@ public class kr6 extends an<nn, FunAdEmptyHolder> implements o98, j98 {
     public View S(int i, View view2, ViewGroup viewGroup, nn nnVar, FunAdEmptyHolder funAdEmptyHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nnVar, funAdEmptyHolder})) == null) ? funAdEmptyHolder.b() : (View) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nnVar, funAdEmptyHolder})) == null) ? funAdEmptyHolder.a() : (View) invokeCommon.objValue;
     }
 
     @Override // com.repackage.o98

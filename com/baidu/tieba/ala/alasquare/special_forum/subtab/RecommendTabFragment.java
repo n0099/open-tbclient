@@ -31,11 +31,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.an;
 import com.repackage.es5;
-import com.repackage.fu4;
 import com.repackage.gr5;
 import com.repackage.gu4;
 import com.repackage.hr5;
-import com.repackage.k55;
+import com.repackage.hu4;
+import com.repackage.l55;
 import com.repackage.ls5;
 import com.repackage.ng;
 import com.repackage.ni;
@@ -50,8 +50,8 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
     public View d;
     public BdTypeListView e;
     public PbListView f;
-    public gu4 g;
-    public k55 h;
+    public hu4 g;
+    public l55 h;
     public d i;
     public SpecialRecommendTabModel j;
     public boolean k;
@@ -61,7 +61,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
     public String o;
     public SpecialRecommendTabModel.b p;
     public BdListView.p q;
-    public final fu4.g r;
+    public final gu4.g r;
 
     /* loaded from: classes3.dex */
     public class a implements SpecialRecommendTabModel.b {
@@ -158,7 +158,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements fu4.g {
+    public class c implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecommendTabFragment a;
@@ -181,7 +181,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
             this.a = recommendTabFragment;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -343,12 +343,12 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
     }
 
     public final void M1() {
-        k55 k55Var;
+        l55 l55Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             BdTypeListView bdTypeListView = this.e;
-            if (bdTypeListView != null && (k55Var = this.h) != null) {
-                bdTypeListView.removeHeaderView(k55Var.b());
+            if (bdTypeListView != null && (l55Var = this.h) != null) {
+                bdTypeListView.removeHeaderView(l55Var.b());
             }
             this.l = false;
         }
@@ -359,7 +359,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.m = false;
             this.j.M();
-            showLoadingView(this.d, false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070280));
+            showLoadingView(this.d, false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027e));
         }
     }
 
@@ -385,14 +385,14 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.h == null) {
-                k55 k55Var = new k55(getPageContext().getContext(), getNetRefreshListener());
-                this.h = k55Var;
-                k55Var.n(null);
+                l55 l55Var = new l55(getPageContext().getContext(), getNetRefreshListener());
+                this.h = l55Var;
+                l55Var.n(null);
                 this.h.g(null);
                 this.h.p();
                 this.h.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }
-            this.h.m(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f11ed));
+            this.h.m(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f119c));
             this.h.onChangeSkinType();
             if (!this.l) {
                 this.e.x(this.h.b(), 0);
@@ -407,7 +407,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
             this.e.setNextPage(this.f);
             this.f.t(pi.f(getContext(), R.dimen.tbds182));
             this.f.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.f.C(getResources().getString(R.string.obfuscated_res_0x7f0f0a09));
+            this.f.C(getResources().getString(R.string.obfuscated_res_0x7f0f09f5));
             this.f.f();
         }
     }
@@ -417,9 +417,9 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            gu4 gu4Var = this.g;
-            if (gu4Var != null) {
-                gu4Var.H(i);
+            hu4 hu4Var = this.g;
+            if (hu4Var != null) {
+                hu4Var.H(i);
             }
             PbListView pbListView = this.f;
             if (pbListView != null) {
@@ -454,17 +454,17 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
             if (this.d == null) {
-                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d078d, viewGroup, false);
+                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0797, viewGroup, false);
                 this.d = inflate;
-                BdTypeListView bdTypeListView = (BdTypeListView) inflate.findViewById(R.id.obfuscated_res_0x7f0906be);
+                BdTypeListView bdTypeListView = (BdTypeListView) inflate.findViewById(R.id.obfuscated_res_0x7f0906bd);
                 this.e = bdTypeListView;
                 bdTypeListView.setFadingEdgeLength(0);
                 this.e.setOverScrollMode(2);
                 this.e.setScrollable(this);
                 this.e.setOnSrollToBottomListener(this.q);
-                gu4 gu4Var = new gu4(getPageContext());
-                this.g = gu4Var;
-                gu4Var.f(this.r);
+                hu4 hu4Var = new hu4(getPageContext());
+                this.g = hu4Var;
+                hu4Var.f(this.r);
                 this.e.setPullRefresh(this.g);
                 PbListView pbListView = new PbListView(getContext());
                 this.f = pbListView;

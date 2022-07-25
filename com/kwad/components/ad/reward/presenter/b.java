@@ -20,14 +20,14 @@ import com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener;
 import com.kwad.sdk.core.imageloader.utils.BlurUtils;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.utils.ae;
+import com.kwad.sdk.utils.ag;
 import java.io.InputStream;
 /* loaded from: classes5.dex */
 public class b extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView b;
-    public AdInfo c;
+    public ImageView px;
+    public AdInfo py;
 
     public b(AdInfo adInfo) {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class b extends a {
                 return;
             }
         }
-        this.c = adInfo;
+        this.py = adInfo;
     }
 
     public static void a(ImageView imageView, String str) {
@@ -91,34 +91,37 @@ public class b extends a {
     }
 
     @Override // com.kwad.components.ad.reward.presenter.a, com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            AdTemplate adTemplate = ((a) this).a.g;
+            super.aq();
+            AdTemplate adTemplate = this.nM.mAdTemplate;
             if (adTemplate.adInfoList.size() > 0) {
-                String k = com.kwad.sdk.core.response.a.a.k(adTemplate.adInfoList.get(0));
-                this.b.setVisibility(e());
-                a(this.b, k);
+                String K = com.kwad.sdk.core.response.a.a.K(adTemplate.adInfoList.get(0));
+                this.px.setVisibility(gT());
+                a(this.px, K);
             }
         }
     }
 
-    public int d() {
+    public int gS() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.id.obfuscated_res_0x7f091005 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.id.obfuscated_res_0x7f090ffc : invokeV.intValue;
     }
 
-    public int e() {
+    public int gT() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Context u = u();
-            if (!com.kwad.components.ad.reward.l.b(((a) this).a.g) || ae.e(u)) {
-                if (!com.kwad.components.ad.reward.l.a(((a) this).a.g) || ae.e(u)) {
-                    if (!com.kwad.sdk.core.response.a.d.w(((a) this).a.g) || ae.e(u)) {
-                        return (com.kwad.sdk.core.response.a.a.ar(this.c) || com.kwad.components.ad.reward.kwai.b.d(this.c) || !com.kwad.sdk.core.response.a.b.n(this.c)) ? 8 : 0;
+            Context context = getContext();
+            if (!com.kwad.components.ad.reward.k.p(this.nM.mAdTemplate) || ag.cB(context)) {
+                if (!com.kwad.components.ad.reward.k.o(this.nM.mAdTemplate) || ag.cB(context)) {
+                    if (!com.kwad.sdk.core.response.a.d.cd(this.nM.mAdTemplate) || ag.cB(context)) {
+                        if (com.kwad.sdk.core.response.a.a.aY(this.py) || com.kwad.components.ad.reward.kwai.b.j(this.py) || !com.kwad.sdk.core.response.a.b.cg(this.py)) {
+                            return (com.kwad.sdk.core.response.a.a.bD(this.py) && com.kwad.components.ad.reward.kwai.b.gj() && !ag.cB(context)) ? 0 : 8;
+                        }
+                        return 0;
                     }
                     return 0;
                 }
@@ -130,11 +133,11 @@ public class b extends a {
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void i_() {
+    public final void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.i_();
-            this.b = (ImageView) b(d());
+            super.onCreate();
+            this.px = (ImageView) findViewById(gS());
         }
     }
 }

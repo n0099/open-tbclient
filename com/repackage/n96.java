@@ -199,14 +199,14 @@ public class n96 {
                 kn7.a("【表情云同步】：4 - DIY表情：下载本地没有的表情");
                 ArrayList arrayList2 = new ArrayList();
                 for (DiyEmotionData diyEmotionData2 : arrayList) {
-                    p45 p45Var = new p45();
-                    p45Var.f = diyEmotionData2.getPkgId();
-                    p45Var.a = diyEmotionData2.getPid();
-                    p45Var.d = diyEmotionData2.getPicUrl();
-                    p45Var.b = diyEmotionData2.getWidth();
-                    p45Var.c = diyEmotionData2.getHeight();
-                    p45Var.e = diyEmotionData2.getThumbnail();
-                    arrayList2.add(p45Var);
+                    q45 q45Var = new q45();
+                    q45Var.f = diyEmotionData2.getPkgId();
+                    q45Var.a = diyEmotionData2.getPid();
+                    q45Var.d = diyEmotionData2.getPicUrl();
+                    q45Var.b = diyEmotionData2.getWidth();
+                    q45Var.c = diyEmotionData2.getHeight();
+                    q45Var.e = diyEmotionData2.getThumbnail();
+                    arrayList2.add(q45Var);
                 }
                 this.b.post(new b(this, arrayList2, list));
                 return;

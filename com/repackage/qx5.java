@@ -194,20 +194,20 @@ public class qx5 extends kx5<ty5> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f0909f7) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0909f0) {
                 if (ViewHelper.checkUpIsLogin(this.a.h().getContext())) {
-                    String str = (String) view2.getTag(R.id.obfuscated_res_0x7f091eff);
-                    String valueOf = String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f091efe));
+                    String str = (String) view2.getTag(R.id.obfuscated_res_0x7f091f03);
+                    String valueOf = String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f091f02));
                     if (oi.isForumName(str)) {
                         this.a.y.R(str, valueOf);
                         TiebaStatic.log(new StatisticItem(this.a.A).param("fid", valueOf).param(TiebaStatic.Params.OBJ_PARAM3, ux5.e()));
                     }
                 }
-            } else if (view2.getTag(R.id.obfuscated_res_0x7f091eff) != null) {
-                String str2 = (String) view2.getTag(R.id.obfuscated_res_0x7f091eff);
-                String valueOf2 = String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f091efe));
+            } else if (view2.getTag(R.id.obfuscated_res_0x7f091f03) != null) {
+                String str2 = (String) view2.getTag(R.id.obfuscated_res_0x7f091f03);
+                String valueOf2 = String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f091f02));
                 if (oi.isForumName(str2)) {
-                    if (view2.getId() == R.id.obfuscated_res_0x7f0913ce) {
+                    if (view2.getId() == R.id.obfuscated_res_0x7f0913aa) {
                         TiebaStatic.log(new StatisticItem(this.a.C).param("fid", valueOf2).param(TiebaStatic.Params.OBJ_PARAM3, ux5.e()));
                     } else {
                         TiebaStatic.log(new StatisticItem(this.a.B).param("fid", valueOf2).param(TiebaStatic.Params.OBJ_PARAM3, ux5.e()));

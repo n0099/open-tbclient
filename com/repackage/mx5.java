@@ -100,8 +100,8 @@ public class mx5 extends jx5<z26> {
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904fe);
             this.j = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904fd);
-            this.k = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eac);
-            this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e99);
+            this.k = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ea5);
+            this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e92);
             this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090506);
             this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090507);
             this.o = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f090504);
@@ -160,7 +160,7 @@ public class mx5 extends jx5<z26> {
         this.q.setText(StringHelper.getFormatTimeShort(z26Var.getThreadData().getAuditTime()));
         if ("news".equals(z26Var.getThreadData().getGameInformationSource())) {
             this.o.setVisibility(8);
-            this.p.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0e56, StringHelper.numberUniformFormat(z26Var.getThreadData().getView_num())));
+            this.p.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0e3f, StringHelper.numberUniformFormat(z26Var.getThreadData().getView_num())));
             return;
         }
         this.o.setVisibility(0);

@@ -518,14 +518,14 @@ public class wi9 extends ni9<b> {
 
         /* renamed from: com.repackage.wi9$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0756b implements gd9<FunSplashAd> {
+        public class C0604b implements gd9<FunSplashAd> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
             public final /* synthetic */ ViewGroup b;
             public final /* synthetic */ b c;
 
-            public C0756b(b bVar, Activity activity, ViewGroup viewGroup) {
+            public C0604b(b bVar, Activity activity, ViewGroup viewGroup) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -631,9 +631,9 @@ public class wi9 extends ni9<b> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, funAdInteractionListener)) == null) {
                 wi9 wi9Var = this.k;
-                C0756b c0756b = new C0756b(this, activity, viewGroup);
+                C0604b c0604b = new C0604b(this, activity, viewGroup);
                 int i = wi9.l;
-                wi9Var.j(funAdInteractionListener, c0756b);
+                wi9Var.j(funAdInteractionListener, c0604b);
                 return null;
             }
             return (FunSplashAd) invokeLLL.objValue;

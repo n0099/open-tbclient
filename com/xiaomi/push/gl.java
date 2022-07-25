@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +19,7 @@ public class gl extends gn {
     public a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Map<String, String> f1153a;
+    public final Map<String, String> f433a;
 
     /* loaded from: classes8.dex */
     public static class a {
@@ -32,7 +32,7 @@ public class gl extends gn {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f1154a;
+        public String f434a;
 
         static {
             InterceptResult invokeClinit;
@@ -47,9 +47,9 @@ public class gl extends gn {
                     return;
                 }
             }
-            a = new a(SharedPreferenceManager.OPERATION_GET_PERFIX);
+            a = new a("get");
             b = new a("set");
-            c = new a("result");
+            c = new a(TiebaStatic.LogFields.RESULT);
             d = new a("error");
             e = new a("command");
         }
@@ -69,7 +69,7 @@ public class gl extends gn {
                     return;
                 }
             }
-            this.f1154a = str;
+            this.f434a = str;
         }
 
         public static a a(String str) {
@@ -103,7 +103,7 @@ public class gl extends gn {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1154a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f434a : (String) invokeV.objValue;
         }
     }
 
@@ -121,7 +121,7 @@ public class gl extends gn {
             }
         }
         this.a = a.a;
-        this.f1153a = new HashMap();
+        this.f433a = new HashMap();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -143,7 +143,7 @@ public class gl extends gn {
             }
         }
         this.a = a.a;
-        this.f1153a = new HashMap();
+        this.f433a = new HashMap();
         if (bundle.containsKey("ext_iq_type")) {
             this.a = a.a(bundle.getString("ext_iq_type"));
         }
@@ -197,7 +197,7 @@ public class gl extends gn {
                 sb.append(gy.a(k()));
                 sb.append("\" ");
             }
-            for (Map.Entry<String, String> entry : this.f1153a.entrySet()) {
+            for (Map.Entry<String, String> entry : this.f433a.entrySet()) {
                 sb.append(gy.a(entry.getKey()));
                 sb.append("=\"");
                 sb.append(gy.a(entry.getValue()));
@@ -216,9 +216,9 @@ public class gl extends gn {
                 sb.append(b);
             }
             sb.append(o());
-            gr m1307a = m1307a();
-            if (m1307a != null) {
-                sb.append(m1307a.m1311a());
+            gr m369a = m369a();
+            if (m369a != null) {
+                sb.append(m369a.m373a());
             }
             sb.append("</iq>");
             return sb.toString();
@@ -240,7 +240,7 @@ public class gl extends gn {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
             synchronized (this) {
-                this.f1153a.putAll(map);
+                this.f433a.putAll(map);
             }
         }
     }

@@ -303,7 +303,7 @@ public class n29 {
                 jsonWriter.beginObject();
                 this.o.name("data");
                 this.o.flush();
-                this.q.g();
+                this.q.f();
                 this.o.beginArray();
                 this.n = 1;
             } catch (FileNotFoundException e) {
@@ -432,18 +432,18 @@ public class n29 {
                     try {
                         jsonWriter.endArray();
                         this.o.flush();
-                        this.q.j();
+                        this.q.g();
                         if (this.e == 0 || this.f == 0) {
                             this.e = this.f;
                         }
-                        String b = l29.b(this.q.c(), "", true);
+                        String b = l29.b(this.q.a(), "", true);
                         if (!TextUtils.isEmpty(b)) {
                             this.s = b;
                         }
                         if (t) {
-                            String e = this.q.e();
-                            if (TextUtils.isEmpty(e)) {
-                                Log.d("UBCUploadData", "**********UploadData content: " + e);
+                            String c = this.q.c();
+                            if (TextUtils.isEmpty(c)) {
+                                Log.d("UBCUploadData", "**********UploadData content: " + c);
                             }
                         }
                         this.o.name(TtmlNode.TAG_METADATA);
@@ -459,7 +459,7 @@ public class n29 {
                         this.o.endObject();
                         this.o.flush();
                         e39.b(this.o);
-                        this.k = this.p.c();
+                        this.k = this.p.a();
                         if (this.r.exists() && !TextUtils.isEmpty(this.s)) {
                             File file = new File(this.r.getParentFile(), this.s);
                             if (!file.exists()) {
@@ -471,8 +471,8 @@ public class n29 {
                             }
                         }
                         this.n = 2;
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                         D();
                     }
                     e39.b(this.o);

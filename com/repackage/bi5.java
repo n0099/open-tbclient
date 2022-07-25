@@ -12,7 +12,7 @@ public class bi5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            long m = xt4.k().m("key_youngster_use_time_dialog_show_time", 0L);
+            long m = yt4.k().m("key_youngster_use_time_dialog_show_time", 0L);
             return m > System.currentTimeMillis() || System.currentTimeMillis() - m <= 600000;
         }
         return invokeV.booleanValue;

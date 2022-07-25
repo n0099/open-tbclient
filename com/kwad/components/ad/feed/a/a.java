@@ -18,7 +18,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public abstract class a extends com.kwad.components.core.widget.b<AdTemplate> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.kwad.components.ad.feed.b a;
+    public com.kwad.components.ad.feed.b dd;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(@NonNull Context context) {
@@ -40,47 +40,46 @@ public abstract class a extends com.kwad.components.core.widget.b<AdTemplate> {
         }
     }
 
-    public final void a(View.OnClickListener onClickListener) {
+    public final void bf() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-            ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09101a);
-            if (!com.kwad.sdk.core.response.a.a.K(this.k)) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f091011);
+            if (!com.kwad.sdk.core.response.a.a.ao(this.mAdInfo)) {
                 complianceTextView.setVisibility(8);
                 return;
             }
             complianceTextView.setVisibility(0);
-            complianceTextView.setAdTemplate(this.j);
-            complianceTextView.setOnClickListener(onClickListener);
+            complianceTextView.setAdTemplate(this.mAdTemplate);
         }
     }
 
-    public final void a(boolean z) {
+    public final void g(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && com.kwad.sdk.core.response.a.a.I(this.k) && com.kwad.components.ad.feed.kwai.b.b() && getApkDownloadHelper() != null) {
-            DownloadProgressView downloadProgressView = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f090ff3);
-            if (!z || getApkDownloadHelper().a() == 2) {
-                com.kwad.components.ad.feed.b bVar = this.a;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && com.kwad.sdk.core.response.a.a.am(this.mAdInfo) && com.kwad.components.ad.feed.kwai.b.bd() && getApkDownloadHelper() != null) {
+            DownloadProgressView downloadProgressView = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f090fea);
+            if (!z || getApkDownloadHelper().mI() == 2) {
+                com.kwad.components.ad.feed.b bVar = this.dd;
                 if (bVar != null) {
-                    bVar.a();
+                    bVar.aX();
                     return;
                 }
                 return;
             }
             setPaddingToShowAnim(downloadProgressView);
-            if (this.a == null) {
-                this.a = new com.kwad.components.ad.feed.b();
+            if (this.dd == null) {
+                this.dd = new com.kwad.components.ad.feed.b();
             }
-            this.a.a(downloadProgressView);
+            this.dd.a(downloadProgressView);
         }
     }
 
-    public com.kwad.components.core.c.a.b getApkDownloadHelper() {
+    public com.kwad.components.core.c.a.c getApkDownloadHelper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (com.kwad.components.core.c.a.b) invokeV.objValue;
+        return (com.kwad.components.core.c.a.c) invokeV.objValue;
     }
 
     public void setPaddingToShowAnim(View view2) {
@@ -89,7 +88,7 @@ public abstract class a extends com.kwad.components.core.widget.b<AdTemplate> {
             return;
         }
         ViewGroup viewGroup = (ViewGroup) view2.getParent();
-        viewGroup.setPadding(0, 0, com.kwad.sdk.b.kwai.a.a(this.m, 4.0f), 0);
+        viewGroup.setPadding(0, 0, com.kwad.sdk.b.kwai.a.a(this.mContext, 4.0f), 0);
         viewGroup.setClipToPadding(false);
     }
 }

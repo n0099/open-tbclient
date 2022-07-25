@@ -73,7 +73,7 @@ public class fi6 {
                 boolean z = false;
                 if (!tc6.f().i() && !sc6.h().j()) {
                     if (!ni.A()) {
-                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0c17);
                         return false;
                     }
                     if (this.a.b instanceof FrsNewAreaFragment) {
@@ -137,8 +137,8 @@ public class fi6 {
         View inflate = LayoutInflater.from(baseFragment.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0345, relativeLayout);
         this.a = inflate;
         inflate.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091dcf);
-        FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f091dd0);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091dd5);
+        FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f091dd6);
         this.d = frsTabSortSwitchButton;
         frsTabSortSwitchButton.setOnSwitchChangeListener(this.g);
         this.e = this.d.getState();

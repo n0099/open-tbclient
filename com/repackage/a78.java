@@ -105,31 +105,31 @@ public class a78 implements x68 {
     public boolean Y;
     public s68 Z;
     public int a;
+    public ThreadData a0;
     public int b;
+    public String b0;
     public int c;
+    public boolean c0;
     public int d;
+    public boolean d0;
     public int e;
+    public String e0;
     public int f;
+    public boolean f0;
     public int g;
-    public ThreadData g0;
+    public boolean g0;
     public int h;
-    public String h0;
+    public float h0;
     public int i;
-    public boolean i0;
+    public float i0;
     public int j;
-    public boolean j0;
+    public GestureDetector j0;
     public int k;
-    public String k0;
     public int l;
-    public boolean l0;
     public int m;
-    public boolean m0;
     public int n;
-    public float n0;
     public int o;
-    public float o0;
     public int p;
-    public GestureDetector p0;
     public int q;
     public int q0;
     public int r;
@@ -179,10 +179,10 @@ public class a78 implements x68 {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.m0) {
+                if (this.a.g0) {
                     a78 a78Var = this.a;
                     a78Var.o0(a78Var.o);
-                    this.a.m0 = false;
+                    this.a.g0 = false;
                 } else {
                     a78 a78Var2 = this.a;
                     a78Var2.o0(a78Var2.b);
@@ -614,7 +614,7 @@ public class a78 implements x68 {
                 this.a.t.getControl().p(this.a.L0);
             }
             this.a.S();
-            if (this.a.i0) {
+            if (this.a.c0) {
                 TiebaStatic.log(new StatisticItem("c13355").param("tid", this.a.V).param("fid", this.a.W).param("obj_type", this.a.T ? 1 : 2).param("obj_locate", this.a.Y ? 1 : 2));
             }
         }
@@ -651,7 +651,7 @@ public class a78 implements x68 {
                     return;
                 }
                 a78 a78Var = this.a;
-                a78Var.t0 = a78Var.u0 - i2 > 0 || ((float) i2) < this.a.n0 / 6.0f;
+                a78Var.t0 = a78Var.u0 - i2 > 0 || ((float) i2) < this.a.h0 / 6.0f;
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.Q.getLayoutParams();
                 if (i2 != this.a.u0) {
                     int i3 = this.a.s0 - i2;
@@ -672,11 +672,11 @@ public class a78 implements x68 {
                 if (i != this.a.u0) {
                     this.a.v0 = i;
                     a78 a78Var3 = this.a;
-                    a78Var3.Q.setTranslationX(a78Var3.v0 + ((this.a.o0 - layoutParams.width) / 2.0f));
+                    a78Var3.Q.setTranslationX(a78Var3.v0 + ((this.a.i0 - layoutParams.width) / 2.0f));
                 }
-                this.a.L.setAlpha((layoutParams.width - this.a.x0) / (this.a.o0 - this.a.x0));
+                this.a.L.setAlpha((layoutParams.width - this.a.x0) / (this.a.i0 - this.a.x0));
                 if (this.a.H.getVisibility() == 0) {
-                    float f = this.a.n0 / 6.0f;
+                    float f = this.a.h0 / 6.0f;
                     float f2 = (f - i2) / f;
                     if (f2 < 0.0f) {
                         f2 = 0.0f;
@@ -727,7 +727,7 @@ public class a78 implements x68 {
                     } else {
                         a78Var.o0(a78Var.h);
                     }
-                    this.a.t0(R.id.obfuscated_res_0x7f0923bf);
+                    this.a.t0(R.id.obfuscated_res_0x7f0923c1);
                     return true;
                 }
                 a78 a78Var2 = this.a;
@@ -739,7 +739,7 @@ public class a78 implements x68 {
                         a78 a78Var3 = this.a;
                         a78Var3.o0(a78Var3.d);
                         this.a.t.getControl().p(this.a.L0);
-                        this.a.t0(R.id.obfuscated_res_0x7f0923ca);
+                        this.a.t0(R.id.obfuscated_res_0x7f0923cc);
                         return true;
                     }
                     return true;
@@ -748,7 +748,7 @@ public class a78 implements x68 {
                 a78Var4.o0(a78Var4.f);
                 this.a.S();
                 this.a.t.getControl().p(this.a.L0);
-                this.a.t0(R.id.obfuscated_res_0x7f0923ca);
+                this.a.t0(R.id.obfuscated_res_0x7f0923cc);
                 return true;
             }
             return invokeL.booleanValue;
@@ -810,7 +810,7 @@ public class a78 implements x68 {
                         a78Var4.p = a78Var4.k;
                         a78Var4.s0 = a78Var4.Q.getMeasuredHeight();
                         a78 a78Var5 = this.a;
-                        a78Var5.w0 = a78Var5.o0 / this.a.s0;
+                        a78Var5.w0 = a78Var5.i0 / this.a.s0;
                         a78 a78Var6 = this.a;
                         a78Var6.x0 = (int) (a78Var6.P.getWidth() * 1.2f);
                         a(rawX, rawY);
@@ -976,7 +976,7 @@ public class a78 implements x68 {
                             }
                         }
                         a78 a78Var8 = this.a;
-                        if (a78Var8.i0) {
+                        if (a78Var8.c0) {
                             String str = null;
                             if (a78Var8.q == 1) {
                                 str = "c13361";
@@ -993,7 +993,7 @@ public class a78 implements x68 {
                         return true;
                     }
                 }
-                return this.a.p0.onTouchEvent(motionEvent);
+                return this.a.j0.onTouchEvent(motionEvent);
             }
             return invokeLL.booleanValue;
         }
@@ -1040,10 +1040,10 @@ public class a78 implements x68 {
         this.s = new c(this);
         this.N = null;
         this.Y = false;
-        this.i0 = true;
-        this.j0 = false;
-        this.l0 = true;
-        this.m0 = false;
+        this.c0 = true;
+        this.d0 = false;
+        this.f0 = true;
+        this.g0 = false;
         this.r0 = new int[2];
         this.u0 = 0;
         this.v0 = 0;
@@ -1065,8 +1065,8 @@ public class a78 implements x68 {
         this.O = context;
         this.X = new j68((Activity) context);
         this.P = view2;
-        this.n0 = pi.i(this.O);
-        this.o0 = pi.k(this.O);
+        this.h0 = pi.i(this.O);
+        this.i0 = pi.k(this.O);
         d0();
     }
 
@@ -1083,7 +1083,7 @@ public class a78 implements x68 {
     public void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.T && !"video_tab".equals(this.h0)) {
+            if (this.T && !"video_tab".equals(this.b0)) {
                 this.f = 104;
                 this.g = 8290;
             } else {
@@ -1136,7 +1136,7 @@ public class a78 implements x68 {
                 dimension = this.O.getResources().getDimension(R.dimen.tbds44);
             }
             int i2 = (int) dimension;
-            this.A.setPadding(0, 0, "video_tab".equals(this.h0) ? 0 : i2, 0);
+            this.A.setPadding(0, 0, "video_tab".equals(this.b0) ? 0 : i2, 0);
             SwitchImageView switchImageView = this.E;
             switchImageView.setPadding(switchImageView.getPaddingLeft(), 0, i2, 0);
             this.D.setPadding(i2, 0, 0, 0);
@@ -1217,7 +1217,7 @@ public class a78 implements x68 {
                     objectAnimator2 = ofFloat9;
                     ofFloat3 = ofFloat8;
                 } else {
-                    float width2 = this.o0 / this.Q.getWidth();
+                    float width2 = this.i0 / this.Q.getWidth();
                     float height2 = this.s0 / this.Q.getHeight();
                     this.Q.setPivotX(0.0f);
                     this.Q.setPivotY(0.0f);
@@ -1278,10 +1278,10 @@ public class a78 implements x68 {
             }
             if ((this.Q.getParent() instanceof ViewGroup) && (this.P instanceof ViewGroup)) {
                 this.Y = false;
-                this.j0 = true;
+                this.d0 = true;
                 ((ViewGroup) this.Q.getParent()).removeView(this.Q);
                 ((ViewGroup) this.P).addView(this.Q);
-                this.j0 = false;
+                this.d0 = false;
                 R((Activity) this.O, this.Y);
             }
             if (!this.T && z) {
@@ -1298,7 +1298,7 @@ public class a78 implements x68 {
                     if (findViewById instanceof ViewGroup) {
                         View childAt = ((ViewGroup) findViewById).getChildAt(0);
                         if (childAt instanceof ViewGroup) {
-                            this.j0 = true;
+                            this.d0 = true;
                             ((ViewGroup) this.P).removeAllViews();
                             if (this.L == null) {
                                 View view2 = new View(this.O);
@@ -1314,7 +1314,7 @@ public class a78 implements x68 {
                             ViewGroup viewGroup = (ViewGroup) childAt;
                             viewGroup.addView(this.L);
                             viewGroup.addView(this.Q);
-                            this.j0 = false;
+                            this.d0 = false;
                             this.Y = true;
                             R((Activity) this.O, true);
                             rc0 rc0Var = this.B0;
@@ -1325,7 +1325,7 @@ public class a78 implements x68 {
                     }
                 }
             }
-            if (this.i0) {
+            if (this.c0) {
                 TiebaStatic.log(new StatisticItem("c13360").param("tid", this.V).param("fid", this.W).param("obj_type", this.T ? 1 : 2));
             }
         }
@@ -1347,13 +1347,13 @@ public class a78 implements x68 {
             if (isVideoCardMute) {
                 this.t.getControl().setVolume(1.0f, 1.0f);
                 pe5.e(this.N, true);
-                j65.b().l(true);
+                k65.b().l(true);
                 this.D.setState(0);
             } else {
                 this.t.getControl().setVolume(0.0f, 0.0f);
                 this.D.setState(1);
                 pe5.e(this.N, false);
-                j65.b().l(false);
+                k65.b().l(false);
             }
             TbSingleton.getInstance().setVideoCardMute(!isVideoCardMute);
         }
@@ -1396,7 +1396,7 @@ public class a78 implements x68 {
     public int a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? R.layout.obfuscated_res_0x7f0d064a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? R.layout.obfuscated_res_0x7f0d0654 : invokeV.intValue;
     }
 
     public int b0() {
@@ -1435,24 +1435,24 @@ public class a78 implements x68 {
             ((ViewGroup) view2).addView(viewGroup);
         }
         this.N = new WeakReference<>(TbadkCoreApplication.getInst());
-        this.u = (TbImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923fb);
+        this.u = (TbImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923fd);
         this.v = this.Q.findViewById(R.id.obfuscated_res_0x7f090380);
-        this.w = (TBLottieAnimationView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923b3);
-        this.x = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923ca);
-        this.z = (PercentSizeView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923b8);
-        this.y = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923bf);
-        this.A = (TextView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923cc);
-        this.B = (TextView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923ce);
-        this.C = (TextView) this.Q.findViewById(R.id.obfuscated_res_0x7f092393);
-        this.D = (SwitchImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923ba);
-        this.E = (SwitchImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f092398);
-        this.F = (OperableVideoMediaControllerView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923b7);
-        this.G = (OperableVideoNetworkStateTipView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923bc);
-        this.H = (OperableVideoShareView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923df);
-        this.J = this.Q.findViewById(R.id.obfuscated_res_0x7f092383);
-        this.I = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f092399);
-        this.K = (VideoGestureView) this.Q.findViewById(R.id.obfuscated_res_0x7f09239b);
-        this.M = (OperableVideoErrorView) this.Q.findViewById(R.id.obfuscated_res_0x7f092395);
+        this.w = (TBLottieAnimationView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923b5);
+        this.x = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923cc);
+        this.z = (PercentSizeView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923ba);
+        this.y = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923c1);
+        this.A = (TextView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923ce);
+        this.B = (TextView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923d0);
+        this.C = (TextView) this.Q.findViewById(R.id.obfuscated_res_0x7f092395);
+        this.D = (SwitchImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923bc);
+        this.E = (SwitchImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f09239a);
+        this.F = (OperableVideoMediaControllerView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923b9);
+        this.G = (OperableVideoNetworkStateTipView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923be);
+        this.H = (OperableVideoShareView) this.Q.findViewById(R.id.obfuscated_res_0x7f0923e1);
+        this.J = this.Q.findViewById(R.id.obfuscated_res_0x7f092385);
+        this.I = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f09239b);
+        this.K = (VideoGestureView) this.Q.findViewById(R.id.obfuscated_res_0x7f09239d);
+        this.M = (OperableVideoErrorView) this.Q.findViewById(R.id.obfuscated_res_0x7f092397);
         this.H.setVideoContainer(this);
         this.w.addAnimatorListener(new e(this));
         this.w.setAnimation(R.raw.obfuscated_res_0x7f110019);
@@ -1467,7 +1467,7 @@ public class a78 implements x68 {
         HomeGroupUbsUIHelper.handleImgMask(this.v, R.color.CAM_X0601);
         this.F.setOnSeekBarChangeListener(this.I0);
         this.z.setHeightPercent(0.583f);
-        this.z.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811d7);
+        this.z.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811db);
         this.E.setSvgStateImage(new SvgPureType(R.drawable.obfuscated_res_0x7f080614, R.color.CAM_X0101), new SvgPureType(R.drawable.obfuscated_res_0x7f08061c, R.color.CAM_X0101));
         this.E.setState(0);
         this.E.setOnClickListener(this);
@@ -1483,11 +1483,11 @@ public class a78 implements x68 {
         this.Q.setOnTouchListener(this.K0);
         this.H.setOnTouchListener(this.K0);
         this.M.setOutOnClickListener(this);
-        this.p0 = new GestureDetector(this.O, this.J0);
+        this.j0 = new GestureDetector(this.O, this.J0);
         o0(this.b);
-        ur4.d(this.v).s(R.array.Mask_X003);
-        ur4.d(this.A).y(R.array.S_O_X001);
-        ur4.d(this.C).y(R.array.S_O_X001);
+        vr4.d(this.v).s(R.array.Mask_X003);
+        vr4.d(this.A).y(R.array.S_O_X001);
+        vr4.d(this.C).y(R.array.S_O_X001);
         if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
             Context context2 = this.O;
             if (context2 instanceof BaseFragmentActivity) {
@@ -1506,7 +1506,7 @@ public class a78 implements x68 {
             }
             this.t.getControl().setVolume(1.0f, 1.0f);
             this.D.setState(0);
-            j65.b().l(true);
+            k65.b().l(true);
         }
     }
 
@@ -1549,7 +1549,7 @@ public class a78 implements x68 {
             if (this.z0) {
                 return false;
             }
-            if (UbsABTestHelper.isVideoTabAutoPlay() && "video_tab".equals(this.h0)) {
+            if (UbsABTestHelper.isVideoTabAutoPlay() && "video_tab".equals(this.b0)) {
                 return ni.x();
             }
             OperableVideoNetworkStateTipView operableVideoNetworkStateTipView = this.G;
@@ -1621,10 +1621,10 @@ public class a78 implements x68 {
             this.p = i2;
             this.u.setVisibility((i2 & 1) > 0 ? 0 : 8);
             this.v.setVisibility((i2 & 2) > 0 ? 0 : 8);
-            this.l0 = (i2 & 4) > 0;
+            this.f0 = (i2 & 4) > 0;
             this.w.clearAnimation();
-            this.w.setVisibility(this.l0 ? 0 : 8);
-            if (!this.l0) {
+            this.w.setVisibility(this.f0 ? 0 : 8);
+            if (!this.f0) {
                 this.w.cancelAnimation();
             } else {
                 this.w.setAlpha(1.0f);
@@ -1710,19 +1710,19 @@ public class a78 implements x68 {
         }
         int id = view2.getId();
         t0(id);
-        if (id == R.id.obfuscated_res_0x7f0923ba) {
+        if (id == R.id.obfuscated_res_0x7f0923bc) {
             W();
-        } else if (id == R.id.obfuscated_res_0x7f092398 || id == R.id.obfuscated_res_0x7f092399) {
+        } else if (id == R.id.obfuscated_res_0x7f09239a || id == R.id.obfuscated_res_0x7f09239b) {
             T();
         } else {
-            if (id == R.id.obfuscated_res_0x7f0923d9) {
+            if (id == R.id.obfuscated_res_0x7f0923db) {
                 o0(this.b);
                 startPlay();
-                if (this.i0) {
+                if (this.c0) {
                     TiebaStatic.log(new StatisticItem("c13345").param("tid", this.V).param("fid", this.W).param("obj_type", this.T ? 1 : 2).param("obj_locate", this.Y ? 1 : 2));
                 }
                 l0();
-            } else if (id == R.id.obfuscated_res_0x7f0923ca) {
+            } else if (id == R.id.obfuscated_res_0x7f0923cc) {
                 int i2 = this.p;
                 if (i2 != this.b && i2 != this.c && i2 != this.o) {
                     o0(this.f);
@@ -1731,21 +1731,21 @@ public class a78 implements x68 {
                 } else {
                     startPlay();
                 }
-                if (this.i0) {
+                if (this.c0) {
                     TiebaStatic.log(new StatisticItem("c13344").param("tid", this.V).param("fid", this.W).param("obj_type", this.T ? 1 : 2).param("obj_source", this.Y ? 1 : 2).param("obj_locate", 1));
                 }
                 l0();
-            } else if (id == R.id.obfuscated_res_0x7f0923bf) {
+            } else if (id == R.id.obfuscated_res_0x7f0923c1) {
                 o0(this.g);
                 k0();
                 this.t.getControl().pause();
-                if (this.i0) {
+                if (this.c0) {
                     TiebaStatic.log(new StatisticItem("c13344").param("tid", this.V).param("fid", this.W).param("obj_type", this.T ? 1 : 2).param("obj_source", this.Y ? 1 : 2).param("obj_locate", 2));
                 }
-            } else if (id == R.id.obfuscated_res_0x7f0918fb) {
+            } else if (id == R.id.obfuscated_res_0x7f0918d6) {
                 o0(this.b);
                 startPlay();
-            } else if (id == R.id.obfuscated_res_0x7f091b05) {
+            } else if (id == R.id.obfuscated_res_0x7f091adf) {
                 o0(this.b);
                 startPlay();
             }
@@ -1780,7 +1780,7 @@ public class a78 implements x68 {
                 s0();
             }
             if (i2 == 701) {
-                this.l0 = true;
+                this.f0 = true;
                 r0();
                 return false;
             } else if (i2 == 702) {
@@ -1832,7 +1832,7 @@ public class a78 implements x68 {
     @Override // com.baidu.tieba.play.TbVideoViewContainer.a
     public void onSurfaceDestroyed() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048617, this) == null) || this.j0) {
+        if (!(interceptable == null || interceptable.invokeV(1048617, this) == null) || this.d0) {
             return;
         }
         int i2 = this.p;
@@ -1854,7 +1854,7 @@ public class a78 implements x68 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
-            if (TbSingleton.getInstance().isVideoCardMute() && this.t.getControl().isPlaying() && !pe5.c() && !j65.b().j()) {
+            if (TbSingleton.getInstance().isVideoCardMute() && this.t.getControl().isPlaying() && !pe5.c() && !k65.b().j()) {
                 this.t.getControl().setVolume(1.0f, 1.0f);
                 this.D.setState(0);
                 TbSingleton.getInstance().setVideoCardMute(false);
@@ -1891,7 +1891,7 @@ public class a78 implements x68 {
             this.t.getControl().setOperableVideoContainer(this);
             this.t.getControl().setOnSurfaceDestroyedListener(this);
             this.t.getControl().setVideoStatData(this.Z);
-            this.t.getControl().setThreadDataForStatistic(this.g0);
+            this.t.getControl().setThreadDataForStatistic(this.a0);
             this.t.getControl().getMediaProgressObserver().j(this.G0);
         }
     }
@@ -1899,7 +1899,7 @@ public class a78 implements x68 {
     public final void r0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
-            if (this.l0) {
+            if (this.f0) {
                 this.w.setAlpha(1.0f);
                 this.w.setVisibility(0);
                 this.x.setVisibility(8);
@@ -1908,7 +1908,7 @@ public class a78 implements x68 {
                 this.x.setVisibility(0);
             }
             TBLottieAnimationView tBLottieAnimationView = this.w;
-            if (tBLottieAnimationView == null || !this.l0) {
+            if (tBLottieAnimationView == null || !this.f0) {
                 return;
             }
             tBLottieAnimationView.loop(true);
@@ -1963,11 +1963,11 @@ public class a78 implements x68 {
         this.F.j(intValue);
         this.F.setPlayer(this.t.getControl());
         this.C.setText(StringHelper.stringForVideoTime(intValue));
-        this.A.setText(String.format(this.O.getResources().getString(R.string.obfuscated_res_0x7f0f0e72), StringHelper.numFormatOverWan(threadData.getThreadVideoInfo().play_count.intValue())));
+        this.A.setText(String.format(this.O.getResources().getString(R.string.obfuscated_res_0x7f0f0e5b), StringHelper.numFormatOverWan(threadData.getThreadVideoInfo().play_count.intValue())));
         this.G.setVideoLength(threadData.getThreadVideoInfo().video_length.intValue());
         this.G.setVideoDuration(threadData.getThreadVideoInfo().video_duration.intValue());
         this.G.setTid(this.V);
-        this.g0 = threadData;
+        this.a0 = threadData;
         this.t.getControl().setThreadDataForStatistic(threadData);
         this.B.setVisibility(8);
         this.u.setPlaceHolder(3);
@@ -1988,7 +1988,7 @@ public class a78 implements x68 {
     public void setFrom(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048625, this, str) == null) {
-            this.h0 = str;
+            this.b0 = str;
         }
     }
 
@@ -2003,7 +2003,7 @@ public class a78 implements x68 {
     public void setStageType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, str) == null) {
-            this.k0 = str;
+            this.e0 = str;
         }
     }
 
@@ -2052,9 +2052,9 @@ public class a78 implements x68 {
             q0();
             if (ni.z()) {
                 this.t.getControl().setVideoPath(this.U, this.V);
-                this.t.getControl().setStageType(this.k0);
+                this.t.getControl().setStageType(this.e0);
                 r0();
-                if (this.i0) {
+                if (this.c0) {
                     u0();
                 }
             }
@@ -2067,7 +2067,7 @@ public class a78 implements x68 {
                 if (UbsABTestHelper.isFeedVideoImmersionTransition() && (TbSingleton.getInstance().getIsOutNeedReuseVideoPlayer() || TbSingleton.getInstance().getIsJumpFromVideoMiddleView().booleanValue())) {
                     this.t = new TbVideoViewContainer(this.O);
                     TbVideoViewSet.b().d(this.U);
-                    this.m0 = true;
+                    this.g0 = true;
                     TbSingleton.getInstance().setIsJumpFromVideoMiddleView(false);
                 } else {
                     this.t.a();
@@ -2084,11 +2084,11 @@ public class a78 implements x68 {
             this.t.getControl().o();
             onPrepared();
             s0();
-            if (this.i0) {
+            if (this.c0) {
                 u0();
             }
         }
-        if (this.i0) {
+        if (this.c0) {
             TiebaStatic.log(new StatisticItem("c13357").param("tid", this.V).param("fid", this.W).param("obj_type", this.T ? 1 : 2).param("obj_source", TbSingleton.getInstance().isVideoCardMute() ? 1 : 2).param("obj_locate", 1));
         }
     }
@@ -2117,13 +2117,13 @@ public class a78 implements x68 {
                 }
                 ((m68) this.t.getControl().getPlayer()).detachKLayerToCache("video_reuse_player");
                 TbVideoViewSet.b().d(this.U);
-                this.m0 = true;
+                this.g0 = true;
             }
             this.t.a();
             this.F.n();
-            if (this.m0) {
+            if (this.g0) {
                 o0(this.o);
-                this.m0 = false;
+                this.g0 = false;
             } else {
                 o0(this.b);
             }
@@ -2144,7 +2144,7 @@ public class a78 implements x68 {
             return;
         }
         s68 b2 = s68Var.b();
-        b2.a = this.h0;
+        b2.a = this.b0;
         h68.e(b2.m, "", "1", b2, this.t.getControl().getPcdnState());
     }
 

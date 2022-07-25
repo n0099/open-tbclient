@@ -28,12 +28,12 @@ import com.google.android.material.tabs.TabLayout;
 import com.repackage.bw6;
 import com.repackage.ge6;
 import com.repackage.iv6;
-import com.repackage.jm4;
 import com.repackage.jv6;
+import com.repackage.km4;
 import com.repackage.ni;
 import com.repackage.nn;
 import com.repackage.qb;
-import com.repackage.s55;
+import com.repackage.t55;
 import com.repackage.un;
 import com.repackage.wn;
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ public class HotTopicTabFragment extends BaseFragment implements ge6, jv6 {
     public HotTopicTabView b;
     public FrsTabItemData c;
     public TabLayout.OnTabSelectedListener d;
-    public jm4<Object> e;
+    public km4<Object> e;
     public boolean f;
 
     /* loaded from: classes3.dex */
@@ -119,7 +119,7 @@ public class HotTopicTabFragment extends BaseFragment implements ge6, jv6 {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements jm4<Object> {
+    public class b implements km4<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotTopicTabFragment a;
@@ -142,7 +142,7 @@ public class HotTopicTabFragment extends BaseFragment implements ge6, jv6 {
             this.a = hotTopicTabFragment;
         }
 
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         public void c(View view2, Object obj, int i, long j) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) || obj == null) {
@@ -151,7 +151,7 @@ public class HotTopicTabFragment extends BaseFragment implements ge6, jv6 {
             iv6.a(view2, obj, i + 1, this.a.y1());
         }
 
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         public void d(View view2, Object obj, int i, long j) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) || obj == null) {
@@ -284,7 +284,7 @@ public class HotTopicTabFragment extends BaseFragment implements ge6, jv6 {
             ArrayList arrayList = new ArrayList();
             wn wnVar = new wn();
             wnVar.b = R.drawable.new_pic_emotion_05;
-            wnVar.a = getString(R.string.obfuscated_res_0x7f0f0c44);
+            wnVar.a = getString(R.string.obfuscated_res_0x7f0f0c30);
             arrayList.add(wnVar);
             this.b.o();
             this.b.setListData(arrayList);
@@ -343,14 +343,14 @@ public class HotTopicTabFragment extends BaseFragment implements ge6, jv6 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "a076" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -436,7 +436,7 @@ public class HotTopicTabFragment extends BaseFragment implements ge6, jv6 {
                 this.a.onDestroy();
             }
             this.f = false;
-            s55.e().b();
+            t55.e().b();
         }
     }
 

@@ -16,19 +16,19 @@ public interface a extends IInterface {
 
     /* renamed from: com.kwai.filedownloader.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static abstract class AbstractBinderC0558a extends Binder implements a {
+    public static abstract class AbstractBinderC0406a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.kwai.filedownloader.b.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0559a implements a {
+        public static class C0407a implements a {
             public static /* synthetic */ Interceptable $ic;
-            public static a a;
+            public static a avK;
             public transient /* synthetic */ FieldHolder $fh;
-            public IBinder b;
+            public IBinder mRemote;
 
-            public C0559a(IBinder iBinder) {
+            public C0407a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,13 +43,20 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.b = iBinder;
+                this.mRemote = iBinder;
+            }
+
+            @Override // android.os.IInterface
+            public final IBinder asBinder() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mRemote : (IBinder) invokeV.objValue;
             }
 
             @Override // com.kwai.filedownloader.b.a
-            public final void a(MessageSnapshot messageSnapshot) {
+            public final void q(MessageSnapshot messageSnapshot) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, messageSnapshot) == null) {
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, messageSnapshot) == null) {
                     Parcel obtain = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCCallback");
@@ -59,25 +66,18 @@ public interface a extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (this.b.transact(1, obtain, null, 1) || AbstractBinderC0558a.a() == null) {
+                        if (this.mRemote.transact(1, obtain, null, 1) || AbstractBinderC0406a.DV() == null) {
                             return;
                         }
-                        AbstractBinderC0558a.a().a(messageSnapshot);
+                        AbstractBinderC0406a.DV().q(messageSnapshot);
                     } finally {
                         obtain.recycle();
                     }
                 }
             }
-
-            @Override // android.os.IInterface
-            public final IBinder asBinder() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (IBinder) invokeV.objValue;
-            }
         }
 
-        public AbstractBinderC0558a() {
+        public AbstractBinderC0406a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,13 +93,13 @@ public interface a extends IInterface {
             attachInterface(this, "com.kwai.filedownloader.i.IFileDownloadIPCCallback");
         }
 
-        public static a a() {
+        public static a DV() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0559a.a : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0407a.avK : (a) invokeV.objValue;
         }
 
-        public static a a(IBinder iBinder) {
+        public static a c(IBinder iBinder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iBinder)) == null) {
@@ -107,7 +107,7 @@ public interface a extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.kwai.filedownloader.i.IFileDownloadIPCCallback");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0559a(iBinder) : (a) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0407a(iBinder) : (a) queryLocalInterface;
             }
             return (a) invokeL.objValue;
         }
@@ -126,7 +126,7 @@ public interface a extends IInterface {
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
                 if (i == 1) {
                     parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCCallback");
-                    a(parcel.readInt() != 0 ? MessageSnapshot.CREATOR.createFromParcel(parcel) : null);
+                    q(parcel.readInt() != 0 ? MessageSnapshot.CREATOR.createFromParcel(parcel) : null);
                     return true;
                 } else if (i != 1598968902) {
                     return super.onTransact(i, parcel, parcel2, i2);
@@ -139,5 +139,5 @@ public interface a extends IInterface {
         }
     }
 
-    void a(MessageSnapshot messageSnapshot);
+    void q(MessageSnapshot messageSnapshot);
 }

@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ah5;
 import com.repackage.ng;
-import com.repackage.v05;
+import com.repackage.w05;
 import com.repackage.zg5;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -210,7 +210,7 @@ public class TiePlusEventController implements LifecycleObserver {
                 TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder(this.a);
                 builder.is_appoint = 1;
                 this.b.r(builder.build(true));
-                UtilHelper.showToast(this.c.a, (int) R.string.obfuscated_res_0x7f0f1420);
+                UtilHelper.showToast(this.c.a, (int) R.string.obfuscated_res_0x7f0f13cf);
             }
         }
 
@@ -218,7 +218,7 @@ public class TiePlusEventController implements LifecycleObserver {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                UtilHelper.showToast(this.c.a, (int) R.string.obfuscated_res_0x7f0f141f);
+                UtilHelper.showToast(this.c.a, (int) R.string.obfuscated_res_0x7f0f13ce);
             }
         }
     }
@@ -352,7 +352,7 @@ public class TiePlusEventController implements LifecycleObserver {
                 ItemData itemData = new ItemData();
                 itemData.parseProto(n);
                 this.d.M(itemData);
-                this.d.g(new v05(TiePlusStat.StatType.DOWNLOAD_FINISHED, ah5Var.h(), ah5Var.m(), str2, n.app_package));
+                this.d.g(new w05(TiePlusStat.StatType.DOWNLOAD_FINISHED, ah5Var.h(), ah5Var.m(), str2, n.app_package));
                 zg5Var.f(n.app_company);
                 zg5Var.g(n.app_icon);
                 zg5Var.h(n.title);

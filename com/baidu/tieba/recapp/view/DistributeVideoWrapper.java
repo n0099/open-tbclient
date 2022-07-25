@@ -95,7 +95,7 @@ public class DistributeVideoWrapper extends RelativeLayout implements IHomeAdVid
             return;
         }
         this.b = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08de, (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08e8, (ViewGroup) this, true);
         if (inflate != null) {
             this.o = (ForeDrawableImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09251c);
             this.n = (TBLottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f09251d);

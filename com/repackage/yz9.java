@@ -119,7 +119,7 @@ public final class yz9 extends wz9<BannerConfigItem.BannerInfo> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
             a aVar = new a(this);
-            aVar.c((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09212f));
+            aVar.c((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092131));
             ImageView a2 = aVar.a();
             if (a2 == null) {
                 Intrinsics.throwNpe();
@@ -161,7 +161,7 @@ public final class yz9 extends wz9<BannerConfigItem.BannerInfo> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d066c, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0676, (ViewGroup) null);
                 if (view2 == null) {
                     Intrinsics.throwNpe();
                 }

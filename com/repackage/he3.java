@@ -1,15 +1,14 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.ComponentName;
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.annotation.AnyThread;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.pms.model.PMSException;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,39 +17,34 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class he3 {
+public class he3 implements bf3<Exception> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static c g;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Application a;
-    @Nullable
-    public pl2 b;
-    public boolean c;
-    public boolean d;
-    public int e;
+    public long a;
+    public final Handler b;
+    public Runnable c;
+    public volatile boolean d;
 
     /* loaded from: classes6.dex */
-    public class a extends pl2 {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ he3 a;
 
         /* renamed from: com.repackage.he3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0648a implements Runnable {
+        public class RunnableC0495a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Activity a;
-            public final /* synthetic */ a b;
+            public final /* synthetic */ a a;
 
-            public RunnableC0648a(a aVar, Activity activity) {
+            public RunnableC0495a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, activity};
+                    Object[] objArr = {aVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -60,40 +54,20 @@ public class he3 {
                         return;
                     }
                 }
-                this.b = aVar;
-                this.a = activity;
+                this.a = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                boolean u;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Intent intent = this.a.getIntent();
-                    rk1 o = oj2.o();
-                    ComponentName component = intent.getComponent();
-                    if (this.b.a.c && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && o != null && component != null && TextUtils.equals(o.A(), component.getClassName())) {
-                        if (this.b.a.d) {
-                            if (he3.f) {
-                                Log.w("SwanHomeScreenLaunch", "SwanApp is Foreground Now");
-                                return;
-                            }
-                            return;
-                        }
-                        nc3 m = nc3.m();
-                        if (oc3.a() && nc3.k()) {
-                            u = m.w(this.a, this.b.a.e, false);
-                        } else {
-                            u = m.u(this.b.a.e, false, false);
-                        }
-                        if (he3.f) {
-                            Log.d("SwanHomeScreenLaunch", "moveTaskToFront " + u + ", taskId=" + this.b.a.e);
-                        }
-                        m.i();
+                    if (he3.e) {
+                        Log.d("SwanH2HeartBeatManager", "do updateCore, isStop=" + this.a.a.d);
                     }
-                    if (he3.f) {
-                        Log.d("SwanHomeScreenLaunch", "class=" + this.a + ", swanAppForeground=" + this.b.a.c + ", flag=" + intent.getFlags() + ", ComponentName=" + component);
+                    if (this.a.a.d) {
+                        return;
                     }
+                    this.a.a.j();
                 }
             }
         }
@@ -116,36 +90,33 @@ public class he3 {
             this.a = he3Var;
         }
 
-        @Override // com.repackage.pl2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityCreated(Activity activity, Bundle bundle) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) && nc3.j()) {
-                super.onActivityCreated(activity, bundle);
-                if (activity == null || activity.getIntent() == null) {
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (ProcessUtils.isMainProcess()) {
+                    this.a.d = false;
+                    synchronized (he3.class) {
+                        this.a.a = System.currentTimeMillis();
+                        if (this.a.c != null) {
+                            this.a.b.removeCallbacks(this.a.c);
+                        }
+                        this.a.c = new RunnableC0495a(this);
+                        long a = mc4.a(300) * 1000;
+                        this.a.b.postDelayed(this.a.c, a);
+                        if (he3.e) {
+                            Log.d("SwanH2HeartBeatManager", "wait next heart beat: " + a);
+                        }
+                    }
                     return;
                 }
-                RunnableC0648a runnableC0648a = new RunnableC0648a(this, activity);
-                if (oc3.a()) {
-                    runnableC0648a.run();
-                } else {
-                    bd3.j(runnableC0648a, "moveTaskToFront");
-                }
-            }
-        }
-
-        @Override // com.repackage.pl2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                super.onActivityStarted(activity);
-                he3 he3Var = this.a;
-                he3Var.c = he3Var.c && activity != null && activity.getTaskId() == this.a.e;
+                vw2.c(c.class, null);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements c {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ he3 a;
@@ -168,24 +139,67 @@ public class he3 {
             this.a = he3Var;
         }
 
-        @Override // com.repackage.he3.c
-        public void a(boolean z, int i) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-                if (z) {
-                    this.a.c = true;
-                    this.a.e = i;
-                } else if (this.a.c && i == 1) {
-                    this.a.c = false;
-                }
-                this.a.d = z;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                q74.l(new nb4(0), new l32(this.a, true));
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public interface c {
-        void a(boolean z, int i);
+    public static class c extends ProviderDelegation {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+                he3.k().m();
+                return null;
+            }
+            return (Bundle) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final he3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-331323173, "Lcom/repackage/he3$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-331323173, "Lcom/repackage/he3$d;");
+                    return;
+                }
+            }
+            a = new he3(null);
+        }
     }
 
     static {
@@ -201,15 +215,80 @@ public class he3 {
                 return;
             }
         }
-        f = rg1.a;
+        e = sg1.a;
     }
 
-    public he3(@NonNull Application application) {
+    public /* synthetic */ he3(a aVar) {
+        this();
+    }
+
+    public static he3 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? d.a : (he3) invokeV.objValue;
+    }
+
+    @AnyThread
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            cd3.l(new b(this), "SwanH2HeartBeatManager");
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bf3
+    /* renamed from: l */
+    public void a(Exception exc) {
+        a94 pmsError;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+            this.c = null;
+            if (e) {
+                Log.w("SwanH2HeartBeatManager", "onCallback", exc);
+            }
+            if (exc != null) {
+                Throwable cause = exc.getCause();
+                if ((cause instanceof PMSException) && (pmsError = ((PMSException) cause).getPmsError()) != null && pmsError.f >= 500) {
+                    n();
+                    mc4.a = false;
+                    ix1.k("SwanH2HeartBeatManager", "update core heartBeat exception: code=" + pmsError.f);
+                    return;
+                }
+                m();
+            }
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && mc4.a) {
+            if (e) {
+                Log.d("SwanH2HeartBeatManager", "startHeartBeat");
+            }
+            cd3.l(new a(this), "SwanH2HeartBeatManager");
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && mc4.a) {
+            if (e) {
+                Log.d("SwanH2HeartBeatManager", "stopHeartBeat");
+            }
+            this.d = true;
+            Runnable runnable = this.c;
+            if (runnable != null) {
+                this.b.removeCallbacks(runnable);
+            }
+            this.c = null;
+        }
+    }
+
+    public he3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {application};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -219,26 +298,7 @@ public class he3 {
                 return;
             }
         }
-        this.a = application;
-        this.b = new a(this);
-        g = new b(this);
-        application.registerActivityLifecycleCallbacks(this.b);
-    }
-
-    public static void h(boolean z, int i) {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (cVar = g) == null) {
-            return;
-        }
-        cVar.a(z, i);
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g = null;
-            this.a.unregisterActivityLifecycleCallbacks(this.b);
-        }
+        this.d = false;
+        this.b = new Handler(Looper.getMainLooper());
     }
 }

@@ -13,17 +13,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g65;
+import com.repackage.h65;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes7.dex */
-public class r28 implements g65, PersonPostModel.d, PersonPostModel.c {
+public class r28 implements h65, PersonPostModel.d, PersonPostModel.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public PersonPostModel a;
     @Nullable
-    public g65.a b;
+    public h65.a b;
 
     public r28(@NonNull TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -43,15 +43,15 @@ public class r28 implements g65, PersonPostModel.d, PersonPostModel.c {
         this.a = new PersonPostModel(tbPageContext, tbPageContext.getUniqueId(), this, false, PersonPostModel.FROM_PERSON_POLYMERIC);
     }
 
-    @Override // com.repackage.g65
-    public void a(@Nullable g65.a aVar) {
+    @Override // com.repackage.h65
+    public void a(@Nullable h65.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             this.b = aVar;
         }
     }
 
-    @Override // com.repackage.g65
+    @Override // com.repackage.h65
     public void b(@NonNull String str, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, metaData, num, num2, num3, num4, l, num5}) == null) {
@@ -82,7 +82,7 @@ public class r28 implements g65, PersonPostModel.d, PersonPostModel.c {
 
     @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.d
     public void s0(PersonPostModel personPostModel, boolean z) {
-        g65.a aVar;
+        h65.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLZ(1048579, this, personPostModel, z) == null) || (aVar = this.b) == null) {
             return;

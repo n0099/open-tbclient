@@ -12,23 +12,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nr4;
+import com.repackage.or4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class ca7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lr4 a;
-    public nr4 b;
-    public List<jr4> c;
-    public jr4 d;
+    public mr4 a;
+    public or4 b;
+    public List<kr4> c;
+    public kr4 d;
     public ba7 e;
     public c f;
-    public nr4.d g;
+    public or4.d g;
 
     /* loaded from: classes5.dex */
-    public class a implements nr4.c {
+    public class a implements or4.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ca7 a;
@@ -51,7 +51,7 @@ public class ca7 {
             this.a = ca7Var;
         }
 
-        @Override // com.repackage.nr4.c
+        @Override // com.repackage.or4.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -61,7 +61,7 @@ public class ca7 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements nr4.d {
+    public class b implements or4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ca7 a;
@@ -84,7 +84,7 @@ public class ca7 {
             this.a = ca7Var;
         }
 
-        @Override // com.repackage.nr4.d
+        @Override // com.repackage.or4.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -118,16 +118,16 @@ public class ca7 {
             }
         }
         this.g = new b(this);
-        this.b = new nr4(d9Var.getPageActivity());
-        jr4 jr4Var = new jr4(d9Var.getString(R.string.obfuscated_res_0x7f0f049f), this.b);
-        this.d = jr4Var;
-        jr4Var.m(this.g);
+        this.b = new or4(d9Var.getPageActivity());
+        kr4 kr4Var = new kr4(d9Var.getString(R.string.obfuscated_res_0x7f0f049e), this.b);
+        this.d = kr4Var;
+        kr4Var.m(this.g);
         ArrayList arrayList = new ArrayList();
         this.c = arrayList;
         arrayList.add(this.d);
         this.b.m(new a(this));
         this.b.j(this.c);
-        this.a = new lr4(d9Var, this.b);
+        this.a = new mr4(d9Var, this.b);
         e();
         f();
     }
@@ -146,20 +146,20 @@ public class ca7 {
     }
 
     public void d() {
-        lr4 lr4Var;
+        mr4 mr4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (lr4Var = this.a) != null && lr4Var.isShowing()) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (mr4Var = this.a) != null && mr4Var.isShowing()) {
             this.a.dismiss();
         }
     }
 
     public void e() {
-        nr4 nr4Var;
+        or4 or4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (nr4Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (or4Var = this.b) == null) {
             return;
         }
-        nr4Var.i();
+        or4Var.i();
     }
 
     public final void f() {
@@ -188,11 +188,11 @@ public class ca7 {
     }
 
     public void i() {
-        lr4 lr4Var;
+        mr4 mr4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (lr4Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (mr4Var = this.a) == null) {
             return;
         }
-        lr4Var.show();
+        mr4Var.show();
     }
 }

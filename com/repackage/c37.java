@@ -29,7 +29,7 @@ public class c37 {
     public ArrayList<nn> a;
     public d37 b;
     public j37 c;
-    public dq4 d;
+    public eq4 d;
     public PostForumData e;
     public g37 f;
     public y27 g;
@@ -40,7 +40,7 @@ public class c37 {
     public e37 l;
     public List<ny5> m;
     public List<nn> n;
-    public op4 o;
+    public pp4 o;
     public int p;
 
     public c37() {
@@ -85,10 +85,10 @@ public class c37 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : (y27) invokeV.objValue;
     }
 
-    public dq4 c() {
+    public eq4 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (dq4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (eq4) invokeV.objValue;
     }
 
     public g37 d() {
@@ -158,28 +158,28 @@ public class c37 {
             j37 j37Var = new j37();
             this.c = j37Var;
             j37Var.parserProtobuf(dataRes.relate_forum);
-            dq4 dq4Var = new dq4();
-            this.d = dq4Var;
-            dq4Var.floorPosition = 2;
+            eq4 eq4Var = new eq4();
+            this.d = eq4Var;
+            eq4Var.floorPosition = 2;
             if (TextUtils.isEmpty(dataRes.relate_forum_title)) {
-                this.d.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f087f);
+                this.d.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f086a);
             } else {
                 this.d.d = dataRes.relate_forum_title;
             }
-            dq4 dq4Var2 = this.d;
-            dq4Var2.e = R.color.CAM_X0108;
-            ArrayList<cq4> g = dq4Var2.g();
+            eq4 eq4Var2 = this.d;
+            eq4Var2.e = R.color.CAM_X0108;
+            ArrayList<dq4> g = eq4Var2.g();
             for (RelateForum relateForum : dataRes.relate_forum) {
                 if (!StringUtils.isNull(relateForum.forum_name)) {
-                    cq4 cq4Var = new cq4();
-                    cq4Var.D(relateForum.forum_id.intValue());
-                    cq4Var.E(relateForum.forum_name);
-                    cq4Var.C(relateForum.avatar);
-                    cq4Var.A(relateForum.desc);
-                    cq4Var.B(relateForum.thread_num.intValue());
-                    cq4Var.x(relateForum.member_num.intValue());
-                    cq4Var.u(relateForum.is_liked.intValue() != 0);
-                    g.add(cq4Var);
+                    dq4 dq4Var = new dq4();
+                    dq4Var.D(relateForum.forum_id.intValue());
+                    dq4Var.E(relateForum.forum_name);
+                    dq4Var.C(relateForum.avatar);
+                    dq4Var.A(relateForum.desc);
+                    dq4Var.B(relateForum.thread_num.intValue());
+                    dq4Var.x(relateForum.member_num.intValue());
+                    dq4Var.u(relateForum.is_liked.intValue() != 0);
+                    g.add(dq4Var);
                 }
             }
         }
@@ -219,9 +219,9 @@ public class c37 {
             this.k = b37Var;
             b37Var.o(dataRes.hot_thread);
             if (dataRes.hot_thread.page != null) {
-                op4 op4Var = new op4();
-                this.o = op4Var;
-                op4Var.j(dataRes.hot_thread.page);
+                pp4 pp4Var = new pp4();
+                this.o = pp4Var;
+                pp4Var.j(dataRes.hot_thread.page);
                 this.o.b();
             }
             dataRes.is_global_block.intValue();

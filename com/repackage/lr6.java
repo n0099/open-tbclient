@@ -70,10 +70,10 @@ public class lr6 extends an<nn, FunAdNativeViewHolder> implements o98, j98 {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.m(true);
                 this.c.G();
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FEEDBACK).param("obj_source", 6).param("obj_type", this.b.g()).param(TiebaStatic.Params.RESOURCE_ID, this.c.Z()).param("obj_locate", 0);
-                if ("a006".equals(this.b.g())) {
-                    param.param(TiebaStatic.Params.OBJ_TO, this.b.e());
-                    param.param(TiebaStatic.Params.OBJ_PARAM2, this.b.d());
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FEEDBACK).param("obj_source", 6).param("obj_type", this.b.f()).param(TiebaStatic.Params.RESOURCE_ID, this.c.Z()).param("obj_locate", 0);
+                if ("a006".equals(this.b.f())) {
+                    param.param(TiebaStatic.Params.OBJ_TO, this.b.d());
+                    param.param(TiebaStatic.Params.OBJ_PARAM2, this.b.c());
                 }
                 TiebaStatic.log(param);
             }
@@ -126,8 +126,8 @@ public class lr6 extends an<nn, FunAdNativeViewHolder> implements o98, j98 {
                 funAdNativePbView = new FunAdNativePbView(this.i);
             }
             FunAdNativeViewHolder funAdNativeViewHolder = new FunAdNativeViewHolder(funAdNativePbView, this.i, this.d);
-            funAdNativeViewHolder.n(this.j);
-            funAdNativeViewHolder.m(this.m);
+            funAdNativeViewHolder.m(this.j);
+            funAdNativeViewHolder.l(this.m);
             return funAdNativeViewHolder;
         }
         return (FunAdNativeViewHolder) invokeL.objValue;
@@ -142,8 +142,8 @@ public class lr6 extends an<nn, FunAdNativeViewHolder> implements o98, j98 {
         mi8 mi8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nnVar, funAdNativeViewHolder})) == null) {
-            if (nnVar instanceof qq4) {
-                ThreadData threadData = ((qq4) nnVar).s;
+            if (nnVar instanceof rq4) {
+                ThreadData threadData = ((rq4) nnVar).s;
                 mi8Var = threadData.funAdData;
                 j = threadData.getFid();
             } else if (nnVar instanceof ThreadData) {
@@ -155,8 +155,8 @@ public class lr6 extends an<nn, FunAdNativeViewHolder> implements o98, j98 {
                 mi8Var = nnVar instanceof PostData ? ((PostData) nnVar).t0 : null;
             }
             if (mi8Var == null) {
-                funAdNativeViewHolder.f().d(8);
-                return funAdNativeViewHolder.b();
+                funAdNativeViewHolder.e().d(8);
+                return funAdNativeViewHolder.a();
             }
             if (!"personalize".equals(this.l) && !AdvertAppInfo.F.equals(this.d)) {
                 this.j = fr6.e().d(this.m);
@@ -164,21 +164,21 @@ public class lr6 extends an<nn, FunAdNativeViewHolder> implements o98, j98 {
             BdUniqueId bdUniqueId = this.d;
             if (bdUniqueId == AdvertAppInfo.E) {
                 if ("frs".equals(this.l)) {
-                    zq6.m().L(this.i, this.j, zq6.b(this.l, UbsABTestHelper.isFrsFunAdSdkTest() ? "1" : "0"), String.valueOf(j), vc5.f());
+                    zq6.m().L(this.i, this.j, zq6.b(this.l, UbsABTestHelper.isFrsFunAdSdkTest() ? "1" : "0"), String.valueOf(j), wc5.f());
                 } else if ("personalize".equals(this.l)) {
                     zq6.m().K(this.i, this.j, zq6.b(this.l, UbsABTestHelper.isPersonalizeFunAdABTest() ? "1" : "0"));
                 }
             } else if (bdUniqueId == AdvertAppInfo.F) {
                 zq6.m().M(this.i, this.j, zq6.b(this.l, UbsABTestHelper.isPbCommentFunAdABTest() ? "1" : "0"), mi8Var.e(), mi8Var.c());
             }
-            funAdNativeViewHolder.k(new a(this, mi8Var, funAdNativeViewHolder));
-            funAdNativeViewHolder.f().h();
-            funAdNativeViewHolder.l(this.l);
-            funAdNativeViewHolder.f().setCurpage(this.l);
-            funAdNativeViewHolder.n(this.j);
+            funAdNativeViewHolder.j(new a(this, mi8Var, funAdNativeViewHolder));
+            funAdNativeViewHolder.e().h();
+            funAdNativeViewHolder.k(this.l);
+            funAdNativeViewHolder.e().setCurpage(this.l);
+            funAdNativeViewHolder.m(this.j);
             this.k.add(this.j);
-            funAdNativeViewHolder.o(mi8Var, nnVar instanceof nn4 ? ((nn4) nnVar).position + 1 : -1);
-            return funAdNativeViewHolder.b();
+            funAdNativeViewHolder.n(mi8Var, nnVar instanceof on4 ? ((on4) nnVar).position + 1 : -1);
+            return funAdNativeViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }
@@ -216,8 +216,8 @@ public class lr6 extends an<nn, FunAdNativeViewHolder> implements o98, j98 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             V v = this.g;
-            if (v != 0 && ((FunAdNativeViewHolder) v).f() != null) {
-                ((FunAdNativeViewHolder) this.g).f().b();
+            if (v != 0 && ((FunAdNativeViewHolder) v).e() != null) {
+                ((FunAdNativeViewHolder) this.g).e().b();
             }
             for (String str : this.k) {
                 zq6.m().c(str);
@@ -229,10 +229,10 @@ public class lr6 extends an<nn, FunAdNativeViewHolder> implements o98, j98 {
     public void onPause() {
         V v;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (v = this.g) == 0 || ((FunAdNativeViewHolder) v).f() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (v = this.g) == 0 || ((FunAdNativeViewHolder) v).e() == null) {
             return;
         }
-        ((FunAdNativeViewHolder) this.g).f().b();
+        ((FunAdNativeViewHolder) this.g).e().b();
     }
 
     @Override // com.repackage.j98

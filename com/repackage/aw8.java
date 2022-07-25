@@ -111,7 +111,7 @@ public class aw8 extends BaseAdapter implements View.OnClickListener {
     public final void b(a aVar, View view2, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, view2, viewGroup) == null) {
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f9a);
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f93);
             aVar.a = tbImageView;
             tbImageView.setIsRound(true);
             aVar.a.setDrawerType(1);
@@ -119,7 +119,7 @@ public class aw8 extends BaseAdapter implements View.OnClickListener {
             aVar.a.setBorderWidth(pi.f(viewGroup.getContext(), R.dimen.obfuscated_res_0x7f070224));
             aVar.a.setConrers(15);
             aVar.a.setBorderColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0302));
-            aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09225d);
+            aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09225f);
         }
     }
 
@@ -129,7 +129,7 @@ public class aw8 extends BaseAdapter implements View.OnClickListener {
             return;
         }
         this.c = 1;
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b18);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b04);
         notifyDataSetChanged();
     }
 
@@ -219,12 +219,12 @@ public class aw8 extends BaseAdapter implements View.OnClickListener {
                 if (itemViewType == 0) {
                     view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d016f, (ViewGroup) null);
                     b(aVar, view3, viewGroup);
-                    aVar.b = (ProgressBar) view3.findViewById(R.id.obfuscated_res_0x7f090fa9);
+                    aVar.b = (ProgressBar) view3.findViewById(R.id.obfuscated_res_0x7f090fa2);
                     aVar.c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0101));
                 } else if (itemViewType == 1) {
                     view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d016f, (ViewGroup) null);
                     b(aVar, view3, viewGroup);
-                    aVar.b = (ProgressBar) view3.findViewById(R.id.obfuscated_res_0x7f090fa9);
+                    aVar.b = (ProgressBar) view3.findViewById(R.id.obfuscated_res_0x7f090fa2);
                     aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f0802fd);
                     aVar.c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0101));
                 } else if (itemViewType != 2) {
@@ -305,7 +305,7 @@ public class aw8 extends BaseAdapter implements View.OnClickListener {
                     aVar.c.setText(dw8Var.b());
                 }
                 aVar.a.setTag(dw8Var);
-                aVar.a.setTag(R.id.obfuscated_res_0x7f091ab4, aVar);
+                aVar.a.setTag(R.id.obfuscated_res_0x7f091a8e, aVar);
                 aVar.a.setOnClickListener(this);
                 aVar.d = i;
             }
@@ -328,18 +328,18 @@ public class aw8 extends BaseAdapter implements View.OnClickListener {
     public void onClick(View view2) {
         RecordEffectLayout.i iVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090f9a && (view2.getTag() instanceof dw8)) {
+        if ((interceptable == null || interceptable.invokeL(1048589, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090f93 && (view2.getTag() instanceof dw8)) {
             dw8 dw8Var = (dw8) view2.getTag();
             if (dw8Var.getType() == 3 && (dw8Var.c() instanceof MusicData)) {
-                if (view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b18).equals(dw8Var.b()) && (iVar = this.d) != null) {
-                    iVar.b(dw8Var, view2.getTag(R.id.obfuscated_res_0x7f091ab4));
+                if (view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b04).equals(dw8Var.b()) && (iVar = this.d) != null) {
+                    iVar.b(dw8Var, view2.getTag(R.id.obfuscated_res_0x7f091a8e));
                     this.c = this.a.indexOf(dw8Var);
                     this.b = dw8Var.b();
                 }
                 if (!TextUtils.isEmpty(dw8Var.b()) && dw8Var.b().equals(this.b)) {
                     return;
                 }
-                if (!dw8Var.b().equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b18))) {
+                if (!dw8Var.b().equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b04))) {
                     this.c = this.a.indexOf(dw8Var);
                 }
             } else {
@@ -353,7 +353,7 @@ public class aw8 extends BaseAdapter implements View.OnClickListener {
             notifyDataSetChanged();
             RecordEffectLayout.i iVar2 = this.d;
             if (iVar2 != null) {
-                iVar2.b(dw8Var, view2.getTag(R.id.obfuscated_res_0x7f091ab4));
+                iVar2.b(dw8Var, view2.getTag(R.id.obfuscated_res_0x7f091a8e));
             }
         }
     }

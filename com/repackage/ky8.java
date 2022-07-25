@@ -185,9 +185,9 @@ public class ky8 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d06e9, (ViewGroup) null);
+                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d06f3, (ViewGroup) null);
                 cVar = new c();
-                cVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092150);
+                cVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092152);
                 cVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903d6);
                 view2.setTag(cVar);
             } else {

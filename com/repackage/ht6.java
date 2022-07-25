@@ -61,7 +61,7 @@ public class ht6 extends an<wy5, ThreadCardViewHolder<wy5>> implements ck5 {
         public void a(View view2, wy5 wy5Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, wy5Var) == null) {
-                BdToast b = BdToast.b(this.b.k.getContext(), this.b.k.getString(R.string.obfuscated_res_0x7f0f151b));
+                BdToast b = BdToast.b(this.b.k.getContext(), this.b.k.getString(R.string.obfuscated_res_0x7f0f14ca));
                 b.f(BdToast.ToastIcon.FAILURE);
                 b.h();
             }
@@ -96,7 +96,7 @@ public class ht6 extends an<wy5, ThreadCardViewHolder<wy5>> implements ck5 {
         public void b(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                BdToast b = BdToast.b(this.a.k.getContext(), this.a.k.getString(R.string.obfuscated_res_0x7f0f151b));
+                BdToast b = BdToast.b(this.a.k.getContext(), this.a.k.getString(R.string.obfuscated_res_0x7f0f14ca));
                 b.f(BdToast.ToastIcon.FAILURE);
                 b.h();
             }
@@ -141,7 +141,7 @@ public class ht6 extends an<wy5, ThreadCardViewHolder<wy5>> implements ck5 {
             bVar.n(this.n);
             cy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.m);
             ThreadCardViewHolder<wy5> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.k(this.i);
+            threadCardViewHolder.j(this.i);
             k.p(this.o);
             k.r(1);
             V(new b(this));
@@ -170,22 +170,22 @@ public class ht6 extends an<wy5, ThreadCardViewHolder<wy5>> implements ck5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wy5Var, threadCardViewHolder})) == null) {
             if (wy5Var == null) {
-                return threadCardViewHolder.b();
+                return threadCardViewHolder.a();
             }
             if (threadCardViewHolder == null) {
                 return null;
             }
             wy5Var.I(wy5Var.position + 1);
             cy5.b().a(wy5Var.d("c12351"));
-            threadCardViewHolder.c().q(i);
+            threadCardViewHolder.b().q(i);
             wy5Var.T = 0;
-            if (threadCardViewHolder.c() instanceof bk5) {
-                threadCardViewHolder.c().b(this.l);
+            if (threadCardViewHolder.b() instanceof bk5) {
+                threadCardViewHolder.b().b(this.l);
             }
-            threadCardViewHolder.g(wy5Var);
-            threadCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.o);
-            return threadCardViewHolder.b();
+            threadCardViewHolder.f(wy5Var);
+            threadCardViewHolder.b().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().p(this.o);
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

@@ -54,7 +54,7 @@ public class s27 extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, itemViewHolder, t27Var) == null) || t27Var == null || itemViewHolder == null) {
             return;
         }
-        itemViewHolder.c(t27Var);
+        itemViewHolder.b(t27Var);
     }
 
     public void b(int i) {
@@ -64,7 +64,7 @@ public class s27 extends BaseAdapter {
         }
         Iterator<ItemViewHolder> it = this.e.iterator();
         while (it.hasNext()) {
-            it.next().e(i);
+            it.next().d(i);
         }
     }
 
@@ -116,16 +116,16 @@ public class s27 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
                 view2 = this.a.inflate(this.b, viewGroup, false);
-                ItemViewHolder d = this.c.d(view2);
-                d.f(this.f);
-                view2.setTag(d);
-                this.e.add(d);
+                ItemViewHolder c = this.c.c(view2);
+                c.e(this.f);
+                view2.setTag(c);
+                this.e.add(c);
             }
             ItemViewHolder itemViewHolder = (ItemViewHolder) view2.getTag();
             if (ListUtils.getItem(this.d, i) != null) {
                 a(itemViewHolder, this.d.get(i));
             }
-            return itemViewHolder.b();
+            return itemViewHolder.a();
         }
         return (View) invokeILL.objValue;
     }

@@ -4,8 +4,8 @@ import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.service.kwai.f;
 /* loaded from: classes5.dex */
 public final class c {
-    public static b a() {
-        f fVar = (f) ServiceProvider.a(f.class);
-        return (fVar == null || !fVar.m()) ? new a() : new d();
+    public static b tT() {
+        f fVar = (f) ServiceProvider.get(f.class);
+        return (fVar == null || !fVar.lH()) ? new a() : new d();
     }
 }

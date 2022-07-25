@@ -23,9 +23,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.h9;
-import com.repackage.np4;
+import com.repackage.op4;
 import com.repackage.pi;
-import com.repackage.sp4;
+import com.repackage.tp4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
@@ -42,7 +42,7 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
     public TbImageView i;
     public LinearLayout j;
     public View k;
-    public sp4 l;
+    public tp4 l;
     public b m;
     public View.OnClickListener n;
 
@@ -84,9 +84,9 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
                 PbRecommendNovelHolder pbRecommendNovelHolder = this.a;
                 if (view2 == pbRecommendNovelHolder.h) {
                     String str = pbRecommendNovelHolder.l.L0;
-                    np4 np4Var = new np4();
+                    op4 op4Var = new op4();
                     TbPageContext tbPageContext = (TbPageContext) h9.a(this.a.a.getPageActivity());
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, np4Var));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, op4Var));
                     TiebaStatic.log(new StatisticItem("c11387").param("obj_source", 6).param("obj_locate", "0").param("obj_param1", str));
                     TiebaStatic.log(new StatisticItem("c11442").param("obj_id", this.a.l.L0).param("obj_locate", "3"));
                 } else if (view2 == pbRecommendNovelHolder.j) {
@@ -103,7 +103,7 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(sp4 sp4Var);
+        void a(tp4 tp4Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -127,37 +127,37 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
         this.n = new a(this);
         this.a = tbPageContext;
         this.m = bVar;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092000);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fff);
-        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091632);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09163f);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091631);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09163c);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09163a);
-        this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09163d);
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09163e);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092004);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092003);
+        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09160d);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09161a);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09160c);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091617);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091615);
+        this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091618);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091619);
         this.i = tbImageView;
-        tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a4);
-        this.i.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a4);
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091a96);
+        tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a8);
+        this.i.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a8);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091a70);
         this.h.setOnClickListener(this.n);
         this.j.setOnClickListener(this.n);
         this.c.setOnClickListener(this.n);
     }
 
-    public void f(sp4 sp4Var) {
+    public void e(tp4 tp4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, sp4Var) == null) || sp4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, tp4Var) == null) || tp4Var == null) {
             return;
         }
-        this.l = sp4Var;
-        this.b.setText(sp4Var.I0);
-        this.c.setText(sp4Var.J0);
-        this.i.J(sp4Var.Q0, 10, false);
-        this.d.J(sp4Var.M0, 10, false);
-        this.h.setText(sp4Var.P0);
-        this.e.setText(sp4Var.N0);
-        List<String> list = sp4Var.O0;
+        this.l = tp4Var;
+        this.b.setText(tp4Var.I0);
+        this.c.setText(tp4Var.J0);
+        this.i.J(tp4Var.Q0, 10, false);
+        this.d.J(tp4Var.M0, 10, false);
+        this.h.setText(tp4Var.P0);
+        this.e.setText(tp4Var.N0);
+        List<String> list = tp4Var.O0;
         if (list != null) {
             int size = list.size();
             if (size != 1) {

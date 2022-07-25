@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d47;
 import com.repackage.i47;
-import com.repackage.kd5;
+import com.repackage.ld5;
 /* loaded from: classes3.dex */
 public abstract class MsglistActivity<T> extends TalkableActivity<T> implements d47 {
     public static /* synthetic */ Interceptable $ic;
@@ -137,7 +137,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             if (X0(this)) {
                 c1();
                 g1();
-                i47.a = kd5.b();
+                i47.a = ld5.b();
             }
         }
     }

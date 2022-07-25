@@ -59,6 +59,7 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
             if (httpResponseHandler != null) {
                 httpResponseHandler.b();
             }
+            Log.e(a, "network request already run");
             try {
                 new b().a(this);
             } catch (Exception e) {

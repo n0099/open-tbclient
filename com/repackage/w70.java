@@ -10,7 +10,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.asynctask.BdAsyncTask;
 import com.baidu.live.asynctask.BdAsyncTaskParallelType;
-import com.baidu.sofire.rp.service.Service;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -411,7 +410,7 @@ public class w70 implements Executor {
                 this.c.add(dVar);
                 this.b.remove(dVar);
                 m.execute(dVar);
-                this.j.sendMessageDelayed(this.j.obtainMessage(1, dVar), Service.TRIGGER_INTERVAL);
+                this.j.sendMessageDelayed(this.j.obtainMessage(1, dVar), 180000L);
                 int e = dVar.e();
                 if (e == 1) {
                     this.h++;

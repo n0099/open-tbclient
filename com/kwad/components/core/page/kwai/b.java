@@ -9,21 +9,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.core.page.recycle.NestedScrollWebView;
-import com.kwad.components.core.webview.jshandler.i;
 import com.kwad.components.core.webview.jshandler.l;
-import com.kwad.components.core.webview.jshandler.p;
-import com.kwad.components.core.webview.jshandler.u;
+import com.kwad.components.core.webview.jshandler.o;
+import com.kwad.components.core.webview.jshandler.s;
+import com.kwad.components.core.webview.jshandler.x;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.mvp.Presenter;
 /* loaded from: classes5.dex */
 public final class b extends Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.kwad.components.core.webview.a a;
-    public com.kwad.sdk.core.webview.b b;
-    public NestedScrollWebView c;
-    public AdTemplate d;
-    public u.b e;
+    public NestedScrollWebView Gg;
+    public x.b bM;
+    public AdTemplate mAdTemplate;
+    public com.kwad.sdk.core.webview.b mJsBridgeContext;
+    public com.kwad.components.core.webview.a mJsInterface;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -38,10 +38,10 @@ public final class b extends Presenter {
                 return;
             }
         }
-        this.e = new u.b(this) { // from class: com.kwad.components.core.page.kwai.b.1
+        this.bM = new x.b(this) { // from class: com.kwad.components.core.page.kwai.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
+            public final /* synthetic */ b Gh;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -58,11 +58,11 @@ public final class b extends Presenter {
                         return;
                     }
                 }
-                this.a = this;
+                this.Gh = this;
             }
 
-            @Override // com.kwad.components.core.webview.jshandler.u.b
-            public final void a(u.a aVar) {
+            @Override // com.kwad.components.core.webview.jshandler.x.b
+            public final void a(x.a aVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar) == null) {
                 }
@@ -73,74 +73,74 @@ public final class b extends Presenter {
     private void a(com.kwad.components.core.webview.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, aVar) == null) {
-            aVar.a(new i(this.b));
-            aVar.a(new l(this.b));
-            aVar.a(new u(this.e, com.kwad.sdk.core.response.a.a.N(com.kwad.sdk.core.response.a.d.i(this.d))));
-            aVar.a(new p(this.b));
+            aVar.a(new l(this.mJsBridgeContext));
+            aVar.a(new o(this.mJsBridgeContext));
+            aVar.a(new x(this.bM, com.kwad.sdk.core.response.a.a.ar(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate))));
+            aVar.a(new s(this.mJsBridgeContext));
         }
     }
 
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
-    private void d() {
+    private void aF() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            e();
-            com.kwad.components.core.webview.a aVar = new com.kwad.components.core.webview.a(this.c);
-            this.a = aVar;
+            clearJsInterfaceRegister();
+            com.kwad.components.core.webview.a aVar = new com.kwad.components.core.webview.a(this.Gg);
+            this.mJsInterface = aVar;
             a(aVar);
-            this.c.addJavascriptInterface(this.a, "KwaiAd");
+            this.Gg.addJavascriptInterface(this.mJsInterface, "KwaiAd");
         }
     }
 
-    private void e() {
+    private void clearJsInterfaceRegister() {
         com.kwad.components.core.webview.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (aVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (aVar = this.mJsInterface) == null) {
             return;
         }
-        aVar.a();
-        this.a = null;
+        aVar.destroy();
+        this.mJsInterface = null;
     }
 
-    private void g() {
+    private void inflateJsBridgeContext() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             com.kwad.sdk.core.webview.b bVar = new com.kwad.sdk.core.webview.b();
-            this.b = bVar;
-            bVar.a(this.d);
-            com.kwad.sdk.core.webview.b bVar2 = this.b;
-            bVar2.a = 0;
-            bVar2.e = this.c;
+            this.mJsBridgeContext = bVar;
+            bVar.setAdTemplate(this.mAdTemplate);
+            com.kwad.sdk.core.webview.b bVar2 = this.mJsBridgeContext;
+            bVar2.mScreenOrientation = 0;
+            bVar2.Fv = this.Gg;
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            this.d = ((com.kwad.components.core.page.recycle.e) t()).c;
-            NestedScrollWebView nestedScrollWebView = (NestedScrollWebView) q().findViewById(R.id.obfuscated_res_0x7f0911e8);
-            this.c = nestedScrollWebView;
-            this.c.setClientConfig(nestedScrollWebView.getClientConfig().a(this.d));
-            this.c.setNestedScrollingEnabled(true);
-            g();
-            d();
-            this.c.loadUrl(com.kwad.sdk.core.response.a.a.N(com.kwad.sdk.core.response.a.d.i(this.d)));
-            this.c.b();
+            super.aq();
+            this.mAdTemplate = ((com.kwad.components.core.page.recycle.e) xR()).adTemplate;
+            NestedScrollWebView nestedScrollWebView = (NestedScrollWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f0911c4);
+            this.Gg = nestedScrollWebView;
+            this.Gg.setClientConfig(nestedScrollWebView.getClientConfig().R(this.mAdTemplate));
+            this.Gg.setNestedScrollingEnabled(true);
+            inflateJsBridgeContext();
+            aF();
+            this.Gg.loadUrl(com.kwad.sdk.core.response.a.a.ar(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate)));
+            this.Gg.pp();
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void e_() {
+    public final void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.e_();
-            e();
-            NestedScrollWebView nestedScrollWebView = this.c;
+            super.onDestroy();
+            clearJsInterfaceRegister();
+            NestedScrollWebView nestedScrollWebView = this.Gg;
             if (nestedScrollWebView != null) {
-                nestedScrollWebView.c();
-                this.c = null;
+                nestedScrollWebView.onActivityDestroy();
+                this.Gg = null;
             }
         }
     }

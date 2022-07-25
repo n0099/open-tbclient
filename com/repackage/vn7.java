@@ -26,7 +26,7 @@ public class vn7 extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
     public List<FaceData> a;
     public Context b;
-    public o45 c;
+    public p45 c;
     public int d;
     public int e;
     public c f;
@@ -70,7 +70,7 @@ public class vn7 extends BaseAdapter {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements k45 {
+    public class b implements l45 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
@@ -93,7 +93,7 @@ public class vn7 extends BaseAdapter {
             this.a = viewGroup;
         }
 
-        @Override // com.repackage.k45
+        @Override // com.repackage.l45
         public void a(ym ymVar, String str, boolean z) {
             TbImageView tbImageView;
             Interceptable interceptable = $ic;
@@ -207,8 +207,8 @@ public class vn7 extends BaseAdapter {
         public final void b(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e33);
-                this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09074d);
+                this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e2c);
+                this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09074c);
                 ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
                 layoutParams.width = this.c.d;
                 layoutParams.height = this.c.d;
@@ -236,7 +236,7 @@ public class vn7 extends BaseAdapter {
         }
         this.b = BdBaseApplication.getInst().getApp();
         this.a = list;
-        this.c = new o45();
+        this.c = new p45();
         int k = pi.k(this.b);
         this.e = k;
         this.d = (k - (pi.f(this.b, R.dimen.obfuscated_res_0x7f070201) * 3)) / 4;
@@ -249,7 +249,7 @@ public class vn7 extends BaseAdapter {
         }
         imageFileInfo.clearPageActions();
         int i = this.d;
-        imageFileInfo.addPageAction(x45.g(i, i));
+        imageFileInfo.addPageAction(y45.g(i, i));
         ym c2 = this.c.c(imageFileInfo, false);
         dVar.a.setTag(imageFileInfo.toCachedKey(false));
         if (c2 != null) {
@@ -339,7 +339,7 @@ public class vn7 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
                 dVar = new d(this);
-                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0501, (ViewGroup) null);
+                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d050b, (ViewGroup) null);
                 dVar.b(view3);
                 view3.setTag(dVar);
             } else {

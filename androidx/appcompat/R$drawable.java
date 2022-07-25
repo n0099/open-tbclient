@@ -113,8 +113,8 @@ public final class R$drawable {
     public static final int notification_template_icon_low_bg = 2131234283;
     public static final int notification_tile_bg = 2131234284;
     public static final int notify_panel_notification_icon_bg = 2131234286;
-    public static final int tooltip_frame_dark = 2131235200;
-    public static final int tooltip_frame_light = 2131235201;
+    public static final int tooltip_frame_dark = 2131235204;
+    public static final int tooltip_frame_light = 2131235205;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$drawable() {

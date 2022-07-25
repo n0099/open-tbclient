@@ -56,11 +56,11 @@ public class dz5 extends an<ez5, CardViewHolder<fz5>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ez5Var, cardViewHolder})) == null) {
-            if (cardViewHolder == null || cardViewHolder.c() == null) {
+            if (cardViewHolder == null || cardViewHolder.b() == null) {
                 return null;
             }
-            cardViewHolder.c().i(ez5Var);
-            return cardViewHolder.b();
+            cardViewHolder.b().i(ez5Var);
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

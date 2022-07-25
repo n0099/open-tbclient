@@ -1,32 +1,21 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.view.View;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import android.app.Activity;
+import android.content.DialogInterface;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface rh1 {
-    SwanCoreVersion m();
+    void a(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener);
 
-    gd2 n(SwanAppActivity swanAppActivity, String str);
+    String b();
 
-    p32 o(af3<Exception> af3Var);
+    void c(JSONObject jSONObject);
 
-    void p(Intent intent);
+    b84 d();
 
-    View q(nz1 nz1Var);
+    void e(int i, String str);
 
-    void r(V8ExceptionInfo v8ExceptionInfo);
-
-    void release();
-
-    ExtensionCore s();
-
-    ta2 t();
-
-    int u(String str, long j);
-
-    void v(String str, boolean z);
+    void f(@NonNull bf3<Boolean> bf3Var);
 }

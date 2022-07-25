@@ -219,9 +219,9 @@ public class nu7 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
-                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d067d, (ViewGroup) null);
-                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09173e);
-                BarImageView barImageView = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09173d);
+                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0687, (ViewGroup) null);
+                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091719);
+                BarImageView barImageView = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091718);
                 barImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
                 barImageView.setStrokeWith(pi.f(inflate.getContext(), R.dimen.tbds1));
                 barImageView.setShowOval(true);
@@ -232,11 +232,11 @@ public class nu7 {
                 if (!StringUtils.isNull(this.a.e)) {
                     barImageView.J(this.a.e, 10, false);
                 }
-                SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091741), (int) R.color.CAM_X0302);
-                TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f09173f);
-                uu4 uu4Var = new uu4();
-                uu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-                tBSpecificationBtn.setConfig(uu4Var);
+                SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09171c), (int) R.color.CAM_X0302);
+                TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f09171a);
+                vu4 vu4Var = new vu4();
+                vu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+                tBSpecificationBtn.setConfig(vu4Var);
                 tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.enter_forum));
                 tBSpecificationBtn.setOnClickListener(new a(this));
                 TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0207).setShapeRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds21)).setShadowColor(R.color.CAM_X0803).setShadowSide(ShadowDrawable.ALL).setShadowRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds10)).setOffsetX(0).setOffsetY(UtilHelper.getDimenPixelSize(R.dimen.tbds5)).into(findViewById);

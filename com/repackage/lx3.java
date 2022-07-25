@@ -2,19 +2,16 @@ package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.http.HttpManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Callback;
-import okhttp3.Request;
-@Singleton
+import com.repackage.xw3;
+import java.io.File;
 @Service
 /* loaded from: classes6.dex */
-public class lx3 implements uh1 {
+public class lx3 implements qh1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,18 +29,24 @@ public class lx3 implements uh1 {
         }
     }
 
-    @Override // com.repackage.uh1
-    public HttpManager a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.qh1
+    public File a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ny3.b() : (HttpManager) invokeV.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? xw3.d.h(str, str2) : (File) invokeLL.objValue;
     }
 
-    @Override // com.repackage.uh1
-    public void call(HttpManager httpManager, Request request, Callback callback) {
+    @Override // com.repackage.qh1
+    public File b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpManager, request, callback) == null) && httpManager != null && (httpManager instanceof ny3)) {
-            ((ny3) httpManager).call(request, callback);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? xw3.d() : (File) invokeV.objValue;
+    }
+
+    @Override // com.repackage.qh1
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? xw3.d.g().getPath() : (String) invokeV.objValue;
     }
 }

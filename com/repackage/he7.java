@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class he7 extends aw4<cw4, a> {
+public class he7 extends bw4<dw4, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context d;
@@ -75,7 +75,7 @@ public class he7 extends aw4<cw4, a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.aw4
+    @Override // com.repackage.bw4
     /* renamed from: f */
     public a b(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -89,13 +89,13 @@ public class he7 extends aw4<cw4, a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.aw4
+    @Override // com.repackage.bw4
     /* renamed from: g */
-    public View d(ViewGroup viewGroup, a aVar, cw4 cw4Var) {
+    public View d(ViewGroup viewGroup, a aVar, dw4 dw4Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, viewGroup, aVar, cw4Var)) == null) {
-            aVar.d.J(cw4Var.a(), 17, false);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, viewGroup, aVar, dw4Var)) == null) {
+            aVar.d.J(dw4Var.a(), 17, false);
             return null;
         }
         return (View) invokeLLL.objValue;

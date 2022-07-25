@@ -34,11 +34,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.de5;
 import com.repackage.he5;
 import com.repackage.i18;
-import com.repackage.jd5;
+import com.repackage.kd5;
 import com.repackage.l18;
 import com.repackage.ng;
-import com.repackage.xt4;
 import com.repackage.y08;
+import com.repackage.yt4;
 /* loaded from: classes3.dex */
 public class PersonCenterFragment extends LazyBaseFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -265,7 +265,7 @@ public class PersonCenterFragment extends LazyBaseFragment {
     }
 
     /* loaded from: classes3.dex */
-    public class f implements jd5<Boolean> {
+    public class f implements kd5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterFragment a;
@@ -289,7 +289,7 @@ public class PersonCenterFragment extends LazyBaseFragment {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -376,12 +376,12 @@ public class PersonCenterFragment extends LazyBaseFragment {
     public final void E1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long m = xt4.k().m("key_feedback_tip", 0L);
+            long m = yt4.k().m("key_feedback_tip", 0L);
             if (!TbadkCoreApplication.isLogin() || System.currentTimeMillis() - m <= StringHelper.MS_TO_HOUR * 4) {
                 return;
             }
             he5.b(new e(this), new f(this));
-            xt4.k().x("key_feedback_tip", System.currentTimeMillis());
+            yt4.k().x("key_feedback_tip", System.currentTimeMillis());
         }
     }
 
@@ -401,7 +401,7 @@ public class PersonCenterFragment extends LazyBaseFragment {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -520,7 +520,7 @@ public class PersonCenterFragment extends LazyBaseFragment {
                     this.k.k();
                 }
                 this.k.m();
-                xt4.k().u("key_feedback_tip_tab_show", false);
+                yt4.k().u("key_feedback_tip_tab_show", false);
             } else {
                 this.k.e();
             }

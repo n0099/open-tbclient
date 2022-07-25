@@ -86,7 +86,7 @@ public class uu6 extends BaseAdapter {
         this.b = tbPageContext;
         this.e = bdUniqueId;
         this.d = i;
-        this.c = xt4.k().l("key_game_video_tab_has_choosed_sub_class_id", -1);
+        this.c = yt4.k().l("key_game_video_tab_has_choosed_sub_class_id", -1);
     }
 
     public final void a(b bVar) {
@@ -155,9 +155,9 @@ public class uu6 extends BaseAdapter {
             if (view2 == null) {
                 bVar = new b(this, null);
                 view3 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0373, (ViewGroup) null);
-                bVar.a = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090de2);
-                bVar.b = (BarImageView) view3.findViewById(R.id.obfuscated_res_0x7f090de0);
-                bVar.c = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f090de1);
+                bVar.a = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090ddb);
+                bVar.b = (BarImageView) view3.findViewById(R.id.obfuscated_res_0x7f090dd9);
+                bVar.c = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f090dda);
                 bVar.b.setShowOval(true);
                 bVar.b.setAutoChangeStyle(true);
                 bVar.b.setBorderColor(this.b.getResources().getColor(R.color.black_alpha8));

@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ub7;
 import com.repackage.vb7;
 import com.repackage.xb7;
-import com.repackage.xt4;
+import com.repackage.yt4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity> {
@@ -63,7 +63,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                 int i2 = b.a[labelRequestEnum.ordinal()];
                 if (i2 != 1) {
                     if (i2 == 2 && i == 0) {
-                        xt4.k().u("set_recommend_label", true);
+                        yt4.k().u("set_recommend_label", true);
                         this.a.C1();
                         this.a.finish();
                         return;
@@ -79,7 +79,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                     return;
                 }
                 LabelRecommendActivity labelRecommendActivity3 = this.a;
-                labelRecommendActivity3.showNetRefreshView(labelRecommendActivity3.b.c(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c2b), true);
+                labelRecommendActivity3.showNetRefreshView(labelRecommendActivity3.b.c(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17), true);
             }
         }
     }
@@ -191,7 +191,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
             }
             TiebaStatic.log(new StatisticItem("c12243").param("obj_type", this.c));
             a();
-            xt4.k().u("show_recommend_label", true);
+            yt4.k().u("show_recommend_label", true);
         }
     }
 

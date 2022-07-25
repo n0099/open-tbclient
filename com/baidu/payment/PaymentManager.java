@@ -271,7 +271,7 @@ public class PaymentManager {
         if (!(interceptable == null || interceptable.invokeIL(65543, null, i, str) == null) || (u91Var = c) == null) {
             return;
         }
-        u91Var.onResult(i, AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0f56) + str);
+        u91Var.onResult(i, AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0f3f) + str);
         c = null;
     }
 
@@ -388,7 +388,7 @@ public class PaymentManager {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
                         u91 u91Var = this.a;
-                        PaymentManager.g(u91Var, i, this.b.this$0.a.getString(R.string.obfuscated_res_0x7f0f1601) + str);
+                        PaymentManager.g(u91Var, i, this.b.this$0.a.getString(R.string.obfuscated_res_0x7f0f15b0) + str);
                     }
                 }
             }
@@ -499,7 +499,7 @@ public class PaymentManager {
                 if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, activity2, v91Var, u91Var) == null) {
                     char c2 = 6;
                     if (v91Var == null || TextUtils.isEmpty(v91Var.a) || v91Var.b == null) {
-                        PaymentManager.g(u91Var, 6, this.this$0.a.getString(R.string.obfuscated_res_0x7f0f0cf5));
+                        PaymentManager.g(u91Var, 6, this.this$0.a.getString(R.string.obfuscated_res_0x7f0f0ce1));
                         return;
                     }
                     String str = v91Var.a;
@@ -583,7 +583,7 @@ public class PaymentManager {
                             b71.f().c(activity2, v91Var.b, new d(this, u91Var));
                             break;
                         default:
-                            u91Var.onResult(3, this.this$0.a.getString(R.string.obfuscated_res_0x7f0f14c9));
+                            u91Var.onResult(3, this.this$0.a.getString(R.string.obfuscated_res_0x7f0f1478));
                             break;
                     }
                     activity2.finish();

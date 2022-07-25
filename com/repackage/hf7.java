@@ -42,8 +42,8 @@ public class hf7 implements CustomMessageTask.CustomRunnable<Object> {
                 if (currentAccount == null) {
                     currentAccount = "";
                 }
-                br4.f();
-                te<String> h = br4.h("tb.searchperson_history", currentAccount);
+                cr4.f();
+                te<String> h = cr4.h("tb.searchperson_history", currentAccount);
                 if (requestSearchPersonHistoryWriteMessage.isClear()) {
                     BdCacheService.k().j(h);
                 } else {

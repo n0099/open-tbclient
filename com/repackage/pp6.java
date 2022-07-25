@@ -35,7 +35,7 @@ public class pp6 {
     }
 
     public static void b(id6 id6Var, FrsViewData frsViewData, String str, boolean z, ThreadData threadData) {
-        sw4 adAdSense;
+        tw4 adAdSense;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{id6Var, frsViewData, str, Boolean.valueOf(z), threadData}) == null) || id6Var == null || frsViewData == null || TextUtils.isEmpty(str) || (adAdSense = TbadkCoreApplication.getInst().getAdAdSense()) == null || !adAdSense.e()) {
             return;
@@ -76,20 +76,20 @@ public class pp6 {
         }
     }
 
-    public static void c(oq4 oq4Var) {
+    public static void c(pq4 pq4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, oq4Var) == null) || oq4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, pq4Var) == null) || pq4Var == null) {
             return;
         }
-        String d = oq4Var.d();
+        String d = pq4Var.d();
         if (StringUtils.isNull(d)) {
-            d = oq4Var.f();
+            d = pq4Var.f();
         }
         String str = d;
-        String b = oq4Var.b();
-        String c = oq4Var.c();
-        String g = oq4Var.g();
-        ti8.c("frs", "CLICK", b, c, g, "tieba.baidu.com/p/" + oq4Var.g(), str);
+        String b = pq4Var.b();
+        String c = pq4Var.c();
+        String g = pq4Var.g();
+        ti8.c("frs", "CLICK", b, c, g, "tieba.baidu.com/p/" + pq4Var.g(), str);
     }
 
     public static void d(FrsFragment frsFragment, FrsViewData frsViewData, ThreadData threadData) {
@@ -111,7 +111,7 @@ public class pp6 {
             eo6Var.c = frsViewData.getForum().getId();
             eo6Var.d = frsViewData.getForum().getName();
             eo6Var.b = L0.V();
-            eo6 eo6Var2 = go6.f0;
+            eo6 eo6Var2 = go6.p0;
             if (eo6Var2 != null) {
                 eo6Var.e = eo6Var2.e;
                 eo6Var.f = eo6Var2.f;
@@ -126,7 +126,7 @@ public class pp6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2) == null) {
             StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", i).param("obj_type", i2).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
-            ej4.a(param, str);
+            fj4.a(param, str);
             TiebaStatic.log(param);
         }
     }

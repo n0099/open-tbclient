@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 /* loaded from: classes7.dex */
 public class vl8 {
     public static /* synthetic */ Interceptable $ic;
@@ -54,13 +54,13 @@ public class vl8 {
 
         /* renamed from: com.repackage.vl8$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0749a implements Runnable {
+        public class RunnableC0596a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomDialogData a;
             public final /* synthetic */ a b;
 
-            public RunnableC0749a(a aVar, CustomDialogData customDialogData) {
+            public RunnableC0596a(a aVar, CustomDialogData customDialogData) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,13 +117,13 @@ public class vl8 {
         public void b(CustomDialogData customDialogData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customDialogData) == null) {
-                qg.a().postDelayed(new RunnableC0749a(this, customDialogData), 1000L);
+                qg.a().postDelayed(new RunnableC0596a(this, customDialogData), 1000L);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Thread2GroupShareView a;
@@ -158,13 +158,13 @@ public class vl8 {
             this.f = shareFromPBMsgData;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.g.a.HidenSoftKeyPad((InputMethodManager) this.g.a.getSystemService("input_method"), this.a.getChatMsgView());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.g.a.getPageContext().getPageActivity(), this.b, this.c, this.d, this.e, 0, this.a.getLeaveMsg(), this.f.toChatMessageContent())));
-                cr4Var.dismiss();
+                dr4Var.dismiss();
                 ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
                 if (shareItem == null || shareItem.e() == null) {
                     return;
@@ -176,7 +176,7 @@ public class vl8 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements cr4.e {
+    public class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Thread2GroupShareView a;
@@ -201,12 +201,12 @@ public class vl8 {
             this.a = thread2GroupShareView;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.b.a.HidenSoftKeyPad((InputMethodManager) this.b.a.getSystemService("input_method"), this.a.getChatMsgView());
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
@@ -318,7 +318,7 @@ public class vl8 {
                 this.b.B().getCurrentFragment().onActivityResult(i, i2, intent);
             } else if (i == 25046) {
                 if (TbadkCoreApplication.isLogin()) {
-                    zi4.f().k(this.a.getPageContext());
+                    aj4.f().k(this.a.getPageContext());
                 }
             } else if (i == 11001) {
                 d();
@@ -408,15 +408,15 @@ public class vl8 {
         if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{shareFromPBMsgData, Long.valueOf(j), str, str2, str3}) == null) || shareFromPBMsgData == null) {
             return;
         }
-        cr4 cr4Var = new cr4(this.a.getPageContext().getPageActivity());
+        dr4 dr4Var = new dr4(this.a.getPageContext().getPageActivity());
         Thread2GroupShareView thread2GroupShareView = new Thread2GroupShareView(this.a.getPageContext().getPageActivity());
         thread2GroupShareView.setData(shareFromPBMsgData);
-        cr4Var.setContentViewSize(1);
-        cr4Var.setContentView(thread2GroupShareView);
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f113c, new b(this, thread2GroupShareView, j, str, str2, str3, shareFromPBMsgData));
-        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new c(this, thread2GroupShareView));
-        cr4Var.setCanceledOnTouchOutside(true);
-        cr4Var.create(this.a.getPageContext()).show();
+        dr4Var.setContentViewSize(1);
+        dr4Var.setContentView(thread2GroupShareView);
+        dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f10eb, new b(this, thread2GroupShareView, j, str, str2, str3, shareFromPBMsgData));
+        dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new c(this, thread2GroupShareView));
+        dr4Var.setCanceledOnTouchOutside(true);
+        dr4Var.create(this.a.getPageContext()).show();
         if (oi.isEmpty(shareFromPBMsgData.getImageUrl())) {
             return;
         }

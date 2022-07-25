@@ -193,7 +193,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d019f, (ViewGroup) null);
             this.m = viewGroup;
-            this.n = new td7(this.i, viewGroup.findViewById(R.id.obfuscated_res_0x7f091259));
+            this.n = new td7(this.i, viewGroup.findViewById(R.id.obfuscated_res_0x7f091235));
             ld7 ld7Var = new ld7(this.i, this.m);
             this.o = ld7Var;
             this.n.s(ld7Var);

@@ -165,7 +165,7 @@ public class MultiImageTextBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(0);
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0560, (ViewGroup) this, true);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d056a, (ViewGroup) this, true);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0903c0);
             this.b = tbImageView;
             tbImageView.setAutoChangeStyle(false);

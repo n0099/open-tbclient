@@ -33,7 +33,7 @@ public class y20 implements u20 {
 
         /* renamed from: com.repackage.y20$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0778a {
+        public static class C0624a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String a;
@@ -41,7 +41,7 @@ public class y20 implements u20 {
             public String c;
             public int d;
 
-            public C0778a(Context context) {
+            public C0624a(Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,9 +178,9 @@ public class y20 implements u20 {
             StringBuilder sb;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                C0778a c0778a = new C0778a(context);
-                String c = c0778a.c();
-                int d = c0778a.d();
+                C0624a c0624a = new C0624a(context);
+                String c = c0624a.c();
+                int d = c0624a.d();
                 if (TextUtils.isEmpty(c)) {
                     sb = new StringBuilder();
                 } else {

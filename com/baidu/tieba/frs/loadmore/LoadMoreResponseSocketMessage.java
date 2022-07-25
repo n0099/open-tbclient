@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab8;
 import com.repackage.db8;
-import com.repackage.dp4;
+import com.repackage.ep4;
 import com.repackage.nn;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -103,9 +103,9 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     threadData.parser_title();
                     threadData.isFromBrandForum = z;
                     if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                        dp4 dp4Var = new dp4();
-                        dp4Var.g(threadData.getLegoCard());
-                        this.threadList.add(dp4Var);
+                        ep4 ep4Var = new ep4();
+                        ep4Var.g(threadData.getLegoCard());
+                        this.threadList.add(ep4Var);
                     } else {
                         this.threadList.add(threadData);
                         JSONObject b = db8.b(threadInfo);

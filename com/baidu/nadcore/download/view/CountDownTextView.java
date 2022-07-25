@@ -73,7 +73,7 @@ public class CountDownTextView extends LinearLayout implements zj0 {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05a3, this);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05ad, this);
             this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090096);
             this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090097);
         }

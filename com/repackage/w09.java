@@ -55,7 +55,7 @@ public final class w09 extends a19 {
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
-        public long c() {
+        public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -65,7 +65,7 @@ public final class w09 extends a19 {
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
-        public void d(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
+        public void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
                 if (byteBuffer.remaining() >= this.a.f.remaining()) {
@@ -91,7 +91,7 @@ public final class w09 extends a19 {
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
-        public void e(UploadDataSink uploadDataSink) {
+        public void c(UploadDataSink uploadDataSink) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uploadDataSink) == null) {
                 uploadDataSink.b(new HttpRetryException("Cannot retry streamed Http body", -1));
@@ -153,49 +153,49 @@ public final class w09 extends a19 {
     }
 
     @Override // com.repackage.a19
-    public void f() throws IOException {
+    public void e() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
+    @Override // com.repackage.a19
+    public UploadDataProvider f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (UploadDataProvider) invokeV.objValue;
+    }
+
     @Override // java.io.OutputStream, java.io.Flushable
     public void flush() throws IOException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.j && this.f.position() > 0) {
-            r();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.j && this.f.position() > 0) {
+            n();
         }
     }
 
     @Override // com.repackage.a19
-    public UploadDataProvider g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (UploadDataProvider) invokeV.objValue;
-    }
-
-    @Override // com.repackage.a19
-    public void j() throws IOException {
+    public void g() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    public final void p() throws IOException {
+    public final void m() throws IOException {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f.hasRemaining()) {
             return;
         }
-        r();
+        n();
     }
 
-    public final void r() throws IOException {
+    public final void n() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            e();
+            c();
             this.f.flip();
             this.e.b(this.d.getReadTimeout());
-            c();
+            a();
         }
     }
 
@@ -203,7 +203,7 @@ public final class w09 extends a19 {
     public void write(int i) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            p();
+            m();
             this.f.put((byte) i);
         }
     }
@@ -212,7 +212,7 @@ public final class w09 extends a19 {
     public void write(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i, i2) == null) {
-            e();
+            c();
             if (bArr.length - i < i2 || i < 0 || i2 < 0) {
                 throw new IndexOutOfBoundsException();
             }
@@ -221,7 +221,7 @@ public final class w09 extends a19 {
                 int min = Math.min(i3, this.f.remaining());
                 this.f.put(bArr, (i + i2) - i3, min);
                 i3 -= min;
-                p();
+                m();
             }
         }
     }

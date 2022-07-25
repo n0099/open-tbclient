@@ -18,7 +18,7 @@ public class n46 {
     public int d;
     public int e;
     public int f;
-    public b25 g;
+    public c25 g;
     public int h;
     public int i;
     public int j;
@@ -91,10 +91,10 @@ public class n46 {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f : invokeV.intValue;
     }
 
-    public b25 j() {
+    public c25 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.g : (b25) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.g : (c25) invokeV.objValue;
     }
 
     public void k(int i) {
@@ -166,10 +166,10 @@ public class n46 {
         }
     }
 
-    public void u(b25 b25Var) {
+    public void u(c25 c25Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, b25Var) == null) {
-            this.g = b25Var;
+        if (interceptable == null || interceptable.invokeL(1048596, this, c25Var) == null) {
+            this.g = c25Var;
         }
     }
 }

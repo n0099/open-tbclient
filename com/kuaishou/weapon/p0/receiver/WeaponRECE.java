@@ -8,36 +8,29 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.C0303;
-import com.kuaishou.weapon.p0.C0358;
-import com.kuaishou.weapon.p0.C0360;
-import com.kuaishou.weapon.p0.C0362;
-import com.kuaishou.weapon.p0.C0364;
-import com.kuaishou.weapon.p0.C0366;
-import com.kuaishou.weapon.p0.C0368;
-import com.kuaishou.weapon.p0.C0370;
-import com.kuaishou.weapon.p0.C0372;
+import com.kuaishou.weapon.p0.a3;
+import com.kuaishou.weapon.p0.b3;
+import com.kuaishou.weapon.p0.c3;
+import com.kuaishou.weapon.p0.d3;
+import com.kuaishou.weapon.p0.e3;
+import com.kuaishou.weapon.p0.o;
+import com.kuaishou.weapon.p0.q1;
+import com.kuaishou.weapon.p0.y2;
+import com.kuaishou.weapon.p0.z2;
 /* loaded from: classes5.dex */
 public class WeaponRECE extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: com.kuaishou.weapon.p0.receiver.WeaponRECE$ʻ  reason: contains not printable characters */
     /* loaded from: classes5.dex */
-    public class RunnableC0290 implements Runnable {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Intent a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ WeaponRECE c;
 
-        /* renamed from: ʻ  reason: contains not printable characters */
-        public final /* synthetic */ Intent f5;
-
-        /* renamed from: ʼ  reason: contains not printable characters */
-        public final /* synthetic */ Context f6;
-
-        /* renamed from: ʽ  reason: contains not printable characters */
-        public final /* synthetic */ WeaponRECE f7;
-
-        public RunnableC0290(WeaponRECE weaponRECE, Intent intent, Context context) {
+        public a(WeaponRECE weaponRECE, Intent intent, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,24 +45,24 @@ public class WeaponRECE extends BroadcastReceiver {
                     return;
                 }
             }
-            this.f7 = weaponRECE;
-            this.f5 = intent;
-            this.f6 = context;
+            this.c = weaponRECE;
+            this.a = intent;
+            this.b = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String action = this.f5.getAction();
-                if (!TextUtils.isEmpty(action) && action.equals(C0303.f38)) {
-                    C0366.m378(this.f6).m379(0, 0);
-                    C0370.m384(this.f6).m385(0);
-                    C0362.m372(this.f6).m373(0);
-                    C0364.m375(this.f6).m376();
-                    C0372.m387(this.f6).m388();
-                    C0360.m369(this.f6).m370(0);
-                    C0368.m381(this.f6).m382(0);
+                String action = this.a.getAction();
+                if (!TextUtils.isEmpty(action) && action.equals(q1.f)) {
+                    b3.a(this.b).a(0, 0);
+                    d3.a(this.b).a(0);
+                    z2.a(this.b).a(0);
+                    a3.a(this.b).a();
+                    e3.a(this.b).a();
+                    y2.a(this.b).a(0);
+                    c3.a(this.b).a(0);
                 }
             }
         }
@@ -94,7 +87,7 @@ public class WeaponRECE extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             try {
-                C0358.m366().m367(new RunnableC0290(this, intent, context));
+                o.a().a(new a(this, intent, context));
             } catch (Throwable unused) {
             }
         }

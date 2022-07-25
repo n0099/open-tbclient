@@ -95,12 +95,12 @@ public class rp6 {
 
     public static /* synthetic */ void d(LinearLayout linearLayout, ImageView imageView, View view2) {
         if (ng.a(linearLayout.getTag(), false)) {
-            xt4.k().u("key_vpb_booster_disconnect_alert", true);
+            yt4.k().u("key_vpb_booster_disconnect_alert", true);
             WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0808fd, R.color.CAM_X0108, null);
             linearLayout.setTag(Boolean.FALSE);
             return;
         }
-        xt4.k().u("key_vpb_booster_disconnect_alert", false);
+        yt4.k().u("key_vpb_booster_disconnect_alert", false);
         WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0808fe, R.color.CAM_X0304, null);
         linearLayout.setTag(Boolean.TRUE);
     }
@@ -108,20 +108,20 @@ public class rp6 {
     public static void e(Activity activity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, onClickListener) == null) {
-            a(b(activity, R.string.obfuscated_res_0x7f0f0327, R.string.obfuscated_res_0x7f0f0325, null), R.string.obfuscated_res_0x7f0f0427, R.string.obfuscated_res_0x7f0f036a, onClickListener, null).w();
+            a(b(activity, R.string.obfuscated_res_0x7f0f0327, R.string.obfuscated_res_0x7f0f0325, null), R.string.obfuscated_res_0x7f0f0426, R.string.obfuscated_res_0x7f0f036a, onClickListener, null).w();
         }
     }
 
     public static void f(Activity activity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, activity, onClickListener) == null) {
-            a(b(activity, R.string.obfuscated_res_0x7f0f0327, R.string.obfuscated_res_0x7f0f0326, null), R.string.obfuscated_res_0x7f0f0427, R.string.obfuscated_res_0x7f0f036a, onClickListener, null).w();
+            a(b(activity, R.string.obfuscated_res_0x7f0f0327, R.string.obfuscated_res_0x7f0f0326, null), R.string.obfuscated_res_0x7f0f0426, R.string.obfuscated_res_0x7f0f036a, onClickListener, null).w();
         }
     }
 
     public static void g(Activity activity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, activity, onClickListener) == null) && xt4.k().h("key_vpb_booster_disconnect_alert", true)) {
+        if ((interceptable == null || interceptable.invokeLL(65542, null, activity, onClickListener) == null) && yt4.k().h("key_vpb_booster_disconnect_alert", true)) {
             a(b(activity, R.string.obfuscated_res_0x7f0f032c, R.string.obfuscated_res_0x7f0f032a, c(activity)), R.string.obfuscated_res_0x7f0f0329, R.string.obfuscated_res_0x7f0f0328, onClickListener, null).w();
         }
     }

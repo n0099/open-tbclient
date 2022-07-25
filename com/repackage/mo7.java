@@ -31,7 +31,7 @@ public class mo7 implements Object<List<EmotionPackageData>> {
     public fo7 c;
     public io7 d;
     public View e;
-    public j55 f;
+    public k55 f;
     public FrameLayout g;
     public NoDataView h;
     public boolean i;
@@ -56,12 +56,12 @@ public class mo7 implements Object<List<EmotionPackageData>> {
         this.a = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02df, (ViewGroup) null, false);
         this.e = inflate;
-        NoNetworkView noNetworkView = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f092439);
+        NoNetworkView noNetworkView = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f09243b);
         this.j = noNetworkView;
         noNetworkView.a(this);
-        this.g = (FrameLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091db4);
-        this.b = (BdListView) this.e.findViewById(R.id.obfuscated_res_0x7f090888);
-        this.d = new io7(this.e.findViewById(R.id.obfuscated_res_0x7f090887), tbPageContext.getString(R.string.obfuscated_res_0x7f0f054c));
+        this.g = (FrameLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091dba);
+        this.b = (BdListView) this.e.findViewById(R.id.obfuscated_res_0x7f090886);
+        this.d = new io7(this.e.findViewById(R.id.obfuscated_res_0x7f090885), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0548));
         this.b.setDivider(null);
         this.b.setOverScrollMode(2);
         this.b.setVerticalScrollBarEnabled(false);
@@ -157,7 +157,7 @@ public class mo7 implements Object<List<EmotionPackageData>> {
         e();
         this.g.setVisibility(0);
         if (this.f == null) {
-            this.f = new j55(this.a.getPageActivity());
+            this.f = new k55(this.a.getPageActivity());
         }
         this.f.attachView(this.g, true);
         this.f.onChangeSkinType();
@@ -170,7 +170,7 @@ public class mo7 implements Object<List<EmotionPackageData>> {
         }
         e();
         this.g.setVisibility(0);
-        NoDataView b = NoDataViewFactory.b(this.a.getPageActivity(), this.g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070238)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f054e)), null, true);
+        NoDataView b = NoDataViewFactory.b(this.a.getPageActivity(), this.g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070236)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f054a)), null, true);
         this.h = b;
         b.setVisibility(0);
         this.h.d(this.a);

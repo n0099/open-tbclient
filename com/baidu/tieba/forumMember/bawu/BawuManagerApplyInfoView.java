@@ -73,9 +73,9 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0142, this);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090e53);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ffd);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ffe);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090e4c);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092001);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092002);
         }
     }
 

@@ -57,14 +57,14 @@ public final class x09 extends a19 {
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
-        public long c() {
+        public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.e : invokeV.longValue;
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
-        public void d(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
+        public void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
                 if (byteBuffer.remaining() >= this.a.f.remaining()) {
@@ -83,7 +83,7 @@ public final class x09 extends a19 {
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
-        public void e(UploadDataSink uploadDataSink) {
+        public void c(UploadDataSink uploadDataSink) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uploadDataSink) == null) {
                 uploadDataSink.b(new HttpRetryException("Cannot retry streamed Http body", -1));
@@ -140,7 +140,7 @@ public final class x09 extends a19 {
     }
 
     @Override // com.repackage.a19
-    public void f() throws IOException {
+    public void e() throws IOException {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.h < this.e) {
             throw new ProtocolException("Content received is less than Content-Length.");
@@ -148,20 +148,20 @@ public final class x09 extends a19 {
     }
 
     @Override // com.repackage.a19
-    public UploadDataProvider g() {
+    public UploadDataProvider f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (UploadDataProvider) invokeV.objValue;
     }
 
     @Override // com.repackage.a19
-    public void j() throws IOException {
+    public void g() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    public final void o(int i2) throws ProtocolException {
+    public final void l(int i2) throws ProtocolException {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.h + i2 <= this.e) {
             return;
@@ -169,28 +169,28 @@ public final class x09 extends a19 {
         throw new ProtocolException("expected " + (this.e - this.h) + " bytes but received " + i2);
     }
 
-    public final void p() throws IOException {
+    public final void m() throws IOException {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f.hasRemaining()) {
             return;
         }
-        r();
+        n();
     }
 
-    public final void r() throws IOException {
+    public final void n() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            e();
+            c();
             this.f.flip();
             this.d.a();
-            c();
+            a();
         }
     }
 
-    public final void s() throws IOException {
+    public final void o() throws IOException {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.h == this.e) {
-            r();
+            n();
         }
     }
 
@@ -198,12 +198,12 @@ public final class x09 extends a19 {
     public void write(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            e();
-            o(1);
-            p();
+            c();
+            l(1);
+            m();
             this.f.put((byte) i2);
             this.h++;
-            s();
+            o();
         }
     }
 
@@ -211,18 +211,18 @@ public final class x09 extends a19 {
     public void write(byte[] bArr, int i2, int i3) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i2, i3) == null) {
-            e();
+            c();
             if (bArr.length - i2 >= i3 && i2 >= 0 && i3 >= 0) {
-                o(i3);
+                l(i3);
                 int i4 = i3;
                 while (i4 > 0) {
-                    p();
+                    m();
                     int min = Math.min(i4, this.f.remaining());
                     this.f.put(bArr, (i2 + i3) - i4, min);
                     i4 -= min;
                 }
                 this.h += i3;
-                s();
+                o();
                 return;
             }
             throw new IndexOutOfBoundsException();

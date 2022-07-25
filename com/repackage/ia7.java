@@ -16,7 +16,7 @@ import java.util.HashMap;
 import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes6.dex */
-public class ia7 implements t75, q75 {
+public class ia7 implements u75, r75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -70,14 +70,14 @@ public class ia7 implements t75, q75 {
         }
     }
 
-    @Override // com.repackage.p75
+    @Override // com.repackage.q75
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "replyme_cache" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.v75
+    @Override // com.repackage.w75
     public Object h(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -86,12 +86,12 @@ public class ia7 implements t75, q75 {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.pn = Integer.valueOf(this.b);
                 builder.ids = this.c;
-                builder.q_type = Integer.valueOf(zm4.c().e());
+                builder.q_type = Integer.valueOf(an4.c().e());
                 builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
                 builder.scr_h = Integer.valueOf(pi.i(TbadkCoreApplication.getInst().getApp()));
                 builder.scr_w = Integer.valueOf(pi.k(TbadkCoreApplication.getInst().getApp()));
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    td5.a(builder, true);
+                    ud5.a(builder, true);
                 }
                 ReplyMeReqIdl.Builder builder2 = new ReplyMeReqIdl.Builder();
                 builder2.data = builder.build(false);
@@ -103,7 +103,7 @@ public class ia7 implements t75, q75 {
         return invokeZ.objValue;
     }
 
-    @Override // com.repackage.q75
+    @Override // com.repackage.r75
     public boolean isNeedUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class ia7 implements t75, q75 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.q75
+    @Override // com.repackage.r75
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -123,7 +123,7 @@ public class ia7 implements t75, q75 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.s75
+    @Override // com.repackage.t75
     public HashMap<String, Object> w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class ia7 implements t75, q75 {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
             hashMap.put(Config.PACKAGE_NAME, String.valueOf(this.b));
-            hashMap.put("q_type", Integer.valueOf(zm4.c().e()));
+            hashMap.put("q_type", Integer.valueOf(an4.c().e()));
             hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
             hashMap.put("scr_h", Integer.valueOf(pi.i(TbadkCoreApplication.getInst().getApp())));
             hashMap.put("scr_w", Integer.valueOf(pi.k(TbadkCoreApplication.getInst().getApp())));
@@ -143,7 +143,7 @@ public class ia7 implements t75, q75 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.s75
+    @Override // com.repackage.t75
     public HashMap<String, String> y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -153,7 +153,7 @@ public class ia7 implements t75, q75 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.q75
+    @Override // com.repackage.r75
     public String z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

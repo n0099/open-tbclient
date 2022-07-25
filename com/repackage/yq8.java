@@ -295,14 +295,14 @@ public class yq8 extends b9 {
     public void q(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            CoverPendantDragView coverPendantDragView = (CoverPendantDragView) view2.findViewById(R.id.obfuscated_res_0x7f0906e5);
+            CoverPendantDragView coverPendantDragView = (CoverPendantDragView) view2.findViewById(R.id.obfuscated_res_0x7f0906e4);
             this.g = coverPendantDragView;
             coverPendantDragView.setParentViewController(this);
-            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906ef);
-            if (xt4.k().h("video_cover_first_in", true)) {
+            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906ee);
+            if (yt4.k().h("video_cover_first_in", true)) {
                 this.c.setVisibility(0);
                 this.c.animate().alphaBy(0.0f).alpha(1.0f).setDuration(500L).setListener(new c(this)).start();
-                xt4.k().u("video_cover_first_in", false);
+                yt4.k().u("video_cover_first_in", false);
             }
         }
     }
@@ -310,8 +310,8 @@ public class yq8 extends b9 {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.b = (CoverSeekBar) this.a.findViewById(R.id.obfuscated_res_0x7f0906e9);
-            this.e = (HListView) this.a.findViewById(R.id.obfuscated_res_0x7f0917df);
+            this.b = (CoverSeekBar) this.a.findViewById(R.id.obfuscated_res_0x7f0906e8);
+            this.e = (HListView) this.a.findViewById(R.id.obfuscated_res_0x7f0917ba);
             gq8 gq8Var = new gq8(getPageContext());
             this.f = gq8Var;
             gq8Var.d(new a(this));

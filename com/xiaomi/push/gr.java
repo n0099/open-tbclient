@@ -21,10 +21,10 @@ public class gr {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f1165a;
+    public String f445a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<gk> f1166a;
+    public List<gk> f446a;
     public String b;
     public String c;
     public String d;
@@ -59,7 +59,7 @@ public class gr {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f1167a;
+        public String f447a;
 
         static {
             InterceptResult invokeClinit;
@@ -115,13 +115,13 @@ public class gr {
                     return;
                 }
             }
-            this.f1167a = str;
+            this.f447a = str;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1167a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f447a : (String) invokeV.objValue;
         }
     }
 
@@ -140,13 +140,13 @@ public class gr {
                 return;
             }
         }
-        this.f1166a = null;
+        this.f446a = null;
         this.a = i;
-        this.f1165a = str;
+        this.f445a = str;
         this.c = str2;
         this.b = str3;
         this.d = str4;
-        this.f1166a = list;
+        this.f446a = list;
     }
 
     public gr(Bundle bundle) {
@@ -164,21 +164,21 @@ public class gr {
                 return;
             }
         }
-        this.f1166a = null;
+        this.f446a = null;
         this.a = bundle.getInt("ext_err_code");
         if (bundle.containsKey("ext_err_type")) {
-            this.f1165a = bundle.getString("ext_err_type");
+            this.f445a = bundle.getString("ext_err_type");
         }
         this.b = bundle.getString("ext_err_cond");
         this.c = bundle.getString("ext_err_reason");
         this.d = bundle.getString("ext_err_msg");
         Parcelable[] parcelableArray = bundle.getParcelableArray("ext_exts");
         if (parcelableArray != null) {
-            this.f1166a = new ArrayList(parcelableArray.length);
+            this.f446a = new ArrayList(parcelableArray.length);
             for (Parcelable parcelable : parcelableArray) {
                 gk a2 = gk.a((Bundle) parcelable);
                 if (a2 != null) {
-                    this.f1166a.add(a2);
+                    this.f446a.add(a2);
                 }
             }
         }
@@ -199,7 +199,7 @@ public class gr {
                 return;
             }
         }
-        this.f1166a = null;
+        this.f446a = null;
         a(aVar);
         this.d = null;
     }
@@ -207,7 +207,7 @@ public class gr {
     private void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, aVar) == null) {
-            this.b = aVar.f1167a;
+            this.b = aVar.f447a;
         }
     }
 
@@ -216,7 +216,7 @@ public class gr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Bundle bundle = new Bundle();
-            String str = this.f1165a;
+            String str = this.f445a;
             if (str != null) {
                 bundle.putString("ext_err_type", str);
             }
@@ -233,11 +233,11 @@ public class gr {
             if (str4 != null) {
                 bundle.putString("ext_err_msg", str4);
             }
-            List<gk> list = this.f1166a;
+            List<gk> list = this.f446a;
             if (list != null) {
                 Bundle[] bundleArr = new Bundle[list.size()];
                 int i = 0;
-                for (gk gkVar : this.f1166a) {
+                for (gk gkVar : this.f446a) {
                     Bundle a2 = gkVar.a();
                     if (a2 != null) {
                         bundleArr[i] = a2;
@@ -252,7 +252,7 @@ public class gr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m1311a() {
+    public String m373a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -260,9 +260,9 @@ public class gr {
             sb.append("<error code=\"");
             sb.append(this.a);
             sb.append("\"");
-            if (this.f1165a != null) {
+            if (this.f445a != null) {
                 sb.append(" type=\"");
-                sb.append(this.f1165a);
+                sb.append(this.f445a);
                 sb.append("\"");
             }
             if (this.c != null) {
@@ -281,7 +281,7 @@ public class gr {
                 sb.append(this.d);
                 sb.append("</text>");
             }
-            for (gk gkVar : m1312a()) {
+            for (gk gkVar : m374a()) {
                 sb.append(gkVar.d());
             }
             sb.append("</error>");
@@ -291,12 +291,12 @@ public class gr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized List<gk> m1312a() {
+    public synchronized List<gk> m374a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                return this.f1166a == null ? Collections.emptyList() : Collections.unmodifiableList(this.f1166a);
+                return this.f446a == null ? Collections.emptyList() : Collections.unmodifiableList(this.f446a);
             }
         }
         return (List) invokeV.objValue;

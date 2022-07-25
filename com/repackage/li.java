@@ -7,6 +7,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.devices.IDevices;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -220,7 +221,7 @@ public class li {
             ?? r4 = ".so";
             sb2.append(".so");
             arrayList.add(sb2.toString());
-            arrayList.add("lib" + File.separator + "mips" + File.separator + "lib" + str2 + ".so");
+            arrayList.add("lib" + File.separator + IDevices.ABI_MIPS + File.separator + "lib" + str2 + ".so");
             arrayList.add("lib" + File.separator + "armeabi" + File.separator + "lib" + str2 + ".so");
             File file = new File(str);
             boolean z = false;

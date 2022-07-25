@@ -43,18 +43,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c45;
+import com.repackage.d45;
 import com.repackage.eo6;
 import com.repackage.hh8;
-import com.repackage.io4;
+import com.repackage.jo4;
 import com.repackage.lq6;
 import com.repackage.nn;
-import com.repackage.pd5;
 import com.repackage.pi;
 import com.repackage.pp6;
+import com.repackage.qd5;
 import com.repackage.qe6;
-import com.repackage.rl4;
 import com.repackage.sj8;
+import com.repackage.sl4;
 import com.repackage.xn;
 import com.repackage.yg8;
 import com.repackage.z8;
@@ -165,14 +165,14 @@ public class FrsTopView extends LinearLayout {
                                 if (StringUtils.isNull(a2) || !pi.D()) {
                                     return;
                                 }
-                                rl4.n(this.a.getContext(), a2);
+                                sl4.n(this.a.getContext(), a2);
                             }
                         } else if (threadData.getCartoonThreadData() != null) {
                             if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
                                 ViewHelper.skipToLoginActivity(this.a.getTbPageContext().getPageActivity());
                                 return;
                             }
-                            io4 cartoonThreadData = threadData.getCartoonThreadData();
+                            jo4 cartoonThreadData = threadData.getCartoonThreadData();
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MangaBrowserActivityConfig(this.a.getTbPageContext().getPageActivity(), cartoonThreadData.a(), cartoonThreadData.b(), 2)));
                         } else {
                             String ad_url = threadData.getAd_url();
@@ -309,7 +309,7 @@ public class FrsTopView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d034b, (ViewGroup) this, true);
-            this.a = (FrsFoldingView) findViewById(R.id.obfuscated_res_0x7f090ac9);
+            this.a = (FrsFoldingView) findViewById(R.id.obfuscated_res_0x7f090ac2);
         }
     }
 
@@ -410,7 +410,7 @@ public class FrsTopView extends LinearLayout {
             return;
         }
         int i = 1;
-        if ((z8.g().i("ForumRulesEditActivity") || c45.h().k()) && this.c.getIs_manager() == 1) {
+        if ((z8.g().i("ForumRulesEditActivity") || d45.h().k()) && this.c.getIs_manager() == 1) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921518, ""));
             return;
         }
@@ -456,7 +456,7 @@ public class FrsTopView extends LinearLayout {
         } else {
             z = threadData.getThreadData().originalThreadData.r.is_vertical.intValue() == 1;
         }
-        pd5.e(context, arrayList, str, z, i, null, FrsVideoTabPlayActivityConfig.FROM_FRS_VIDEO_TOP, "frs_page", "", FrsVideoTabPlayActivityConfig.FROM_FRS_VIDEO_TOP, FrsVideoTabPlayActivityConfig.FROM_FRS_VIDEO_TOP, false, true, true);
+        qd5.e(context, arrayList, str, z, i, null, FrsVideoTabPlayActivityConfig.FROM_FRS_VIDEO_TOP, "frs_page", "", FrsVideoTabPlayActivityConfig.FROM_FRS_VIDEO_TOP, FrsVideoTabPlayActivityConfig.FROM_FRS_VIDEO_TOP, false, true, true);
     }
 
     public void setDatas(List<nn> list, yg8 yg8Var) {

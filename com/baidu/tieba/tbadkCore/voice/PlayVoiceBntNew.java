@@ -32,10 +32,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
 import com.repackage.h9;
-import com.repackage.j65;
+import com.repackage.k65;
 import com.repackage.oi;
 import com.repackage.pi;
-import com.repackage.ur4;
+import com.repackage.vr4;
 /* loaded from: classes4.dex */
 public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -213,7 +213,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             d();
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
-            ur4 d = ur4.d(this.b);
+            vr4 d = vr4.d(this.b);
             d.n(R.string.J_X05);
             d.l(R.dimen.L_X03);
             d.k(R.color.CAM_X0302);
@@ -333,14 +333,14 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
     public void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06ef, (ViewGroup) this, true);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092480);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06f9, (ViewGroup) this, true);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092481);
             this.b = relativeLayout;
             relativeLayout.setOnClickListener(this);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09190b);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0918fc);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0918e6);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0918d7);
             this.f = (AudioAnimationView) findViewById(R.id.obfuscated_res_0x7f0902cb);
-            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0919c7);
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0919a2);
             this.e = progressBar;
             if (progressBar != null) {
                 progressBar.setVisibility(4);
@@ -405,9 +405,9 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             this.f.setCertainColumnCount(getAudioVoiceColumnCount());
             this.f.f();
             this.f.setVisibility(4);
-            if (j65.b().d()) {
-                j65.b().n(false);
-                j65.b().l(false);
+            if (k65.b().d()) {
+                k65.b().n(false);
+                k65.b().l(false);
             }
             f(false);
             if (i == 1) {

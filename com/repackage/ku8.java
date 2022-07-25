@@ -99,11 +99,11 @@ public class ku8 extends ju8 {
 
         /* renamed from: com.repackage.ku8$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0667a implements Runnable {
+        public class RunnableC0513a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0667a(a aVar) {
+            public RunnableC0513a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -160,7 +160,7 @@ public class ku8 extends ju8 {
                 this.a.u = cameraCaptureSession;
                 this.a.T = (CameraConstrainedHighSpeedCaptureSession) cameraCaptureSession;
                 this.a.N();
-                o99.a().post(new RunnableC0667a(this));
+                o99.a().post(new RunnableC0513a(this));
             }
         }
     }

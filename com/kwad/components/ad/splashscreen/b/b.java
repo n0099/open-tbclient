@@ -14,7 +14,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 public final class b extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public KsLogoView b;
+    public KsLogoView bq;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -30,9 +30,9 @@ public final class b extends e {
         }
     }
 
-    public static void a(ViewGroup viewGroup) {
+    private void h(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, viewGroup) == null) {
+        if ((interceptable == null || interceptable.invokeL(65537, this, viewGroup) == null) && this.yF.xV == 0) {
             DisplayMetrics displayMetrics = viewGroup.getContext().getResources().getDisplayMetrics();
             if (displayMetrics.heightPixels / displayMetrics.widthPixels > 1.7777777910232544d) {
                 ViewGroup.LayoutParams layoutParams = viewGroup.getLayoutParams();
@@ -46,31 +46,31 @@ public final class b extends e {
     }
 
     @Override // com.kwad.components.ad.splashscreen.b.e, com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    public final void aq() {
         AdInfo.AdSplashInfo adSplashInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            KsLogoView ksLogoView = (KsLogoView) ((e) this).a.d.findViewById(R.id.obfuscated_res_0x7f0911a8);
-            this.b = ksLogoView;
-            a((ViewGroup) ksLogoView);
-            if (((e) this).a.c.adInfoList.isEmpty() || (adSplashInfo = ((e) this).a.c.adInfoList.get(0).adSplashInfo) == null) {
+            super.aq();
+            KsLogoView ksLogoView = (KsLogoView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091183);
+            this.bq = ksLogoView;
+            h(ksLogoView);
+            if (this.yF.mAdTemplate.adInfoList.isEmpty() || (adSplashInfo = this.yF.mAdTemplate.adInfoList.get(0).adSplashInfo) == null) {
                 return;
             }
             if (adSplashInfo.logoPosition == 0) {
-                this.b.setVisibility(8);
+                this.bq.setVisibility(8);
                 return;
             }
-            this.b.setVisibility(0);
-            this.b.a(((e) this).a.c);
+            this.bq.setVisibility(0);
+            this.bq.T(this.yF.mAdTemplate);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void i_() {
+    public final void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.i_();
+            super.onCreate();
         }
     }
 }

@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ActivityPage.ActivityPageReqIdl;
 import tbclient.ActivityPage.DataReq;
 /* loaded from: classes6.dex */
-public class ps6 implements pb5<ActivityPageReqIdl> {
+public class ps6 implements qb5<ActivityPageReqIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public final jb5 b;
+    public final kb5 b;
 
     public ps6(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -33,26 +33,26 @@ public class ps6 implements pb5<ActivityPageReqIdl> {
                 return;
             }
         }
-        this.b = new jb5(false);
+        this.b = new kb5(false);
         this.a = str2;
     }
 
-    @Override // com.repackage.pb5
+    @Override // com.repackage.qb5
     public void a(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
         }
     }
 
-    @Override // com.repackage.pb5
-    public jb5 c() {
+    @Override // com.repackage.qb5
+    public kb5 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (jb5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (kb5) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.pb5
+    @Override // com.repackage.qb5
     /* renamed from: d */
     public ActivityPageReqIdl b(boolean z) {
         InterceptResult invokeZ;
@@ -66,9 +66,9 @@ public class ps6 implements pb5<ActivityPageReqIdl> {
                 builder.scr_h = Integer.valueOf(pi.i(TbadkCoreApplication.getInst()));
                 builder.scr_w = Integer.valueOf(pi.k(TbadkCoreApplication.getInst()));
                 builder.scr_dip = Integer.valueOf((int) pi.h(TbadkCoreApplication.getInst()));
-                builder.q_type = Integer.valueOf(zm4.c().e());
+                builder.q_type = Integer.valueOf(an4.c().e());
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    td5.a(builder, true);
+                    ud5.a(builder, true);
                 }
                 ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
                 builder2.data = builder.build(false);

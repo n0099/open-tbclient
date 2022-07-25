@@ -13,6 +13,7 @@ public interface SapiEnv {
     public static final String FACE_LOGIN_STATUS_CHECK = "/v3/security/sapi/faceLoginStatus";
     public static final String FACE_LOGIN_SWITCH_URI = "/v3/security/faceloginswitchresult";
     public static final String FILL_UNAME = "/v2/sapi/center/filluname";
+    public static final String GET_CERT_STATUS = "/v3/api/cert/status";
     public static final String GET_DYNAMIC_PWD_URI = "/v2/sapi/getdpass";
     public static final String GET_OPEN_BDUSS = "/v3/login/api/authopenbduss";
     public static final String GET_QR_CODE_IMAGE_URI = "/v2/api/getqrcode";
@@ -41,4 +42,5 @@ public interface SapiEnv {
     public static final String SSO_START_URI = "/phoenix/account/ssologin";
     public static final String SWITCH_ACCOUNT = "/v6/changeAccount";
     public static final String UPLOAD_CONTACTS_DATA = "/v3/ucenter/contacts/upload";
+    public static final String USER_LOGOUT = "/v3/api/user/logout";
 }

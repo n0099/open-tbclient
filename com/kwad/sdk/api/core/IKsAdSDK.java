@@ -110,6 +110,7 @@ public interface IKsAdSDK {
 
     @KsAdSdkDynamicApi
     @Keep
+    @Deprecated
     void reportBatchEvent(int i, Map<String, Object> map);
 
     @KsAdSdkDynamicApi

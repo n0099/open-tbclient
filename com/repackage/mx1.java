@@ -1,80 +1,55 @@
 package com.repackage;
 
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Environment;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ej2;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class mx1 implements jx1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "";
+public class mx1 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755484021, "Lcom/repackage/mx1;")) == null) {
-            return;
+    public static ej2.g a(fl2 fl2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, fl2Var)) == null) {
+            File file = new File(Environment.getExternalStorageDirectory() + "/" + nx1.d());
+            ej2.M(file, b(), fl2Var);
+            kg4.j(file);
+            ej2.g gVar = new ej2.g();
+            File file2 = new File(b(), "app.json");
+            SwanAppConfigData c = SwanAppConfigData.c(kg4.E(file2), b());
+            gVar.a = b().getPath() + File.separator;
+            gVar.b = c;
+            ix1.k("ADBDebugBundleHelper", "configFile path: " + file2.getPath() + " exist: " + file2.exists() + " info.mAppBundlePath path: " + gVar.a);
+            return gVar;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755484021, "Lcom/repackage/mx1;");
-        }
+        return (ej2.g) invokeL.objValue;
     }
 
-    public mx1() {
+    public static File b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_adb_debug");
+            if (!file.exists()) {
+                file.mkdirs();
             }
+            return file;
         }
+        return (File) invokeV.objValue;
     }
 
-    public static String d() {
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.jx1
-    public void a(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            a = gd3.i(bundle, "adb_debug_path");
-            kx1.i(gd3.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
-            kx1.j(gd3.i(bundle, "slavePreload"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_adb_debug";
         }
-    }
-
-    @Override // com.repackage.jx1
-    public void b(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            bundle.putString("adb_debug_path", a);
-            bundle.putString("slavePreload", kx1.c());
-            bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, kx1.a());
-        }
-    }
-
-    @Override // com.repackage.jx1
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? lx1.b().getPath() : (String) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

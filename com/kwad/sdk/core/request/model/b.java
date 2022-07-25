@@ -4,133 +4,129 @@ import android.content.Context;
 import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.InstalledAppInfoManager;
-import com.kwad.sdk.utils.aa;
-import com.kwad.sdk.utils.ao;
-import com.kwad.sdk.utils.as;
-import com.kwad.sdk.utils.av;
+import com.kwad.sdk.utils.ac;
+import com.kwad.sdk.utils.ar;
+import com.kwad.sdk.utils.az;
 import com.kwad.sdk.utils.j;
+import com.kwad.sdk.utils.w;
 import org.json.JSONArray;
 @KsJson
 /* loaded from: classes5.dex */
 public class b extends com.kwad.sdk.core.response.kwai.a {
-    public String B;
-    public String C;
-    public String D;
-    public String F;
-    public String G;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public int i;
-    public int j;
-    public String k;
-    public String l;
-    public int m;
-    public int n;
-    public int o;
-    public int p;
-    public String q;
-    public String r;
-    public String s;
-    public int t;
-    public String u;
-    public String v;
-    public String w;
-    public String x;
-    public JSONArray y;
-    public String z;
-    public int A = 0;
-    public long E = 0;
+    public String Ig;
+    public String LM;
+    public int LN;
+    public int LP;
+    public String LQ;
+    public int LS;
+    public int LT;
+    public String VB;
+    public String VC;
+    public String acA;
+    public String acB;
+    public JSONArray acC;
+    public String acD;
+    public String acF;
+    public String acG;
+    public String acH;
+    public String acJ;
+    public String acK;
+    public String acn;
+    public String aco;
+    public String acp;
+    public String acq;
+    public String acr;
+    public String acs;
+    public int act;
+    public int acu;
+    public String acv;
+    public String acw;
+    public String acx;
+    public int acy;
+    public String acz;
+    public int acE = 0;
+    public long acI = 0;
 
-    public static b a() {
+    public static b f(boolean z, int i) {
         b bVar = new b();
-        bVar.e = ao.a();
-        bVar.r = ao.e();
-        bVar.u = av.e();
-        bVar.i = 1;
-        bVar.j = av.r();
-        bVar.k = av.q();
-        bVar.x = as.f();
-        com.kwad.sdk.components.f fVar = (com.kwad.sdk.components.f) com.kwad.sdk.components.c.a(com.kwad.sdk.components.f.class);
-        if (fVar != null) {
-            bVar.w = fVar.a();
-        }
-        return bVar;
-    }
-
-    public static b a(boolean z) {
-        return a(false, 0);
-    }
-
-    public static b a(boolean z, int i) {
-        b bVar = new b();
-        com.kwad.sdk.service.kwai.d dVar = (com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class);
-        Context a = dVar.a();
-        bVar.a = ao.b(a);
-        bVar.b = ao.e(a);
-        bVar.c = ao.f(a);
-        bVar.d = av.d(a);
-        bVar.e = ao.a();
-        bVar.u = av.e();
-        bVar.v = av.g();
-        bVar.i = 1;
-        bVar.j = av.r();
-        bVar.k = av.q();
-        bVar.l = j.a();
-        bVar.n = j.c(a);
-        bVar.m = j.b(a);
-        bVar.o = j.e(a);
-        bVar.p = j.f(a);
-        bVar.q = ao.c(a);
+        com.kwad.sdk.service.kwai.d dVar = (com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class);
+        Context context = dVar.getContext();
+        bVar.VB = ar.cI(context);
+        bVar.acn = ar.cL(context);
+        bVar.aco = ar.cM(context);
+        bVar.acp = az.dp(context);
+        bVar.VC = ar.getOaid();
+        bVar.acz = az.AE();
+        bVar.LM = az.AG();
+        bVar.LN = 1;
+        bVar.LP = az.AQ();
+        bVar.acs = az.getOsVersion();
+        bVar.LQ = j.getLanguage();
+        bVar.LT = j.getScreenHeight(context);
+        bVar.LS = j.getScreenWidth(context);
+        bVar.act = j.cd(context);
+        bVar.acu = j.ce(context);
+        bVar.acv = ar.cJ(context);
         if (z) {
-            bVar.y = InstalledAppInfoManager.a(a);
+            bVar.acC = InstalledAppInfoManager.ch(context);
         }
-        bVar.r = ao.e();
-        bVar.E = av.f();
-        bVar.s = av.n();
-        bVar.x = as.f();
-        com.kwad.sdk.components.f fVar = (com.kwad.sdk.components.f) com.kwad.sdk.components.c.a(com.kwad.sdk.components.f.class);
+        bVar.acw = ar.getDeviceId();
+        bVar.acI = az.AF();
+        bVar.acx = az.AN();
+        bVar.acB = w.zE();
+        com.kwad.sdk.components.f fVar = (com.kwad.sdk.components.f) com.kwad.sdk.components.c.f(com.kwad.sdk.components.f.class);
         if (fVar != null) {
-            bVar.w = fVar.a();
+            bVar.acA = fVar.nb();
         }
-        bVar.t = av.o();
+        bVar.acy = az.AO();
         StringBuilder sb = new StringBuilder("DeviceInfo i=");
-        sb.append(dVar.b());
+        sb.append(dVar.getAppId());
         sb.append(",n=");
-        sb.append(dVar.c());
+        sb.append(dVar.getAppName());
         sb.append(",external:");
-        sb.append(dVar.d());
+        sb.append(dVar.getIsExternal());
         sb.append(",v1:");
-        sb.append(dVar.e());
-        sb.append(",v2:3.3.24");
+        sb.append(dVar.getApiVersion());
+        sb.append(",v2:3.3.26");
         sb.append(",d:");
-        sb.append(bVar.r);
+        sb.append(bVar.acw);
         sb.append(",dh:");
-        String str = bVar.r;
+        String str = bVar.acw;
         sb.append(str != null ? Integer.valueOf(str.hashCode()) : "");
         sb.append(",o:");
-        sb.append(bVar.e);
-        com.kwad.sdk.core.d.b.a(sb.toString());
-        bVar.z = av.p();
-        bVar.A = i;
-        if (b()) {
-            bVar.B = j.a(a, "com.smile.gifmaker");
-            bVar.C = j.a(a, "com.kuaishou.nebula");
-            bVar.D = j.a(a, "com.tencent.mm");
+        sb.append(bVar.VC);
+        com.kwad.sdk.core.e.b.bT(sb.toString());
+        bVar.acD = az.AP();
+        bVar.acE = i;
+        if (lE()) {
+            bVar.acF = j.y(context, "com.smile.gifmaker");
+            bVar.acG = j.y(context, "com.kuaishou.nebula");
+            bVar.acH = j.y(context, "com.tencent.mm");
         }
-        bVar.h = av.l();
-        bVar.g = aa.a(a);
-        bVar.F = av.v();
-        bVar.G = av.a("/data/data");
+        bVar.Ig = az.AL();
+        bVar.acr = ac.cu(context);
+        bVar.acJ = az.AU();
+        bVar.acK = az.ea("/data/data");
         return bVar;
     }
 
-    public static boolean b() {
-        return ((com.kwad.sdk.service.kwai.f) ServiceProvider.a(com.kwad.sdk.service.kwai.f.class)).i();
+    public static boolean lE() {
+        return ((com.kwad.sdk.service.kwai.f) ServiceProvider.get(com.kwad.sdk.service.kwai.f.class)).lE();
+    }
+
+    public static b uO() {
+        b bVar = new b();
+        bVar.VC = ar.getOaid();
+        bVar.acw = ar.getDeviceId();
+        bVar.acz = az.AE();
+        bVar.LN = 1;
+        bVar.LP = az.AQ();
+        bVar.acs = az.getOsVersion();
+        bVar.acB = w.zE();
+        com.kwad.sdk.components.f fVar = (com.kwad.sdk.components.f) com.kwad.sdk.components.c.f(com.kwad.sdk.components.f.class);
+        if (fVar != null) {
+            bVar.acA = fVar.nb();
+        }
+        return bVar;
     }
 }

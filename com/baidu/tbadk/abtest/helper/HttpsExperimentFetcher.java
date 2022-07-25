@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dc1;
 import com.repackage.lf;
-import com.repackage.px4;
+import com.repackage.qx4;
 import com.repackage.uf;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -50,7 +50,7 @@ public class HttpsExperimentFetcher extends dc1<lf> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                px4 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
+                qx4 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
                 if (httpsWhileData == null) {
                     return null;
                 }
@@ -63,7 +63,7 @@ public class HttpsExperimentFetcher extends dc1<lf> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                px4 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
+                qx4 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
                 if (httpsWhileData == null) {
                     return false;
                 }

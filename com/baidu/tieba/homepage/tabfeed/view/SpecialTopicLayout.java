@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gx;
 import com.repackage.hx;
-import com.repackage.jm4;
+import com.repackage.km4;
 import com.repackage.pi;
 import com.repackage.uz6;
 import java.util.ArrayList;
@@ -60,7 +60,7 @@ public class SpecialTopicLayout extends LinearLayout implements hx, gx<SpecialCo
     public View i;
     public String j;
     public int k;
-    public jm4<SpecialColumnItemData> l;
+    public km4<SpecialColumnItemData> l;
 
     /* loaded from: classes3.dex */
     public static class HorizontalAdapter extends RecyclerView.Adapter<a> {
@@ -68,7 +68,7 @@ public class SpecialTopicLayout extends LinearLayout implements hx, gx<SpecialCo
         public transient /* synthetic */ FieldHolder $fh;
         public TbPageContext<?> a;
         public ArrayList<SpecialColumnItemData> b;
-        public jm4<SpecialColumnItemData> c;
+        public km4<SpecialColumnItemData> c;
 
         /* loaded from: classes3.dex */
         public class a extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -104,17 +104,17 @@ public class SpecialTopicLayout extends LinearLayout implements hx, gx<SpecialCo
                 }
                 this.i = horizontalAdapter;
                 this.a = 3;
-                this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923cf);
-                this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fe2);
-                this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092219);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fa4);
+                this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923d1);
+                this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fe6);
+                this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09221b);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f9d);
                 this.b = tbImageView;
                 tbImageView.setConrers(15);
                 this.b.setRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10));
                 this.b.setDrawCorner(true);
                 this.b.setPlaceHolder(2);
                 this.b.setGifIconSupport(false);
-                this.c = view2.findViewById(R.id.obfuscated_res_0x7f090c92);
+                this.c = view2.findViewById(R.id.obfuscated_res_0x7f090c8b);
                 this.itemView.setOnClickListener(this);
             }
 
@@ -217,7 +217,7 @@ public class SpecialTopicLayout extends LinearLayout implements hx, gx<SpecialCo
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-                View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0791, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d079b, (ViewGroup) null);
                 inflate.setLayoutParams(new RecyclerView.LayoutParams(-2, -2));
                 return new a(this, inflate);
             }
@@ -238,10 +238,10 @@ public class SpecialTopicLayout extends LinearLayout implements hx, gx<SpecialCo
             return invokeV.intValue;
         }
 
-        public void h(jm4<SpecialColumnItemData> jm4Var) {
+        public void h(km4<SpecialColumnItemData> km4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, jm4Var) == null) {
-                this.c = jm4Var;
+            if (interceptable == null || interceptable.invokeL(1048579, this, km4Var) == null) {
+                this.c = km4Var;
             }
         }
 
@@ -257,7 +257,7 @@ public class SpecialTopicLayout extends LinearLayout implements hx, gx<SpecialCo
     }
 
     /* loaded from: classes3.dex */
-    public class a implements jm4<SpecialColumnItemData> {
+    public class a implements km4<SpecialColumnItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpecialTopicLayout a;
@@ -281,7 +281,7 @@ public class SpecialTopicLayout extends LinearLayout implements hx, gx<SpecialCo
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: a */
         public void d(View view2, SpecialColumnItemData specialColumnItemData, int i, long j) {
             Interceptable interceptable = $ic;
@@ -295,7 +295,7 @@ public class SpecialTopicLayout extends LinearLayout implements hx, gx<SpecialCo
         /* JADX WARN: Code restructure failed: missing block: B:13:0x0013, code lost:
             if (r8 != 4) goto L14;
          */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: b */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -346,12 +346,12 @@ public class SpecialTopicLayout extends LinearLayout implements hx, gx<SpecialCo
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d037e, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0920d5);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0922a1);
-            this.c = (PullLeftRefreshLayout) findViewById(R.id.obfuscated_res_0x7f091ac1);
-            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091aba);
-            this.h = findViewById(R.id.obfuscated_res_0x7f0907d5);
-            this.i = findViewById(R.id.obfuscated_res_0x7f0907cf);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0920d7);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0922a3);
+            this.c = (PullLeftRefreshLayout) findViewById(R.id.obfuscated_res_0x7f091a9b);
+            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091a94);
+            this.h = findViewById(R.id.obfuscated_res_0x7f0907d3);
+            this.i = findViewById(R.id.obfuscated_res_0x7f0907cd);
             this.e = new HorizontalAdapter(this.a);
             int f = pi.f(this.a.getPageActivity(), R.dimen.tbds44);
             int f2 = pi.f(this.a.getPageActivity(), R.dimen.tbds44);

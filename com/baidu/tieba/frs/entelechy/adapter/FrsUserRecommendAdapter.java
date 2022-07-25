@@ -31,8 +31,8 @@ import com.repackage.fg;
 import com.repackage.od6;
 import com.repackage.oi;
 import com.repackage.pi;
-import com.repackage.wv4;
-import com.repackage.yv4;
+import com.repackage.xv4;
+import com.repackage.zv4;
 /* loaded from: classes3.dex */
 public class FrsUserRecommendAdapter extends cd6<od6, FrsUserRecommendViewHolder> {
     public static /* synthetic */ Interceptable $ic;
@@ -83,14 +83,14 @@ public class FrsUserRecommendAdapter extends cd6<od6, FrsUserRecommendViewHolder
                 FrsUserRecommendViewHolder frsUserRecommendViewHolder;
                 FlexibleHorizontalScrollView flexibleHorizontalScrollView;
                 UserRecommendLayout userRecommendLayout;
-                wv4 j;
+                xv4 j;
                 Interceptable interceptable = $ic;
                 if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (flexibleHorizontalScrollView = (frsUserRecommendViewHolder = this.a).b) == null || (userRecommendLayout = frsUserRecommendViewHolder.c) == null) {
                     return;
                 }
                 flexibleHorizontalScrollView.smoothScrollBy(userRecommendLayout.getChildItemWidth(), 0);
-                if ((view2.getTag() instanceof yv4) && (j = ((yv4) view2.getTag()).j()) != null) {
-                    this.a.f(j.getUserId(), 2);
+                if ((view2.getTag() instanceof zv4) && (j = ((zv4) view2.getTag()).j()) != null) {
+                    this.a.e(j.getUserId(), 2);
                 }
                 if (this.a.e) {
                     TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 9).param("fid", this.a.f));
@@ -127,7 +127,7 @@ public class FrsUserRecommendAdapter extends cd6<od6, FrsUserRecommendViewHolder
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                     if (view2 instanceof ClickableHeaderImageView) {
-                        this.a.f(((ClickableHeaderImageView) view2).getUserId(), 1);
+                        this.a.e(((ClickableHeaderImageView) view2).getUserId(), 1);
                     }
                     if (this.a.e) {
                         TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 9).param("fid", this.a.f));
@@ -159,17 +159,17 @@ public class FrsUserRecommendAdapter extends cd6<od6, FrsUserRecommendViewHolder
             this.h = new b(this);
             this.e = z;
             this.f = str;
-            this.b = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f092343);
-            UserRecommendLayout userRecommendLayout = (UserRecommendLayout) view2.findViewById(R.id.obfuscated_res_0x7f09233d);
+            this.b = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f092345);
+            UserRecommendLayout userRecommendLayout = (UserRecommendLayout) view2.findViewById(R.id.obfuscated_res_0x7f09233f);
             this.c = userRecommendLayout;
             userRecommendLayout.setItemSpace(pi.f(view2.getContext(), R.dimen.obfuscated_res_0x7f0701be));
             this.c.setAfterLikeBtnClickListener(this.g);
             this.c.setAfterHeaderLickListener(this.h);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09233e);
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092342);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092340);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092344);
         }
 
-        public final void f(String str, int i) {
+        public final void e(String str, int i) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) || oi.isEmpty(str)) {
                 return;
@@ -312,7 +312,7 @@ public class FrsUserRecommendAdapter extends cd6<od6, FrsUserRecommendViewHolder
                     od6Var.i(true);
                 }
             }
-            return frsUserRecommendViewHolder.b();
+            return frsUserRecommendViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

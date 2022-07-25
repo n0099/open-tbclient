@@ -41,7 +41,7 @@ public class ep5 extends an<kd6, FrsNoListItemViewHolder> {
                 return;
             }
         }
-        this.i = (pi.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07030a);
+        this.i = (pi.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070308);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
@@ -72,7 +72,7 @@ public class ep5 extends an<kd6, FrsNoListItemViewHolder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, kd6Var, frsNoListItemViewHolder})) == null) {
-            frsNoListItemViewHolder.d.setText(R.string.obfuscated_res_0x7f0f0c44);
+            frsNoListItemViewHolder.d.setText(R.string.obfuscated_res_0x7f0f0c30);
             SkinManager.setViewTextColor(frsNoListItemViewHolder.d, R.color.CAM_X0107, 1);
             SkinManager.setImageResource(frsNoListItemViewHolder.e, R.drawable.new_pic_emotion_06);
             return view2;

@@ -45,9 +45,9 @@ public class aa1 extends BaseAdapter {
                     return;
                 }
             }
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f0917e5);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917e9);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917e8);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f0917c0);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917c4);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917c3);
         }
     }
 
@@ -118,7 +118,7 @@ public class aa1 extends BaseAdapter {
                 return view2;
             }
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d06a9, (ViewGroup) null, false);
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d06b3, (ViewGroup) null, false);
                 view2.setTag(new a(view2));
             }
             if (view2.getTag() != null && (view2.getTag() instanceof a)) {
@@ -127,16 +127,16 @@ public class aa1 extends BaseAdapter {
                 aVar.b.setText(item.getPayText());
                 if (item.isChecked()) {
                     aVar.a.setTextSize(1, 14.0f);
-                    aVar.a.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f0608ba));
+                    aVar.a.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f0608b8));
                     aVar.b.setTextSize(1, 10.0f);
-                    aVar.b.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f0608ba));
-                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e60));
+                    aVar.b.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f0608b8));
+                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e67));
                 } else {
                     aVar.a.setTextSize(1, 14.0f);
-                    aVar.a.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060ac4));
+                    aVar.a.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060ab4));
                     aVar.b.setTextSize(1, 10.0f);
-                    aVar.b.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f0608bb));
-                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e5f));
+                    aVar.b.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f0608b9));
+                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e66));
                 }
             }
             return view2;

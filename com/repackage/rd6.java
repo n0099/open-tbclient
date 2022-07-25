@@ -135,7 +135,7 @@ public class rd6 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements jd5<ShareItem> {
+    public class c implements kd5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -161,7 +161,7 @@ public class rd6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -225,7 +225,7 @@ public class rd6 {
             shareItem.m0 = false;
             shareItem.g0 = 1;
             if (i == 6) {
-                shareItem.u = this.a.getString(R.string.obfuscated_res_0x7f0f03f9) + PreferencesUtil.LEFT_MOUNT + this.n + this.a.getString(R.string.obfuscated_res_0x7f0f044a) + PreferencesUtil.RIGHT_MOUNT + "@" + this.a.getString(R.string.obfuscated_res_0x7f0f13fd) + TbConfig.HTTPS_FRS_PREFIX + oi.getUrlEncode(this.n) + "&fr=frsshare";
+                shareItem.u = this.a.getString(R.string.obfuscated_res_0x7f0f03f8) + PreferencesUtil.LEFT_MOUNT + this.n + this.a.getString(R.string.obfuscated_res_0x7f0f0449) + PreferencesUtil.RIGHT_MOUNT + "@" + this.a.getString(R.string.obfuscated_res_0x7f0f13ac) + TbConfig.HTTPS_FRS_PREFIX + oi.getUrlEncode(this.n) + "&fr=frsshare";
             } else {
                 shareItem.u = this.a.getString(R.string.obfuscated_res_0x7f0f029e);
             }
@@ -280,27 +280,27 @@ public class rd6 {
         if (!(interceptable == null || interceptable.invokeLLL(1048580, this, view2, view3, dVar) == null) || view2 == null) {
             return;
         }
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b8d);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b86);
         this.b = textView;
         t(textView, new SvgMaskType(R.drawable.obfuscated_res_0x7f0807cb));
         this.b.setOnClickListener(this.q);
-        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b96);
+        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b8f);
         this.c = textView2;
         t(textView2, new SvgMaskType(R.drawable.obfuscated_res_0x7f080804));
         this.c.setOnClickListener(this.q);
-        TextView textView3 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b8e);
+        TextView textView3 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b87);
         this.d = textView3;
         t(textView3, new SvgMaskType(R.drawable.obfuscated_res_0x7f080800));
         this.d.setOnClickListener(this.q);
-        TextView textView4 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b93);
+        TextView textView4 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b8c);
         this.e = textView4;
         t(textView4, new SvgMaskType(R.drawable.obfuscated_res_0x7f080802));
         this.e.setOnClickListener(this.q);
-        TextView textView5 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b91);
+        TextView textView5 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b8a);
         this.f = textView5;
         t(textView5, new SvgMaskType(R.drawable.obfuscated_res_0x7f080801));
         this.f.setOnClickListener(this.q);
-        TextView textView6 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b97);
+        TextView textView6 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b90);
         this.g = textView6;
         t(textView6, new SvgMaskType(R.drawable.obfuscated_res_0x7f080805));
         this.g.setOnClickListener(this.q);

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 /* loaded from: classes7.dex */
 public class wl8 {
     public static /* synthetic */ Interceptable $ic;
@@ -27,7 +27,7 @@ public class wl8 {
     public long d;
 
     /* loaded from: classes7.dex */
-    public class a implements cr4.e {
+    public class a implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ wl8 a;
@@ -50,11 +50,11 @@ public class wl8 {
             this.a = wl8Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 if (this.a.c == null || this.a.c.e() == null) {
                     return;
                 }
@@ -64,7 +64,7 @@ public class wl8 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ wl8 a;
@@ -87,15 +87,15 @@ public class wl8 {
             this.a = wl8Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 try {
                     this.a.a.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
-                    cr4Var.dismiss();
+                    dr4Var.dismiss();
                 } catch (Exception unused) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f07de);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f07da);
                 }
             }
         }
@@ -125,7 +125,7 @@ public class wl8 {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new cr4(this.a).setTitle(R.string.obfuscated_res_0x7f0f042f).setCancelable(false).setMessageId(R.string.obfuscated_res_0x7f0f02ca).setPositiveButton(R.string.obfuscated_res_0x7f0f0cb3, new b(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f0c37, new a(this)).create(h9.a(this.a)).show();
+            new dr4(this.a).setTitle(R.string.obfuscated_res_0x7f0f042e).setCancelable(false).setMessageId(R.string.obfuscated_res_0x7f0f02ca).setPositiveButton(R.string.obfuscated_res_0x7f0f0c9f, new b(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f0c23, new a(this)).create(h9.a(this.a)).show();
         }
     }
 
@@ -155,7 +155,7 @@ public class wl8 {
                                 return true;
                             }
                             if (System.currentTimeMillis() - this.d > 2000) {
-                                this.a.showToast(R.string.obfuscated_res_0x7f0f04f0);
+                                this.a.showToast(R.string.obfuscated_res_0x7f0f04ec);
                                 this.d = System.currentTimeMillis();
                             } else if (UtilHelper.isBackgroundProcessLimitNone() && Build.VERSION.SDK_INT >= 14) {
                                 c();

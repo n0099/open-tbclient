@@ -1,6 +1,7 @@
 package com.baidu.sapi2.httpwrap;
 
 import com.baidu.pass.http.HttpHashMap;
+import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public class HttpHashMapWrap extends HttpHashMap {
+public class HttpHashMapWrap extends HttpHashMap implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

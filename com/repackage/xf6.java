@@ -235,8 +235,8 @@ public class xf6 extends cd6<wf6, CardViewHolder<vf6>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wf6Var, cardViewHolder})) == null) {
             super.S(i, view2, viewGroup, wf6Var, cardViewHolder);
-            cardViewHolder.c().i(wf6Var);
-            return cardViewHolder.b();
+            cardViewHolder.b().i(wf6Var);
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

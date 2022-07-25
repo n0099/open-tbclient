@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
-    public long b;
-    public a c;
+    public volatile boolean Kx;
+    public long Ky;
+    public a Kz;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public int b;
+        public long KA;
+        public int KB;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -36,28 +36,28 @@ public final class e {
                     return;
                 }
             }
-            this.a = 0L;
-            this.b = 0;
+            this.KA = 0L;
+            this.KB = 0;
         }
 
-        public final int a() {
-            InterceptResult invokeV;
+        public final void accumulate(long j) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-        }
-
-        public final void a(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                this.a += j;
-                this.b++;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                this.KA += j;
+                this.KB++;
             }
         }
 
-        public final long b() {
+        public final int pl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.KB : invokeV.intValue;
+        }
+
+        public final long pm() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.KA : invokeV.longValue;
         }
     }
 
@@ -74,49 +74,49 @@ public final class e {
                 return;
             }
         }
-        this.c = new a();
+        this.Kz = new a();
     }
 
-    public final void a() {
+    public final void pg() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.Kx) {
             return;
         }
-        this.a = true;
-        this.b = SystemClock.elapsedRealtime();
+        this.Kx = true;
+        this.Ky = SystemClock.elapsedRealtime();
     }
 
-    public final void b() {
+    public final void ph() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a) {
-            this.c.a(SystemClock.elapsedRealtime() - this.b);
-            this.a = false;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.Kx) {
+            this.Kz.accumulate(SystemClock.elapsedRealtime() - this.Ky);
+            this.Kx = false;
         }
     }
 
-    public final boolean c() {
+    public final boolean pi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.Kx : invokeV.booleanValue;
     }
 
     @NonNull
-    public final a d() {
+    public final a pj() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a) {
-                this.c.a(SystemClock.elapsedRealtime() - this.b);
-                this.a = false;
+            if (this.Kx) {
+                this.Kz.accumulate(SystemClock.elapsedRealtime() - this.Ky);
+                this.Kx = false;
             }
-            return this.c;
+            return this.Kz;
         }
         return (a) invokeV.objValue;
     }
 
-    public final long e() {
+    public final long pk() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.Ky : invokeV.longValue;
     }
 }

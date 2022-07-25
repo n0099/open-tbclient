@@ -28,7 +28,7 @@ import java.util.List;
 public class xw8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<yk4> a;
+    public List<zk4> a;
     public String b;
     public BaseFragmentActivity c;
     public int d;
@@ -92,13 +92,13 @@ public class xw8 extends BaseAdapter {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
-    public yk4 getItem(int i) {
+    public zk4 getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (yk4) ListUtils.getItem(this.a, i) : (yk4) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (zk4) ListUtils.getItem(this.a, i) : (zk4) invokeI.objValue;
     }
 
-    public void b(List<yk4> list, String str) {
+    public void b(List<zk4> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str) == null) {
             this.a = list;
@@ -131,14 +131,14 @@ public class xw8 extends BaseAdapter {
             } else {
                 view2 = this.e.inflate(R.layout.obfuscated_res_0x7f0d0114, viewGroup, false);
                 bVar = new b(this, null);
-                bVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f41);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f53);
-                bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f2a);
+                bVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f3a);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f4c);
+                bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f23);
                 bVar.a.setGifIconSupport(false);
                 bVar.a.setLongIconSupport(false);
                 view2.setTag(bVar);
             }
-            yk4 item = getItem(i);
+            zk4 item = getItem(i);
             if (item == null) {
                 view2.setVisibility(4);
                 return view2;

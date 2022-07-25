@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jo3;
+import com.repackage.ko3;
 import java.io.Serializable;
 /* loaded from: classes2.dex */
 public class DownloadInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long mCreateAt;
-    public transient jo3 mDownloadListener;
+    public transient ko3 mDownloadListener;
     public DownloadException mException;
     public String mId;
     public String mPackageName;
@@ -158,10 +158,10 @@ public class DownloadInfo implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCreateAt : invokeV.longValue;
     }
 
-    public jo3 getDownloadListener() {
+    public ko3 getDownloadListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDownloadListener : (jo3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDownloadListener : (ko3) invokeV.objValue;
     }
 
     public DownloadException getException() {
@@ -231,10 +231,10 @@ public class DownloadInfo implements Serializable {
         }
     }
 
-    public void setDownloadListener(jo3 jo3Var) {
+    public void setDownloadListener(ko3 ko3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, jo3Var) == null) {
-            this.mDownloadListener = jo3Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, ko3Var) == null) {
+            this.mDownloadListener = ko3Var;
         }
     }
 

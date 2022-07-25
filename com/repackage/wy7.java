@@ -64,24 +64,24 @@ public class wy7 {
 
         /* renamed from: com.repackage.wy7$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0766a implements FullBrowseHelper.IAcceptPrivacyConfirm {
+        public class C0614a implements FullBrowseHelper.IAcceptPrivacyConfirm {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
             /* renamed from: com.repackage.wy7$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class RunnableC0767a implements Runnable {
+            public class RunnableC0615a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0766a a;
+                public final /* synthetic */ C0614a a;
 
-                public RunnableC0767a(C0766a c0766a) {
+                public RunnableC0615a(C0614a c0614a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0766a};
+                        Object[] objArr = {c0614a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -91,7 +91,7 @@ public class wy7 {
                             return;
                         }
                     }
-                    this.a = c0766a;
+                    this.a = c0614a;
                 }
 
                 @Override // java.lang.Runnable
@@ -103,7 +103,7 @@ public class wy7 {
                 }
             }
 
-            public C0766a(a aVar) {
+            public C0614a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,7 +128,7 @@ public class wy7 {
                     if (!ni.z()) {
                         this.a.a.b.K1();
                     } else {
-                        qg.a().postDelayed(new RunnableC0767a(this), 10L);
+                        qg.a().postDelayed(new RunnableC0615a(this), 10L);
                     }
                 }
             }
@@ -158,7 +158,7 @@ public class wy7 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.b == null || this.a.b.F() == null) {
                 return;
             }
-            FullBrowseHelper.checkAndShowFullBrowseModeDialog(this.a.b.getPageContext(), new C0766a(this));
+            FullBrowseHelper.checkAndShowFullBrowseModeDialog(this.a.b.getPageContext(), new C0614a(this));
         }
     }
 
@@ -190,11 +190,11 @@ public class wy7 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f091a2e) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f091a08) {
                     if (this.a.f(11009)) {
                         this.a.i(8);
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f091d51) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f091d57) {
                     if (this.a.f(11009)) {
                         this.a.i(3);
                     }
@@ -244,7 +244,7 @@ public class wy7 {
     }
 
     /* loaded from: classes7.dex */
-    public class d implements jd5<ShareItem> {
+    public class d implements kd5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -270,7 +270,7 @@ public class wy7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -309,7 +309,7 @@ public class wy7 {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, ni8Var) == null) || ni8Var == null || this.c == null || ni8Var.getAdvertAppInfo() == null) {
             return;
         }
-        ni8Var.getAdvertAppInfo().i = new sn4();
+        ni8Var.getAdvertAppInfo().i = new tn4();
         if (this.c.y() != null) {
             ni8Var.getAdvertAppInfo().i.b = this.c.y().a();
         }
@@ -381,8 +381,8 @@ public class wy7 {
             xr7 xr7Var = new xr7(jr7Var.O(), jr7Var.d());
             xr7Var.b = true;
             this.e.add(xr7Var);
-            if (postData != null && postData.o0 != null && (jr7Var.l() == null || !TextUtils.equals(jr7Var.l().getName(), this.b.F().q1()) || !this.b.F().w1())) {
-                mr7 mr7Var = new mr7(postData.o0);
+            if (postData != null && postData.i0 != null && (jr7Var.l() == null || !TextUtils.equals(jr7Var.l().getName(), this.b.F().q1()) || !this.b.F().w1())) {
+                mr7 mr7Var = new mr7(postData.i0);
                 mr7Var.b = this.b.F().j2();
                 this.e.add(mr7Var);
             }
@@ -394,13 +394,13 @@ public class wy7 {
             }
             if (jr7Var.f() != null) {
                 ir7 ir7Var = new ir7();
-                ir7Var.d(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9f));
+                ir7Var.d(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f88));
                 this.e.add(ir7Var);
                 if (TbSingleton.getInstance().isBrowseMode()) {
                     this.e.add(new yr7());
                 } else {
                     int i3 = 1;
-                    for (eo4 eo4Var : jr7Var.f()) {
+                    for (fo4 fo4Var : jr7Var.f()) {
                         if (Y != null && i3 == i2) {
                             if (ni8Var != null) {
                                 e(ni8Var);
@@ -414,7 +414,7 @@ public class wy7 {
                                 i2 = ni8Var.getPosition();
                             }
                         }
-                        gd7.a(this.e, eo4Var);
+                        gd7.a(this.e, fo4Var);
                         i3++;
                         if (i3 == 4 && jr7Var.C() != null) {
                             gd7.a(this.e, jr7Var.C());
@@ -476,7 +476,7 @@ public class wy7 {
             this.h = pbFirstFloorCommentAndPraiseAdapter;
             pbFirstFloorCommentAndPraiseAdapter.n0(this.q);
             this.i = new au7(detailInfoFragment.B(), ir7.c);
-            yt7 yt7Var = new yt7(detailInfoFragment.B(), eo4.e);
+            yt7 yt7Var = new yt7(detailInfoFragment.B(), fo4.e);
             this.j = yt7Var;
             yt7Var.g0(true);
             this.k = new qu7(detailInfoFragment.B());

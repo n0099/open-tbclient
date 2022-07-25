@@ -1,5 +1,6 @@
 package com.kwad.components.offline.api.tk;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.offline.api.OfflineHostProvider;
+import com.kwad.sdk.utils.r;
 import com.kwai.adclient.kscommerciallogger.model.BusinessType;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -84,10 +86,19 @@ public final class TkLoggerReporter {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Holder.sInstance : (TkLoggerReporter) invokeV.objValue;
     }
 
+    public static double getSamplingRate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? OfflineHostProvider.getApi().tkLoggerSamplingRate() : invokeV.doubleValue;
+    }
+
     private void reportEvent(String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, this, str, str2, jSONObject) == null) {
-            OfflineHostProvider.getApi().loggerReporter().reportEvent(str, BusinessType.TACHIKOMA, str2, jSONObject);
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2, jSONObject) == null) {
+            if (!jSONObject.has("ratio")) {
+                r.putValue(jSONObject, "ratio", getSamplingRate());
+            }
+            OfflineHostProvider.getApi().loggerReporter().reportEvent(getSamplingRate(), str, BusinessType.TACHIKOMA, str2, jSONObject);
         }
     }
 

@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -90,15 +90,15 @@ public class dj6 {
             FeedForumData feedForumData;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090ac3) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090abc) {
                     if (ViewHelper.checkUpIsLogin(this.a.a.getPageActivity()) && (feedForumData = (FeedForumData) view2.getTag()) != null) {
                         this.a.k.R(feedForumData.getForumName(), feedForumData.getForumId());
                         TiebaStatic.log(new StatisticItem(this.a.m == 1 ? "c10028" : "c10040").param("fid", feedForumData.getForumId()));
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f0912ab) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f091287) {
                     this.a.s();
                     TiebaStatic.log(new StatisticItem("c10029").param("fid", this.a.n));
-                } else if (view2.getId() != R.id.obfuscated_res_0x7f090b32) {
+                } else if (view2.getId() != R.id.obfuscated_res_0x7f090b2b) {
                     if (view2.getId() != this.a.f.getId() || ListUtils.getCount(this.a.j) <= 0) {
                         return;
                     }
@@ -116,7 +116,7 @@ public class dj6 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dj6 a;
@@ -139,21 +139,21 @@ public class dj6 {
             this.a = dj6Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 if (this.a.j != null) {
                     this.a.j.clear();
                 }
                 this.a.m();
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements cr4.e {
+    public class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -173,11 +173,11 @@ public class dj6 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -355,15 +355,15 @@ public class dj6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{tbPageContext, view2, Integer.valueOf(i), Boolean.valueOf(z), bdUniqueId}) == null) {
             this.a = tbPageContext;
-            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b03);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090b04);
-            this.g = view2.findViewById(R.id.obfuscated_res_0x7f091242);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0912ac);
-            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0912ab);
+            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090afc);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090afd);
+            this.g = view2.findViewById(R.id.obfuscated_res_0x7f09121e);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091288);
+            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091287);
             this.e = imageView;
             imageView.setOnClickListener(this.q);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090967);
-            this.h = view2.findViewById(R.id.obfuscated_res_0x7f090966);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090960);
+            this.h = view2.findViewById(R.id.obfuscated_res_0x7f09095f);
             this.f.setOnClickListener(this.q);
             LikeModel likeModel = new LikeModel(tbPageContext);
             this.k = likeModel;
@@ -473,11 +473,11 @@ public class dj6 {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            cr4 cr4Var = new cr4(this.a.getPageActivity());
-            cr4Var.setMessage(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c8f));
-            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0262, new b(this));
-            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new c(this));
-            cr4Var.create(this.a).show();
+            dr4 dr4Var = new dr4(this.a.getPageActivity());
+            dr4Var.setMessage(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c7b));
+            dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0262, new b(this));
+            dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new c(this));
+            dr4Var.create(this.a).show();
         }
     }
 

@@ -68,7 +68,7 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
                 if (httpResponsedMessage.getError() == 0) {
                     if (this.a.b == null || this.a.b.size() <= 0) {
                         if (this.a.c != null) {
-                            this.a.c.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c2b));
+                            this.a.c.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17));
                             return;
                         }
                         return;

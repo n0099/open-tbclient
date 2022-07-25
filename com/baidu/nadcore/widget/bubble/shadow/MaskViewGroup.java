@@ -139,7 +139,7 @@ public class MaskViewGroup extends ViewGroup {
     public final void b(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.f.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040176, R.attr.obfuscated_res_0x7f040177, R.attr.obfuscated_res_0x7f040178, R.attr.obfuscated_res_0x7f040179, R.attr.obfuscated_res_0x7f04017a, R.attr.obfuscated_res_0x7f0401e9, R.attr.obfuscated_res_0x7f0401ea, R.attr.obfuscated_res_0x7f040219, R.attr.obfuscated_res_0x7f04058d});
+            TypedArray obtainStyledAttributes = this.f.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040176, R.attr.obfuscated_res_0x7f040177, R.attr.obfuscated_res_0x7f040178, R.attr.obfuscated_res_0x7f040179, R.attr.obfuscated_res_0x7f04017a, R.attr.obfuscated_res_0x7f0401e9, R.attr.obfuscated_res_0x7f0401ea, R.attr.obfuscated_res_0x7f040219, R.attr.obfuscated_res_0x7f04058f});
             this.g = obtainStyledAttributes.getColor(3, -16777216);
             this.h = obtainStyledAttributes.getDimension(4, 0.0f);
             this.i = obtainStyledAttributes.getDimension(5, 0.0f);

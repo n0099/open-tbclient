@@ -39,11 +39,11 @@ public final class AnrHandler extends b {
     public FileObserver mTraceFileObserver;
     public static final int MY_PID = Process.myPid();
     public static final Pattern PID_PATTERN = Pattern.compile("-{5}\\spid\\s\\d+\\sat\\s\\d+-\\d+-\\d+\\s\\d{2}:\\d{2}:\\d{2}\\s-{5}");
-    public static final boolean DUMP_FROM_SIG_QUIT = SystemUtil.a(21);
+    public static final boolean DUMP_FROM_SIG_QUIT = SystemUtil.bD(21);
 
     /* loaded from: classes5.dex */
     public static class a {
-        public static final AnrHandler a = new AnrHandler();
+        public static final AnrHandler ahn = new AnrHandler();
     }
 
     public AnrHandler() {
@@ -51,12 +51,12 @@ public final class AnrHandler extends b {
 
     public static synchronized void dumpAnr(@Nullable String str, int i) {
         synchronized (AnrHandler.class) {
-            com.kwad.sdk.core.d.b.a(TAG, "ANR dumpAnr tracePath=" + str + " index=" + i);
+            com.kwad.sdk.core.e.b.d(TAG, "ANR dumpAnr tracePath=" + str + " index=" + i);
             AnrExceptionMessage anrExceptionMessage = new AnrExceptionMessage();
             File file = getInstance().mLogDir;
             boolean z = true;
             if (!file.exists() && !file.mkdirs()) {
-                com.kwad.sdk.core.d.b.a(TAG, "ANR dumpAnr create dir failed.");
+                com.kwad.sdk.core.e.b.d(TAG, "ANR dumpAnr create dir failed.");
                 anrExceptionMessage.mErrorMessage += "create " + file.getPath() + " failed!\n";
                 z = false;
             }
@@ -67,16 +67,16 @@ public final class AnrHandler extends b {
                 sb.append("-");
                 sb.append(i);
                 sb.append(".dump");
-                o.a(new File(str), new File(file, sb.toString()));
+                o.d(new File(str), new File(file, sb.toString()));
                 StringBuilder sb2 = new StringBuilder();
                 getInstance();
                 sb2.append(b.FILE_NAME_BASE);
                 sb2.append("-");
                 sb2.append(i);
                 sb2.append(".log");
-                f.a(new File(file, sb2.toString()));
+                f.B(new File(file, sb2.toString()));
             }
-            f.a((Throwable) null, anrExceptionMessage, com.kwad.sdk.crash.d.a().g());
+            f.b(null, anrExceptionMessage, com.kwad.sdk.crash.d.wz().getContext());
             f.a(anrExceptionMessage, 3);
             if (getInstance().mExceptionListener != null) {
                 getInstance().mExceptionListener.a(getInstance().getCrashType(), anrExceptionMessage);
@@ -86,7 +86,7 @@ public final class AnrHandler extends b {
     }
 
     public static void dumpAnrReason(@Nullable String str, int i, @NonNull AnrExceptionMessage anrExceptionMessage, boolean z) {
-        com.kwad.sdk.core.d.b.a(TAG, "ANR dumpAnrReason tracePath=" + str + " index=" + i + " dirReady=" + z);
+        com.kwad.sdk.core.e.b.d(TAG, "ANR dumpAnrReason tracePath=" + str + " index=" + i + " dirReady=" + z);
         e uploader = getInstance().getUploader();
         try {
             File file = getInstance().mLogDir;
@@ -130,7 +130,7 @@ public final class AnrHandler extends b {
                 }
                 f.a(uploader, TAG, file2);
                 getInstance().uploadRemainingExceptions();
-                f.d(file4);
+                f.E(file4);
             } else if (uploader != null) {
                 if (str != null) {
                     uploader.a(anrExceptionMessage, null);
@@ -145,17 +145,17 @@ public final class AnrHandler extends b {
             sb5.append(".anr");
             getAnrReason(str, new File(file, sb5.toString()));
         } catch (Throwable th) {
-            com.kwad.sdk.core.d.b.b(th);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(th);
             if (uploader != null) {
-                f.a(th);
+                f.l(th);
             }
         }
     }
 
     public static void getAnrReason(@Nullable String str, final File file) {
-        com.kwad.sdk.core.d.b.a(TAG, "ANR getAnrReason");
+        com.kwad.sdk.core.e.b.d(TAG, "ANR getAnrReason");
         if (str == null) {
-            g.a(new Runnable() { // from class: com.kwad.sdk.crash.handler.AnrHandler.3
+            g.schedule(new Runnable() { // from class: com.kwad.sdk.crash.handler.AnrHandler.3
                 @Override // java.lang.Runnable
                 public final void run() {
                     AnrHandler.getAnrReasonInner(null, file);
@@ -167,7 +167,7 @@ public final class AnrHandler extends b {
     }
 
     public static void getAnrReasonInner(@Nullable String str, File file) {
-        com.kwad.sdk.core.d.b.a(TAG, "ANR getAnrReasonInner");
+        com.kwad.sdk.core.e.b.d(TAG, "ANR getAnrReasonInner");
         e uploader = getInstance().getUploader();
         if (str != null) {
             try {
@@ -180,7 +180,7 @@ public final class AnrHandler extends b {
                 return;
             }
         }
-        ActivityManager activityManager = (ActivityManager) com.kwad.sdk.crash.d.a().g().getSystemService("activity");
+        ActivityManager activityManager = (ActivityManager) com.kwad.sdk.crash.d.wz().getContext().getSystemService("activity");
         ActivityManager.ProcessErrorStateInfo processErrorStateInfo = null;
         if (activityManager == null) {
             return;
@@ -223,20 +223,20 @@ public final class AnrHandler extends b {
     }
 
     public static AnrHandler getInstance() {
-        return a.a;
+        return a.ahn;
     }
 
     public static native void install(String str, int i);
 
     @Keep
     public static void onCallFromNative(int i) {
-        com.kwad.sdk.core.d.b.a(TAG, "ANR onCallFromNative index=" + i);
+        com.kwad.sdk.core.e.b.d(TAG, "ANR onCallFromNative index=" + i);
         dumpAnr(null, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onTraceFileWritten(String str) {
-        com.kwad.sdk.core.d.b.a(TAG, "ANR onTraceFileWritten");
+        com.kwad.sdk.core.e.b.d(TAG, "ANR onTraceFileWritten");
         if (parseTraceFile(str)) {
             dumpAnr(str, this.mIndex.getAndIncrement());
         }
@@ -262,22 +262,22 @@ public final class AnrHandler extends b {
                     } catch (FileNotFoundException unused) {
                         bufferedReader = bufferedReader2;
                         getUploader();
-                        com.kwad.sdk.crash.utils.b.a(bufferedReader);
+                        com.kwad.sdk.crash.utils.b.closeQuietly(bufferedReader);
                         return false;
                     } catch (IOException unused2) {
                         bufferedReader = bufferedReader2;
                         getUploader();
-                        com.kwad.sdk.crash.utils.b.a(bufferedReader);
+                        com.kwad.sdk.crash.utils.b.closeQuietly(bufferedReader);
                         return false;
                     } catch (Throwable th) {
                         th = th;
                         bufferedReader = bufferedReader2;
-                        com.kwad.sdk.crash.utils.b.a(bufferedReader);
+                        com.kwad.sdk.crash.utils.b.closeQuietly(bufferedReader);
                         throw th;
                     }
                 }
                 boolean z = i == MY_PID;
-                com.kwad.sdk.crash.utils.b.a(bufferedReader2);
+                com.kwad.sdk.crash.utils.b.closeQuietly(bufferedReader2);
                 return z;
             } catch (FileNotFoundException | IOException unused3) {
             }
@@ -287,7 +287,7 @@ public final class AnrHandler extends b {
     }
 
     private void watchTraceFile() {
-        com.kwad.sdk.core.d.b.a(TAG, "ANR watchTraceFile");
+        com.kwad.sdk.core.e.b.d(TAG, "ANR watchTraceFile");
         FileObserver fileObserver = new FileObserver(DEFAULT_TRACE_ROOT, 8) { // from class: com.kwad.sdk.crash.handler.AnrHandler.1
             @Override // android.os.FileObserver
             public final void onEvent(int i, @Nullable String str) {
@@ -312,8 +312,8 @@ public final class AnrHandler extends b {
     @Override // com.kwad.sdk.crash.handler.b
     public final void init(File file, com.kwad.sdk.crash.e eVar, e eVar2) {
         super.init(file, eVar, eVar2);
-        if (com.kwad.sdk.crash.a.a()) {
-            com.kwad.sdk.core.d.b.a(TAG, "ANR init");
+        if (com.kwad.sdk.crash.a.wl()) {
+            com.kwad.sdk.core.e.b.d(TAG, "ANR init");
             this.mLogDir = file;
             if (!file.exists()) {
                 this.mLogDir.mkdirs();

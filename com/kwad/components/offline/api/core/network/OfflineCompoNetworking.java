@@ -14,13 +14,13 @@ import com.kwad.components.offline.api.core.network.adapter.RequestListenerAdapt
 import com.kwad.components.offline.api.core.network.adapter.ResultDataAdapter;
 import com.kwad.components.offline.api.core.network.model.BaseOfflineCompoResultData;
 import com.kwad.sdk.core.network.c;
-import com.kwad.sdk.core.network.l;
+import com.kwad.sdk.core.network.m;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public abstract class OfflineCompoNetworking<R extends IOfflineCompoRequest, T extends BaseOfflineCompoResultData> implements IOfflineCompoNetworking<R, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l<RequestAdapter<R>, ResultDataAdapter<T>> mNetworking;
+    public m<RequestAdapter<R>, ResultDataAdapter<T>> mNetworking;
 
     public OfflineCompoNetworking() {
         Interceptable interceptable = $ic;

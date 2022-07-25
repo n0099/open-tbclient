@@ -39,9 +39,9 @@ import com.repackage.h9;
 import com.repackage.hz6;
 import com.repackage.pi;
 import com.repackage.ru6;
-import com.repackage.rx4;
-import com.repackage.ur4;
+import com.repackage.sx4;
 import com.repackage.uz6;
+import com.repackage.vr4;
 import com.repackage.vy6;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -113,7 +113,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
             }
             this.c.setSkinType(i);
             this.d.setSkinType(i);
-            ur4 d = ur4.d(this.e);
+            vr4 d = vr4.d(this.e);
             d.n(R.string.J_X01);
             d.z(R.dimen.T_X09);
             d.A(R.string.F_X01);
@@ -121,7 +121,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
             d.l(R.dimen.L_X03);
             d.k(R.color.CAM_X0201);
             d.f(R.color.CAM_X0310);
-            ur4 d2 = ur4.d(this.f);
+            vr4 d2 = vr4.d(this.f);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0105);
@@ -330,12 +330,12 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<rx4> h = new ru6().h();
+            List<sx4> h = new ru6().h();
             if (ListUtils.isEmpty(h)) {
                 return false;
             }
-            for (rx4 rx4Var : h) {
-                if (rx4Var != null && !rx4Var.e() && 6 == rx4Var.a && "直播".equals(rx4Var.b)) {
+            for (sx4 sx4Var : h) {
+                if (sx4Var != null && !sx4Var.e() && 6 == sx4Var.a && "直播".equals(sx4Var.b)) {
                     return true;
                 }
             }
@@ -379,14 +379,14 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
             return;
         }
         if (vy6Var.getType() == 1) {
-            alaUserInfoViewHolder.e.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f89));
+            alaUserInfoViewHolder.e.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f72));
             alaUserInfoViewHolder.c.setImageResource(R.drawable.pic_live_hand_n);
-            alaUserInfoViewHolder.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f8c));
+            alaUserInfoViewHolder.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f75));
             alaUserInfoViewHolder.a.setOnClickListener(new a(this));
         } else if (vy6Var.getType() == 0) {
-            alaUserInfoViewHolder.e.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a04));
+            alaUserInfoViewHolder.e.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09f0));
             alaUserInfoViewHolder.c.setPlaceHolder(1);
-            alaUserInfoViewHolder.c.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a4);
+            alaUserInfoViewHolder.c.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a8);
             if (!StringUtils.isNull(vy6Var.c())) {
                 alaUserInfoViewHolder.c.J(vy6Var.c(), 10, false);
             }

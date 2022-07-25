@@ -203,17 +203,17 @@ public class yq0 extends wq0 implements View.OnClickListener {
             boolean z3 = true;
             if (!((q().V0() && q().f1() == 1) ? false : false) && !z) {
                 layoutParams.bottomMargin = 0;
-                layoutParams.leftMargin = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070596);
+                layoutParams.leftMargin = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070594);
             } else if (z2) {
                 int i = this.e;
                 if (i == -1) {
-                    i = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070593);
+                    i = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070591);
                 }
                 layoutParams.bottomMargin = i;
                 layoutParams.leftMargin = this.d;
             } else {
                 layoutParams.bottomMargin = 0;
-                layoutParams.leftMargin = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070596);
+                layoutParams.leftMargin = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070594);
             }
             this.b.setLayoutParams(layoutParams);
         }
@@ -235,10 +235,10 @@ public class yq0 extends wq0 implements View.OnClickListener {
             this.b = imageView;
             imageView.setScaleType(ImageView.ScaleType.CENTER);
             this.b.setOnClickListener(this);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070598), (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070594));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070595), (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070592));
             layoutParams.gravity = BadgeDrawable.BOTTOM_START;
             if (this.d == -1) {
-                this.d = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070596);
+                this.d = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070594);
             }
             layoutParams.leftMargin = this.d;
             this.b.setLayoutParams(layoutParams);

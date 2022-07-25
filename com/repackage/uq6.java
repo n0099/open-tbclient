@@ -20,7 +20,7 @@ import tbclient.ThreadInfo;
 import tbclient.VoiceRoom;
 import tbclient.VoiceRoomListPage.VoiceRoomListPageResIdl;
 /* loaded from: classes7.dex */
-public class uq6 implements u75 {
+public class uq6 implements v75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
@@ -73,7 +73,7 @@ public class uq6 implements u75 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.u75
+    @Override // com.repackage.v75
     public void initByJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
@@ -88,7 +88,7 @@ public class uq6 implements u75 {
         }
     }
 
-    @Override // com.repackage.u75
+    @Override // com.repackage.v75
     public void initByProtobuf(Message message) {
         List<ThreadInfo> list;
         Interceptable interceptable = $ic;

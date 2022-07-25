@@ -101,20 +101,20 @@ public class c27 extends an<wy5, AutoVideoCardViewHolder<wy5>> {
         }
 
         @Override // com.repackage.qw.a
-        public void a(nn4 nn4Var) {
+        public void a(on4 on4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, nn4Var) == null) || nn4Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, on4Var) == null) || on4Var == null) {
                 return;
             }
             Rect computeViewArea = ThreadCardUtils.computeViewArea(this.a.getVideoContainer());
-            if (nn4Var instanceof wy5) {
-                nn4Var.objType = 5;
-                k27.f((ny5) nn4Var);
-                k27.c(nn4Var, this.b.a, 19, false, computeViewArea);
+            if (on4Var instanceof wy5) {
+                on4Var.objType = 5;
+                k27.f((ny5) on4Var);
+                k27.c(on4Var, this.b.a, 19, false, computeViewArea);
                 return;
             }
-            k27.f((ny5) nn4Var);
-            k27.c(nn4Var, this.b.a, 19, false, computeViewArea);
+            k27.f((ny5) on4Var);
+            k27.c(on4Var, this.b.a, 19, false, computeViewArea);
         }
     }
 
@@ -150,10 +150,10 @@ public class c27 extends an<wy5, AutoVideoCardViewHolder<wy5>> {
                 wy5 wy5Var = (wy5) nnVar;
                 wy5Var.f = 1;
                 if (this.a.n != null) {
-                    this.a.n.a(threadCardViewHolder.b(), wy5Var);
+                    this.a.n.a(threadCardViewHolder.a(), wy5Var);
                 }
                 k27.c(wy5Var, view2.getContext(), 19, false, uw.a((tn) viewGroup, view2, i));
-                threadCardViewHolder.c().o(new ny.a(1));
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -223,7 +223,7 @@ public class c27 extends an<wy5, AutoVideoCardViewHolder<wy5>> {
         }
         if (view2.getId() == this.l.p().getMainView().getId()) {
             k27.h(wy5Var);
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f09202a) {
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f09202e) {
             k27.f(wy5Var);
         }
     }
@@ -245,7 +245,7 @@ public class c27 extends an<wy5, AutoVideoCardViewHolder<wy5>> {
             bVar.n(this.l);
             cy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.k);
             AutoVideoCardViewHolder<wy5> autoVideoCardViewHolder = new AutoVideoCardViewHolder<>(k);
-            autoVideoCardViewHolder.k(this.j);
+            autoVideoCardViewHolder.j(this.j);
             k.p(this.n);
             k.r(19);
             V(new c(this));
@@ -262,19 +262,19 @@ public class c27 extends an<wy5, AutoVideoCardViewHolder<wy5>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wy5Var, autoVideoCardViewHolder})) == null) {
             if (wy5Var == null) {
-                return autoVideoCardViewHolder.b();
+                return autoVideoCardViewHolder.a();
             }
             if (autoVideoCardViewHolder == null) {
                 return null;
             }
             wy5Var.I(wy5Var.position + 1);
-            autoVideoCardViewHolder.c().q(i);
-            autoVideoCardViewHolder.w(e0(wy5Var));
+            autoVideoCardViewHolder.b().q(i);
+            autoVideoCardViewHolder.v(e0(wy5Var));
             k27.d(wy5Var);
-            autoVideoCardViewHolder.g(wy5Var);
-            autoVideoCardViewHolder.c().onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
-            autoVideoCardViewHolder.c().p(this.n);
-            return autoVideoCardViewHolder.b();
+            autoVideoCardViewHolder.f(wy5Var);
+            autoVideoCardViewHolder.b().onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
+            autoVideoCardViewHolder.b().p(this.n);
+            return autoVideoCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

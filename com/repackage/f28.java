@@ -95,68 +95,68 @@ public class f28 extends jx5<q18> {
         this.j = tbPageContext;
         this.i = new PersonCreatorModel(tbPageContext);
         View h = h();
-        LinearLayout linearLayout = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09182a);
+        LinearLayout linearLayout = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091805);
         this.B = linearLayout;
         linearLayout.setOnClickListener(this);
-        LinearLayout linearLayout2 = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091828);
+        LinearLayout linearLayout2 = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091803);
         this.C = linearLayout2;
         linearLayout2.setOnClickListener(this);
-        LinearLayout linearLayout3 = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09182b);
+        LinearLayout linearLayout3 = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091806);
         this.D = linearLayout3;
         linearLayout3.setOnClickListener(this);
-        FrameLayout frameLayout = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f090fcd);
+        FrameLayout frameLayout = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f090fc4);
         this.F = frameLayout;
         frameLayout.setOnClickListener(this);
-        this.G = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091829);
-        this.H = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091827);
+        this.G = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091804);
+        this.H = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091802);
         this.I = h.findViewById(R.id.obfuscated_res_0x7f090388);
         this.J = h.findViewById(R.id.obfuscated_res_0x7f09038a);
         this.K = h.findViewById(R.id.obfuscated_res_0x7f090389);
-        this.l = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091852);
-        this.m = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091851);
-        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) h.findViewById(R.id.obfuscated_res_0x7f0906c7);
+        this.l = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09182d);
+        this.m = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09182c);
+        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) h.findViewById(R.id.obfuscated_res_0x7f0906c6);
         this.n = tBSpecificationBtn;
         tBSpecificationBtn.setText("投稿");
-        TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) h.findViewById(R.id.obfuscated_res_0x7f0912a4);
+        TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) h.findViewById(R.id.obfuscated_res_0x7f091280);
         this.o = tBSpecificationBtn2;
         tBSpecificationBtn2.setText("立即开通");
-        PersonCreatorCenterFunView personCreatorCenterFunView = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f09184a);
+        PersonCreatorCenterFunView personCreatorCenterFunView = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f091825);
         this.p = personCreatorCenterFunView;
         personCreatorCenterFunView.a(R.drawable.obfuscated_res_0x7f080814, "创作首页");
-        PersonCreatorCenterFunView personCreatorCenterFunView2 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f09184b);
+        PersonCreatorCenterFunView personCreatorCenterFunView2 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f091826);
         this.q = personCreatorCenterFunView2;
         personCreatorCenterFunView2.a(R.drawable.obfuscated_res_0x7f08080d, "视频管理");
-        PersonCreatorCenterFunView personCreatorCenterFunView3 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f091849);
+        PersonCreatorCenterFunView personCreatorCenterFunView3 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f091824);
         this.r = personCreatorCenterFunView3;
         personCreatorCenterFunView3.a(R.drawable.obfuscated_res_0x7f080810, "视频数据");
         this.s = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f09254f);
         this.t = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f09254e);
         this.u = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f09254c);
-        this.k = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09184f);
-        this.v = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f091826);
-        PersonCreatorCenterFunView personCreatorCenterFunView4 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f091848);
+        this.k = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09182a);
+        this.v = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f091801);
+        PersonCreatorCenterFunView personCreatorCenterFunView4 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f091823);
         this.w = personCreatorCenterFunView4;
         personCreatorCenterFunView4.a(R.drawable.obfuscated_res_0x7f0807ea, "大神认证");
-        PersonCreatorCenterFunView personCreatorCenterFunView5 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f09184c);
+        PersonCreatorCenterFunView personCreatorCenterFunView5 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f091827);
         this.x = personCreatorCenterFunView5;
         personCreatorCenterFunView5.a(R.drawable.obfuscated_res_0x7f080810, "贴子数据");
         this.y = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f092551);
         this.z = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f092550);
         this.A = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f09254d);
-        PersonCreatorCenterFunView personCreatorCenterFunView6 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f091850);
+        PersonCreatorCenterFunView personCreatorCenterFunView6 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f09182b);
         this.L = personCreatorCenterFunView6;
         personCreatorCenterFunView6.a(R.drawable.obfuscated_res_0x7f080846, "全新发布体验");
-        PersonCreatorCenterFunView personCreatorCenterFunView7 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f09184e);
+        PersonCreatorCenterFunView personCreatorCenterFunView7 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f091829);
         this.M = personCreatorCenterFunView7;
         personCreatorCenterFunView7.a(R.drawable.obfuscated_res_0x7f080aeb, "个人主页升级");
-        PersonCreatorCenterFunView personCreatorCenterFunView8 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f091847);
+        PersonCreatorCenterFunView personCreatorCenterFunView8 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f091822);
         this.N = personCreatorCenterFunView8;
         personCreatorCenterFunView8.a(R.drawable.obfuscated_res_0x7f0808d6, "专属流量扶持");
-        PersonCreatorCenterFunView personCreatorCenterFunView9 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f09184d);
+        PersonCreatorCenterFunView personCreatorCenterFunView9 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f091828);
         this.O = personCreatorCenterFunView9;
         personCreatorCenterFunView9.a(R.drawable.obfuscated_res_0x7f080767, "百万现金激励");
         if (Build.VERSION.SDK_INT < 24) {
-            LinearLayout linearLayout4 = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0918a9);
+            LinearLayout linearLayout4 = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091884);
             this.E = linearLayout4;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) linearLayout4.getLayoutParams();
             layoutParams.bottomMargin = pi.f(this.c, R.dimen.tbds37);
@@ -169,7 +169,7 @@ public class f28 extends jx5<q18> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06c1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06cb : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5
@@ -180,13 +180,13 @@ public class f28 extends jx5<q18> {
             SkinManager.setBackgroundColor(this.J, R.color.CAM_X0204);
             SkinManager.setBackgroundColor(this.K, R.color.CAM_X0204);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.v, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            ur4 d = ur4.d(this.l);
+            vr4 d = vr4.d(this.l);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0205);
-            ur4 d2 = ur4.d(this.k);
+            vr4 d2 = vr4.d(this.k);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
-            ur4 d3 = ur4.d(this.m);
+            vr4 d3 = vr4.d(this.m);
             d3.n(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.G, (int) R.color.CAM_X0105);
@@ -215,19 +215,19 @@ public class f28 extends jx5<q18> {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            if (R.id.obfuscated_res_0x7f09182a == view2.getId()) {
+            if (R.id.obfuscated_res_0x7f091805 == view2.getId()) {
                 pw8 pw8Var = new pw8(g(), (ViewGroup) h(), "person", 3, null);
                 pw8Var.E("5");
                 pw8Var.v(WorkPublishOpenHelper.OPEN_WORK_PUBLISH_FROM_PERSON);
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", "9"));
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("uid", String.valueOf(TbadkCoreApplication.getCurrentAccountId())));
-            } else if (R.id.obfuscated_res_0x7f091828 == view2.getId()) {
+            } else if (R.id.obfuscated_res_0x7f091803 == view2.getId()) {
                 s(TbConfig.URL_CREATE_CENTER);
                 TiebaStatic.log(new StatisticItem("c14149").param("obj_locate", "2"));
                 TiebaStatic.log(new StatisticItem("c14149").param("uid", String.valueOf(TbadkCoreApplication.getCurrentAccountId())));
-            } else if (R.id.obfuscated_res_0x7f09182b == view2.getId()) {
+            } else if (R.id.obfuscated_res_0x7f091806 == view2.getId()) {
                 this.i.B(true);
-            } else if (R.id.obfuscated_res_0x7f090fcd == view2.getId()) {
+            } else if (R.id.obfuscated_res_0x7f090fc4 == view2.getId()) {
                 WorkPublishGuideActivityConfig workPublishGuideActivityConfig = new WorkPublishGuideActivityConfig(getContext());
                 workPublishGuideActivityConfig.setRequestCode(25064);
                 workPublishGuideActivityConfig.setIntentAction(IntentAction.ActivityForResult);

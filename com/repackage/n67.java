@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import java.util.List;
 import tbclient.GetForumDetail.BzApplySwitch;
 import tbclient.GetForumDetail.ManagerElectionTab;
@@ -56,11 +56,11 @@ public class n67 extends b9<ForumDetailActivity> {
     public ItemEmotionView k;
     public ItemHotThreadView l;
     public ItemFootNavView m;
-    public cr4 n;
+    public dr4 n;
     public View.OnClickListener o;
 
     /* loaded from: classes6.dex */
-    public class a implements cr4.e {
+    public class a implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ n67 a;
@@ -83,10 +83,10 @@ public class n67 extends b9<ForumDetailActivity> {
             this.a = n67Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.n.dismiss();
                 this.a.a.D1();
             }
@@ -94,7 +94,7 @@ public class n67 extends b9<ForumDetailActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ n67 a;
@@ -117,10 +117,10 @@ public class n67 extends b9<ForumDetailActivity> {
             this.a = n67Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.n.dismiss();
             }
         }
@@ -236,28 +236,28 @@ public class n67 extends b9<ForumDetailActivity> {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091c7b);
+            this.c = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091c81);
             TextView textView = new TextView(this.a.getActivity());
             textView.setLayoutParams(new LinearLayout.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
             this.c.addView(textView, 0);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f092439);
             this.d = navigationBar;
-            navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0664));
+            navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0660));
             this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.d.showBottomLine();
-            this.e = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f091607);
-            CustomScrollView customScrollView = (CustomScrollView) this.a.findViewById(R.id.obfuscated_res_0x7f091c7a);
+            this.e = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f0915e2);
+            CustomScrollView customScrollView = (CustomScrollView) this.a.findViewById(R.id.obfuscated_res_0x7f091c80);
             this.g = customScrollView;
             customScrollView.setOnTouchListener(new c(this, null));
-            this.h = (ItemHeaderView) this.a.findViewById(R.id.obfuscated_res_0x7f090f43);
-            this.i = (ItemInfoView) this.a.findViewById(R.id.obfuscated_res_0x7f090f49);
-            this.j = (ItemMsgManage) this.a.findViewById(R.id.obfuscated_res_0x7f090f51);
-            this.k = (ItemEmotionView) this.a.findViewById(R.id.obfuscated_res_0x7f090f37);
-            this.l = (ItemHotThreadView) this.a.findViewById(R.id.obfuscated_res_0x7f090f46);
-            ItemFootNavView itemFootNavView = (ItemFootNavView) this.a.findViewById(R.id.obfuscated_res_0x7f090f38);
+            this.h = (ItemHeaderView) this.a.findViewById(R.id.obfuscated_res_0x7f090f3c);
+            this.i = (ItemInfoView) this.a.findViewById(R.id.obfuscated_res_0x7f090f42);
+            this.j = (ItemMsgManage) this.a.findViewById(R.id.obfuscated_res_0x7f090f4a);
+            this.k = (ItemEmotionView) this.a.findViewById(R.id.obfuscated_res_0x7f090f30);
+            this.l = (ItemHotThreadView) this.a.findViewById(R.id.obfuscated_res_0x7f090f3f);
+            ItemFootNavView itemFootNavView = (ItemFootNavView) this.a.findViewById(R.id.obfuscated_res_0x7f090f31);
             this.m = itemFootNavView;
             itemFootNavView.setClickable(true);
-            this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091b70);
+            this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091b4a);
             this.j.setMsgOnClickListener(this.a);
             this.k.setEmotionOnClickListener(this.a);
             this.j.setSwitchChangeListener(this.a);
@@ -335,9 +335,9 @@ public class n67 extends b9<ForumDetailActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             if (this.n == null) {
-                cr4 cr4Var = new cr4(this.a.getPageContext().getPageActivity());
-                this.n = cr4Var;
-                cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0cc5);
+                dr4 dr4Var = new dr4(this.a.getPageContext().getPageActivity());
+                this.n = dr4Var;
+                dr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0cb1);
                 this.n.setPositiveButton(R.string.obfuscated_res_0x7f0f0262, new a(this));
                 this.n.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(this));
             }

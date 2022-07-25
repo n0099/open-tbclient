@@ -29,6 +29,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes7.dex */
 public class wt8 {
     public static /* synthetic */ Interceptable $ic;
@@ -129,7 +130,7 @@ public class wt8 {
                 this.a.p(5, false);
                 PersonRedTipManager.getInstance().updateRedTipState(5, false, true);
                 if (!TbadkCoreApplication.getInst().appResponseToCmd(2015004)) {
-                    BdToast.b(this.a.a, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ea4)).h();
+                    BdToast.b(this.a.a, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e8d)).h();
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2015004, new IntentConfig(view2.getContext())));
@@ -204,7 +205,7 @@ public class wt8 {
                     this.a.i = new PermissionJudgePolicy();
                 }
                 this.a.i.clearRequestPermissionList();
-                this.a.i.appendRequestPermission(activity, "android.permission.CAMERA");
+                this.a.i.appendRequestPermission(activity, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
                 this.a.i.setOnPermissionsGrantedListener(new a(this));
                 this.a.i.startRequestPermission(activity);
             }
@@ -243,7 +244,7 @@ public class wt8 {
                 return;
             }
             sg.k(this.a.l, imageView);
-            xt4.k().u("show_person_tab_feedback_tips", true);
+            yt4.k().u("show_person_tab_feedback_tips", true);
             this.a.m = true;
             this.a.n.postDelayed(this.a.q, 3000L);
         }
@@ -373,15 +374,15 @@ public class wt8 {
             this.b = navigationBar;
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03f4, (ViewGroup) null);
             this.j = inflate;
-            this.k = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09189c);
+            this.k = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091877);
             RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03f3, (ViewGroup) null);
             this.c = relativeLayout;
-            this.d = (ImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f09189a);
-            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09189b);
+            this.d = (ImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091875);
+            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091876);
             RelativeLayout relativeLayout2 = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03f5, (ViewGroup) null);
             this.f = relativeLayout2;
-            this.g = (ImageView) relativeLayout2.findViewById(R.id.obfuscated_res_0x7f09189d);
-            this.h = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09189e);
+            this.g = (ImageView) relativeLayout2.findViewById(R.id.obfuscated_res_0x7f091878);
+            this.h = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091879);
         }
     }
 

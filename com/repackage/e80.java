@@ -24,7 +24,7 @@ import com.baidu.ubc.UBCManager;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e80 {
     public static /* synthetic */ Interceptable $ic;
     public static final UBCManager a;

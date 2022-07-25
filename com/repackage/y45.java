@@ -2,7 +2,6 @@ package com.repackage;
 
 import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,10 +10,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class y45 extends v45 {
+public class y45 extends w45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
+    public int b;
 
     public y45() {
         Interceptable interceptable = $ic;
@@ -26,32 +26,30 @@ public class y45 extends v45 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
     }
 
-    public static ImageOperation e(int i) {
-        InterceptResult invokeI;
+    public static ImageOperation g(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
             ImageOperation imageOperation = new ImageOperation();
-            imageOperation.actionName = "rotate";
-            imageOperation.actionParam = String.valueOf(i);
+            imageOperation.actionName = "resize";
+            imageOperation.actionParam = i + "," + i2;
             return imageOperation;
         }
-        return (ImageOperation) invokeI.objValue;
+        return (ImageOperation) invokeII.objValue;
     }
 
-    @Override // com.repackage.v45
+    @Override // com.repackage.w45
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "rotate" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "resize" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.v45
+    @Override // com.repackage.w45
     public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
@@ -59,33 +57,42 @@ public class y45 extends v45 {
             if (bitmap == null) {
                 return null;
             }
-            l45.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            int i = this.a;
-            if (i == 0 || i == 1) {
-                return BitmapHelper.rotateBitmap(bitmap, this.a);
-            }
-            return (i == 2 || i == 3) ? BitmapHelper.reversalBitmap(bitmap, this.a) : bitmap;
+            m45.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+            return BitmapHelper.resizeBitmap(bitmap, this.a, this.b, z);
         }
         return (Bitmap) invokeLZ.objValue;
     }
 
-    @Override // com.repackage.v45
+    @Override // com.repackage.w45
     public Bitmap c(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int max = Math.max(pi.k(TbadkCoreApplication.getInst().getApp()), pi.i(TbadkCoreApplication.getInst().getApp()));
-            return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
-        }
-        return (Bitmap) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(BitmapHelper.loadResizedBitmap(str, this.a, this.b), true) : (Bitmap) invokeL.objValue;
     }
 
-    @Override // com.repackage.v45
+    @Override // com.repackage.w45
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || str == null) {
             return;
         }
-        this.a = Integer.parseInt(str);
+        String[] split = str.split(",");
+        if (split.length != 2) {
+            return;
+        }
+        this.a = ng.e(split[0], 0);
+        this.b = ng.e(split[1], 0);
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.intValue;
     }
 }

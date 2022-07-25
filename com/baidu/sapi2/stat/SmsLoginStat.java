@@ -1,5 +1,6 @@
 package com.baidu.sapi2.stat;
 
+import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.callback.UbcUploadImplCallback;
@@ -17,14 +18,14 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class SmsLoginStat {
+public class SmsLoginStat implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SmsLoginStat";
     public static final String UBC_ID = "4922";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class GetdpassStat {
+    public static class GetdpassStat implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";
@@ -115,7 +116,7 @@ public class SmsLoginStat {
     }
 
     /* loaded from: classes2.dex */
-    public static class SmsClickLoginStat {
+    public static class SmsClickLoginStat implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";

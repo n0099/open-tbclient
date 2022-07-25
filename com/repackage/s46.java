@@ -15,7 +15,7 @@ public class s46 {
     public static int a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? xt4.k().h("like_forum_sort_level", false) ? 2 : 1 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? yt4.k().h("like_forum_sort_level", false) ? 2 : 1 : invokeI.intValue;
     }
 
     public static void b(TbPageContext<?> tbPageContext, String str) {

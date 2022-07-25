@@ -1,51 +1,43 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.webkit.sdk.LoadErrorCode;
-import com.kwad.sdk.commercial.model.SDKInitMsg;
+import com.kwad.components.splash.SplashPreloadManager;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class el implements com.kwad.sdk.core.d<SDKInitMsg> {
+public final class el implements com.kwad.sdk.core.d<SplashPreloadManager.PreLoadPara> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(SDKInitMsg sDKInitMsg, JSONObject jSONObject) {
+    public static void a2(SplashPreloadManager.PreLoadPara preLoadPara, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        sDKInitMsg.launchIntervalTime = jSONObject.optLong("init_launch_interval_time");
-        sDKInitMsg.totalDurationTime = jSONObject.optLong("init_total_duration_time");
-        sDKInitMsg.initStatus = jSONObject.optInt("init_status", new Integer("0").intValue());
-        sDKInitMsg.errorReason = jSONObject.optString(LoadErrorCode.Statistics.KEY_ERROR_REASON);
-        if (jSONObject.opt(LoadErrorCode.Statistics.KEY_ERROR_REASON) == JSONObject.NULL) {
-            sDKInitMsg.errorReason = "";
-        }
-        sDKInitMsg.initCount = jSONObject.optInt("init_count");
-        sDKInitMsg.initProcess = jSONObject.optInt("init_process");
-        sDKInitMsg.initThread = jSONObject.optInt("init_thread");
+        preLoadPara.spreadTime = jSONObject.optLong("spreadTime");
+        preLoadPara.isValidReturned = jSONObject.optInt("isValidReturned");
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(SDKInitMsg sDKInitMsg, JSONObject jSONObject) {
+    public static JSONObject b2(SplashPreloadManager.PreLoadPara preLoadPara, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "init_launch_interval_time", sDKInitMsg.launchIntervalTime);
-        com.kwad.sdk.utils.r.a(jSONObject, "init_total_duration_time", sDKInitMsg.totalDurationTime);
-        com.kwad.sdk.utils.r.a(jSONObject, "init_status", sDKInitMsg.initStatus);
-        com.kwad.sdk.utils.r.a(jSONObject, LoadErrorCode.Statistics.KEY_ERROR_REASON, sDKInitMsg.errorReason);
-        com.kwad.sdk.utils.r.a(jSONObject, "init_count", sDKInitMsg.initCount);
-        com.kwad.sdk.utils.r.a(jSONObject, "init_process", sDKInitMsg.initProcess);
-        com.kwad.sdk.utils.r.a(jSONObject, "init_thread", sDKInitMsg.initThread);
+        long j = preLoadPara.spreadTime;
+        if (j != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "spreadTime", j);
+        }
+        int i = preLoadPara.isValidReturned;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "isValidReturned", i);
+        }
         return jSONObject;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(SDKInitMsg sDKInitMsg, JSONObject jSONObject) {
-        a2(sDKInitMsg, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(SplashPreloadManager.PreLoadPara preLoadPara, JSONObject jSONObject) {
+        a2(preLoadPara, jSONObject);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(SDKInitMsg sDKInitMsg, JSONObject jSONObject) {
-        return b2(sDKInitMsg, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(SplashPreloadManager.PreLoadPara preLoadPara, JSONObject jSONObject) {
+        return b2(preLoadPara, jSONObject);
     }
 }

@@ -1,30 +1,27 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class kq3 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "com.baidu.gamenow";
-    public static String b = "file_name";
-    public static String c = "file_unzip_path";
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile jq3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755550268, "Lcom/repackage/kq3;")) == null) {
-            return;
+    public static synchronized jq3 a() {
+        InterceptResult invokeV;
+        jq3 jq3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (kq3.class) {
+                if (a == null) {
+                    a = new jq3();
+                }
+                jq3Var = a;
+            }
+            return jq3Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755550268, "Lcom/repackage/kq3;");
-        }
+        return (jq3) invokeV.objValue;
     }
 }

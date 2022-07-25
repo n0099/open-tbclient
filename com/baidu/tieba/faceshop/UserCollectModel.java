@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m45;
+import com.repackage.n45;
 import com.repackage.nn7;
-import com.repackage.wl4;
+import com.repackage.xl4;
 import com.repackage.y86;
 import com.tencent.open.SocialConstants;
 import java.util.HashSet;
@@ -70,7 +70,7 @@ public class UserCollectModel extends FaceBaseModel {
                 JSONArray jSONArray = new JSONArray();
                 try {
                     for (CollectEmotionData collectEmotionData : q) {
-                        if (!m45.f.equals(collectEmotionData.getSharpText()) && !hashSet.contains(collectEmotionData.getSharpText())) {
+                        if (!n45.f.equals(collectEmotionData.getSharpText()) && !hashSet.contains(collectEmotionData.getSharpText())) {
                             jSONArray.put(collectEmotionData.toJSON());
                             hashSet.add(collectEmotionData.getSharpText());
                         }
@@ -81,7 +81,7 @@ public class UserCollectModel extends FaceBaseModel {
                 long currentTimeMillis = System.currentTimeMillis();
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
                 if (jSONArray.length() > 0) {
-                    httpMessage.addParam(SocialConstants.PARAM_IMAGE, wl4.q(jSONArray.toString()));
+                    httpMessage.addParam(SocialConstants.PARAM_IMAGE, xl4.q(jSONArray.toString()));
                 } else {
                     httpMessage.addParam(SocialConstants.PARAM_IMAGE, "all_delete");
                 }

@@ -12,8 +12,8 @@ import com.kwad.components.core.widget.ComplianceTextView;
 public final class c extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ComplianceTextView b;
-    public com.kwad.components.ad.reward.c.d c;
+    public ComplianceTextView bc;
+    public com.kwad.components.core.webview.b.d.b gp;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -28,10 +28,10 @@ public final class c extends a {
                 return;
             }
         }
-        this.c = new com.kwad.components.ad.reward.c.d(this) { // from class: com.kwad.components.ad.reward.presenter.c.1
+        this.gp = new com.kwad.components.core.webview.b.d.b(this) { // from class: com.kwad.components.ad.reward.presenter.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
+            public final /* synthetic */ c pz;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -48,58 +48,59 @@ public final class c extends a {
                         return;
                     }
                 }
-                this.a = this;
+                this.pz = this;
             }
 
-            @Override // com.kwad.components.ad.reward.c.d
-            public final void a(String str) {
+            @Override // com.kwad.components.core.webview.b.d.b
+            public final void u(String str) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) && "ksad-video-top-bar".equals(str)) {
-                    this.a.b.setVisibility(0);
-                    this.a.b.setAdTemplate(((a) this.a).a.g);
+                    this.pz.bc.setVisibility(0);
+                    this.pz.bc.setAdTemplate(this.pz.nM.mAdTemplate);
                 }
             }
         };
     }
 
-    private boolean d() {
+    private boolean gU() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            com.kwad.components.ad.reward.l lVar = ((a) this).a;
-            return lVar.t ? com.kwad.components.ad.reward.l.a(lVar) : com.kwad.components.ad.reward.l.b(lVar);
+            com.kwad.components.ad.reward.k kVar = this.nM;
+            return kVar.mz ? com.kwad.components.ad.reward.k.a(kVar) : com.kwad.components.ad.reward.k.b(kVar);
         }
         return invokeV.booleanValue;
     }
 
     @Override // com.kwad.components.ad.reward.presenter.a, com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            if (!d()) {
-                this.b.setVisibility(0);
-                this.b.setAdTemplate(((a) this).a.g);
+            super.aq();
+            com.kwad.components.core.webview.b.c.a.pR().a(this.gp);
+            if (gU()) {
+                return;
             }
-            ((a) this).a.a(this.c);
+            this.bc.setVisibility(0);
+            this.bc.setAdTemplate(this.nM.mAdTemplate);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void i_() {
+    public final void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.i_();
-            this.b = (ComplianceTextView) b(R.id.obfuscated_res_0x7f09101a);
+            super.onCreate();
+            this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f091011);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void k_() {
+    public final void onUnbind() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.k_();
-            ((a) this).a.b(this.c);
+            super.onUnbind();
+            com.kwad.components.core.webview.b.c.a.pR().b(this.gp);
         }
     }
 }

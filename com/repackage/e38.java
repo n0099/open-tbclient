@@ -57,9 +57,9 @@ public class e38 extends an<o48, CardViewHolder<q58>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, o48Var, cardViewHolder})) == null) {
-            cardViewHolder.c().i(o48Var);
-            cardViewHolder.c().j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            return cardViewHolder.b();
+            cardViewHolder.b().i(o48Var);
+            cardViewHolder.b().j(this.i, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

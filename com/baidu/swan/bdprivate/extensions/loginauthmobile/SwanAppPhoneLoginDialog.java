@@ -33,12 +33,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fi3;
-import com.repackage.hg3;
-import com.repackage.id3;
-import com.repackage.oj2;
-import com.repackage.yd3;
-import com.repackage.zz2;
+import com.repackage.a03;
+import com.repackage.gi3;
+import com.repackage.ig3;
+import com.repackage.jd3;
+import com.repackage.pj2;
+import com.repackage.zd3;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import org.json.JSONException;
@@ -100,7 +100,7 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
                         fragmentManager.popBackStackImmediate();
                     }
                     SwanAppPhoneLoginDialog swanAppPhoneLoginDialog2 = this.a;
-                    fi3.a("show", "quickLogin", null, swanAppPhoneLoginDialog2.h, swanAppPhoneLoginDialog2.i);
+                    gi3.a("show", "quickLogin", null, swanAppPhoneLoginDialog2.h, swanAppPhoneLoginDialog2.i);
                 }
             }
         }
@@ -175,7 +175,7 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
                     fragmentManager.popBackStackImmediate();
                 }
                 SwanAppPhoneLoginDialog swanAppPhoneLoginDialog = this.a;
-                fi3.a("show", "quickLogin", null, swanAppPhoneLoginDialog.h, swanAppPhoneLoginDialog.i);
+                gi3.a("show", "quickLogin", null, swanAppPhoneLoginDialog.h, swanAppPhoneLoginDialog.i);
             }
         }
     }
@@ -227,7 +227,7 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 SwanAppPhoneLoginDialog swanAppPhoneLoginDialog = this.a;
-                fi3.a("click", "telLogin", com.baidu.pass.biometrics.face.liveness.b.a.g0, swanAppPhoneLoginDialog.h, swanAppPhoneLoginDialog.i);
+                gi3.a("click", "telLogin", com.baidu.pass.biometrics.face.liveness.b.a.g0, swanAppPhoneLoginDialog.h, swanAppPhoneLoginDialog.i);
                 if (this.a.p) {
                     this.a.t1();
                     return;
@@ -241,7 +241,7 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
                     return;
                 }
                 FragmentActivity fragmentActivity2 = this.a.b;
-                id3.a(fragmentActivity2, fragmentActivity2.getWindow().getDecorView().getWindowToken());
+                jd3.a(fragmentActivity2, fragmentActivity2.getWindow().getDecorView().getWindowToken());
             }
         }
 
@@ -250,11 +250,11 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 SwanAppPhoneLoginDialog swanAppPhoneLoginDialog = this.a;
-                fi3.a("click", "telLogin", "succ_agree", swanAppPhoneLoginDialog.h, swanAppPhoneLoginDialog.i);
+                gi3.a("click", "telLogin", "succ_agree", swanAppPhoneLoginDialog.h, swanAppPhoneLoginDialog.i);
                 FragmentActivity fragmentActivity = this.a.b;
                 if (fragmentActivity != null && fragmentActivity.getWindow() != null) {
                     FragmentActivity fragmentActivity2 = this.a.b;
-                    id3.a(fragmentActivity2, fragmentActivity2.getWindow().getDecorView().getWindowToken());
+                    jd3.a(fragmentActivity2, fragmentActivity2.getWindow().getDecorView().getWindowToken());
                 }
                 SwanAppLoginAndGetMobileDialog.b bVar = this.a.a;
                 if (bVar != null) {
@@ -326,7 +326,7 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                zz2.f(this.a.b, R.string.obfuscated_res_0x7f0f1327).H(true);
+                a03.f(this.a.b, R.string.obfuscated_res_0x7f0f12d6).H(true);
             }
         }
     }
@@ -365,7 +365,7 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (resources = getContext().getResources()) == null) {
             return;
         }
-        this.j.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f08110b));
+        this.j.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f08110f));
         this.k.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f080102));
         TextView textView = this.o;
         boolean z = this.c;
@@ -382,10 +382,10 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
     public final void J1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String string = getContext().getString(R.string.obfuscated_res_0x7f0f12ed);
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f129c);
             CheckBox checkBox = this.n;
             if (!TextUtils.isEmpty(this.e)) {
-                string = String.format(getString(R.string.obfuscated_res_0x7f0f12b0), this.e);
+                string = String.format(getString(R.string.obfuscated_res_0x7f0f125f), this.e);
             }
             checkBox.setText(string);
             this.l.postDelayed(new e(this), 150L);
@@ -403,10 +403,10 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder("");
-            spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f130d));
-            s1(spannableStringBuilder, spannableStringBuilder.length(), getString(R.string.obfuscated_res_0x7f0f130c), oj2.o().G());
-            spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f130a));
-            s1(spannableStringBuilder, spannableStringBuilder.length(), getString(R.string.obfuscated_res_0x7f0f1309), "https://passport.baidu.com/static/passpc-account/html/protocal.html");
+            spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f12bc));
+            s1(spannableStringBuilder, spannableStringBuilder.length(), getString(R.string.obfuscated_res_0x7f0f12bb), pj2.o().G());
+            spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f12b9));
+            s1(spannableStringBuilder, spannableStringBuilder.length(), getString(R.string.obfuscated_res_0x7f0f12b8), "https://passport.baidu.com/static/passpc-account/html/protocal.html");
             this.s.setMovementMethod(LinkMovementMethod.getInstance());
             this.s.setText(spannableStringBuilder);
         }
@@ -425,7 +425,7 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
             this.t.setVisibility(0);
             this.t.setOnClickListener(new f(this));
             this.r.setEnabled(false);
-            zz2.f(this.b, R.string.obfuscated_res_0x7f0f1327).H(true);
+            a03.f(this.b, R.string.obfuscated_res_0x7f0f12d6).H(true);
         }
     }
 
@@ -509,13 +509,13 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
             } catch (JSONException e3) {
                 e3.printStackTrace();
             }
-            hg3.P(getContext(), new d(this), str);
+            ig3.P(getContext(), new d(this), str);
             AccountSmsLoginView accountSmsLoginView = new AccountSmsLoginView(getContext());
             this.l = accountSmsLoginView;
             this.m.addView(accountSmsLoginView);
-            this.r = (EditText) this.d.findViewById(R.id.obfuscated_res_0x7f0918c6);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, yd3.g(80.0f));
-            layoutParams.setMargins(yd3.g(40.0f), 0, yd3.g(40.0f), 0);
+            this.r = (EditText) this.d.findViewById(R.id.obfuscated_res_0x7f0918a1);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, zd3.g(80.0f));
+            layoutParams.setMargins(zd3.g(40.0f), 0, zd3.g(40.0f), 0);
             this.m.addView(this.t, layoutParams);
             this.t.setVisibility(8);
         }
@@ -525,15 +525,15 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
     public void v1(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, layoutInflater, viewGroup) == null) {
-            LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d07c2, viewGroup, false);
+            LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d07cc, viewGroup, false);
             this.d = linearLayout;
             this.j = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090627);
             this.k = (BdBaseImageView) this.d.findViewById(R.id.obfuscated_res_0x7f0902f4);
-            this.n = (CheckBox) this.d.findViewById(R.id.obfuscated_res_0x7f0918cd);
-            this.m = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f09139b);
+            this.n = (CheckBox) this.d.findViewById(R.id.obfuscated_res_0x7f0918a8);
+            this.m = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091377);
             this.t = new View(getContext());
-            this.o = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0920bc);
-            this.s = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092345);
+            this.o = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0920be);
+            this.s = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092347);
             L1();
             this.j.setOnClickListener(new b(this));
             if (this.q) {

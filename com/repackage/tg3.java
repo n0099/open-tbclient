@@ -1,14 +1,27 @@
 package com.repackage;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class tg3 implements tj1 {
+public class tg3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public Map<String, String> b;
+
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(tg3 tg3Var);
+
+        void b(tg3 tg3Var);
+
+        void onFinish();
+
+        void onStart();
+    }
 
     public tg3() {
         Interceptable interceptable = $ic;
@@ -21,14 +34,6 @@ public class tg3 implements tj1 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.repackage.tj1
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            fh3.i(context);
         }
     }
 }

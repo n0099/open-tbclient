@@ -18,7 +18,7 @@ public class FTOSPushHelper {
     public static long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static volatile boolean f753a;
+    public static volatile boolean f33a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,7 +56,7 @@ public class FTOSPushHelper {
         if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || (a2 = f.a(context).a(e.d)) == null) {
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m1027a("ASSEMBLE_PUSH :  register fun touch os when network change!");
+        com.xiaomi.channel.commonutils.logger.b.m89a("ASSEMBLE_PUSH :  register fun touch os when network change!");
         a2.register();
     }
 
@@ -77,13 +77,13 @@ public class FTOSPushHelper {
     public static boolean getNeedRegister() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f753a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f33a : invokeV.booleanValue;
     }
 
     public static boolean hasNetwork(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? i.m1092a(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? i.m154a(context) : invokeL.booleanValue;
     }
 
     public static void notifyFTOSNotificationClicked(Context context, Map<String, String> map) {
@@ -105,14 +105,14 @@ public class FTOSPushHelper {
     public static void setNeedRegister(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            f753a = z;
+            f33a = z;
         }
     }
 
     public static void uploadToken(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, context, str) == null) {
-            i.m1091a(context, e.d, str);
+            i.m153a(context, e.d, str);
         }
     }
 }

@@ -17,27 +17,27 @@ import org.json.JSONObject;
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final BusinessType b;
-    public final SubBusinessType c;
-    public final String d;
-    public final d e;
-    public final JSONObject f;
-    public final JSONObject g;
-    public final String h;
+    public final d ase;
+    public final BusinessType biz;
+    public final String category;
+    public final String eventId;
+    public final JSONObject extraParam;
+    public final JSONObject msg;
+    public final SubBusinessType subBiz;
+    public final String tag;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public BusinessType b;
-        public SubBusinessType c;
-        public String d;
-        public d e;
-        public JSONObject f;
-        public JSONObject g;
-        public String h;
+        public final String asf;
+        public BusinessType asg;
+        public SubBusinessType ash;
+        public d asi;
+        public JSONObject asj;
+        public String ask;
+        public String mTag;
+        public JSONObject msg;
 
         public a(@NonNull String str) {
             Interceptable interceptable = $ic;
@@ -54,26 +54,62 @@ public final class c {
                     return;
                 }
             }
-            this.a = str;
+            this.asf = str;
         }
 
-        public static a a() {
+        public static a BO() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new a(ILoggerReporter.Category.ERROR_LOG) : (a) invokeV.objValue;
         }
 
-        public static a b() {
+        public static a BP() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new a(ILoggerReporter.Category.APM_LOG) : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new a(ILoggerReporter.Category.APM_LOG) : (a) invokeV.objValue;
+        }
+
+        public final c BQ() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (com.kwai.adclient.kscommerciallogger.a.BE().isDebug()) {
+                    if (TextUtils.isEmpty(this.asf) || TextUtils.isEmpty(this.mTag) || TextUtils.isEmpty(this.ask)) {
+                        throw new IllegalArgumentException("param is error, please check it");
+                    }
+                    if (com.kwai.adclient.kscommerciallogger.a.BE().BG() && !com.kwai.adclient.kscommerciallogger.b.ek(this.ask)) {
+                        throw new IllegalArgumentException("event_id format error, please check it");
+                    }
+                } else if (TextUtils.isEmpty(this.asf) || TextUtils.isEmpty(this.mTag) || TextUtils.isEmpty(this.ask)) {
+                    return null;
+                } else {
+                    if (com.kwai.adclient.kscommerciallogger.a.BE().BG() && !com.kwai.adclient.kscommerciallogger.b.ek(this.ask)) {
+                        return null;
+                    }
+                }
+                if (com.kwai.adclient.kscommerciallogger.a.BE().BF() != null) {
+                    this.asj = com.kwai.adclient.kscommerciallogger.a.BE().BF();
+                }
+                return new c(this, (byte) 0);
+            }
+            return (c) invokeV.objValue;
         }
 
         public final a a(BusinessType businessType) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessType)) == null) {
-                this.b = businessType;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessType)) == null) {
+                this.asg = businessType;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public final a a(SubBusinessType subBusinessType) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subBusinessType)) == null) {
+                this.ash = subBusinessType;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -82,67 +118,41 @@ public final class c {
         public final a a(d dVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar)) == null) {
-                this.e = dVar;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, dVar)) == null) {
+                this.asi = dVar;
                 return this;
             }
             return (a) invokeL.objValue;
         }
 
-        public final a a(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.d = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public final a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
-                this.f = jSONObject;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public final a b(@NonNull String str) {
+        public final a el(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.h = str;
+                this.mTag = str;
                 return this;
             }
             return (a) invokeL.objValue;
         }
 
-        public final c c() {
-            InterceptResult invokeV;
+        public final a em(@NonNull String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                if (com.kwai.adclient.kscommerciallogger.a.a().c()) {
-                    if (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.d) || TextUtils.isEmpty(this.h)) {
-                        throw new IllegalArgumentException("param is error, please check it");
-                    }
-                    if (com.kwai.adclient.kscommerciallogger.a.a().d() && !com.kwai.adclient.kscommerciallogger.b.a(this.h)) {
-                        throw new IllegalArgumentException("event_id format error, please check it");
-                    }
-                } else if (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.d) || TextUtils.isEmpty(this.h)) {
-                    return null;
-                } else {
-                    if (com.kwai.adclient.kscommerciallogger.a.a().d() && !com.kwai.adclient.kscommerciallogger.b.a(this.h)) {
-                        return null;
-                    }
-                }
-                if (com.kwai.adclient.kscommerciallogger.a.a().b() != null) {
-                    this.g = com.kwai.adclient.kscommerciallogger.a.a().b();
-                }
-                return new c(this, (byte) 0);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+                this.ask = str;
+                return this;
             }
-            return (c) invokeV.objValue;
+            return (a) invokeL.objValue;
+        }
+
+        public final a l(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
+                this.msg = jSONObject;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
     }
 
@@ -161,66 +171,66 @@ public final class c {
                 return;
             }
         }
-        this.a = aVar.a;
-        this.b = aVar.b;
-        this.c = aVar.c;
-        this.d = aVar.d;
-        this.e = aVar.e;
-        this.f = aVar.f;
-        this.g = aVar.g;
-        this.h = aVar.h;
+        this.category = aVar.asf;
+        this.biz = aVar.asg;
+        this.subBiz = aVar.ash;
+        this.tag = aVar.mTag;
+        this.ase = aVar.asi;
+        this.msg = aVar.msg;
+        this.extraParam = aVar.asj;
+        this.eventId = aVar.ask;
     }
 
     public /* synthetic */ c(a aVar, byte b) {
         this(aVar);
     }
 
-    public final String a() {
+    public final String BH() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.category : (String) invokeV.objValue;
     }
 
-    public final BusinessType b() {
+    public final BusinessType BI() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (BusinessType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.biz : (BusinessType) invokeV.objValue;
     }
 
-    public final SubBusinessType c() {
+    public final SubBusinessType BJ() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (SubBusinessType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.subBiz : (SubBusinessType) invokeV.objValue;
     }
 
-    public final String d() {
+    public final d BK() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.ase : (d) invokeV.objValue;
     }
 
-    public final d e() {
+    public final JSONObject BL() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.msg : (JSONObject) invokeV.objValue;
     }
 
-    public final JSONObject f() {
+    public final JSONObject BM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.extraParam : (JSONObject) invokeV.objValue;
     }
 
-    public final JSONObject g() {
+    public final String BN() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.eventId : (String) invokeV.objValue;
     }
 
-    public final String h() {
+    public final String getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.tag : (String) invokeV.objValue;
     }
 
     public final String toString() {
@@ -229,23 +239,23 @@ public final class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (this.b != null) {
-                    jSONObject.put(Constants.KEYS.BIZ, this.b.value);
+                if (this.biz != null) {
+                    jSONObject.put(Constants.KEYS.BIZ, this.biz.value);
                 }
-                if (this.c != null) {
-                    jSONObject.put("sub_biz", this.c.value);
+                if (this.subBiz != null) {
+                    jSONObject.put("sub_biz", this.subBiz.value);
                 }
-                jSONObject.put("tag", this.d);
-                if (this.e != null) {
-                    jSONObject.put("type", this.e.a());
+                jSONObject.put("tag", this.tag);
+                if (this.ase != null) {
+                    jSONObject.put("type", this.ase.getValue());
                 }
-                if (this.f != null) {
-                    jSONObject.put("msg", this.f);
+                if (this.msg != null) {
+                    jSONObject.put("msg", this.msg);
                 }
-                if (this.g != null) {
-                    jSONObject.put("extra_param", this.g);
+                if (this.extraParam != null) {
+                    jSONObject.put("extra_param", this.extraParam);
                 }
-                jSONObject.put("event_id", this.h);
+                jSONObject.put("event_id", this.eventId);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

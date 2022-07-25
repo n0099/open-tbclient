@@ -27,18 +27,18 @@ public final class b implements c.d {
     }
 
     @Override // com.kwai.filedownloader.e.c.d
-    public final int a(String str, String str2, boolean z) {
+    public final int j(String str, String str2, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, str, str2, z)) == null) ? b(str, str2, z) : invokeLLZ.intValue;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, str, str2, z)) == null) ? k(str, str2, z) : invokeLLZ.intValue;
     }
 
     @Override // com.kwai.filedownloader.e.c.d
-    public final int b(String str, String str2, boolean z) {
+    public final int k(String str, String str2, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z)) == null) {
-            return com.kwai.filedownloader.e.f.c(z ? com.kwai.filedownloader.e.f.a("%sp%s@dir", str, str2) : com.kwai.filedownloader.e.f.a("%sp%s", str, str2)).hashCode();
+            return com.kwai.filedownloader.e.f.dI(z ? com.kwai.filedownloader.e.f.h("%sp%s@dir", str, str2) : com.kwai.filedownloader.e.f.h("%sp%s", str, str2)).hashCode();
         }
         return invokeLLZ.intValue;
     }

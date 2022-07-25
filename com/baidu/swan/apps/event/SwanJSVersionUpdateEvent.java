@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m93;
-import com.repackage.oj2;
-import com.repackage.rg1;
+import com.repackage.n93;
+import com.repackage.pj2;
+import com.repackage.sg1;
 @Keep
 /* loaded from: classes2.dex */
 public class SwanJSVersionUpdateEvent {
@@ -38,7 +38,7 @@ public class SwanJSVersionUpdateEvent {
                 return;
             }
         }
-        DEBUG = rg1.a;
+        DEBUG = sg1.a;
     }
 
     public SwanJSVersionUpdateEvent() {
@@ -54,7 +54,7 @@ public class SwanJSVersionUpdateEvent {
                 return;
             }
         }
-        SwanCoreVersion g = m93.g(0);
+        SwanCoreVersion g = n93.g(0);
         if (g != null) {
             this.mVersionCode = g.swanCoreVersionCode;
             this.mVersionName = g.swanCoreVersionName;
@@ -71,7 +71,7 @@ public class SwanJSVersionUpdateEvent {
             if (swanJSVersionUpdateEvent.mVersionName == null) {
                 return;
             }
-            oj2.N().a(swanJSVersionUpdateEvent);
+            pj2.N().a(swanJSVersionUpdateEvent);
             if (DEBUG) {
                 Log.d(TAG, "send SwanJSVersionUpdateEvent, downVersion:" + j + ", getVersion:" + swanJSVersionUpdateEvent.getVersionName() + "(" + swanJSVersionUpdateEvent.getVersionCode() + SmallTailInfo.EMOTION_SUFFIX);
             }

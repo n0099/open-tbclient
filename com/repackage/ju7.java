@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ju7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r35 a;
+    public s35 a;
     public TbPageContext b;
     public RelativeLayout c;
     public PbFakeFloorModel d;
@@ -54,9 +54,9 @@ public class ju7 {
     }
 
     public final void a() {
-        r35 r35Var;
+        s35 s35Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c == null || (r35Var = this.a) == null || r35Var.a() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c == null || (s35Var = this.a) == null || s35Var.a() == null) {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
@@ -65,19 +65,19 @@ public class ju7 {
         h(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public r35 b() {
+    public s35 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (r35) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (s35) invokeV.objValue;
     }
 
     public void c() {
-        r35 r35Var;
+        s35 s35Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (r35Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (s35Var = this.a) == null) {
             return;
         }
-        r35Var.y();
+        s35Var.y();
         if (StringUtils.isNull(this.e)) {
             this.a.D();
         }
@@ -85,9 +85,9 @@ public class ju7 {
     }
 
     public void d() {
-        r35 r35Var;
+        s35 s35Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (r35Var = this.a) == null || r35Var.a() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (s35Var = this.a) == null || s35Var.a() == null) {
             return;
         }
         this.a.a().q();
@@ -96,11 +96,11 @@ public class ju7 {
     public final void e(String str, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) && this.c != null && this.a == null) {
-            s35 s35Var = new s35(z);
-            s35Var.i(str);
-            r35 r35Var = (r35) s35Var.a(this.b.getPageActivity());
-            this.a = r35Var;
-            r35Var.N(this.b);
+            t35 t35Var = new t35(z);
+            t35Var.i(str);
+            s35 s35Var = (s35) t35Var.a(this.b.getPageActivity());
+            this.a = s35Var;
+            s35Var.N(this.b);
             this.a.a0(this.d);
             this.a.O(1);
             jr7 jr7Var = this.h;
@@ -119,8 +119,8 @@ public class ju7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            r35 r35Var = this.a;
-            if (r35Var == null || r35Var.a() == null) {
+            s35 s35Var = this.a;
+            if (s35Var == null || s35Var.a() == null) {
                 return false;
             }
             return this.a.a().u();
@@ -129,30 +129,30 @@ public class ju7 {
     }
 
     public void g(int i, int i2, Intent intent) {
-        r35 r35Var;
+        s35 s35Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, intent) == null) || (r35Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, intent) == null) || (s35Var = this.a) == null) {
             return;
         }
-        r35Var.C(i, i2, intent);
+        s35Var.C(i, i2, intent);
     }
 
     public void h(int i) {
-        r35 r35Var;
+        s35 s35Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (r35Var = this.a) == null || r35Var.a() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (s35Var = this.a) == null || s35Var.a() == null) {
             return;
         }
         this.a.a().w(i);
     }
 
     public void i() {
-        r35 r35Var;
+        s35 s35Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (r35Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (s35Var = this.a) == null) {
             return;
         }
-        r35Var.E();
+        s35Var.E();
     }
 
     public void j(String str) {
@@ -170,12 +170,12 @@ public class ju7 {
     }
 
     public void l(int i) {
-        r35 r35Var;
+        s35 s35Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i) == null) || (r35Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048587, this, i) == null) || (s35Var = this.a) == null) {
             return;
         }
-        r35Var.P(i);
+        s35Var.P(i);
     }
 
     public void m(jr7 jr7Var) {
@@ -189,9 +189,9 @@ public class ju7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, eVar) == null) {
             this.g = eVar;
-            r35 r35Var = this.a;
-            if (r35Var != null) {
-                r35Var.Q(eVar);
+            s35 s35Var = this.a;
+            if (s35Var != null) {
+                s35Var.Q(eVar);
             }
         }
     }
@@ -200,11 +200,11 @@ public class ju7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
             this.e = str2;
-            r35 r35Var = this.a;
-            if (r35Var == null) {
+            s35 s35Var = this.a;
+            if (s35Var == null) {
                 e(str3, z);
             } else {
-                r35Var.a0(this.d);
+                s35Var.a0(this.d);
                 if (StringUtils.isNull(this.e)) {
                     this.a.z(this.b);
                 }

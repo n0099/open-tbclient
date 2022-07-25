@@ -226,11 +226,11 @@ public class FloatWebLayout extends FrameLayout {
     public final void e(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0491, (ViewGroup) this, true);
-            this.b = (SuspendIdleView) findViewById(R.id.obfuscated_res_0x7f091e6d);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091590);
-            this.d = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091e6b);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906a0);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0490, (ViewGroup) this, true);
+            this.b = (SuspendIdleView) findViewById(R.id.obfuscated_res_0x7f091e71);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09156b);
+            this.d = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091e6f);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09069f);
             h(context);
             g(context);
             f(context);
@@ -252,9 +252,9 @@ public class FloatWebLayout extends FrameLayout {
     public final void g(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            View addCustomView = this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0490, (View.OnClickListener) null);
+            View addCustomView = this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d048f, (View.OnClickListener) null);
             this.e = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f0902f8);
-            this.f = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090633);
+            this.f = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090632);
             this.g = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f0905b8);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f0809d1, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f08060d, R.color.CAM_X0105, null);

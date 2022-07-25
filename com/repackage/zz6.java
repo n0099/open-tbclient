@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cy;
 /* loaded from: classes7.dex */
-public class zz6 extends an<hq4, ThreadCardViewHolder<hq4>> implements ck5 {
+public class zz6 extends an<iq4, ThreadCardViewHolder<iq4>> implements ck5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId i;
@@ -25,10 +25,10 @@ public class zz6 extends an<hq4, ThreadCardViewHolder<hq4>> implements ck5 {
     public tn k;
     public String l;
     public String m;
-    public jm4 n;
+    public km4 n;
 
     /* loaded from: classes7.dex */
-    public class a implements jm4<MetaData> {
+    public class a implements km4<MetaData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zz6 a;
@@ -52,7 +52,7 @@ public class zz6 extends an<hq4, ThreadCardViewHolder<hq4>> implements ck5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: a */
         public void d(View view2, MetaData metaData, int i, long j) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class zz6 extends an<hq4, ThreadCardViewHolder<hq4>> implements ck5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: b */
         public void c(View view2, MetaData metaData, int i, long j) {
             Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class zz6 extends an<hq4, ThreadCardViewHolder<hq4>> implements ck5 {
             bVar.l().e(0);
             bVar.l().h(0);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.k));
-            threadCardViewHolder.k(this.i);
+            threadCardViewHolder.j(this.i);
             return threadCardViewHolder;
         }
         return (ThreadCardViewHolder) invokeL.objValue;
@@ -122,20 +122,20 @@ public class zz6 extends an<hq4, ThreadCardViewHolder<hq4>> implements ck5 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.an
     /* renamed from: b0 */
-    public View S(int i, View view2, ViewGroup viewGroup, hq4 hq4Var, ThreadCardViewHolder<hq4> threadCardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, iq4 iq4Var, ThreadCardViewHolder<iq4> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hq4Var, threadCardViewHolder})) == null) {
-            if (hq4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iq4Var, threadCardViewHolder})) == null) {
+            if (iq4Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null) {
                 return null;
             }
-            threadCardViewHolder.c().q(i);
-            if (threadCardViewHolder.c() instanceof bk5) {
-                threadCardViewHolder.c().b(this.l);
+            threadCardViewHolder.b().q(i);
+            if (threadCardViewHolder.b() instanceof bk5) {
+                threadCardViewHolder.b().b(this.l);
             }
-            threadCardViewHolder.g(hq4Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            return threadCardViewHolder.b();
+            threadCardViewHolder.f(iq4Var);
+            threadCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

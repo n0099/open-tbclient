@@ -50,7 +50,7 @@ public interface c extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof c)) {
                     return (c) queryLocalInterface;
                 }
-                return new C0261a(iBinder);
+                return new C0275a(iBinder);
             }
             return (c) invokeL.objValue;
         }
@@ -99,18 +99,18 @@ public interface c extends IInterface {
         public static c a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0261a.a : (c) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0275a.a : (c) invokeV.objValue;
         }
 
         /* renamed from: com.bytedance.pangle.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C0261a implements c {
+        public static class C0275a implements c {
             public static /* synthetic */ Interceptable $ic;
             public static c a;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder b;
 
-            public C0261a(IBinder iBinder) {
+            public C0275a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();

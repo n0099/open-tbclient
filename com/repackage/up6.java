@@ -208,9 +208,9 @@ public class up6 implements di6, ko6 {
         this.a = frsFragment;
         this.b = noPressedRelativeLayout;
         i();
-        this.h = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090bb4);
-        this.j = (EntelechyPullUpRefreshView) this.b.findViewById(R.id.obfuscated_res_0x7f090bb3);
-        this.i = (EntelechyPullUpRefreshView) this.b.findViewById(R.id.obfuscated_res_0x7f090bb5);
+        this.h = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090bad);
+        this.j = (EntelechyPullUpRefreshView) this.b.findViewById(R.id.obfuscated_res_0x7f090bac);
+        this.i = (EntelechyPullUpRefreshView) this.b.findViewById(R.id.obfuscated_res_0x7f090bae);
         this.j.setOnClickListener(this.l);
         this.i.setOnClickListener(this.l);
         onChangeSkinType(this.f);

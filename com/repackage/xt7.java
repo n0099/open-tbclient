@@ -604,15 +604,15 @@ public class xt7 {
             pr7 pr7Var = new pr7();
             PbListView X0 = this.a.O5().X0();
             if (X0 != null && X0.n()) {
-                pr7Var.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0dc9);
+                pr7Var.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0db2);
                 pr7Var.b = true;
             } else {
-                pr7Var.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09e5);
+                pr7Var.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09cf);
                 pr7Var.b = false;
             }
             arrayList.add(pr7Var);
             gz5 gz5Var = new gz5();
-            gz5Var.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f72);
+            gz5Var.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f5b);
             gz5Var.needTopMargin = false;
             arrayList.add(gz5Var);
             arrayList.addAll(list2);
@@ -642,15 +642,15 @@ public class xt7 {
         if (!(interceptable == null || interceptable.invokeLL(1048586, this, arrayList, bool) == null) || ListUtils.isEmpty(arrayList)) {
             return;
         }
-        int i = tw4.i();
-        int j = tw4.j() - 1;
+        int i = uw4.i();
+        int j = uw4.j() - 1;
         if (bool.booleanValue()) {
             nn nnVar = arrayList.get(0);
             if ((nnVar instanceof PostData) && ((PostData) nnVar).B() == 1) {
                 j++;
             }
         }
-        int k = tw4.k() + 1;
+        int k = uw4.k() + 1;
         PbFragment pbFragment = this.a;
         if (pbFragment != null && pbFragment.F() != null && this.a.F().b2() == 3) {
             this.e0.clear();
@@ -681,11 +681,11 @@ public class xt7 {
             this.r = ar6.e().a(pbFragment.getBaseFragmentActivity(), AdvertAppInfo.F);
             this.u = new cv7(pbFragment, tr7.O0);
             this.s = new dv7(pbFragment, bv7.L0);
-            this.t = new ev7(pbFragment, sp4.R0);
+            this.t = new ev7(pbFragment, tp4.R0);
             this.v = new PbReplyLoadMoreAdapter(pbFragment, PostData.G0);
             this.l = new gy7(pbFragment, hy7.a);
             this.m = new dz5(pbFragment.getPageContext());
-            this.x = new yt7(pbFragment, eo4.e);
+            this.x = new yt7(pbFragment, fo4.e);
             this.y = new ou7(pbFragment, pbFragment.getUniqueId());
             zs7 zs7Var = new zs7(pbFragment, pbFragment.getUniqueId(), this.b);
             this.z = zs7Var;
@@ -844,20 +844,20 @@ public class xt7 {
             if (!ListUtils.isEmpty(jr7Var.f()) && jr7Var.f().size() > 2) {
                 int min = Math.min(jr7Var.f().size(), 7);
                 for (int i5 = 0; i5 < min; i5++) {
-                    eo4 eo4Var = jr7Var.f().get(i5);
+                    fo4 fo4Var = jr7Var.f().get(i5);
                     if (!z2 && i5 == 0) {
-                        eo4Var.m(true);
+                        fo4Var.m(true);
                     }
-                    if (eo4Var.getThreadVideoInfo() == null) {
+                    if (fo4Var.getThreadVideoInfo() == null) {
                         if (i5 == min - 1) {
-                            eo4Var.s(true);
+                            fo4Var.s(true);
                         }
                     } else if (i5 == min - 2) {
-                        eo4Var.s(true);
+                        fo4Var.s(true);
                     } else if (i5 == min - 1) {
-                        eo4Var.o(true);
+                        fo4Var.o(true);
                     }
-                    arrayList2.add(eo4Var);
+                    arrayList2.add(fo4Var);
                 }
             }
             if (arrayList2.size() > 0) {
@@ -995,13 +995,13 @@ public class xt7 {
             mr7 mr7Var = null;
             if (jr7Var.l() == null || StringUtils.isNull(jr7Var.l().getName()) || !TextUtils.equals(jr7Var.l().getName(), this.a.F().q1()) || !this.a.F().w1()) {
                 if (postData != null) {
-                    if (postData.o0 != null) {
-                        mr7Var = new mr7(postData.o0);
+                    if (postData.i0 != null) {
+                        mr7Var = new mr7(postData.i0);
                     }
                 } else {
                     PostData postData2 = this.O;
-                    if (postData2 != null && postData2.o0 != null) {
-                        mr7Var = new mr7(this.O.o0);
+                    if (postData2 != null && postData2.i0 != null) {
+                        mr7Var = new mr7(this.O.i0);
                     }
                 }
                 if (mr7Var != null) {
@@ -1123,7 +1123,7 @@ public class xt7 {
                     ((j98) anVar3).onPause();
                 }
                 cu7.a().j(this.a.N());
-                k85.a().d();
+                l85.a().d();
             } else if (i == 2) {
                 hu7 hu7Var2 = this.c;
                 if (hu7Var2 != null) {
@@ -1216,7 +1216,7 @@ public class xt7 {
         if (!(interceptable == null || interceptable.invokeV(1048606, this) == null) || this.A == null || (postData = this.O) == null || postData.O() == null || this.c.o0() == null) {
             return;
         }
-        k85.a().c(this.A.Q(), this.A.m(), this.O.O(), this.c.o0().o);
+        l85.a().c(this.A.Q(), this.A.m(), this.O.O(), this.c.o0().o);
     }
 
     public void e0(boolean z) {
@@ -1295,7 +1295,7 @@ public class xt7 {
             if (!this.G && jr7Var.r0() && j.Q() != null) {
                 j.F0(null);
             }
-            postData = (this.G || (postData3 = this.O) == null || j.m0 != null) ? j : postData3;
+            postData = (this.G || (postData3 = this.O) == null || j.g0 != null) ? j : postData3;
             z9 = true;
             z3 = true;
         }
@@ -1500,7 +1500,7 @@ public class xt7 {
         if (!(interceptable == null || interceptable.invokeL(1048614, this, ni8Var) == null) || ni8Var == null || this.A == null || ni8Var.getAdvertAppInfo() == null) {
             return;
         }
-        ni8Var.getAdvertAppInfo().i = new sn4();
+        ni8Var.getAdvertAppInfo().i = new tn4();
         if (this.A.y() != null) {
             ni8Var.getAdvertAppInfo().i.b = this.A.y().a();
         }
@@ -1586,9 +1586,9 @@ public class xt7 {
             if (list.get(i) instanceof PostData) {
                 PostData postData = (PostData) list.get(i);
                 if (!TextUtils.isEmpty(postData.M())) {
-                    dp4 dp4Var = new dp4();
-                    dp4Var.g(postData.M());
-                    list.set(i, dp4Var);
+                    ep4 ep4Var = new ep4();
+                    ep4Var.g(postData.M());
+                    list.set(i, ep4Var);
                 }
             }
         }
@@ -1746,7 +1746,7 @@ public class xt7 {
             for (int i = 0; i < min; i++) {
                 PostData postData = list.get(i);
                 if (postData != null) {
-                    postData.g0 = true;
+                    postData.a0 = true;
                     postData.N = true;
                     arrayList.add(postData);
                 }

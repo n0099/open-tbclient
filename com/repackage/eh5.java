@@ -100,9 +100,9 @@ public class eh5 {
         Typeface typeface = Typeface.MONOSPACE;
         this.U = WheelView.DividerType.FILL;
         if (i == 1) {
-            this.x = R.layout.obfuscated_res_0x7f0d06ec;
+            this.x = R.layout.obfuscated_res_0x7f0d06f6;
         } else {
-            this.x = R.layout.obfuscated_res_0x7f0d06ed;
+            this.x = R.layout.obfuscated_res_0x7f0d06f7;
         }
     }
 }

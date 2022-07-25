@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
 import com.repackage.wh8;
-import com.repackage.xo4;
+import com.repackage.yo4;
 import com.repackage.za;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<xo4> a;
+    public ArrayList<yo4> a;
     public b b;
     public za c;
 
@@ -78,7 +78,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(int i, String str, int i2, ArrayList<xo4> arrayList);
+        void a(int i, String str, int i2, ArrayList<yo4> arrayList);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

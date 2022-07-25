@@ -16,16 +16,16 @@ public abstract class ULongIterator implements Iterator<ULong>, KMappedMarker {
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // java.util.Iterator
     public /* bridge */ /* synthetic */ ULong next() {
-        return ULong.m1802boximpl(m2097nextsVKNKU());
+        return ULong.m864boximpl(m1159nextsVKNKU());
     }
 
     /* renamed from: next-s-VKNKU  reason: not valid java name */
-    public final long m2097nextsVKNKU() {
-        return mo1877nextULongsVKNKU();
+    public final long m1159nextsVKNKU() {
+        return mo939nextULongsVKNKU();
     }
 
     /* renamed from: nextULong-s-VKNKU */
-    public abstract long mo1877nextULongsVKNKU();
+    public abstract long mo939nextULongsVKNKU();
 
     @Override // java.util.Iterator
     public void remove() {

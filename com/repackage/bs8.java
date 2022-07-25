@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 /* loaded from: classes5.dex */
-public class bs8 extends cr4 implements View.OnClickListener {
+public class bs8 extends dr4 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
@@ -36,9 +36,9 @@ public class bs8 extends cr4 implements View.OnClickListener {
     public String j;
     public String k;
     public String l;
-    public cr4.e m;
+    public dr4.e m;
     public String n;
-    public cr4.e o;
+    public dr4.e o;
     public String p;
     public CompoundButton.OnCheckedChangeListener q;
     public boolean r;
@@ -192,12 +192,12 @@ public class bs8 extends cr4 implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0239, (ViewGroup) null);
             this.a = viewGroup;
-            this.b = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09076f);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091468);
-            Button button = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f0915a7);
+            this.b = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09076e);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091444);
+            Button button = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f091582);
             this.h = button;
             button.setOnClickListener(this);
-            Button button2 = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f091949);
+            Button button2 = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f091924);
             this.g = button2;
             button2.setOnClickListener(this);
             ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090627);
@@ -216,8 +216,8 @@ public class bs8 extends cr4 implements View.OnClickListener {
         }
     }
 
-    @Override // com.repackage.cr4
-    public cr4 create(d9<?> d9Var) {
+    @Override // com.repackage.dr4
+    public dr4 create(d9<?> d9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d9Var)) == null) {
@@ -248,7 +248,7 @@ public class bs8 extends cr4 implements View.OnClickListener {
             getRealView().setBackgroundDrawable(null);
             return this;
         }
-        return (cr4) invokeL.objValue;
+        return (dr4) invokeL.objValue;
     }
 
     public bs8 d(@StringRes int i, CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
@@ -285,7 +285,7 @@ public class bs8 extends cr4 implements View.OnClickListener {
         return (bs8) invokeL.objValue;
     }
 
-    public bs8 g(@StringRes int i, cr4.e eVar) {
+    public bs8 g(@StringRes int i, dr4.e eVar) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, eVar)) == null) {
@@ -299,7 +299,7 @@ public class bs8 extends cr4 implements View.OnClickListener {
         return (bs8) invokeIL.objValue;
     }
 
-    public bs8 h(int i, cr4.e eVar) {
+    public bs8 h(int i, dr4.e eVar) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, eVar)) == null) {
@@ -313,7 +313,7 @@ public class bs8 extends cr4 implements View.OnClickListener {
         return (bs8) invokeIL.objValue;
     }
 
-    public bs8 i(String str, cr4.e eVar) {
+    public bs8 i(String str, dr4.e eVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, eVar)) == null) {
@@ -331,13 +331,13 @@ public class bs8 extends cr4 implements View.OnClickListener {
             return;
         }
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f091949) {
-            cr4.e eVar = this.m;
+        if (id == R.id.obfuscated_res_0x7f091924) {
+            dr4.e eVar = this.m;
             if (eVar != null) {
                 eVar.onClick(this);
             }
-        } else if (id == R.id.obfuscated_res_0x7f0915a7) {
-            cr4.e eVar2 = this.o;
+        } else if (id == R.id.obfuscated_res_0x7f091582) {
+            dr4.e eVar2 = this.o;
             if (eVar2 != null) {
                 eVar2.onClick(this);
             }
@@ -349,26 +349,26 @@ public class bs8 extends cr4 implements View.OnClickListener {
         }
     }
 
-    @Override // com.repackage.cr4
-    public /* bridge */ /* synthetic */ cr4 setMessage(String str) {
+    @Override // com.repackage.dr4
+    public /* bridge */ /* synthetic */ dr4 setMessage(String str) {
         f(str);
         return this;
     }
 
-    @Override // com.repackage.cr4
-    public /* bridge */ /* synthetic */ cr4 setNegativeButton(@StringRes int i, cr4.e eVar) {
+    @Override // com.repackage.dr4
+    public /* bridge */ /* synthetic */ dr4 setNegativeButton(@StringRes int i, dr4.e eVar) {
         g(i, eVar);
         return this;
     }
 
-    @Override // com.repackage.cr4
-    public /* bridge */ /* synthetic */ cr4 setPositiveButton(int i, cr4.e eVar) {
+    @Override // com.repackage.dr4
+    public /* bridge */ /* synthetic */ dr4 setPositiveButton(int i, dr4.e eVar) {
         h(i, eVar);
         return this;
     }
 
-    @Override // com.repackage.cr4
-    public cr4 setNegativeButton(String str, cr4.e eVar) {
+    @Override // com.repackage.dr4
+    public dr4 setNegativeButton(String str, dr4.e eVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, eVar)) == null) {
@@ -376,11 +376,11 @@ public class bs8 extends cr4 implements View.OnClickListener {
             this.o = eVar;
             return this;
         }
-        return (cr4) invokeLL.objValue;
+        return (dr4) invokeLL.objValue;
     }
 
-    @Override // com.repackage.cr4
-    public /* bridge */ /* synthetic */ cr4 setPositiveButton(String str, cr4.e eVar) {
+    @Override // com.repackage.dr4
+    public /* bridge */ /* synthetic */ dr4 setPositiveButton(String str, dr4.e eVar) {
         i(str, eVar);
         return this;
     }

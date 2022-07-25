@@ -83,6 +83,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.PermissionRequest;
+import com.kuaishou.weapon.p0.h;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -237,23 +239,26 @@ public class BaseActivity extends TitleActivity {
     }
 
     public void livenessRecognize(String str, SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult) {
+        PassFaceRecogType passFaceRecogType;
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, biometricsIdentifyResult) == null) {
             BiometricsManager biometricsManager = BiometricsManager.getInstance();
-            PassFaceRecogType passFaceRecogType = PassFaceRecogType.RECOG_TYPE_BDUSS;
+            PassFaceRecogType passFaceRecogType2 = PassFaceRecogType.RECOG_TYPE_BDUSS;
             if ("bduss".equals(biometricsIdentifyResult.livenessRecogType)) {
                 SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
                 str2 = currentAccount == null ? "" : currentAccount.bduss;
+                passFaceRecogType = passFaceRecogType2;
             } else {
                 if ("authtoken".equals(biometricsIdentifyResult.livenessRecogType)) {
-                    passFaceRecogType = PassFaceRecogType.RECOG_TYPE_AUTHTOKEN;
+                    passFaceRecogType2 = PassFaceRecogType.RECOG_TYPE_AUTHTOKEN;
                 } else if ("certinfo".equals(biometricsIdentifyResult.livenessRecogType)) {
-                    passFaceRecogType = PassFaceRecogType.RECOG_TYPE_CERTINFO;
+                    passFaceRecogType2 = PassFaceRecogType.RECOG_TYPE_CERTINFO;
                 }
+                passFaceRecogType = passFaceRecogType2;
                 str2 = null;
             }
-            biometricsManager.livenessRecognize(this, passFaceRecogType, biometricsIdentifyResult.subPro, null, "0", str2, str, biometricsIdentifyResult.authToken, "", biometricsIdentifyResult.realName, biometricsIdentifyResult.idCardNum, biometricsIdentifyResult.phoneNum, false, new PassFaceRecogCallback(this) { // from class: com.baidu.sapi2.activity.BaseActivity.18
+            biometricsManager.livenessRecognize(this, passFaceRecogType, biometricsIdentifyResult.subPro, null, "0", str2, str, biometricsIdentifyResult.authToken, "", biometricsIdentifyResult.realName, biometricsIdentifyResult.idCardNum, biometricsIdentifyResult.phoneNum, false, false, biometricsIdentifyResult.extraParams, new PassFaceRecogCallback(this) { // from class: com.baidu.sapi2.activity.BaseActivity.18
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BaseActivity a;
@@ -463,7 +468,7 @@ public class BaseActivity extends TitleActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            if (SapiUtils.checkRequestPermission("android.permission.READ_EXTERNAL_STORAGE", this)) {
+            if (SapiUtils.checkRequestPermission(h.i, this)) {
                 initScreenShotManager();
             }
         }
@@ -479,7 +484,7 @@ public class BaseActivity extends TitleActivity {
                 SapiAccountManager.getGlobalCallback().onLoginStatusChange();
             }
             try {
-                ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b72)).removeView(this.sapiWebView);
+                ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b4c)).removeView(this.sapiWebView);
                 this.sapiWebView.removeAllViews();
                 this.sapiWebView.destroy();
                 this.sapiWebView = null;
@@ -612,7 +617,7 @@ public class BaseActivity extends TitleActivity {
                             }
                             Intent intent2 = new Intent();
                             intent2.setType(BdUploadHandler.IMAGE_MIME_TYPE);
-                            intent2.setAction("android.intent.action.GET_CONTENT");
+                            intent2.setAction("android.intent.action.PICK");
                             this.a.startActivityForResult(intent2, 1002);
                         } catch (Throwable th) {
                             Log.e(th);
@@ -636,14 +641,14 @@ public class BaseActivity extends TitleActivity {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.configuration.isNewLogin) {
             try {
-                ((RelativeLayout.LayoutParams) findViewById(R.id.obfuscated_res_0x7f091c6b).getLayoutParams()).addRule(3, 0);
+                ((RelativeLayout.LayoutParams) findViewById(R.id.obfuscated_res_0x7f091c71).getLayoutParams()).addRule(3, 0);
             } catch (Exception unused) {
                 Log.e(k, "子activity重写了webview布局");
             }
             this.sapiWebView.setHadMakeBarHide(true);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b72);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b4c);
             if (this.mTitleLayout == null) {
-                this.mTitleLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c6a);
+                this.mTitleLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c6f);
             }
             ImageView imageView = null;
             RelativeLayout relativeLayout2 = this.mTitleLayout;
@@ -652,7 +657,7 @@ public class BaseActivity extends TitleActivity {
                 this.mTitleLayout.setBackgroundColor(0);
                 for (int i = 0; i < this.mTitleLayout.getChildCount(); i++) {
                     View childAt = this.mTitleLayout.getChildAt(i);
-                    if (childAt.getId() == R.id.obfuscated_res_0x7f0920e3 && this.configuration.showBottomBack) {
+                    if (childAt.getId() == R.id.obfuscated_res_0x7f0920e5 && this.configuration.showBottomBack) {
                         childAt.setVisibility(0);
                         imageView = (ImageView) childAt;
                     } else {
@@ -728,14 +733,14 @@ public class BaseActivity extends TitleActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.setupViews();
-            SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.obfuscated_res_0x7f091c6b);
+            SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.obfuscated_res_0x7f091c71);
             this.sapiWebView = sapiWebView;
             if (sapiWebView == null) {
                 return;
             }
             SapiConfiguration sapiConfiguration = this.configuration;
             if (sapiConfiguration != null && sapiConfiguration.isDarkMode) {
-                sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609b1));
+                sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609a6));
             }
             if (getWebDTO() != null && getWebDTO().loadingView != null) {
                 b.a(this, this.sapiWebView, getWebDTO().loadingView);
@@ -769,8 +774,8 @@ public class BaseActivity extends TitleActivity {
                 public void onTitleChange(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                        String string = this.a.getString(R.string.obfuscated_res_0x7f0f1033);
-                        String string2 = this.a.getString(R.string.obfuscated_res_0x7f0f1032);
+                        String string = this.a.getString(R.string.obfuscated_res_0x7f0f1015);
+                        String string2 = this.a.getString(R.string.obfuscated_res_0x7f0f1014);
                         if (string.equals(str)) {
                             str = string2;
                         }
@@ -1301,7 +1306,7 @@ public class BaseActivity extends TitleActivity {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             PermissionsDTO permissionsDTO = new PermissionsDTO();
             permissionsDTO.context = this.configuration.context;
-            permissionsDTO.permissions = new String[]{"android.permission.CAMERA"};
+            permissionsDTO.permissions = new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE};
             permissionsDTO.dialogTitle = "权限申请";
             permissionsDTO.dialogMsg = "为了正常使用拍照服务、图片上传、图片识别服务，请允许使用摄像头权限。你可以通过系统\"设置\"进行权限的管理";
             PassPermissions.getInstance().requestPermissions(permissionsDTO, new PermissionsCallback(this) { // from class: com.baidu.sapi2.activity.BaseActivity.15
@@ -1344,7 +1349,7 @@ public class BaseActivity extends TitleActivity {
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                         try {
                             if (!"mounted".equals(Environment.getExternalStorageState())) {
-                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f108d, 0).show();
+                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f1049, 0).show();
                                 return;
                             }
                             File file = new File(this.a.getExternalCacheDir(), "camera_temp_image.jpg");

@@ -8,6 +8,7 @@ import com.baidu.mapapi.search.busline.OnGetBusLineSearchResultListener;
 import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.platform.base.d;
 import com.baidu.searchbox.retrieve.log.bean.FetchLog;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -87,7 +88,7 @@ public class a extends d {
             if (str != null && !"".equals(str)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    JSONObject optJSONObject = jSONObject.optJSONObject("result");
+                    JSONObject optJSONObject = jSONObject.optJSONObject(TiebaStatic.LogFields.RESULT);
                     JSONArray optJSONArray = jSONObject.optJSONArray("content");
                     if (optJSONObject == null || optJSONArray == null || optJSONArray.length() <= 0) {
                         return false;

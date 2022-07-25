@@ -84,7 +84,7 @@ public class a87 {
                     }
                 } else {
                     d97.b(this.b.d, str, this.b.f.getUserIdLong(), this.b.f.getUserName(), this.b.f.getName_show(), this.b.f.getPortrait(), this.b.f.getIsMyFriend() == 1);
-                    iz4.e(this.b.f.getUserIdLong());
+                    jz4.e(this.b.f.getUserIdLong());
                     int i = this.b.d.threadType == 40 ? 2 : 1;
                     a87 a87Var2 = this.b;
                     a87Var2.q(1, 0, i, String.valueOf(a87Var2.f.getUserIdLong()));

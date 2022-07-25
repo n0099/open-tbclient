@@ -11,29 +11,29 @@ public class k78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(k55 k55Var) {
+    public static boolean a(l55 l55Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, k55Var)) == null) {
-            if (k55Var != null) {
-                return k55Var.isViewAttached();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, l55Var)) == null) {
+            if (l55Var != null) {
+                return l55Var.isViewAttached();
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static void b(k55 k55Var, View.OnClickListener onClickListener, Context context, View view2, String str, boolean z) {
+    public static void b(l55 l55Var, View.OnClickListener onClickListener, Context context, View view2, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{k55Var, onClickListener, context, view2, str, Boolean.valueOf(z)}) == null) || a(k55Var) || context == null || view2 == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{l55Var, onClickListener, context, view2, str, Boolean.valueOf(z)}) == null) || a(l55Var) || context == null || view2 == null) {
             return;
         }
-        if (k55Var == null) {
-            k55Var = new k55(context, onClickListener);
+        if (l55Var == null) {
+            l55Var = new l55(context, onClickListener);
         }
-        k55Var.k(context.getResources().getDimensionPixelSize(R.dimen.tbds530));
-        k55Var.attachView(view2, z);
-        k55Var.p();
-        k55Var.onChangeSkinType();
+        l55Var.k(context.getResources().getDimensionPixelSize(R.dimen.tbds530));
+        l55Var.attachView(view2, z);
+        l55Var.p();
+        l55Var.onChangeSkinType();
     }
 }

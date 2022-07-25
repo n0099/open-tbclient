@@ -56,10 +56,10 @@ public class rt5 extends cd6<ThreadData, FrsPageAlaVideoHolder> implements hy5, 
             CustomMessage customMessage;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f091251) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f09122d) {
                     customMessage = new CustomMessage(2921018);
                 } else if (view2.getId() != R.id.obfuscated_res_0x7f090524 && view2.getId() != R.id.obfuscated_res_0x7f090520) {
-                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f09238b ? new CustomMessage(2921019) : null;
+                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f09238d ? new CustomMessage(2921019) : null;
                 } else {
                     customMessage = new CustomMessage(2921016);
                 }
@@ -163,7 +163,7 @@ public class rt5 extends cd6<ThreadData, FrsPageAlaVideoHolder> implements hy5, 
                 threadData.updateShowStatus();
             }
             this.m = (tn) viewGroup;
-            return frsPageAlaVideoHolder.b();
+            return frsPageAlaVideoHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

@@ -32,7 +32,7 @@ public class cu7 {
     public int e;
 
     /* loaded from: classes5.dex */
-    public class a extends w85 {
+    public class a extends x85 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,7 +52,7 @@ public class cu7 {
             }
         }
 
-        @Override // com.repackage.w85
+        @Override // com.repackage.x85
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class cu7 {
             return invokeV.intValue;
         }
 
-        @Override // com.repackage.w85
+        @Override // com.repackage.x85
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -175,49 +175,49 @@ public class cu7 {
         }
     }
 
-    public final void e(Context context, y85 y85Var, String str) {
+    public final void e(Context context, z85 z85Var, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, context, y85Var, str) == null) || y85Var == null || StringUtils.isNull(y85Var.c()) || !new a(this).a(y85Var)) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, context, z85Var, str) == null) || z85Var == null || StringUtils.isNull(z85Var.c()) || !new a(this).a(z85Var)) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem(str);
-        statisticItem.param("obj_source", x85.a(y85Var.h()));
-        statisticItem.param("obj_type", y85Var.c());
-        statisticItem.param(TiebaStatic.Params.OBJ_DURATION, String.valueOf(y85Var.i()));
-        if (y85Var.d() > 0) {
-            statisticItem.param("fid", String.valueOf(y85Var.d()));
+        statisticItem.param("obj_source", y85.a(z85Var.h()));
+        statisticItem.param("obj_type", z85Var.c());
+        statisticItem.param(TiebaStatic.Params.OBJ_DURATION, String.valueOf(z85Var.i()));
+        if (z85Var.d() > 0) {
+            statisticItem.param("fid", String.valueOf(z85Var.d()));
         }
-        if (y85Var.m() > 0) {
-            statisticItem.param("tid", String.valueOf(y85Var.m()));
+        if (z85Var.m() > 0) {
+            statisticItem.param("tid", String.valueOf(z85Var.m()));
         }
-        if (!StringUtils.isNull(y85Var.e())) {
-            statisticItem.param("nid", y85Var.e());
+        if (!StringUtils.isNull(z85Var.e())) {
+            statisticItem.param("nid", z85Var.e());
         }
-        if (y85Var.g() > 0) {
-            statisticItem.param("pid", String.valueOf(y85Var.g()));
+        if (z85Var.g() > 0) {
+            statisticItem.param("pid", String.valueOf(z85Var.g()));
         }
-        if (!StringUtils.isNull(y85Var.k)) {
-            statisticItem.param("obj_param1", y85Var.k);
+        if (!StringUtils.isNull(z85Var.k)) {
+            statisticItem.param("obj_param1", z85Var.k);
         }
-        if (!StringUtils.isNull(y85Var.l)) {
-            statisticItem.param(TiebaStatic.Params.IS_VERTICAL, y85Var.l);
+        if (!StringUtils.isNull(z85Var.l)) {
+            statisticItem.param(TiebaStatic.Params.IS_VERTICAL, z85Var.l);
         }
-        if (!StringUtils.isNull(y85Var.r)) {
-            statisticItem.param("is_dynamic", y85Var.r);
+        if (!StringUtils.isNull(z85Var.r)) {
+            statisticItem.param("is_dynamic", z85Var.r);
         }
-        if (!StringUtils.isNull(y85Var.s)) {
-            statisticItem.param(TiebaStatic.Params.RESOURCE_ID, y85Var.s);
+        if (!StringUtils.isNull(z85Var.s)) {
+            statisticItem.param(TiebaStatic.Params.RESOURCE_ID, z85Var.s);
         }
-        if (!oi.isEmpty(y85Var.j())) {
-            statisticItem.param("task_id", String.valueOf(y85Var.j()));
+        if (!oi.isEmpty(z85Var.j())) {
+            statisticItem.param("task_id", String.valueOf(z85Var.j()));
         }
-        if (!oi.isEmpty(y85Var.a())) {
-            statisticItem.param("ab_tag", y85Var.a());
+        if (!oi.isEmpty(z85Var.a())) {
+            statisticItem.param("ab_tag", z85Var.a());
         }
-        if (!StringUtils.isNull(y85Var.f())) {
-            statisticItem.param("obj_location", y85Var.f());
+        if (!StringUtils.isNull(z85Var.f())) {
+            statisticItem.param("obj_location", z85Var.f());
         }
-        r85.b(context, statisticItem, y85Var);
+        s85.b(context, statisticItem, z85Var);
         TiebaStatic.log(statisticItem);
     }
 
@@ -228,9 +228,9 @@ public class cu7 {
         }
     }
 
-    public void g(boolean z, View view2, View view3, y85 y85Var, boolean z2, View view4, ListView listView) {
+    public void g(boolean z, View view2, View view3, z85 z85Var, boolean z2, View view4, ListView listView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), view2, view3, y85Var, Boolean.valueOf(z2), view4, listView}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), view2, view3, z85Var, Boolean.valueOf(z2), view4, listView}) == null) {
             if (this.c) {
                 z = false;
             } else {
@@ -239,12 +239,12 @@ public class cu7 {
             if (c(view2, view3) || (z && !z2)) {
                 h();
             } else if (z2) {
-                k(y85Var);
+                k(z85Var);
             }
             if (b(view4, listView)) {
                 i();
             } else {
-                l(y85Var);
+                l(z85Var);
             }
         }
     }
@@ -272,23 +272,23 @@ public class cu7 {
         l(absPbActivity.getPageStayDurationItem());
     }
 
-    public final void k(y85 y85Var) {
+    public final void k(z85 z85Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, y85Var) == null) || this.a <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, z85Var) == null) || this.a <= 0) {
             return;
         }
         this.a = 0L;
-        y85Var.y(System.currentTimeMillis() - this.a);
-        e(TbadkCoreApplication.getInst(), y85Var, "c14085");
+        z85Var.y(System.currentTimeMillis() - this.a);
+        e(TbadkCoreApplication.getInst(), z85Var, "c14085");
     }
 
-    public final void l(y85 y85Var) {
+    public final void l(z85 z85Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, y85Var) == null) || this.b <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, z85Var) == null) || this.b <= 0) {
             return;
         }
         this.b = 0L;
-        y85Var.y(System.currentTimeMillis() - this.b);
-        e(TbadkCoreApplication.getInst(), y85Var, "rec_stime");
+        z85Var.y(System.currentTimeMillis() - this.b);
+        e(TbadkCoreApplication.getInst(), z85Var, "rec_stime");
     }
 }

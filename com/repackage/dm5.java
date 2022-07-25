@@ -22,12 +22,12 @@ public class dm5 extends dc1<o21> {
 
         /* renamed from: com.repackage.dm5$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0615a implements View.OnClickListener {
+        public class View$OnClickListenerC0461a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AbsContainer a;
 
-            public View$OnClickListenerC0615a(a aVar, AbsContainer absContainer) {
+            public View$OnClickListenerC0461a(a aVar, AbsContainer absContainer) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class dm5 extends dc1<o21> {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, absContainer) == null) {
                 int intValue = ((Integer) view2.getTag()).intValue();
                 if (intValue == R.drawable.obfuscated_res_0x7f080db9) {
-                    view2.setOnClickListener(new View$OnClickListenerC0615a(this, absContainer));
+                    view2.setOnClickListener(new View$OnClickListenerC0461a(this, absContainer));
                 } else if (intValue == R.drawable.obfuscated_res_0x7f080dba) {
                     view2.setOnClickListener(new b(this, absContainer));
                 }

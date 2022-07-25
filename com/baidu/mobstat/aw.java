@@ -134,7 +134,7 @@ public class aw {
             } catch (Exception unused2) {
             }
             try {
-                jSONObject.put("pr", this.i);
+                jSONObject.put(Config.PRINCIPAL_PART, this.i);
             } catch (Exception unused3) {
             }
             try {
@@ -224,7 +224,7 @@ public class aw {
             }
             try {
                 optJSONArray = jSONObject.optJSONArray(Config.EVENT_PART);
-                optJSONArray2 = jSONObject.optJSONArray("pr");
+                optJSONArray2 = jSONObject.optJSONArray(Config.PRINCIPAL_PART);
                 optJSONArray3 = jSONObject.optJSONArray(Config.FEED_LIST_PART);
                 optJSONArray4 = jSONObject.optJSONArray("sv");
             } catch (Exception unused2) {
@@ -253,7 +253,7 @@ public class aw {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(Config.HEADER_PART, new JSONObject(this.g.toString()));
-                jSONObject.put("pr", new JSONArray(this.i.toString()));
+                jSONObject.put(Config.PRINCIPAL_PART, new JSONArray(this.i.toString()));
                 jSONObject.put(Config.EVENT_PART, new JSONArray(this.h.toString()));
                 jSONObject.put(Config.FEED_LIST_PART, new JSONArray(this.j.toString()));
                 jSONObject.put("sv", new JSONArray(this.k.toString()));

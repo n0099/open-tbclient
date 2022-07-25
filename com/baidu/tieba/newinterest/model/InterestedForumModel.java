@@ -33,12 +33,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
 import com.repackage.bp7;
-import com.repackage.ma5;
+import com.repackage.na5;
 import com.repackage.nn;
 import com.repackage.wh8;
 import com.repackage.xo7;
-import com.repackage.xt4;
 import com.repackage.yo7;
+import com.repackage.yt4;
 import com.repackage.z8;
 import com.repackage.za;
 import com.repackage.zo7;
@@ -111,7 +111,7 @@ public class InterestedForumModel {
                         }
                     } else if (yo7Var == null || ListUtils.isEmpty(yo7Var.a)) {
                         if (this.a.c != null) {
-                            this.a.c.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c2b));
+                            this.a.c.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17));
                         }
                     } else if (yo7Var == null || this.a.c == null) {
                     } else {
@@ -169,7 +169,7 @@ public class InterestedForumModel {
                 if (this.a.d != null) {
                     this.a.d.b();
                 }
-                xt4.k().x("key_select_interest_flag", System.currentTimeMillis());
+                yt4.k().x("key_select_interest_flag", System.currentTimeMillis());
             }
         }
     }
@@ -437,11 +437,11 @@ public class InterestedForumModel {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            ma5 ma5Var = new ma5(309654);
-            ma5Var.setResponsedClass(InterestedForumSocketResMsg.class);
-            ma5Var.g(true);
-            ma5Var.setPriority(4);
-            MessageManager.getInstance().registerTask(ma5Var);
+            na5 na5Var = new na5(309654);
+            na5Var.setResponsedClass(InterestedForumSocketResMsg.class);
+            na5Var.g(true);
+            na5Var.setPriority(4);
+            MessageManager.getInstance().registerTask(na5Var);
         }
     }
 

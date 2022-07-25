@@ -215,7 +215,7 @@ public class we6 {
         this.c.setDuration(400L);
         this.c.addUpdateListener(new b(this));
         this.c.addListener(new c(this));
-        TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702df), 0.0f);
+        TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702dd), 0.0f);
         this.d = translateAnimation;
         translateAnimation.setDuration(400L);
         this.d.setAnimationListener(new d(this));

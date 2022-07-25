@@ -5,8 +5,6 @@ import android.content.Context;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
-import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.C0294;
+import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.k1;
 import com.yy.hiidostatis.api.HiidoSDK;
 import java.io.BufferedReader;
 import java.io.File;
@@ -170,7 +169,7 @@ public class FindEmulator {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             try {
-                if (Build.VERSION.SDK_INT > 27 || (classLoader = context.getClassLoader()) == null || (loadClass = classLoader.loadClass("android.os.SystemProperties")) == null || (method = loadClass.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class)) == null) {
+                if (Build.VERSION.SDK_INT > 27 || (classLoader = context.getClassLoader()) == null || (loadClass = classLoader.loadClass("android.os.SystemProperties")) == null || (method = loadClass.getMethod("get", String.class)) == null) {
                     return null;
                 }
                 return (String) method.invoke(loadClass, str);
@@ -285,7 +284,7 @@ public class FindEmulator {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, PermissionChecker.READ_PHONE_STATE)) {
+            if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, h.c)) {
                 String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
                 for (String str : known_device_ids) {
                     if (str.equalsIgnoreCase(deviceId)) {
@@ -302,7 +301,7 @@ public class FindEmulator {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, PermissionChecker.READ_PHONE_STATE)) {
+            if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, h.c)) {
                 String subscriberId = ((TelephonyManager) context.getSystemService("phone")).getSubscriberId();
                 for (String str : known_imsi_ids) {
                     if (str.equalsIgnoreCase(subscriberId)) {
@@ -338,7 +337,7 @@ public class FindEmulator {
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            File[] fileArr = {new File("/proc/tty/drivers"), new File(C0294.f19)};
+            File[] fileArr = {new File("/proc/tty/drivers"), new File(k1.a)};
             for (int i = 0; i < 2; i++) {
                 File file = fileArr[i];
                 if (file.exists() && file.canRead()) {

@@ -116,7 +116,7 @@ public class ue7 implements kf {
                 this.a.h = new Address(Locale.getDefault());
                 this.a.h.setLatitude(bDLocation.getLatitude());
                 this.a.h.setLongitude(bDLocation.getLongitude());
-                xt4 k = xt4.k();
+                yt4 k = yt4.k();
                 k.y("key_last_receive_location_latitude_and_longitude", bDLocation.getLatitude() + "," + bDLocation.getLongitude());
                 this.a.h.setLocality(bDLocation.getCity());
                 Bundle bundle = new Bundle();

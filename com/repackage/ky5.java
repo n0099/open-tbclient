@@ -40,25 +40,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
-import com.repackage.nr4;
+import com.repackage.dr4;
+import com.repackage.or4;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import tbclient.BawuThrones;
 /* loaded from: classes6.dex */
-public class ky5 extends lr4 {
+public class ky5 extends mr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final nr4.e A;
+    public final or4.e A;
     public TbPageContext k;
     public Context l;
-    public final nr4 m;
+    public final or4 m;
     public AlertDialog n;
     public AlertDialog o;
-    public cr4 p;
+    public dr4 p;
     public Dialog q;
-    public final List<jr4> r;
+    public final List<kr4> r;
     public String s;
     public String t;
     public List<BlueCheckRadioButton> u;
@@ -100,7 +100,7 @@ public class ky5 extends lr4 {
                     this.a.n.dismiss();
                 }
                 if (!ni.A()) {
-                    pi.N(this.a.l, R.string.obfuscated_res_0x7f0f0c2b);
+                    pi.N(this.a.l, R.string.obfuscated_res_0x7f0f0c17);
                 } else {
                     this.a.k0(null, false);
                 }
@@ -174,7 +174,7 @@ public class ky5 extends lr4 {
                     this.a.o.dismiss();
                 }
                 if (!ni.A()) {
-                    pi.N(this.a.l, R.string.obfuscated_res_0x7f0f0c2b);
+                    pi.N(this.a.l, R.string.obfuscated_res_0x7f0f0c17);
                     return;
                 }
                 this.a.k0(null, true);
@@ -345,7 +345,7 @@ public class ky5 extends lr4 {
         public final /* synthetic */ ky5 a;
 
         /* loaded from: classes6.dex */
-        public class a implements cr4.e {
+        public class a implements dr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -365,13 +365,13 @@ public class ky5 extends lr4 {
                 }
             }
 
-            @Override // com.repackage.cr4.e
-            public void onClick(cr4 cr4Var) {
+            @Override // com.repackage.dr4.e
+            public void onClick(dr4 dr4Var) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) || cr4Var == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) || dr4Var == null) {
                     return;
                 }
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
 
@@ -407,13 +407,13 @@ public class ky5 extends lr4 {
                         if (bVar.h) {
                             BdTopToast bdTopToast = new BdTopToast(this.a.getContext());
                             bdTopToast.i(false);
-                            bdTopToast.h(this.a.b0(R.string.obfuscated_res_0x7f0f118b, new Object[0]));
+                            bdTopToast.h(this.a.b0(R.string.obfuscated_res_0x7f0f113a, new Object[0]));
                             bdTopToast.j(viewGroup);
                             return;
                         }
                         BdTopToast bdTopToast2 = new BdTopToast(this.a.getContext());
                         bdTopToast2.i(false);
-                        bdTopToast2.h(this.a.b0(R.string.obfuscated_res_0x7f0f04a4, new Object[0]));
+                        bdTopToast2.h(this.a.b0(R.string.obfuscated_res_0x7f0f04a3, new Object[0]));
                         bdTopToast2.j(viewGroup);
                         return;
                     } else if (bVar.a) {
@@ -421,23 +421,23 @@ public class ky5 extends lr4 {
                         if (bVar.h) {
                             BdTopToast bdTopToast3 = new BdTopToast(this.a.getContext());
                             bdTopToast3.i(true);
-                            bdTopToast3.h(this.a.b0(R.string.obfuscated_res_0x7f0f118d, new Object[0]));
+                            bdTopToast3.h(this.a.b0(R.string.obfuscated_res_0x7f0f113c, new Object[0]));
                             bdTopToast3.j(viewGroup);
                             return;
                         }
                         BdTopToast bdTopToast4 = new BdTopToast(this.a.getContext());
                         bdTopToast4.i(true);
-                        bdTopToast4.h(this.a.b0(R.string.obfuscated_res_0x7f0f04ad, new Object[0]));
+                        bdTopToast4.h(this.a.b0(R.string.obfuscated_res_0x7f0f04ac, new Object[0]));
                         bdTopToast4.j(viewGroup);
                         return;
                     } else {
-                        String b0 = !TextUtils.isEmpty(bVar.b) ? bVar.b : this.a.b0(R.string.obfuscated_res_0x7f0f04a4, new Object[0]);
+                        String b0 = !TextUtils.isEmpty(bVar.b) ? bVar.b : this.a.b0(R.string.obfuscated_res_0x7f0f04a3, new Object[0]);
                         if (bVar.c == 1211066) {
                             if (this.a.p == null) {
                                 ky5 ky5Var = this.a;
-                                ky5Var.p = new cr4(ky5Var.k.getPageActivity());
+                                ky5Var.p = new dr4(ky5Var.k.getPageActivity());
                                 this.a.p.setMessage(b0);
-                                this.a.p.setPositiveButton(R.string.obfuscated_res_0x7f0f04e3, new a(this));
+                                this.a.p.setPositiveButton(R.string.obfuscated_res_0x7f0f04df, new a(this));
                                 this.a.p.setCancelable(true);
                                 this.a.p.create(this.a.k);
                             }
@@ -453,13 +453,13 @@ public class ky5 extends lr4 {
                 case 1:
                     ForumManageModel.d dVar = (ForumManageModel.d) obj;
                     if (dVar == null) {
-                        pi.O(this.a.l, this.a.b0(R.string.obfuscated_res_0x7f0f0b21, new Object[0]));
+                        pi.O(this.a.l, this.a.b0(R.string.obfuscated_res_0x7f0f0b0d, new Object[0]));
                         return;
                     } else if (dVar.a) {
-                        pi.O(this.a.l, !TextUtils.isEmpty(dVar.b) ? dVar.b : this.a.b0(R.string.obfuscated_res_0x7f0f0b24, new Object[0]));
+                        pi.O(this.a.l, !TextUtils.isEmpty(dVar.b) ? dVar.b : this.a.b0(R.string.obfuscated_res_0x7f0f0b10, new Object[0]));
                         return;
                     } else {
-                        pi.O(this.a.l, !TextUtils.isEmpty(dVar.b) ? dVar.b : this.a.b0(R.string.obfuscated_res_0x7f0f0b21, new Object[0]));
+                        pi.O(this.a.l, !TextUtils.isEmpty(dVar.b) ? dVar.b : this.a.b0(R.string.obfuscated_res_0x7f0f0b0d, new Object[0]));
                         return;
                     }
                 case 2:
@@ -472,7 +472,7 @@ public class ky5 extends lr4 {
                 case 6:
                     ForumManageModel.g gVar = (ForumManageModel.g) obj;
                     if (gVar == null || !gVar.a) {
-                        pi.O(this.a.l, this.a.b0(R.string.obfuscated_res_0x7f0f0cf2, new Object[0]));
+                        pi.O(this.a.l, this.a.b0(R.string.obfuscated_res_0x7f0f0cde, new Object[0]));
                         return;
                     } else {
                         this.a.j0(gVar.c);
@@ -485,7 +485,7 @@ public class ky5 extends lr4 {
     }
 
     /* loaded from: classes6.dex */
-    public class i implements nr4.e {
+    public class i implements or4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ky5 a;
@@ -508,13 +508,13 @@ public class ky5 extends lr4 {
             this.a = ky5Var;
         }
 
-        @Override // com.repackage.nr4.e
-        public void N(nr4 nr4Var, int i, View view2) {
+        @Override // com.repackage.or4.e
+        public void N(or4 or4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, nr4Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, or4Var, i, view2) == null) {
                 this.a.dismiss();
                 if (!ni.z()) {
-                    pi.N(this.a.l, R.string.obfuscated_res_0x7f0f0c2c);
+                    pi.N(this.a.l, R.string.obfuscated_res_0x7f0f0c18);
                     return;
                 }
                 if (i == 1) {
@@ -604,9 +604,9 @@ public class ky5 extends lr4 {
         this.k = tbPageContext;
         this.l = tbPageContext.getPageActivity();
         this.r = new ArrayList();
-        nr4 nr4Var = new nr4(this.l);
-        this.m = nr4Var;
-        nr4Var.q(b0(R.string.obfuscated_res_0x7f0f13e0, new Object[0]));
+        or4 or4Var = new or4(this.l);
+        this.m = or4Var;
+        or4Var.q(b0(R.string.obfuscated_res_0x7f0f138f, new Object[0]));
         this.m.n(this.A);
         ForumManageModel forumManageModel = new ForumManageModel(this.k);
         this.w = forumManageModel;
@@ -667,7 +667,7 @@ public class ky5 extends lr4 {
     }
 
     public final void T() {
-        List<jr4> list;
+        List<kr4> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.v == null || (list = this.r) == null || this.m == null) {
             return;
@@ -675,38 +675,38 @@ public class ky5 extends lr4 {
         list.clear();
         if (bd6.d(bd6.a()) && !bd6.f()) {
             if (!this.v.isBjh() && ((this.v.getAuthor() == null || !this.v.getAuthor().isForumBusinessAccount() || this.v.isSelf() || oe6.isOn()) && !bd6.g() && !this.v.isWorksInfo() && !this.v.isScoreThread() && (!this.v.isTiePlusCantDeleteUnion() || this.v.isSelf()))) {
-                this.r.add(new jr4(1, b0(R.string.obfuscated_res_0x7f0f04a8, new Object[0]), this.m));
+                this.r.add(new kr4(1, b0(R.string.obfuscated_res_0x7f0f04a7, new Object[0]), this.m));
             }
             if (this.v.isWorksInfo() || this.v.isScoreThread() || (bd6.g() && !this.v.isBjh() && (this.v.getAuthor() == null || !this.v.getAuthor().isForumBusinessAccount() || this.v.isSelf() || oe6.isOn()))) {
-                this.r.add(new jr4(9, b0(R.string.obfuscated_res_0x7f0f06af, new Object[0]), this.m));
+                this.r.add(new kr4(9, b0(R.string.obfuscated_res_0x7f0f06ab, new Object[0]), this.m));
             }
             if (!UtilHelper.isCurrentAccount(this.v.getAuthor() != null ? this.v.getAuthor().getUserId() : "") && ((this.v.getAuthor() == null || !this.v.getAuthor().isForumBusinessAccount()) && !this.v.isTiePlusCantDeleteUnion())) {
-                this.r.add(new jr4(2, b0(R.string.obfuscated_res_0x7f0f13db, new Object[0]), this.m));
+                this.r.add(new kr4(2, b0(R.string.obfuscated_res_0x7f0f138a, new Object[0]), this.m));
             }
         }
         if (bd6.e() || bd6.f()) {
-            this.r.add(new jr4(3, b0(this.v.getIs_top() == 1 ? R.string.obfuscated_res_0x7f0f0376 : R.string.obfuscated_res_0x7f0f1445, new Object[0]), this.m));
+            this.r.add(new kr4(3, b0(this.v.getIs_top() == 1 ? R.string.obfuscated_res_0x7f0f0376 : R.string.obfuscated_res_0x7f0f13f4, new Object[0]), this.m));
         }
         if (bd6.e() || bd6.h()) {
-            this.r.add(new jr4(4, b0(this.v.getIs_good() == 1 ? R.string.obfuscated_res_0x7f0f0370 : R.string.obfuscated_res_0x7f0f0405, new Object[0]), this.m));
+            this.r.add(new kr4(4, b0(this.v.getIs_good() == 1 ? R.string.obfuscated_res_0x7f0f0370 : R.string.obfuscated_res_0x7f0f0404, new Object[0]), this.m));
         }
         if (bd6.e()) {
-            this.r.add(new jr4(6, b0(R.string.obfuscated_res_0x7f0f0739, new Object[0]), this.m));
+            this.r.add(new kr4(6, b0(R.string.obfuscated_res_0x7f0f0735, new Object[0]), this.m));
         }
         if (bd6.e() || bd6.f()) {
-            this.r.add(new jr4(8, b0(R.string.obfuscated_res_0x7f0f06d2, new Object[0]), this.m));
+            this.r.add(new kr4(8, b0(R.string.obfuscated_res_0x7f0f06ce, new Object[0]), this.m));
         }
         if (bd6.e() && this.x) {
-            this.r.add(new jr4(7, b0(R.string.obfuscated_res_0x7f0f0721, new Object[0]), this.m));
+            this.r.add(new kr4(7, b0(R.string.obfuscated_res_0x7f0f071d, new Object[0]), this.m));
         }
         if (!bd6.f() && tc6.f().j() && this.x && ((this.v.getAuthor() == null || !this.v.getAuthor().isForumBusinessAccount() || this.v.isSelf() || oe6.isOn()) && !bd6.g())) {
-            this.r.add(new jr4(5, b0(R.string.obfuscated_res_0x7f0f0b13, new Object[0]), this.m));
+            this.r.add(new kr4(5, b0(R.string.obfuscated_res_0x7f0f0aff, new Object[0]), this.m));
         }
         if (bd6.g() && !bd6.f() && tc6.f().j() && this.x && (this.v.getAuthor() == null || !this.v.getAuthor().isForumBusinessAccount() || this.v.isSelf() || oe6.isOn())) {
-            this.r.add(new jr4(10, b0(R.string.obfuscated_res_0x7f0f0b16, new Object[0]), this.m));
+            this.r.add(new kr4(10, b0(R.string.obfuscated_res_0x7f0f0b02, new Object[0]), this.m));
         }
         if (bd6.g() && this.v.isSelf() && !this.v.isBjh()) {
-            this.r.add(new jr4(1, b0(R.string.obfuscated_res_0x7f0f049f, new Object[0]), this.m));
+            this.r.add(new kr4(1, b0(R.string.obfuscated_res_0x7f0f049e, new Object[0]), this.m));
         }
         this.m.j(this.r);
     }
@@ -762,28 +762,28 @@ public class ky5 extends lr4 {
                 boolean z = true;
                 if (i2 == 2) {
                     threadData.setIs_good(1);
-                    oo4 oo4Var = new oo4();
-                    oo4Var.a = 2;
-                    oo4Var.b = this.v.getTid();
+                    po4 po4Var = new po4();
+                    po4Var.a = 2;
+                    po4Var.b = this.v.getTid();
                     if (bd6.e()) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921469, oo4Var));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921469, po4Var));
                     } else {
-                        str = c0(gVar.b, R.string.obfuscated_res_0x7f0f1121);
+                        str = c0(gVar.b, R.string.obfuscated_res_0x7f0f10dd);
                         z = false;
                     }
                 } else {
                     if (i2 == 3) {
                         threadData.setIs_good(0);
-                        str = c0(gVar.b, R.string.obfuscated_res_0x7f0f0cf3);
+                        str = c0(gVar.b, R.string.obfuscated_res_0x7f0f0cdf);
                     } else if (i2 == 4) {
                         threadData.setIs_top(1);
-                        oo4 oo4Var2 = new oo4();
-                        oo4Var2.a = 1;
-                        oo4Var2.b = this.v.getTid();
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921469, oo4Var2));
+                        po4 po4Var2 = new po4();
+                        po4Var2.a = 1;
+                        po4Var2.b = this.v.getTid();
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921469, po4Var2));
                     } else if (i2 == 5) {
                         threadData.setIs_top(0);
-                        str = c0(gVar.b, R.string.obfuscated_res_0x7f0f0cf3);
+                        str = c0(gVar.b, R.string.obfuscated_res_0x7f0f0cdf);
                     }
                     z = false;
                 }
@@ -794,7 +794,7 @@ public class ky5 extends lr4 {
                 eVar.d = i2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921316, eVar));
                 if (TextUtils.isEmpty(str)) {
-                    str = b0(R.string.obfuscated_res_0x7f0f0cf3, new Object[0]);
+                    str = b0(R.string.obfuscated_res_0x7f0f0cdf, new Object[0]);
                 }
                 if (z) {
                     return;
@@ -805,7 +805,7 @@ public class ky5 extends lr4 {
             if (gVar != null && !TextUtils.isEmpty(gVar.b)) {
                 b0 = gVar.b;
             } else {
-                b0 = b0(R.string.obfuscated_res_0x7f0f0cf2, new Object[0]);
+                b0 = b0(R.string.obfuscated_res_0x7f0f0cde, new Object[0]);
             }
             pi.O(this.l, b0);
         }
@@ -854,13 +854,13 @@ public class ky5 extends lr4 {
     public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            nr4 nr4Var = this.m;
-            if (nr4Var != null) {
-                nr4Var.i();
+            or4 or4Var = this.m;
+            if (or4Var != null) {
+                or4Var.i();
             }
-            cr4 cr4Var = this.p;
-            if (cr4Var != null) {
-                ga5.a(this.k, cr4Var.getRealView());
+            dr4 dr4Var = this.p;
+            if (dr4Var != null) {
+                ha5.a(this.k, dr4Var.getRealView());
             }
         }
     }
@@ -875,7 +875,7 @@ public class ky5 extends lr4 {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921465));
         } else if (b2.total_recommend_num.intValue() == b2.used_recommend_num.intValue()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921465));
-        } else if (xt4.k().h("key_frs_recommend_tip", true)) {
+        } else if (yt4.k().h("key_frs_recommend_tip", true)) {
             uc6.c().f(this.k, String.valueOf(this.v.getFid()), this.v.getId());
         } else {
             uc6.c().d(String.valueOf(this.v.getFid()), this.v.getId());
@@ -897,11 +897,11 @@ public class ky5 extends lr4 {
             if (this.k == null) {
                 return;
             }
-            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f1189, TBAlertConfig.OperateBtnStyle.MAIN);
+            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f1138, TBAlertConfig.OperateBtnStyle.MAIN);
             TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f036a, TBAlertConfig.OperateBtnStyle.SECONDARY);
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.k.getPageActivity());
-            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0b1b);
-            tBAlertBuilder.l(R.string.obfuscated_res_0x7f0f0b1c);
+            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0b07);
+            tBAlertBuilder.l(R.string.obfuscated_res_0x7f0f0b08);
             tBAlertBuilder.n(true);
             tBAlertBuilder.r(aVar2, aVar);
             tBAlertBuilder.i(false);
@@ -924,11 +924,11 @@ public class ky5 extends lr4 {
             if (this.k == null) {
                 return;
             }
-            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f049f, TBAlertConfig.OperateBtnStyle.MAIN);
+            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f049e, TBAlertConfig.OperateBtnStyle.MAIN);
             TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f036a, TBAlertConfig.OperateBtnStyle.SECONDARY);
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.k.getPageActivity());
-            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0498);
-            tBAlertBuilder.l(R.string.obfuscated_res_0x7f0f0499);
+            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0497);
+            tBAlertBuilder.l(R.string.obfuscated_res_0x7f0f0498);
             tBAlertBuilder.n(true);
             tBAlertBuilder.r(aVar2, aVar);
             tBAlertBuilder.i(false);
@@ -938,36 +938,36 @@ public class ky5 extends lr4 {
         }
     }
 
-    public final void j0(ArrayList<ap4> arrayList) {
+    public final void j0(ArrayList<bp4> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, arrayList) == null) {
             if (this.q == null) {
                 View inflate = LayoutInflater.from(this.l).inflate(R.layout.obfuscated_res_0x7f0d01e1, (ViewGroup) null);
-                Dialog dialog = new Dialog(this.l, R.style.obfuscated_res_0x7f1003a0);
+                Dialog dialog = new Dialog(this.l, R.style.obfuscated_res_0x7f1003a3);
                 this.q = dialog;
                 dialog.setCanceledOnTouchOutside(true);
                 this.q.setCancelable(true);
                 this.q.setContentView(inflate);
                 WindowManager.LayoutParams attributes = this.q.getWindow().getAttributes();
-                attributes.width = pi.f(this.l, R.dimen.obfuscated_res_0x7f0702dd);
+                attributes.width = pi.f(this.l, R.dimen.obfuscated_res_0x7f0702db);
                 this.q.getWindow().setAttributes(attributes);
-                inflate.findViewById(R.id.obfuscated_res_0x7f090775).setOnClickListener(new e(this));
-                inflate.findViewById(R.id.obfuscated_res_0x7f090776).setOnClickListener(new f(this));
+                inflate.findViewById(R.id.obfuscated_res_0x7f090774).setOnClickListener(new e(this));
+                inflate.findViewById(R.id.obfuscated_res_0x7f090775).setOnClickListener(new f(this));
             }
-            ga5.a(this.k, this.q.findViewById(R.id.obfuscated_res_0x7f09065d));
-            LinearLayout linearLayout = (LinearLayout) this.q.findViewById(R.id.obfuscated_res_0x7f090c88);
+            ha5.a(this.k, this.q.findViewById(R.id.obfuscated_res_0x7f09065c));
+            LinearLayout linearLayout = (LinearLayout) this.q.findViewById(R.id.obfuscated_res_0x7f090c81);
             linearLayout.removeAllViews();
             this.u = new ArrayList();
-            BlueCheckRadioButton S = S(this.s, b0(R.string.obfuscated_res_0x7f0f13dc, new Object[0]));
+            BlueCheckRadioButton S = S(this.s, b0(R.string.obfuscated_res_0x7f0f138b, new Object[0]));
             S.setChecked(true);
             linearLayout.addView(S);
             this.u.add(S);
             if (arrayList != null) {
                 int size = arrayList.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    ap4 ap4Var = arrayList.get(i2);
-                    if (ap4Var != null && !TextUtils.isEmpty(ap4Var.b()) && ap4Var.a() > 0) {
-                        BlueCheckRadioButton S2 = S(String.valueOf(ap4Var.a()), ap4Var.b());
+                    bp4 bp4Var = arrayList.get(i2);
+                    if (bp4Var != null && !TextUtils.isEmpty(bp4Var.b()) && bp4Var.a() > 0) {
+                        BlueCheckRadioButton S2 = S(String.valueOf(bp4Var.a()), bp4Var.b());
                         this.u.add(S2);
                         View view2 = new View(this.l);
                         view2.setLayoutParams(new LinearLayout.LayoutParams(-1, pi.f(this.l, R.dimen.obfuscated_res_0x7f070198)));
@@ -976,7 +976,7 @@ public class ky5 extends lr4 {
                         SkinManager.setBackgroundColor(view2, R.color.CAM_X0204);
                     }
                 }
-                ScrollView scrollView = (ScrollView) this.q.findViewById(R.id.obfuscated_res_0x7f090c89);
+                ScrollView scrollView = (ScrollView) this.q.findViewById(R.id.obfuscated_res_0x7f090c82);
                 ViewGroup.LayoutParams layoutParams = scrollView.getLayoutParams();
                 int size2 = arrayList.size();
                 if (size2 == 0 || size2 == 1) {

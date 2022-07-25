@@ -1,11 +1,7 @@
 package com.repackage;
-
-import android.view.View;
 /* loaded from: classes7.dex */
 public interface yu4 {
-    void a(View view2);
+    boolean getIsLike();
 
-    void b(View.OnClickListener onClickListener);
-
-    void c(boolean z);
+    void setIsLike(boolean z);
 }

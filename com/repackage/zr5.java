@@ -370,18 +370,18 @@ public class zr5 extends ur5 {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f = LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0792, (ViewGroup) null);
+            this.f = LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d079c, (ViewGroup) null);
             this.f.setLayoutParams(new FrameLayout.LayoutParams(this.a, this.b));
-            TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) this.f.findViewById(R.id.obfuscated_res_0x7f092407);
+            TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) this.f.findViewById(R.id.obfuscated_res_0x7f092409);
             this.g = tbVideoViewContainer;
             tbVideoViewContainer.getControl().setOperableVideoContainer(this.p);
             this.g.getControl().setStageType(null);
-            this.h = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0923cb);
-            TbImageView tbImageView = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09238f);
+            this.h = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0923cd);
+            TbImageView tbImageView = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f092391);
             this.i = tbImageView;
             tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             this.i.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.j = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0923fd);
+            this.j = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0923ff);
             this.f.setOnClickListener(new b(this));
             i(TbadkCoreApplication.getInst().getSkinType());
         }

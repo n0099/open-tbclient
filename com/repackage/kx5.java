@@ -119,17 +119,17 @@ public abstract class kx5<T extends my5> extends jx5<T> {
     public final void s(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            this.i = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f4c);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f40);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f67);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f2c);
-            this.m = view2.findViewById(R.id.obfuscated_res_0x7f0907d5);
-            this.n = view2.findViewById(R.id.obfuscated_res_0x7f0907d2);
-            this.o = view2.findViewById(R.id.obfuscated_res_0x7f0907cf);
+            this.i = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f45);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f39);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f60);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f25);
+            this.m = view2.findViewById(R.id.obfuscated_res_0x7f0907d3);
+            this.n = view2.findViewById(R.id.obfuscated_res_0x7f0907d0);
+            this.o = view2.findViewById(R.id.obfuscated_res_0x7f0907cd);
             this.q = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904d1);
-            this.r = view2.findViewById(R.id.obfuscated_res_0x7f0907c3);
-            this.s = view2.findViewById(R.id.obfuscated_res_0x7f0907c4);
-            this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f66);
+            this.r = view2.findViewById(R.id.obfuscated_res_0x7f0907c1);
+            this.s = view2.findViewById(R.id.obfuscated_res_0x7f0907c2);
+            this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f5f);
         }
     }
 

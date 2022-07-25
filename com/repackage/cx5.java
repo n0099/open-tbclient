@@ -1,13 +1,13 @@
 package com.repackage;
 /* loaded from: classes5.dex */
 public interface cx5 {
-    int b();
+    int a();
+
+    void b(int i);
 
     void c(int i);
 
-    void d(int i);
-
-    float e();
+    float d();
 
     float getRatio();
 

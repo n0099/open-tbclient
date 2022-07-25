@@ -182,10 +182,10 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.X.isEmpty()) {
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(getPageContext().getPageActivity());
-            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0788);
+            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0784);
             tBAlertBuilder.l(R.string.obfuscated_res_0x7f0f036f);
             tBAlertBuilder.n(true);
-            tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04e0, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0f57, TBAlertConfig.OperateBtnStyle.MAIN, new c(this)));
+            tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04dc, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0f40, TBAlertConfig.OperateBtnStyle.MAIN, new c(this)));
             tBAlertBuilder.g();
             tBAlertBuilder.i(false);
             tBAlertBuilder.w();

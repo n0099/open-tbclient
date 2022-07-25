@@ -19,11 +19,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class a extends com.kwad.components.core.h.c {
+public abstract class a extends com.kwad.components.core.i.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecyclerView a;
-    public d b;
+    public d Go;
+    public RecyclerView kG;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -39,49 +39,49 @@ public abstract class a extends com.kwad.components.core.h.c {
         }
     }
 
-    private View a(LayoutInflater layoutInflater, ViewGroup viewGroup) {
+    private View b(LayoutInflater layoutInflater, ViewGroup viewGroup) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, layoutInflater, viewGroup)) == null) ? layoutInflater.inflate(b(), viewGroup, false) : (View) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, layoutInflater, viewGroup)) == null) ? layoutInflater.inflate(nw(), viewGroup, false) : (View) invokeLL.objValue;
     }
 
-    private void d() {
+    private void nO() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.a.setItemAnimator(null);
-            this.a.setLayoutManager(f());
-            this.b = a(this.a);
+            this.kG.setItemAnimator(null);
+            this.kG.setLayoutManager(nR());
+            this.Go = a(this.kG);
         }
     }
 
-    private void e() {
+    private void nP() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.a.setAdapter(this.b);
+            this.kG.setAdapter(this.Go);
         }
     }
 
-    private RecyclerView.LayoutManager f() {
+    private RecyclerView.LayoutManager nR() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? new LinearLayoutManager(getContext()) : (RecyclerView.LayoutManager) invokeV.objValue;
     }
 
-    public static int g() {
+    public static int nS() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? R.id.obfuscated_res_0x7f0910d3 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? R.id.obfuscated_res_0x7f0910c7 : invokeV.intValue;
     }
 
     public abstract d a(RecyclerView recyclerView);
 
-    public abstract int b();
-
-    public final RecyclerView c() {
+    public final RecyclerView nQ() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (RecyclerView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.kG : (RecyclerView) invokeV.objValue;
     }
+
+    public abstract int nw();
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onActivityResult(int i, int i2, Intent intent) {
@@ -105,14 +105,14 @@ public abstract class a extends com.kwad.components.core.h.c {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            View a = a(layoutInflater, viewGroup);
-            this.a = (RecyclerView) a.findViewById(g());
-            return a;
+            View b = b(layoutInflater, viewGroup);
+            this.kG = (RecyclerView) b.findViewById(nS());
+            return b;
         }
         return (View) invokeLLL.objValue;
     }
 
-    @Override // com.kwad.components.core.h.c, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    @Override // com.kwad.components.core.i.c, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -125,7 +125,7 @@ public abstract class a extends com.kwad.components.core.h.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroyView();
-            this.a.clearOnChildAttachStateChangeListeners();
+            this.kG.clearOnChildAttachStateChangeListeners();
         }
     }
 
@@ -150,8 +150,8 @@ public abstract class a extends com.kwad.components.core.h.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            d();
-            e();
+            nO();
+            nP();
         }
     }
 }

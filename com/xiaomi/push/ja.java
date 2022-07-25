@@ -14,10 +14,10 @@ public class ja {
     public jf a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final jm f1520a;
+    public final jm f800a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final ByteArrayOutputStream f1521a;
+    public final ByteArrayOutputStream f801a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ja() {
@@ -53,9 +53,9 @@ public class ja {
             }
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        this.f1521a = byteArrayOutputStream;
+        this.f801a = byteArrayOutputStream;
         jm jmVar = new jm(byteArrayOutputStream);
-        this.f1520a = jmVar;
+        this.f800a = jmVar;
         this.a = jhVar.a(jmVar);
     }
 
@@ -63,9 +63,9 @@ public class ja {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iuVar)) == null) {
-            this.f1521a.reset();
+            this.f801a.reset();
             iuVar.b(this.a);
-            return this.f1521a.toByteArray();
+            return this.f801a.toByteArray();
         }
         return (byte[]) invokeL.objValue;
     }

@@ -86,7 +86,7 @@ public class zj5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             String f = f(i);
-            return (!oi.isEmpty(f) && xt4.k().l(f, 0) == 1) ? 1 : 0;
+            return (!oi.isEmpty(f) && yt4.k().l(f, 0) == 1) ? 1 : 0;
         }
         return invokeI.intValue;
     }
@@ -153,7 +153,7 @@ public class zj5 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a = xt4.k().l("key_abtest_channel", 0);
+            this.a = yt4.k().l("key_abtest_channel", 0);
             j();
         }
     }
@@ -175,7 +175,7 @@ public class zj5 {
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             if (i == 1 || i == 0) {
                 this.a = i;
-                xt4.k().w("key_abtest_channel", this.a);
+                yt4.k().w("key_abtest_channel", this.a);
                 j();
             }
         }

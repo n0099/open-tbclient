@@ -1,7 +1,7 @@
 package com.repackage;
-/* loaded from: classes7.dex */
-public interface tt2 {
-    void b(long j);
 
-    void c(long j);
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public interface tt2 extends ut2 {
+    void b(JSONObject jSONObject);
 }

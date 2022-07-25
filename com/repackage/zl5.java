@@ -24,12 +24,12 @@ public class zl5 extends dc1<mh0> {
 
         /* renamed from: com.repackage.zl5$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0788a implements oh0 {
+        public class C0636a implements oh0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a f;
 
-            public C0788a(a aVar) {
+            public C0636a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -208,7 +208,7 @@ public class zl5 extends dc1<mh0> {
         public oh0 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C0788a(this) : (oh0) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C0636a(this) : (oh0) invokeV.objValue;
         }
     }
 
@@ -241,7 +241,7 @@ public class zl5 extends dc1<mh0> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String str = "";
-            String q = xt4.k().q("key_last_cached_real_oid", "");
+            String q = yt4.k().q("key_last_cached_real_oid", "");
             if (StringUtils.isNull(q)) {
                 String k = am5.h().k();
                 if (StringUtils.isNull(k)) {
@@ -259,7 +259,7 @@ public class zl5 extends dc1<mh0> {
                         e.printStackTrace();
                     }
                     if (!StringUtils.isNull(str)) {
-                        xt4.k().y("key_last_cached_real_oid", str);
+                        yt4.k().y("key_last_cached_real_oid", str);
                     }
                 }
                 return str;

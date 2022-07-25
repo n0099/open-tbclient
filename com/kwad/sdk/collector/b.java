@@ -31,20 +31,20 @@ public final class b {
                 }
                 jArr[i] = ((AnalyseTaskNative) aVar).getNativePtr();
             }
-            if (d.a()) {
+            if (d.rr()) {
                 try {
                     long[] analysis = AppStatusNative.analysis(jArr, file.getAbsolutePath() + "/");
                     StringBuilder sb = new StringBuilder("analysisByFile: runningInfoPtrs: ");
                     sb.append(analysis);
-                    com.kwad.sdk.core.d.b.a("AppStatusAnalyserNative", sb.toString());
+                    com.kwad.sdk.core.e.b.d("AppStatusAnalyserNative", sb.toString());
                     for (long j : analysis) {
                         arrayList.add(new AppRunningInfoNative(j));
                     }
                 } catch (Throwable th) {
-                    com.kwad.sdk.core.d.b.b(th);
+                    com.kwad.sdk.core.e.b.printStackTraceOnly(th);
                 }
             }
-            com.kwad.sdk.core.d.b.a("AppStatusAnalyserNative", "analysisByFile: info size: " + arrayList.size());
+            com.kwad.sdk.core.e.b.d("AppStatusAnalyserNative", "analysisByFile: info size: " + arrayList.size());
             return arrayList;
         }
 
@@ -59,20 +59,20 @@ public final class b {
                 }
             }
             ArrayList arrayList = new ArrayList();
-            if (d.a()) {
+            if (d.rr()) {
                 try {
                     for (long j2 : AppStatusNative.nativeGetUploadEntry(jArr, j, str)) {
                         arrayList.add(new UploadEntryNative(j2));
                     }
                 } catch (Throwable th) {
-                    com.kwad.sdk.core.d.b.b(th);
+                    com.kwad.sdk.core.e.b.printStackTraceOnly(th);
                 }
             }
             return arrayList;
         }
     }
 
-    public static com.kwad.sdk.collector.a a() {
+    public static com.kwad.sdk.collector.a rp() {
         return new a();
     }
 }

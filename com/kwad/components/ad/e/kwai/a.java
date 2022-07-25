@@ -11,8 +11,8 @@ import com.kwad.sdk.mvp.Presenter;
 public class a extends Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public g b;
+    public b jL;
+    public g mVideoPlayStateListener;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -29,20 +29,20 @@ public class a extends Presenter {
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public void a() {
+    public void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            this.a = (b) t();
+            super.aq();
+            this.jL = (b) xR();
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public void k_() {
+    public void onUnbind() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.k_();
-            this.a.f.b(this.b);
+            super.onUnbind();
+            this.jL.jM.b(this.mVideoPlayStateListener);
         }
     }
 }

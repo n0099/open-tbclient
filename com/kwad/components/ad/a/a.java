@@ -5,9 +5,9 @@ import com.kwad.sdk.api.KsExitInstallListener;
 import com.kwad.sdk.api.KsScene;
 /* loaded from: classes5.dex */
 public interface a extends com.kwad.sdk.components.a {
-    String a(KsScene ksScene);
+    String getBidRequestToken(KsScene ksScene);
 
-    boolean a(Activity activity, KsExitInstallListener ksExitInstallListener);
+    String getBidRequestTokenV2(KsScene ksScene);
 
-    String b(KsScene ksScene);
+    boolean showInstallDialog(Activity activity, KsExitInstallListener ksExitInstallListener);
 }

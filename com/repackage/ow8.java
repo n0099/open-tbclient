@@ -325,7 +325,7 @@ public class ow8 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.b instanceof TbPageContextSupport)) {
             this.a = new BottomSheetDialog(this.b, R.style.obfuscated_res_0x7f1000f9);
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d08e1, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d08eb, (ViewGroup) null);
             this.i = linearLayout;
             this.j = linearLayout.findViewById(R.id.obfuscated_res_0x7f092539);
             this.k = (LinearLayout) this.i.findViewById(R.id.obfuscated_res_0x7f092525);
@@ -356,15 +356,15 @@ public class ow8 {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.a == null || i == this.t) {
             return;
         }
-        ur4 d2 = ur4.d(this.i);
+        vr4 d2 = vr4.d(this.i);
         d2.m(1);
         d2.n(R.string.J_X14);
         d2.f(R.color.CAM_X0211);
-        ur4 d3 = ur4.d(this.j);
+        vr4 d3 = vr4.d(this.j);
         d3.m(0);
         d3.n(R.string.J_X03);
         d3.f(R.color.CAM_X1112);
-        ur4 d4 = ur4.d(this.k);
+        vr4 d4 = vr4.d(this.k);
         d4.m(0);
         d4.n(R.string.J_X06);
         d4.f(R.color.CAM_X0206);

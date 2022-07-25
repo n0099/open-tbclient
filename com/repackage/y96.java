@@ -67,8 +67,8 @@ public class y96 extends an<da6, ForumEmotionViewHolder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, da6Var, forumEmotionViewHolder})) == null) {
-            forumEmotionViewHolder.n(da6Var, this.j, this.k, i);
-            return forumEmotionViewHolder.b();
+            forumEmotionViewHolder.m(da6Var, this.j, this.k, i);
+            return forumEmotionViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

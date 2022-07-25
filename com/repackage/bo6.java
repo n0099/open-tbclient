@@ -92,15 +92,15 @@ public class bo6 {
         }
         this.a = frsSportsRecommendFragment.getPageContext();
         BdUniqueId uniqueId = frsSportsRecommendFragment.getUniqueId();
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f090ba6);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bae);
-        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ba7);
-        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090bac);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ba8);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bad);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bab);
-        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090baa);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ba9);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f090b9f);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ba7);
+        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ba0);
+        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ba5);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ba1);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ba6);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ba4);
+        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ba3);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ba2);
         this.d.setPageId(uniqueId);
         this.e.setPageId(uniqueId);
     }
@@ -125,7 +125,7 @@ public class bo6 {
             if (sportScheduleInfo == null) {
                 this.b.setVisibility(8);
                 this.c.setVisibility(0);
-                this.c.setText(R.string.obfuscated_res_0x7f0f0746);
+                this.c.setText(R.string.obfuscated_res_0x7f0f0742);
                 return;
             }
             this.b.setVisibility(0);

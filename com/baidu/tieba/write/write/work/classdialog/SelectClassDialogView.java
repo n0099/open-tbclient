@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ia5;
 import com.repackage.ih5;
+import com.repackage.ja5;
 import com.repackage.qh5;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class SelectClassDialogView extends ViewGroup implements ia5 {
+public class SelectClassDialogView extends ViewGroup implements ja5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
@@ -49,7 +49,7 @@ public class SelectClassDialogView extends ViewGroup implements ia5 {
         a(context);
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean J0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class SelectClassDialogView extends ViewGroup implements ia5 {
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class SelectClassDialogView extends ViewGroup implements ia5 {
         return (Intent) invokeV.objValue;
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public void n(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -106,7 +106,7 @@ public class SelectClassDialogView extends ViewGroup implements ia5 {
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -68,8 +68,8 @@ public class g96 extends PopupWindow {
         public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                yk4 item = this.a.d.getItem(i);
-                if ((item instanceof yk4) && this.a.f != null) {
+                zk4 item = this.a.d.getItem(i);
+                if ((item instanceof zk4) && this.a.f != null) {
                     this.a.f.a(i, item);
                 }
                 this.a.h();
@@ -159,7 +159,7 @@ public class g96 extends PopupWindow {
 
     /* loaded from: classes6.dex */
     public interface d {
-        void a(int i, yk4 yk4Var);
+        void a(int i, zk4 zk4Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -183,7 +183,7 @@ public class g96 extends PopupWindow {
         this.a = context;
         setWidth(-1);
         setHeight(-1);
-        setContentView(e(new ArrayList(), yk4.f));
+        setContentView(e(new ArrayList(), zk4.f));
         setFocusable(true);
         setTouchable(true);
         setOutsideTouchable(true);
@@ -191,15 +191,15 @@ public class g96 extends PopupWindow {
         setBackgroundDrawable(new ColorDrawable(0));
     }
 
-    public final int d(List<yk4> list, String str) {
+    public final int d(List<zk4> list, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, str)) == null) {
             if (list != null && list.size() != 0 && !TextUtils.isEmpty(str)) {
                 int size = list.size();
                 for (int i = 0; i < size; i++) {
-                    yk4 yk4Var = list.get(i);
-                    if (yk4Var != null && str.equals(yk4Var.b())) {
+                    zk4 zk4Var = list.get(i);
+                    if (zk4Var != null && str.equals(zk4Var.b())) {
                         return i;
                     }
                 }
@@ -218,7 +218,7 @@ public class g96 extends PopupWindow {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public final View e(List<yk4> list, String str) {
+    public final View e(List<zk4> list, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, str)) == null) {
@@ -275,13 +275,13 @@ public class g96 extends PopupWindow {
         }
     }
 
-    public void i(List<yk4> list, String str) {
+    public void i(List<zk4> list, String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048582, this, list, str) == null) || list == null) {
             return;
         }
         this.e = d(list, str);
-        int dimensionPixelSize = list.size() > 5 ? this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ea) : -2;
+        int dimensionPixelSize = list.size() > 5 ? this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702e8) : -2;
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new FrameLayout.LayoutParams(-1, dimensionPixelSize);

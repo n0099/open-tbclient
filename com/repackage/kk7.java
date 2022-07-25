@@ -45,13 +45,13 @@ public class kk7 {
             }
         }
         this.b = baseActivity;
-        this.d = baseActivity.findViewById(R.id.obfuscated_res_0x7f091f6a);
-        this.a = (BdListView) baseActivity.findViewById(R.id.obfuscated_res_0x7f091f66);
-        NavigationBar navigationBar = (NavigationBar) baseActivity.findViewById(R.id.obfuscated_res_0x7f091f67);
+        this.d = baseActivity.findViewById(R.id.obfuscated_res_0x7f091f6e);
+        this.a = (BdListView) baseActivity.findViewById(R.id.obfuscated_res_0x7f091f6a);
+        NavigationBar navigationBar = (NavigationBar) baseActivity.findViewById(R.id.obfuscated_res_0x7f091f6b);
         this.c = navigationBar;
-        navigationBar.setCenterTextTitle(baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f1375));
+        navigationBar.setCenterTextTitle(baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f1324));
         this.f = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.b.getString(R.string.obfuscated_res_0x7f0f036a), onClickListener);
-        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f051e), onClickListener);
+        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f051a), onClickListener);
         this.g = addTextButton;
         addTextButton.setGravity(17);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f.getLayoutParams();
@@ -62,7 +62,7 @@ public class kk7 {
         this.g.setLayoutParams(layoutParams2);
         int f = pi.f(this.b, R.dimen.tbds27);
         this.g.setPadding(f, 0, f, 0);
-        this.e = (NoNetworkView) baseActivity.findViewById(R.id.obfuscated_res_0x7f091f73);
+        this.e = (NoNetworkView) baseActivity.findViewById(R.id.obfuscated_res_0x7f091f77);
         View view2 = new View(baseActivity.getPageContext().getPageActivity());
         view2.setLayoutParams(new AbsListView.LayoutParams(-1, (int) baseActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070266)));
         View view3 = new View(baseActivity.getPageContext().getPageActivity());
@@ -107,10 +107,10 @@ public class kk7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z) {
-                this.g.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f04ef));
+                this.g.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f04eb));
                 return;
             }
-            this.g.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f051e));
+            this.g.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f051a));
             this.g.setEnabled(!z2);
         }
     }

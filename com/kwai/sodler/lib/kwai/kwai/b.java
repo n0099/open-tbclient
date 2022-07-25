@@ -19,10 +19,10 @@ import java.util.List;
 public final class b extends BaseDexClassLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ClassLoader a;
-    public final List<String> b;
-    public final List<String> c;
-    public final ClassLoader d;
+    public ClassLoader axD;
+    public final List<String> axE;
+    public final List<String> axF;
+    public final ClassLoader axG;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(ClassLoader classLoader, String str, @Nullable File file, String str2, List<String> list, List<String> list2) {
@@ -43,16 +43,16 @@ public final class b extends BaseDexClassLoader {
                 return;
             }
         }
-        this.d = classLoader;
-        this.b = list;
-        this.c = list2;
+        this.axG = classLoader;
+        this.axE = list;
+        this.axF = list2;
         while (true) {
-            this.a = classLoader;
-            if (this.a.getParent() == null) {
-                Log.i(PluginClassLoader.TAG, "mParent is " + this.a.getClass().getName());
+            this.axD = classLoader;
+            if (this.axD.getParent() == null) {
+                Log.i(PluginClassLoader.TAG, "mParent is " + this.axD.getClass().getName());
                 return;
             }
-            classLoader = this.a.getParent();
+            classLoader = this.axD.getParent();
         }
     }
 
@@ -62,11 +62,11 @@ public final class b extends BaseDexClassLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             String findLibrary = super.findLibrary(str);
-            if (TextUtils.isEmpty(findLibrary) && (this.d instanceof BaseDexClassLoader)) {
+            if (TextUtils.isEmpty(findLibrary) && (this.axG instanceof BaseDexClassLoader)) {
                 StringBuilder sb = new StringBuilder("load so ");
                 sb.append(str);
                 sb.append(" from parent");
-                return ((BaseDexClassLoader) this.d).findLibrary(str);
+                return ((BaseDexClassLoader) this.axG).findLibrary(str);
             }
             return findLibrary;
         }
@@ -78,12 +78,12 @@ public final class b extends BaseDexClassLoader {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
-            List<String> list = this.b;
+            List<String> list = this.axE;
             if (list != null && list.contains(str)) {
                 Log.i(PluginClassLoader.TAG, "loadClass " + str + " from host by interface");
                 return super.loadClass(str, z);
             }
-            List<String> list2 = this.c;
+            List<String> list2 = this.axF;
             if (list2 != null) {
                 Iterator<String> it = list2.iterator();
                 while (it.hasNext()) {

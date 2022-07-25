@@ -32,24 +32,24 @@ public class g extends com.kwai.sodler.lib.a.a {
         }
     }
 
-    public static void a(File file) {
+    public static void af(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, file) == null) {
             if (!file.exists()) {
-                a.b("Sodler.simple.package", "Apk file not exist.");
+                a.w("Sodler.simple.package", "Apk file not exist.");
                 throw new PluginError.LoadError("Apk file not exist.", 4001);
             } else if (file.getAbsolutePath().trim().startsWith("/data/")) {
             } else {
-                a.b("Sodler.simple.package", "Apk file seems to locate in external path (not executable), path = " + file.getAbsolutePath());
+                a.w("Sodler.simple.package", "Apk file seems to locate in external path (not executable), path = " + file.getAbsolutePath());
             }
         }
     }
 
     @Override // com.kwai.sodler.lib.a.a
-    public void a(Context context, String str) {
+    public void ad(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
-            a(new File(str));
+            af(new File(str));
         }
     }
 }

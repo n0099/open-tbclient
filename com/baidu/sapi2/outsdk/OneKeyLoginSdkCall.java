@@ -113,7 +113,7 @@ public class OneKeyLoginSdkCall {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sapiConfiguration, tokenListener) == null) {
             try {
                 try {
-                    ge1.c().i(sapiConfiguration.context, 15000L, new ge1.a(this, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
+                    ge1.d().j(sapiConfiguration.context, 15000L, new ge1.a(this, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -251,10 +251,10 @@ public class OneKeyLoginSdkCall {
         if (interceptable == null || interceptable.invokeLL(1048581, this, sapiConfiguration, tokenListener) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             OneKeyLoginStat.OauthToken.statExtMap.put("netType", SapiUtils.getNetworkClass(sapiConfiguration.context));
-            OneKeyLoginStat.OauthToken.statExtMap.put("operator", ge1.c().b(sapiConfiguration.context));
+            OneKeyLoginStat.OauthToken.statExtMap.put("operator", ge1.d().c(sapiConfiguration.context));
             try {
                 try {
-                    ge1.c().f(sapiConfiguration.context, 15000L, new ge1.a(this, currentTimeMillis, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
+                    ge1.d().g(sapiConfiguration.context, 15000L, new ge1.a(this, currentTimeMillis, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -376,8 +376,9 @@ public class OneKeyLoginSdkCall {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, sapiConfiguration) == null) {
             try {
-                ge1.c().d(sapiConfiguration.context, oneKeyLoginAppKey, oneKeyLoginAppSecret);
-                ge1.c().h(sapiConfiguration.context, sapiConfiguration.isAgreeDangerousProtocol());
+                ge1.d().e(sapiConfiguration.context, oneKeyLoginAppKey, oneKeyLoginAppSecret);
+                ge1.d().b(sapiConfiguration.debug);
+                ge1.d().i(sapiConfiguration.context, sapiConfiguration.isAgreeDangerousProtocol());
             } catch (NoClassDefFoundError unused) {
                 Log.e(TAG, "please import the package : onekey_login_ssolibrary-*.aar");
             }
@@ -490,15 +491,15 @@ public class OneKeyLoginSdkCall {
             }
             String networkClass = SapiUtils.getNetworkClass(context);
             OneKeyLoginStat.PreGetPhoneStat.statExtMap.put("netType", networkClass);
-            String b = ge1.c().b(context);
-            OneKeyLoginStat.PreGetPhoneStat.statExtMap.put("operator", b);
+            String c = ge1.d().c(context);
+            OneKeyLoginStat.PreGetPhoneStat.statExtMap.put("operator", c);
             try {
-                if (TextUtils.equals(b, OPERATOR_CHINA_MOBILE) || TextUtils.equals(b, OPERATOR_CHINA_UNICOM) || TextUtils.equals(b, OPERATOR_CHINA_TELECOM)) {
-                    if (!isMeetOneKeyLoginGray(b)) {
+                if (TextUtils.equals(c, OPERATOR_CHINA_MOBILE) || TextUtils.equals(c, OPERATOR_CHINA_UNICOM) || TextUtils.equals(c, OPERATOR_CHINA_TELECOM)) {
+                    if (!isMeetOneKeyLoginGray(c)) {
                         OneKeyLoginStat.PreGetPhoneStat.statExtMap.put(OneKeyLoginStat.PreGetPhoneStat.KEY_EXT_IS_GRAY, "0");
                         OneKeyLoginStat.PreGetPhoneStat.sValue = "0";
                         OneKeyLoginStat.PreGetPhoneStat.upload();
-                        Log.d(TAG, "未命中灰度，不请求预取号操作 operator=" + b);
+                        Log.d(TAG, "未命中灰度，不请求预取号操作 operator=" + c);
                         if (oneKeyLoginOptCallback != null) {
                             OneKeyLoginOptResult oneKeyLoginOptResult3 = new OneKeyLoginOptResult();
                             oneKeyLoginOptResult3.setCode(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_NOT_MEET_GRAY);
@@ -510,7 +511,7 @@ public class OneKeyLoginSdkCall {
                     OneKeyLoginStat.PreGetPhoneStat.statExtMap.put("is_login", "0");
                     OneKeyLoginStat.PreGetPhoneStat.statExtMap.put(OneKeyLoginStat.PreGetPhoneStat.KEY_EXT_IS_GRAY, "1");
                     OneKeyLoginStat.PreGetPhoneStat.statExtMap.put(OneKeyLoginStat.PreGetPhoneStat.KEY_EXT_IS_ABLE_SIM, "1");
-                    ge1.c().g(context, i, new ge1.a(this, str, networkClass, currentTimeMillis, oneKeyLoginOptCallback) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
+                    ge1.d().h(context, i, new ge1.a(this, str, networkClass, currentTimeMillis, oneKeyLoginOptCallback) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -599,7 +600,7 @@ public class OneKeyLoginSdkCall {
                     });
                     return;
                 }
-                Log.d(TAG, "不能获取正确的运营商信息，请检查手机是否有sim卡，operator=" + b);
+                Log.d(TAG, "不能获取正确的运营商信息，请检查手机是否有sim卡，operator=" + c);
                 if (oneKeyLoginOptCallback != null) {
                     OneKeyLoginOptResult oneKeyLoginOptResult4 = new OneKeyLoginOptResult();
                     oneKeyLoginOptResult4.setCode(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_INVALID_OPERATOR);

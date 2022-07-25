@@ -37,6 +37,7 @@ public class TKPerformMsg extends BaseOfflineCompoJsonParse<TKPerformMsg> implem
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes5.dex */
     public @interface ERROR_REASON {
+        public static final String KSAD_TK_JS_EMPTY = "js_empty";
         public static final String KSAD_TK_NO_FILE = "no_file";
         public static final String KSAD_TK_NO_TEMPLATE = "no_template";
         public static final String KSAD_TK_OFFLINE_FAILED = "offline_failed";

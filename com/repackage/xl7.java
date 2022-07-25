@@ -80,7 +80,7 @@ public class xl7 {
                 if (list.isEmpty()) {
                     return;
                 }
-                xt4.k().y("collect_update_time_key", new JSONArray((Collection) list).toString());
+                yt4.k().y("collect_update_time_key", new JSONArray((Collection) list).toString());
                 xl7.b().g();
             }
         }
@@ -160,7 +160,7 @@ public class xl7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long m = xt4.k().m("collect_request_time_key", -1L);
+            long m = yt4.k().m("collect_request_time_key", -1L);
             if (m == -1) {
                 return true;
             }
@@ -174,7 +174,7 @@ public class xl7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String q = xt4.k().q("collect_update_time_key", null);
+            String q = yt4.k().q("collect_update_time_key", null);
             if (TextUtils.isEmpty(q)) {
                 return null;
             }
@@ -236,7 +236,7 @@ public class xl7 {
             if (this.a) {
                 z = false;
             }
-            xt4.k().u("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), z);
+            yt4.k().u("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), z);
         }
     }
 
@@ -268,7 +268,7 @@ public class xl7 {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            xt4.k().x("collect_request_time_key", System.currentTimeMillis());
+            yt4.k().x("collect_request_time_key", System.currentTimeMillis());
         }
     }
 }

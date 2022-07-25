@@ -26,6 +26,7 @@ public class RewardMonitorInfo extends com.kwad.sdk.core.response.kwai.a impleme
     public static final int LOAD_TYPE_NET = 1;
     public static final int PAGE_STATUS_ENTRY = 1;
     public static final int PAGE_STATUS_SHOW = 2;
+    public static final int PAGE_STATUS_SHOW_AD_CALL = 3;
     public static final int REWARD_TYPE_DEEP = 1;
     public static final int REWARD_TYPE_NORMAL = 0;
     public static final long serialVersionUID = 1080394611500009098L;
@@ -44,7 +45,7 @@ public class RewardMonitorInfo extends com.kwad.sdk.core.response.kwai.a impleme
     public int loadStatus;
     public int loadType;
     public int pageStatus;
-    public long radioCount;
+    public double ratioCount;
     public long renderDuration;
     public int rewardType;
     public int taskStep;
@@ -78,19 +79,19 @@ public class RewardMonitorInfo extends com.kwad.sdk.core.response.kwai.a impleme
             super.afterToJson(jSONObject);
             int i = this.rewardType;
             if (i != -1) {
-                r.a(jSONObject, "reward_type", i);
+                r.putValue(jSONObject, "reward_type", i);
             } else {
                 jSONObject.remove("reward_type");
             }
             int i2 = this.taskType;
             if (i2 != -1) {
-                r.a(jSONObject, "task_type", i2);
+                r.putValue(jSONObject, "task_type", i2);
             } else {
                 jSONObject.remove("task_type");
             }
             int i3 = this.taskStep;
             if (i3 != -1) {
-                r.a(jSONObject, "task_step", i3);
+                r.putValue(jSONObject, "task_step", i3);
             } else {
                 jSONObject.remove("task_step");
             }
@@ -237,14 +238,14 @@ public class RewardMonitorInfo extends com.kwad.sdk.core.response.kwai.a impleme
         return (RewardMonitorInfo) invokeI.objValue;
     }
 
-    public RewardMonitorInfo setRadioCount(long j) {
-        InterceptResult invokeJ;
+    public RewardMonitorInfo setRatioCount(double d) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048591, this, j)) == null) {
-            this.radioCount = j;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Double.valueOf(d)})) == null) {
+            this.ratioCount = d;
             return this;
         }
-        return (RewardMonitorInfo) invokeJ.objValue;
+        return (RewardMonitorInfo) invokeCommon.objValue;
     }
 
     public RewardMonitorInfo setRenderDuration(long j) {

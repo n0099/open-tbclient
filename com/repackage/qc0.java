@@ -63,7 +63,7 @@ public class qc0 {
                 return;
             }
         }
-        c = xt4.o("advert_hide_list");
+        c = yt4.o("advert_hide_list");
     }
 
     public /* synthetic */ qc0(a aVar) {

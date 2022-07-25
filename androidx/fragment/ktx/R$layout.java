@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class R$layout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int custom_dialog = 2131558914;
-    public static final int notification_action = 2131559971;
-    public static final int notification_action_tombstone = 2131559972;
-    public static final int notification_template_custom_big = 2131559979;
-    public static final int notification_template_icon_group = 2131559980;
-    public static final int notification_template_part_chronometer = 2131559984;
-    public static final int notification_template_part_time = 2131559985;
+    public static final int notification_action = 2131559981;
+    public static final int notification_action_tombstone = 2131559982;
+    public static final int notification_template_custom_big = 2131559989;
+    public static final int notification_template_icon_group = 2131559990;
+    public static final int notification_template_part_chronometer = 2131559994;
+    public static final int notification_template_part_time = 2131559995;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$layout() {

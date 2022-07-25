@@ -53,159 +53,16 @@ public class c {
         this.d = new int[80];
     }
 
-    private int a(int i, int i2) {
+    public static int a(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65538, this, i, i2)) == null) ? (i >>> (32 - i2)) | (i << i2) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) ? (i >>> (32 - i2)) | (i << i2) : invokeII.intValue;
     }
 
-    private int a(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65539, this, i, i2, i3)) == null) ? ((~i) & i3) | (i2 & i) : invokeIII.intValue;
-    }
-
-    private int a(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, bArr, i)) == null) ? (bArr[i + 3] & 255) | ((bArr[i] & 255) << 24) | ((bArr[i + 1] & 255) << 16) | ((bArr[i + 2] & 255) << 8) : invokeLI.intValue;
-    }
-
-    private void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(65541, this) != null) {
-            return;
-        }
-        for (int i = 16; i <= 79; i++) {
-            int[] iArr = this.d;
-            iArr[i] = a(((iArr[i - 3] ^ iArr[i - 8]) ^ iArr[i - 14]) ^ iArr[i - 16], 1);
-        }
-        int[] iArr2 = new int[5];
-        for (int i2 = 0; i2 < 5; i2++) {
-            iArr2[i2] = this.c[i2];
-        }
-        for (int i3 = 0; i3 <= 19; i3++) {
-            iArr2[4] = iArr2[3];
-            iArr2[3] = iArr2[2];
-            iArr2[2] = a(iArr2[1], 30);
-            iArr2[1] = iArr2[0];
-            iArr2[0] = a(iArr2[0], 5) + a(iArr2[1], iArr2[2], iArr2[3]) + iArr2[4] + this.d[i3] + 1518500249;
-        }
-        for (int i4 = 20; i4 <= 39; i4++) {
-            iArr2[4] = iArr2[3];
-            iArr2[3] = iArr2[2];
-            iArr2[2] = a(iArr2[1], 30);
-            iArr2[1] = iArr2[0];
-            iArr2[0] = a(iArr2[0], 5) + b(iArr2[1], iArr2[2], iArr2[3]) + iArr2[4] + this.d[i4] + 1859775393;
-        }
-        for (int i5 = 40; i5 <= 59; i5++) {
-            iArr2[4] = iArr2[3];
-            iArr2[3] = iArr2[2];
-            iArr2[2] = a(iArr2[1], 30);
-            iArr2[1] = iArr2[0];
-            iArr2[0] = (((a(iArr2[0], 5) + c(iArr2[1], iArr2[2], iArr2[3])) + iArr2[4]) + this.d[i5]) - 1894007588;
-        }
-        for (int i6 = 60; i6 <= 79; i6++) {
-            iArr2[4] = iArr2[3];
-            iArr2[3] = iArr2[2];
-            iArr2[2] = a(iArr2[1], 30);
-            iArr2[1] = iArr2[0];
-            iArr2[0] = (((a(iArr2[0], 5) + b(iArr2[1], iArr2[2], iArr2[3])) + iArr2[4]) + this.d[i6]) - 899497514;
-        }
-        for (int i7 = 0; i7 < 5; i7++) {
-            int[] iArr3 = this.c;
-            iArr3[i7] = iArr3[i7] + iArr2[i7];
-        }
-        int i8 = 0;
-        while (true) {
-            int[] iArr4 = this.d;
-            if (i8 >= iArr4.length) {
-                return;
-            }
-            iArr4[i8] = 0;
-            i8++;
-        }
-    }
-
-    private void a(int i, byte[] bArr, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2)}) == null) {
-            bArr[i2] = (byte) (i >>> 24);
-            bArr[i2 + 1] = (byte) (i >>> 16);
-            bArr[i2 + 2] = (byte) (i >>> 8);
-            bArr[i2 + 3] = (byte) i;
-        }
-    }
-
-    public static byte[] a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                CtAuth.info(a, "when getHmacSHA1,the key is null");
-                return null;
-            }
-            try {
-                byte[] bArr = new byte[64];
-                byte[] bArr2 = new byte[64];
-                byte[] bArr3 = new byte[64];
-                int length = str2.length();
-                c cVar = new c();
-                if (str2.length() > 64) {
-                    byte[] a2 = cVar.a(e.b(str2));
-                    length = a2.length;
-                    for (int i = 0; i < length; i++) {
-                        bArr3[i] = a2[i];
-                    }
-                } else {
-                    byte[] b = e.b(str2);
-                    for (int i2 = 0; i2 < b.length; i2++) {
-                        bArr3[i2] = b[i2];
-                    }
-                }
-                while (length < 64) {
-                    bArr3[length] = 0;
-                    length++;
-                }
-                for (int i3 = 0; i3 < 64; i3++) {
-                    bArr[i3] = (byte) (bArr3[i3] ^ 54);
-                    bArr2[i3] = (byte) (bArr3[i3] ^ 92);
-                }
-                return cVar.a(a(bArr2, cVar.a(a(bArr, e.b(str)))));
-            } catch (Throwable th) {
-                CtAuth.warn(a, "getHmacSHA1 error", th);
-                return null;
-            }
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] a(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = new byte[bArr.length + bArr2.length];
-            for (int i = 0; i < bArr.length; i++) {
-                bArr3[i] = bArr[i];
-            }
-            for (int i2 = 0; i2 < bArr2.length; i2++) {
-                bArr3[bArr.length + i2] = bArr2[i2];
-            }
-            return bArr3;
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    private int b(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65545, this, i, i2, i3)) == null) ? (i ^ i2) ^ i3 : invokeIII.intValue;
-    }
-
-    public static String b(byte[] bArr) {
+    public static String a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
             StringBuilder sb = new StringBuilder("");
             if (bArr == null || bArr.length <= 0) {
                 return null;
@@ -222,101 +79,203 @@ public class c {
         return (String) invokeL.objValue;
     }
 
-    private int c(int i, int i2, int i3) {
-        InterceptResult invokeIII;
+    public static byte[] a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65547, this, i, i2, i3)) == null) ? (i & i3) | (i & i2) | (i2 & i3) : invokeIII.intValue;
-    }
-
-    private int c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, bArr)) == null) {
-            int[] iArr = this.b;
-            System.arraycopy(iArr, 0, this.c, 0, iArr.length);
-            byte[] d = d(bArr);
-            int length = d.length / 64;
-            for (int i = 0; i < length; i++) {
-                for (int i2 = 0; i2 < 16; i2++) {
-                    this.d[i2] = a(d, (i * 64) + (i2 * 4));
-                }
-                a();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                CtAuth.info(a, "when getHmacSHA1,the key is null");
+                return null;
             }
-            return 20;
+            try {
+                byte[] bArr = new byte[64];
+                byte[] bArr2 = new byte[64];
+                byte[] bArr3 = new byte[64];
+                int length = str2.length();
+                c cVar = new c();
+                if (str2.length() > 64) {
+                    byte[] b = cVar.b(e.b(str2));
+                    for (int i = 0; i < 20; i++) {
+                        bArr3[i] = b[i];
+                    }
+                    length = 20;
+                } else {
+                    byte[] b2 = e.b(str2);
+                    for (int i2 = 0; i2 < b2.length; i2++) {
+                        bArr3[i2] = b2[i2];
+                    }
+                }
+                while (length < 64) {
+                    bArr3[length] = 0;
+                    length++;
+                }
+                for (int i3 = 0; i3 < 64; i3++) {
+                    bArr[i3] = (byte) (bArr3[i3] ^ 54);
+                    bArr2[i3] = (byte) (bArr3[i3] ^ 92);
+                }
+                return cVar.b(a(bArr2, cVar.b(a(bArr, e.b(str)))));
+            } catch (Throwable th) {
+                CtAuth.warn(a, "getHmacSHA1 error", th);
+                return null;
+            }
         }
-        return invokeL.intValue;
+        return (byte[]) invokeLL.objValue;
     }
 
-    private byte[] d(byte[] bArr) {
+    public static byte[] a(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, bArr2)) == null) {
+            byte[] bArr3 = new byte[bArr2.length + 64];
+            for (int i = 0; i < 64; i++) {
+                bArr3[i] = bArr[i];
+            }
+            for (int i2 = 0; i2 < bArr2.length; i2++) {
+                bArr3[i2 + 64] = bArr2[i2];
+            }
+            return bArr3;
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    private byte[] b(byte[] bArr) {
         InterceptResult invokeL;
         int i;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, bArr)) == null) {
-            int length = bArr.length;
-            int i3 = length % 64;
-            if (i3 < 56) {
-                i = 55 - i3;
-                i2 = (length - i3) + 64;
-            } else if (i3 == 56) {
-                i2 = length + 8 + 64;
-                i = 63;
-            } else {
-                i = (63 - i3) + 56;
-                i2 = ((length + 64) - i3) + 64;
-            }
-            byte[] bArr2 = new byte[i2];
-            System.arraycopy(bArr, 0, bArr2, 0, length);
-            int i4 = length + 1;
-            bArr2[length] = Byte.MIN_VALUE;
-            int i5 = 0;
-            while (i5 < i) {
-                bArr2[i4] = 0;
-                i5++;
-                i4++;
-            }
-            long j = length * 8;
-            byte b = (byte) ((j >> 8) & 255);
-            byte b2 = (byte) ((j >> 16) & 255);
-            byte b3 = (byte) ((j >> 24) & 255);
-            byte b4 = (byte) ((j >> 32) & 255);
-            byte b5 = (byte) ((j >> 40) & 255);
-            byte b6 = (byte) (j >> 56);
-            int i6 = i4 + 1;
-            bArr2[i4] = b6;
-            int i7 = i6 + 1;
-            bArr2[i6] = (byte) (255 & (j >> 48));
-            int i8 = i7 + 1;
-            bArr2[i7] = b5;
-            int i9 = i8 + 1;
-            bArr2[i8] = b4;
-            int i10 = i9 + 1;
-            bArr2[i9] = b3;
-            int i11 = i10 + 1;
-            bArr2[i10] = b2;
-            bArr2[i11] = b;
-            bArr2[i11 + 1] = (byte) (j & 255);
-            return bArr2;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, bArr)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65542, this, bArr)) != null) {
             return (byte[]) invokeL.objValue;
         }
-        c(bArr);
-        byte[] bArr2 = new byte[20];
-        int i = 0;
+        System.arraycopy(this.b, 0, this.c, 0, 5);
+        int length = bArr.length;
+        int i3 = length % 64;
+        if (i3 < 56) {
+            i = 55 - i3;
+            i2 = (length - i3) + 64;
+        } else if (i3 == 56) {
+            i2 = length + 8 + 64;
+            i = 63;
+        } else {
+            i = (63 - i3) + 56;
+            i2 = ((length + 64) - i3) + 64;
+        }
+        byte[] bArr2 = new byte[i2];
+        System.arraycopy(bArr, 0, bArr2, 0, length);
+        int i4 = length + 1;
+        bArr2[length] = Byte.MIN_VALUE;
+        int i5 = 0;
+        while (i5 < i) {
+            bArr2[i4] = 0;
+            i5++;
+            i4++;
+        }
+        long j = length << 3;
+        byte b = (byte) ((j >> 8) & 255);
+        byte b2 = (byte) ((j >> 32) & 255);
+        byte b3 = (byte) ((j >> 40) & 255);
+        int i6 = i4 + 1;
+        bArr2[i4] = (byte) (j >> 56);
+        int i7 = i6 + 1;
+        bArr2[i6] = (byte) (255 & (j >> 48));
+        int i8 = i7 + 1;
+        bArr2[i7] = b3;
+        int i9 = i8 + 1;
+        bArr2[i8] = b2;
+        int i10 = i9 + 1;
+        bArr2[i9] = (byte) ((j >> 24) & 255);
+        int i11 = i10 + 1;
+        bArr2[i10] = (byte) ((j >> 16) & 255);
+        bArr2[i11] = b;
+        bArr2[i11 + 1] = (byte) (j & 255);
+        int i12 = i2 / 64;
+        int i13 = 0;
         while (true) {
-            int[] iArr = this.c;
-            if (i >= iArr.length) {
-                return bArr2;
+            if (i13 >= i12) {
+                break;
             }
-            a(iArr[i], bArr2, i * 4);
-            i++;
+            for (int i14 = 0; i14 < 16; i14++) {
+                int i15 = (i13 << 6) + (i14 << 2);
+                this.d[i14] = (bArr2[i15 + 3] & 255) | ((bArr2[i15] & 255) << 24) | ((bArr2[i15 + 1] & 255) << 16) | ((bArr2[i15 + 2] & 255) << 8);
+            }
+            for (int i16 = 16; i16 <= 79; i16++) {
+                int[] iArr = this.d;
+                iArr[i16] = a(((iArr[i16 - 3] ^ iArr[i16 - 8]) ^ iArr[i16 - 14]) ^ iArr[i16 - 16], 1);
+            }
+            int[] iArr2 = new int[5];
+            int i17 = 0;
+            for (int i18 = 5; i17 < i18; i18 = 5) {
+                iArr2[i17] = this.c[i17];
+                i17++;
+            }
+            for (int i19 = 0; i19 <= 19; i19++) {
+                int a2 = a(iArr2[0], 5);
+                int i20 = iArr2[1];
+                int i21 = iArr2[2];
+                int i22 = iArr2[3];
+                iArr2[4] = iArr2[3];
+                iArr2[3] = iArr2[2];
+                iArr2[2] = a(iArr2[1], 30);
+                iArr2[1] = iArr2[0];
+                iArr2[0] = a2 + ((i20 & i21) | ((~i20) & i22)) + iArr2[4] + this.d[i19] + 1518500249;
+            }
+            for (int i23 = 20; i23 <= 39; i23++) {
+                iArr2[4] = iArr2[3];
+                iArr2[3] = iArr2[2];
+                iArr2[2] = a(iArr2[1], 30);
+                iArr2[1] = iArr2[0];
+                iArr2[0] = a(iArr2[0], 5) + ((iArr2[1] ^ iArr2[2]) ^ iArr2[3]) + iArr2[4] + this.d[i23] + 1859775393;
+            }
+            char c = 0;
+            for (int i24 = 40; i24 <= 59; i24++) {
+                int a3 = a(iArr2[c], 5);
+                int i25 = iArr2[1];
+                int i26 = iArr2[2];
+                int i27 = iArr2[3];
+                iArr2[4] = iArr2[3];
+                iArr2[3] = iArr2[2];
+                iArr2[2] = a(iArr2[1], 30);
+                c = 0;
+                iArr2[1] = iArr2[0];
+                iArr2[0] = (((a3 + (((i25 & i26) | (i25 & i27)) | (i26 & i27))) + iArr2[4]) + this.d[i24]) - 1894007588;
+            }
+            int i28 = 60;
+            while (i28 <= 79) {
+                iArr2[4] = iArr2[3];
+                iArr2[3] = iArr2[2];
+                iArr2[2] = a(iArr2[1], 30);
+                iArr2[1] = iArr2[0];
+                iArr2[0] = (((a(iArr2[c], 5) + ((iArr2[1] ^ iArr2[2]) ^ iArr2[3])) + iArr2[4]) + this.d[i28]) - 899497514;
+                i28++;
+                c = 0;
+            }
+            for (int i29 = 0; i29 < 5; i29++) {
+                int[] iArr3 = this.c;
+                iArr3[i29] = iArr3[i29] + iArr2[i29];
+            }
+            int i30 = 0;
+            while (true) {
+                int[] iArr4 = this.d;
+                if (i30 < iArr4.length) {
+                    iArr4[i30] = 0;
+                    i30++;
+                }
+            }
+            i13++;
+        }
+        byte[] bArr3 = new byte[20];
+        int i31 = 0;
+        while (true) {
+            int[] iArr5 = this.c;
+            if (i31 >= iArr5.length) {
+                return bArr3;
+            }
+            int i32 = iArr5[i31];
+            int i33 = i31 << 2;
+            bArr3[i33] = (byte) (i32 >>> 24);
+            bArr3[i33 + 1] = (byte) (i32 >>> 16);
+            bArr3[i33 + 2] = (byte) (i32 >>> 8);
+            bArr3[i33 + 3] = (byte) i32;
+            i31++;
         }
     }
 }

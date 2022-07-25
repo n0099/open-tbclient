@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -30,16 +30,16 @@ public class fx7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(List<jr4> list, nr4 nr4Var, PostData postData, PbModel pbModel) {
+    public static boolean a(List<kr4> list, or4 or4Var, PostData postData, PbModel pbModel) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, list, nr4Var, postData, pbModel)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, list, or4Var, postData, pbModel)) == null) {
             if (list != null && postData != null && pbModel != null && pbModel.R1() != null) {
                 jr7 R1 = pbModel.R1();
                 if (R1.h0() && TbadkCoreApplication.isLogin() && !j(postData) && !R1.g0()) {
-                    jr4 jr4Var = new jr4(9, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f031a), nr4Var);
-                    list.add(jr4Var);
-                    dp8.f(jr4Var.d, postData);
+                    kr4 kr4Var = new kr4(9, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f031a), or4Var);
+                    list.add(kr4Var);
+                    dp8.f(kr4Var.d, postData);
                     return true;
                 }
             }
@@ -48,115 +48,115 @@ public class fx7 {
         return invokeLLLL.booleanValue;
     }
 
-    public static List<jr4> b(List<jr4> list, AgreeData agreeData, SparseArray<Object> sparseArray, nr4 nr4Var) {
+    public static List<kr4> b(List<kr4> list, AgreeData agreeData, SparseArray<Object> sparseArray, or4 or4Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, list, agreeData, sparseArray, nr4Var)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, list, agreeData, sparseArray, or4Var)) == null) {
             if (list == null) {
                 list = new ArrayList<>();
             }
             ArrayList arrayList = new ArrayList();
             if (agreeData.hasAgree) {
                 if (agreeData.agreeType == 2) {
-                    jr4 jr4Var = new jr4(-1, lv7.i(R.string.obfuscated_res_0x7f0f0357, new Object[0]), nr4Var);
-                    jr4Var.d.setTag(sparseArray);
-                    arrayList.add(jr4Var);
-                    if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f09170f) == null || !((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09170f)).booleanValue()) {
-                        jr4 jr4Var2 = new jr4(-2, lv7.i(R.string.obfuscated_res_0x7f0f0358, new Object[0]), nr4Var);
-                        jr4Var2.d.setTag(sparseArray);
-                        arrayList.add(jr4Var2);
+                    kr4 kr4Var = new kr4(-1, lv7.i(R.string.obfuscated_res_0x7f0f0357, new Object[0]), or4Var);
+                    kr4Var.d.setTag(sparseArray);
+                    arrayList.add(kr4Var);
+                    if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f0916ea) == null || !((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f0916ea)).booleanValue()) {
+                        kr4 kr4Var2 = new kr4(-2, lv7.i(R.string.obfuscated_res_0x7f0f0358, new Object[0]), or4Var);
+                        kr4Var2.d.setTag(sparseArray);
+                        arrayList.add(kr4Var2);
                     }
                 } else {
-                    jr4 jr4Var3 = new jr4(-1, lv7.i(R.string.obfuscated_res_0x7f0f0356, new Object[0]), nr4Var);
-                    jr4Var3.d.setTag(sparseArray);
-                    arrayList.add(jr4Var3);
-                    if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f09170f) == null || !((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09170f)).booleanValue()) {
-                        jr4 jr4Var4 = new jr4(-2, lv7.i(R.string.obfuscated_res_0x7f0f0359, new Object[0]), nr4Var);
-                        jr4Var4.d.setTag(sparseArray);
-                        arrayList.add(jr4Var4);
+                    kr4 kr4Var3 = new kr4(-1, lv7.i(R.string.obfuscated_res_0x7f0f0356, new Object[0]), or4Var);
+                    kr4Var3.d.setTag(sparseArray);
+                    arrayList.add(kr4Var3);
+                    if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f0916ea) == null || !((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f0916ea)).booleanValue()) {
+                        kr4 kr4Var4 = new kr4(-2, lv7.i(R.string.obfuscated_res_0x7f0f0359, new Object[0]), or4Var);
+                        kr4Var4.d.setTag(sparseArray);
+                        arrayList.add(kr4Var4);
                     }
                 }
             } else {
-                jr4 jr4Var5 = new jr4(-1, lv7.i(R.string.obfuscated_res_0x7f0f0356, new Object[0]), nr4Var);
-                jr4Var5.d.setTag(sparseArray);
-                arrayList.add(jr4Var5);
-                if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f09170f) == null || !((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09170f)).booleanValue()) {
-                    jr4 jr4Var6 = new jr4(-2, lv7.i(R.string.obfuscated_res_0x7f0f0358, new Object[0]), nr4Var);
-                    jr4Var6.d.setTag(sparseArray);
-                    arrayList.add(jr4Var6);
+                kr4 kr4Var5 = new kr4(-1, lv7.i(R.string.obfuscated_res_0x7f0f0356, new Object[0]), or4Var);
+                kr4Var5.d.setTag(sparseArray);
+                arrayList.add(kr4Var5);
+                if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f0916ea) == null || !((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f0916ea)).booleanValue()) {
+                    kr4 kr4Var6 = new kr4(-2, lv7.i(R.string.obfuscated_res_0x7f0f0358, new Object[0]), or4Var);
+                    kr4Var6.d.setTag(sparseArray);
+                    arrayList.add(kr4Var6);
                 }
             }
-            jr4 jr4Var7 = new jr4(-3, lv7.i(R.string.obfuscated_res_0x7f0f0fbd, new Object[0]), nr4Var);
-            jr4Var7.d.setTag(sparseArray);
-            arrayList.add(jr4Var7);
-            jr4 jr4Var8 = new jr4(-4, lv7.i(R.string.obfuscated_res_0x7f0f113c, new Object[0]), nr4Var);
-            jr4Var8.d.setTag(sparseArray);
-            arrayList.add(jr4Var8);
+            kr4 kr4Var7 = new kr4(-3, lv7.i(R.string.obfuscated_res_0x7f0f0fa6, new Object[0]), or4Var);
+            kr4Var7.d.setTag(sparseArray);
+            arrayList.add(kr4Var7);
+            kr4 kr4Var8 = new kr4(-4, lv7.i(R.string.obfuscated_res_0x7f0f10eb, new Object[0]), or4Var);
+            kr4Var8.d.setTag(sparseArray);
+            arrayList.add(kr4Var8);
             list.addAll(0, arrayList);
             return list;
         }
         return (List) invokeLLLL.objValue;
     }
 
-    public static List<jr4> c(List<jr4> list, AgreeData agreeData, SparseArray<Object> sparseArray, nr4 nr4Var) {
+    public static List<kr4> c(List<kr4> list, AgreeData agreeData, SparseArray<Object> sparseArray, or4 or4Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, list, agreeData, sparseArray, nr4Var)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, list, agreeData, sparseArray, or4Var)) == null) {
             if (list == null) {
                 list = new ArrayList<>();
             }
             ArrayList arrayList = new ArrayList();
             if (agreeData.hasAgree) {
                 if (agreeData.agreeType == 2) {
-                    if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f09170f) == null || !((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09170f)).booleanValue()) {
-                        jr4 jr4Var = new jr4(-2, lv7.i(R.string.obfuscated_res_0x7f0f0087, new Object[0]), nr4Var);
-                        jr4Var.d.setTag(sparseArray);
-                        arrayList.add(jr4Var);
+                    if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f0916ea) == null || !((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f0916ea)).booleanValue()) {
+                        kr4 kr4Var = new kr4(-2, lv7.i(R.string.obfuscated_res_0x7f0f0087, new Object[0]), or4Var);
+                        kr4Var.d.setTag(sparseArray);
+                        arrayList.add(kr4Var);
                     }
-                } else if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f09170f) == null || !((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09170f)).booleanValue()) {
-                    jr4 jr4Var2 = new jr4(-2, lv7.i(R.string.obfuscated_res_0x7f0f0359, new Object[0]), nr4Var);
-                    jr4Var2.d.setTag(sparseArray);
-                    arrayList.add(jr4Var2);
+                } else if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f0916ea) == null || !((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f0916ea)).booleanValue()) {
+                    kr4 kr4Var2 = new kr4(-2, lv7.i(R.string.obfuscated_res_0x7f0f0359, new Object[0]), or4Var);
+                    kr4Var2.d.setTag(sparseArray);
+                    arrayList.add(kr4Var2);
                 }
-            } else if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f09170f) == null || !((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09170f)).booleanValue()) {
-                jr4 jr4Var3 = new jr4(-2, lv7.i(R.string.obfuscated_res_0x7f0f0087, new Object[0]), nr4Var);
-                jr4Var3.d.setTag(sparseArray);
-                arrayList.add(jr4Var3);
+            } else if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f0916ea) == null || !((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f0916ea)).booleanValue()) {
+                kr4 kr4Var3 = new kr4(-2, lv7.i(R.string.obfuscated_res_0x7f0f0087, new Object[0]), or4Var);
+                kr4Var3.d.setTag(sparseArray);
+                arrayList.add(kr4Var3);
             }
-            jr4 jr4Var4 = new jr4(-3, lv7.i(R.string.obfuscated_res_0x7f0f0fbd, new Object[0]), nr4Var);
-            jr4Var4.d.setTag(sparseArray);
-            arrayList.add(0, jr4Var4);
-            jr4 jr4Var5 = new jr4(-4, lv7.i(R.string.obfuscated_res_0x7f0f113c, new Object[0]), nr4Var);
-            jr4Var5.d.setTag(sparseArray);
-            arrayList.add(1, jr4Var5);
+            kr4 kr4Var4 = new kr4(-3, lv7.i(R.string.obfuscated_res_0x7f0f0fa6, new Object[0]), or4Var);
+            kr4Var4.d.setTag(sparseArray);
+            arrayList.add(0, kr4Var4);
+            kr4 kr4Var5 = new kr4(-4, lv7.i(R.string.obfuscated_res_0x7f0f10eb, new Object[0]), or4Var);
+            kr4Var5.d.setTag(sparseArray);
+            arrayList.add(1, kr4Var5);
             list.addAll(0, arrayList);
             return list;
         }
         return (List) invokeLLLL.objValue;
     }
 
-    public static void d(Activity activity, @Nullable d9<?> d9Var, cr4.e eVar, cr4.e eVar2) {
+    public static void d(Activity activity, @Nullable d9<?> d9Var, dr4.e eVar, dr4.e eVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65539, null, activity, d9Var, eVar, eVar2) == null) {
-            cr4 cr4Var = new cr4(activity);
-            cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f049b);
-            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04e5, eVar);
-            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f04e0, eVar2);
-            cr4Var.setCancelable(true);
-            cr4Var.create(d9Var);
-            cr4Var.show();
+            dr4 dr4Var = new dr4(activity);
+            dr4Var.setMessageId(R.string.obfuscated_res_0x7f0f049a);
+            dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04e1, eVar);
+            dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f04dc, eVar2);
+            dr4Var.setCancelable(true);
+            dr4Var.create(d9Var);
+            dr4Var.show();
         }
     }
 
-    public static List<jr4> e(List<jr4> list) {
+    public static List<kr4> e(List<kr4> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
             if (list == null) {
                 return list;
             }
-            for (jr4 jr4Var : list) {
-                jr4Var.l(g(jr4Var));
+            for (kr4 kr4Var : list) {
+                kr4Var.l(g(kr4Var));
             }
             return list;
         }
@@ -181,22 +181,22 @@ public class fx7 {
         return (SpannableStringBuilder) invokeL.objValue;
     }
 
-    public static Drawable g(jr4 jr4Var) {
+    public static Drawable g(kr4 kr4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, jr4Var)) == null) {
-            switch (jr4Var.f()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, kr4Var)) == null) {
+            switch (kr4Var.f()) {
                 case -4:
                     return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080966, SkinManager.getColor(R.color.CAM_X0107), null);
                 case -3:
                     return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080950, SkinManager.getColor(R.color.CAM_X0107), null);
                 case -2:
-                    if (lv7.i(R.string.obfuscated_res_0x7f0f0358, new Object[0]).equals(jr4Var.g())) {
+                    if (lv7.i(R.string.obfuscated_res_0x7f0f0358, new Object[0]).equals(kr4Var.g())) {
                         return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080954, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
                     return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080955, SkinManager.getColor(R.color.CAM_X0107), null);
                 case -1:
-                    if (lv7.i(R.string.obfuscated_res_0x7f0f0356, new Object[0]).equals(jr4Var.g())) {
+                    if (lv7.i(R.string.obfuscated_res_0x7f0f0356, new Object[0]).equals(kr4Var.g())) {
                         return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08095d, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
                     return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08095e, SkinManager.getColor(R.color.CAM_X0301), null);
@@ -210,23 +210,23 @@ public class fx7 {
                 case 3:
                     return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080951, SkinManager.getColor(R.color.CAM_X0107), null);
                 case 4:
-                    if (lv7.i(R.string.obfuscated_res_0x7f0f0a80, new Object[0]).equals(jr4Var.g())) {
+                    if (lv7.i(R.string.obfuscated_res_0x7f0f0a6c, new Object[0]).equals(kr4Var.g())) {
                         return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08094e, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
                     return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08094f, SkinManager.getColor(R.color.CAM_X0305), null);
                 case 5:
-                    if (lv7.i(R.string.obfuscated_res_0x7f0f0fd6, new Object[0]).equals(jr4Var.g())) {
+                    if (lv7.i(R.string.obfuscated_res_0x7f0f0fbf, new Object[0]).equals(kr4Var.g())) {
                         return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080964, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
-                    if (lv7.i(R.string.obfuscated_res_0x7f0f0b23, new Object[0]).equals(jr4Var.g())) {
+                    if (lv7.i(R.string.obfuscated_res_0x7f0f0b0f, new Object[0]).equals(kr4Var.g())) {
                         return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080962, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
                     return null;
                 case 6:
-                    if (lv7.i(R.string.obfuscated_res_0x7f0f0fd6, new Object[0]).equals(jr4Var.g())) {
+                    if (lv7.i(R.string.obfuscated_res_0x7f0f0fbf, new Object[0]).equals(kr4Var.g())) {
                         return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080964, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
-                    if (lv7.i(R.string.obfuscated_res_0x7f0f049f, new Object[0]).equals(jr4Var.g())) {
+                    if (lv7.i(R.string.obfuscated_res_0x7f0f049e, new Object[0]).equals(kr4Var.g())) {
                         return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080953, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
                     return null;
@@ -237,20 +237,20 @@ public class fx7 {
                 case 9:
                     return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08093e, SkinManager.getColor(R.color.CAM_X0107), null);
                 case 10:
-                    if (lv7.i(R.string.obfuscated_res_0x7f0f04aa, new Object[0]).equals(jr4Var.g())) {
+                    if (lv7.i(R.string.obfuscated_res_0x7f0f04a9, new Object[0]).equals(kr4Var.g())) {
                         return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080953, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
-                    if (lv7.i(R.string.obfuscated_res_0x7f0f049f, new Object[0]).equals(jr4Var.g())) {
+                    if (lv7.i(R.string.obfuscated_res_0x7f0f049e, new Object[0]).equals(kr4Var.g())) {
                         return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080953, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
                     return null;
                 case 11:
                     return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08094d, SkinManager.getColor(R.color.CAM_X0107), null);
                 case 12:
-                    if (lv7.i(R.string.obfuscated_res_0x7f0f0b1f, new Object[0]).equals(jr4Var.g())) {
+                    if (lv7.i(R.string.obfuscated_res_0x7f0f0b0b, new Object[0]).equals(kr4Var.g())) {
                         return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080960, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
-                    if (lv7.i(R.string.obfuscated_res_0x7f0f14aa, new Object[0]).equals(jr4Var.g())) {
+                    if (lv7.i(R.string.obfuscated_res_0x7f0f1459, new Object[0]).equals(kr4Var.g())) {
                         return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080961, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
                     return null;
@@ -277,14 +277,14 @@ public class fx7 {
         return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, postData)) == null) ? (postData == null || postData.s() == null || StringUtils.isNull(postData.s().getUserId()) || !postData.s().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true : invokeL.booleanValue;
     }
 
-    public static List<jr4> k(List<jr4> list, boolean z) {
+    public static List<kr4> k(List<kr4> list, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65546, null, list, z)) == null) {
             if (list != null && !z) {
-                Iterator<jr4> it = list.iterator();
+                Iterator<kr4> it = list.iterator();
                 while (it.hasNext()) {
-                    jr4 next = it.next();
+                    kr4 next = it.next();
                     if (next.f() == 2 || next.f() == 1 || next.f() == 3) {
                         it.remove();
                     }

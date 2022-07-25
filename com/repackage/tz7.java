@@ -60,10 +60,10 @@ public class tz7 {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d071d, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0727, (ViewGroup) null);
             this.a = linearLayout;
-            this.b = (EMTextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0922a1);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f091795);
+            this.b = (EMTextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0922a3);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f091770);
             this.c = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
             this.c.setFadingEdgeLength(0);

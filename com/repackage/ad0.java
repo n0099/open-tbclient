@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Process;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -77,7 +76,7 @@ public class ad0 {
             return false;
         }
         try {
-            if (!c(context, "android.permission.CALL_PHONE") && !c(context, "android.permission.MODIFY_PHONE_STATE") && !c(context, PermissionChecker.READ_PHONE_STATE) && !c(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
+            if (!c(context, "android.permission.CALL_PHONE") && !c(context, "android.permission.MODIFY_PHONE_STATE") && !c(context, com.kuaishou.weapon.p0.h.c) && !c(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
                 z = false;
                 if (Build.VERSION.SDK_INT < 16) {
                     if (!z) {

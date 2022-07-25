@@ -46,7 +46,7 @@ import com.repackage.lt8;
 import com.repackage.m27;
 import com.repackage.ms8;
 import com.repackage.qt8;
-import com.repackage.xt4;
+import com.repackage.yt4;
 import com.repackage.zq6;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -436,11 +436,11 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            int l = xt4.k().l("nani_key_download_show_rate", 2);
+            int l = yt4.k().l("nani_key_download_show_rate", 2);
             if (this.i <= 0 || l == 1) {
                 return;
             }
-            xt4.k().x("key_vertical_shown_time", this.i);
+            yt4.k().x("key_vertical_shown_time", this.i);
         }
     }
 

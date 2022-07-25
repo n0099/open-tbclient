@@ -261,7 +261,7 @@ public class n8 implements c7 {
             while (dataInputStream.available() > 0 && readByte != 125) {
                 String k = k(dataInputStream, true, readByte);
                 JsonValue c = c(dataInputStream, b == 0 ? dataInputStream.readByte() : b);
-                c.Q(k);
+                c.P(k);
                 c.g = jsonValue;
                 if (jsonValue2 != null) {
                     c.i = jsonValue2;

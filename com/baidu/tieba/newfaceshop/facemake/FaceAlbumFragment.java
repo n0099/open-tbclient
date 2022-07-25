@@ -25,11 +25,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bl4;
-import com.repackage.k45;
+import com.repackage.al4;
+import com.repackage.cl4;
+import com.repackage.l45;
 import com.repackage.pi;
 import com.repackage.xn7;
-import com.repackage.yk4;
 import com.repackage.ym;
 import com.repackage.yn7;
 import com.repackage.zk4;
@@ -42,7 +42,7 @@ import java.util.List;
 public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zk4 a;
+    public al4 a;
     public GridView b;
     public yn7 c;
     public List<ImageFileInfo> d;
@@ -51,7 +51,7 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     public BaseFragmentActivity g;
 
     /* loaded from: classes3.dex */
-    public class a implements bl4 {
+    public class a implements cl4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceAlbumFragment a;
@@ -74,8 +74,8 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
             this.a = faceAlbumFragment;
         }
 
-        @Override // com.repackage.bl4
-        public void a(List<yk4> list, List<ImageFileInfo> list2, String str) {
+        @Override // com.repackage.cl4
+        public void a(List<zk4> list, List<ImageFileInfo> list2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, list, list2, str) == null) {
                 if (!ListUtils.isEmpty(list2)) {
@@ -88,7 +88,7 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
             }
         }
 
-        @Override // com.repackage.bl4
+        @Override // com.repackage.cl4
         public void onPreLoad() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -97,7 +97,7 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     }
 
     /* loaded from: classes3.dex */
-    public class b implements k45 {
+    public class b implements l45 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceAlbumFragment a;
@@ -120,7 +120,7 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
             this.a = faceAlbumFragment;
         }
 
-        @Override // com.repackage.k45
+        @Override // com.repackage.l45
         public void a(ym ymVar, String str, boolean z) {
             TbImageView tbImageView;
             Interceptable interceptable = $ic;
@@ -156,7 +156,7 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         for (int i = 0; i < childCount; i++) {
             View childAt = this.b.getChildAt(i);
             if (childAt != null) {
-                TbImageView tbImageView = (TbImageView) childAt.findViewById(R.id.obfuscated_res_0x7f090e33);
+                TbImageView tbImageView = (TbImageView) childAt.findViewById(R.id.obfuscated_res_0x7f090e2c);
                 ImageFileInfo item = this.c.getItem(firstVisiblePosition + i);
                 if (item != null && tbImageView != null) {
                     tbImageView.setTag(item.toCachedKey(false));
@@ -185,11 +185,11 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
             this.g = (BaseFragmentActivity) getPageContext().getPageActivity();
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02da, (ViewGroup) null);
             SkinManager.setBackgroundResource(inflate, R.color.CAM_X0201);
-            NoDataView a2 = NoDataViewFactory.a(this.g, inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(this.g, R.dimen.obfuscated_res_0x7f0702a0)), NoDataViewFactory.e.c(this.g.getText(R.string.obfuscated_res_0x7f0f05e7).toString()), null);
+            NoDataView a2 = NoDataViewFactory.a(this.g, inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(this.g, R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.c(this.g.getText(R.string.obfuscated_res_0x7f0f05e3).toString()), null);
             this.f = a2;
             a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.f.setVisibility(8);
-            this.b = (GridView) inflate.findViewById(R.id.obfuscated_res_0x7f090ca0);
+            this.b = (GridView) inflate.findViewById(R.id.obfuscated_res_0x7f090c99);
             x1();
             y1();
             return inflate;
@@ -202,9 +202,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            zk4 zk4Var = this.a;
-            if (zk4Var != null) {
-                zk4Var.d();
+            al4 al4Var = this.a;
+            if (al4Var != null) {
+                al4Var.d();
             }
         }
     }
@@ -242,7 +242,7 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.d = new ArrayList();
-            this.a = new zk4(getActivity());
+            this.a = new al4(getActivity());
             yn7 yn7Var = new yn7(this.g, this.d);
             this.c = yn7Var;
             yn7Var.j(this.e);
@@ -266,7 +266,7 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     public final void y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.i(yk4.f, new a(this));
+            this.a.i(zk4.f, new a(this));
         }
     }
 }

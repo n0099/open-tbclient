@@ -1,5 +1,6 @@
 package com.ksad.download;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public int mTaskId;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -21,13 +22,6 @@ public abstract class c {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public final void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a = i;
         }
     }
 
@@ -46,4 +40,11 @@ public abstract class c {
     public abstract void e(DownloadTask downloadTask);
 
     public abstract void f(DownloadTask downloadTask);
+
+    public final void setId(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mTaskId = i;
+        }
+    }
 }

@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dh8;
-import com.repackage.t75;
+import com.repackage.u75;
 /* loaded from: classes3.dex */
 public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, dh8, T> implements NetModel.k<FrsRequestData, dh8> {
     public static /* synthetic */ Interceptable $ic;
@@ -47,7 +47,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, dh8, T> impleme
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (t75) objArr2[1]);
+                super((TbPageContext) objArr2[0], (u75) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -60,7 +60,7 @@ public class i47 {
                 return;
             }
         }
-        kd5.b();
+        ld5.b();
     }
 
     public static void a(Context context, GifView gifView, ChatMessage chatMessage, boolean z) {
@@ -168,7 +168,7 @@ public class i47 {
                 chatImageWithTailView.getImage().j0(i, 38);
             } else {
                 try {
-                    ym m = l45.k().m(i);
+                    ym m = m45.k().m(i);
                     if (m == null) {
                         Bitmap reSizeBitmap = PicManager.getInstance().getReSizeBitmap(hi.d().c(i));
                         if (reSizeBitmap != null) {
@@ -178,7 +178,7 @@ public class i47 {
                                     chatMessage.setWidth(ymVar2.r());
                                     chatMessage.setHeight(ymVar2.m());
                                 }
-                                l45.k().d(i, ymVar2);
+                                m45.k().d(i, ymVar2);
                             } catch (Exception unused) {
                             }
                             ymVar = ymVar2;
@@ -223,7 +223,7 @@ public class i47 {
                 if (!TextUtils.isEmpty(str) && str.endsWith("MsgleftView")) {
                     LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                     layoutParams2.setMargins(pi.f(context, R.dimen.obfuscated_res_0x7f0701b2), 0, 0, 0);
-                    layoutParams2.height = pi.f(context, R.dimen.obfuscated_res_0x7f0702cd);
+                    layoutParams2.height = pi.f(context, R.dimen.obfuscated_res_0x7f0702cb);
                     chatImageWithTailView.getTail().setLayoutParams(layoutParams2);
                 }
                 chatImageWithTailView.getIcon().setDefaultResource(R.drawable.obfuscated_res_0x7f081833);

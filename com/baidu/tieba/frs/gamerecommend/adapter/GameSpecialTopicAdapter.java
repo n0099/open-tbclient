@@ -62,14 +62,14 @@ public class GameSpecialTopicAdapter extends cd6<f36, CardFrsGameSpecialTopicHol
                 }
             }
             this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09050b);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c24);
-            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090c23);
-            CardFrsGameSpecialTopicLayout cardFrsGameSpecialTopicLayout = (CardFrsGameSpecialTopicLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c22);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c1d);
+            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090c1c);
+            CardFrsGameSpecialTopicLayout cardFrsGameSpecialTopicLayout = (CardFrsGameSpecialTopicLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c1b);
             this.d = cardFrsGameSpecialTopicLayout;
             cardFrsGameSpecialTopicLayout.setItemSpace(pi.f(view2.getContext(), R.dimen.tbds20));
             this.d.setItemWidth(((pi.f(view2.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0907cb);
-            this.f = view2.findViewById(R.id.obfuscated_res_0x7f0907cc);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0907c9);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f0907ca);
         }
     }
 
@@ -206,7 +206,7 @@ public class GameSpecialTopicAdapter extends cd6<f36, CardFrsGameSpecialTopicHol
                 SkinManager.setBackgroundResource(cardFrsGameSpecialTopicHolder.e, R.color.CAM_X0205);
                 SkinManager.setBackgroundResource(cardFrsGameSpecialTopicHolder.f, R.color.CAM_X0205);
             }
-            return cardFrsGameSpecialTopicHolder.b();
+            return cardFrsGameSpecialTopicHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

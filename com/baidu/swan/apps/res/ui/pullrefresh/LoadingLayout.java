@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rg1;
+import com.repackage.sg1;
 /* loaded from: classes2.dex */
 public abstract class LoadingLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -86,7 +86,7 @@ public abstract class LoadingLayout extends FrameLayout {
                 return;
             }
         }
-        d = rg1.a;
+        d = sg1.a;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

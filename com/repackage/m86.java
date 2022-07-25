@@ -40,14 +40,14 @@ public class m86 {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditText a;
         public final /* synthetic */ Context b;
-        public final /* synthetic */ lx4 c;
+        public final /* synthetic */ mx4 c;
 
-        public a(EditText editText, Context context, lx4 lx4Var) {
+        public a(EditText editText, Context context, mx4 mx4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {editText, context, lx4Var};
+                Object[] objArr = {editText, context, mx4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,7 +59,7 @@ public class m86 {
             }
             this.a = editText;
             this.b = context;
-            this.c = lx4Var;
+            this.c = mx4Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -504,13 +504,13 @@ public class m86 {
         }
     }
 
-    public static void b(Context context, lx4 lx4Var, EditText editText) {
+    public static void b(Context context, mx4 mx4Var, EditText editText) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, context, lx4Var, editText) == null) || lx4Var == null || editText == null || lx4Var.d() == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, context, mx4Var, editText) == null) || mx4Var == null || editText == null || mx4Var.d() == null) {
             return;
         }
-        String d2 = lx4Var.d();
-        EmotionGroupType type = lx4Var.getType();
+        String d2 = mx4Var.d();
+        EmotionGroupType type = mx4Var.getType();
         if (type != EmotionGroupType.LOCAL && type != EmotionGroupType.USER_COLLECT && !d2.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
             editText.getText().insert(editText.getSelectionStart(), d2);
         } else if (d2 != null) {
@@ -518,13 +518,13 @@ public class m86 {
         }
     }
 
-    public static void c(Context context, lx4 lx4Var, EditText editText) {
+    public static void c(Context context, mx4 mx4Var, EditText editText) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65539, null, context, lx4Var, editText) == null) || lx4Var == null || TextUtils.isEmpty(lx4Var.d()) || TextUtils.isEmpty(lx4Var.g()) || editText == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65539, null, context, mx4Var, editText) == null) || mx4Var == null || TextUtils.isEmpty(mx4Var.d()) || TextUtils.isEmpty(mx4Var.g()) || editText == null) {
             return;
         }
         editText.getText().toString();
-        jg.h().k(lx4Var.g(), 10, new a(editText, context, lx4Var), 0, 0, BdUniqueId.gen(), new Object[0]);
+        jg.h().k(mx4Var.g(), 10, new a(editText, context, mx4Var), 0, 0, BdUniqueId.gen(), new Object[0]);
     }
 
     public static void d(Context context, CharSequence charSequence, h hVar) {

@@ -1,6 +1,6 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.data.AlaUserInfoData;
+import android.app.Activity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class tk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaUserInfoData a;
-    public int b;
+    public Activity a;
+    public String b;
     public boolean c;
 
     public tk4() {

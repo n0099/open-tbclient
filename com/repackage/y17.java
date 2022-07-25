@@ -104,7 +104,7 @@ public class y17 extends jx5<v17> {
         this.t = (ThreadGodReplyLayout) h.findViewById(R.id.obfuscated_res_0x7f09059b);
         this.u = h.findViewById(R.id.obfuscated_res_0x7f09059e);
         this.i = h.findViewById(R.id.obfuscated_res_0x7f090599);
-        HeadImageView headImageView = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f09230c);
+        HeadImageView headImageView = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f09230e);
         this.w = headImageView;
         headImageView.setIsRound(true);
         this.w.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -209,7 +209,7 @@ public class y17 extends jx5<v17> {
             if (v17Var.V == 0) {
                 this.n.setText("NEW");
             } else {
-                this.n.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f144f), StringHelper.numberUniformFormat(v17Var.V)));
+                this.n.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f13fe), StringHelper.numberUniformFormat(v17Var.V)));
             }
             if (v17Var.Y == null) {
                 this.t.setVisibility(8);
@@ -225,10 +225,10 @@ public class y17 extends jx5<v17> {
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
             int f2 = pi.f(getContext(), R.dimen.tbds30);
             int f3 = pi.f(getContext(), R.dimen.tbds16);
-            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f09230c);
+            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f09230e);
             layoutParams2.setMargins(f2, 0, f3, 0);
             this.m.setTextSize(0, pi.f(this.c, R.dimen.tbds40));
-            ur4 d = ur4.d(this.m);
+            vr4 d = vr4.d(this.m);
             d.v(R.color.CAM_X0105);
             d.A(R.string.F_X01);
             if (StringUtils.isNull(v17Var.U)) {
@@ -244,7 +244,7 @@ public class y17 extends jx5<v17> {
         if (str.length() > 14) {
             str = str.substring(0, 13) + StringHelper.STRING_MORE;
         }
-        this.m.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f0478), str));
+        this.m.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f0477), str));
         if (StringUtils.isNull(v17Var.W)) {
             this.p.setVisibility(8);
             this.s.setUserColor(R.color.CAM_X0109);
@@ -254,9 +254,9 @@ public class y17 extends jx5<v17> {
             this.q.J(v17Var.W, 10, false);
             this.s.setUserColor(R.color.CAM_X0101);
         }
-        if (!StringUtils.isNull(v17Var.g0)) {
+        if (!StringUtils.isNull(v17Var.a0)) {
             this.w.setVisibility(0);
-            this.w.J(v17Var.g0, 10, false);
+            this.w.J(v17Var.a0, 10, false);
         }
         if (v17Var.X == null) {
             this.r.setVisibility(8);

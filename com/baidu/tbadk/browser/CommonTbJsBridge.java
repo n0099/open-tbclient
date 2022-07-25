@@ -101,35 +101,35 @@ import com.repackage.cj8;
 import com.repackage.de5;
 import com.repackage.dj8;
 import com.repackage.ei;
-import com.repackage.f15;
-import com.repackage.fj4;
+import com.repackage.g15;
+import com.repackage.gj4;
 import com.repackage.he5;
 import com.repackage.hj8;
 import com.repackage.ho;
-import com.repackage.jd5;
-import com.repackage.kr4;
-import com.repackage.ln4;
+import com.repackage.kd5;
+import com.repackage.lr4;
+import com.repackage.mn4;
 import com.repackage.ng;
 import com.repackage.ni;
 import com.repackage.oi;
-import com.repackage.oj4;
-import com.repackage.pd5;
 import com.repackage.pi;
+import com.repackage.pj4;
 import com.repackage.q88;
-import com.repackage.r65;
+import com.repackage.qd5;
 import com.repackage.r88;
-import com.repackage.rl4;
-import com.repackage.st4;
-import com.repackage.sy4;
+import com.repackage.s65;
+import com.repackage.sl4;
+import com.repackage.tt4;
 import com.repackage.tw8;
-import com.repackage.u05;
+import com.repackage.ty4;
 import com.repackage.ub8;
+import com.repackage.v05;
 import com.repackage.vi;
-import com.repackage.wz4;
-import com.repackage.xl4;
-import com.repackage.xt4;
+import com.repackage.xz4;
 import com.repackage.xz5;
-import com.repackage.yw4;
+import com.repackage.yl4;
+import com.repackage.yt4;
+import com.repackage.zw4;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.File;
 import java.nio.charset.StandardCharsets;
@@ -227,13 +227,13 @@ public class CommonTbJsBridge implements dj8 {
     public long mLastLoadUrlTime;
     public PermissionJudgePolicy mPermissionJudgement;
     public JsPromptResult mResult;
-    public fj4 mShakeController;
+    public gj4 mShakeController;
     public WebView mWebView;
     public String shakeCallbackjsMethod;
     public ShareItem shareItem;
 
     /* loaded from: classes2.dex */
-    public class a implements fj4.b {
+    public class a implements gj4.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonTbJsBridge a;
@@ -256,7 +256,7 @@ public class CommonTbJsBridge implements dj8 {
             this.a = commonTbJsBridge;
         }
 
-        @Override // com.repackage.fj4.b
+        @Override // com.repackage.gj4.b
         public void a() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a.shakeCallbackjsMethod)) {
@@ -303,7 +303,7 @@ public class CommonTbJsBridge implements dj8 {
                 return;
             }
             LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("result", -1);
+            linkedHashMap.put(TiebaStatic.LogFields.RESULT, -1);
             this.a.jsPromptBridge.i(this.a.mWebView, "saveImageSuccess", linkedHashMap);
         }
 
@@ -314,7 +314,7 @@ public class CommonTbJsBridge implements dj8 {
                 return;
             }
             LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("result", 0);
+            linkedHashMap.put(TiebaStatic.LogFields.RESULT, 0);
             this.a.jsPromptBridge.i(this.a.mWebView, "saveImageSuccess", linkedHashMap);
         }
     }
@@ -354,7 +354,7 @@ public class CommonTbJsBridge implements dj8 {
     }
 
     /* loaded from: classes2.dex */
-    public class d implements jd5<ImMessageCenterPojo> {
+    public class d implements kd5<ImMessageCenterPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -380,7 +380,7 @@ public class CommonTbJsBridge implements dj8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(ImMessageCenterPojo imMessageCenterPojo) {
             Interceptable interceptable = $ic;
@@ -516,7 +516,7 @@ public class CommonTbJsBridge implements dj8 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            xt4.k().w("key_bawu_task_toast", -1);
+            yt4.k().w("key_bawu_task_toast", -1);
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
@@ -536,7 +536,7 @@ public class CommonTbJsBridge implements dj8 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("status", 0);
-                jSONObject.put("message", TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10a3));
+                jSONObject.put("message", TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f105f));
                 if (OpenJsSdkSwitch.isOn()) {
                     jSONObject.put("data", new JSONArray(DescriptionTableInfo.getDescriptionTable()));
                 } else {
@@ -566,16 +566,16 @@ public class CommonTbJsBridge implements dj8 {
         return (TbPageContext) invokeL.objValue;
     }
 
-    private fj4 getShakeController() {
+    private gj4 getShakeController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
             if (this.mShakeController == null) {
-                this.mShakeController = new fj4(this.mContext, new a(this));
+                this.mShakeController = new gj4(this.mContext, new a(this));
             }
             return this.mShakeController;
         }
-        return (fj4) invokeV.objValue;
+        return (gj4) invokeV.objValue;
     }
 
     private ShareItem getShareItem() {
@@ -645,10 +645,10 @@ public class CommonTbJsBridge implements dj8 {
                 JSONObject jSONObject = new JSONObject(str);
                 boolean optBoolean = jSONObject.optBoolean("open");
                 String optString = jSONObject.optString(EasterEggBridge.KEY_METHOD_NAME);
-                u05 u05Var = new u05();
-                u05Var.g(optBoolean);
-                u05Var.f(optString);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156673, u05Var));
+                v05 v05Var = new v05();
+                v05Var.g(optBoolean);
+                v05Var.f(optString);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156673, v05Var));
                 i = 1;
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -1065,7 +1065,7 @@ public class CommonTbJsBridge implements dj8 {
                             try {
                                 z3 = false;
                                 try {
-                                    jsPromptResult.confirm(closeNativeMask(new JSONObject(str3).optInt("result", 0)).a());
+                                    jsPromptResult.confirm(closeNativeMask(new JSONObject(str3).optInt(TiebaStatic.LogFields.RESULT, 0)).a());
                                     return false;
                                 } catch (JSONException e25) {
                                     e = e25;
@@ -1245,7 +1245,7 @@ public class CommonTbJsBridge implements dj8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
             hj8 hj8Var = new hj8();
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             String q = k.q("key_local_app_storage_" + str, "");
             int i = !oi.isEmpty(q) ? 1 : 0;
             try {
@@ -1374,7 +1374,7 @@ public class CommonTbJsBridge implements dj8 {
             JSONObject jSONObject = null;
             int i = 0;
             try {
-                String f = sy4.c().f();
+                String f = ty4.c().f();
                 if (!TextUtils.isEmpty(f)) {
                     jSONObject = new JSONObject(f);
                     i = 1;
@@ -1736,7 +1736,7 @@ public class CommonTbJsBridge implements dj8 {
             videoItemData.forum_id = str15;
             videoItemData.forum_name = str16;
             arrayList.add(videoItemData);
-            pd5.d(this.mContext, arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", "1".equals(str17), false);
+            qd5.d(this.mContext, arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", "1".equals(str17), false);
             return hj8Var;
         }
         return (hj8) invokeCommon.objValue;
@@ -1747,8 +1747,8 @@ public class CommonTbJsBridge implements dj8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             hj8 hj8Var = new hj8();
-            String q = xt4.k().q("key_match_id_list_football", "");
-            String q2 = xt4.k().q("key_match_id_list_basketball", "");
+            String q = yt4.k().q("key_match_id_list_football", "");
+            String q2 = yt4.k().q("key_match_id_list_basketball", "");
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("football", PreferencesUtil.LEFT_MOUNT + q + PreferencesUtil.RIGHT_MOUNT);
@@ -1947,7 +1947,7 @@ public class CommonTbJsBridge implements dj8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
             hj8 hj8Var = new hj8();
-            st4.g(this.mContext, 16, false);
+            tt4.g(this.mContext, 16, false);
             return hj8Var;
         }
         return (hj8) invokeV.objValue;
@@ -1960,7 +1960,7 @@ public class CommonTbJsBridge implements dj8 {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048617, this, str, i)) == null) {
             hj8 hj8Var = new hj8();
             if (!TextUtils.isEmpty(str) && (context = this.mContext) != null) {
-                rl4.o(context, str);
+                sl4.o(context, str);
                 if (i == 1) {
                     Context context2 = this.mContext;
                     if (context2 instanceof Activity) {
@@ -1996,9 +1996,9 @@ public class CommonTbJsBridge implements dj8 {
     }
 
     public void onDestroy() {
-        fj4 fj4Var;
+        gj4 gj4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048619, this) == null) && (fj4Var = this.mShakeController) != null && fj4Var.d()) {
+        if ((interceptable == null || interceptable.invokeV(1048619, this) == null) && (gj4Var = this.mShakeController) != null && gj4Var.d()) {
             this.mShakeController.c();
         }
     }
@@ -2050,7 +2050,7 @@ public class CommonTbJsBridge implements dj8 {
             } else {
                 Context context = this.mContext;
                 if (context != null) {
-                    pi.N(context, R.string.obfuscated_res_0x7f0f0c2b);
+                    pi.N(context, R.string.obfuscated_res_0x7f0f0c17);
                 }
                 i = 0;
             }
@@ -2113,7 +2113,7 @@ public class CommonTbJsBridge implements dj8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048625, this, str, str2)) == null) {
             hj8 hj8Var = new hj8();
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             k.y("key_local_app_storage_" + str, str2);
             try {
                 JSONObject jSONObject = new JSONObject();
@@ -2191,7 +2191,7 @@ public class CommonTbJsBridge implements dj8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, hashMap)) == null) {
             hj8 hj8Var = new hj8();
-            if (hashMap != null && hashMap.get("result").intValue() == -1) {
+            if (hashMap != null && hashMap.get(TiebaStatic.LogFields.RESULT).intValue() == -1) {
                 hj8Var.q("图片保存错误");
             }
             return hj8Var;
@@ -2521,45 +2521,45 @@ public class CommonTbJsBridge implements dj8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048641, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3, str4, Double.valueOf(d2), str5, str6, Integer.valueOf(i4), str7, str8, str9, Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
             hj8 hj8Var = new hj8();
-            oj4 oj4Var = new oj4();
-            oj4Var.c = i;
-            oj4Var.d = i2;
-            oj4Var.e = str;
-            oj4Var.f = str2;
-            oj4Var.i = i3;
-            oj4Var.l = str3;
-            oj4Var.n = d2;
-            oj4Var.j = str5;
-            oj4Var.k = str6;
-            oj4Var.b = i4;
-            oj4Var.o = str7;
-            oj4Var.p = str8;
-            oj4Var.q = str9;
-            if (i == oj4.y) {
-                kr4.h(TbadkCoreApplication.getInst().getCurrentActivity(), oj4Var).j();
-            } else if (i == oj4.z) {
+            pj4 pj4Var = new pj4();
+            pj4Var.c = i;
+            pj4Var.d = i2;
+            pj4Var.e = str;
+            pj4Var.f = str2;
+            pj4Var.i = i3;
+            pj4Var.l = str3;
+            pj4Var.n = d2;
+            pj4Var.j = str5;
+            pj4Var.k = str6;
+            pj4Var.b = i4;
+            pj4Var.o = str7;
+            pj4Var.p = str8;
+            pj4Var.q = str9;
+            if (i == pj4.y) {
+                lr4.h(TbadkCoreApplication.getInst().getCurrentActivity(), pj4Var).j();
+            } else if (i == pj4.z) {
                 Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-                ln4 ln4Var = new ln4(currentActivity);
+                mn4 mn4Var = new mn4(currentActivity);
                 if (currentActivity != null) {
-                    ln4Var.d(currentActivity, oj4Var);
-                    ln4Var.i();
+                    mn4Var.d(currentActivity, pj4Var);
+                    mn4Var.i();
                 }
-            } else if (i == oj4.A) {
-                if (i2 == oj4.D) {
-                    if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), oj4Var.l) && !oi.isEmpty(oj4Var.k)) {
-                        dealJump(oj4Var.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
+            } else if (i == pj4.A) {
+                if (i2 == pj4.D) {
+                    if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), pj4Var.l) && !oi.isEmpty(pj4Var.k)) {
+                        dealJump(pj4Var.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
                     }
-                } else if (i2 == oj4.E && !oi.isEmpty(str6)) {
-                    dealJump(oj4Var.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
+                } else if (i2 == pj4.E && !oi.isEmpty(str6)) {
+                    dealJump(pj4Var.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
                 }
-            } else if (i == oj4.C) {
+            } else if (i == pj4.C) {
                 if (i6 == 1) {
                     Context context = this.mContext;
                     if (context instanceof Activity) {
                         ((Activity) context).finish();
                     }
                 }
-                r65.i(new TopToastEvent(i5, str));
+                s65.i(new TopToastEvent(i5, str));
             }
             try {
                 JSONObject jSONObject = new JSONObject();
@@ -2605,13 +2605,13 @@ public class CommonTbJsBridge implements dj8 {
                     Activity activity = (Activity) context;
                     if (!TextUtils.isEmpty(str3)) {
                         String str4 = "showToast_" + str3;
-                        int l = xt4.k().l(str4, 0);
+                        int l = yt4.k().l(str4, 0);
                         if (l < i) {
-                            xt4.k().w(str4, l);
-                            r65.i(new TipEvent(activity.getIntent(), str, str2, i2 == 1));
+                            yt4.k().w(str4, l);
+                            s65.i(new TipEvent(activity.getIntent(), str, str2, i2 == 1));
                         }
                     } else {
-                        r65.i(new TipEvent(activity.getIntent(), str, str2, i2 == 1));
+                        s65.i(new TipEvent(activity.getIntent(), str, str2, i2 == 1));
                     }
                     if (i2 == 1) {
                         activity.finish();
@@ -2637,8 +2637,8 @@ public class CommonTbJsBridge implements dj8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048644, this, hashMap)) == null) {
             hj8 hj8Var = new hj8();
-            if (hashMap != null && hashMap.get("result") != null) {
-                hj8Var.o(hashMap.get("result"));
+            if (hashMap != null && hashMap.get(TiebaStatic.LogFields.RESULT) != null) {
+                hj8Var.o(hashMap.get(TiebaStatic.LogFields.RESULT));
             }
             return hj8Var;
         }
@@ -2691,7 +2691,7 @@ public class CommonTbJsBridge implements dj8 {
                     }
                     DownloadData downloadData = new DownloadData(customLoginCssFileName, customLoginCssFileName, str, null);
                     downloadData.setPath(customLoginCssStoragePath);
-                    f15.k().l(downloadData);
+                    g15.k().l(downloadData);
                     jSONObject.put("resultCode", 1);
                 } catch (JSONException e2) {
                     BdLog.e(e2);
@@ -2753,7 +2753,7 @@ public class CommonTbJsBridge implements dj8 {
                     str = TbConfig.SERVER_ADDRESS + TbConfig.WEBVIEW_CACHE_URL;
                 }
                 tempUrl = str;
-                wz4.a().g(true);
+                xz4.a().g(true);
                 TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, tempUrl + "?cmd=309485");
                 tbHttpMessageTask.setResponsedClass(WebViewCacheResHttpMsg.class);
                 MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -2775,18 +2775,18 @@ public class CommonTbJsBridge implements dj8 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048651, this, arrayList)) == null) {
             hj8 hj8Var = new hj8();
             try {
-                xl4 xl4Var = new xl4();
-                xl4Var.a = new LinkedHashMap();
+                yl4 yl4Var = new yl4();
+                yl4Var.a = new LinkedHashMap();
                 if (arrayList != null) {
                     for (int i = 0; i < arrayList.size(); i++) {
                         JSONObject jSONObject = arrayList.get(i);
                         if (jSONObject != null) {
-                            xl4Var.a.put(jSONObject.optString("path"), jSONObject.optString("host"));
+                            yl4Var.a.put(jSONObject.optString("path"), jSONObject.optString("host"));
                         }
                     }
-                    if (xl4Var.a.size() > 0) {
-                        xl4Var.b = new JSONObject().put("hostArr", new JSONArray((Collection) arrayList)).toString();
-                        TbDebugSingleton.getInstance().setUrlSwitchMap(xl4Var);
+                    if (yl4Var.a.size() > 0) {
+                        yl4Var.b = new JSONObject().put("hostArr", new JSONArray((Collection) arrayList)).toString();
+                        TbDebugSingleton.getInstance().setUrlSwitchMap(yl4Var);
                     }
                 }
                 JSONObject jSONObject2 = new JSONObject();
@@ -2899,7 +2899,7 @@ public class CommonTbJsBridge implements dj8 {
             return (hj8) invokeLL.objValue;
         }
         hj8 hj8Var = new hj8();
-        List<String> a2 = yw4.a();
+        List<String> a2 = zw4.a();
         try {
             if (isLegalSchema(a2, str2)) {
                 Intent intent = new Intent();

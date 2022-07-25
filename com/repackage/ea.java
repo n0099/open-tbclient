@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.webkit.internal.ETAG;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class ea {
                     linkedList.add(str2);
                 }
                 if (i3 != 0) {
-                    linkedList.add("result");
+                    linkedList.add(TiebaStatic.LogFields.RESULT);
                     linkedList.add(Integer.valueOf(i3));
                 }
                 if (!TextUtils.isEmpty(str3)) {

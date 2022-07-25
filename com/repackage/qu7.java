@@ -45,7 +45,7 @@ public class qu7 extends du7<ru7, PbListAlaRecommendVH> {
     public PbListAlaRecommendVH M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbListAlaRecommendVH(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d068d, (ViewGroup) null), this.i.N()) : (PbListAlaRecommendVH) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbListAlaRecommendVH(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0697, (ViewGroup) null), this.i.N()) : (PbListAlaRecommendVH) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,8 +59,8 @@ public class qu7 extends du7<ru7, PbListAlaRecommendVH> {
             if (ru7Var == null) {
                 return null;
             }
-            pbListAlaRecommendVH.d(ru7Var);
-            pbListAlaRecommendVH.i(this.o);
+            pbListAlaRecommendVH.c(ru7Var);
+            pbListAlaRecommendVH.h(this.o);
             return view2;
         }
         return (View) invokeCommon.objValue;

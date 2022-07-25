@@ -8,25 +8,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public final class a extends d {
     public static /* synthetic */ Interceptable $ic;
-    public static final d a;
-    public static final d b;
-    public static final d c;
-    public static final d d;
-    public static final d e;
-    public static final d f;
-    public static final d g;
-    public static final d h;
-    public static final d i;
-    public static final d j;
-    public static final d k;
-    public static final d l;
-    public static final d m;
-    public static final d n;
-    public static final d o;
-    public static final d p;
-    public static final d q;
-    public static final d r;
-    public static final d s;
+    public static final d arA;
+    public static final d arB;
+    public static final d arC;
+    public static final d arD;
+    public static final d arE;
+    public static final d arF;
+    public static final d arG;
+    public static final d arH;
+    public static final d arI;
+    public static final d arJ;
+    public static final d arK;
+    public static final d arL;
+    public static final d arM;
+    public static final d arN;
+    public static final d arO;
+    public static final d arP;
+    public static final d arQ;
+    public static final d ary;
+    public static final d arz;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,24 +42,24 @@ public final class a extends d {
                 return;
             }
         }
-        a = new d("DURATION_PAGE_LOAD");
-        b = new d("DURATION_WIDGET_LOAD");
-        c = new d("DURATION_RN_PAGE_LOAD");
-        d = new d("DURATION_TK_PAGE_LOAD");
-        e = new d("DURATION_WEB_PAGE_LOAD");
-        f = new d("NETWORK_LOAD_TIME");
-        g = new d("NETWORK_BIZ_CODE_ERROR");
-        h = new d("NETWORK_RESPONSE_ERROR");
-        i = new d("EXECUTION_METHOD_TIME");
-        j = new d("EXECUTION_IO_TIME");
-        k = new d("EXECUTION_BIZ_TIME");
-        l = new d("FPS_AVG");
-        m = new d("FPS_LAG");
-        n = new d("MEMORY_USAGE");
-        o = new d("MEMORY_LEAK");
-        p = new d("MEMORY_OOM");
-        q = new d("CRASH_NATIVE");
-        r = new d("CRASH_UNNATIVE");
-        s = new d("CRASH_ANR");
+        ary = new d("DURATION_PAGE_LOAD");
+        arz = new d("DURATION_WIDGET_LOAD");
+        arA = new d("DURATION_RN_PAGE_LOAD");
+        arB = new d("DURATION_TK_PAGE_LOAD");
+        arC = new d("DURATION_WEB_PAGE_LOAD");
+        arD = new d("NETWORK_LOAD_TIME");
+        arE = new d("NETWORK_BIZ_CODE_ERROR");
+        arF = new d("NETWORK_RESPONSE_ERROR");
+        arG = new d("EXECUTION_METHOD_TIME");
+        arH = new d("EXECUTION_IO_TIME");
+        arI = new d("EXECUTION_BIZ_TIME");
+        arJ = new d("FPS_AVG");
+        arK = new d("FPS_LAG");
+        arL = new d("MEMORY_USAGE");
+        arM = new d("MEMORY_LEAK");
+        arN = new d("MEMORY_OOM");
+        arO = new d("CRASH_NATIVE");
+        arP = new d("CRASH_UNNATIVE");
+        arQ = new d("CRASH_ANR");
     }
 }

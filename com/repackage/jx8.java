@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jx8 extends u15 {
+public class jx8 extends v15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context t;
@@ -43,9 +43,9 @@ public class jx8 extends u15 {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            v15 v15Var = this.m;
-            if (v15Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) v15Var).hide();
+            w15 w15Var = this.m;
+            if (w15Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) w15Var).hide();
             }
         }
     }
@@ -53,9 +53,9 @@ public class jx8 extends u15 {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            v15 v15Var = this.m;
-            if (v15Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) v15Var).i();
+            w15 w15Var = this.m;
+            if (w15Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) w15Var).i();
             }
         }
     }
@@ -63,9 +63,9 @@ public class jx8 extends u15 {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            v15 v15Var = this.m;
-            if (v15Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) v15Var).j();
+            w15 w15Var = this.m;
+            if (w15Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) w15Var).j();
             }
         }
     }
@@ -73,9 +73,9 @@ public class jx8 extends u15 {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            v15 v15Var = this.m;
-            if (v15Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) v15Var).k();
+            w15 w15Var = this.m;
+            if (w15Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) w15Var).k();
             }
         }
     }
@@ -83,9 +83,9 @@ public class jx8 extends u15 {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            v15 v15Var = this.m;
-            if (v15Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) v15Var).l();
+            w15 w15Var = this.m;
+            if (w15Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) w15Var).l();
             }
         }
     }
@@ -93,9 +93,9 @@ public class jx8 extends u15 {
     public void l(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
-            v15 v15Var = this.m;
-            if (v15Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) v15Var).s(str, i);
+            w15 w15Var = this.m;
+            if (w15Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) w15Var).s(str, i);
             }
         }
     }
@@ -103,9 +103,9 @@ public class jx8 extends u15 {
     public void m(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            v15 v15Var = this.m;
-            if (v15Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) v15Var).t(i);
+            w15 w15Var = this.m;
+            if (w15Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) w15Var).t(i);
             }
         }
     }
@@ -113,9 +113,9 @@ public class jx8 extends u15 {
     public void n(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            v15 v15Var = this.m;
-            if (v15Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) v15Var).u(z);
+            w15 w15Var = this.m;
+            if (w15Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) w15Var).u(z);
             }
         }
     }
@@ -123,9 +123,9 @@ public class jx8 extends u15 {
     public void o(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            v15 v15Var = this.m;
-            if (v15Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) v15Var).setFrom(str);
+            w15 w15Var = this.m;
+            if (w15Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) w15Var).setFrom(str);
             }
         }
     }
@@ -133,9 +133,9 @@ public class jx8 extends u15 {
     public void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            v15 v15Var = this.m;
-            if (v15Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) v15Var).y(z);
+            w15 w15Var = this.m;
+            if (w15Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) w15Var).y(z);
             }
         }
     }

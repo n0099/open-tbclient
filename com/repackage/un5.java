@@ -194,12 +194,12 @@ public class un5 extends ActivityDelegation {
                     if (!TextUtils.isEmpty(tn5Var.m()) && !TextUtils.isEmpty(tn5Var.l())) {
                         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE);
                         httpMessage.addParam("scheme", tn5Var.m());
-                        httpMessage.setExtra(new hn4(tn5Var, activity, d, new a(this)));
+                        httpMessage.setExtra(new in4(tn5Var, activity, d, new a(this)));
                         MessageManager.getInstance().sendMessage(httpMessage);
                         return;
                     }
                     MessageManager.getInstance().sendMessage(new ImplicitShareMessage(activity, d, tn5Var, true));
-                    f(dz4.b(activity, d));
+                    f(ez4.b(activity, d));
                     return;
                 }
                 TiebaStatic.log(new StatisticItem("c13530").param("obj_id", tn5Var.t0).param("obj_type", tn5Var.u0).param("obj_source", tn5Var.v0));
@@ -221,7 +221,7 @@ public class un5 extends ActivityDelegation {
                     }
                     HttpMessage httpMessage2 = new HttpMessage(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE);
                     httpMessage2.addParam("scheme", tn5Var.m());
-                    httpMessage2.setExtra(new hn4(tn5Var, activity, shareDialogConfig.onCancelListener));
+                    httpMessage2.setExtra(new in4(tn5Var, activity, shareDialogConfig.onCancelListener));
                     MessageManager.getInstance().sendMessage(httpMessage2);
                     return;
                 }

@@ -1,34 +1,32 @@
 package com.kwad.components.core.h;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.core.l.i;
-import com.kwad.components.core.l.l;
-import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.api.loader.Wrapper;
-import com.kwad.sdk.api.proxy.IActivityProxy;
+import com.kwad.components.core.k.kwai.b;
+import com.kwad.components.core.response.model.AdResultData;
+import com.kwad.sdk.core.network.m;
+import com.kwad.sdk.core.response.a.d;
+import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.core.response.model.AdTemplate;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class a extends IActivityProxy {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String FRAGMENTS_TAG = "android:fragments";
-    public static final String KEY_START_TIME = "key_start_time";
+public class a extends m<com.kwad.components.core.k.a, AdResultData> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean enableDestroyer;
-    public final com.kwad.components.core.h.kwai.a mPageMonitor;
+    public b EI;
 
-    public a() {
+    public a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,97 +36,66 @@ public abstract class a extends IActivityProxy {
                 return;
             }
         }
-        this.mPageMonitor = new com.kwad.components.core.h.kwai.a();
-        this.enableDestroyer = true;
+        this.EI = bVar;
     }
 
-    public boolean enableSaveFragmentState() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: private */
+    @Override // com.kwad.sdk.core.network.m
+    /* renamed from: d */
+    public void afterParseData(AdResultData adResultData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.kwad.sdk.api.proxy.IActivityProxy
-    public Intent getIntent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Intent intent = super.getIntent();
-            l.a(intent);
-            return intent;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    public abstract String getPageName();
-
-    public boolean isEnableDestroyer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.enableDestroyer : invokeV.booleanValue;
-    }
-
-    @Override // com.kwad.sdk.api.proxy.IActivityProxy
-    public void onCreate(@Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            super.onCreate(bundle);
-            Intent intent = getIntent();
-            long longExtra = intent != null ? intent.getLongExtra("key_start_time", 0L) : 0L;
-            this.mPageMonitor.a(getPageName());
-            this.mPageMonitor.a(longExtra);
+        if (interceptable == null || interceptable.invokeL(65537, this, adResultData) == null) {
+            super.afterParseData(adResultData);
+            e(adResultData);
         }
     }
 
-    @Override // com.kwad.sdk.api.proxy.IActivityProxy
-    public void onDestroy() {
+    public static void e(AdResultData adResultData) {
+        com.kwad.components.core.j.a og;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onDestroy();
-            if (this.enableDestroyer) {
-                i.a(getActivity(), getWindow());
+        if (interceptable == null || interceptable.invokeL(65538, null, adResultData) == null) {
+            for (AdTemplate adTemplate : adResultData.getProceedTemplateList()) {
+                AdInfo bQ = d.bQ(adTemplate);
+                if (com.kwad.sdk.core.response.a.a.aC(bQ)) {
+                    if (com.kwad.sdk.core.response.a.a.aA(bQ).size() == 0) {
+                        og = com.kwad.components.core.j.a.og();
+                        i = 21005;
+                        og.e(adTemplate, i);
+                    }
+                } else if (com.kwad.sdk.core.response.a.a.aE(bQ) && TextUtils.isEmpty(com.kwad.sdk.core.response.a.a.A(bQ))) {
+                    og = com.kwad.components.core.j.a.og();
+                    i = 21006;
+                    og.e(adTemplate, i);
+                }
             }
         }
     }
 
-    @Override // com.kwad.sdk.api.proxy.IActivityProxy
-    public void onResume() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.kwad.sdk.core.network.m
+    @NonNull
+    /* renamed from: ah */
+    public AdResultData parseData(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.onResume();
-            com.kwad.components.core.h.kwai.a aVar = this.mPageMonitor;
-            getActivity();
-            aVar.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            JSONObject jSONObject = new JSONObject(str);
+            AdResultData adResultData = new AdResultData(this.EI.HS);
+            adResultData.parseJson(jSONObject);
+            return adResultData;
         }
+        return (AdResultData) invokeL.objValue;
     }
 
-    @Override // com.kwad.sdk.api.proxy.IActivityProxy
-    public void onSaveInstanceState(Bundle bundle) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.kwad.sdk.core.network.a
+    @NonNull
+    /* renamed from: fe */
+    public com.kwad.components.core.k.a createRequest() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            super.onSaveInstanceState(bundle);
-            if (!KsAdSDKImpl.get().getIsExternal() || enableSaveFragmentState() || bundle == null || !bundle.containsKey(FRAGMENTS_TAG)) {
-                return;
-            }
-            bundle.remove(FRAGMENTS_TAG);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.proxy.IActivityProxy
-    public void setContentView(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            super.setContentView(View.inflate(Wrapper.wrapContextIfNeed(getActivity()), i, null));
-        }
-    }
-
-    public void setEnableDestroyer(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.enableDestroyer = z;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new com.kwad.components.core.k.a(this.EI) : (com.kwad.components.core.k.a) invokeV.objValue;
     }
 }

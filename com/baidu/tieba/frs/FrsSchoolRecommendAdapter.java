@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cd6;
-import com.repackage.fq4;
 import com.repackage.gq4;
+import com.repackage.hq4;
 import com.repackage.kq6;
 import com.repackage.pd6;
 import com.repackage.te6;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class FrsSchoolRecommendAdapter extends cd6<fq4, FrsSchoolRecommendViewHolder> {
+public class FrsSchoolRecommendAdapter extends cd6<gq4, FrsSchoolRecommendViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public kq6 t;
@@ -89,34 +89,34 @@ public class FrsSchoolRecommendAdapter extends cd6<fq4, FrsSchoolRecommendViewHo
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.cd6, com.repackage.an
     /* renamed from: m0 */
-    public View S(int i, View view2, ViewGroup viewGroup, fq4 fq4Var, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, gq4 gq4Var, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fq4Var, frsSchoolRecommendViewHolder})) == null) {
-            super.S(i, view2, viewGroup, fq4Var, frsSchoolRecommendViewHolder);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gq4Var, frsSchoolRecommendViewHolder})) == null) {
+            super.S(i, view2, viewGroup, gq4Var, frsSchoolRecommendViewHolder);
             this.t = frsSchoolRecommendViewHolder.a;
-            ArrayList<gq4> c = fq4Var.c();
+            ArrayList<hq4> c = gq4Var.c();
             if (c.size() <= 0) {
                 return null;
             }
             pd6 pd6Var = new pd6();
             pd6Var.showTopDivider = true;
-            pd6Var.mGroupTitle = fq4Var.getTitle();
+            pd6Var.mGroupTitle = gq4Var.getTitle();
             for (int i2 = 0; i2 != c.size(); i2++) {
-                gq4 gq4Var = c.get(i2);
-                if (gq4Var != null) {
+                hq4 hq4Var = c.get(i2);
+                if (hq4Var != null) {
                     te6 te6Var = new te6();
-                    te6Var.a.setUserId(gq4Var.d());
-                    te6Var.a.setUserName(gq4Var.e());
-                    te6Var.a.setPortrait(gq4Var.c());
-                    te6Var.a.getGodUserData().setIsLike(gq4Var.b() == 1);
-                    te6Var.a.getGodUserData().setIntro(gq4Var.a());
+                    te6Var.a.setUserId(hq4Var.d());
+                    te6Var.a.setUserName(hq4Var.e());
+                    te6Var.a.setPortrait(hq4Var.c());
+                    te6Var.a.getGodUserData().setIsLike(hq4Var.b() == 1);
+                    te6Var.a.getGodUserData().setIntro(hq4Var.a());
                     pd6Var.c(te6Var);
                 }
             }
             this.t.j(this.k, this.n);
             frsSchoolRecommendViewHolder.a.t(pd6Var);
-            return frsSchoolRecommendViewHolder.b();
+            return frsSchoolRecommendViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

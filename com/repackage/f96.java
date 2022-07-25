@@ -14,15 +14,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.e96;
-import com.repackage.y15;
+import com.repackage.z15;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class f96 extends y15 {
+public class f96 extends z15 {
     public static /* synthetic */ Interceptable $ic;
     public static f96 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<b25> a;
+    public LinkedList<c25> a;
 
     /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
@@ -133,8 +133,8 @@ public class f96 extends y15 {
         return (f96) invokeV.objValue;
     }
 
-    @Override // com.repackage.y15
-    public void b(y15.a aVar) {
+    @Override // com.repackage.z15
+    public void b(z15.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD() && this.a != null) {
             for (int i = 0; i < this.a.size(); i++) {
@@ -146,7 +146,7 @@ public class f96 extends y15 {
         }
     }
 
-    @Override // com.repackage.y15
+    @Override // com.repackage.z15
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -156,7 +156,7 @@ public class f96 extends y15 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.y15
+    @Override // com.repackage.z15
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -173,7 +173,7 @@ public class f96 extends y15 {
                         if (this.a != null) {
                             this.a = null;
                         }
-                        LinkedList<b25> linkedList = new LinkedList<>();
+                        LinkedList<c25> linkedList = new LinkedList<>();
                         boolean z = false;
                         for (o86 o86Var : list) {
                             if (o86Var != null && !StringUtils.isNull(o86Var.getGroupId()) && o86Var.IsValid()) {

@@ -23,9 +23,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b37;
 import com.repackage.d9;
-import com.repackage.dq4;
+import com.repackage.eq4;
 import com.repackage.h9;
-import com.repackage.op4;
+import com.repackage.pp4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -37,7 +37,7 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
     public TbPageContext<HotTopicDetailActivity> a;
     public List<HotTopicDetailFeedView> b;
     public List<b37> c;
-    public dq4 d;
+    public eq4 d;
     public boolean e;
     public int f;
 
@@ -237,10 +237,10 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
         e.l();
     }
 
-    public void o(dq4 dq4Var) {
+    public void o(eq4 eq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, dq4Var) == null) {
-            this.d = dq4Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, eq4Var) == null) {
+            this.d = eq4Var;
         }
     }
 
@@ -287,10 +287,10 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
             }
             b37Var2.e.addAll(b37Var.e);
         }
-        op4 op4Var = b37Var.b;
-        b37Var2.b = op4Var;
+        pp4 pp4Var = b37Var.b;
+        b37Var2.b = pp4Var;
         b37Var2.c = b37Var.c;
-        if ((op4Var == null || op4Var.b() == 0) ? false : true) {
+        if ((pp4Var == null || pp4Var.b() == 0) ? false : true) {
             t(i);
         } else {
             i(i);

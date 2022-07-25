@@ -73,8 +73,8 @@ public class bj6 {
                     this.a.l.a();
                 }
                 if (this.a.m) {
-                    ur4.d(this.a.i).v(R.color.CAM_X0105);
-                    ur4.d(this.a.j).v(R.color.CAM_X0105);
+                    vr4.d(this.a.i).v(R.color.CAM_X0105);
+                    vr4.d(this.a.j).v(R.color.CAM_X0105);
                     this.a.m = false;
                 }
             }
@@ -167,8 +167,8 @@ public class bj6 {
                     this.a.l.a();
                 }
                 if (this.a.m) {
-                    ur4.d(this.a.i).v(R.color.CAM_X0105);
-                    ur4.d(this.a.j).v(R.color.CAM_X0105);
+                    vr4.d(this.a.i).v(R.color.CAM_X0105);
+                    vr4.d(this.a.j).v(R.color.CAM_X0105);
                     this.a.m = false;
                 }
                 if (this.a.j.getLineCount() > 6) {
@@ -295,12 +295,12 @@ public class bj6 {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.b == null) {
             return;
         }
-        ur4.d(this.c).f(R.color.CAM_X0204);
-        ur4.d(this.d).f(R.color.CAM_X0210);
-        ur4 d2 = ur4.d(this.f);
+        vr4.d(this.c).f(R.color.CAM_X0204);
+        vr4.d(this.d).f(R.color.CAM_X0210);
+        vr4 d2 = vr4.d(this.f);
         d2.v(R.color.CAM_X0107);
         d2.A(R.string.F_X02);
-        ur4.d(this.e).v(R.color.CAM_X0111);
+        vr4.d(this.e).v(R.color.CAM_X0111);
         this.h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08090b, SkinManager.getColor(R.color.CAM_X0107), WebPManager.ResourceStateType.NORMAL_PRESS));
         this.j.setHintTextColor(SkinManager.getColor(R.color.CAM_X0111));
         this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
@@ -338,14 +338,14 @@ public class bj6 {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02b7, (ViewGroup) null);
             this.b = inflate;
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f090f35);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f78);
-            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f32);
-            this.i = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f090f77);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f7a);
-            this.d = this.b.findViewById(R.id.obfuscated_res_0x7f0920bb);
-            this.j = (SpanGroupEditText) this.b.findViewById(R.id.obfuscated_res_0x7f090f2f);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f30);
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f090f2e);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f71);
+            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f2b);
+            this.i = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f090f70);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f73);
+            this.d = this.b.findViewById(R.id.obfuscated_res_0x7f0920bd);
+            this.j = (SpanGroupEditText) this.b.findViewById(R.id.obfuscated_res_0x7f090f28);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f29);
             aj6.P(this.e, 0, 30);
             aj6.P(this.g, 0, 1000);
             this.i.addTextChangedListener(new a(this));
@@ -398,7 +398,7 @@ public class bj6 {
         if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || (editText = this.i) == null || (context = this.a) == null) {
             return;
         }
-        editText.setHint(String.format(context.getString(R.string.obfuscated_res_0x7f0f06a2), i(i)));
+        editText.setHint(String.format(context.getString(R.string.obfuscated_res_0x7f0f069e), i(i)));
     }
 
     public void t(int i) {
@@ -407,6 +407,6 @@ public class bj6 {
         if (!(interceptable == null || interceptable.invokeI(1048587, this, i) == null) || (textView = this.f) == null) {
             return;
         }
-        textView.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f06a4), i(i)));
+        textView.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f06a0), i(i)));
     }
 }

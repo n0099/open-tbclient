@@ -14,7 +14,6 @@ import com.baidu.ar.constants.HttpConstants;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.down.utils.Constants;
 import com.baidu.lcp.sdk.pb.LcmPb$Common;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -141,7 +140,7 @@ public class q70 {
                     str2 = SystemProperties.get(str);
                 } else {
                     Class<?> cls = Class.forName("android.os.SystemProperties");
-                    str2 = (String) cls.getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, str);
+                    str2 = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str);
                 }
                 str3 = str2;
             } catch (Throwable unused) {

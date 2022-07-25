@@ -17,20 +17,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sh4;
 import com.repackage.th4;
 import com.repackage.uh4;
+import com.repackage.vh4;
 /* loaded from: classes2.dex */
-public final class MediaGestureLayout extends FrameLayout implements th4 {
+public final class MediaGestureLayout extends FrameLayout implements uh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sh4 a;
+    public th4 a;
     public b b;
     public MediaVolume c;
     public MediaBrightness d;
     public MediaFastForward e;
     public SwanVideoView f;
-    public uh4 g;
+    public vh4 g;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnTouchListener {
@@ -133,7 +133,7 @@ public final class MediaGestureLayout extends FrameLayout implements th4 {
         }
     }
 
-    @Override // com.repackage.th4
+    @Override // com.repackage.uh4
     public boolean a(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -148,7 +148,7 @@ public final class MediaGestureLayout extends FrameLayout implements th4 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.th4
+    @Override // com.repackage.uh4
     public boolean b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -169,7 +169,7 @@ public final class MediaGestureLayout extends FrameLayout implements th4 {
         return invokeLL.booleanValue;
     }
 
-    @Override // com.repackage.th4
+    @Override // com.repackage.uh4
     public boolean c(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -178,7 +178,7 @@ public final class MediaGestureLayout extends FrameLayout implements th4 {
                 return false;
             }
             float b2 = this.c.b() + (((motionEvent.getY() - motionEvent2.getY()) * this.c.c()) / (getHeight() * 0.8f));
-            this.c.g(R.drawable.obfuscated_res_0x7f08114a);
+            this.c.g(R.drawable.obfuscated_res_0x7f08114e);
             this.c.h(b2);
             this.c.f();
             return true;
@@ -186,7 +186,7 @@ public final class MediaGestureLayout extends FrameLayout implements th4 {
         return invokeCommon.booleanValue;
     }
 
-    @Override // com.repackage.th4
+    @Override // com.repackage.uh4
     public boolean d(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -194,7 +194,7 @@ public final class MediaGestureLayout extends FrameLayout implements th4 {
             if (this.g.d()) {
                 float x = motionEvent2.getX() - motionEvent.getX();
                 this.e.h((int) (this.e.b() + ((this.e.c() * x) / (getWidth() * 0.8f))));
-                this.e.g(x > 0.0f ? R.drawable.obfuscated_res_0x7f081146 : R.drawable.obfuscated_res_0x7f081147);
+                this.e.g(x > 0.0f ? R.drawable.obfuscated_res_0x7f08114a : R.drawable.obfuscated_res_0x7f08114b);
                 this.e.f();
                 return true;
             }
@@ -203,7 +203,7 @@ public final class MediaGestureLayout extends FrameLayout implements th4 {
         return invokeCommon.booleanValue;
     }
 
-    @Override // com.repackage.th4
+    @Override // com.repackage.uh4
     public boolean e(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -213,7 +213,7 @@ public final class MediaGestureLayout extends FrameLayout implements th4 {
             }
             float a2 = this.d.a() + (((motionEvent.getY() - motionEvent2.getY()) * this.d.b()) / (getHeight() * 0.8f));
             this.d.f(a2);
-            this.d.g(R.drawable.obfuscated_res_0x7f081138);
+            this.d.g(R.drawable.obfuscated_res_0x7f08113c);
             this.d.h((int) ((a2 / this.d.b()) * 100.0f));
             this.d.e();
             return true;
@@ -221,10 +221,10 @@ public final class MediaGestureLayout extends FrameLayout implements th4 {
         return invokeCommon.booleanValue;
     }
 
-    public void g(@NonNull uh4 uh4Var) {
+    public void g(@NonNull vh4 vh4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, uh4Var) == null) {
-            this.g = uh4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, vh4Var) == null) {
+            this.g = vh4Var;
         }
     }
 
@@ -238,10 +238,10 @@ public final class MediaGestureLayout extends FrameLayout implements th4 {
     public final void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            sh4 sh4Var = new sh4(context);
-            this.a = sh4Var;
-            sh4Var.d(this);
-            this.g = new uh4.b().f();
+            th4 th4Var = new th4(context);
+            this.a = th4Var;
+            th4Var.d(this);
+            this.g = new vh4.b().f();
             setOnTouchListener(new a(this));
         }
     }
@@ -264,7 +264,7 @@ public final class MediaGestureLayout extends FrameLayout implements th4 {
         }
     }
 
-    @Override // com.repackage.th4
+    @Override // com.repackage.uh4
     public boolean onDoubleTap(MotionEvent motionEvent) {
         InterceptResult invokeL;
         b bVar;
@@ -279,7 +279,7 @@ public final class MediaGestureLayout extends FrameLayout implements th4 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.th4
+    @Override // com.repackage.uh4
     public boolean onDown(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

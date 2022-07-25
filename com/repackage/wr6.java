@@ -24,11 +24,11 @@ public class wr6 {
     public ArrayList<tr6> e;
     public ArrayList<rr6> f;
     public ArrayList<vr6> g;
-    public HashMap<Integer, ArrayList<xo4>> h;
+    public HashMap<Integer, ArrayList<yo4>> h;
     public int i;
     public String j;
     public int k;
-    public yo4 l;
+    public zo4 l;
     public e m;
     public d n;
     public DefaultGiftListModel.b o;
@@ -60,9 +60,9 @@ public class wr6 {
         }
 
         @Override // com.baidu.tieba.gift.giftTab.DefaultGiftListModel.b
-        public void a(int i, String str, int i2, String str2, int i3, yo4 yo4Var, ArrayList<rr6> arrayList, ArrayList<xo4> arrayList2, ArrayList<vr6> arrayList3) {
+        public void a(int i, String str, int i2, String str2, int i3, zo4 zo4Var, ArrayList<rr6> arrayList, ArrayList<yo4> arrayList2, ArrayList<vr6> arrayList3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, Integer.valueOf(i3), yo4Var, arrayList, arrayList2, arrayList3}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, Integer.valueOf(i3), zo4Var, arrayList, arrayList2, arrayList3}) == null) {
                 if (i == 0) {
                     int i4 = 0;
                     if (arrayList != null && arrayList.size() >= 1 && arrayList.get(0) != null) {
@@ -75,7 +75,7 @@ public class wr6 {
                     this.a.i = i2;
                     wr6 wr6Var = this.a;
                     wr6Var.k = i3;
-                    wr6Var.l = yo4Var;
+                    wr6Var.l = zo4Var;
                     wr6Var.q();
                 }
                 if (this.a.m != null) {
@@ -113,7 +113,7 @@ public class wr6 {
         }
 
         @Override // com.baidu.tieba.gift.giftTab.CategoryGiftListModel.b
-        public void a(int i, String str, int i2, ArrayList<xo4> arrayList) {
+        public void a(int i, String str, int i2, ArrayList<yo4> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), arrayList}) == null) {
                 if (i == 0) {
@@ -173,7 +173,7 @@ public class wr6 {
 
     /* loaded from: classes7.dex */
     public interface e {
-        void a(int i, String str, boolean z, String str2, int i2, yo4 yo4Var, ArrayList<tr6> arrayList, ArrayList<rr6> arrayList2, ArrayList<vr6> arrayList3);
+        void a(int i, String str, boolean z, String str2, int i2, zo4 zo4Var, ArrayList<tr6> arrayList, ArrayList<rr6> arrayList2, ArrayList<vr6> arrayList3);
     }
 
     public wr6(d9<GiftTabActivity> d9Var) {
@@ -244,7 +244,7 @@ public class wr6 {
     }
 
     public final void q() {
-        HashMap<Integer, ArrayList<xo4>> hashMap;
+        HashMap<Integer, ArrayList<yo4>> hashMap;
         ArrayList<rr6> arrayList;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (hashMap = this.h) == null || hashMap.size() <= 0 || (arrayList = this.f) == null || arrayList.size() <= 0) {
@@ -261,7 +261,7 @@ public class wr6 {
                 tr6 tr6Var = new tr6();
                 tr6Var.c(next.a());
                 tr6Var.d(next.b());
-                ArrayList<xo4> arrayList2 = this.h.get(Integer.valueOf(next.a()));
+                ArrayList<yo4> arrayList2 = this.h.get(Integer.valueOf(next.a()));
                 if (arrayList2 != null) {
                     tr6Var.e(arrayList2);
                 }

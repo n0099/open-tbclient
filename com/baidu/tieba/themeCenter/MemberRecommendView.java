@@ -175,15 +175,15 @@ public class MemberRecommendView extends FrameLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d053d, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0547, this);
             this.b = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09245d);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09245f);
             this.c = tbImageView;
             tbImageView.setDefaultResource(R.drawable.icon_vip_orange);
-            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a4);
+            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a8);
             this.c.setAutoChangeStyle(true);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920ee);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090fc7);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920f0);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090fbe);
             this.e = textView;
             textView.setOnClickListener(new a(this));
         }

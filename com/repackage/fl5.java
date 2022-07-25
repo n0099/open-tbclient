@@ -68,7 +68,7 @@ public class fl5 {
                         this.a.i(charSequence2String.trim());
                         this.a.b.setClickable(false);
                     } else if (charSequence2String.length() > 0) {
-                        this.a.g.showToast(R.string.obfuscated_res_0x7f0f08f3);
+                        this.a.g.showToast(R.string.obfuscated_res_0x7f0f08de);
                     }
                 } else if (view2 == this.a.c) {
                     this.a.k("");
@@ -151,9 +151,9 @@ public class fl5 {
         this.h = new a(this);
         this.g = tbPageContext;
         this.f = tbPageContext.getPageActivity();
-        this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f0915c8);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915cc);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915c7);
+        this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f0915a3);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915a7);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915a2);
         this.b.setOnClickListener(this.h);
         this.c.setOnClickListener(this.h);
         b bVar = new b(this);

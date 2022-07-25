@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class vz7 extends gu4 {
+public class vz7 extends hu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,7 +32,7 @@ public class vz7 extends gu4 {
         }
     }
 
-    @Override // com.repackage.fu4, com.repackage.cn
+    @Override // com.repackage.gu4, com.repackage.cn
     public View n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ad5;
+import com.repackage.bd5;
 import com.repackage.d9;
 import com.repackage.ng;
 import com.repackage.oh8;
@@ -258,7 +258,7 @@ public class LikeModel extends BdBaseModel {
                 oh8Var.j();
                 if (oh8Var != null && this.a.getNetContext().getResponse().isRequestSuccess()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(ng.g(oh8Var.g(), 0L))));
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new ad5.a(this.b.a, oh8Var.m())));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new bd5.a(this.b.a, oh8Var.m())));
                     TbadkCoreApplication.getInst().addLikeForum(this.b.a);
                     ok8Var.b = true;
                     ok8Var.c = this.b.getErrorString();

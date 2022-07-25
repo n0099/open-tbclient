@@ -211,7 +211,7 @@ public class zf7 {
     }
 
     /* loaded from: classes7.dex */
-    public class e implements jd5<List<String>> {
+    public class e implements kd5<List<String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zf7 a;
@@ -235,7 +235,7 @@ public class zf7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(List<String> list) {
             Interceptable interceptable = $ic;
@@ -503,7 +503,7 @@ public class zf7 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             if (!str.startsWith("https://tieba.baidu.com/mo/q/hotMessage?topic_id=") && !str.startsWith("https://tieba.baidu.com/mo/q/newhotmessage?") && !str.startsWith("https://tieba.baidu.com/mo/q/hotMessage?topic_id=") && !str.startsWith("https://tieba.baidu.com/mo/q/newhotmessage?")) {
                 if (str.startsWith("https://tieba.baidu.com/mo/q/hotMessage/list") || str.startsWith("https://tieba.baidu.com/mo/q/hotMessage/list")) {
-                    if (!id5.b(this.a)) {
+                    if (!jd5.b(this.a)) {
                         new HotRanklistActivityConfig(this.a.getPageActivity()).createNormalConfig("hotforum", "all").start();
                     }
                     return true;
@@ -512,7 +512,7 @@ public class zf7 {
             }
             String c2 = se5.c(str, "topic_id=");
             String c3 = se5.c(str, "topic_name=");
-            if (!id5.b(this.a) && !StringUtils.isNull(c2) && !StringUtils.isNull(c3, true)) {
+            if (!jd5.b(this.a) && !StringUtils.isNull(c2) && !StringUtils.isNull(c3, true)) {
                 this.a.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.a.getPageActivity()).createNormalConfig(c2, c3, "4")));
             }
             TiebaStatic.log(new StatisticItem("c10363").param("obj_name", c3));
@@ -528,9 +528,9 @@ public class zf7 {
             if (!z) {
                 this.c.u();
                 if (ni.z()) {
-                    a2 = NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f13c3);
+                    a2 = NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f1372);
                 } else {
-                    a2 = NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c2b);
+                    a2 = NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c17);
                 }
                 this.c.t(a2);
                 return;

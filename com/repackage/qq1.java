@@ -1,37 +1,32 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.lo1;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qq1 extends nq1 {
+public class qq1 extends oq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class a implements lo1.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+        public final /* synthetic */ qq1 a;
 
-        public a(qq1 qq1Var, Context context) {
+        public a(qq1 qq1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qq1Var, context};
+                Object[] objArr = {qq1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,32 +36,41 @@ public class qq1 extends nq1 {
                     return;
                 }
             }
-            this.a = context;
+            this.a = qq1Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.repackage.lo1.b
+        public is1 a(i03 i03Var) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || zz2.d()) {
-                return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, i03Var)) == null) {
+                float a = ga3.c().a(i03Var.w());
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("value", a);
+                    return new is1(0, jSONObject);
+                } catch (JSONException e) {
+                    this.a.p("json put data fail", e, false);
+                    return is1.c();
+                }
             }
-            zz2.f(this.a, R.string.obfuscated_res_0x7f0f03e7).G();
+            return (is1) invokeL.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qq1(@NonNull io1 io1Var) {
-        super(io1Var);
+    public qq1(@NonNull jo1 jo1Var) {
+        super(jo1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {io1Var};
+            Object[] objArr = {jo1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((io1) newInitContext.callArgs[0]);
+                super((jo1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -74,51 +78,20 @@ public class qq1 extends nq1 {
         }
     }
 
-    @Override // com.repackage.ko1
+    @Override // com.repackage.lo1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ClipboardApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "BrightnessApi" : (String) invokeV.objValue;
     }
 
-    @SuppressLint({"KotlinPropertyAccess"})
-    public hs1 x() {
+    public is1 y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            q("#getClipboardData", false);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                CharSequence a2 = ce3.b(getContext()).a();
-                jSONObject.put("data", TextUtils.isEmpty(a2) ? "" : a2.toString());
-                return new hs1(0, jSONObject);
-            } catch (JSONException e) {
-                p("#getClipboardData json put data fail", e, false);
-                return new hs1(1001, "JSONException");
-            }
+            q("#getBrightness", false);
+            return k(true, new a(this));
         }
-        return (hs1) invokeV.objValue;
-    }
-
-    @SuppressLint({"KotlinPropertyAccess"})
-    public hs1 y(String str) {
-        InterceptResult invokeL;
-        SwanAppActivity w;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#setClipboardData", false);
-            Pair<hs1, JSONObject> s = s(str);
-            hs1 hs1Var = (hs1) s.first;
-            if (hs1Var.isSuccess()) {
-                ce3.b(getContext()).c(((JSONObject) s.second).optString("data"));
-                h03 q = g03.K().q();
-                if (q != null && (w = q.w()) != null) {
-                    be3.f0(new a(this, w), 200L);
-                }
-                return hs1.f();
-            }
-            return hs1Var;
-        }
-        return (hs1) invokeL.objValue;
+        return (is1) invokeV.objValue;
     }
 }

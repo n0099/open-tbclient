@@ -73,10 +73,10 @@ public class ix extends ky {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d019b, (ViewGroup) null, true);
             this.f = inflate;
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923dd);
-            this.A = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0923dc);
-            this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090a85);
-            this.y = (InterviewLiveLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090a81);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923df);
+            this.A = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0923de);
+            this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090a7e);
+            this.y = (InterviewLiveLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090a7a);
             x68 q = q();
             this.j = q;
             q.getMainView().setBackgroundResource(R.color.transparent);
@@ -98,7 +98,7 @@ public class ix extends ky {
     }
 
     @Override // com.repackage.qw
-    public void m(jy5<nn4> jy5Var) {
+    public void m(jy5<on4> jy5Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, jy5Var) == null) {
             this.y.setSubClickListener(jy5Var);
@@ -132,25 +132,25 @@ public class ix extends ky {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ky, com.repackage.gx
     /* renamed from: r */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, nn4Var) == null) {
-            this.h = nn4Var;
-            if (nn4Var == null || nn4Var.getThreadData() == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, on4Var) == null) {
+            this.h = on4Var;
+            if (on4Var == null || on4Var.getThreadData() == null) {
                 return;
             }
-            ThreadData threadData = nn4Var.getThreadData();
+            ThreadData threadData = on4Var.getThreadData();
             if (threadData.getThreadVideoInfo() != null) {
                 this.y.setVisibility(8);
                 this.i.setVisibility(0);
                 this.A.setVisibility(8);
-                super.a(nn4Var);
+                super.a(on4Var);
                 return;
             }
             this.i.setVisibility(8);
             this.y.setVisibility(0);
             this.A.setVisibility(0);
-            this.y.a(nn4Var);
+            this.y.a(on4Var);
             ThreadCardUtils.setTitle(this.g, threadData);
             ThreadCardUtils.setAbstract(this.A, this.g, threadData, B);
         }

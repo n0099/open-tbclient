@@ -2,7 +2,7 @@ package com.kwad.sdk.crash.model.message;
 
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.kwad.sdk.core.d.b;
+import com.kwad.sdk.core.e.b;
 import com.kwad.sdk.crash.offline.monitor.mem.message.OfflineMemExceptionMessage;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
@@ -39,10 +39,10 @@ public final class AnrExceptionMessage extends ExceptionMessage {
     @Override // com.kwad.sdk.crash.model.message.ExceptionMessage, com.kwad.sdk.core.b
     public final JSONObject toJson() {
         JSONObject json = super.toJson();
-        r.a(json, OfflineMemExceptionMessage.REASON, this.mReason);
-        r.a(json, OfflineMemExceptionMessage.MSG_QUEUE_DETAIL, this.mMessageQueueDetail);
-        r.a(json, OfflineMemExceptionMessage.THREAD_DETAIL, this.mThreadDetail);
-        r.a(json, OfflineMemExceptionMessage.THREAD_STATUS, this.mThreadStatus);
+        r.putValue(json, OfflineMemExceptionMessage.REASON, this.mReason);
+        r.putValue(json, OfflineMemExceptionMessage.MSG_QUEUE_DETAIL, this.mMessageQueueDetail);
+        r.putValue(json, OfflineMemExceptionMessage.THREAD_DETAIL, this.mThreadDetail);
+        r.putValue(json, OfflineMemExceptionMessage.THREAD_STATUS, this.mThreadStatus);
         return json;
     }
 
@@ -71,7 +71,7 @@ public final class AnrExceptionMessage extends ExceptionMessage {
                 sb.append("\n");
             }
         } catch (Exception e) {
-            b.b(e);
+            b.printStackTraceOnly(e);
         }
         return sb.substring(0);
     }

@@ -47,7 +47,7 @@ public class iy7 {
     public boolean i;
     public boolean j;
     public boolean k;
-    public lv4 l;
+    public mv4 l;
     public SpannableStringBuilder m;
     public SpannableStringBuilder n;
     public View.OnTouchListener o;
@@ -97,10 +97,10 @@ public class iy7 {
                     int lineCount = layout.getLineCount();
                     RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.a.e.getLayoutParams();
                     if (this.a.e.getWidth() + layout.getLineWidth(lineCount - 1) > layout.getWidth()) {
-                        layoutParams.addRule(3, R.id.obfuscated_res_0x7f092449);
+                        layoutParams.addRule(3, R.id.obfuscated_res_0x7f09244b);
                         layoutParams.addRule(8, 0);
                     } else {
-                        layoutParams.addRule(8, R.id.obfuscated_res_0x7f092449);
+                        layoutParams.addRule(8, R.id.obfuscated_res_0x7f09244b);
                         layoutParams.addRule(3, 0);
                     }
                     this.a.e.setLayoutParams(layoutParams);
@@ -173,7 +173,7 @@ public class iy7 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                rl4.x(TbadkCoreApplication.getInst().getApplicationContext(), false, this.h);
+                sl4.x(TbadkCoreApplication.getInst().getApplicationContext(), false, this.h);
                 TiebaStatic.log(new StatisticItem("c12841").param("obj_source", "3"));
             }
         }
@@ -303,23 +303,23 @@ public class iy7 {
             return;
         }
         this.a = view2;
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092449);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09244b);
         this.b = textView;
         textView.setTextSize(0, TbConfig.getContentSize());
         this.b.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
         this.b.getPaint().setFakeBoldText(true);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0917c1);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0917bf);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09244a);
-        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0917b5);
-        this.h = (ThreadAgreeAndShareLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0917ab);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09179c);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09179a);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09244c);
+        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091790);
+        this.h = (ThreadAgreeAndShareLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091786);
         this.g = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0902a7);
         this.b.getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
     }
 
     public void m(jr7 jr7Var, String str) {
         ThreadData O;
-        mq4 mq4Var;
+        nq4 nq4Var;
         SpannableStringBuilder spannableStringBuilder;
         Layout k;
         SpannableString c2;
@@ -337,9 +337,9 @@ public class iy7 {
             this.k = false;
         }
         if (this.m != null && !this.k && !n && (c2 = lv7.c(O)) != null) {
-            lv4[] lv4VarArr = (lv4[]) c2.getSpans(0, c2.length(), lv4.class);
-            if (lv4VarArr != null && lv4VarArr.length > 0) {
-                this.l = lv4VarArr[0];
+            mv4[] mv4VarArr = (mv4[]) c2.getSpans(0, c2.length(), mv4.class);
+            if (mv4VarArr != null && mv4VarArr.length > 0) {
+                this.l = mv4VarArr[0];
             }
             this.m.append((CharSequence) c2);
         }
@@ -360,13 +360,13 @@ public class iy7 {
         this.o = bu8Var;
         this.b.setOnTouchListener(bu8Var);
         this.e.setOnClickListener(this.r);
-        this.d.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0de1), StringHelper.numberUniformFormatExtra(threadVideoInfo.play_count.intValue())));
+        this.d.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0dca), StringHelper.numberUniformFormatExtra(threadVideoInfo.play_count.intValue())));
         if (jr7Var.g0() && jr7Var.r0()) {
             if (TextUtils.isEmpty(str)) {
                 str = O.getForum_name();
             }
-            if (TextUtils.isEmpty(str) && (mq4Var = (mq4) ListUtils.getItem(jr7Var.p(), 0)) != null) {
-                str = mq4Var.b;
+            if (TextUtils.isEmpty(str) && (nq4Var = (nq4) ListUtils.getItem(jr7Var.p(), 0)) != null) {
+                str = nq4Var.b;
             }
             if (!TextUtils.isEmpty(str)) {
                 this.g.setVisibility(0);
@@ -384,7 +384,7 @@ public class iy7 {
             this.g.setVisibility(8);
             this.f.setVisibility(8);
             this.c.setVisibility(0);
-            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0de2), StringHelper.numberUniformFormatExtra(O.getReply_num())));
+            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0dcb), StringHelper.numberUniformFormatExtra(O.getReply_num())));
             this.h.setVisibility(8);
         }
         o();
@@ -397,7 +397,7 @@ public class iy7 {
             if (threadData == null || this.m == null || !threadData.canShowNaniTail() || StringUtils.isNull(threadData.getTid())) {
                 return false;
             }
-            String str = xt4.k().q("nani_key_pre_h5_link", TbConfig.NANI_DEFAULT_H5_PREFIX) + "/" + threadData.getTid();
+            String str = yt4.k().q("nani_key_pre_h5_link", TbConfig.NANI_DEFAULT_H5_PREFIX) + "/" + threadData.getTid();
             this.m.append((CharSequence) threadData.generateNaniTail(new b(this, 2, str, str)));
             return true;
         }

@@ -1,159 +1,86 @@
 package com.repackage;
 
+import android.content.Context;
+import android.provider.Settings;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayInputStream;
-import java.io.CharArrayWriter;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zg4 {
+public class zg4 implements ug4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    public static void a(Closeable closeable) {
+    public zg4(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static long b(InputStream inputStream, OutputStream outputStream) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, outputStream)) == null) {
-            if (inputStream != null && outputStream != null) {
-                try {
-                    byte[] bArr = new byte[3072];
-                    long j = 0;
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read > 0) {
-                            outputStream.write(bArr, 0, read);
-                            j += read;
-                        } else {
-                            outputStream.flush();
-                            return j;
-                        }
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return 0L;
         }
-        return invokeLL.longValue;
+        this.a = context.getApplicationContext();
     }
 
-    public static String c(File file) {
-        InterceptResult invokeL;
-        FileReader fileReader;
+    @Override // com.repackage.ug4
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            FileReader fileReader2 = null;
-            if (file != null && file.exists()) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TextUtils.isEmpty(get()) : invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ug4
+    /* renamed from: b */
+    public String get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c() : (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (ch4.a(this.a, "android.permission.WRITE_SETTINGS")) {
                 try {
-                    fileReader = new FileReader(file);
+                    return Settings.System.getString(this.a.getContentResolver(), "com.baidu.uuid");
                 } catch (Exception unused) {
-                    fileReader = null;
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    char[] cArr = new char[256];
-                    CharArrayWriter charArrayWriter = new CharArrayWriter();
-                    while (true) {
-                        int read = fileReader.read(cArr);
-                        if (read > 0) {
-                            charArrayWriter.write(cArr, 0, read);
-                        } else {
-                            String charArrayWriter2 = charArrayWriter.toString();
-                            a(fileReader);
-                            return charArrayWriter2;
-                        }
-                    }
-                } catch (Exception unused2) {
-                    a(fileReader);
                     return null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileReader2 = fileReader;
-                    a(fileReader2);
-                    throw th;
                 }
             }
             return null;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static boolean d(String str, File file) {
-        InterceptResult invokeLL;
-        File parentFile;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ug4
+    /* renamed from: d */
+    public void put(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, file)) == null) {
-            if (TextUtils.isEmpty(str) || (parentFile = file.getParentFile()) == null || !parentFile.isDirectory()) {
-                return false;
-            }
-            if (!parentFile.exists()) {
-                parentFile.mkdirs();
-            }
-            e(str.getBytes(), file);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void e(byte[] bArr, File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, file) == null) {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            f(byteArrayInputStream, file);
-            a(byteArrayInputStream);
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            e(str);
         }
     }
 
-    public static void f(InputStream inputStream, File file) {
-        FileOutputStream fileOutputStream;
+    public final void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, inputStream, file) == null) {
-            FileOutputStream fileOutputStream2 = null;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && ch4.a(this.a, "android.permission.WRITE_SETTINGS")) {
             try {
-                try {
-                    fileOutputStream = new FileOutputStream(file);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (FileNotFoundException e) {
-                e = e;
-            }
-            try {
-                b(inputStream, fileOutputStream);
-                a(fileOutputStream);
-            } catch (FileNotFoundException e2) {
-                e = e2;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                a(fileOutputStream2);
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                a(fileOutputStream2);
-                throw th;
+                Settings.System.putString(this.a.getContentResolver(), "com.baidu.uuid", str);
+            } catch (Exception unused) {
             }
         }
     }

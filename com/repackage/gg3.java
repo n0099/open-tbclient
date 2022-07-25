@@ -1,48 +1,69 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.swan.bdprivate.api.SwanApi$$ModulesProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+@Service
 /* loaded from: classes6.dex */
-public class gg3 {
+public class gg3 implements yl3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755679042, "Lcom/repackage/gg3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755679042, "Lcom/repackage/gg3;");
-                return;
+    public gg3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        bx1.b();
-        a = bx1.b();
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.zl3
+    public void a(f13 f13Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? String.format("%s/smtapp/ad/auto", a) : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, f13Var) == null) {
+            f13Var.b(new xh3(f13Var));
+            f13Var.b(new bi3(f13Var));
+            f13Var.b(new vi3(f13Var));
+            f13Var.b(new ui3(f13Var));
+            f13Var.b(new ki3(f13Var));
+            f13Var.b(new ci3(f13Var));
+            f13Var.b(new zh3(f13Var));
+            f13Var.b(new ii3(f13Var));
+            f13Var.b(new yh3(f13Var));
+            f13Var.b(new wh3(f13Var));
+            f13Var.b(new vh3(f13Var));
+            f13Var.b(new ai3(f13Var));
+            f13Var.b(new zi3(f13Var));
+        }
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.zl3
+    @Nullable
+    public Map<String, Object> b(@NonNull jo1 jo1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? String.format("%s/smtapp/ad/similar", a) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jo1Var)) == null) ? SwanApi$$ModulesProvider.getV8ApiModules(jo1Var) : (Map) invokeL.objValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.zl3
+    @Nullable
+    public Map<String, Object> c(@NonNull jo1 jo1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? String.format("%s/searchbox?action=userx&type=attribute", a) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jo1Var)) == null) ? SwanApi$$ModulesProvider.getWebviewApiModules(jo1Var) : (Map) invokeL.objValue;
     }
 }

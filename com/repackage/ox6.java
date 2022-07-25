@@ -107,10 +107,10 @@ public class ox6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
                 vy5 vy5Var = (vy5) nnVar;
                 vy5Var.f = 1;
                 if (this.a.n != null) {
-                    this.a.n.a(threadCardViewHolder.b(), vy5Var);
+                    this.a.n.a(threadCardViewHolder.a(), vy5Var);
                 }
-                ThreadCardUtils.jumpToPB((nn4) vy5Var, view2.getContext(), 2, false, uw.a((tn) viewGroup, view2, i));
-                threadCardViewHolder.c().o(new ny.a(1));
+                ThreadCardUtils.jumpToPB((on4) vy5Var, view2.getContext(), 2, false, uw.a((tn) viewGroup, view2, i));
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -151,8 +151,8 @@ public class ox6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
             vy5.X = "c10736";
             vy5.Y = "c10737";
             vy5.Z = "c10711";
-            vy5.g0 = "c10758";
-            vy5.h0 = "c10757";
+            vy5.a0 = "c10758";
+            vy5.b0 = "c10757";
         }
     }
 
@@ -168,7 +168,7 @@ public class ox6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
             cy k = bVar.k(BaseCardInfo.SupportType.TOP, viewGroup, this.l);
             k.r(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.k(this.i);
+            threadCardViewHolder.j(this.i);
             V(new b(this));
             return threadCardViewHolder;
         }
@@ -182,22 +182,22 @@ public class ox6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vy5Var, threadCardViewHolder})) == null) {
-            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || vy5Var.a == null) {
+            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || vy5Var.a == null) {
                 return null;
             }
             vy5Var.I(vy5Var.position + 1);
             vy5Var.a.statFloor = vy5Var.m();
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.c().b(this.k);
-            threadCardViewHolder.r(true, Align.ALIGN_RIGHT_TOP, this.m);
-            threadCardViewHolder.g(vy5Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.n);
+            threadCardViewHolder.b().q(i);
+            threadCardViewHolder.b().b(this.k);
+            threadCardViewHolder.q(true, Align.ALIGN_RIGHT_TOP, this.m);
+            threadCardViewHolder.f(vy5Var);
+            threadCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().p(this.n);
             cy5.b().a(vy5Var.B());
             ak5.c().a(vy5Var.B());
             iz6.i(vy5Var.a, this.i, vy5Var.m());
             iz6.h(vy5Var.a, vy5Var.o(), vy5Var.m());
-            return threadCardViewHolder.b();
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }
@@ -211,7 +211,7 @@ public class ox6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
             if (vy5Var == null) {
                 return;
             }
-            if (id != R.id.obfuscated_res_0x7f090a23 && id != R.id.obfuscated_res_0x7f090a22 && id != R.id.obfuscated_res_0x7f090a24 && id != R.id.obfuscated_res_0x7f090a25) {
+            if (id != R.id.obfuscated_res_0x7f090a1c && id != R.id.obfuscated_res_0x7f090a1b && id != R.id.obfuscated_res_0x7f090a1d && id != R.id.obfuscated_res_0x7f090a1e) {
                 if (vy5Var.isVideoThreadType()) {
                     A = vy5Var.C();
                 } else {

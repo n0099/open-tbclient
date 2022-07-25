@@ -1,134 +1,113 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.browser.sailor.BdSailorWebView;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebResourceResponse;
-import com.baidubce.http.Headers;
-import com.repackage.c52;
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.util.HashMap;
-/* loaded from: classes5.dex */
-public class e52 extends v42 implements q42 {
+/* loaded from: classes6.dex */
+public class e52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n42 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e52(@NonNull Context context, k42 k42Var) {
-        super(context, k42Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, k42Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (k42) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ PrefetchEvent b;
+
+        public a(String str, PrefetchEvent prefetchEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, prefetchEvent};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = prefetchEvent;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                e52.d(this.a);
+                e52.d(e52.e(this.a, this.b.pageUrl));
             }
         }
-        this.b = new f52();
     }
 
-    @Override // com.repackage.c52
-    @SuppressLint({"BDThrowableCheck"})
-    public WebResourceResponse a(@NonNull c52.a aVar) {
-        InterceptResult invokeL;
-        String str;
+    public static void c(@NonNull PrefetchEvent prefetchEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            String d = aVar.d();
-            if (!d(aVar)) {
-                return aVar.b(d, aVar.getRequestHeaders(), aVar.c());
+        if ((interceptable == null || interceptable.invokeL(65538, null, prefetchEvent) == null) && ju2.a()) {
+            String str = prefetchEvent.appPath;
+            if (!TextUtils.isEmpty(str) && new File(str).exists()) {
+                cd3.k(new a(str, prefetchEvent), "addFileResToMemoryCache");
             }
-            if (q42.a) {
-                Log.d("HybridIntercept", "intercept file = " + d);
-            }
-            String c = c(d);
-            if (TextUtils.isEmpty(c)) {
-                if (q42.a) {
-                    throw new IllegalArgumentException("file path can't be null, src = " + d);
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        File file = new File(str);
+        if (file.exists()) {
+            if (file.isDirectory()) {
+                String[] list = file.list();
+                if (list == null || list.length == 0) {
+                    return;
                 }
-                return null;
-            }
-            File file = new File(c);
-            if (file.exists() && file.isFile()) {
-                try {
-                    FileInputStream fileInputStream = new FileInputStream(file);
-                    if (c.endsWith(FileHelper.FILE_CACHE_CSS)) {
-                        str = "text/css";
-                    } else {
-                        str = c.endsWith(".js") ? "application/javascript" : "text/plan";
-                    }
-                    return b(str, fileInputStream);
-                } catch (Throwable th) {
-                    if (q42.a) {
-                        Log.e("HybridIntercept", Log.getStackTraceString(th));
+                for (String str2 : list) {
+                    if (!TextUtils.isEmpty(str2)) {
+                        String str3 = str + File.separator + str2;
+                        File file2 = new File(str3);
+                        if (file2.exists() && file2.isFile() && (str3.endsWith(FileHelper.FILE_CACHE_CSS) || str3.endsWith(".js"))) {
+                            BdSailorWebView.addToWebCache("file://" + str3, true);
+                        }
                     }
                 }
+            } else if (file.isFile()) {
+                String absolutePath = file.getAbsolutePath();
+                if (TextUtils.isEmpty(absolutePath)) {
+                    return;
+                }
+                if (absolutePath.endsWith(FileHelper.FILE_CACHE_CSS) || absolutePath.endsWith(".js")) {
+                    BdSailorWebView.addToWebCache("file://" + absolutePath, true);
+                }
             }
-            hx1.c("HybridIntercept", "file intercept error, src = " + d);
+        }
+    }
+
+    public static String e(@NonNull String str, String str2) {
+        InterceptResult invokeLL;
+        int lastIndexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            String f = ae3.f(str2);
+            if (!TextUtils.isEmpty(f) && (lastIndexOf = f.lastIndexOf(File.separator)) > 0) {
+                String substring = f.substring(0, lastIndexOf);
+                return str + File.separator + substring;
+            }
             return null;
         }
-        return (WebResourceResponse) invokeL.objValue;
-    }
-
-    public final WebResourceResponse b(String str, InputStream inputStream) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, inputStream)) == null) {
-            HashMap hashMap = new HashMap(1);
-            hashMap.put(Headers.CACHE_CONTROL, "max-age=86400");
-            return new WebResourceResponse(true, str, "UTF-8", 200, "ok", hashMap, new BufferedInputStream(inputStream));
-        }
-        return (WebResourceResponse) invokeLL.objValue;
-    }
-
-    public String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            if (str.startsWith("interceptfile://") && str.length() > 16) {
-                str = str.substring(16);
-            }
-            if (q42.a) {
-                Log.d("HybridIntercept", "file request url = " + str);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public boolean d(@NonNull c52.a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) {
-            if (aVar.c()) {
-                return this.b.a(aVar);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (String) invokeLL.objValue;
     }
 }

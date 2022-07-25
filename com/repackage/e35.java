@@ -1,34 +1,31 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.graphics.Rect;
-import android.os.Build;
-import android.util.Log;
+import android.content.res.TypedArray;
+import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e35 {
+public class e35 implements b35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final View b;
-    public final int c;
-    public final boolean d;
-    public a35 e;
+    public final View a;
+    public boolean b;
+    public boolean c;
+    public boolean d;
 
-    public e35(View view2) {
+    public e35(View view2, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {view2, attributeSet};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,81 +35,102 @@ public class e35 {
                 return;
             }
         }
-        this.a = -1;
-        this.b = view2;
-        this.c = h35.a(view2.getContext());
-        this.d = i35.c((Activity) view2.getContext());
-    }
-
-    public final a35 a(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, view2)) != null) {
-            return (a35) invokeL.objValue;
-        }
-        a35 a35Var = this.e;
-        if (a35Var != null) {
-            return a35Var;
-        }
-        if (view2 instanceof a35) {
-            a35 a35Var2 = (a35) view2;
-            this.e = a35Var2;
-            return a35Var2;
-        } else if (!(view2 instanceof ViewGroup)) {
-            return null;
-        } else {
-            int i = 0;
-            while (true) {
-                ViewGroup viewGroup = (ViewGroup) view2;
-                if (i >= viewGroup.getChildCount()) {
-                    return null;
+        this.b = false;
+        this.c = false;
+        this.d = false;
+        this.a = view2;
+        if (attributeSet != null) {
+            TypedArray typedArray = null;
+            try {
+                typedArray = view2.getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0402f8});
+                this.c = typedArray.getBoolean(0, false);
+            } finally {
+                if (typedArray != null) {
+                    typedArray.recycle();
                 }
-                a35 a = a(viewGroup.getChildAt(i));
-                if (a != null) {
-                    this.e = a;
-                    return a;
-                }
-                i++;
             }
         }
     }
 
-    @TargetApi(16)
-    public void b(int i, int i2) {
+    public boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            if (this.d && Build.VERSION.SDK_INT >= 16 && this.b.getFitsSystemWindows()) {
-                Rect rect = new Rect();
-                this.b.getWindowVisibleDisplayFrame(rect);
-                i2 = rect.bottom - rect.top;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 0) {
+                this.b = false;
             }
-            Log.d("KPSRootLayoutHandler", "onMeasure, width: " + i + " height: " + i2);
-            if (i2 < 0) {
-                return;
+            if (i == this.a.getVisibility()) {
+                return true;
             }
-            int i3 = this.a;
-            if (i3 < 0) {
-                this.a = i2;
-                return;
-            }
-            int i4 = i3 - i2;
-            if (i4 == 0) {
-                Log.d("KPSRootLayoutHandler", "" + i4 + " == 0 break;");
-            } else if (Math.abs(i4) == this.c) {
-                Log.w("KPSRootLayoutHandler", String.format("offset just equal statusBar height %d", Integer.valueOf(i4)));
-            } else {
-                this.a = i2;
-                a35 a = a(this.b);
-                if (a == null) {
-                    Log.w("KPSRootLayoutHandler", "can't find the valid panel conflict layout, give up!");
-                } else if (Math.abs(i4) < g35.f(this.b.getContext())) {
-                    Log.w("KPSRootLayoutHandler", "system bottom-menu-bar(such as HuaWei Mate7) causes layout changed");
-                } else if (i4 > 0) {
-                    a.handleHide();
-                } else if (a.b() && a.isVisible()) {
-                    a.handleShow();
-                }
-            }
+            return b() && i == 0;
         }
+        return invokeI.booleanValue;
+    }
+
+    @Override // com.repackage.b35
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public int[] c(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
+            if (this.b) {
+                this.a.setVisibility(8);
+                int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
+                i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
+                i = makeMeasureSpec;
+            }
+            return new int[]{i, i2};
+        }
+        return (int[]) invokeII.objValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.c) {
+            return;
+        }
+        j35.d(this.a, i);
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    @Override // com.repackage.b35
+    public void handleHide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.b = true;
+        }
+    }
+
+    @Override // com.repackage.b35
+    public void handleShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
+        }
+    }
+
+    @Override // com.repackage.b35
+    public boolean isVisible() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? !this.b : invokeV.booleanValue;
     }
 }

@@ -11,30 +11,34 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
 public final class c {
-    public static final Map<Class, a> a = new ConcurrentHashMap();
+    public static final Map<Class, a> Td = new ConcurrentHashMap();
+
+    public static void a(Class cls, a aVar) {
+        Td.put(cls, aVar);
+    }
 
     @Nullable
-    public static <T extends a> T a(Class<T> cls) {
-        T t = (T) a.get(cls);
+    public static <T extends a> T f(Class<T> cls) {
+        T t = (T) Td.get(cls);
         if (t != null) {
             return t;
         }
-        com.kwad.sdk.core.d.b.a("KSAdSDK", new ComponentsNotFoundException(cls.getSimpleName()));
+        com.kwad.sdk.core.e.b.w("KSAdSDK", new ComponentsNotFoundException(cls.getSimpleName()));
         try {
             if (DevelopMangerComponents.class.isAssignableFrom(cls)) {
                 e eVar = new e();
-                a.put(cls, eVar);
+                Td.put(cls, eVar);
                 return eVar;
             }
             return null;
         } catch (Throwable th) {
-            com.kwad.sdk.core.d.b.b(th);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(th);
             return null;
         }
     }
 
-    public static void a(Context context, SdkConfig sdkConfig) {
-        ArrayList arrayList = new ArrayList(a.values());
+    public static void init(Context context, SdkConfig sdkConfig) {
+        ArrayList arrayList = new ArrayList(Td.values());
         Collections.sort(arrayList, new Comparator<a>() { // from class: com.kwad.sdk.components.c.1
             public static int a(a aVar, a aVar2) {
                 if (aVar == null) {
@@ -67,13 +71,9 @@ public final class c {
                 try {
                     aVar.init(context, sdkConfig);
                 } catch (Throwable th) {
-                    com.kwad.sdk.core.d.b.a(th);
+                    com.kwad.sdk.core.e.b.printStackTrace(th);
                 }
             }
         }
-    }
-
-    public static void a(Class cls, a aVar) {
-        a.put(cls, aVar);
     }
 }

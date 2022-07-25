@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.core.offline.init.kwai.h;
+import com.kwad.components.core.offline.init.kwai.i;
 import com.kwad.components.offline.api.core.api.IOfflineCompoWrapper;
 import com.kwad.components.offline.api.core.soloader.ISoLoader;
 import com.kwad.components.offline.api.core.soloader.SoLoadListener;
@@ -18,7 +18,7 @@ import com.kwad.components.offline.api.tk.ITkOfflineCompoInitConfig;
 import com.kwad.sdk.components.DevelopMangerComponents;
 import com.kwad.sdk.components.c;
 import com.kwad.sdk.core.config.d;
-import com.kwad.sdk.utils.ap;
+import com.kwad.sdk.utils.as;
 /* loaded from: classes5.dex */
 public final class b implements ITkOfflineCompoInitConfig {
     public static /* synthetic */ Interceptable $ic;
@@ -56,21 +56,21 @@ public final class b implements ITkOfflineCompoInitConfig {
     public final String getTkJsFileDir(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) ? ap.a(context, str) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) ? as.getTkJsFileDir(context, str) : (String) invokeLL.objValue;
     }
 
     @Override // com.kwad.components.offline.api.tk.ITkOfflineCompoInitConfig
     public final String getTkVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "4.0.0" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "4.0.2" : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.components.offline.api.tk.ITkOfflineCompoInitConfig
     public final boolean isCanUseTk() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? d.C() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? d.isCanUseTk() : invokeV.booleanValue;
     }
 
     @Override // com.kwad.components.offline.api.tk.ITkOfflineCompoInitConfig
@@ -78,7 +78,7 @@ public final class b implements ITkOfflineCompoInitConfig {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            c.a(DevelopMangerComponents.class);
+            c.f(DevelopMangerComponents.class);
             return false;
         }
         return invokeV.booleanValue;
@@ -92,7 +92,7 @@ public final class b implements ITkOfflineCompoInitConfig {
             if (isLocalDebugEnable()) {
                 return true;
             }
-            c.a(DevelopMangerComponents.class);
+            c.f(DevelopMangerComponents.class);
             return false;
         }
         return invokeV.booleanValue;
@@ -105,7 +105,7 @@ public final class b implements ITkOfflineCompoInitConfig {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new ISoLoader(this) { // from class: com.kwad.components.offline.tk.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
+            public final /* synthetic */ b Qm;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -122,7 +122,7 @@ public final class b implements ITkOfflineCompoInitConfig {
                         return;
                     }
                 }
-                this.a = this;
+                this.Qm = this;
             }
 
             @Override // com.kwad.components.offline.api.core.soloader.ISoLoader
@@ -139,13 +139,13 @@ public final class b implements ITkOfflineCompoInitConfig {
     public final boolean useTkLite() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? com.kwad.components.offline.tk.a.a.a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? com.kwad.components.offline.tk.a.a.useTkLite() : invokeV.booleanValue;
     }
 
     @Override // com.kwad.components.offline.api.IOfflineCompoInitConfig
     public final IOfflineCompoWrapper wrapper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? new h(ITkOfflineCompo.PACKAGE_NAME) : (IOfflineCompoWrapper) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? new i(ITkOfflineCompo.PACKAGE_NAME) : (IOfflineCompoWrapper) invokeV.objValue;
     }
 }

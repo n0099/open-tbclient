@@ -18,8 +18,14 @@ public final class e implements com.kwad.sdk.core.d<ActivityInfo> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "actTypeId", activityInfo.actTypeId);
-        com.kwad.sdk.utils.r.a(jSONObject, "sceneTypeId", activityInfo.sceneTypeId);
+        int i = activityInfo.actTypeId;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "actTypeId", i);
+        }
+        int i2 = activityInfo.sceneTypeId;
+        if (i2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "sceneTypeId", i2);
+        }
         return jSONObject;
     }
 

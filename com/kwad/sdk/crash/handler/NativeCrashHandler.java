@@ -21,7 +21,7 @@ public final class NativeCrashHandler extends b {
 
     /* loaded from: classes5.dex */
     public static class a {
-        public static final NativeCrashHandler a = new NativeCrashHandler();
+        public static final NativeCrashHandler ahq = new NativeCrashHandler();
     }
 
     public NativeCrashHandler() {
@@ -30,7 +30,7 @@ public final class NativeCrashHandler extends b {
     public static native void doCrash();
 
     public static NativeCrashHandler getInstance() {
-        return a.a;
+        return a.ahq;
     }
 
     public static native void install(@NonNull String str, boolean z, @NonNull String str2, int i);
@@ -38,7 +38,7 @@ public final class NativeCrashHandler extends b {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, INVOKE, IGET, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, INVOKE, IGET, INVOKE, INVOKE, INVOKE, INVOKE, SGET, INVOKE, INVOKE, INVOKE, INVOKE, IF, INVOKE, MOVE_EXCEPTION] complete} */
     @Keep
     public static void onCallFromNative() {
-        com.kwad.sdk.core.d.b.a(TAG, "onCallFromNative NativeCrashHandler.doCrash()");
+        com.kwad.sdk.core.e.b.d(TAG, "onCallFromNative NativeCrashHandler.doCrash()");
         File file = getInstance().mLogDir;
         File file2 = getInstance().mMessageFile;
         File file3 = getInstance().mJavaTraceFile;
@@ -78,7 +78,7 @@ public final class NativeCrashHandler extends b {
                 sb4.append(".minfo");
                 file4 = new File(file, sb4.toString());
             }
-            f.a((Throwable) null, mMessage, com.kwad.sdk.crash.d.a().g());
+            f.b(null, mMessage, com.kwad.sdk.crash.d.wz().getContext());
             f.a(mMessage, getInstance().getCrashType());
             if (getInstance().mExceptionListener != null) {
                 getInstance().mExceptionListener.a(getInstance().getCrashType(), mMessage);
@@ -90,40 +90,40 @@ public final class NativeCrashHandler extends b {
                 sb5.append(exceptionMessage2.mErrorMessage);
                 sb5.append(th);
                 exceptionMessage2.mErrorMessage = sb5.toString();
-                com.kwad.sdk.core.d.b.b(th);
+                com.kwad.sdk.core.e.b.printStackTraceOnly(th);
                 if (file2 != null) {
                     try {
                         f.a(file2, mMessage.toJson().toString());
                     } catch (Throwable th2) {
-                        com.kwad.sdk.core.d.b.b(th2);
+                        com.kwad.sdk.core.e.b.printStackTraceOnly(th2);
                         if (uploader != null) {
-                            f.a(th2);
+                            f.l(th2);
                             return;
                         }
                         return;
                     }
                 }
-                f.c(file3);
+                f.D(file3);
                 getInstance().backupLogFiles(file);
                 f.a(uploader, TAG, getInstance().mDumpFile);
                 getInstance().uploadRemainingExceptions();
-                f.d(file4);
+                f.E(file4);
             } finally {
                 if (file2 != null) {
                     try {
                         f.a(file2, mMessage.toJson().toString());
                     } catch (Throwable th3) {
-                        com.kwad.sdk.core.d.b.b(th3);
+                        com.kwad.sdk.core.e.b.printStackTraceOnly(th3);
                         if (uploader != null) {
-                            f.a(th3);
+                            f.l(th3);
                         }
                     }
                 }
-                f.c(file3);
+                f.D(file3);
                 getInstance().backupLogFiles(file);
                 f.a(uploader, TAG, getInstance().mDumpFile);
                 getInstance().uploadRemainingExceptions();
-                f.d(file4);
+                f.E(file4);
             }
         }
     }
@@ -135,7 +135,7 @@ public final class NativeCrashHandler extends b {
 
     public final void init(@NonNull File file, boolean z, @NonNull String str, com.kwad.sdk.crash.report.c cVar) {
         super.init(file, null, cVar);
-        if (com.kwad.sdk.crash.a.a()) {
+        if (com.kwad.sdk.crash.a.wl()) {
             this.mLogDir = file;
             if (!file.exists()) {
                 this.mLogDir.mkdirs();
@@ -144,7 +144,7 @@ public final class NativeCrashHandler extends b {
             this.mJavaTraceFile = new File(file, b.FILE_NAME_BASE + ".jtrace");
             this.mMemoryInfoFile = new File(file, b.FILE_NAME_BASE + ".minfo");
             try {
-                com.kwad.sdk.core.d.b.a(TAG, "ANR init2 " + this.mDumpFile.getPath());
+                com.kwad.sdk.core.e.b.d(TAG, "ANR init2 " + this.mDumpFile.getPath());
                 install(this.mDumpFile.getPath(), z, str, Build.VERSION.SDK_INT);
                 this.mMessageFile = new File(file, b.FILE_NAME_BASE + ".msg");
             } catch (Throwable unused) {

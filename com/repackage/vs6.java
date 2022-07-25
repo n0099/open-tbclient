@@ -30,13 +30,13 @@ public class vs6 {
         }
     }
 
-    public static void b(View view2, nn4 nn4Var, int i) {
+    public static void b(View view2, on4 on4Var, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65537, null, view2, nn4Var, i) == null) || view2 == null || nn4Var == null || nn4Var.getThreadData() == null || StringUtils.isNull(nn4Var.getThreadData().getTid())) {
+        if (!(interceptable == null || interceptable.invokeLLI(65537, null, view2, on4Var, i) == null) || view2 == null || on4Var == null || on4Var.getThreadData() == null || StringUtils.isNull(on4Var.getThreadData().getTid())) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK);
-        ThreadData threadData = nn4Var.getThreadData();
+        ThreadData threadData = on4Var.getThreadData();
         if (threadData.isLinkThread()) {
             statisticItem.param("obj_type", 4);
         } else if (threadData.isShareThread) {
@@ -58,25 +58,25 @@ public class vs6 {
         if (i == 3 || (i == 6 && (view2 instanceof TbImageView))) {
             statisticItem.param(TiebaStatic.Params.OBJ_TO, UbsABTestHelper.isImgClickToPb() ? 1 : 2);
         }
-        statisticItem.param("tid", nn4Var.getThreadData().getTid());
-        statisticItem.param("fid", nn4Var.getThreadData().getFid());
-        statisticItem.param("fname", nn4Var.getThreadData().getForum_name());
+        statisticItem.param("tid", on4Var.getThreadData().getTid());
+        statisticItem.param("fid", on4Var.getThreadData().getFid());
+        statisticItem.param("fname", on4Var.getThreadData().getForum_name());
         statisticItem.param("obj_source", 1);
-        if (nn4Var instanceof ny5) {
-            statisticItem.param("obj_param1", ((ny5) nn4Var).E() ? 2 : 1);
+        if (on4Var instanceof ny5) {
+            statisticItem.param("obj_param1", ((ny5) on4Var).E() ? 2 : 1);
         }
-        if (nn4Var.getThreadData().getAuthor() != null) {
-            statisticItem.param("uid", nn4Var.getThreadData().getAuthor().getUserId());
+        if (on4Var.getThreadData().getAuthor() != null) {
+            statisticItem.param("uid", on4Var.getThreadData().getAuthor().getUserId());
         }
         if (threadData.getBaijiahaoData() != null) {
             statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
         } else {
             statisticItem.param("obj_id", threadData.getTid());
         }
-        if (nn4Var.getThreadData().getThreadAlaInfo() != null) {
-            int calculateLiveType = YYLiveUtil.calculateLiveType(nn4Var.getThreadData().getThreadAlaInfo());
-            if (nn4Var.getThreadData().getThreadAlaInfo().mYyExtData != null) {
-                TiebaStaticHelper.addYYParam(statisticItem, nn4Var.getThreadData().getThreadAlaInfo().mYyExtData);
+        if (on4Var.getThreadData().getThreadAlaInfo() != null) {
+            int calculateLiveType = YYLiveUtil.calculateLiveType(on4Var.getThreadData().getThreadAlaInfo());
+            if (on4Var.getThreadData().getThreadAlaInfo().mYyExtData != null) {
+                TiebaStaticHelper.addYYParam(statisticItem, on4Var.getThreadData().getThreadAlaInfo().mYyExtData);
             }
             statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, calculateLiveType);
         }

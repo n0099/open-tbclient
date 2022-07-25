@@ -132,7 +132,7 @@ public class pg6 {
                         this.a.a.M1();
                         return;
                     }
-                    this.a.c.C(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e5));
+                    this.a.c.C(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f09cf));
                     this.a.c.f();
                     this.a.c.B(null);
                     return;
@@ -267,7 +267,7 @@ public class pg6 {
             return;
         }
         this.a = frsCommonTabFragment;
-        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090ac0);
+        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090ab9);
         this.b = bdTypeRecyclerView;
         bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getContext()));
         this.b.setFadingEdgeLength(0);
@@ -370,9 +370,9 @@ public class pg6 {
             }
             int i3 = 1;
             while (i2 < arrayList.size() && i3 <= i) {
-                if (arrayList.get(i2) instanceof qq4) {
+                if (arrayList.get(i2) instanceof rq4) {
                     int i4 = i2 - 1;
-                    i2 = ((arrayList.get(i4) instanceof qq4) && ((qq4) arrayList.get(i2)).position == ((qq4) arrayList.get(i4)).position) ? i2 + 1 : 1;
+                    i2 = ((arrayList.get(i4) instanceof rq4) && ((rq4) arrayList.get(i2)).position == ((rq4) arrayList.get(i4)).position) ? i2 + 1 : 1;
                 }
                 i3++;
             }
@@ -414,8 +414,8 @@ public class pg6 {
         while (it.hasNext()) {
             nn next = it.next();
             ThreadData threadData = null;
-            if (next instanceof qq4) {
-                threadData = ((qq4) next).s;
+            if (next instanceof rq4) {
+                threadData = ((rq4) next).s;
             } else if (next instanceof ThreadData) {
                 threadData = (ThreadData) next;
             }
@@ -470,11 +470,11 @@ public class pg6 {
             } else {
                 this.c.M();
                 this.c.B(this.l);
-                this.c.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e4));
+                this.c.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09ce));
             }
         } else {
             this.b.setNextPage(null);
-            this.c.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e5));
+            this.c.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09cf));
             this.c.B(null);
             this.c.f();
         }

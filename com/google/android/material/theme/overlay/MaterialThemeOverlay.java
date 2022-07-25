@@ -37,7 +37,7 @@ public class MaterialThemeOverlay {
                 return;
             }
         }
-        ANDROID_THEME_OVERLAY_ATTRS = new int[]{16842752, R.attr.obfuscated_res_0x7f04066c};
+        ANDROID_THEME_OVERLAY_ATTRS = new int[]{16842752, R.attr.obfuscated_res_0x7f04066e};
         MATERIAL_THEME_OVERLAY_ATTR = new int[]{R.attr.obfuscated_res_0x7f04045e};
     }
 

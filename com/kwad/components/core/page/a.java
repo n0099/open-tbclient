@@ -18,22 +18,22 @@ import com.ksad.annotation.invoker.InvokeBy;
 import com.kwad.components.core.kwai.a;
 import com.kwad.components.core.playable.PlayableSource;
 import com.kwad.components.core.webview.KsAdWebView;
-import com.kwad.components.core.webview.jshandler.u;
+import com.kwad.components.core.webview.jshandler.x;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.proxy.app.BaseFragmentActivity;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class a extends com.kwad.components.core.h.b implements a.InterfaceC0513a, u.b {
+public class a extends com.kwad.components.core.i.b implements a.InterfaceC0358a, x.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdBaseFrameLayout a;
-    public com.kwad.components.core.playable.a b;
-    public AdTemplate c;
-    public com.kwad.components.core.c.a.b d;
-    public boolean e;
-    public com.kwad.components.core.kwai.a f;
+    public boolean Fu;
+    public AdTemplate mAdTemplate;
+    public com.kwad.components.core.c.a.c mApkDownloadHelper;
+    public AdBaseFrameLayout mRootContainer;
+    public com.kwad.components.core.kwai.a mTitleBarHelper;
+    public com.kwad.components.core.playable.a mk;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -48,18 +48,27 @@ public class a extends com.kwad.components.core.h.b implements a.InterfaceC0513a
                 return;
             }
         }
-        this.e = true;
+        this.Fu = true;
     }
 
-    @InvokeBy(invokerClass = KsAdSDKImpl.class, methodId = KsAdSDKImpl.INVOKER_ID_INIT_COMPONENT_PROXY)
-    public static void a() {
+    private void d(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            KsAdSDKImpl.putComponentProxy(BaseFragmentActivity.FragmentActivity8.class, a.class);
+        if (interceptable == null || interceptable.invokeL(65537, this, intent) == null) {
+            String stringExtra = intent.getStringExtra("key_template_json");
+            if (TextUtils.isEmpty(stringExtra)) {
+                return;
+            }
+            try {
+                this.mAdTemplate = new AdTemplate();
+                this.mAdTemplate.parseJson(new JSONObject(stringExtra));
+                this.mApkDownloadHelper = new com.kwad.components.core.c.a.c(this.mAdTemplate);
+            } catch (Exception e) {
+                com.kwad.sdk.core.e.b.printStackTraceOnly(e);
+            }
         }
     }
 
-    public static void a(Context context, AdTemplate adTemplate) {
+    public static void launch(Context context, AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, adTemplate) == null) {
             KsAdSDKImpl.putComponentProxy(BaseFragmentActivity.FragmentActivity8.class, a.class);
@@ -69,100 +78,75 @@ public class a extends com.kwad.components.core.h.b implements a.InterfaceC0513a
         }
     }
 
-    private void a(Intent intent) {
+    private void nv() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, intent) == null) {
-            String stringExtra = intent.getStringExtra("key_template_json");
-            if (TextUtils.isEmpty(stringExtra)) {
-                return;
-            }
-            try {
-                this.c = new AdTemplate();
-                this.c.parseJson(new JSONObject(stringExtra));
-                this.d = new com.kwad.components.core.c.a.b(this.c);
-            } catch (Exception e) {
-                com.kwad.sdk.core.d.b.b(e);
-            }
-        }
-    }
-
-    private void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            com.kwad.components.core.kwai.a aVar = new com.kwad.components.core.kwai.a(this.a);
-            this.f = aVar;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            com.kwad.components.core.kwai.a aVar = new com.kwad.components.core.kwai.a(this.mRootContainer);
+            this.mTitleBarHelper = aVar;
             aVar.a(this);
-            this.f.a(new com.kwad.components.core.kwai.b(""));
+            this.mTitleBarHelper.a(new com.kwad.components.core.kwai.b(""));
         }
     }
 
-    @Override // com.kwad.components.core.kwai.a.InterfaceC0513a
-    public final void a(View view2) {
+    @InvokeBy(invokerClass = KsAdSDKImpl.class, methodId = KsAdSDKImpl.INVOKER_ID_INIT_COMPONENT_PROXY)
+    public static void register() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            onBackPressed();
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            KsAdSDKImpl.putComponentProxy(BaseFragmentActivity.FragmentActivity8.class, a.class);
         }
     }
 
-    @Override // com.kwad.components.core.webview.jshandler.u.b
-    public final void a(u.a aVar) {
+    @Override // com.kwad.components.core.webview.jshandler.x.b
+    public final void a(x.a aVar) {
         com.kwad.components.core.playable.a aVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            com.kwad.sdk.core.d.b.a("AdPlayableActivityProxy", "updatePageStatus status: " + aVar);
-            if (aVar.a != 1 || (aVar2 = this.b) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            com.kwad.sdk.core.e.b.d("AdPlayableActivityProxy", "updatePageStatus status: " + aVar);
+            if (aVar.status != 1 || (aVar2 = this.mk) == null) {
                 return;
             }
-            aVar2.a(PlayableSource.UNKNOWN_TRYPLAY_ENTRY_SOURCE);
+            aVar2.e(PlayableSource.UNKNOWN_TRYPLAY_ENTRY_SOURCE);
         }
     }
 
-    @Override // com.kwad.components.core.kwai.a.InterfaceC0513a
-    public final void b(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            finish();
-        }
-    }
-
-    @Override // com.kwad.components.core.h.b
+    @Override // com.kwad.components.core.i.b
     public String getPageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "AdPlayableActivityProxy" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "AdPlayableActivityProxy" : (String) invokeV.objValue;
     }
 
-    @Override // com.kwad.components.core.h.b, com.kwad.sdk.api.proxy.IActivityProxy
+    @Override // com.kwad.components.core.i.b, com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            getActivity().setTheme(R.style.obfuscated_res_0x7f100227);
+            getActivity().setTheme(R.style.obfuscated_res_0x7f10022a);
             setContentView(R.layout.obfuscated_res_0x7f0d03fe);
-            a(getIntent());
-            this.a = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910c2);
-            b();
-            com.kwad.components.core.playable.a aVar = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0910c7));
-            this.b = aVar;
-            aVar.a(this.c, this.a, this.d);
-            this.b.a(this);
-            this.b.b();
+            d(getIntent());
+            this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910b9);
+            nv();
+            com.kwad.components.core.playable.a aVar = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0910be));
+            this.mk = aVar;
+            aVar.a(this.mAdTemplate, this.mRootContainer, this.mApkDownloadHelper);
+            this.mk.a(this);
+            this.mk.oc();
         }
     }
 
-    @Override // com.kwad.components.core.h.b, com.kwad.sdk.api.proxy.IActivityProxy
+    @Override // com.kwad.components.core.i.b, com.kwad.sdk.api.proxy.IActivityProxy
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            this.b.b(this);
+            this.mk.b(this);
         }
     }
 
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onPause();
         }
     }
@@ -170,16 +154,32 @@ public class a extends com.kwad.components.core.h.b implements a.InterfaceC0513a
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onRestart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onRestart();
         }
     }
 
-    @Override // com.kwad.components.core.h.b, com.kwad.sdk.api.proxy.IActivityProxy
+    @Override // com.kwad.components.core.i.b, com.kwad.sdk.api.proxy.IActivityProxy
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
+        }
+    }
+
+    @Override // com.kwad.components.core.kwai.a.InterfaceC0358a
+    public final void r(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
+            onBackPressed();
+        }
+    }
+
+    @Override // com.kwad.components.core.kwai.a.InterfaceC0358a
+    public final void s(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
+            finish();
         }
     }
 }

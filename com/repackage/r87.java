@@ -37,8 +37,8 @@ public class r87 implements CustomMessageTask.CustomRunnable<Object> {
             if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
                 return null;
             }
-            br4.f();
-            br4.b("tb.im_group_search_history");
+            cr4.f();
+            cr4.b("tb.im_group_search_history");
             return new ResponseSearchGroupLocalMessage(2001206);
         }
         return (CustomResponsedMessage) invokeL.objValue;

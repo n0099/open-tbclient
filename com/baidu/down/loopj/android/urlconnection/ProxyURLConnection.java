@@ -32,7 +32,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ProxyURLConnection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_TYPE_VALUE = "application/x-www-form-urlencoded; charset=UTF-8";

@@ -1,9 +1,39 @@
 package com.kwad.sdk.core.network;
+
+import com.ksad.json.annotation.KsJson;
+@KsJson
 /* loaded from: classes5.dex */
-public interface k {
-    com.kwad.sdk.core.b a();
+public class k extends j {
+    public int YK;
+    public int YM;
+    public String YO;
+    public int YP;
+    public int YQ;
+    public int YR;
+    public int YS;
+    public int Yw;
+    public int result;
+    public long Yt = -1;
+    public long Yu = -1;
+    public long Yv = -1;
+    public long Yx = -1;
+    public long Yy = -1;
+    public long Yz = -1;
+    public long YA = -1;
+    public long YB = -1;
+    public long YC = -1;
+    public long YD = -1;
+    public long YE = -1;
+    public long YF = -1;
+    public long YG = -1;
+    public long YH = -1;
+    public long YI = -1;
+    public long YJ = -1;
+    public String YL = "";
+    public long YN = -1;
 
-    void a(i iVar);
-
-    void a(j jVar);
+    @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.response.kwai.a
+    public String toString() {
+        return toJson().toString();
+    }
 }

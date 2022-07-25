@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public class ke7 extends jk4 {
+public class ke7 extends kk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,14 +41,14 @@ public class ke7 extends jk4 {
         }
     }
 
-    @Override // com.repackage.jk4, com.repackage.mk4
-    public ok4 b(Object obj, HashMap<String, String> hashMap, String str) {
+    @Override // com.repackage.kk4, com.repackage.nk4
+    public pk4 b(Object obj, HashMap<String, String> hashMap, String str) {
         InterceptResult invokeLLL;
         Map.Entry<String, String> next;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, hashMap, str)) == null) {
             Context context = TbadkCoreApplication.getInst().getContext();
-            ok4 ok4Var = new ok4();
+            pk4 pk4Var = new pk4();
             if (obj instanceof dd7) {
                 dd7 dd7Var = (dd7) obj;
                 boolean c = dd7Var.c();
@@ -75,28 +75,28 @@ public class ke7 extends jk4 {
                 statisticItem.param("obj_id", "");
                 if (c) {
                     statisticItem.param("obj_type", "2");
-                    BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f093e)).h();
+                    BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f0929)).h();
                     PendingIntent broadcast = PendingIntent.getBroadcast(context, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
                     if (broadcast != null) {
                         alarmManager.cancel(broadcast);
                         broadcast.cancel();
                     }
-                    ok4Var.a = false;
+                    pk4Var.a = false;
                 } else {
                     statisticItem.param("obj_type", "1");
-                    BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f0949)).h();
+                    BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f0934)).h();
                     alarmManager.set(0, j, PendingIntent.getBroadcast(context, i, intent, 134217728));
-                    ok4Var.a = true;
+                    pk4Var.a = true;
                 }
                 TiebaStatic.log(statisticItem);
-                dd7Var.l(ok4Var.a);
+                dd7Var.l(pk4Var.a);
             }
-            return ok4Var;
+            return pk4Var;
         }
-        return (ok4) invokeLLL.objValue;
+        return (pk4) invokeLLL.objValue;
     }
 
-    @Override // com.repackage.jk4
+    @Override // com.repackage.kk4
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -56,7 +56,7 @@ public class x07 extends an<a17, LocalChannelTopicHolder> {
     public LocalChannelTopicHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new LocalChannelTopicHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0499, viewGroup, false)) : (LocalChannelTopicHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new LocalChannelTopicHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0498, viewGroup, false)) : (LocalChannelTopicHolder) invokeL.objValue;
     }
 
     public View a0(int i, View view2, ViewGroup viewGroup, a17 a17Var, LocalChannelTopicHolder localChannelTopicHolder) {
@@ -64,7 +64,7 @@ public class x07 extends an<a17, LocalChannelTopicHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, a17Var, localChannelTopicHolder})) == null) {
             if (a17Var != null && localChannelTopicHolder != null) {
-                localChannelTopicHolder.c(a17Var);
+                localChannelTopicHolder.b(a17Var);
                 localChannelTopicHolder.onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
             }
             return view2;

@@ -82,23 +82,23 @@ public class StyleTemplate extends BaseOfflineCompoJsonParse<StyleTemplate> impl
             }
             String str = styleTemplate.templateId;
             if (str != null && !str.equals("")) {
-                r.a(jSONObject, "templateId", styleTemplate.templateId);
+                r.putValue(jSONObject, "templateId", styleTemplate.templateId);
             }
             String str2 = styleTemplate.templateUrl;
             if (str2 != null && !str2.equals("")) {
-                r.a(jSONObject, "templateUrl", styleTemplate.templateUrl);
+                r.putValue(jSONObject, "templateUrl", styleTemplate.templateUrl);
             }
             String str3 = styleTemplate.templateVersion;
             if (str3 != null && !str3.equals("")) {
-                r.a(jSONObject, "templateVersion", styleTemplate.templateVersion);
+                r.putValue(jSONObject, "templateVersion", styleTemplate.templateVersion);
             }
             int i = styleTemplate.templateVersionCode;
             if (i != 0) {
-                r.a(jSONObject, "templateVersionCode", i);
+                r.putValue(jSONObject, "templateVersionCode", i);
             }
             String str4 = styleTemplate.templateMd5;
             if (str4 != null && !str4.equals("")) {
-                r.a(jSONObject, "templateMd5", styleTemplate.templateMd5);
+                r.putValue(jSONObject, "templateMd5", styleTemplate.templateMd5);
             }
             return jSONObject;
         }

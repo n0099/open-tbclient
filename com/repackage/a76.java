@@ -47,7 +47,7 @@ public class a76 {
     public BdSwipeRefreshLayout e;
     public BdTypeRecyclerView f;
     public PbListView g;
-    public gu4 h;
+    public hu4 h;
     public we6 i;
     public SmartBubbleAnimatedView j;
     public b76 k;
@@ -60,7 +60,7 @@ public class a76 {
     public BdListView.p r;
     public RecyclerView.OnScrollListener s;
     public View.OnClickListener t;
-    public jm4 u;
+    public km4 u;
     public View.OnClickListener v;
     public PullLeftRefreshLayout.f w;
 
@@ -107,7 +107,7 @@ public class a76 {
                         this.a.b.i();
                         return;
                     }
-                    this.a.g.C(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e5));
+                    this.a.g.C(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f09cf));
                     this.a.g.f();
                     return;
                 }
@@ -211,7 +211,7 @@ public class a76 {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements jm4<cq4> {
+    public class d implements km4<dq4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a76 a;
@@ -235,16 +235,16 @@ public class a76 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: a */
-        public void d(View view2, cq4 cq4Var, int i, long j) {
+        public void d(View view2, dq4 dq4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, cq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || cq4Var == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, dq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || dq4Var == null) {
                 return;
             }
             StatisticItem statisticItem = new StatisticItem("c13642");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("fid", cq4Var.i());
+            statisticItem.param("fid", dq4Var.i());
             if (this.a.n.l != 0) {
                 if (this.a.n.l == 1) {
                     statisticItem.param("obj_locate", 2);
@@ -258,12 +258,12 @@ public class a76 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: b */
-        public void c(View view2, cq4 cq4Var, int i, long j) {
+        public void c(View view2, dq4 dq4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, cq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                if (cq4Var == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, dq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                if (dq4Var == null) {
                     s46.b(this.a.a.getPageContext(), this.a.c);
                     if (this.a.n == null) {
                         return;
@@ -274,9 +274,9 @@ public class a76 {
                     statisticItem.param("obj_type", this.a.n.n ? 5 : 1);
                     statisticItem.param("obj_source", 5);
                     TiebaStatic.log(statisticItem);
-                } else if (cq4Var == null || this.a.a == null) {
+                } else if (dq4Var == null || this.a.a == null) {
                 } else {
-                    String k = cq4Var.k();
+                    String k = dq4Var.k();
                     if (oi.isForumName(k)) {
                         this.a.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.a.getFragmentActivity()).createNormalCfg(k, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
                         if (this.a.n == null) {
@@ -284,7 +284,7 @@ public class a76 {
                         }
                         StatisticItem statisticItem2 = new StatisticItem("c13643");
                         statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                        statisticItem2.param("fid", cq4Var.i());
+                        statisticItem2.param("fid", dq4Var.i());
                         if (this.a.n.l != 0) {
                             if (this.a.n.l == 1) {
                                 statisticItem2.param("obj_locate", 2);
@@ -450,16 +450,16 @@ public class a76 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) {
             this.d = viewGroup;
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091ec5);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091ec9);
             this.f = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getContext()));
             this.f.setFadingEdgeLength(0);
             this.f.setOverScrollMode(2);
             this.f.setOnSrollToBottomListener(this.r);
             this.f.addOnScrollListener(this.s);
-            gu4 gu4Var = new gu4(this.a.getPageContext());
-            this.h = gu4Var;
-            gu4Var.f(this.b);
+            hu4 hu4Var = new hu4(this.a.getPageContext());
+            this.h = hu4Var;
+            hu4Var.f(this.b);
             this.f.setRecyclerListener(new g(this));
             PbListView pbListView = new PbListView(this.a.getPageContext().getPageActivity());
             this.g = pbListView;
@@ -473,7 +473,7 @@ public class a76 {
             this.g.s();
             this.g.B(this.t);
             if (this.e == null) {
-                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091ec4);
+                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091ec8);
                 this.e = bdSwipeRefreshLayout;
                 bdSwipeRefreshLayout.setProgressView(this.h);
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.e.getLayoutParams();
@@ -502,7 +502,7 @@ public class a76 {
             TextView textView = new TextView(this.a.getContext());
             this.m = textView;
             textView.setPadding(pi.f(this.a.getContext(), R.dimen.tbds44), pi.f(this.a.getContext(), R.dimen.tbds60), 0, pi.f(this.a.getContext(), R.dimen.tbds24));
-            this.m.setText(R.string.obfuscated_res_0x7f0f135a);
+            this.m.setText(R.string.obfuscated_res_0x7f0f1309);
             this.m.setTextSize(0, pi.f(this.a.getContext(), R.dimen.tbds46));
             this.m.setTypeface(Typeface.DEFAULT_BOLD);
             this.f.removeHeaderView(this.m);
@@ -524,9 +524,9 @@ public class a76 {
     public void l(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            gu4 gu4Var = this.h;
-            if (gu4Var != null) {
-                gu4Var.H(i);
+            hu4 hu4Var = this.h;
+            if (hu4Var != null) {
+                hu4Var.H(i);
             }
             PbListView pbListView = this.g;
             if (pbListView != null) {
@@ -653,9 +653,9 @@ public class a76 {
         }
         this.i.f();
         if (i > 0) {
-            string = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f85), Integer.valueOf(i));
+            string = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6e), Integer.valueOf(i));
         } else {
-            string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f84);
+            string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6d);
         }
         if (TextUtils.isEmpty(string) || !ni.z()) {
             return;
@@ -711,8 +711,8 @@ public class a76 {
         if (!(interceptable == null || interceptable.invokeL(1048589, this, y66Var) == null) || y66Var == null || this.f == null || this.a == null || !y66Var.h) {
             return;
         }
-        dq4 dq4Var = y66Var.a;
-        if (!((dq4Var == null || ListUtils.isEmpty(dq4Var.g())) ? false : true)) {
+        eq4 eq4Var = y66Var.a;
+        if (!((eq4Var == null || ListUtils.isEmpty(eq4Var.g())) ? false : true)) {
             RecommendForumLayout recommendForumLayout = this.n;
             if (recommendForumLayout != null) {
                 this.f.removeHeaderView(recommendForumLayout);

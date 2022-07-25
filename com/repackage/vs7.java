@@ -246,13 +246,13 @@ public class vs7 {
                     i = 2;
                 }
                 if (i < 0) {
-                    i = xt4.k().l("key_pb_current_sort_type", 2);
+                    i = yt4.k().l("key_pb_current_sort_type", 2);
                 }
                 i2 = i;
                 pbPageRequestMessage = new PbPageRequestMessage();
                 pbPageRequestMessage.setUpdateType(3);
                 pbPageRequestMessage.setIsReqAd(1);
-                pbPageRequestMessage.setLastids(z05.l);
+                pbPageRequestMessage.setLastids(a15.l);
                 if (this.a == null && this.a.length() != 0) {
                     pbPageRequestMessage.set_kz(ng.g(this.a, 0L));
                     pbPageRequestMessage.setFloorSortType(1);
@@ -449,6 +449,6 @@ public class vs7 {
         pbPageRequestMessage = new PbPageRequestMessage();
         pbPageRequestMessage.setUpdateType(3);
         pbPageRequestMessage.setIsReqAd(1);
-        pbPageRequestMessage.setLastids(z05.l);
+        pbPageRequestMessage.setLastids(a15.l);
     }
 }

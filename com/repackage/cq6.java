@@ -398,7 +398,7 @@ public class cq6 extends qm6 {
             if (this.b.Q0() == null || this.b.Q0().getUserData() == null || this.b.Q0().forumRule == null || this.b.Q0().getForum() == null || !this.b.Q0().getForum().getIsShowRule()) {
                 return false;
             }
-            return this.b.Q0().getUserData().getIs_manager() == 1 ? this.b.Q0().forumRule.has_forum_rule.intValue() != 1 && this.b.Q0().forumRule.audit_status.intValue() == 0 && xt4.k().l("key_forum_rule_first_show_frs_manager", 0) <= 0 : this.b.Q0().forumRule.has_forum_rule.intValue() == 1 && xt4.k().l("key_forum_rule_first_show_frs", 0) <= 0;
+            return this.b.Q0().getUserData().getIs_manager() == 1 ? this.b.Q0().forumRule.has_forum_rule.intValue() != 1 && this.b.Q0().forumRule.audit_status.intValue() == 0 && yt4.k().l("key_forum_rule_first_show_frs_manager", 0) <= 0 : this.b.Q0().forumRule.has_forum_rule.intValue() == 1 && yt4.k().l("key_forum_rule_first_show_frs", 0) <= 0;
         }
         return invokeV.booleanValue;
     }

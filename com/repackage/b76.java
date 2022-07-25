@@ -106,16 +106,16 @@ public class b76 {
         this.b = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01b6, (ViewGroup) null);
         this.c = inflate;
-        this.d = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092421);
-        this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090dbf);
-        this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090dc0);
-        this.g = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091a50);
-        this.h = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091a51);
-        this.i = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090a66);
-        this.j = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0915f3);
-        this.l = (HotUserRankImageOverlayView) this.c.findViewById(R.id.obfuscated_res_0x7f090e45);
-        this.k = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090f94);
-        this.m = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090dc7);
+        this.d = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092423);
+        this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090db8);
+        this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090db9);
+        this.g = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091a2a);
+        this.h = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091a2b);
+        this.i = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090a5f);
+        this.j = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0915ce);
+        this.l = (HotUserRankImageOverlayView) this.c.findViewById(R.id.obfuscated_res_0x7f090e3e);
+        this.k = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090f8d);
+        this.m = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090dc0);
         int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds114);
         this.l.a(3, dimensionPixelOffset, dimensionPixelOffset, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2_6), R.color.CAM_X0501, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds62));
         this.l.setStrokeStyle(1);
@@ -144,7 +144,7 @@ public class b76 {
             SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f0805d7, SvgManager.SvgResourceStateType.NORMAL);
         }
         SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080634, SvgManager.SvgResourceStateType.NORMAL);
-        SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080ec4);
+        SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080ecb);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.m, R.drawable.obfuscated_res_0x7f0805e4, R.color.CAM_X0311, SvgManager.SvgResourceStateType.NORMAL);
         SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0311);
         SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0311);

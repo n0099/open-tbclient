@@ -336,9 +336,9 @@ public class yc8 extends xc8 {
         bundle.putString("title", shareEntity.getTitle());
         if (shareEntity.getReadCount() >= 0) {
             if (shareEntity.getReadCount() < 10000) {
-                bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f115d));
+                bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f110c));
             } else {
-                bundle.putString("summary", StringHelper.numberUniformFormatExtra(shareEntity.getReadCount()) + this.b.getString(R.string.obfuscated_res_0x7f0f115c));
+                bundle.putString("summary", StringHelper.numberUniformFormatExtra(shareEntity.getReadCount()) + this.b.getString(R.string.obfuscated_res_0x7f0f110b));
             }
         } else {
             bundle.putString("summary", shareEntity.getContent());
@@ -377,7 +377,7 @@ public class yc8 extends xc8 {
         } else if (!StringUtils.isNull(shareEntity.getContent())) {
             bundle.putString("summary", shareEntity.getContent());
         } else {
-            bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f115d));
+            bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f110c));
         }
         bundle.putString("targetUrl", shareEntity.getLinkUrl());
         if (!StringUtils.isNull(shareEntity.getImgUrl())) {

@@ -1,7 +1,11 @@
 package com.repackage;
-
-import com.baidu.swan.apps.performance.HybridUbcFlow;
 /* loaded from: classes6.dex */
 public interface gm1 {
-    void a(HybridUbcFlow hybridUbcFlow);
+    fd4 a();
+
+    void b(m62 m62Var, k62 k62Var);
+
+    boolean c();
+
+    boolean d();
 }

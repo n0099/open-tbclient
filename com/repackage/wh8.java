@@ -43,14 +43,14 @@ public class wh8 {
         return (String) invokeLI.objValue;
     }
 
-    public static la5 b(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+    public static ma5 b(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, cls)) == null) {
             try {
-                la5 la5Var = new la5(i, cls.newInstance());
-                MessageManager.getInstance().registerTask(la5Var);
-                return la5Var;
+                ma5 ma5Var = new ma5(i, cls.newInstance());
+                MessageManager.getInstance().registerTask(ma5Var);
+                return ma5Var;
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
                 return null;
@@ -59,7 +59,7 @@ public class wh8 {
                 return null;
             }
         }
-        return (la5) invokeIL.objValue;
+        return (ma5) invokeIL.objValue;
     }
 
     public static TbHttpMessageTask c(int i, int i2, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
@@ -104,32 +104,32 @@ public class wh8 {
         return (TbHttpMessageTask) invokeCommon.objValue;
     }
 
-    public static ma5 f(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
+    public static na5 f(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) ? g(i, cls, z, SocketMessageTask.DupLicateMode.NONE, true) : (ma5) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) ? g(i, cls, z, SocketMessageTask.DupLicateMode.NONE, true) : (na5) invokeCommon.objValue;
     }
 
-    public static ma5 g(int i, Class<? extends SocketResponsedMessage> cls, boolean z, SocketMessageTask.DupLicateMode dupLicateMode, boolean z2) {
+    public static na5 g(int i, Class<? extends SocketResponsedMessage> cls, boolean z, SocketMessageTask.DupLicateMode dupLicateMode, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z), dupLicateMode, Boolean.valueOf(z2)})) == null) {
-            ma5 ma5Var = new ma5(i);
-            ma5Var.setResponsedClass(cls);
-            ma5Var.h(z);
-            ma5Var.f(dupLicateMode);
-            ma5Var.setRetry(a);
+            na5 na5Var = new na5(i);
+            na5Var.setResponsedClass(cls);
+            na5Var.h(z);
+            na5Var.f(dupLicateMode);
+            na5Var.setRetry(a);
             MessageManager.getInstance().unRegisterTask(i);
-            MessageManager.getInstance().registerTask(ma5Var);
-            ma5Var.setNeedEncrypt(z2);
-            return ma5Var;
+            MessageManager.getInstance().registerTask(na5Var);
+            na5Var.setNeedEncrypt(z2);
+            return na5Var;
         }
-        return (ma5) invokeCommon.objValue;
+        return (na5) invokeCommon.objValue;
     }
 
-    public static ma5 h(int i, Class<? extends SocketResponsedMessage> cls, boolean z, boolean z2) {
+    public static na5 h(int i, Class<? extends SocketResponsedMessage> cls, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? g(i, cls, z, SocketMessageTask.DupLicateMode.NONE, z2) : (ma5) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? g(i, cls, z, SocketMessageTask.DupLicateMode.NONE, z2) : (na5) invokeCommon.objValue;
     }
 }

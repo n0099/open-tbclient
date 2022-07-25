@@ -4,8 +4,8 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class b implements a {
-    public static volatile b a;
-    public static c b;
+    public static volatile b aip;
+    public static c aiq;
 
     public static String a(boolean z, Object obj, int i) {
         HashMap hashMap = new HashMap();
@@ -16,139 +16,139 @@ public class b implements a {
     }
 
     public static void a(c cVar) {
-        b = cVar;
+        aiq = cVar;
     }
 
-    public static synchronized b t() {
+    public static synchronized b xm() {
         b bVar;
         synchronized (b.class) {
-            if (a == null) {
+            if (aip == null) {
                 synchronized (b.class) {
-                    if (a == null) {
-                        a = new b();
+                    if (aip == null) {
+                        aip = new b();
                     }
                 }
             }
-            bVar = a;
+            bVar = aip;
         }
         return bVar;
     }
 
-    public static String u() {
+    public static String xn() {
         return a(false, "", 2);
     }
 
     @Override // com.kwad.sdk.c.a
-    public final String a() {
-        c cVar = b;
-        return cVar != null ? cVar.a() : u();
+    public final String getAppId() {
+        c cVar = aiq;
+        return cVar != null ? cVar.getAppId() : xn();
     }
 
     @Override // com.kwad.sdk.c.a
-    public final String b() {
-        c cVar = b;
-        return cVar != null ? cVar.b() : u();
+    public final String getDeviceId() {
+        c cVar = aiq;
+        return cVar != null ? cVar.getDeviceId() : xn();
     }
 
     @Override // com.kwad.sdk.c.a
-    public final String c() {
-        c cVar = b;
-        return cVar != null ? cVar.c() : u();
+    public final String getIccId() {
+        c cVar = aiq;
+        return cVar != null ? cVar.getIccId() : xn();
     }
 
     @Override // com.kwad.sdk.c.a
-    public final String d() {
-        c cVar = b;
-        return cVar != null ? cVar.d() : u();
+    public final String getIp() {
+        c cVar = aiq;
+        return cVar != null ? cVar.getIp() : xn();
     }
 
     @Override // com.kwad.sdk.c.a
-    public final String e() {
-        c cVar = b;
-        return cVar != null ? cVar.e() : u();
+    public final String getLocation() {
+        c cVar = aiq;
+        return cVar != null ? cVar.getLocation() : xn();
     }
 
     @Override // com.kwad.sdk.c.a
-    public final String f() {
-        c cVar = b;
-        return cVar != null ? cVar.f() : u();
+    public final String getOaid() {
+        c cVar = aiq;
+        return cVar != null ? cVar.getOaid() : xn();
     }
 
     @Override // com.kwad.sdk.c.a
-    public final String g() {
-        c cVar = b;
-        return cVar != null ? cVar.g() : u();
+    public final String getSdkVersion() {
+        c cVar = aiq;
+        return cVar != null ? cVar.getSdkVersion() : xn();
     }
 
     @Override // com.kwad.sdk.c.a
-    public final String h() {
-        c cVar = b;
-        return cVar != null ? cVar.h() : u();
+    public final String xa() {
+        c cVar = aiq;
+        return cVar != null ? cVar.xa() : xn();
     }
 
     @Override // com.kwad.sdk.c.a
-    public final String i() {
-        c cVar = b;
-        return cVar != null ? cVar.i() : u();
+    public final String xb() {
+        c cVar = aiq;
+        return cVar != null ? cVar.xb() : xn();
     }
 
     @Override // com.kwad.sdk.c.a
-    public final String j() {
-        c cVar = b;
-        return cVar != null ? cVar.j() : u();
+    public final String xc() {
+        c cVar = aiq;
+        return cVar != null ? cVar.xc() : xn();
     }
 
     @Override // com.kwad.sdk.c.a
-    public final String k() {
-        c cVar = b;
-        return cVar != null ? cVar.k() : u();
+    public final String xd() {
+        c cVar = aiq;
+        return cVar != null ? cVar.xd() : xn();
     }
 
     @Override // com.kwad.sdk.c.a
-    public final String l() {
-        c cVar = b;
-        return cVar != null ? cVar.l() : u();
+    public final String xe() {
+        c cVar = aiq;
+        return cVar != null ? cVar.xe() : xn();
     }
 
     @Override // com.kwad.sdk.c.a
-    public final String m() {
-        c cVar = b;
-        return cVar != null ? cVar.m() : u();
+    public final String xf() {
+        c cVar = aiq;
+        return cVar != null ? cVar.xf() : xn();
     }
 
     @Override // com.kwad.sdk.c.a
-    public final String n() {
-        c cVar = b;
-        return cVar != null ? cVar.n() : u();
+    public final String xg() {
+        c cVar = aiq;
+        return cVar != null ? cVar.xg() : xn();
     }
 
     @Override // com.kwad.sdk.c.a
-    public final String o() {
-        c cVar = b;
-        return cVar != null ? cVar.o() : u();
+    public final String xh() {
+        c cVar = aiq;
+        return cVar != null ? cVar.xh() : xn();
     }
 
     @Override // com.kwad.sdk.c.a
-    public final String p() {
-        c cVar = b;
-        return cVar != null ? cVar.p() : u();
+    public final String xi() {
+        c cVar = aiq;
+        return cVar != null ? cVar.xi() : xn();
     }
 
     @Override // com.kwad.sdk.c.a
-    public final String q() {
-        c cVar = b;
-        return cVar != null ? cVar.q() : u();
+    public final String xj() {
+        c cVar = aiq;
+        return cVar != null ? cVar.xj() : xn();
     }
 
     @Override // com.kwad.sdk.c.a
-    public final String r() {
-        c cVar = b;
-        return cVar != null ? cVar.r() : u();
+    public final String xk() {
+        c cVar = aiq;
+        return cVar != null ? cVar.xk() : xn();
     }
 
     @Override // com.kwad.sdk.c.a
-    public final String s() {
-        c cVar = b;
-        return cVar != null ? cVar.s() : u();
+    public final String xl() {
+        c cVar = aiq;
+        return cVar != null ? cVar.xl() : xn();
     }
 }

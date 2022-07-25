@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.me5;
 import com.repackage.oy5;
 import com.repackage.pi;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -127,11 +127,11 @@ public class MultiLinkCardView extends RelativeLayout {
                     }
                 }
                 if (a.size() > 3 && i == 2) {
-                    this.j.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0434, Integer.valueOf(a.size() - 3)));
+                    this.j.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0433, Integer.valueOf(a.size() - 3)));
                     this.j.setVisibility(0);
                 }
             }
-            this.k.setText(getContext().getString(c ? R.string.obfuscated_res_0x7f0f0b14 : R.string.obfuscated_res_0x7f0f0b15, Integer.valueOf(a.size())));
+            this.k.setText(getContext().getString(c ? R.string.obfuscated_res_0x7f0f0b00 : R.string.obfuscated_res_0x7f0f0b01, Integer.valueOf(a.size())));
         }
     }
 
@@ -188,14 +188,14 @@ public class MultiLinkCardView extends RelativeLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d058e, this);
-        this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b55);
-        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b56);
-        this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b57);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090c8c);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090c8d);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c8e);
-        TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090fac);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0598, this);
+        this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b2f);
+        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b30);
+        this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b31);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090c85);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090c86);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c87);
+        TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090fa5);
         this.g = tbImageView;
         tbImageView.setDrawCorner(true);
         this.g.setGifIconSupport(false);
@@ -203,7 +203,7 @@ public class MultiLinkCardView extends RelativeLayout {
         this.g.setConrers(15);
         this.g.setPlaceHolder(1);
         this.g.setRadius(pi.f(getContext(), R.dimen.tbds10));
-        TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090fae);
+        TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090fa7);
         this.h = tbImageView2;
         tbImageView2.setDrawCorner(true);
         this.h.setGifIconSupport(false);
@@ -211,7 +211,7 @@ public class MultiLinkCardView extends RelativeLayout {
         this.h.setConrers(15);
         this.h.setPlaceHolder(1);
         this.h.setRadius(pi.f(getContext(), R.dimen.tbds10));
-        TbImageView tbImageView3 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090faf);
+        TbImageView tbImageView3 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090fa8);
         this.i = tbImageView3;
         tbImageView3.setDrawCorner(true);
         this.i.setGifIconSupport(false);
@@ -219,11 +219,11 @@ public class MultiLinkCardView extends RelativeLayout {
         this.i.setPlaceHolder(1);
         this.i.setConrers(15);
         this.i.setRadius(pi.f(getContext(), R.dimen.tbds10));
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09225a);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09225c);
         this.j = textView;
-        ur4.d(textView).y(R.array.S_O_X001);
-        this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f092259);
-        this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fad);
+        vr4.d(textView).y(R.array.S_O_X001);
+        this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09225b);
+        this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fa6);
         this.o = new ArrayList();
         this.n = new ArrayList();
         ArrayList arrayList = new ArrayList();

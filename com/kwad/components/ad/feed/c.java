@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwad.components.ad.feed.a.f;
 import com.kwad.components.ad.feed.a.g;
 import com.kwad.components.ad.feed.a.h;
 import com.kwad.components.ad.feed.a.i;
@@ -22,7 +21,7 @@ public final class c {
     /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
+        public static final /* synthetic */ int[] cI;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -39,33 +38,33 @@ public final class c {
                 }
             }
             int[] iArr = new int[FeedType.values().length];
-            a = iArr;
+            cI = iArr;
             try {
                 iArr[FeedType.FEED_TYPE_TEXT_IMMERSE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[FeedType.FEED_TYPE_TEXT_ABOVE.ordinal()] = 2;
+                cI[FeedType.FEED_TYPE_TEXT_ABOVE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[FeedType.FEED_TYPE_TEXT_BELOW.ordinal()] = 3;
+                cI[FeedType.FEED_TYPE_TEXT_BELOW.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                a[FeedType.FEED_TYPE_TEXT_LEFT.ordinal()] = 4;
+                cI[FeedType.FEED_TYPE_TEXT_LEFT.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                a[FeedType.FEED_TYPE_TEXT_RIGHT.ordinal()] = 5;
+                cI[FeedType.FEED_TYPE_TEXT_RIGHT.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                a[FeedType.FEED_TYPE_TEXT_ABOVE_GROUP.ordinal()] = 6;
+                cI[FeedType.FEED_TYPE_TEXT_ABOVE_GROUP.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                a[FeedType.FEED_TYPE_UNKNOWN.ordinal()] = 7;
+                cI[FeedType.FEED_TYPE_UNKNOWN.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
         }
@@ -75,7 +74,7 @@ public final class c {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, feedType)) == null) {
-            switch (AnonymousClass1.a[feedType.ordinal()]) {
+            switch (AnonymousClass1.cI[feedType.ordinal()]) {
                 case 1:
                     return new i(context);
                 case 2:
@@ -88,7 +87,7 @@ public final class c {
                     return new k(context);
                 case 6:
                 case 7:
-                    com.kwad.sdk.core.d.b.e("KSFeedFactory", "getSingleImageView type is unknown:" + feedType);
+                    com.kwad.sdk.core.e.b.e("KSFeedFactory", "getSingleImageView type is unknown:" + feedType);
                     return null;
                 default:
                     return null;
@@ -106,7 +105,7 @@ public final class c {
             } else if (i != 1) {
                 if (i != 2) {
                     if (i != 3) {
-                        com.kwad.sdk.core.d.b.e("KSFeedFactory", "getNewFeedView materialType is unknown");
+                        com.kwad.sdk.core.e.b.e("KSFeedFactory", "getNewFeedView materialType is unknown");
                         return null;
                     }
                     return b(context, feedType);
@@ -123,7 +122,7 @@ public final class c {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, feedType)) == null) {
-            switch (AnonymousClass1.a[feedType.ordinal()]) {
+            switch (AnonymousClass1.cI[feedType.ordinal()]) {
                 case 1:
                     return new i(context);
                 case 2:
@@ -137,7 +136,7 @@ public final class c {
                 case 6:
                     return new g(context);
                 case 7:
-                    com.kwad.sdk.core.d.b.e("KSFeedFactory", "getVideoView type is unknown" + feedType);
+                    com.kwad.sdk.core.e.b.e("KSFeedFactory", "getVideoView type is unknown" + feedType);
                     return null;
                 default:
                     return null;
@@ -150,15 +149,15 @@ public final class c {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, feedType)) == null) {
-            int i = AnonymousClass1.a[feedType.ordinal()];
+            int i = AnonymousClass1.cI[feedType.ordinal()];
             if (i != 2) {
                 if (i != 3) {
-                    com.kwad.sdk.core.d.b.e("KSFeedFactory", "getVideoView type is unknown:" + feedType);
+                    com.kwad.sdk.core.e.b.e("KSFeedFactory", "getVideoView type is unknown:" + feedType);
                     return null;
                 }
                 return new h(context);
             }
-            return new f(context);
+            return new com.kwad.components.ad.feed.a.f(context);
         }
         return (com.kwad.components.core.widget.b) invokeLL.objValue;
     }

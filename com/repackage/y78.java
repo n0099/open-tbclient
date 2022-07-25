@@ -66,21 +66,21 @@ public class y78 {
             PostSearchListFragment postSearchListFragment = new PostSearchListFragment(1);
             this.e = postSearchListFragment;
             bVar.c = postSearchListFragment;
-            bVar.b = c(R.string.obfuscated_res_0x7f0f10d5);
+            bVar.b = c(R.string.obfuscated_res_0x7f0f1091);
             bVar.a = 1;
             this.c.c(bVar);
             FragmentTabHost.b bVar2 = new FragmentTabHost.b();
             PostSearchListFragment postSearchListFragment2 = new PostSearchListFragment(2);
             this.f = postSearchListFragment2;
             bVar2.c = postSearchListFragment2;
-            bVar2.b = c(R.string.obfuscated_res_0x7f0f10d4);
+            bVar2.b = c(R.string.obfuscated_res_0x7f0f1090);
             bVar2.a = 2;
             this.c.c(bVar2);
             FragmentTabHost.b bVar3 = new FragmentTabHost.b();
             PostSearchListFragment postSearchListFragment3 = new PostSearchListFragment(3);
             this.g = postSearchListFragment3;
             bVar3.c = postSearchListFragment3;
-            bVar3.b = c(R.string.obfuscated_res_0x7f0f10d3);
+            bVar3.b = c(R.string.obfuscated_res_0x7f0f108f);
             bVar3.a = 3;
             this.c.c(bVar3);
         }
@@ -128,9 +128,9 @@ public class y78 {
     public final void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            View inflate = ((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f091cce)).inflate();
+            View inflate = ((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f091cd4)).inflate();
             inflate.setVisibility(0);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) inflate.findViewById(R.id.obfuscated_res_0x7f09195d);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) inflate.findViewById(R.id.obfuscated_res_0x7f091938);
             this.c = fragmentTabHost;
             fragmentTabHost.setup(this.a.getSupportFragmentManager());
             this.c.setTabWidgetViewHeight((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));

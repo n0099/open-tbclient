@@ -1,10 +1,12 @@
 package com.repackage;
 
 import android.annotation.SuppressLint;
+import android.os.RemoteException;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.swan.ubc.Flow;
+import com.baidu.swan.ubc.IRemoteUBCService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,143 +14,174 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONArray;
+import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class xf4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ConcurrentHashMap<String, String> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public JSONObject d;
-    public List<nf4> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755173525, "Lcom/repackage/xf4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755173525, "Lcom/repackage/xf4;");
-                return;
-            }
-        }
-        ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
-        f = concurrentHashMap;
-        concurrentHashMap.put("1415", "66");
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public xf4(String str, JSONObject jSONObject) {
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final xf4 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(127696493, "Lcom/repackage/xf4$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(127696493, "Lcom/repackage/xf4$b;");
+                    return;
+                }
+            }
+            a = new xf4(null);
+        }
+    }
+
+    public /* synthetic */ xf4(a aVar) {
+        this();
+    }
+
+    public static xf4 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (xf4) invokeV.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public Flow a(String str, String str2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, str, str2, i)) == null) {
+            if (sb1.g()) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                return vf4.f().a(str, str2, i);
+            }
+            return d(str, zf4.b(str2), i);
+        }
+        return (Flow) invokeLLI.objValue;
+    }
+
+    public final IRemoteUBCService c() throws RemoteException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? mf4.f() : (IRemoteUBCService) invokeV.objValue;
+    }
+
+    public final Flow d(String str, String str2, int i) {
+        Flow flow;
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i)) == null) {
+            try {
+                flow = c().ubcBeginFlow(str, str2, i);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+                flow = null;
+            }
+            return flow == null ? new Flow() : flow;
+        }
+        return (Flow) invokeLLI.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public void e(String str, String str2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, str, str2, i) == null) {
+            if (sb1.g()) {
+                if (mf4.g() == null && TextUtils.isEmpty(str)) {
+                    return;
+                }
+                vf4.f().j(str, str2, i);
+                return;
+            }
+            try {
+                c().ubcOnEvent(str, zf4.b(str2), i);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final void f(String str, Map<String, String> map, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048580, this, str, map, i) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                }
+            } catch (JSONException unused) {
+            }
+            e(str, jSONObject.toString(), i);
+        }
+    }
+
+    public void g(String str, JSONObject jSONObject, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048581, this, str, jSONObject, i) == null) {
+            if (sb1.g()) {
+                if (mf4.g() == null && TextUtils.isEmpty(str)) {
+                    return;
+                }
+                vf4.f().k(str, jSONObject, i);
+                return;
+            }
+            try {
+                c().ubcOnEvent(str, zf4.c(jSONObject), i);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            vf4.f().q();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            vf4.f().l();
+        }
+    }
+
+    public final void onEvent(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            e(str, "", 0);
+        }
+    }
+
+    public xf4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.e = new ArrayList();
-        this.c = str;
-        this.d = jSONObject;
-    }
-
-    public List<nf4> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (List) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public boolean e() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                JSONObject jSONObject = this.d;
-                this.a = jSONObject.getInt("threshold");
-                this.b = jSONObject.getInt("timeup");
-                JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
-                int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject jSONObject2 = jSONArray.getJSONObject(i);
-                    String string = jSONObject2.getString("ubcid");
-                    if (TextUtils.isEmpty(string) || !f.containsKey(string)) {
-                        str = string;
-                    } else {
-                        String optString = jSONObject2.optString("bizid");
-                        f.get(string);
-                        str = optString;
-                    }
-                    String string2 = jSONObject2.getString(SetImageWatermarkTypeReqMsg.SWITCH);
-                    String string3 = jSONObject2.getString(Constant.IS_REAL);
-                    String string4 = jSONObject2.getString("isAbtest");
-                    int parseInt = Integer.parseInt(jSONObject2.getString("timeout"));
-                    String string5 = jSONObject2.getString("type");
-                    if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string5)) {
-                        nf4 nf4Var = new nf4(str, string2, string3, parseInt, string5, string4);
-                        if (jSONObject2.has("rate")) {
-                            nf4Var.g = Integer.parseInt(jSONObject2.getString("rate"));
-                        }
-                        if (jSONObject2.has("bizid")) {
-                            jSONObject2.getString("bizid");
-                        }
-                        if (jSONObject2.has("c")) {
-                            nf4Var.h = jSONObject2.getString("c");
-                        }
-                        if (jSONObject2.has("limitUnit")) {
-                            nf4Var.i = Integer.parseInt(jSONObject2.getString("limitUnit"));
-                        }
-                        if (jSONObject2.has("limitCnt")) {
-                            nf4Var.j = Integer.parseInt(jSONObject2.getString("limitCnt"));
-                        }
-                        if (jSONObject2.has(Constant.ID_TYPE)) {
-                            nf4Var.k = jSONObject2.getString(Constant.ID_TYPE);
-                        }
-                        if (jSONObject2.has("appblacklist")) {
-                            jSONObject2.getString("appblacklist");
-                        }
-                        this.e.add(nf4Var);
-                    }
-                }
-                return true;
-            } catch (NumberFormatException | JSONException unused) {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
     }
 }

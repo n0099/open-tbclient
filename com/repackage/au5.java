@@ -114,10 +114,10 @@ public class au5 extends ix5<ThreadData> implements hy5, bk5 {
         o(bdUniqueId);
         this.i = tbPageContext;
         View h = h();
-        RelativeLayout relativeLayout = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f091251);
+        RelativeLayout relativeLayout = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f09122d);
         this.w = relativeLayout;
         relativeLayout.setOnClickListener(this);
-        LinearLayout linearLayout = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f092387);
+        LinearLayout linearLayout = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f092389);
         this.v = linearLayout;
         linearLayout.setOnClickListener(this);
         RelativeLayout relativeLayout2 = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f09021d);
@@ -133,15 +133,15 @@ public class au5 extends ix5<ThreadData> implements hy5, bk5 {
         this.A.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         this.A.setAutoChangeStyle(false);
         this.B = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09021f);
-        this.y = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091fe1);
+        this.y = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091fe5);
         this.z = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0901ee);
         AlaVideoContainer alaVideoContainer = (AlaVideoContainer) h.findViewById(R.id.obfuscated_res_0x7f090221);
         this.C = alaVideoContainer;
         alaVideoContainer.setOnVideoClickListener(this);
-        View findViewById = h.findViewById(R.id.obfuscated_res_0x7f09204a);
+        View findViewById = h.findViewById(R.id.obfuscated_res_0x7f09204e);
         this.J = findViewById;
         findViewById.setClickable(true);
-        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) h.findViewById(R.id.obfuscated_res_0x7f091fb9);
+        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) h.findViewById(R.id.obfuscated_res_0x7f091fbd);
         this.l = threadCommentAndPraiseInfoLayout;
         t(threadCommentAndPraiseInfoLayout);
         this.l.setSelectVisible(false);
@@ -152,16 +152,16 @@ public class au5 extends ix5<ThreadData> implements hy5, bk5 {
         this.l.getCommentContainer().setOnClickListener(this);
         this.l.hideDisagree();
         this.l.setShareReportFrom(1);
-        tn4 tn4Var = new tn4();
-        tn4Var.b = 2;
-        tn4Var.h = 2;
-        this.l.setAgreeStatisticData(tn4Var);
+        un4 un4Var = new un4();
+        un4Var.b = 2;
+        un4Var.h = 2;
+        this.l.setAgreeStatisticData(un4Var);
         ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = (ThreadCommentAndPraiseInfoLayout) h.findViewById(R.id.obfuscated_res_0x7f0904ac);
         this.m = threadCommentAndPraiseInfoLayout2;
         t(threadCommentAndPraiseInfoLayout2);
         this.m.setFrom(2);
         this.m.setShareReportFrom(1);
-        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h.findViewById(R.id.obfuscated_res_0x7f091fba);
+        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h.findViewById(R.id.obfuscated_res_0x7f091fbe);
         this.F = threadSourceShareAndPraiseLayout;
         threadSourceShareAndPraiseLayout.b.setOnClickListener(this);
         this.F.b.getCommentContainer().setOnClickListener(this);
@@ -170,7 +170,7 @@ public class au5 extends ix5<ThreadData> implements hy5, bk5 {
         this.F.setSourceFromForPb(3);
         this.F.setStType("frs_page");
         this.F.setHideBarName(true);
-        this.G = h.findViewById(R.id.obfuscated_res_0x7f0907be);
+        this.G = h.findViewById(R.id.obfuscated_res_0x7f0907bc);
         this.C.setLigvingLogLayoutVisible(8);
     }
 
@@ -219,7 +219,7 @@ public class au5 extends ix5<ThreadData> implements hy5, bk5 {
             return;
         }
         if (!ni.z()) {
-            pi.N(tbPageContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0c64);
+            pi.N(tbPageContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0c50);
             return;
         }
         AlaInfoData threadAlaInfo = ((ThreadData) this.k).getThreadAlaInfo();
@@ -375,7 +375,7 @@ public class au5 extends ix5<ThreadData> implements hy5, bk5 {
         if (interceptable == null || interceptable.invokeLI(1048590, this, tbPageContext, i) == null) {
             if (this.a != i) {
                 w(tbPageContext, i);
-                ur4 d = ur4.d(this.w);
+                vr4 d = vr4.d(this.w);
                 d.n(R.string.J_X06);
                 d.i(R.color.CAM_X0205, R.color.CAM_X0206);
                 SkinManager.setBackgroundColor(this.D, R.color.CAM_X0204);
@@ -429,7 +429,7 @@ public class au5 extends ix5<ThreadData> implements hy5, bk5 {
         }
         int i = 1;
         if (view2 != this.w && view2 != this.l.getCommentContainer() && this.v != view2 && view2 != this.F.b.getCommentContainer() && view2 != this.m.getCommentContainer()) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f09238b) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09238d) {
                 if (e() != null) {
                     e().a(view2, this.k);
                 }
@@ -464,7 +464,7 @@ public class au5 extends ix5<ThreadData> implements hy5, bk5 {
             statisticItem.param("tid", ((ThreadData) this.k).getTid());
             statisticItem.param("obj_type", i);
             statisticItem.param("nid", ((ThreadData) this.k).getNid());
-            p85 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view2);
+            q85 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view2);
             if (findPageExtraByView != null) {
                 statisticItem.param(TiebaStatic.Params.OBJ_CUR_PAGE, findPageExtraByView.a());
             }

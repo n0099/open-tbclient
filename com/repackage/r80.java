@@ -302,20 +302,20 @@ public class r80 extends o80 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             boolean equals = "baidu".equals(LiveFeedPageSdk.f().e());
-            int i2 = R.layout.obfuscated_res_0x7f0d0515;
+            int i2 = R.layout.obfuscated_res_0x7f0d051f;
             if (!equals) {
                 if ("haokan".equals(LiveFeedPageSdk.f().e())) {
-                    i2 = R.layout.obfuscated_res_0x7f0d0516;
+                    i2 = R.layout.obfuscated_res_0x7f0d0520;
                 } else if ("quanmin".equals(LiveFeedPageSdk.f().e())) {
-                    i2 = R.layout.obfuscated_res_0x7f0d0517;
+                    i2 = R.layout.obfuscated_res_0x7f0d0521;
                 } else if ("tieba".equals(LiveFeedPageSdk.f().e())) {
-                    i2 = R.layout.obfuscated_res_0x7f0d0518;
+                    i2 = R.layout.obfuscated_res_0x7f0d0522;
                 }
             }
             View inflate = LayoutInflater.from(getContext()).inflate(i2, (ViewGroup) null);
             this.d = inflate;
-            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091a03);
-            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.d.findViewById(R.id.obfuscated_res_0x7f0906c6);
+            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0919dd);
+            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.d.findViewById(R.id.obfuscated_res_0x7f0906c5);
             this.j = continuousAnimationView;
             continuousAnimationView.setOnClickListener(this.s);
             v();

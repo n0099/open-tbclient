@@ -96,10 +96,10 @@ public abstract class p77 {
         return invokeLL.booleanValue;
     }
 
-    public void d(String str, String str2, jd5<Boolean> jd5Var) {
+    public void d(String str, String str2, kd5<Boolean> kd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, jd5Var) == null) {
-            he5.c(new a(this, str, str2), jd5Var);
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, kd5Var) == null) {
+            he5.c(new a(this, str, str2), kd5Var);
         }
     }
 
@@ -140,17 +140,17 @@ public abstract class p77 {
         h(a2);
     }
 
-    public void g(String str, String str2, boolean z, jd5<Void> jd5Var) {
+    public void g(String str, String str2, boolean z, kd5<Void> kd5Var) {
         ChatSetting a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Boolean.valueOf(z), jd5Var}) == null) || (a2 = a(str, str2)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Boolean.valueOf(z), kd5Var}) == null) || (a2 = a(str, str2)) == null) {
             return;
         }
         a2.setAcceptNotify(z);
-        i(a2, jd5Var);
+        i(a2, kd5Var);
     }
 
     public abstract void h(ChatSetting chatSetting);
 
-    public abstract void i(ChatSetting chatSetting, jd5<Void> jd5Var);
+    public abstract void i(ChatSetting chatSetting, kd5<Void> kd5Var);
 }

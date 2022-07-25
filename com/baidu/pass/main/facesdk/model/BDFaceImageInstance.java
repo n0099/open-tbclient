@@ -113,5 +113,5 @@ public class BDFaceImageInstance {
 
     public native BDFaceImageInstance getImage();
 
-    public native String getSec(Context context);
+    public native String getSec(Context context, boolean z, int i);
 }

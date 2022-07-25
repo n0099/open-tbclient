@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j55;
+import com.repackage.k55;
 import com.repackage.ni;
 import com.repackage.nv5;
 import com.repackage.qv5;
@@ -34,7 +34,7 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     public transient /* synthetic */ FieldHolder $fh;
     public tv5 a;
     public AlaPersonCenterPrivilegeMarkModel b;
-    public j55 c;
+    public k55 c;
     public nv5 d;
     public AlaPersonCenterPrivilegeMarkModel.b e;
     public View.OnClickListener f;
@@ -157,7 +157,7 @@ public class AlaAchievementMarkFragment extends AbsFragment {
                     return;
                 }
                 AlaAchievementMarkFragment alaAchievementMarkFragment = this.a;
-                alaAchievementMarkFragment.showToast(alaAchievementMarkFragment.getResources().getString(R.string.obfuscated_res_0x7f0f0c64));
+                alaAchievementMarkFragment.showToast(alaAchievementMarkFragment.getResources().getString(R.string.obfuscated_res_0x7f0f0c50));
             }
         }
     }
@@ -259,9 +259,9 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            j55 j55Var = this.c;
-            if (j55Var != null) {
-                j55Var.onChangeSkinType();
+            k55 k55Var = this.c;
+            if (k55Var != null) {
+                k55Var.onChangeSkinType();
             }
         }
     }
@@ -323,7 +323,7 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (this.c == null) {
-                this.c = new j55(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b6));
+                this.c = new k55(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b2));
             }
             tv5 tv5Var = this.a;
             if (tv5Var == null || tv5Var.c() == null) {

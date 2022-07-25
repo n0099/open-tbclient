@@ -85,7 +85,7 @@ public class FeedAdProgressButton extends View implements vk5 {
         this.k = SkinManager.getColor(this.c);
         this.m = 100;
         this.n = 0;
-        this.q = getResources().getString(R.string.obfuscated_res_0x7f0f08ff);
+        this.q = getResources().getString(R.string.obfuscated_res_0x7f0f08ea);
         this.t = 0;
         e(context, attributeSet);
     }
@@ -248,7 +248,7 @@ public class FeedAdProgressButton extends View implements vk5 {
             if (TextUtils.isEmpty(this.q)) {
                 f = 0.0f;
             } else {
-                String string = this.q.length() >= 4 ? this.q : getResources().getString(R.string.obfuscated_res_0x7f0f08ff);
+                String string = this.q.length() >= 4 ? this.q : getResources().getString(R.string.obfuscated_res_0x7f0f08ea);
                 this.v.getTextBounds(string, 0, string.length(), this.u);
                 float height = this.u.height() + (this.s * 2);
                 f2 = this.u.width() + (this.r * 2);
@@ -398,7 +398,7 @@ public class FeedAdProgressButton extends View implements vk5 {
         this.k = SkinManager.getColor(this.c);
         this.m = 100;
         this.n = 0;
-        this.q = getResources().getString(R.string.obfuscated_res_0x7f0f08ff);
+        this.q = getResources().getString(R.string.obfuscated_res_0x7f0f08ea);
         this.t = 0;
         e(context, attributeSet);
     }

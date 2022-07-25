@@ -12,8 +12,10 @@ import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
+import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -95,11 +97,21 @@ public class FileProvider extends ContentProvider {
                 if (aVar == null) {
                     try {
                         aVar = b(context, str);
+                    } catch (IOException unused) {
+                        SapiAccountManager sapiAccountManager = SapiAccountManager.getInstance();
+                        if (sapiAccountManager != null && sapiAccountManager.getConfignation() != null && sapiAccountManager.getConfignation().debug) {
+                            Toast.makeText(context, "Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", 0).show();
+                        }
+                        Log.e("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", new Object[0]);
+                    } catch (XmlPullParserException unused2) {
+                        SapiAccountManager sapiAccountManager2 = SapiAccountManager.getInstance();
+                        if (sapiAccountManager2 != null && sapiAccountManager2.getConfignation() != null && sapiAccountManager2.getConfignation().debug) {
+                            Toast.makeText(context, "Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", 0).show();
+                        }
+                        Log.e("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", new Object[0]);
+                    }
+                    if (aVar != null) {
                         k.put(str, aVar);
-                    } catch (IOException e2) {
-                        throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e2);
-                    } catch (XmlPullParserException e3) {
-                        throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e3);
                     }
                 }
             }
@@ -111,42 +123,48 @@ public class FileProvider extends ContentProvider {
     public static a b(Context context, String str) throws IOException, XmlPullParserException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65543, null, context, str)) != null) {
-            return (a) invokeLL.objValue;
-        }
-        b bVar = new b(str);
-        XmlResourceParser loadXmlMetaData = context.getPackageManager().resolveContentProvider(str, 128).loadXmlMetaData(context.getPackageManager(), "android.support.FILE_PROVIDER_PATHS");
-        if (loadXmlMetaData == null) {
-            throw new IllegalArgumentException("Missing android.support.FILE_PROVIDER_PATHS meta-data");
-        }
-        while (true) {
-            int next = loadXmlMetaData.next();
-            if (next == 1) {
-                return bVar;
-            }
-            if (next == 2) {
-                String name = loadXmlMetaData.getName();
-                File file = null;
-                String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
-                String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
-                if ("root-path".equals(name)) {
-                    file = a(j, attributeValue2);
-                } else if ("files-path".equals(name)) {
-                    file = a(context.getFilesDir(), attributeValue2);
-                } else if ("cache-path".equals(name)) {
-                    file = a(context.getCacheDir(), attributeValue2);
-                } else if ("external-path".equals(name)) {
-                    try {
-                        file = a(Environment.getExternalStorageDirectory(), attributeValue2);
-                    } catch (Exception e2) {
-                        Log.e(e2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
+            b bVar = new b(str);
+            XmlResourceParser loadXmlMetaData = context.getPackageManager().resolveContentProvider(str, 128).loadXmlMetaData(context.getPackageManager(), "android.support.FILE_PROVIDER_PATHS");
+            if (loadXmlMetaData != null) {
+                while (true) {
+                    int next = loadXmlMetaData.next();
+                    if (next == 1) {
+                        break;
+                    } else if (next == 2) {
+                        String name = loadXmlMetaData.getName();
+                        File file = null;
+                        String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
+                        String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
+                        if ("root-path".equals(name)) {
+                            file = a(j, attributeValue2);
+                        } else if ("files-path".equals(name)) {
+                            file = a(context.getFilesDir(), attributeValue2);
+                        } else if ("cache-path".equals(name)) {
+                            file = a(context.getCacheDir(), attributeValue2);
+                        } else if ("external-path".equals(name)) {
+                            try {
+                                file = a(Environment.getExternalStorageDirectory(), attributeValue2);
+                            } catch (Exception e2) {
+                                Log.e(e2);
+                            }
+                        }
+                        if (file != null) {
+                            bVar.a(attributeValue, file);
+                        }
                     }
                 }
-                if (file != null) {
-                    bVar.a(attributeValue, file);
+            } else {
+                SapiAccountManager sapiAccountManager = SapiAccountManager.getInstance();
+                if (sapiAccountManager != null && sapiAccountManager.getConfignation() != null && sapiAccountManager.getConfignation().debug) {
+                    Toast.makeText(context, "Missing android.support.FILE_PROVIDER_PATHS meta-data", 0).show();
+                } else {
+                    Log.e("Missing android.support.FILE_PROVIDER_PATHS meta-data", new Object[0]);
                 }
             }
+            return bVar;
         }
+        return (a) invokeLL.objValue;
     }
 
     public static Uri getUriForFile(Context context, String str, File file) {

@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c15;
+import com.repackage.d15;
 import com.repackage.dj8;
 import com.repackage.ng;
 import java.net.URL;
@@ -328,7 +328,7 @@ public class XiubaTbJsBridge implements dj8 {
     private void startDownload(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, str) == null) {
-            c15.q().z("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1604), -1, -1);
+            d15.q().z("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15b3), -1, -1);
         }
     }
 

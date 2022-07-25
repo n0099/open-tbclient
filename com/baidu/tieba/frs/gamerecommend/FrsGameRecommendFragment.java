@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import com.repackage.ik6;
 import com.repackage.je6;
 import com.repackage.ng;
@@ -36,7 +36,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements je6 {
     public String d;
     public CustomMessageListener e;
     public AlaGameRecommendModel.b f;
-    public fu4.g g;
+    public gu4.g g;
     public BdListView.p h;
 
     /* loaded from: classes3.dex */
@@ -134,7 +134,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements je6 {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements fu4.g {
+    public class c implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsGameRecommendFragment a;
@@ -157,7 +157,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements je6 {
             this.a = frsGameRecommendFragment;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -168,7 +168,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements je6 {
                     }
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                 this.a.a.b();
             }
         }

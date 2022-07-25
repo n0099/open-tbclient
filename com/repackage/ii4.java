@@ -1,13 +1,7 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,265 +9,211 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
+import com.baidu.webkit.sdk.WebKitFactory;
+import com.repackage.fd4;
+import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class ii4 {
+public final class ii4 implements fd4 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean c;
+    public static final Set<fd4.a> d;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public class a implements WebKitFactory.WebkitInstallListener {
         public static /* synthetic */ Interceptable $ic;
-        public static final ii4 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ File b;
+        public final /* synthetic */ ii4 c;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-298970240, "Lcom/repackage/ii4$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
+        /* renamed from: com.repackage.ii4$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0505a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0505a(a aVar) {
+                Interceptable interceptable = $ic;
                 if (interceptable != null) {
-                    $ic = interceptable;
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-298970240, "Lcom/repackage/ii4$a;");
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    ii4 ii4Var = this.a.c;
+                    ii4Var.j(ii4Var.b);
+                }
+            }
+        }
+
+        public a(ii4 ii4Var, String str, File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ii4Var, str, file};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new ii4();
+            this.c = ii4Var;
+            this.a = str;
+            this.b = file;
         }
+
+        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+        public void onInstallFinish(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                boolean z = true;
+                if (kg4.B(this.a, str)) {
+                    synchronized (ii4.d) {
+                        this.c.i(true);
+                    }
+                    return;
+                }
+                if (ii4.e(this.c) <= 2) {
+                    if (8 == i) {
+                        this.c.b = this.a;
+                    } else {
+                        ii4 ii4Var = this.c;
+                        ii4Var.b = this.a + File.pathSeparator + this.c.a;
+                        if (kg4.f(this.b, new File(this.c.b)) != this.b.length()) {
+                            z = false;
+                        }
+                    }
+                    if (z && h03.M().postDelayed(new RunnableC0505a(this), 1000L)) {
+                        return;
+                    }
+                }
+                if (8 == i) {
+                    kg4.k(this.a);
+                }
+                synchronized (ii4.d) {
+                    this.c.i(false);
+                }
+            }
+        }
+
+        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+        public void onInstallStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755617507, "Lcom/repackage/ii4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755617507, "Lcom/repackage/ii4;");
+                return;
+            }
+        }
+        d = new HashSet();
     }
 
     public ii4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = 0;
     }
 
-    public static final ii4 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (ii4) invokeV.objValue;
+    public static /* synthetic */ int e(ii4 ii4Var) {
+        int i = ii4Var.a + 1;
+        ii4Var.a = i;
+        return i;
     }
 
-    public synchronized long a(ki4 ki4Var) {
-        InterceptResult invokeL;
-        long h;
+    @Override // com.repackage.fd4
+    public void a(String str, fd4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ki4Var)) == null) {
-            synchronized (this) {
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                h = h(f, ki4Var);
-                f.setTransactionSuccessful();
-                f.endTransaction();
-            }
-            return h;
-        }
-        return invokeL.longValue;
-    }
-
-    public synchronized void b(List<ki4> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            synchronized (this) {
-                if (ListUtils.isEmpty(list)) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
+            synchronized (d) {
+                d.add(aVar);
+                if (c) {
                     return;
                 }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                for (ki4 ki4Var : list) {
-                    h(f, ki4Var);
-                }
-                f.setTransactionSuccessful();
-                f.endTransaction();
+                c = true;
+                j(str);
             }
         }
     }
 
-    public final ContentValues c(ki4 ki4Var) {
-        InterceptResult invokeL;
+    public final void i(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ki4Var)) == null) {
-            if (ki4Var == null) {
-                return null;
-            }
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("activityid", Integer.valueOf(ki4Var.d()));
-            contentValues.put("missionid", Integer.valueOf(ki4Var.q()));
-            contentValues.put("activitysource", ki4Var.e());
-            contentValues.put("calltype", Integer.valueOf(ki4Var.i()));
-            contentValues.put(DownloadDataConstants.Columns.COLUMN_TASK_TYPE, Integer.valueOf(ki4Var.x()));
-            contentValues.put("browsetimepage", ki4Var.g());
-            contentValues.put("browsetime", Long.valueOf(ki4Var.f()));
-            contentValues.put("threadnum", Integer.valueOf(ki4Var.A()));
-            contentValues.put("forumnum", Integer.valueOf(ki4Var.p()));
-            contentValues.put("cleartype", Integer.valueOf(ki4Var.k()));
-            contentValues.put("cleartime", Long.valueOf(ki4Var.j()));
-            contentValues.put("specificcleartime", Long.valueOf(ki4Var.t()));
-            contentValues.put("tid", Long.valueOf(ki4Var.C()));
-            contentValues.put("fid", Long.valueOf(ki4Var.o()));
-            contentValues.put("threadtext", ki4Var.B());
-            contentValues.put("threadimg", ki4Var.z());
-            contentValues.put("threadforum", Long.valueOf(ki4Var.y()));
-            contentValues.put("totalLimit", Integer.valueOf(ki4Var.F()));
-            contentValues.put("completedLimitCount", Integer.valueOf(ki4Var.w()));
-            contentValues.put("token", ki4Var.E());
-            contentValues.put("executingMissionList", ki4Var.b());
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public final ki4 d(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cursor)) == null) {
-            if (cursor == null || cursor.isClosed()) {
-                return null;
-            }
-            ki4 ki4Var = new ki4();
-            ki4Var.T(cursor.getInt(cursor.getColumnIndex("activityid")));
-            ki4Var.c0(cursor.getInt(cursor.getColumnIndex("missionid")));
-            ki4Var.U(cursor.getString(cursor.getColumnIndex("activitysource")));
-            ki4Var.X(cursor.getInt(cursor.getColumnIndex("calltype")));
-            ki4Var.g0(cursor.getInt(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE)));
-            ki4Var.W(cursor.getString(cursor.getColumnIndex("browsetimepage")));
-            ki4Var.V(cursor.getLong(cursor.getColumnIndex("browsetime")));
-            ki4Var.j0(cursor.getInt(cursor.getColumnIndex("threadnum")));
-            ki4Var.b0(cursor.getInt(cursor.getColumnIndex("forumnum")));
-            ki4Var.Z(cursor.getInt(cursor.getColumnIndex("cleartype")));
-            ki4Var.Y(cursor.getLong(cursor.getColumnIndex("cleartime")));
-            ki4Var.e0(cursor.getLong(cursor.getColumnIndex("specificcleartime")));
-            ki4Var.l0(cursor.getLong(cursor.getColumnIndex("tid")));
-            ki4Var.a0(cursor.getLong(cursor.getColumnIndex("fid")));
-            ki4Var.k0(cursor.getString(cursor.getColumnIndex("threadtext")));
-            ki4Var.i0(cursor.getString(cursor.getColumnIndex("threadimg")));
-            ki4Var.h0(cursor.getInt(cursor.getColumnIndex("threadforum")));
-            ki4Var.n0(cursor.getInt(cursor.getColumnIndex("totalLimit")));
-            ki4Var.f0(cursor.getInt(cursor.getColumnIndex("completedLimitCount")));
-            ki4Var.Q(ki4Var.x(), cursor.getString(cursor.getColumnIndex("executingMissionList")));
-            ki4Var.m0(cursor.getString(cursor.getColumnIndex("token")));
-            return ki4Var;
-        }
-        return (ki4) invokeL.objValue;
-    }
-
-    public synchronized boolean e(ki4 ki4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ki4Var)) == null) {
-            synchronized (this) {
-                if (ki4Var == null) {
-                    return false;
-                }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                int delete = f.delete("activity_mission_info", "activityid = ? and missionid = ?", new String[]{String.valueOf(ki4Var.d()), String.valueOf(ki4Var.q())});
-                f.setTransactionSuccessful();
-                f.endTransaction();
-                return delete >= 0;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized List<ki4> f() {
-        InterceptResult invokeV;
-        LinkedList linkedList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                linkedList = new LinkedList();
-                Cursor rawQuery = f.rawQuery("SELECT * FROM activity_mission_info", null);
-                while (rawQuery.moveToNext()) {
-                    ki4 d = d(rawQuery);
-                    if (d != null) {
-                        linkedList.add(d);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            synchronized (d) {
+                for (fd4.a aVar : d) {
+                    if (aVar != null) {
+                        aVar.a(z);
                     }
                 }
-                f.setTransactionSuccessful();
-                qi.a(rawQuery);
-                f.endTransaction();
-            }
-            return linkedList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final long h(SQLiteDatabase sQLiteDatabase, ki4 ki4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, ki4Var)) == null) {
-            try {
-                return sQLiteDatabase.insert("activity_mission_info", null, c(ki4Var));
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return -1L;
+                d.clear();
+                c = false;
+                this.a = 0;
             }
         }
-        return invokeLL.longValue;
     }
 
-    public synchronized long i(ki4 ki4Var) {
-        InterceptResult invokeL;
+    public final void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, ki4Var)) == null) {
-            synchronized (this) {
-                if (ki4Var == null) {
-                    return -1L;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                synchronized (d) {
+                    i(false);
                 }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                long j = j(f, ki4Var);
-                f.setTransactionSuccessful();
-                f.endTransaction();
-                return j;
+                return;
             }
-        }
-        return invokeL.longValue;
-    }
-
-    public final long j(SQLiteDatabase sQLiteDatabase, ki4 ki4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, ki4Var)) == null) {
-            try {
-                return sQLiteDatabase.update("activity_mission_info", c(ki4Var), "activityid = ? and missionid = ?", new String[]{String.valueOf(ki4Var.d()), String.valueOf(ki4Var.q())});
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return -1L;
-            }
-        }
-        return invokeLL.longValue;
-    }
-
-    public synchronized void k(List<ki4> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            synchronized (this) {
-                if (ListUtils.isEmpty(list)) {
-                    return;
+            File file = new File(str);
+            if (!file.isFile()) {
+                synchronized (d) {
+                    i(false);
                 }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                for (ki4 ki4Var : list) {
-                    j(f, ki4Var);
-                }
-                f.setTransactionSuccessful();
-                f.endTransaction();
+                return;
             }
+            WebKitFactory.installAsync("file://" + str, new a(this, str, file));
         }
     }
 }

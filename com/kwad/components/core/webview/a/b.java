@@ -12,9 +12,9 @@ import org.json.JSONObject;
 public final class b extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public String params;
+    public String title;
+    public String url;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -30,12 +30,12 @@ public final class b extends com.kwad.sdk.core.response.kwai.a implements com.kw
         }
     }
 
-    public final long a() {
+    public final long pv() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                return new JSONObject(this.c).optLong("creativeId", -1L);
+                return new JSONObject(this.params).optLong("creativeId", -1L);
             } catch (Exception unused) {
                 return -1L;
             }

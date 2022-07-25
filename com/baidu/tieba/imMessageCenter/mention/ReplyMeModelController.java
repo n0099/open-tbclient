@@ -27,8 +27,8 @@ import com.repackage.da7;
 import com.repackage.ia7;
 import com.repackage.ja7;
 import com.repackage.nn;
-import com.repackage.ny4;
 import com.repackage.oa7;
+import com.repackage.oy4;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -150,7 +150,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
                 this.f = ja7Var.a().get(ja7Var.a().size() - 1);
                 z2 = this.e.b() == null || this.e.b().b() == 1;
                 if (ia7Var.a() == 1) {
-                    ny4.f0().d0(0);
+                    oy4.f0().d0(0);
                 }
                 if (ia7Var != null) {
                     ia7Var.d();
@@ -160,7 +160,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
                 z2 = false;
                 z3 = false;
             }
-            ny4.f0().o();
+            oy4.f0().o();
             ArrayList<nn> arrayList = new ArrayList<>();
             Iterator<FeedData> it = this.e.a.iterator();
             while (it.hasNext()) {
@@ -246,7 +246,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
                     r1 = mvcNetMessage.getRequestData();
                 }
             } else {
-                ny4.f0().d0(0);
+                oy4.f0().d0(0);
                 ja7Var = null;
             }
             if (r1 == null || ja7Var == null || !F(r1, ja7Var, false)) {
@@ -290,7 +290,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
                     r1 = mvcNetMessage.getRequestData();
                 }
             } else {
-                ny4.f0().d0(0);
+                oy4.f0().d0(0);
                 ja7Var = null;
             }
             if (r1 == null || ja7Var == null || !F(r1, ja7Var, false)) {

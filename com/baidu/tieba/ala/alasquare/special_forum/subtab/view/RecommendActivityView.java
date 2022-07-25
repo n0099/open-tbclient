@@ -137,7 +137,7 @@ public class RecommendActivityView extends jx5<kr5> {
             public void b(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-                    TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0906de);
+                    TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0906dd);
                     this.a = tbImageView;
                     tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
                 }
@@ -184,7 +184,7 @@ public class RecommendActivityView extends jx5<kr5> {
         public AlaBannerViewHolder a(ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) ? new a(this, LayoutInflater.from(this.a.i.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d078b, viewGroup, false)) : (AlaBannerViewHolder) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) ? new a(this, LayoutInflater.from(this.a.i.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0795, viewGroup, false)) : (AlaBannerViewHolder) invokeLI.objValue;
         }
     }
 
@@ -220,7 +220,7 @@ public class RecommendActivityView extends jx5<kr5> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d078c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0796 : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5

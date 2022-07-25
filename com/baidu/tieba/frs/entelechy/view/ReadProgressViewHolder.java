@@ -65,14 +65,14 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view2;
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09242c);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09242e);
         this.b = textView;
         int i3 = e;
         textView.setPadding(0, i3, 0, i3 - d);
         this.c = context;
     }
 
-    public void c() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0304);
@@ -82,12 +82,12 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void d(md6 md6Var) {
+    public void c(md6 md6Var) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, md6Var) == null) || md6Var == null) {
             return;
         }
-        this.b.setText(R.string.obfuscated_res_0x7f0f0f5f);
-        c();
+        this.b.setText(R.string.obfuscated_res_0x7f0f0f48);
+        b();
     }
 }

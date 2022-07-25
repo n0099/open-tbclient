@@ -136,8 +136,8 @@ public class hq8 extends BaseAdapter implements View.OnClickListener {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
                 aVar = new a(this);
-                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d04ff, (ViewGroup) null);
-                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f090f9a);
+                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0509, (ViewGroup) null);
+                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f090f93);
                 aVar.a = tbImageView;
                 tbImageView.setIsRound(true);
                 aVar.a.setDrawerType(1);
@@ -145,10 +145,10 @@ public class hq8 extends BaseAdapter implements View.OnClickListener {
                 aVar.a.setBorderWidth(pi.f(viewGroup.getContext(), R.dimen.obfuscated_res_0x7f070224));
                 aVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
                 aVar.a.setConrers(15);
-                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f09225d);
+                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f09225f);
                 aVar.b = textView;
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0107);
-                aVar.b = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f09225d);
+                aVar.b = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f09225f);
                 view3.setTag(aVar);
             } else {
                 view3 = view2;
@@ -176,7 +176,7 @@ public class hq8 extends BaseAdapter implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090f9a && (view2.getTag() instanceof rq8)) {
+        if ((interceptable == null || interceptable.invokeL(1048583, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090f93 && (view2.getTag() instanceof rq8)) {
             this.b = (rq8) view2.getTag();
             notifyDataSetChanged();
         }

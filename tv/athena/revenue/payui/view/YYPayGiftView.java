@@ -108,13 +108,13 @@ public class YYPayGiftView extends LinearLayout implements tz9 {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, nz9.a.a(this.i))).inflate(R.layout.obfuscated_res_0x7f0d0669, (ViewGroup) this, true);
+            LayoutInflater.from(new ContextThemeWrapper(context, nz9.a.a(this.i))).inflate(R.layout.obfuscated_res_0x7f0d0673, (ViewGroup) this, true);
             Button button = (Button) findViewById(R.id.obfuscated_res_0x7f090414);
             this.c = button;
             button.setOnClickListener(new a(this));
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0922a1);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091b4b);
-            this.d = (GridView) findViewById(R.id.obfuscated_res_0x7f090c9d);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0922a3);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091b25);
+            this.d = (GridView) findViewById(R.id.obfuscated_res_0x7f090c96);
             uz9 uz9Var = new uz9(context, this.j, this.i);
             this.k = uz9Var;
             this.d.setAdapter((ListAdapter) uz9Var);

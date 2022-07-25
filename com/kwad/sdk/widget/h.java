@@ -16,162 +16,162 @@ import com.baidu.tieba.R;
 import java.util.Arrays;
 /* loaded from: classes5.dex */
 public final class h {
-    public float[] a;
-    public float b;
-    public Path c;
-    public Paint d;
-    public RectF e;
-    public boolean f;
+    public Path ZA;
+    public float[] arl;
+    public boolean arm;
     @NonNull
-    public a g;
+    public a arn;
+    public Paint mPaint;
+    public float wm;
+    public RectF zV;
 
     /* loaded from: classes5.dex */
     public static class a {
-        public boolean a = true;
-        public boolean b = true;
-        public boolean c = true;
-        public boolean d = true;
+        public boolean aro = true;
+        public boolean arp = true;
+        public boolean arq = true;
+        public boolean arr = true;
 
-        public final a a(boolean z) {
-            this.a = z;
+        public final boolean BA() {
+            return this.aro;
+        }
+
+        public final boolean BB() {
+            return this.arp;
+        }
+
+        public final boolean BC() {
+            return this.arq;
+        }
+
+        public final boolean BD() {
+            return this.arr;
+        }
+
+        public final a bt(boolean z) {
+            this.aro = z;
             return this;
         }
 
-        public final boolean a() {
-            return this.a;
-        }
-
-        public final a b(boolean z) {
-            this.b = z;
+        public final a bu(boolean z) {
+            this.arp = z;
             return this;
         }
 
-        public final boolean b() {
-            return this.b;
-        }
-
-        public final a c(boolean z) {
-            this.c = z;
+        public final a bv(boolean z) {
+            this.arq = z;
             return this;
         }
 
-        public final boolean c() {
-            return this.c;
-        }
-
-        public final a d(boolean z) {
-            this.d = z;
+        public final a bw(boolean z) {
+            this.arr = z;
             return this;
         }
 
-        public final boolean d() {
-            return this.d;
-        }
-
-        public final void e(boolean z) {
-            this.a = true;
-            this.b = true;
-            this.c = true;
-            this.d = true;
+        public final void bx(boolean z) {
+            this.aro = true;
+            this.arp = true;
+            this.arq = true;
+            this.arr = true;
         }
     }
 
     public h() {
-        this.a = new float[8];
-        this.g = new a();
+        this.arl = new float[8];
+        this.arn = new a();
     }
 
     public h(a aVar) {
-        this.a = new float[8];
-        this.g = aVar;
+        this.arl = new float[8];
+        this.arn = aVar;
     }
 
-    private float[] b() {
-        this.a[0] = this.g.a() ? this.b : 0.0f;
-        this.a[1] = this.g.a() ? this.b : 0.0f;
-        this.a[2] = this.g.b() ? this.b : 0.0f;
-        this.a[3] = this.g.b() ? this.b : 0.0f;
-        this.a[4] = this.g.c() ? this.b : 0.0f;
-        this.a[5] = this.g.c() ? this.b : 0.0f;
-        this.a[6] = this.g.d() ? this.b : 0.0f;
-        this.a[7] = this.g.d() ? this.b : 0.0f;
-        return this.a;
+    private float[] Bz() {
+        this.arl[0] = this.arn.BA() ? this.wm : 0.0f;
+        this.arl[1] = this.arn.BA() ? this.wm : 0.0f;
+        this.arl[2] = this.arn.BB() ? this.wm : 0.0f;
+        this.arl[3] = this.arn.BB() ? this.wm : 0.0f;
+        this.arl[4] = this.arn.BC() ? this.wm : 0.0f;
+        this.arl[5] = this.arn.BC() ? this.wm : 0.0f;
+        this.arl[6] = this.arn.BD() ? this.wm : 0.0f;
+        this.arl[7] = this.arn.BD() ? this.wm : 0.0f;
+        return this.arl;
     }
 
-    private Path c() {
+    private Path getPath() {
         try {
-            this.c.reset();
+            this.ZA.reset();
         } catch (Exception unused) {
         }
-        this.c.addRoundRect(this.e, this.b == 0.0f ? this.a : b(), Path.Direction.CW);
-        return this.c;
+        this.ZA.addRoundRect(this.zV, this.wm == 0.0f ? this.arl : Bz(), Path.Direction.CW);
+        return this.ZA;
     }
 
-    @NonNull
-    public final a a() {
-        return this.g;
-    }
-
-    public final void a(float f) {
-        this.b = f;
-    }
-
-    public final void a(int i, int i2) {
-        this.e.set(0.0f, 0.0f, i, i2);
-    }
-
-    public final void a(Context context, @Nullable AttributeSet attributeSet) {
+    public final void d(Context context, @Nullable AttributeSet attributeSet) {
         if (attributeSet != null) {
             int[] iArr = {R.attr.obfuscated_res_0x7f040376, R.attr.obfuscated_res_0x7f04034a};
             Arrays.sort(iArr);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-            this.b = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f040376), 0);
-            this.f = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f04034a), true);
+            this.wm = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f040376), 0);
+            this.arm = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f04034a), true);
             obtainStyledAttributes.recycle();
         }
-        this.c = new Path();
-        this.d = new Paint(1);
-        this.e = new RectF();
-        this.d.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+        this.ZA = new Path();
+        this.mPaint = new Paint(1);
+        this.zV = new RectF();
+        this.mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
     }
 
-    public final void a(Canvas canvas) {
-        if (this.f) {
+    public final void d(Canvas canvas) {
+        if (this.arm) {
             if (Build.VERSION.SDK_INT < 28) {
-                canvas.saveLayer(this.e, null, 31);
+                canvas.saveLayer(this.zV, null, 31);
                 return;
             }
             canvas.save();
-            canvas.clipPath(c());
+            canvas.clipPath(getPath());
         }
     }
 
-    public final void a(float[] fArr) {
-        this.a = fArr;
-    }
-
-    public final void b(Canvas canvas) {
-        if (this.f) {
+    public final void e(Canvas canvas) {
+        if (this.arm) {
             if (Build.VERSION.SDK_INT < 28) {
-                canvas.drawPath(c(), this.d);
+                canvas.drawPath(getPath(), this.mPaint);
             }
             canvas.restore();
         }
     }
 
-    public final void c(Canvas canvas) {
+    public final void f(Canvas canvas) {
         if (Build.VERSION.SDK_INT < 28) {
-            canvas.saveLayer(this.e, null, 31);
+            canvas.saveLayer(this.zV, null, 31);
             return;
         }
         canvas.save();
-        canvas.clipPath(c());
+        canvas.clipPath(getPath());
     }
 
-    public final void d(Canvas canvas) {
+    public final void g(Canvas canvas) {
         if (Build.VERSION.SDK_INT < 28) {
-            canvas.drawPath(c(), this.d);
+            canvas.drawPath(getPath(), this.mPaint);
         }
         canvas.restore();
+    }
+
+    @NonNull
+    public final a getCornerConf() {
+        return this.arn;
+    }
+
+    public final void setRadius(float f) {
+        this.wm = f;
+    }
+
+    public final void setRadius(float[] fArr) {
+        this.arl = fArr;
+    }
+
+    public final void w(int i, int i2) {
+        this.zV.set(0.0f, 0.0f, i, i2);
     }
 }

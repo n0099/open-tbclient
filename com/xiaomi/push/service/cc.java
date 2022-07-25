@@ -37,9 +37,9 @@ public class cc {
                 }
                 return notification;
             }
-            List<StatusBarNotification> m1569b = axVar.m1569b();
-            if (m1569b != null) {
-                for (StatusBarNotification statusBarNotification : m1569b) {
+            List<StatusBarNotification> m631b = axVar.m631b();
+            if (m631b != null) {
+                for (StatusBarNotification statusBarNotification : m631b) {
                     Notification notification2 = statusBarNotification.getNotification();
                     String string = notification2.extras.getString("message_id");
                     if (i == statusBarNotification.getId() && str.equals(string)) {
@@ -61,16 +61,16 @@ public class cc {
 
     @TargetApi(19)
     /* renamed from: a  reason: collision with other method in class */
-    public static void m1594a(Context context, String str, int i, String str2, Notification notification) {
+    public static void m656a(Context context, String str, int i, String str2, Notification notification) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Integer.valueOf(i), str2, notification}) == null) && com.xiaomi.push.m.m1499a(context) && notification != null && notification.extras.getBoolean("mipush_n_top_flag", false)) {
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Integer.valueOf(i), str2, notification}) == null) && com.xiaomi.push.m.m561a(context) && notification != null && notification.extras.getBoolean("mipush_n_top_flag", false)) {
             c(context, str, i, str2, notification);
         }
     }
 
     public static void a(Context context, Map<String, String> map, eq eqVar, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, map, eqVar, Long.valueOf(j)}) == null) && map != null && eqVar != null && com.xiaomi.push.m.m1499a(context) && m1595a(map)) {
+        if ((interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, map, eqVar, Long.valueOf(j)}) == null) && map != null && eqVar != null && com.xiaomi.push.m.m561a(context) && m657a(map)) {
             int a = a(map);
             int b = b(map);
             if (a <= 0 || b > a) {
@@ -90,7 +90,7 @@ public class cc {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m1595a(Map<String, String> map) {
+    public static boolean m657a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, map)) == null) {
@@ -144,7 +144,7 @@ public class cc {
         if (!z) {
             if (min > 0) {
                 a2.when = currentTimeMillis;
-                com.xiaomi.channel.commonutils.logger.b.m1027a("update top notification: " + str2);
+                com.xiaomi.channel.commonutils.logger.b.m89a("update top notification: " + str2);
                 a.a(i, a2);
             } else {
                 Notification.Builder recoverBuilder = Notification.Builder.recoverBuilder(context, a2);
@@ -158,13 +158,13 @@ public class cc {
                     extras.remove("mipush_n_top_prd");
                     recoverBuilder.setExtras(extras);
                 }
-                com.xiaomi.channel.commonutils.logger.b.m1027a("update top notification to common: " + str2);
+                com.xiaomi.channel.commonutils.logger.b.m89a("update top notification to common: " + str2);
                 a.a(i, recoverBuilder.build());
             }
         }
         if (min > 0) {
-            com.xiaomi.channel.commonutils.logger.b.m1027a("schedule top notification next update delay: " + min);
-            com.xiaomi.push.al.a(context).m1105a(b(i, str2));
+            com.xiaomi.channel.commonutils.logger.b.m89a("schedule top notification next update delay: " + min);
+            com.xiaomi.push.al.a(context).m167a(b(i, str2));
             com.xiaomi.push.al.a(context).b(a(context, str, i, str2, (Notification) null), min);
         }
     }

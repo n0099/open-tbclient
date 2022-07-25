@@ -148,10 +148,10 @@ public class BdPlayerSeekBar extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d059d, this);
-            this.b = (BdPlayerProgressView) findViewById(R.id.obfuscated_res_0x7f091541);
-            this.c = (BdPlayerProgressView) findViewById(R.id.obfuscated_res_0x7f091540);
-            BdThumbSeekBarView bdThumbSeekBarView = (BdThumbSeekBarView) findViewById(R.id.obfuscated_res_0x7f0913ea);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05a7, this);
+            this.b = (BdPlayerProgressView) findViewById(R.id.obfuscated_res_0x7f09151c);
+            this.c = (BdPlayerProgressView) findViewById(R.id.obfuscated_res_0x7f09151b);
+            BdThumbSeekBarView bdThumbSeekBarView = (BdThumbSeekBarView) findViewById(R.id.obfuscated_res_0x7f0913c6);
             this.a = bdThumbSeekBarView;
             if (bdThumbSeekBarView != null) {
                 bdThumbSeekBarView.setOnSeekBarChangeListener(new a(this));

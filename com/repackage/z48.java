@@ -252,18 +252,18 @@ public class z48 extends BaseAdapter {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nnVar)) == null) {
             c cVar = new c(this, null);
             if (nnVar instanceof ny5) {
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0739, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0743, (ViewGroup) null);
                 cVar.a = inflate;
                 cVar.b = (LinearLayout) inflate.findViewById(R.id.list_item);
-                cVar.c = (TbImageView) cVar.a.findViewById(R.id.obfuscated_res_0x7f0906e0);
-                cVar.d = (TextView) cVar.a.findViewById(R.id.obfuscated_res_0x7f0920c3);
+                cVar.c = (TbImageView) cVar.a.findViewById(R.id.obfuscated_res_0x7f0906df);
+                cVar.d = (TextView) cVar.a.findViewById(R.id.obfuscated_res_0x7f0920c5);
                 cVar.e = (ImageView) cVar.a.findViewById(R.id.obfuscated_res_0x7f0905e2);
                 cVar.f = (LinearLayout) cVar.a.findViewById(R.id.obfuscated_res_0x7f0905e3);
-                ur4.d(cVar.a).k(R.color.CAM_X0101);
-                ur4 d = ur4.d(cVar.b);
+                vr4.d(cVar.a).k(R.color.CAM_X0101);
+                vr4 d = vr4.d(cVar.b);
                 d.n(R.string.J_X05);
                 d.f(R.color.CAM_X0206);
-                ur4 d2 = ur4.d(cVar.d);
+                vr4 d2 = vr4.d(cVar.d);
                 d2.v(R.color.CAM_X0107);
                 d2.z(R.dimen.T_X07);
                 ThreadData threadData = ((ny5) nnVar).getThreadData();

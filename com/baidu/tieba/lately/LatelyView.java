@@ -22,10 +22,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j55;
 import com.repackage.k55;
 import com.repackage.k56;
 import com.repackage.ki5;
+import com.repackage.l55;
 import com.repackage.ni;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -38,8 +38,8 @@ public class LatelyView extends FrameLayout implements ki5<String> {
     public RecyclerView b;
     public SelectForumItemAdapter c;
     public LinearLayoutManager d;
-    public j55 e;
-    public k55 f;
+    public k55 e;
+    public l55 f;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -103,13 +103,13 @@ public class LatelyView extends FrameLayout implements ki5<String> {
             return;
         }
         this.a = skinType;
-        j55 j55Var = this.e;
-        if (j55Var != null) {
-            j55Var.onChangeSkinType();
-        }
-        k55 k55Var = this.f;
+        k55 k55Var = this.e;
         if (k55Var != null) {
             k55Var.onChangeSkinType();
+        }
+        l55 l55Var = this.f;
+        if (l55Var != null) {
+            l55Var.onChangeSkinType();
         }
         this.c.notifyDataSetChanged();
     }
@@ -122,21 +122,21 @@ public class LatelyView extends FrameLayout implements ki5<String> {
     }
 
     public void d() {
-        j55 j55Var;
+        k55 k55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (j55Var = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (k55Var = this.e) == null) {
             return;
         }
-        j55Var.dettachView(this);
+        k55Var.dettachView(this);
         this.e = null;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            k55 k55Var = this.f;
-            if (k55Var != null) {
-                k55Var.dettachView(this);
+            l55 l55Var = this.f;
+            if (l55Var != null) {
+                l55Var.dettachView(this);
                 this.f = null;
             }
             this.b.setVisibility(0);
@@ -146,8 +146,8 @@ public class LatelyView extends FrameLayout implements ki5<String> {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d075f, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091cf8);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0769, (ViewGroup) this, true);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091cfe);
             SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
             this.c = selectForumItemAdapter;
             selectForumItemAdapter.k(1);
@@ -162,9 +162,9 @@ public class LatelyView extends FrameLayout implements ki5<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            k55 k55Var = this.f;
-            if (k55Var != null) {
-                return k55Var.isViewAttached();
+            l55 l55Var = this.f;
+            if (l55Var != null) {
+                return l55Var.isViewAttached();
             }
             return false;
         }
@@ -231,7 +231,7 @@ public class LatelyView extends FrameLayout implements ki5<String> {
             return;
         }
         if (this.f == null) {
-            this.f = new k55(getContext(), new a(this));
+            this.f = new l55(getContext(), new a(this));
         }
         this.f.k(getResources().getDimensionPixelSize(R.dimen.tbds380));
         this.f.attachView(this, z);

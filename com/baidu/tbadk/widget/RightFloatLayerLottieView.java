@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vw4;
+import com.repackage.ww4;
 /* loaded from: classes3.dex */
 public class RightFloatLayerLottieView extends RightFloatLayerView {
     public static /* synthetic */ Interceptable $ic;
@@ -47,12 +47,12 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
 
         /* renamed from: com.baidu.tbadk.widget.RightFloatLayerLottieView$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0178a extends AnimatorListenerAdapter {
+        public class C0192a extends AnimatorListenerAdapter {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0178a(a aVar) {
+            public C0192a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.y.getVisibility() == 0) {
                 RightFloatLayerLottieView rightFloatLayerLottieView = this.a;
-                rightFloatLayerLottieView.D(rightFloatLayerLottieView.y, new C0178a(this), 0L);
+                rightFloatLayerLottieView.D(rightFloatLayerLottieView.y, new C0192a(this), 0L);
             }
         }
     }
@@ -458,14 +458,14 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
     }
 
     @NonNull
-    public static RightFloatLayerView F(vw4 vw4Var, @NonNull Context context) {
+    public static RightFloatLayerView F(ww4 ww4Var, @NonNull Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, vw4Var, context)) == null) {
-            if (vw4Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, ww4Var, context)) == null) {
+            if (ww4Var == null) {
                 return new RightFloatLayerView(context);
             }
-            if (vw4Var.c()) {
+            if (ww4Var.c()) {
                 return new RightFloatLayerLottieView(context);
             }
             return new RightFloatLayerView(context);
@@ -530,12 +530,12 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             super.j(context);
-            this.w = findViewById(R.id.obfuscated_res_0x7f0909b2);
-            this.y = findViewById(R.id.obfuscated_res_0x7f0909a6);
-            this.u = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909ac);
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09121a);
-            this.z = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0909ad);
-            this.x = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0909ae);
+            this.w = findViewById(R.id.obfuscated_res_0x7f0909ab);
+            this.y = findViewById(R.id.obfuscated_res_0x7f09099f);
+            this.u = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909a5);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f0911f6);
+            this.z = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0909a6);
+            this.x = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0909a7);
             SkinManager.setImageResource(this.u, R.drawable.obfuscated_res_0x7f0805e5);
             this.x.setVisibility(0);
         }
@@ -595,12 +595,12 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
     }
 
     @Override // com.baidu.tbadk.widget.RightFloatLayerView
-    public void setData(vw4 vw4Var) {
+    public void setData(ww4 ww4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, vw4Var) == null) || vw4Var == null || this.s || vw4Var.a()) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, ww4Var) == null) || ww4Var == null || this.s || ww4Var.a()) {
             return;
         }
-        if (l(vw4Var)) {
+        if (l(ww4Var)) {
             this.v.setVisibility(0);
         } else {
             this.b.setVisibility(4);
@@ -608,9 +608,9 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
         }
         this.w.setVisibility(0);
         this.y.setVisibility(8);
-        G(vw4Var.d, this.x);
-        G(vw4Var.c, this.z);
-        w(vw4Var);
+        G(ww4Var.d, this.x);
+        G(ww4Var.c, this.z);
+        w(ww4Var);
         this.s = true;
     }
 

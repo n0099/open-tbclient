@@ -1,40 +1,41 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.AdStyleInfo;
+import com.kwad.components.ad.reward.b.e;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class by implements com.kwad.sdk.core.d<AdStyleInfo.FeedAdInfo> {
+public final class by implements com.kwad.sdk.core.d<e.a> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(AdStyleInfo.FeedAdInfo feedAdInfo, JSONObject jSONObject) {
+    public static void a2(e.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        feedAdInfo.templateConfig = jSONObject.optString("templateConfig");
-        if (jSONObject.opt("templateConfig") == JSONObject.NULL) {
-            feedAdInfo.templateConfig = "";
+        aVar.oN = jSONObject.optString("dialogEvent");
+        if (jSONObject.opt("dialogEvent") == JSONObject.NULL) {
+            aVar.oN = "";
         }
-        feedAdInfo.heightRatio = jSONObject.optDouble("heightRatio");
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(AdStyleInfo.FeedAdInfo feedAdInfo, JSONObject jSONObject) {
+    public static JSONObject b2(e.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "templateConfig", feedAdInfo.templateConfig);
-        com.kwad.sdk.utils.r.a(jSONObject, "heightRatio", feedAdInfo.heightRatio);
+        String str = aVar.oN;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "dialogEvent", aVar.oN);
+        }
         return jSONObject;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(AdStyleInfo.FeedAdInfo feedAdInfo, JSONObject jSONObject) {
-        a2(feedAdInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(e.a aVar, JSONObject jSONObject) {
+        a2(aVar, jSONObject);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(AdStyleInfo.FeedAdInfo feedAdInfo, JSONObject jSONObject) {
-        return b2(feedAdInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(e.a aVar, JSONObject jSONObject) {
+        return b2(aVar, jSONObject);
     }
 }

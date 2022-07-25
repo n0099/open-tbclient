@@ -39,14 +39,14 @@ public class LikeForumCreateViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091b73);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091b4d);
         this.a = findViewById;
-        this.b = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f09155e);
-        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909fc);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a2e);
+        this.b = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091539);
+        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909f5);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a27);
     }
 
-    public void b() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);

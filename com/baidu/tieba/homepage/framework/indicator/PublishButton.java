@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.uu4;
 import com.repackage.vu4;
+import com.repackage.wu4;
 /* loaded from: classes3.dex */
 public class PublishButton extends TBSpecificationBtn {
     public static /* synthetic */ Interceptable $ic;
@@ -48,7 +48,7 @@ public class PublishButton extends TBSpecificationBtn {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             setTextSize(R.dimen.T_X08);
-            setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0865));
+            setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0850));
         }
     }
 
@@ -65,19 +65,19 @@ public class PublishButton extends TBSpecificationBtn {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (TbadkApplication.getInst().isUseLuckyHeader()) {
+                wu4 wu4Var = new wu4();
+                wu4Var.p(R.color.CAM_X0101);
+                wu4Var.v(R.dimen.tbds6);
+                wu4Var.u(R.string.A_X01);
+                wu4Var.i(R.drawable.obfuscated_res_0x7f08092d, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                wu4Var.g(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+                setConfig(wu4Var);
+            } else {
                 vu4 vu4Var = new vu4();
-                vu4Var.p(R.color.CAM_X0101);
-                vu4Var.v(R.dimen.tbds6);
-                vu4Var.u(R.string.A_X01);
                 vu4Var.i(R.drawable.obfuscated_res_0x7f08092d, 0, TBSpecificationButtonConfig.IconType.WEBP);
                 vu4Var.g(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+                vu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
                 setConfig(vu4Var);
-            } else {
-                uu4 uu4Var = new uu4();
-                uu4Var.i(R.drawable.obfuscated_res_0x7f08092d, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                uu4Var.g(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
-                uu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-                setConfig(uu4Var);
             }
             k();
         }

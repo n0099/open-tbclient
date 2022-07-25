@@ -1,7 +1,17 @@
 package com.repackage;
-
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface yt3 {
-    void q(String str, JSONObject jSONObject);
+    void destroy();
+
+    int getDuration();
+
+    void pause();
+
+    void play();
+
+    void seek(float f);
+
+    void stop();
+
+    int w();
 }

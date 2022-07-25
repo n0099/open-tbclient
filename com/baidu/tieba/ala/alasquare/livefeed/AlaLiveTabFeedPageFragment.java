@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.g90;
 import com.repackage.ge6;
 import com.repackage.k90;
-import com.repackage.s55;
 import com.repackage.sq5;
+import com.repackage.t55;
 /* loaded from: classes3.dex */
 public class AlaLiveTabFeedPageFragment extends BaseFragment implements ge6 {
     public static /* synthetic */ Interceptable $ic;
@@ -62,7 +62,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements ge6 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements ge6 {
             if (k90Var != null) {
                 k90Var.a();
             }
-            s55.e().b();
+            t55.e().b();
         }
     }
 

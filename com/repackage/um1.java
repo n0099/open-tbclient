@@ -1,7 +1,7 @@
 package com.repackage;
 /* loaded from: classes7.dex */
 public interface um1 {
-    tm1 a();
+    void a(kz1 kz1Var);
 
-    sm1 b();
+    void b(kz1 kz1Var);
 }

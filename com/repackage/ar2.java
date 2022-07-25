@@ -1,58 +1,43 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ar2 extends yq2 {
+public class ar2 extends zq2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean e;
-    public final qm1 f;
+    public Bitmap e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ar2(qm1 qm1Var, boolean z) {
-        super(6);
+    public ar2(String str, Bitmap bitmap, boolean z) {
+        super(5, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qm1Var, Boolean.valueOf(z)};
+            Object[] objArr = {str, bitmap, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = z;
-        this.f = qm1Var;
+        this.e = bitmap;
+        this.d = z;
     }
 
-    @Override // com.repackage.yq2
-    public String d() {
-        InterceptResult invokeV;
-        f43 params;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            qm1 qm1Var = this.f;
-            if (qm1Var == null || (params = qm1Var.getParams()) == null) {
-                return null;
-            }
-            return params.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean e() {
+    public Bitmap e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (Bitmap) invokeV.objValue;
     }
 }

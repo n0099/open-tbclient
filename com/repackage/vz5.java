@@ -43,11 +43,11 @@ public class vz5 {
             }
         }
         this.a = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08c6, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08d0, (ViewGroup) null);
         this.b = inflate;
-        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091481);
-        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e8e);
-        MessageRedDotView messageRedDotView = (MessageRedDotView) this.b.findViewById(R.id.obfuscated_res_0x7f090e9e);
+        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09145d);
+        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e87);
+        MessageRedDotView messageRedDotView = (MessageRedDotView) this.b.findViewById(R.id.obfuscated_res_0x7f090e97);
         this.e = messageRedDotView;
         messageRedDotView.setShadowEnabled(false);
     }
@@ -95,7 +95,7 @@ public class vz5 {
         if ((interceptable == null || interceptable.invokeLZ(1048581, this, controlAlign, z) == null) && !z && controlAlign == NavigationBar.ControlAlign.HORIZONTAL_RIGHT) {
             ((RelativeLayout.LayoutParams) this.d.getLayoutParams()).rightMargin = -pi.f(this.a, R.dimen.tbds10);
             ((RelativeLayout.LayoutParams) this.e.getLayoutParams()).rightMargin = -pi.f(this.a, R.dimen.tbds10);
-            this.c.getLayoutParams().width = pi.f(this.a, R.dimen.obfuscated_res_0x7f070308);
+            this.c.getLayoutParams().width = pi.f(this.a, R.dimen.obfuscated_res_0x7f070306);
         }
     }
 

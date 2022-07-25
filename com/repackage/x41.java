@@ -149,7 +149,7 @@ public class x41 extends Dialog {
                         xx0.j(this.b, this.a);
                     }
                     if (this.b.size() == 0) {
-                        this.c.setText(view2.getContext().getResources().getText(R.string.obfuscated_res_0x7f0f0b7d));
+                        this.c.setText(view2.getContext().getResources().getText(R.string.obfuscated_res_0x7f0f0b69));
                     }
                     this.d.setTextColor(view2.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060254));
                     return;
@@ -159,7 +159,7 @@ public class x41 extends Dialog {
                     xx0.b(this.b, this.a);
                 }
                 this.d.setTextColor(view2.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060262));
-                this.c.setText(view2.getContext().getResources().getText(R.string.obfuscated_res_0x7f0f0b7e));
+                this.c.setText(view2.getContext().getResources().getText(R.string.obfuscated_res_0x7f0f0b6a));
             }
         }
     }
@@ -197,19 +197,19 @@ public class x41 extends Dialog {
         if (interceptable == null || interceptable.invokeL(1048576, this, adBaseModel) == null) {
             ArrayList arrayList = new ArrayList();
             ViewGroup viewGroup = null;
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05a7, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09220b);
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0912b0);
-            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0b7d));
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05b1, (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09220d);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09128c);
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0b69));
             textView.setOnClickListener(new a(this, arrayList, adBaseModel));
             inflate.setBackground(inflate.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d24));
             Resources resources = inflate.getContext().getResources();
             int i2 = R.color.obfuscated_res_0x7f060254;
             textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060254));
             findViewById.setBackgroundColor(inflate.getContext().getResources().getColor(R.color.obfuscated_res_0x7f0602ad));
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091235);
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091211);
             LayoutInflater from = LayoutInflater.from(inflate.getContext());
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922b3);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922b5);
             if (adBaseModel != null && (wm0Var = adBaseModel.g) != null && !TextUtils.isEmpty(wm0Var.c)) {
                 if (!TextUtils.isEmpty(adBaseModel.g.a)) {
                     textView2.setText(adBaseModel.g.a);
@@ -231,8 +231,8 @@ public class x41 extends Dialog {
                 if (aVar == null || TextUtils.isEmpty(aVar.a())) {
                     i = i3;
                 } else {
-                    View inflate2 = from.inflate(R.layout.obfuscated_res_0x7f0d05b4, viewGroup);
-                    TextView textView3 = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f092229);
+                    View inflate2 = from.inflate(R.layout.obfuscated_res_0x7f0d05be, viewGroup);
+                    TextView textView3 = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f09222b);
                     textView3.setText(aVar.a());
                     textView3.setTextColor(inflate.getContext().getResources().getColor(i2));
                     i = i3;
@@ -291,7 +291,7 @@ public class x41 extends Dialog {
         WindowManager.LayoutParams attributes = window.getAttributes();
         attributes.width = -1;
         attributes.height = -2;
-        attributes.windowAnimations = R.style.obfuscated_res_0x7f1003ba;
+        attributes.windowAnimations = R.style.obfuscated_res_0x7f1003bd;
         attributes.gravity = 80;
         window.setAttributes(attributes);
         window.setBackgroundDrawableResource(17170445);

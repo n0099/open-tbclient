@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.de7;
-import com.repackage.kk4;
 import com.repackage.lk4;
 import com.repackage.mc7;
+import com.repackage.mk4;
 import com.repackage.nc7;
 import com.repackage.oc7;
 import com.repackage.pc7;
@@ -86,8 +86,8 @@ public class LegoListActivityStatic {
         oc7.a().b(new rc7());
         nc7.a().b(new pc7());
         nc7.a().b(new qc7());
-        lk4.a.set(oc7.a());
-        kk4.a.set(nc7.a());
+        mk4.a.set(oc7.a());
+        lk4.a.set(nc7.a());
     }
 
     public LegoListActivityStatic() {

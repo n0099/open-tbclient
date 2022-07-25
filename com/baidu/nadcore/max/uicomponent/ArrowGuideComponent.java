@@ -341,9 +341,9 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
                 gm0 a2 = hm0.a();
                 Intrinsics.checkNotNullExpressionValue(a2, "NadMaxRuntime.getUIProvider()");
                 a2.a();
-                View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05ba, (ViewGroup) b2, true);
+                View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05c4, (ViewGroup) b2, true);
                 Intrinsics.checkNotNullExpressionValue(inflate, "LayoutInflater.from(cont…youtId, parentView, true)");
-                AdVideoImmersiveTipsView adVideoImmersiveTipsView = (AdVideoImmersiveTipsView) inflate.findViewById(R.id.obfuscated_res_0x7f091423);
+                AdVideoImmersiveTipsView adVideoImmersiveTipsView = (AdVideoImmersiveTipsView) inflate.findViewById(R.id.obfuscated_res_0x7f0913ff);
                 if (adVideoImmersiveTipsView != null) {
                     adVideoImmersiveTipsView.setOutClickListener(new a(this));
                     rn0 rn0Var2 = this.f;

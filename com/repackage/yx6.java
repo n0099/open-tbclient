@@ -116,10 +116,10 @@ public class yx6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
                 vy5 vy5Var = (vy5) nnVar;
                 vy5Var.f = 1;
                 if (this.a.o != null) {
-                    this.a.o.a(threadCardViewHolder.b(), vy5Var);
+                    this.a.o.a(threadCardViewHolder.a(), vy5Var);
                 }
-                ThreadCardUtils.jumpToPB((nn4) vy5Var, view2.getContext(), 2, false, uw.a((tn) viewGroup, view2, i));
-                threadCardViewHolder.c().o(new ny.a(1));
+                ThreadCardUtils.jumpToPB((on4) vy5Var, view2.getContext(), 2, false, uw.a((tn) viewGroup, view2, i));
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -162,7 +162,7 @@ public class yx6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
                 if (this.d.getThreadData() == null || this.d.getThreadData().getSmartApp() == null) {
                     return;
                 }
-                StatisticItem s = this.d.s(vy5.j0);
+                StatisticItem s = this.d.s(vy5.d0);
                 s.param("obj_type", this.d.getThreadData().getSmartApp().id);
                 s.param("obj_name", this.d.getThreadData().getSmartApp().name);
                 TiebaStatic.log(s);
@@ -205,9 +205,9 @@ public class yx6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
             vy5.X = "c10736";
             vy5.Y = "c10737";
             vy5.Z = "c10711";
-            vy5.g0 = "c10758";
-            vy5.h0 = "c10757";
-            vy5.k0 = "c10734";
+            vy5.a0 = "c10758";
+            vy5.b0 = "c10757";
+            vy5.e0 = "c10734";
         }
     }
 
@@ -220,10 +220,10 @@ public class yx6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             cy.b bVar = new cy.b(this.j.getPageActivity(), false);
             ey eyVar = new ey(this.j.getPageActivity());
-            tn4 tn4Var = new tn4();
-            tn4Var.b = 1;
-            tn4Var.h = 1;
-            eyVar.w(tn4Var);
+            un4 un4Var = new un4();
+            un4Var.b = 1;
+            un4Var.h = 1;
+            eyVar.w(un4Var);
             eyVar.y(1);
             eyVar.E("personalize_page");
             eyVar.D(3);
@@ -234,7 +234,7 @@ public class yx6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
             cy k = bVar.k(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.m);
             k.r(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.k(this.i);
+            threadCardViewHolder.j(this.i);
             V(new b(this));
             return threadCardViewHolder;
         }
@@ -248,24 +248,24 @@ public class yx6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vy5Var, threadCardViewHolder})) == null) {
-            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || vy5Var.a == null) {
+            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || vy5Var.a == null) {
                 return null;
             }
             vy5Var.I(vy5Var.position + 1);
             vy5Var.a.statFloor = vy5Var.m();
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.c().b(this.l);
-            if (threadCardViewHolder.c().f() instanceof ey) {
-                ((ey) threadCardViewHolder.c().f()).C(new c(this, viewGroup, view2, i, vy5Var));
+            threadCardViewHolder.b().q(i);
+            threadCardViewHolder.b().b(this.l);
+            if (threadCardViewHolder.b().f() instanceof ey) {
+                ((ey) threadCardViewHolder.b().f()).C(new c(this, viewGroup, view2, i, vy5Var));
             }
-            threadCardViewHolder.r(false, Align.ALIGN_RIGHT_BOTTOM, this.n);
-            threadCardViewHolder.g(vy5Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.o);
+            threadCardViewHolder.q(false, Align.ALIGN_RIGHT_BOTTOM, this.n);
+            threadCardViewHolder.f(vy5Var);
+            threadCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().p(this.o);
             cy5.b().a(vy5Var.B());
             ak5.c().a(vy5Var.B());
             iz6.i(vy5Var.a, this.i, vy5Var.m());
-            return threadCardViewHolder.b();
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }
@@ -283,7 +283,7 @@ public class yx6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         }
         int id = view2.getId();
         int i = 5;
-        if (view2.getId() == R.id.obfuscated_res_0x7f09202a || id == R.id.obfuscated_res_0x7f09203e) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f09202e || id == R.id.obfuscated_res_0x7f092042) {
             if (wy5.R(vy5Var.a)) {
                 A = vy5Var.C();
                 TbSingleton.getInstance().setCurrentClickTime(TiebaStatic.logWithBackTime(A));
@@ -293,28 +293,28 @@ public class yx6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
             }
             ak5.c().i("page_recommend", "clk_", A);
             iz6.c(vy5Var.a, vy5Var.o(), vy5Var.m(), 1);
-        } else if (id == R.id.obfuscated_res_0x7f09202c) {
+        } else if (id == R.id.obfuscated_res_0x7f092030) {
             TiebaStatic.log(vy5Var.T());
             ak5.c().i("page_recommend", "clk_", vy5Var.T());
         } else {
-            if (id == R.id.obfuscated_res_0x7f09230c) {
+            if (id == R.id.obfuscated_res_0x7f09230e) {
                 TiebaStatic.log(vy5Var.S());
                 ak5.c().i("page_recommend", "clk_", vy5Var.S());
-            } else if (id != R.id.obfuscated_res_0x7f09232d) {
-                if (id == R.id.obfuscated_res_0x7f090a40) {
+            } else if (id != R.id.obfuscated_res_0x7f09232f) {
+                if (id == R.id.obfuscated_res_0x7f090a39) {
                     TiebaStatic.log(vy5Var.i());
                     ak5.c().i("page_recommend", "clk_", vy5Var.i());
                     i = 9;
-                } else if (id == R.id.obfuscated_res_0x7f090c84) {
+                } else if (id == R.id.obfuscated_res_0x7f090c7d) {
                     StatisticItem statisticItem = new StatisticItem("c10760");
                     statisticItem.param("obj_locate", 4);
                     TiebaStatic.log(statisticItem);
-                } else if (id == R.id.obfuscated_res_0x7f090c7f) {
+                } else if (id == R.id.obfuscated_res_0x7f090c78) {
                     StatisticItem statisticItem2 = new StatisticItem("c10760");
                     statisticItem2.param("obj_locate", 2);
                     TiebaStatic.log(statisticItem2);
                     iz6.c(vy5Var.a, vy5Var.o(), vy5Var.m(), 1);
-                } else if (id == R.id.obfuscated_res_0x7f090c82 || id == R.id.obfuscated_res_0x7f090c83) {
+                } else if (id == R.id.obfuscated_res_0x7f090c7b || id == R.id.obfuscated_res_0x7f090c7c) {
                     StatisticItem statisticItem3 = new StatisticItem("c10760");
                     statisticItem3.param("obj_locate", 1);
                     TiebaStatic.log(statisticItem3);

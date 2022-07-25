@@ -3,7 +3,6 @@ package com.kuaishou.weapon.p0;
 import android.app.Application;
 import android.content.Context;
 import android.content.IntentFilter;
-import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -37,16 +36,13 @@ public class WeaponHI {
     public static String skProductName = "";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: com.kuaishou.weapon.p0.WeaponHI$ʻ  reason: contains not printable characters */
     /* loaded from: classes5.dex */
-    public static class RunnableC0287 implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
 
-        /* renamed from: ʻ  reason: contains not printable characters */
-        public final /* synthetic */ boolean f3;
-
-        public RunnableC0287(boolean z) {
+        public a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,7 +57,7 @@ public class WeaponHI {
                     return;
                 }
             }
-            this.f3 = z;
+            this.a = z;
         }
 
         @Override // java.lang.Runnable
@@ -71,19 +67,19 @@ public class WeaponHI {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (context = WeaponHI.mContext) == null) {
                 return;
             }
-            C0374 m389 = C0374.m389(context);
-            boolean z = this.f3;
+            i a = i.a(context, "re_po_rt");
+            boolean z = this.a;
             if (!z) {
-                m389.m401("a1_p_s_p_s_c_b", Boolean.valueOf(z));
-            } else if (m389.m408("a1_p_s_p_s_c_b")) {
+                a.a("a1_p_s_p_s_c_b", Boolean.valueOf(z));
+            } else if (a.b("a1_p_s_p_s_c_b")) {
             } else {
-                m389.m401("a1_p_s_p_s_c_b", Boolean.valueOf(this.f3));
+                a.a("a1_p_s_p_s_c_b", Boolean.valueOf(this.a));
                 try {
-                    if (C0374.m389(WeaponHI.mContext).m402(C0374.f281, 1) == 1) {
-                        C0368.m381(WeaponHI.mContext).m382(103);
-                        C0370.m384(WeaponHI.mContext).m385(103);
-                        C0366.m378(WeaponHI.mContext).m379(103, 0);
-                        C0362.m372(WeaponHI.mContext).m373(103);
+                    if (a.b(f3.b1, 1) == 1) {
+                        c3.a(WeaponHI.mContext).a(103);
+                        d3.a(WeaponHI.mContext).a(103);
+                        b3.a(WeaponHI.mContext).a(103, 0);
+                        z2.a(WeaponHI.mContext).a(103);
                     }
                 } catch (Throwable unused) {
                 }
@@ -91,16 +87,13 @@ public class WeaponHI {
         }
     }
 
-    /* renamed from: com.kuaishou.weapon.p0.WeaponHI$ʼ  reason: contains not printable characters */
     /* loaded from: classes5.dex */
-    public static class RunnableC0288 implements Runnable {
+    public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ IWeaponInitParams a;
 
-        /* renamed from: ʻ  reason: contains not printable characters */
-        public final /* synthetic */ IWeaponInitParams f4;
-
-        public RunnableC0288(IWeaponInitParams iWeaponInitParams) {
+        public b(IWeaponInitParams iWeaponInitParams) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,7 +108,7 @@ public class WeaponHI {
                     return;
                 }
             }
-            this.f4 = iWeaponInitParams;
+            this.a = iWeaponInitParams;
         }
 
         @Override // java.lang.Runnable
@@ -123,52 +116,46 @@ public class WeaponHI {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    String m192 = C0308.m192(Process.myPid());
-                    if (TextUtils.isEmpty(m192) || !m192.contains(":")) {
-                        if (TextUtils.isEmpty(m192) || m192.equals(WeaponHI.mContext.getPackageName())) {
-                            WeaponHI.mParams = this.f4;
-                            WeaponHI.sKSAppkey = this.f4.getAppKey();
-                            WeaponHI.sKSSecKey = this.f4.getSecKey();
-                            WeaponHI.sKSSdkver = "5.0.0";
-                            WeaponHI.hostVersionName = C0433.m891(WeaponHI.mContext);
-                            WeaponHI.sKDeviceId = this.f4.getDeviceId();
-                            WeaponHI.skProductName = this.f4.getProductName();
-                            WeaponHI.sUserId = this.f4.getUserId();
-                            WeaponHI.sChannel = this.f4.getChannel();
-                            WeaponHI.cookieData = C0433.m881(WeaponHI.mContext);
-                            try {
-                                C0374 m389 = C0374.m389(WeaponHI.mContext);
-                                JSONObject jSONObject = new JSONObject();
-                                jSONObject.put("k", C0333.m251());
-                                jSONObject.put("d", C0333.m249(WeaponHI.mContext));
-                                jSONObject.put("a", C0433.m891(WeaponHI.mContext));
-                                jSONObject.put("p", C0433.m892(WeaponHI.mContext));
-                                jSONObject.put("s", "5.0.0");
-                                jSONObject.put("n", TextUtils.isEmpty(m389.m421(C0374.f301)) ? 1 : 0);
-                                WeaponHI.encryENV = new C0297(WeaponHI.mContext).m150(jSONObject.toString());
-                                String m421 = m389.m421(C0374.f325);
-                                if (!TextUtils.isEmpty(m421)) {
-                                    WeaponHI.isList = Arrays.asList(m421.split(WebChromeClient.PARAM_SEPARATOR));
-                                    WeaponHI.ii = m389.m402(C0374.f327, 5);
-                                }
-                            } catch (Throwable unused) {
-                            }
-                            WeaponHI.init(WeaponHI.sKSAppkey, WeaponHI.sKSSecKey, this.f4.getPrivacySwitch());
+                    WeaponHI.mParams = this.a;
+                    WeaponHI.sKSAppkey = this.a.getAppKey();
+                    WeaponHI.sKSSecKey = this.a.getSecKey();
+                    WeaponHI.sKSSdkver = "5.0.1";
+                    WeaponHI.hostVersionName = h1.m(WeaponHI.mContext);
+                    WeaponHI.sKDeviceId = this.a.getDeviceId();
+                    WeaponHI.skProductName = this.a.getProductName();
+                    WeaponHI.sUserId = this.a.getUserId();
+                    WeaponHI.sChannel = this.a.getChannel();
+                    WeaponHI.cookieData = h1.h(WeaponHI.mContext);
+                    try {
+                        i a = i.a(WeaponHI.mContext, "re_po_rt");
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("k", n2.n());
+                        jSONObject.put("d", n2.b(WeaponHI.mContext));
+                        jSONObject.put("a", h1.m(WeaponHI.mContext));
+                        jSONObject.put("p", h1.n(WeaponHI.mContext));
+                        jSONObject.put("s", "5.0.1");
+                        jSONObject.put("n", TextUtils.isEmpty(a.e(f3.i)) ? 1 : 0);
+                        WeaponHI.encryENV = new n1(WeaponHI.mContext).b(jSONObject.toString());
+                        String e = a.e(f3.u);
+                        if (!TextUtils.isEmpty(e)) {
+                            WeaponHI.isList = Arrays.asList(e.split(WebChromeClient.PARAM_SEPARATOR));
+                            WeaponHI.ii = a.b(f3.v, 5);
                         }
+                    } catch (Throwable unused) {
                     }
+                    WeaponHI.init(WeaponHI.sKSAppkey, WeaponHI.sKSSecKey, this.a.getPrivacySwitch());
                 } catch (Throwable unused2) {
                 }
             }
         }
     }
 
-    /* renamed from: com.kuaishou.weapon.p0.WeaponHI$ʽ  reason: contains not printable characters */
     /* loaded from: classes5.dex */
-    public static class RunnableC0289 implements Runnable {
+    public static class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public RunnableC0289() {
+        public c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -187,11 +174,11 @@ public class WeaponHI {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    C0392 m492 = C0392.m492(WeaponHI.mContext);
-                    if (m492 == null) {
+                    r a = r.a(WeaponHI.mContext);
+                    if (a == null) {
                         return;
                     }
-                    m492.m496();
+                    a.a();
                 } catch (Exception unused) {
                 }
             }
@@ -235,20 +222,20 @@ public class WeaponHI {
                 WeaponRECE weaponRECE = new WeaponRECE();
                 Application application = mContext instanceof Application ? (Application) mContext : null;
                 if (application != null) {
-                    IntentFilter intentFilter = new IntentFilter(C0303.f38);
+                    IntentFilter intentFilter = new IntentFilter(q1.f);
                     intentFilter.addDataScheme("env");
                     application.registerReceiver(weaponRECE, intentFilter);
                 }
             } catch (Throwable unused) {
             }
             try {
-                C0368.m381(mContext).m382(100);
-                C0360.m369(mContext).m370(100);
-                C0370.m384(mContext).m385(100);
-                C0366.m378(mContext).m379(100, 0);
-                C0362.m372(mContext).m373(100);
-                C0364.m375(mContext).m376();
-                C0372.m387(mContext).m388();
+                c3.a(mContext).a(100);
+                y2.a(mContext).a(100);
+                d3.a(mContext).a(100);
+                b3.a(mContext).a(100, 0);
+                z2.a(mContext).a(100);
+                a3.a(mContext).a();
+                e3.a(mContext).a();
             } catch (Exception unused2) {
             }
         }
@@ -258,11 +245,10 @@ public class WeaponHI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             try {
-                C0374 m389 = C0374.m389(context);
-                long m410 = m389.m410();
-                long currentTimeMillis = (System.currentTimeMillis() - m410) - (m389.m402(C0374.f303, 12) * 3600000);
-                if (m410 < 1 || currentTimeMillis > 0) {
-                    C0358.m366().m367(new RunnableC0356(context));
+                long b2 = f3.a(context).b();
+                long currentTimeMillis = (System.currentTimeMillis() - b2) - (i.a(context, "re_po_rt").b(f3.j, 12) * 3600000);
+                if (b2 < 1 || currentTimeMillis > 0) {
+                    o.a().a(new x2(context));
                 }
             } catch (Throwable unused) {
             }
@@ -274,7 +260,7 @@ public class WeaponHI {
         if (interceptable == null || interceptable.invokeLL(65541, null, context, iWeaponInitParams) == null) {
             try {
                 mContext = context.getApplicationContext();
-                C0358.m366().m367(new RunnableC0288(iWeaponInitParams));
+                o.a().a(new b(iWeaponInitParams));
             } catch (Throwable unused) {
             }
         }
@@ -284,13 +270,13 @@ public class WeaponHI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65542, null, str, str2, z) == null) {
             try {
-                C0374.m389(mContext).m401("a1_p_s_p_s", Boolean.valueOf(z));
-                C0358.m366();
-                C0310.m205(mContext);
-                C0309.m196(mContext);
+                i.a(mContext, "re_po_rt").a("a1_p_s_p_s", Boolean.valueOf(z));
+                o.a();
+                t1.a(mContext);
+                s1.b(mContext);
             } catch (Exception unused) {
             }
-            C0358.m366().m367(new RunnableC0289());
+            o.a().a(new c());
         }
     }
 
@@ -298,7 +284,7 @@ public class WeaponHI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
             try {
-                C0358.m366().m367(new RunnableC0287(z));
+                o.a().a(new a(z));
             } catch (Exception unused) {
             }
         }

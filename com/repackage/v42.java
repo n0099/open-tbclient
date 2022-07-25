@@ -1,29 +1,13 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes7.dex */
-public abstract class v42 implements c52, q42 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface v42 {
+    void a(ImageRequest imageRequest);
 
-    public v42(@NonNull Context context, k42 k42Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, k42Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(ImageRequest imageRequest);
+
+    void c(ImageRequest imageRequest, Throwable th);
+
+    void onCancel(String str);
 }

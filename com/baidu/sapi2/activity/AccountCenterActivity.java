@@ -9,6 +9,7 @@ import android.view.KeyEvent;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
+import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
@@ -138,7 +139,7 @@ public class AccountCenterActivity extends SlideActiviy {
             if (!TextUtils.isEmpty(str)) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add("pp");
-                SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback(this) { // from class: com.baidu.sapi2.activity.AccountCenterActivity.12
+                SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback(this) { // from class: com.baidu.sapi2.activity.AccountCenterActivity.13
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AccountCenterActivity a;
@@ -269,7 +270,7 @@ public class AccountCenterActivity extends SlideActiviy {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04e1);
+                setContentView(R.layout.obfuscated_res_0x7f0d04eb);
                 init();
                 setupViews();
             } catch (Throwable th) {
@@ -607,7 +608,7 @@ public class AccountCenterActivity extends SlideActiviy {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, accountDestoryResult) == null) {
                         AccountCenterDTO accountCenterDTO2 = CoreViewRouter.getInstance().getAccountCenterDTO();
                         if (accountCenterDTO2 != null && accountCenterDTO2.logoutAfterBdussInvalid) {
-                            SapiAccountManager.getInstance().logout();
+                            SapiAccountManager.getInstance().logout(4);
                             SapiAccountManager.getInstance().getAccountService().preGetPhoneInfo();
                         }
                         AccountCenterResult accountCenterResult = new AccountCenterResult();
@@ -680,7 +681,7 @@ public class AccountCenterActivity extends SlideActiviy {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, accountFreezeResult) == null) {
                         AccountCenterDTO accountCenterDTO2 = CoreViewRouter.getInstance().getAccountCenterDTO();
                         if (accountCenterDTO2 != null && accountCenterDTO2.logoutAfterBdussInvalid) {
-                            SapiAccountManager.getInstance().logout();
+                            SapiAccountManager.getInstance().logout(5);
                             SapiAccountManager.getInstance().getAccountService().preGetPhoneInfo();
                         }
                         AccountCenterResult accountCenterResult = new AccountCenterResult();
@@ -796,7 +797,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 }
             });
             if (TextUtils.isEmpty(this.F)) {
-                setTitleText(R.string.obfuscated_res_0x7f0f1076);
+                setTitleText(R.string.obfuscated_res_0x7f0f1037);
                 loadAccountCenter(this.D);
             } else {
                 this.sapiWebView.loadUrl(this.F);
@@ -806,16 +807,16 @@ public class AccountCenterActivity extends SlideActiviy {
                 SapiConfiguration sapiConfiguration = this.configuration;
                 if (sapiConfiguration != null && sapiConfiguration.isDarkMode) {
                     if (this.useTitle) {
-                        ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f06090d));
-                        setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f06090d));
-                        setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06090f));
-                        this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06090d));
+                        ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f06090b));
+                        setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f06090b));
+                        setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06090d));
+                        this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06090b));
                     }
                 } else if (this.useTitle) {
-                    ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f06090f));
-                    setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f06090c));
-                    setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06090e));
-                    this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06090c));
+                    ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f06090d));
+                    setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f06090a));
+                    setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06090c));
+                    this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06090a));
                 }
             }
             this.sapiWebView.setJumpToUriCallBack(new SapiJsCallBacks.JumpToUriCallBack(this, accountCenterCallback) { // from class: com.baidu.sapi2.activity.AccountCenterActivity.11
@@ -852,6 +853,41 @@ public class AccountCenterActivity extends SlideActiviy {
                     this.a.onJumpTo(str);
                 }
             });
+            this.sapiWebView.setSyncAccountCallback(new SapiJsCallBacks.SyncAccountCallBack(this, accountCenterCallback) { // from class: com.baidu.sapi2.activity.AccountCenterActivity.12
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ AccountCenterCallback a;
+                public final /* synthetic */ AccountCenterActivity b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, accountCenterCallback};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.b = this;
+                    this.a = accountCenterCallback;
+                }
+
+                @Override // com.baidu.sapi2.SapiJsCallBacks.SyncAccountCallBack
+                public void onSyncAccount(SapiAccount sapiAccount) {
+                    AccountCenterCallback accountCenterCallback2;
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, sapiAccount) == null) || (accountCenterCallback2 = this.a) == null || sapiAccount == null) {
+                        return;
+                    }
+                    accountCenterCallback2.onSyncAccount(sapiAccount);
+                }
+            });
         }
     }
 
@@ -875,7 +911,7 @@ public class AccountCenterActivity extends SlideActiviy {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            SapiAccountManager.getInstance().getAccountService().web2NativeLogin(new Web2NativeLoginCallback(this) { // from class: com.baidu.sapi2.activity.AccountCenterActivity.13
+            SapiAccountManager.getInstance().getAccountService().web2NativeLogin(new Web2NativeLoginCallback(this) { // from class: com.baidu.sapi2.activity.AccountCenterActivity.14
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AccountCenterActivity a;

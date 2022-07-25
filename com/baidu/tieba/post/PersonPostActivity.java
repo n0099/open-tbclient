@@ -49,7 +49,7 @@ import com.repackage.ni;
 import com.repackage.pi;
 import com.repackage.rn;
 import com.repackage.wh8;
-import com.repackage.xt4;
+import com.repackage.yt4;
 /* loaded from: classes3.dex */
 public class PersonPostActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, VoiceManager.j, i78, g78 {
     public static /* synthetic */ Interceptable $ic;
@@ -224,7 +224,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         return (VoiceManager.i) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -243,9 +243,9 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             int b2 = this.n.b(i);
             if (item != null) {
                 if (b2 == 0) {
-                    o0(item, 0, getPageContext().getString(R.string.obfuscated_res_0x7f0f0e4c));
+                    o0(item, 0, getPageContext().getString(R.string.obfuscated_res_0x7f0f0e35));
                 } else if (b2 == 1) {
-                    o0(item, 1, getPageContext().getString(R.string.obfuscated_res_0x7f0f0fbd));
+                    o0(item, 1, getPageContext().getString(R.string.obfuscated_res_0x7f0f0fa6));
                 }
             }
         }
@@ -318,9 +318,9 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             super.onCreate(bundle);
             x0();
             if (!ni.z()) {
-                showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                showToast(R.string.obfuscated_res_0x7f0f0c17);
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d06d9);
+            setContentView(R.layout.obfuscated_res_0x7f0d06e3);
             VoiceManager u0 = u0();
             this.o = u0;
             if (u0 != null) {
@@ -335,16 +335,16 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             }
             this.c = str;
             if (str.equals(TbadkCoreApplication.getCurrentAccount())) {
-                this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f0a99);
+                this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f0a85);
                 this.f = true;
             } else {
                 int intExtra = getIntent().getIntExtra("key_sex", 0);
                 if (intExtra == 1) {
-                    this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f082f);
+                    this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f082b);
                 } else if (intExtra != 2) {
-                    this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f1357);
+                    this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f1306);
                 } else {
-                    this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f1187);
+                    this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f1136);
                 }
             }
             TbadkCoreApplication.isMyLive = false;
@@ -498,9 +498,9 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             if (this.f) {
-                return getPageContext().getString(R.string.obfuscated_res_0x7f0f0e4b);
+                return getPageContext().getString(R.string.obfuscated_res_0x7f0f0e34);
             }
-            return String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f0e4a), w0());
+            return String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f0e33), w0());
         }
         return (String) invokeV.objValue;
     }
@@ -526,11 +526,11 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
         if (z && imageView.getVisibility() == 8) {
             this.k.setVisibility(0);
-            xt4.k().u(xt4.o("key_person_post_recycle_bin_red_tip_show"), true);
+            yt4.k().u(yt4.o("key_person_post_recycle_bin_red_tip_show"), true);
         } else if (z || this.k.getVisibility() != 0) {
         } else {
             this.k.setVisibility(8);
-            xt4.k().u(xt4.o("key_person_post_recycle_bin_red_tip_show"), false);
+            yt4.k().u(yt4.o("key_person_post_recycle_bin_red_tip_show"), false);
         }
     }
 
@@ -571,33 +571,33 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, bundle) == null) {
             this.p = TbadkCoreApplication.getInst().getSkinType();
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092439);
             this.g = navigationBar;
-            navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b42));
+            navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b2e));
             View view2 = (View) this.g.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).getParent();
             this.h = view2;
             view2.setOnClickListener(new a(this));
-            RelativeLayout relativeLayout = (RelativeLayout) this.g.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d06df, (View.OnClickListener) null);
+            RelativeLayout relativeLayout = (RelativeLayout) this.g.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d06e9, (View.OnClickListener) null);
             this.i = relativeLayout;
             relativeLayout.setOnClickListener(new b(this));
-            this.j = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092283);
-            this.k = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f090fbe);
-            if (xt4.k().h(xt4.o("key_person_post_recycle_bin_red_tip_show"), false)) {
+            this.j = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092285);
+            this.k = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f090fb5);
+            if (yt4.k().h(yt4.o("key_person_post_recycle_bin_red_tip_show"), false)) {
                 this.k.setVisibility(0);
             } else {
                 this.k.setVisibility(8);
             }
-            this.l = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0918a0);
+            this.l = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f09187b);
             this.b = new int[]{0, 1};
             this.n = new PersonPostAdapter(this);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091ec6);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091eca);
             this.m = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.m.setOnPageChangeListener(this);
             this.m.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07019a));
             this.m.getFragmentTabWidget().setDviderRectWidth(pi.f(getActivity(), R.dimen.obfuscated_res_0x7f070258));
             initTabSpec();
-            ((RelativeLayout.LayoutParams) this.m.getTabWrapper().getLayoutParams()).setMargins(0, UtilHelper.getLightStatusBarHeight() + pi.f(getActivity(), R.dimen.obfuscated_res_0x7f070308), 0, 0);
+            ((RelativeLayout.LayoutParams) this.m.getTabWrapper().getLayoutParams()).setMargins(0, UtilHelper.getLightStatusBarHeight() + pi.f(getActivity(), R.dimen.obfuscated_res_0x7f070306), 0, 0);
             if (bundle != null) {
                 this.a = bundle.getInt("CurrTabIndex");
             } else {

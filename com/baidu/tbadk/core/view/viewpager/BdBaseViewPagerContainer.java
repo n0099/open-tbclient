@@ -18,15 +18,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.aw4;
 import com.repackage.nn;
-import com.repackage.zv4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BdBaseViewPagerContainer extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdBaseViewPagerContainerHolder a;
-    public zv4 b;
+    public aw4 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdBaseViewPagerContainer(Context context) {
@@ -54,12 +54,12 @@ public class BdBaseViewPagerContainer extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, bdBaseViewPagerContainerHolder) == null) || bdBaseViewPagerContainerHolder == null) {
             return;
         }
-        SkinManager.setBackgroundColor(bdBaseViewPagerContainerHolder.b(), R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(bdBaseViewPagerContainerHolder.a(), R.color.CAM_X0201);
         SkinManager.setViewTextColor(bdBaseViewPagerContainerHolder.b, R.color.CAM_X0108, 1);
         SkinManager.setBackgroundColor(bdBaseViewPagerContainerHolder.e, R.color.CAM_X0204);
         SkinManager.setViewTextColor(bdBaseViewPagerContainerHolder.c, R.color.CAM_X0109, 1);
         SkinManager.setBackgroundColor(bdBaseViewPagerContainerHolder.c, R.color.CAM_X0201);
-        bdBaseViewPagerContainerHolder.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f81));
+        bdBaseViewPagerContainerHolder.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6a));
         bdBaseViewPagerContainerHolder.d.setSelector(SkinManager.getDrawable(R.drawable.icon_choose_dot_s));
         bdBaseViewPagerContainerHolder.d.setDrawable(SkinManager.getDrawable(R.drawable.icon_choose_dot_n));
     }
@@ -71,7 +71,7 @@ public class BdBaseViewPagerContainer extends RelativeLayout {
             this.a = bdBaseViewPagerContainerHolder;
             a(bdBaseViewPagerContainerHolder);
             BdBaseViewPagerContainerHolder bdBaseViewPagerContainerHolder2 = this.a;
-            this.b = new zv4(context, bdBaseViewPagerContainerHolder2.f, bdBaseViewPagerContainerHolder2.d, bdBaseViewPagerContainerHolder2.c, 4, false, true);
+            this.b = new aw4(context, bdBaseViewPagerContainerHolder2.f, bdBaseViewPagerContainerHolder2.d, bdBaseViewPagerContainerHolder2.c, 4, false, true);
         }
     }
 
@@ -91,7 +91,7 @@ public class BdBaseViewPagerContainer extends RelativeLayout {
     public View getRootView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.b() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.a() : (View) invokeV.objValue;
     }
 
     public BdBaseViewPagerContainerHolder getViewHolder() {

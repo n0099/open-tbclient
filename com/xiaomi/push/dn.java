@@ -13,7 +13,7 @@ public class dn {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public dm f948a;
+    public dm f228a;
 
     public dn() {
         Interceptable interceptable = $ic;
@@ -46,16 +46,16 @@ public class dn {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public dm m1207a() {
+    public dm m269a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f948a : (dm) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f228a : (dm) invokeV.objValue;
     }
 
     public void a(dm dmVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dmVar) == null) {
-            this.f948a = dmVar;
+            this.f228a = dmVar;
         }
     }
 }

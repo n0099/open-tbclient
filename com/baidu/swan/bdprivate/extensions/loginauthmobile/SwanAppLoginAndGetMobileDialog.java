@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oj2;
+import com.repackage.pj2;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
@@ -258,7 +258,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
-            boolean a2 = oj2.M().a();
+            boolean a2 = pj2.M().a();
             if (a2 != this.c) {
                 w1(a2);
             }

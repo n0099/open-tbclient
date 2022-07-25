@@ -140,7 +140,7 @@ public class AlaVideoContainer extends LinearLayout {
                     }
                     return;
                 }
-                pi.L(this.a.getContext(), this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0c64));
+                pi.L(this.a.getContext(), this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0c50));
             }
         }
     }
@@ -577,10 +577,10 @@ public class AlaVideoContainer extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d010d, (ViewGroup) this, true);
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09238b);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09238d);
             this.a = findViewById;
             findViewById.setOnClickListener(this.v);
-            TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) inflate.findViewById(R.id.obfuscated_res_0x7f092407);
+            TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) inflate.findViewById(R.id.obfuscated_res_0x7f092409);
             this.c = tbVideoViewContainer;
             e68 control = tbVideoViewContainer.getControl();
             this.d = control;
@@ -590,7 +590,7 @@ public class AlaVideoContainer extends LinearLayout {
             this.c.setLayoutParams(layoutParams);
             this.d.setOperableVideoContainer(this.w);
             this.d.setOnSurfaceDestroyedListener(this.y);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090eac);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ea5);
             this.e = tbImageView;
             tbImageView.setDrawCorner(true);
             this.e.setPlaceHolder(3);
@@ -602,25 +602,25 @@ public class AlaVideoContainer extends LinearLayout {
             this.e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             this.e.setBorderSurroundContent(true);
             this.e.setDrawBorder(true);
-            this.f = inflate.findViewById(R.id.obfuscated_res_0x7f091257);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922a1);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090e99);
+            this.f = inflate.findViewById(R.id.obfuscated_res_0x7f091233);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922a3);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090e92);
             this.h = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
-            this.j = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091244);
-            this.k = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01013e);
-            AudioAnimationView audioAnimationView = (AudioAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f09190c);
+            this.j = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091220);
+            this.k = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01013c);
+            AudioAnimationView audioAnimationView = (AudioAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f0918e7);
             this.l = audioAnimationView;
             audioAnimationView.setCertainColumnCount(4);
             this.l.setColumnColor(R.color.CAM_X0302);
-            this.m = inflate.findViewById(R.id.obfuscated_res_0x7f091236);
-            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092396);
-            this.o = inflate.findViewById(R.id.obfuscated_res_0x7f091243);
-            this.p = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923b2);
-            this.r = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091342);
-            this.s = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921e8);
+            this.m = inflate.findViewById(R.id.obfuscated_res_0x7f091212);
+            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092398);
+            this.o = inflate.findViewById(R.id.obfuscated_res_0x7f09121f);
+            this.p = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923b4);
+            this.r = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09131e);
+            this.s = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921ea);
             this.b = new ly5(this);
-            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0918fe);
+            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0918d9);
             o(TbadkCoreApplication.getInst().getSkinType());
         }
     }

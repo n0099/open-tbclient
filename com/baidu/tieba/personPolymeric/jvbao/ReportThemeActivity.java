@@ -141,7 +141,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                     this.a.b.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03c2, new Object[]{10}));
                     BdTopToast bdTopToast = new BdTopToast(this.a.getActivity());
                     bdTopToast.i(false);
-                    bdTopToast.h(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a96));
+                    bdTopToast.h(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a82));
                     bdTopToast.j(this.a.c);
                     return;
                 }
@@ -442,10 +442,10 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     public final void M0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092439);
             this.c = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0fd8));
-            this.e = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.obfuscated_res_0x7f0f0427));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0fc1));
+            this.e = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.obfuscated_res_0x7f0f0426));
             this.d = this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.e.setOnClickListener(new d(this));
         }
@@ -501,7 +501,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                 if (this.f.getHeaderViewsCount() == 0) {
                     this.l.setVisibility(8);
                     this.b.setVisibility(8);
-                    V0(R.string.obfuscated_res_0x7f0f0bb4);
+                    V0(R.string.obfuscated_res_0x7f0f0ba0);
                 }
             } else {
                 NoDataView noDataView = this.n;
@@ -525,9 +525,9 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     public final void V0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0c44);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0c30);
             if (this.n == null) {
-                this.n = NoDataViewFactory.a(this, null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.FINDBAR, pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070263)), NoDataViewFactory.e.d(null, string), null);
+                this.n = NoDataViewFactory.a(this, null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.FINDBAR, pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070260)), NoDataViewFactory.e.d(null, string), null);
             }
             this.n.f(getPageContext(), TbadkApplication.getInst().getSkinType());
             this.n.setVisibility(0);
@@ -543,7 +543,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
             this.f.setNextPage(this.m);
             this.m.L(0);
             this.m.f();
-            this.m.C(getPageContext().getString(R.string.obfuscated_res_0x7f0f09e7));
+            this.m.C(getPageContext().getString(R.string.obfuscated_res_0x7f0f09d3));
         }
     }
 
@@ -551,12 +551,12 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             M0();
-            this.i = findViewById(R.id.obfuscated_res_0x7f091b5d);
-            this.j = findViewById(R.id.obfuscated_res_0x7f0912d6);
-            this.k = findViewById(R.id.obfuscated_res_0x7f0912db);
+            this.i = findViewById(R.id.obfuscated_res_0x7f091b37);
+            this.j = findViewById(R.id.obfuscated_res_0x7f0912b2);
+            this.k = findViewById(R.id.obfuscated_res_0x7f0912b7);
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0905f0);
-            this.f = (BdListView) findViewById(R.id.obfuscated_res_0x7f091b00);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090696);
+            this.f = (BdListView) findViewById(R.id.obfuscated_res_0x7f091ada);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090695);
             z48 z48Var = new z48(this, this.t);
             this.g = z48Var;
             this.f.setAdapter((ListAdapter) z48Var);
@@ -601,7 +601,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0738);
+            setContentView(R.layout.obfuscated_res_0x7f0d0742);
             L0(bundle);
             initView();
             E0(true);
@@ -634,9 +634,9 @@ public class ReportThemeActivity extends BaseFragmentActivity {
             if (this.a == null) {
                 t58 t58Var = new t58(getPageContext().getPageActivity(), getNetRefreshListener());
                 this.a = t58Var;
-                t58Var.e(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f9b));
+                t58Var.e(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f84));
                 this.a.d(null);
-                this.a.c(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f9a));
+                this.a.c(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f83));
                 this.a.f();
                 this.a.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }

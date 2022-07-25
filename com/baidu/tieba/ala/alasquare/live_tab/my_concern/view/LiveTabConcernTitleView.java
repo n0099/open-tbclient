@@ -52,7 +52,7 @@ public class LiveTabConcernTitleView extends jx5<or5> {
             this.a = liveTabConcernTitleView;
             View h = liveTabConcernTitleView.h();
             this.b = h;
-            this.c = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091ed0);
+            this.c = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091ed4);
         }
     }
 
@@ -83,7 +83,7 @@ public class LiveTabConcernTitleView extends jx5<or5> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0804 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d080e : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5

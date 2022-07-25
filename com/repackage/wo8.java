@@ -4,6 +4,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,7 +60,7 @@ public class wo8 extends BdAsyncTask<String, String, Integer> {
                 NetWork netWork = new NetWork(this.a);
                 netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
                 netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                JSONArray optJSONArray = new JSONObject(new String(netWork.getNetData())).optJSONArray("result");
+                JSONArray optJSONArray = new JSONObject(new String(netWork.getNetData())).optJSONArray(TiebaStatic.LogFields.RESULT);
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject optJSONObject = optJSONArray.optJSONObject(i);

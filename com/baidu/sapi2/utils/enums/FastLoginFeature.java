@@ -14,7 +14,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class FastLoginFeature {
     public static final /* synthetic */ FastLoginFeature[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
-    public static final FastLoginFeature GLORY_LOGIN;
+    public static final FastLoginFeature CF_SSO;
+    public static final FastLoginFeature HONOR_LOGIN;
     public static final FastLoginFeature HUAWEI_LOGIN;
     public static final FastLoginFeature MEIZU_SSO;
     public static final FastLoginFeature QR_LOGIN;
@@ -29,6 +30,7 @@ public final class FastLoginFeature {
 
     /* loaded from: classes2.dex */
     public interface SSOLoginType {
+        public static final String CF = "cfmoto_login";
         public static final String HONOR = "glory_login";
         public static final String HUAWEI = "huawei_login";
         public static final String MEIZU = "meizu_sso";
@@ -60,12 +62,13 @@ public final class FastLoginFeature {
         TX_QQ_SSO = new FastLoginFeature("TX_QQ_SSO", 3, SSOLoginType.QQ);
         QR_LOGIN = new FastLoginFeature("QR_LOGIN", 4, SSOLoginType.QR_APP_LOGIN);
         HUAWEI_LOGIN = new FastLoginFeature("HUAWEI_LOGIN", 5, SSOLoginType.HUAWEI);
-        GLORY_LOGIN = new FastLoginFeature("GLORY_LOGIN", 6, SSOLoginType.HONOR);
+        HONOR_LOGIN = new FastLoginFeature("HONOR_LOGIN", 6, SSOLoginType.HONOR);
         MEIZU_SSO = new FastLoginFeature("MEIZU_SSO", 7, SSOLoginType.MEIZU);
         XIAOMI_SSO = new FastLoginFeature("XIAOMI_SSO", 8, SSOLoginType.XIAOMI);
-        FastLoginFeature fastLoginFeature = new FastLoginFeature("YY_SSO", 9, "yy");
-        YY_SSO = fastLoginFeature;
-        $VALUES = new FastLoginFeature[]{TX_WEIXIN_SSO, SINA_WEIBO_SSO, SINA_WEIBO_WEBVIEW, TX_QQ_SSO, QR_LOGIN, HUAWEI_LOGIN, GLORY_LOGIN, MEIZU_SSO, XIAOMI_SSO, fastLoginFeature};
+        YY_SSO = new FastLoginFeature("YY_SSO", 9, "yy");
+        FastLoginFeature fastLoginFeature = new FastLoginFeature("CF_SSO", 10, SSOLoginType.CF);
+        CF_SSO = fastLoginFeature;
+        $VALUES = new FastLoginFeature[]{TX_WEIXIN_SSO, SINA_WEIBO_SSO, SINA_WEIBO_WEBVIEW, TX_QQ_SSO, QR_LOGIN, HUAWEI_LOGIN, HONOR_LOGIN, MEIZU_SSO, XIAOMI_SSO, YY_SSO, fastLoginFeature};
     }
 
     public FastLoginFeature(String str, int i, String str2) {

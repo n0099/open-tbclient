@@ -1,83 +1,294 @@
 package com.kwad.sdk.api.loader;
 
-import android.annotation.SuppressLint;
-import android.content.ComponentCallbacks;
 import android.content.Context;
-import android.content.res.Resources;
-import androidx.appcompat.view.ContextThemeWrapper;
-import com.kwad.sdk.api.core.ResContext;
-@SuppressLint({"RestrictedApi"})
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
+import com.baidu.nps.utils.Constant;
+import com.kwad.sdk.api.core.IKsAdSDK;
+import com.kwad.sdk.api.loader.a;
+import com.kwad.sdk.api.loader.f;
+import java.io.File;
 /* loaded from: classes5.dex */
-public final class n extends ContextThemeWrapper implements ResContext {
-    public final ContextThemeWrapper a;
-    public Resources.Theme b;
-    public int c;
+public final class n {
 
-    public n(ContextThemeWrapper contextThemeWrapper) {
-        super(contextThemeWrapper, contextThemeWrapper.getThemeResId());
-        this.a = contextThemeWrapper;
-        this.c = ((Integer) Reflect.a(contextThemeWrapper).b("getThemeResId").a).intValue();
-    }
+    /* loaded from: classes5.dex */
+    public static abstract class a<T> implements c<T> {
+        public c<T> Sv;
 
-    @Override // android.content.ContextWrapper, android.content.Context
-    public final Context getApplicationContext() {
-        return Wrapper.wrapContextIfNeed(super.getApplicationContext());
-    }
-
-    @Override // android.content.ContextWrapper
-    public final Context getBaseContext() {
-        return Wrapper.wrapContextIfNeed(super.getBaseContext());
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public final ClassLoader getClassLoader() {
-        return Wrapper.replaceExternalClassLoader(super.getClassLoader());
-    }
-
-    @Override // com.kwad.sdk.api.core.ResContext
-    public final Context getDelegatedContext() {
-        return this.a;
-    }
-
-    @Override // androidx.appcompat.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public final Resources getResources() {
-        return Wrapper.replaceExternalResources(super.getResources());
-    }
-
-    @Override // androidx.appcompat.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public final Object getSystemService(String str) {
-        return Wrapper.wrapSystemService(this.a.getSystemService(str), str, this);
-    }
-
-    @Override // androidx.appcompat.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public final Resources.Theme getTheme() {
-        Resources.Theme theme;
-        try {
-            theme = super.getTheme();
-        } catch (Exception e) {
-            e.printStackTrace();
-            theme = null;
+        public a(c<T> cVar) {
+            this.Sv = cVar;
         }
-        Resources.Theme theme2 = this.b;
-        if (theme2 == null || theme2 == theme) {
-            this.b = Wrapper.replaceTheme(theme, this.b, this.c);
+
+        @Override // com.kwad.sdk.api.loader.n.c
+        public final void g(Throwable th) {
+            this.Sv.g(th);
         }
-        return this.b;
     }
 
-    @Override // android.content.Context
-    public final void registerComponentCallbacks(ComponentCallbacks componentCallbacks) {
-        this.a.registerComponentCallbacks(componentCallbacks);
+    /* loaded from: classes5.dex */
+    public static class b implements f<a.C0379a> {
+        public final IKsAdSDK Sw;
+        public final String b;
+
+        public b(String str, IKsAdSDK iKsAdSDK) {
+            this.b = str;
+            this.Sw = iKsAdSDK;
+        }
+
+        @Override // com.kwad.sdk.api.loader.n.f
+        public final void a(final c<a.C0379a> cVar) {
+            try {
+                final com.kwad.sdk.api.loader.f fVar = new com.kwad.sdk.api.loader.f(this.b, this.Sw);
+                final f.a aVar = new f.a() { // from class: com.kwad.sdk.api.loader.n.b.1
+                    @Override // com.kwad.sdk.api.loader.f.a
+                    @WorkerThread
+                    public final void a(a.b bVar) {
+                        new StringBuilder("ConfigProducer onSuccess data:").append(bVar);
+                        if (bVar.a == 1 && bVar.Sg != null) {
+                            cVar.c(bVar.Sg);
+                        } else {
+                            cVar.g(new RuntimeException("UpdateData is illegal"));
+                        }
+                        try {
+                            if (b.this.Sw == null || b.this.Sw.getContext() == null) {
+                                return;
+                            }
+                            com.kwad.sdk.api.loader.d aF = com.kwad.sdk.api.loader.d.aF(b.this.Sw.getContext());
+                            if (aF.a) {
+                                Log.d("test.chen", "AutoRevertHandler cancel:");
+                            }
+                            aF.RL.set(true);
+                        } catch (Throwable th) {
+                            th.printStackTrace();
+                        }
+                    }
+
+                    @Override // com.kwad.sdk.api.loader.f.a
+                    public final void a(Exception exc) {
+                        cVar.g(exc);
+                    }
+                };
+                k.b(new Runnable() { // from class: com.kwad.sdk.api.loader.f.1
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        fVar.a(aVar);
+                    }
+                });
+            } catch (Exception e) {
+                cVar.g(e);
+            }
+        }
     }
 
-    @Override // androidx.appcompat.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public final void setTheme(int i) {
-        this.c = i;
-        super.setTheme(i);
+    /* loaded from: classes5.dex */
+    public interface c<T> {
+        void c(T t);
+
+        void g(Throwable th);
     }
 
-    @Override // android.content.Context
-    public final void unregisterComponentCallbacks(ComponentCallbacks componentCallbacks) {
-        this.a.unregisterComponentCallbacks(componentCallbacks);
+    /* loaded from: classes5.dex */
+    public static class d implements f<a.C0379a> {
+        public f<a.C0379a> Sy;
+        public Context b;
+
+        public d(f<a.C0379a> fVar, Context context) {
+            this.Sy = fVar;
+            this.b = context;
+        }
+
+        @Override // com.kwad.sdk.api.loader.n.f
+        public final void a(final c<a.C0379a> cVar) {
+            this.Sy.a(new a<a.C0379a>(cVar) { // from class: com.kwad.sdk.api.loader.n.d.1
+                @Override // com.kwad.sdk.api.loader.n.c
+                @WorkerThread
+                public final /* synthetic */ void c(@NonNull Object obj) {
+                    File file;
+                    Throwable th;
+                    a.C0379a c0379a = (a.C0379a) obj;
+                    long currentTimeMillis = System.currentTimeMillis();
+                    try {
+                        j.a(c0379a);
+                        Context context = d.this.b;
+                        String str = c0379a.e;
+                        file = new File(com.kwad.sdk.api.loader.h.aG(context), "dynamic-" + System.currentTimeMillis() + "-" + str + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+                        try {
+                            i.b(c0379a.b, file);
+                            j.a(c0379a, System.currentTimeMillis() - currentTimeMillis);
+                            c0379a.Sf = file;
+                            cVar.c(c0379a);
+                        } catch (Throwable th2) {
+                            th = th2;
+                            j.a(c0379a, System.currentTimeMillis() - currentTimeMillis, Log.getStackTraceString(th));
+                            com.kwad.sdk.api.loader.h.f(file);
+                            cVar.g(th);
+                        }
+                    } catch (Throwable th3) {
+                        file = null;
+                        th = th3;
+                    }
+                }
+            });
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class e implements f<Boolean> {
+        public f<a.C0379a> Sy;
+        public Context b;
+
+        public e(f<a.C0379a> fVar, Context context) {
+            this.Sy = fVar;
+            this.b = context;
+        }
+
+        @Override // com.kwad.sdk.api.loader.n.f
+        public final void a(final c<Boolean> cVar) {
+            this.Sy.a(new c<a.C0379a>() { // from class: com.kwad.sdk.api.loader.n.e.1
+                private void a(a.C0379a c0379a, int i, Throwable th) {
+                    try {
+                        com.kwad.sdk.api.loader.h.d(c0379a.Sf);
+                    } catch (Exception unused) {
+                    }
+                    j.b(c0379a, i, Log.getStackTraceString(th));
+                    g(th);
+                }
+
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                @Override // com.kwad.sdk.api.loader.n.c
+                public final /* synthetic */ void c(@NonNull a.C0379a c0379a) {
+                    a.C0379a c0379a2 = c0379a;
+                    long currentTimeMillis = System.currentTimeMillis();
+                    try {
+                        j.b(c0379a2);
+                        if (!com.kwad.sdk.api.loader.b.b(e.this.b, c0379a2.Sf.getPath(), c0379a2.e)) {
+                            a(c0379a2, 1, new RuntimeException("Apk pre install fail"));
+                            return;
+                        }
+                        com.kwad.sdk.api.loader.g.b(e.this.b, c0379a2.e);
+                        com.kwad.sdk.api.loader.h.f(c0379a2.Sf);
+                        j.b(c0379a2, System.currentTimeMillis() - currentTimeMillis);
+                        cVar.c(Boolean.TRUE);
+                    } catch (Throwable th) {
+                        a(c0379a2, 2, th);
+                    }
+                }
+
+                @Override // com.kwad.sdk.api.loader.n.c
+                public final void g(Throwable th) {
+                    cVar.g(th);
+                }
+            });
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface f<T> {
+        void a(c<T> cVar);
+    }
+
+    /* loaded from: classes5.dex */
+    public static class g implements f<a.C0379a> {
+        public f<a.C0379a> Sy;
+        public Context b;
+
+        public g(f<a.C0379a> fVar, Context context) {
+            this.Sy = fVar;
+            this.b = context;
+        }
+
+        @Override // com.kwad.sdk.api.loader.n.f
+        public final void a(final c<a.C0379a> cVar) {
+            this.Sy.a(new a<a.C0379a>(cVar) { // from class: com.kwad.sdk.api.loader.n.g.1
+                private void a(a.C0379a c0379a, int i, Throwable th) {
+                    try {
+                        com.kwad.sdk.api.loader.h.d(c0379a.Sf);
+                    } catch (Exception unused) {
+                    }
+                    j.a(c0379a, i, th.getMessage());
+                    cVar.g(th);
+                }
+
+                @Override // com.kwad.sdk.api.loader.n.c
+                public final /* synthetic */ void c(@NonNull Object obj) {
+                    a.C0379a c0379a = (a.C0379a) obj;
+                    try {
+                        File file = c0379a.Sf;
+                        boolean z = false;
+                        if (!(file != null && file.exists() && file.length() > 0 && file.getName().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX))) {
+                            a(c0379a, 1, new RuntimeException("Security checkFileValid fail"));
+                            return;
+                        }
+                        String str = c0379a.c;
+                        if (!TextUtils.isEmpty(str)) {
+                            z = str.toLowerCase().equals(s.a(file).toLowerCase());
+                        }
+                        if (z) {
+                            cVar.c(c0379a);
+                        } else {
+                            a(c0379a, 2, new RuntimeException("Security checkMd5 fail"));
+                        }
+                    } catch (Throwable th) {
+                        a(c0379a, 3, th);
+                    }
+                }
+            });
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class h implements f<a.C0379a> {
+        public f<a.C0379a> Sy;
+        public Context b;
+
+        public h(f<a.C0379a> fVar, Context context) {
+            this.Sy = fVar;
+            this.b = context;
+        }
+
+        @Override // com.kwad.sdk.api.loader.n.f
+        public final void a(final c<a.C0379a> cVar) {
+            this.Sy.a(new c<a.C0379a>() { // from class: com.kwad.sdk.api.loader.n.h.1
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                @Override // com.kwad.sdk.api.loader.n.c
+                public final /* synthetic */ void c(a.C0379a c0379a) {
+                    a.C0379a c0379a2 = c0379a;
+                    if (c0379a2 != null) {
+                        String a = com.kwad.sdk.api.loader.g.a(h.this.b);
+                        if (TextUtils.isEmpty(a)) {
+                            a = Loader.get().getKsAdSDKImpl().getSDKVersion();
+                        }
+                        String str = c0379a2.e;
+                        StringBuilder sb = new StringBuilder("UpgradeProducer curVersion:");
+                        sb.append(a);
+                        sb.append("-newVersion");
+                        sb.append(str);
+                        t.a(h.this.b, "interval", c0379a2.Se);
+                        t.a(h.this.b, "lastUpdateTime", System.currentTimeMillis());
+                        if (c0379a2.a == -1) {
+                            com.kwad.sdk.api.loader.g.a(h.this.b, "");
+                            cVar.g(new RuntimeException("DynamicType == -1, curVersion: ".concat(String.valueOf(a))));
+                            return;
+                        }
+                        if (com.kwad.sdk.api.loader.g.a(c0379a2.e, a)) {
+                            if (c0379a2.a == 1) {
+                                cVar.c(c0379a2);
+                                return;
+                            }
+                        }
+                        c cVar2 = cVar;
+                        cVar2.g(new RuntimeException("No new sdkVersion. remote sdkVersion:" + c0379a2.e + " currentDynamicVersion:" + a + " dynamicType:" + c0379a2.a));
+                    }
+                }
+
+                @Override // com.kwad.sdk.api.loader.n.c
+                @WorkerThread
+                public final void g(Throwable th) {
+                    cVar.g(th);
+                }
+            });
+        }
     }
 }

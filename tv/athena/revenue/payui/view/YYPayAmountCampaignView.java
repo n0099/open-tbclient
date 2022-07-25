@@ -67,9 +67,9 @@ public class YYPayAmountCampaignView extends LinearLayout implements rz9 {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, nz9.a.a(this.e))).inflate(R.layout.obfuscated_res_0x7f0d0665, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091b8a);
-            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b4c);
+            LayoutInflater.from(new ContextThemeWrapper(context, nz9.a.a(this.e))).inflate(R.layout.obfuscated_res_0x7f0d066f, (ViewGroup) this, true);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091b64);
+            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b26);
             this.h = new LinearLayoutManager(context, 0, false);
             this.g = new PayAmountCampaignListAdapter(this.a, this.f, this.e);
             this.b.setLayoutManager(this.h);

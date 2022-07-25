@@ -40,20 +40,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
-import com.repackage.d05;
 import com.repackage.d9;
 import com.repackage.dp8;
-import com.repackage.fy4;
-import com.repackage.iq4;
+import com.repackage.dr4;
+import com.repackage.e05;
+import com.repackage.gy4;
 import com.repackage.jk8;
+import com.repackage.jq4;
 import com.repackage.kk8;
 import com.repackage.kl7;
 import com.repackage.kq7;
 import com.repackage.lk8;
-import com.repackage.m45;
-import com.repackage.mt4;
+import com.repackage.n45;
 import com.repackage.ni;
+import com.repackage.nt4;
 import com.repackage.oi;
 import com.repackage.ol7;
 import com.repackage.os7;
@@ -63,7 +63,7 @@ import com.repackage.qk8;
 import com.repackage.ri8;
 import com.repackage.si8;
 import com.repackage.tj8;
-import com.repackage.xt4;
+import com.repackage.yt4;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -88,18 +88,18 @@ public class NewWriteModel extends BdBaseModel {
     public tj8.c m;
 
     /* loaded from: classes4.dex */
-    public class a implements cr4.e {
+    public class a implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
         public final /* synthetic */ NewWriteModel b;
 
-        public a(NewWriteModel newWriteModel, cr4 cr4Var) {
+        public a(NewWriteModel newWriteModel, dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newWriteModel, cr4Var};
+                Object[] objArr = {newWriteModel, dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -110,13 +110,13 @@ public class NewWriteModel extends BdBaseModel {
                 }
             }
             this.b = newWriteModel;
-            this.a = cr4Var;
+            this.a = dr4Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.dismiss();
                 this.b.U();
             }
@@ -124,18 +124,18 @@ public class NewWriteModel extends BdBaseModel {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
         public final /* synthetic */ NewWriteModel b;
 
-        public b(NewWriteModel newWriteModel, cr4 cr4Var) {
+        public b(NewWriteModel newWriteModel, dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newWriteModel, cr4Var};
+                Object[] objArr = {newWriteModel, dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -146,13 +146,13 @@ public class NewWriteModel extends BdBaseModel {
                 }
             }
             this.b = newWriteModel;
-            this.a = cr4Var;
+            this.a = dr4Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.dismiss();
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 16).param("obj_type", this.b.b != null ? this.b.b.getType() : -1).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
                 this.b.cancel();
@@ -248,12 +248,12 @@ public class NewWriteModel extends BdBaseModel {
 
     /* loaded from: classes4.dex */
     public interface d {
-        void a(boolean z, String str, fy4 fy4Var, WriteData writeData, AntiData antiData);
+        void a(boolean z, String str, gy4 gy4Var, WriteData writeData, AntiData antiData);
     }
 
     /* loaded from: classes4.dex */
     public interface e {
-        void callback(boolean z, PostWriteCallBackData postWriteCallBackData, fy4 fy4Var, WriteData writeData, AntiData antiData);
+        void callback(boolean z, PostWriteCallBackData postWriteCallBackData, gy4 gy4Var, WriteData writeData, AntiData antiData);
     }
 
     /* loaded from: classes4.dex */
@@ -411,7 +411,7 @@ public class NewWriteModel extends BdBaseModel {
                 if (this.d) {
                     return null;
                 }
-                m45.e(this.g.b.getContent());
+                n45.e(this.g.b.getContent());
                 lk8.a("doInBackground() start");
                 lk8.a("发帖：任务后台执行 开始 doInBackground");
                 ri8 ri8Var = new ri8();
@@ -470,15 +470,15 @@ public class NewWriteModel extends BdBaseModel {
                 this.g.X(pk8Var);
                 this.g.Z(pk8Var);
             } else if (pk8Var.v()) {
-                fy4 fy4Var = new fy4();
-                fy4Var.f(this.c);
-                if (fy4Var.c() == null || this.g.b == null) {
+                gy4 gy4Var = new gy4();
+                gy4Var.f(this.c);
+                if (gy4Var.c() == null || this.g.b == null) {
                     return;
                 }
-                this.g.b.setVcodeMD5(fy4Var.b());
-                this.g.b.setVcodeUrl(fy4Var.c());
+                this.g.b.setVcodeMD5(gy4Var.b());
+                this.g.b.setVcodeUrl(gy4Var.c());
                 NewWriteModel newWriteModel = this.g;
-                newWriteModel.a0(pk8Var, null, fy4Var, newWriteModel.b);
+                newWriteModel.a0(pk8Var, null, gy4Var, newWriteModel.b);
             } else if (pk8Var.t()) {
                 AccessState accessState = new AccessState();
                 accessState.parserJson(this.c);
@@ -529,7 +529,7 @@ public class NewWriteModel extends BdBaseModel {
             String i;
             String h;
             String str;
-            d05 d05Var;
+            e05 e05Var;
             int i2;
             VideoEasterEggData videoEasterEggData;
             String str2;
@@ -560,7 +560,7 @@ public class NewWriteModel extends BdBaseModel {
                     AntiData f = this.a.f();
                     String error_msg = h2.getError_msg();
                     if (oi.isEmpty(error_msg)) {
-                        error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1119);
+                        error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f10d5);
                     }
                     pk8Var = new pk8(h2.getError_code(), error_msg, f);
                     if (this.g.b != null && this.g.b.isHasImages() && !pk8Var.s()) {
@@ -590,11 +590,11 @@ public class NewWriteModel extends BdBaseModel {
                     pk8Var = new pk8(h2.getError_code(), h2.getError_msg(), null);
                     JSONObject jSONObject2 = this.c;
                     if (jSONObject2 != null && (optJSONObject = jSONObject2.optJSONObject("info")) != null) {
-                        iq4 iq4Var = new iq4();
-                        iq4Var.a = optJSONObject.optString("block_content");
-                        iq4Var.b = optJSONObject.optString("block_cancel");
-                        iq4Var.c = optJSONObject.optString("block_confirm");
-                        pk8Var.J(iq4Var);
+                        jq4 jq4Var = new jq4();
+                        jq4Var.a = optJSONObject.optString("block_content");
+                        jq4Var.b = optJSONObject.optString("block_cancel");
+                        jq4Var.c = optJSONObject.optString("block_confirm");
+                        pk8Var.J(jq4Var);
                     }
                     lk8.a("发帖：任务后台执行 开始 doInBackground 失败 2");
                 } else if (h2 != null && h2.error_code != 0) {
@@ -603,13 +603,13 @@ public class NewWriteModel extends BdBaseModel {
                         if (h2.error_code == 3250013) {
                             error_msg2 = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f027f);
                         } else {
-                            error_msg2 = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f110e);
+                            error_msg2 = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f10ca);
                         }
                     }
                     pk8Var = new pk8(h2.getError_code(), error_msg2, this.a.f());
                     lk8.a("发帖：任务后台执行 开始 doInBackground 失败 3");
                 } else {
-                    pk8Var = new pk8(-17, TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0c2b), null);
+                    pk8Var = new pk8(-17, TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0c17), null);
                     lk8.a("发帖：任务后台执行 开始 doInBackground 失败 4");
                 }
                 if (pk8Var.s()) {
@@ -647,10 +647,10 @@ public class NewWriteModel extends BdBaseModel {
                         JSONObject optJSONObject6 = jSONObject3.optJSONObject("advertisement");
                         int i4 = optInt;
                         if (optJSONObject6 != null) {
-                            d05Var = new d05();
-                            d05Var.p(optJSONObject6);
+                            e05Var = new e05();
+                            e05Var.p(optJSONObject6);
                         } else {
-                            d05Var = null;
+                            e05Var = null;
                         }
                         JSONObject optJSONObject7 = jSONObject3.optJSONObject("icon_stamp_info");
                         if (optJSONObject7 != null) {
@@ -672,7 +672,7 @@ public class NewWriteModel extends BdBaseModel {
                         obj = "pid";
                         obj2 = "tid";
                         str = null;
-                        d05Var = null;
+                        e05Var = null;
                         i2 = 0;
                         videoEasterEggData = null;
                         str2 = null;
@@ -686,7 +686,7 @@ public class NewWriteModel extends BdBaseModel {
                         str8 = null;
                     }
                     if (StringUtils.isNull(str4)) {
-                        str4 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1119);
+                        str4 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10d5);
                     }
                     pk8Var.C(str4);
                     pk8Var.I(str6);
@@ -700,7 +700,7 @@ public class NewWriteModel extends BdBaseModel {
                     pk8Var.N(str2);
                     pk8Var.B(contriInfo);
                     pk8Var.M(videoEasterEggData);
-                    pk8Var.z(d05Var);
+                    pk8Var.z(e05Var);
                     pk8Var.F(iconStampData);
                 }
                 lk8.a("doInBackground end");
@@ -709,7 +709,7 @@ public class NewWriteModel extends BdBaseModel {
                 lk8.a("发帖： onPostExecute");
                 this.g.a = null;
                 if (pk8Var.f() != 0) {
-                    mt4.a(AlbumActivityConfig.FROM_WRITE, 0L, 0, "write_result", pk8Var.f(), pk8Var.g(), obj2, pk8Var.p(), obj, pk8Var.l());
+                    nt4.a(AlbumActivityConfig.FROM_WRITE, 0L, 0, "write_result", pk8Var.f(), pk8Var.g(), obj2, pk8Var.p(), obj, pk8Var.l());
                 }
                 if (!this.d) {
                     if (!pk8Var.s()) {
@@ -748,8 +748,8 @@ public class NewWriteModel extends BdBaseModel {
                             postWriteCallBackData.setVideoEasterEggData(pk8Var.q());
                             postWriteCallBackData.setmAdverSegmentData(pk8Var.b());
                             postWriteCallBackData.setIconStampData(pk8Var.j());
-                            fy4 fy4Var = new fy4();
-                            fy4Var.f(this.c);
+                            gy4 gy4Var = new gy4();
+                            gy4Var.f(this.c);
                             if (this.g.b == null || kk8.k().i() == null) {
                                 z = false;
                                 if (this.g.b == null || !this.g.j) {
@@ -794,7 +794,7 @@ public class NewWriteModel extends BdBaseModel {
                                 }
                                 qg.a().postDelayed(new c(this, activityDialog), 1000L);
                             }
-                            this.g.d.callback(true, postWriteCallBackData, fy4Var, this.g.b, pk8Var.c());
+                            this.g.d.callback(true, postWriteCallBackData, gy4Var, this.g.b, pk8Var.c());
                         }
                         if (this.g.b != null && !this.g.b.isWork()) {
                             MessageManager messageManager = MessageManager.getInstance();
@@ -944,9 +944,9 @@ public class NewWriteModel extends BdBaseModel {
         }
     }
 
-    public final void a0(pk8 pk8Var, AccessState accessState, fy4 fy4Var, WriteData writeData) {
+    public final void a0(pk8 pk8Var, AccessState accessState, gy4 gy4Var, WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048583, this, pk8Var, accessState, fy4Var, writeData) == null) || pk8Var == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048583, this, pk8Var, accessState, gy4Var, writeData) == null) || pk8Var == null) {
             return;
         }
         if (this.d != null) {
@@ -954,12 +954,12 @@ public class NewWriteModel extends BdBaseModel {
             postWriteCallBackData.setAccessState(accessState);
             postWriteCallBackData.setSensitiveWords(pk8Var.o());
             postWriteCallBackData.setReplyPrivacyTip(pk8Var.n());
-            this.d.callback(false, postWriteCallBackData, fy4Var, writeData, pk8Var.c());
+            this.d.callback(false, postWriteCallBackData, gy4Var, writeData, pk8Var.c());
             return;
         }
         d dVar = this.c;
         if (dVar != null) {
-            dVar.a(false, pk8Var.g(), fy4Var, writeData, pk8Var.c());
+            dVar.a(false, pk8Var.g(), gy4Var, writeData, pk8Var.c());
         }
     }
 
@@ -1063,8 +1063,8 @@ public class NewWriteModel extends BdBaseModel {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 20).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
                 return false;
             }
-            if (ni.z() && !ni.H() && this.b.getWriteImagesInfo() != null && this.b.getWriteImagesInfo().size() != 0 && this.b.getWriteImagesInfo().isOriginalImg() && !xt4.k().h("original_img_up_tip", false)) {
-                xt4.k().u("original_img_up_tip", true);
+            if (ni.z() && !ni.H() && this.b.getWriteImagesInfo() != null && this.b.getWriteImagesInfo().size() != 0 && this.b.getWriteImagesInfo().isOriginalImg() && !yt4.k().h("original_img_up_tip", false)) {
+                yt4.k().u("original_img_up_tip", true);
                 StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 15);
                 WriteData writeData = this.b;
                 TiebaStatic.log(param.param("obj_type", writeData != null ? writeData.getType() : -1).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
@@ -1073,12 +1073,12 @@ public class NewWriteModel extends BdBaseModel {
                     U();
                     return true;
                 }
-                cr4 cr4Var = new cr4(d9Var.getPageActivity());
-                cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0cff);
-                cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0262, new a(this, cr4Var));
-                cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(this, cr4Var));
-                cr4Var.create(this.f);
-                cr4Var.show();
+                dr4 dr4Var = new dr4(d9Var.getPageActivity());
+                dr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0ceb);
+                dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0262, new a(this, dr4Var));
+                dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(this, dr4Var));
+                dr4Var.create(this.f);
+                dr4Var.show();
             } else {
                 U();
             }

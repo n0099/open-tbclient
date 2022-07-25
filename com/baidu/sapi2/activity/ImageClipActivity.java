@@ -23,6 +23,7 @@ import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
+import com.baidu.sapi2.result.GetCertStatusResult;
 import com.baidu.sapi2.utils.FileUtil;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.views.ClipBoxView;
@@ -289,7 +290,7 @@ public class ImageClipActivity extends Activity {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d04d1);
+            setContentView(R.layout.obfuscated_res_0x7f0d04dc);
             this.e = getIntent().getIntExtra(EXTRA_PARAM_FROM_BUSINESS, 0);
             int intExtra = getIntent().getIntExtra(EXTRA_PARAM_UPLOAD_IMAGE_MAX_SIZE, 512);
             this.f = intExtra;
@@ -297,8 +298,8 @@ public class ImageClipActivity extends Activity {
                 this.f = 512;
             }
             this.f *= 1024;
-            this.h = (ClipBoxView) findViewById(R.id.obfuscated_res_0x7f091bb2);
-            this.i = (ZoomImageView) findViewById(R.id.obfuscated_res_0x7f091bb0);
+            this.h = (ClipBoxView) findViewById(R.id.obfuscated_res_0x7f091b8c);
+            this.i = (ZoomImageView) findViewById(R.id.obfuscated_res_0x7f091b8a);
             if (this.e == 1) {
                 ClipBoxView clipBoxView = this.h;
                 clipBoxView.E = ClipBoxView.G;
@@ -310,7 +311,7 @@ public class ImageClipActivity extends Activity {
                 clipBoxView2.F = false;
             }
             setPendingTransition(R.anim.obfuscated_res_0x7f010112, R.anim.obfuscated_res_0x7f010111, R.anim.obfuscated_res_0x7f010110, R.anim.obfuscated_res_0x7f010113);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091e68);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091e6c);
             Button button2 = (Button) findViewById(R.id.obfuscated_res_0x7f090470);
             if (Build.VERSION.SDK_INT >= 19) {
                 b(getIntent());
@@ -469,7 +470,7 @@ public class ImageClipActivity extends Activity {
                     } else if (l.equals(data.getAuthority())) {
                         str = a(ContentUris.withAppendedId(Uri.parse(n), Long.valueOf(documentId).longValue()), (String) null);
                     } else if (m.equals(data.getAuthority())) {
-                        if ("primary".equalsIgnoreCase(documentId.split(":")[0])) {
+                        if (GetCertStatusResult.VALUE_PRIMARY_REAL_NAME.equalsIgnoreCase(documentId.split(":")[0])) {
                             str = getExternalCacheDir() + "/" + split[1];
                         }
                     }

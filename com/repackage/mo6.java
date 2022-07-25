@@ -231,7 +231,7 @@ public class mo6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, view2, tabItemView) == null) {
             if (this.c == null) {
-                this.c = new MorePopupWindow(activity, this.a, view2, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0811a4), new b(this));
+                this.c = new MorePopupWindow(activity, this.a, view2, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0811a8), new b(this));
             }
             this.c.setOnDismissListener(new c(this, tabItemView));
         }

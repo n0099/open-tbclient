@@ -6,7 +6,15 @@ import android.os.Environment;
 import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
 public final class c {
-    public static boolean a(@NonNull Context context) {
-        return context.getApplicationInfo().targetSdkVersion >= 29 && Build.VERSION.SDK_INT >= 29 && !Environment.isExternalStorageLegacy();
+    public static boolean bQ(@NonNull Context context) {
+        try {
+            if (context.getApplicationInfo().targetSdkVersion >= 29 && Build.VERSION.SDK_INT >= 29) {
+                if (!Environment.isExternalStorageLegacy()) {
+                    return true;
+                }
+            }
+        } catch (Throwable unused) {
+        }
+        return false;
     }
 }

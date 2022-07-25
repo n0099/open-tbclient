@@ -32,17 +32,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunNativeAd2;
-import com.repackage.g15;
+import com.repackage.h15;
 import com.repackage.hr6;
-import com.repackage.hu4;
-import com.repackage.i15;
+import com.repackage.iu4;
+import com.repackage.j15;
 import com.repackage.m27;
 import com.repackage.mi8;
 import com.repackage.nq7;
 import com.repackage.nr6;
 import com.repackage.pi;
 import com.repackage.sg8;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import com.repackage.zq6;
 import java.util.Arrays;
 import java.util.List;
@@ -110,7 +110,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
         public final /* synthetic */ FunAdNativeFrsView c;
 
         /* loaded from: classes3.dex */
-        public class a implements g15 {
+        public class a implements h15 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -133,7 +133,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
                 this.a = bVar;
             }
 
-            @Override // com.repackage.g15
+            @Override // com.repackage.h15
             public void a(List<Bitmap> list) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
@@ -172,7 +172,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.k(this.c.s, this.c.w);
-                i15.g().c(new a(this));
+                j15.g().c(new a(this));
             }
         }
 
@@ -267,19 +267,19 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             super.g(context);
-            this.s = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090be9);
-            this.t = (RoundTbImageView) findViewById(R.id.obfuscated_res_0x7f09212c);
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09212d);
-            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f09212b);
+            this.s = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090be2);
+            this.t = (RoundTbImageView) findViewById(R.id.obfuscated_res_0x7f09212e);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09212f);
+            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f09212d);
             this.w = (FunAdAgreeView) findViewById(R.id.obfuscated_res_0x7f09007f);
-            this.x = findViewById(R.id.obfuscated_res_0x7f091d51);
-            this.A = findViewById(R.id.obfuscated_res_0x7f09203e);
-            this.B = (ImageView) findViewById(R.id.obfuscated_res_0x7f092040);
-            this.C = (TextView) findViewById(R.id.obfuscated_res_0x7f092041);
-            this.y = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d52);
-            this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f091d50);
-            this.D = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091226);
-            this.E = (ImageView) findViewById(R.id.obfuscated_res_0x7f090be7);
+            this.x = findViewById(R.id.obfuscated_res_0x7f091d57);
+            this.A = findViewById(R.id.obfuscated_res_0x7f092042);
+            this.B = (ImageView) findViewById(R.id.obfuscated_res_0x7f092044);
+            this.C = (TextView) findViewById(R.id.obfuscated_res_0x7f092045);
+            this.y = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d58);
+            this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f091d56);
+            this.D = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091202);
+            this.E = (ImageView) findViewById(R.id.obfuscated_res_0x7f090be0);
             this.e.setVisibility(8);
             q(this.t);
             o();
@@ -334,17 +334,17 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.h();
-            ur4.d(this).f(R.color.CAM_X0205);
-            ur4 d = ur4.d(this);
+            vr4.d(this).f(R.color.CAM_X0205);
+            vr4 d = vr4.d(this);
             d.n(R.string.J_X06);
             d.i(R.color.CAM_X0205, R.color.CAM_X0206);
-            ur4.d(this.u).v(R.color.CAM_X0109);
-            ur4.d(this.v).v(R.color.CAM_X0105);
+            vr4.d(this.u).v(R.color.CAM_X0109);
+            vr4.d(this.v).v(R.color.CAM_X0105);
             WebPManager.setPureDrawable(this.E, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-            hu4.a(this.y, R.drawable.obfuscated_res_0x7f0808fb);
-            hu4.a(this.B, R.drawable.obfuscated_res_0x7f0808f7);
-            hu4.e(this.z);
-            hu4.e(this.C);
+            iu4.a(this.y, R.drawable.obfuscated_res_0x7f0808fb);
+            iu4.a(this.B, R.drawable.obfuscated_res_0x7f0808f7);
+            iu4.e(this.z);
+            iu4.e(this.C);
             r(this.y, R.drawable.obfuscated_res_0x7f0808fb);
             r(this.B, R.drawable.obfuscated_res_0x7f0808f7);
             setTextGrayAndUnClickable(this.z);

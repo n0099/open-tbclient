@@ -17,24 +17,72 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public final class d {
-    public static final Map<String, String> a;
+    public static final Map<String, String> amI;
 
     static {
         HashMap hashMap = new HashMap();
-        a = hashMap;
+        amI = hashMap;
         hashMap.put("HUAWEI", "com.huawei.appmarket");
-        a.put("OPPO", "com.oppo.market");
-        a.put("vivo", "com.bbk.appstore");
-        a.put(RomUtils.MANUFACTURER_XIAOMI, "com.xiaomi.market");
-        a.put("OnePlus", "com.oppo.market");
-        a.put("Meizu", "com.meizu.mstore");
-        a.put(ManufacturerUtils.SAMSUNG, "com.sec.android.app.samsungapps");
-        a.put("SMARTISAN", "com.smartisanos.appstore");
-        a.put("Realme", "com.oppo.market");
-        a.put("HONOR", "com.huawei.appmarket");
+        amI.put("OPPO", "com.oppo.market");
+        amI.put("vivo", "com.bbk.appstore");
+        amI.put(RomUtils.MANUFACTURER_XIAOMI, "com.xiaomi.market");
+        amI.put("OnePlus", "com.oppo.market");
+        amI.put("Meizu", "com.meizu.mstore");
+        amI.put(ManufacturerUtils.SAMSUNG, "com.sec.android.app.samsungapps");
+        amI.put("SMARTISAN", "com.smartisanos.appstore");
+        amI.put("Realme", "com.oppo.market");
+        amI.put("HONOR", "com.huawei.appmarket");
     }
 
-    public static boolean a(Context context, String str) {
+    public static boolean a(Context context, String str, AdTemplate adTemplate) {
+        SceneImpl sceneImpl;
+        if (!ap.zQ() || (sceneImpl = adTemplate.mAdScene) == null || sceneImpl.adStyle == 4 || com.kwad.sdk.core.download.kwai.b.s(context, str) != 1) {
+            return false;
+        }
+        adTemplate.mXiaomiAppStoreDetailViewOpen = true;
+        return true;
+    }
+
+    public static boolean a(ResolveInfo resolveInfo) {
+        ActivityInfo activityInfo;
+        return resolveInfo == null || (activityInfo = resolveInfo.activityInfo) == null || TextUtils.isEmpty(activityInfo.packageName);
+    }
+
+    public static boolean dx(String str) {
+        return "OPPO".equals(Build.BRAND) && "com.heytap.market".equals(str);
+    }
+
+    public static boolean e(Context context, String str, String str2) {
+        if (context == null || TextUtils.isEmpty(str)) {
+            return false;
+        }
+        if (ManufacturerUtils.SAMSUNG.equals(Build.BRAND)) {
+            str = "http://apps.samsung.com/appquery/appDetail.as?appId=" + str2;
+        }
+        try {
+            String str3 = amI.get(Build.BRAND);
+            Uri parse = Uri.parse(str);
+            Intent intent = new Intent();
+            intent.setAction("android.intent.action.VIEW");
+            intent.setData(parse);
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(intent, 0)) {
+                if (!a(resolveInfo)) {
+                    String str4 = resolveInfo.activityInfo.packageName;
+                    if (str4.equals(str3) || dx(str4)) {
+                        intent.setComponent(new ComponentName(str4, resolveInfo.activityInfo.name));
+                        context.startActivity(intent);
+                        return true;
+                    }
+                }
+            }
+            return v(context, str);
+        } catch (Exception unused) {
+            return v(context, str);
+        }
+    }
+
+    public static boolean v(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -47,50 +95,5 @@ public final class d {
             e.printStackTrace();
             return false;
         }
-    }
-
-    public static boolean a(Context context, String str, AdTemplate adTemplate) {
-        SceneImpl sceneImpl;
-        if (!am.b() || (sceneImpl = adTemplate.mAdScene) == null || sceneImpl.adStyle == 4 || com.kwad.sdk.core.download.kwai.b.a(context, str) != 1) {
-            return false;
-        }
-        adTemplate.mXiaomiAppStoreDetailViewOpen = true;
-        return true;
-    }
-
-    public static boolean a(Context context, String str, String str2) {
-        if (context == null || TextUtils.isEmpty(str)) {
-            return false;
-        }
-        if (ManufacturerUtils.SAMSUNG.equals(Build.BRAND)) {
-            str = "http://apps.samsung.com/appquery/appDetail.as?appId=" + str2;
-        }
-        try {
-            String str3 = a.get(Build.BRAND);
-            Intent parseUri = Intent.parseUri(str, 1);
-            parseUri.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(parseUri, 0)) {
-                if (!a(resolveInfo)) {
-                    String str4 = resolveInfo.activityInfo.packageName;
-                    if (str4.equals(str3) || a(str4)) {
-                        parseUri.setComponent(new ComponentName(str4, resolveInfo.activityInfo.name));
-                        context.startActivity(parseUri);
-                        return true;
-                    }
-                }
-            }
-            return a(context, str);
-        } catch (Exception unused) {
-            return a(context, str);
-        }
-    }
-
-    public static boolean a(ResolveInfo resolveInfo) {
-        ActivityInfo activityInfo;
-        return resolveInfo == null || (activityInfo = resolveInfo.activityInfo) == null || TextUtils.isEmpty(activityInfo.packageName);
-    }
-
-    public static boolean a(String str) {
-        return "OPPO".equals(Build.BRAND) && "com.heytap.market".equals(str);
     }
 }

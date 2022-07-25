@@ -1,15 +1,23 @@
 package com.repackage;
-
-import android.view.View;
 /* loaded from: classes7.dex */
 public interface xv4 {
-    void a(View view2);
+    int getFansNum();
 
-    void b(View.OnClickListener onClickListener);
+    boolean getIsLike();
 
-    void c(boolean z, int i, boolean z2);
+    int getLikeStatus();
 
-    void d(int i);
+    String getPortrait();
 
-    void e(boolean z, int i);
+    String getUserId();
+
+    boolean isGod();
+
+    void setFansNum(int i);
+
+    void setIsFromNetWork(boolean z);
+
+    void setIsLike(boolean z);
+
+    void setLikeStatus(int i);
 }

@@ -9,9 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public class xr1 extends ur1 {
+public class xr1 extends vr1 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +28,7 @@ public class xr1 extends ur1 {
                 return;
             }
         }
-        b = rg1.a;
+        b = sg1.a;
     }
 
     public xr1() {
@@ -46,15 +45,15 @@ public class xr1 extends ur1 {
         }
     }
 
-    @Override // com.repackage.vr1
+    @Override // com.repackage.wr1
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             for (BasePendingOperation basePendingOperation : this.a) {
                 if (b) {
-                    Log.d("NetworkOperation", "       *************** 【Execute pending module】:" + basePendingOperation.b() + " params:" + basePendingOperation.c());
+                    Log.d("MainThreadOperation", "  *************** 【Execute pending module】:" + basePendingOperation.b() + " params:" + basePendingOperation.c());
                 }
-                bd3.c(basePendingOperation, "operation_request", 100L, TimeUnit.MILLISECONDS);
+                ce3.e0(basePendingOperation);
             }
             this.a.clear();
         }

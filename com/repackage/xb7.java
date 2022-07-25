@@ -135,16 +135,16 @@ public class xb7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d003e);
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f092441);
-            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f091e32);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091db7);
-            this.e = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f092439);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091e4a);
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f092443);
+            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f091e38);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091dbd);
+            this.e = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f09243b);
+            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091e4e);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 this.c.getLayoutParams().height = UtilHelper.getStatusBarHeight();
             }
             l(0, 0);
-            this.g = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f0912dd);
+            this.g = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f0912b9);
             sb7 sb7Var = new sb7(this.a.getPageContext().getPageActivity());
             this.h = sb7Var;
             sb7Var.b(this.m);
@@ -209,7 +209,7 @@ public class xb7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
             this.f.setEnabled(i > 0);
-            this.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1202, new Object[]{Integer.valueOf(i), Integer.valueOf(i2)}));
+            this.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f11b1, new Object[]{Integer.valueOf(i), Integer.valueOf(i2)}));
             this.f.setOnClickListener(i > 0 ? this.j : null);
         }
     }

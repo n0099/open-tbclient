@@ -26,8 +26,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.h9;
 import com.repackage.pi;
-import com.repackage.rq4;
-import com.repackage.tq4;
+import com.repackage.sq4;
+import com.repackage.uq4;
 import com.repackage.xh8;
 /* loaded from: classes3.dex */
 public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
@@ -43,8 +43,8 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
     public TextView h;
     public View i;
     public TextView j;
-    public rq4 k;
-    public tq4 l;
+    public sq4 k;
+    public uq4 l;
     public ImageView m;
     public View n;
     public int o;
@@ -114,33 +114,33 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         this.o = 3;
         this.p = new a(this);
         this.a = tbPageContext;
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922d8);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922d7);
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092137);
+        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922da);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922d9);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092139);
         this.d = tbImageView;
         tbImageView.setPageId(bdUniqueId);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092133);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092134);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092130);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092136);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f0922d9);
-        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915de);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092135);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092136);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092132);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092138);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f0922db);
+        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915b9);
         this.m = imageView;
         imageView.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.icon_frs_news));
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915df);
-        this.n = view2.findViewById(R.id.obfuscated_res_0x7f090b56);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915ba);
+        this.n = view2.findViewById(R.id.obfuscated_res_0x7f090b4f);
         SkinManager.setBackgroundResource(this.h, R.drawable.frs_star_btn_like);
         SkinManager.setViewTextColor(this.h, (int) R.drawable.frs_text_color_selector);
-        j();
+        i();
     }
 
-    public void h(xh8 xh8Var) {
+    public void g(xh8 xh8Var) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, xh8Var) == null) || xh8Var == null) {
             return;
         }
-        rq4 c = xh8Var.c();
-        tq4 d = xh8Var.d();
+        sq4 c = xh8Var.c();
+        uq4 d = xh8Var.d();
         this.k = c;
         this.l = d;
         if (xh8Var.g()) {
@@ -148,11 +148,11 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         } else {
             this.n.setVisibility(8);
         }
-        rq4 rq4Var = this.k;
-        if (rq4Var == null) {
+        sq4 sq4Var = this.k;
+        if (sq4Var == null) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
-        } else if (StringUtils.isNull(rq4Var.g())) {
+        } else if (StringUtils.isNull(sq4Var.g())) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
         } else {
@@ -175,7 +175,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
                 if (StringUtils.isNull(this.k.h())) {
                     this.f.setVisibility(8);
                 } else {
-                    String str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14a2) + this.k.h();
+                    String str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1451) + this.k.h();
                     SpannableString spannableString = new SpannableString(str);
                     UtilHelper.setSpan(spannableString, str, this.k.h(), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
                     this.f.setText(spannableString);
@@ -184,7 +184,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
                 if (c.d() <= 0) {
                     this.g.setVisibility(8);
                 } else {
-                    String str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14a3) + this.k.d();
+                    String str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1452) + this.k.d();
                     SpannableString spannableString2 = new SpannableString(str2);
                     UtilHelper.setSpan(spannableString2, str2, String.valueOf(this.k.d()), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
                     this.g.setText(spannableString2);
@@ -200,7 +200,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         this.c.setVisibility(8);
     }
 
-    public void i(int i) {
+    public void h(int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.o == i) {
             return;
@@ -209,11 +209,11 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         SkinManager.setBackgroundResource(this.h, R.drawable.frs_star_btn_like);
         SkinManager.setViewTextColor(this.h, (int) R.drawable.frs_text_color_selector);
         this.a.getLayoutMode().k(i == 1);
-        this.a.getLayoutMode().j(b());
+        this.a.getLayoutMode().j(a());
         this.o = i;
     }
 
-    public void j() {
+    public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.b.setOnClickListener(this.p);

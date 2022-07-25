@@ -93,7 +93,7 @@ public class zs6 extends an<uy5, CardViewHolder<sx5>> implements ck5 {
             statisticItem2.param("obj_type", 5);
             statisticItem2.param("tid", uy5Var.getThreadData().getTid());
             statisticItem2.param("nid", uy5Var.getThreadData().getNid());
-            p85 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view2);
+            q85 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view2);
             if (findPageExtraByView != null) {
                 statisticItem2.param(TiebaStatic.Params.OBJ_CUR_PAGE, findPageExtraByView.a());
             }
@@ -153,7 +153,7 @@ public class zs6 extends an<uy5, CardViewHolder<sx5>> implements ck5 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uy5Var, cardViewHolder})) == null) {
-            if (uy5Var == null || cardViewHolder == null || cardViewHolder.c() == null) {
+            if (uy5Var == null || cardViewHolder == null || cardViewHolder.b() == null) {
                 return null;
             }
             uy5Var.I(i + 1);
@@ -167,11 +167,11 @@ public class zs6 extends an<uy5, CardViewHolder<sx5>> implements ck5 {
                 Z.param(TiebaStatic.Params.OBJ_PARAM3, i2);
             }
             cy5.b().a(Z);
-            if (cardViewHolder.c() instanceof bk5) {
-                cardViewHolder.c().b(this.l);
+            if (cardViewHolder.b() instanceof bk5) {
+                cardViewHolder.b().b(this.l);
             }
-            cardViewHolder.c().i(uy5Var);
-            cardViewHolder.c().n(this.m);
+            cardViewHolder.b().i(uy5Var);
+            cardViewHolder.b().n(this.m);
             if (uy5Var.getThreadData() != null) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CONCERN_YY_LIVE_AVATER_SHOW);
                 statisticItem.param("fid", uy5Var.getThreadData().getFid());
@@ -189,7 +189,7 @@ public class zs6 extends an<uy5, CardViewHolder<sx5>> implements ck5 {
                 }
                 TiebaStatic.log(statisticItem);
             }
-            return cardViewHolder.b();
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

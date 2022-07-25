@@ -255,7 +255,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
             }
         }
         LOG_TAG = MaterialButtonToggleGroup.class.getSimpleName();
-        DEF_STYLE_RES = R.style.obfuscated_res_0x7f100361;
+        DEF_STYLE_RES = R.style.obfuscated_res_0x7f100364;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -885,7 +885,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
             }
         };
         this.skipCheckedStateTracker = false;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.obfuscated_res_0x7f040129, R.attr.obfuscated_res_0x7f040585, R.attr.obfuscated_res_0x7f0405a5}, i, DEF_STYLE_RES, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.obfuscated_res_0x7f040129, R.attr.obfuscated_res_0x7f040587, R.attr.obfuscated_res_0x7f0405a7}, i, DEF_STYLE_RES, new int[0]);
         setSingleSelection(obtainStyledAttributes.getBoolean(2, false));
         this.checkedId = obtainStyledAttributes.getResourceId(0, -1);
         this.selectionRequired = obtainStyledAttributes.getBoolean(1, false);

@@ -23,13 +23,13 @@ public class yl5 extends dc1<yg0> {
 
         /* renamed from: com.repackage.yl5$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0784a implements bh0 {
+        public class C0631a implements bh0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ boolean[] a;
             public final /* synthetic */ zg0 b;
 
-            public C0784a(a aVar, boolean[] zArr, zg0 zg0Var) {
+            public C0631a(a aVar, boolean[] zArr, zg0 zg0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +84,7 @@ public class yl5 extends dc1<yg0> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, map, zg0Var)) == null) {
                 Log.e("CMDConfig", "host invoke command = " + str);
-                dh0.a(context, str, null, new C0784a(this, new boolean[1], zg0Var), false);
+                dh0.a(context, str, null, new C0631a(this, new boolean[1], zg0Var), false);
                 return true;
             }
             return invokeLLLL.booleanValue;

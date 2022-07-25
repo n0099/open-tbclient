@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cy;
 import com.repackage.ny;
 /* loaded from: classes6.dex */
-public class oh6 extends cd6<qq4, ThreadCardViewHolder<ThreadData>> implements hy5, go6, ck5 {
+public class oh6 extends cd6<rq4, ThreadCardViewHolder<ThreadData>> implements hy5, go6, ck5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String t;
@@ -74,42 +74,42 @@ public class oh6 extends cd6<qq4, ThreadCardViewHolder<ThreadData>> implements h
             if ("c13010".equals(this.b.u)) {
                 TiebaStatic.log(new StatisticItem("c13010").param("obj_type", 1).param("fid", threadData.getFid()).param("tid", threadData.getTid()));
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f09232d && view2.getId() != R.id.obfuscated_res_0x7f09230c) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f09203e) {
-                    do6.e(threadData, 5, this.b.e, go6.f0, this.b.a0());
+            if (view2.getId() != R.id.obfuscated_res_0x7f09232f && view2.getId() != R.id.obfuscated_res_0x7f09230e) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f092042) {
+                    do6.e(threadData, 5, this.b.e, go6.p0, this.b.a0());
                     pp6.g(threadData, this.b.j, 1);
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f091d51) {
-                    do6.e(threadData, 14, this.b.e, go6.f0, this.b.a0());
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f091d57) {
+                    do6.e(threadData, 14, this.b.e, go6.p0, this.b.a0());
                 } else if (view2 instanceof TbImageView) {
                     if (this.b.x.a instanceof Boolean) {
                         if (((Boolean) this.b.x.a).booleanValue()) {
-                            do6.e(threadData, 1, this.b.e, go6.f0, this.b.a0());
+                            do6.e(threadData, 1, this.b.e, go6.p0, this.b.a0());
                         } else {
-                            do6.e(threadData, 3, this.b.e, go6.f0, this.b.a0());
+                            do6.e(threadData, 3, this.b.e, go6.p0, this.b.a0());
                         }
                     }
                     pp6.g(threadData, this.b.j, 2);
                 } else if (view2 instanceof ThreadGodReplyLayout) {
-                    do6.e(threadData, 15, this.b.e, go6.f0, this.b.a0());
+                    do6.e(threadData, 15, this.b.e, go6.p0, this.b.a0());
                     pp6.g(threadData, this.b.j, 1);
                 } else {
-                    do6.e(threadData, 1, this.b.e, go6.f0, this.b.a0());
+                    do6.e(threadData, 1, this.b.e, go6.p0, this.b.a0());
                     pp6.g(threadData, this.b.j, 1);
                 }
             } else {
-                do6.e(threadData, 2, this.b.e, go6.f0, this.b.a0());
+                do6.e(threadData, 2, this.b.e, go6.p0, this.b.a0());
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f09232d && view2.getId() != R.id.obfuscated_res_0x7f09230c) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f09232f && view2.getId() != R.id.obfuscated_res_0x7f09230e) {
                 if (view2.getId() == R.id.obfuscated_res_0x7f0904d8) {
-                    pp6.a(go6.f0, threadData.getRecomReason());
+                    pp6.a(go6.p0, threadData.getRecomReason());
                     return;
                 } else if (view2 instanceof TbImageView) {
                     if (this.b.x.a instanceof Boolean) {
                         if (((Boolean) this.b.x.a).booleanValue()) {
-                            fo6.k().h(go6.f0, threadData, 1);
+                            fo6.k().h(go6.p0, threadData, 1);
                             return;
                         } else {
-                            fo6.k().h(go6.f0, threadData, 3);
+                            fo6.k().h(go6.p0, threadData, 3);
                             return;
                         }
                     }
@@ -117,22 +117,22 @@ public class oh6 extends cd6<qq4, ThreadCardViewHolder<ThreadData>> implements h
                 } else if (view2.getId() == R.id.obfuscated_res_0x7f090521) {
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 3));
                     return;
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f09202c) {
-                    fo6.k().h(go6.f0, threadData, 5);
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f092030) {
+                    fo6.k().h(go6.p0, threadData, 5);
                     return;
                 } else if (view2 instanceof ThreadGodReplyLayout) {
                     int i = 6;
                     if (threadData.getTopAgreePost() != null && threadData.getTopAgreePost().Q() != null && threadData.getTopAgreePost().Q().C() != null && threadData.getTopAgreePost().Q().C().size() > 0) {
                         i = threadData.getTopAgreePost().L ? 9 : 8;
                     }
-                    fo6.k().h(go6.f0, threadData, i);
+                    fo6.k().h(go6.p0, threadData, i);
                     return;
                 } else {
-                    fo6.k().h(go6.f0, threadData, 1);
+                    fo6.k().h(go6.p0, threadData, 1);
                     return;
                 }
             }
-            fo6.k().h(go6.f0, threadData, 2);
+            fo6.k().h(go6.p0, threadData, 2);
         }
     }
 
@@ -163,15 +163,15 @@ public class oh6 extends cd6<qq4, ThreadCardViewHolder<ThreadData>> implements h
         @Override // com.repackage.xn
         public void b(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (nnVar instanceof qq4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (nnVar instanceof rq4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                ThreadData threadData = ((qq4) nnVar).s;
+                ThreadData threadData = ((rq4) nnVar).s;
                 threadData.objType = 1;
                 if (this.a.x != null) {
-                    this.a.x.a(threadCardViewHolder.b(), threadData);
+                    this.a.x.a(threadCardViewHolder.a(), threadData);
                 }
-                ThreadCardUtils.jumpToPB((nn4) threadData, view2.getContext(), 3, false);
-                threadCardViewHolder.c().o(new ny.a(1));
+                ThreadCardUtils.jumpToPB((on4) threadData, view2.getContext(), 3, false);
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -221,8 +221,8 @@ public class oh6 extends cd6<qq4, ThreadCardViewHolder<ThreadData>> implements h
             cy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.m);
             k.r(3);
             ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.k(this.e);
-            threadCardViewHolder.p(false);
+            threadCardViewHolder.j(this.e);
+            threadCardViewHolder.o(false);
             V(new b(this));
             return threadCardViewHolder;
         }
@@ -232,26 +232,26 @@ public class oh6 extends cd6<qq4, ThreadCardViewHolder<ThreadData>> implements h
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.cd6, com.repackage.an
     /* renamed from: B0 */
-    public View S(int i, View view2, ViewGroup viewGroup, qq4 qq4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, rq4 rq4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qq4Var, threadCardViewHolder})) == null) {
-            super.S(i, view2, viewGroup, qq4Var, threadCardViewHolder);
-            if (qq4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rq4Var, threadCardViewHolder})) == null) {
+            super.S(i, view2, viewGroup, rq4Var, threadCardViewHolder);
+            if (rq4Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null) {
                 return null;
             }
-            threadCardViewHolder.c().b(this.t);
-            threadCardViewHolder.c().q(i);
-            bd6.i(threadCardViewHolder.c().f(), this.j);
+            threadCardViewHolder.b().b(this.t);
+            threadCardViewHolder.b().q(i);
+            bd6.i(threadCardViewHolder.b().f(), this.j);
             FrsViewData frsViewData = this.j;
             if (frsViewData != null && frsViewData.getForum() != null && !StringUtils.isNull(this.j.getForum().getTopic_special_icon()) && !StringUtils.isNull(this.j.getForum().getTopic_special_icon_right())) {
-                qq4Var.s.setSpecUrl(this.j.getForum().getTopic_special_icon(), this.j.getForum().getTopic_special_icon_right());
+                rq4Var.s.setSpecUrl(this.j.getForum().getTopic_special_icon(), this.j.getForum().getTopic_special_icon_right());
             }
-            threadCardViewHolder.g(qq4Var.s);
-            threadCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.x);
-            qq4Var.s.updateShowStatus();
-            return threadCardViewHolder.b();
+            threadCardViewHolder.f(rq4Var.s);
+            threadCardViewHolder.b().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().p(this.x);
+            rq4Var.s.updateShowStatus();
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }
@@ -275,7 +275,7 @@ public class oh6 extends cd6<qq4, ThreadCardViewHolder<ThreadData>> implements h
     public eo6 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? go6.f0 : (eo6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? go6.p0 : (eo6) invokeV.objValue;
     }
 
     @Override // com.repackage.hy5

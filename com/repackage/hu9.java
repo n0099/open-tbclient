@@ -35,38 +35,38 @@ public abstract class hu9<E> extends AbstractQueue<E> {
         this.b = new AtomicReference<>();
     }
 
-    public final LinkedQueueNode<E> b() {
+    public final LinkedQueueNode<E> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.get() : (LinkedQueueNode) invokeV.objValue;
     }
 
-    public final LinkedQueueNode<E> c() {
+    public final LinkedQueueNode<E> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.get() : (LinkedQueueNode) invokeV.objValue;
     }
 
-    public final LinkedQueueNode<E> d() {
+    public final LinkedQueueNode<E> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.get() : (LinkedQueueNode) invokeV.objValue;
     }
 
-    public final LinkedQueueNode<E> e() {
+    public final LinkedQueueNode<E> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.get() : (LinkedQueueNode) invokeV.objValue;
     }
 
-    public final void f(LinkedQueueNode<E> linkedQueueNode) {
+    public final void e(LinkedQueueNode<E> linkedQueueNode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, linkedQueueNode) == null) {
             this.b.lazySet(linkedQueueNode);
         }
     }
 
-    public final void g(LinkedQueueNode<E> linkedQueueNode) {
+    public final void f(LinkedQueueNode<E> linkedQueueNode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, linkedQueueNode) == null) {
             this.a.lazySet(linkedQueueNode);
@@ -77,7 +77,7 @@ public abstract class hu9<E> extends AbstractQueue<E> {
     public final boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? d() == e() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? c() == d() : invokeV.booleanValue;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
@@ -96,15 +96,15 @@ public abstract class hu9<E> extends AbstractQueue<E> {
         LinkedQueueNode<E> lvNext;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            LinkedQueueNode<E> c = c();
             LinkedQueueNode<E> d = d();
-            LinkedQueueNode<E> e = e();
             int i = 0;
-            while (d != e && i < Integer.MAX_VALUE) {
+            while (c != d && i < Integer.MAX_VALUE) {
                 do {
-                    lvNext = d.lvNext();
+                    lvNext = c.lvNext();
                 } while (lvNext == null);
                 i++;
-                d = lvNext;
+                c = lvNext;
             }
             return i;
         }

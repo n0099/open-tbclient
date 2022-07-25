@@ -57,7 +57,7 @@ public class ot5 extends BaseAdapter {
                 }
             }
             this.a = view2;
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eac);
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ea5);
             this.c = (AlaCardBottomUserInfoLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901be);
             this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901c0);
             this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901bf);

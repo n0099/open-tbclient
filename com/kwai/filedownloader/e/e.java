@@ -15,18 +15,18 @@ import java.util.Properties;
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final long b;
-    public final boolean c;
-    public final boolean d;
-    public final int e;
-    public final boolean f;
-    public final boolean g;
+    public final int awM;
+    public final long awN;
+    public final boolean awO;
+    public final boolean awP;
+    public final int awQ;
+    public final boolean awR;
+    public final boolean awS;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final e a;
+        public static final e awT;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,7 +42,7 @@ public class e {
                     return;
                 }
             }
-            a = new e((byte) 0);
+            awT = new e((byte) 0);
         }
     }
 
@@ -99,13 +99,13 @@ public class e {
                 return;
             }
         }
-        if (c.a() == null) {
+        if (c.EJ() == null) {
             throw new IllegalStateException("Please invoke the 'FileDownloader#setup' before using FileDownloader. If you want to register some components on FileDownloader please invoke the 'FileDownloader#setupOnApplicationOnCreate' on the 'Application#onCreate' first.");
         }
         long currentTimeMillis = System.currentTimeMillis();
         Properties properties = new Properties();
         try {
-            inputStream2 = c.a().getAssets().open("filedownloader.properties");
+            inputStream2 = c.EJ().getAssets().open("filedownloader.properties");
             if (inputStream2 != null) {
                 try {
                     try {
@@ -114,7 +114,7 @@ public class e {
                     } catch (Throwable th) {
                         th = th;
                         inputStream = inputStream2;
-                        com.kwad.sdk.crash.utils.b.a(inputStream);
+                        com.kwad.sdk.crash.utils.b.closeQuietly(inputStream);
                         throw th;
                     }
                 } catch (IOException e) {
@@ -126,25 +126,25 @@ public class e {
                     str5 = null;
                     if (e instanceof FileNotFoundException) {
                     }
-                    com.kwad.sdk.crash.utils.b.a(inputStream2);
+                    com.kwad.sdk.crash.utils.b.closeQuietly(inputStream2);
                     str6 = str;
                     str7 = str5;
                     str8 = null;
                     if (str6 == null) {
                     }
-                    this.d = true;
+                    this.awP = true;
                     if (str2 != null) {
                     }
                     if (str3 != null) {
                     }
-                    this.b = j2;
+                    this.awN = j2;
                     if (str4 != null) {
                     }
                     if (str7 == null) {
                     }
                     if (str8 == null) {
                     }
-                    if (d.a) {
+                    if (d.awL) {
                     }
                 }
                 try {
@@ -157,25 +157,25 @@ public class e {
                     str5 = null;
                     if (e instanceof FileNotFoundException) {
                     }
-                    com.kwad.sdk.crash.utils.b.a(inputStream2);
+                    com.kwad.sdk.crash.utils.b.closeQuietly(inputStream2);
                     str6 = str;
                     str7 = str5;
                     str8 = null;
                     if (str6 == null) {
                     }
-                    this.d = true;
+                    this.awP = true;
                     if (str2 != null) {
                     }
                     if (str3 != null) {
                     }
-                    this.b = j2;
+                    this.awN = j2;
                     if (str4 != null) {
                     }
                     if (str7 == null) {
                     }
                     if (str8 == null) {
                     }
-                    if (d.a) {
+                    if (d.awL) {
                     }
                 }
                 try {
@@ -188,28 +188,28 @@ public class e {
                         str5 = null;
                         if (e instanceof FileNotFoundException) {
                             e.printStackTrace();
-                        } else if (d.a) {
-                            d.c(e.class, "not found filedownloader.properties", new Object[0]);
+                        } else if (d.awL) {
+                            d.e(e.class, "not found filedownloader.properties", new Object[0]);
                         }
-                        com.kwad.sdk.crash.utils.b.a(inputStream2);
+                        com.kwad.sdk.crash.utils.b.closeQuietly(inputStream2);
                         str6 = str;
                         str7 = str5;
                         str8 = null;
                         if (str6 == null) {
                         }
-                        this.d = true;
+                        this.awP = true;
                         if (str2 != null) {
                         }
                         if (str3 != null) {
                         }
-                        this.b = j2;
+                        this.awN = j2;
                         if (str4 != null) {
                         }
                         if (str7 == null) {
                         }
                         if (str8 == null) {
                         }
-                        if (d.a) {
+                        if (d.awL) {
                         }
                     }
                     try {
@@ -219,25 +219,25 @@ public class e {
                         str5 = null;
                         if (e instanceof FileNotFoundException) {
                         }
-                        com.kwad.sdk.crash.utils.b.a(inputStream2);
+                        com.kwad.sdk.crash.utils.b.closeQuietly(inputStream2);
                         str6 = str;
                         str7 = str5;
                         str8 = null;
                         if (str6 == null) {
                         }
-                        this.d = true;
+                        this.awP = true;
                         if (str2 != null) {
                         }
                         if (str3 != null) {
                         }
-                        this.b = j2;
+                        this.awN = j2;
                         if (str4 != null) {
                         }
                         if (str7 == null) {
                         }
                         if (str8 == null) {
                         }
-                        if (d.a) {
+                        if (d.awL) {
                         }
                     }
                     try {
@@ -247,25 +247,25 @@ public class e {
                         e = e5;
                         if (e instanceof FileNotFoundException) {
                         }
-                        com.kwad.sdk.crash.utils.b.a(inputStream2);
+                        com.kwad.sdk.crash.utils.b.closeQuietly(inputStream2);
                         str6 = str;
                         str7 = str5;
                         str8 = null;
                         if (str6 == null) {
                         }
-                        this.d = true;
+                        this.awP = true;
                         if (str2 != null) {
                         }
                         if (str3 != null) {
                         }
-                        this.b = j2;
+                        this.awN = j2;
                         if (str4 != null) {
                         }
                         if (str7 == null) {
                         }
                         if (str8 == null) {
                         }
-                        if (d.a) {
+                        if (d.awL) {
                         }
                     }
                 } catch (IOException e6) {
@@ -275,25 +275,25 @@ public class e {
                     str5 = null;
                     if (e instanceof FileNotFoundException) {
                     }
-                    com.kwad.sdk.crash.utils.b.a(inputStream2);
+                    com.kwad.sdk.crash.utils.b.closeQuietly(inputStream2);
                     str6 = str;
                     str7 = str5;
                     str8 = null;
                     if (str6 == null) {
                     }
-                    this.d = true;
+                    this.awP = true;
                     if (str2 != null) {
                     }
                     if (str3 != null) {
                     }
-                    this.b = j2;
+                    this.awN = j2;
                     if (str4 != null) {
                     }
                     if (str7 == null) {
                     }
                     if (str8 == null) {
                     }
-                    if (d.a) {
+                    if (d.awL) {
                     }
                 }
             } else {
@@ -304,7 +304,7 @@ public class e {
                 str4 = null;
                 str5 = null;
             }
-            com.kwad.sdk.crash.utils.b.a(inputStream2);
+            com.kwad.sdk.crash.utils.b.closeQuietly(inputStream2);
             str7 = str5;
         } catch (IOException e7) {
             e = e7;
@@ -316,19 +316,19 @@ public class e {
         if (str6 == null) {
             obj = "download.max-network-thread-count";
             i = 0;
-            this.c = false;
+            this.awO = false;
         } else if (!str6.equals("true") && !str6.equals("false")) {
-            throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", "http.lenient", "true", "false"));
+            throw new IllegalStateException(f.h("the value of '%s' must be '%s' or '%s'", "http.lenient", "true", "false"));
         } else {
             obj = "download.max-network-thread-count";
             i = 0;
-            this.c = str6.equals("true");
+            this.awO = str6.equals("true");
         }
-        this.d = true;
+        this.awP = true;
         if (str2 != null) {
-            this.a = Math.max(i, Integer.valueOf(str2).intValue());
+            this.awM = Math.max(i, Integer.valueOf(str2).intValue());
         } else {
-            this.a = 65536;
+            this.awM = 65536;
         }
         if (str3 != null) {
             obj2 = "download.min-progress-time";
@@ -341,52 +341,52 @@ public class e {
             obj3 = "http.lenient";
             j2 = 2000;
         }
-        this.b = j2;
+        this.awN = j2;
         if (str4 != null) {
-            this.e = a(Integer.valueOf(str4).intValue());
+            this.awQ = cE(Integer.valueOf(str4).intValue());
             i2 = 3;
         } else {
             i2 = 3;
-            this.e = 3;
+            this.awQ = 3;
         }
         if (str7 == null) {
             r6 = 0;
-            this.f = false;
+            this.awR = false;
         } else if (!str7.equals("true") && !str7.equals("false")) {
             Object[] objArr = new Object[i2];
             objArr[0] = "file.non-pre-allocation";
             objArr[1] = "true";
             objArr[2] = "false";
-            throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", objArr));
+            throw new IllegalStateException(f.h("the value of '%s' must be '%s' or '%s'", objArr));
         } else {
             r6 = 0;
-            this.f = str7.equals("true");
+            this.awR = str7.equals("true");
         }
         if (str8 == null) {
-            this.g = r6;
+            this.awS = r6;
         } else if (!str8.equals("true") && !str8.equals("false")) {
             Object[] objArr2 = new Object[3];
             objArr2[r6] = "broadcast.completed";
             objArr2[1] = "true";
             objArr2[2] = "false";
-            throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", objArr2));
+            throw new IllegalStateException(f.h("the value of '%s' must be '%s' or '%s'", objArr2));
         } else {
-            this.g = str8.equals("true");
+            this.awS = str8.equals("true");
         }
-        if (d.a) {
+        if (d.awL) {
             Object[] objArr3 = new Object[11];
             objArr3[r6] = Long.valueOf(System.currentTimeMillis() - j);
             objArr3[1] = obj3;
-            objArr3[2] = Boolean.valueOf(this.c);
+            objArr3[2] = Boolean.valueOf(this.awO);
             objArr3[3] = "process.non-separate";
-            objArr3[4] = Boolean.valueOf(this.d);
+            objArr3[4] = Boolean.valueOf(this.awP);
             objArr3[5] = "download.min-progress-step";
-            objArr3[6] = Integer.valueOf(this.a);
+            objArr3[6] = Integer.valueOf(this.awM);
             objArr3[7] = obj2;
-            objArr3[8] = Long.valueOf(this.b);
+            objArr3[8] = Long.valueOf(this.awN);
             objArr3[9] = obj;
-            objArr3[10] = Integer.valueOf(this.e);
-            d.b(e.class, "init properties %d\n load properties: %s=%B; %s=%B; %s=%d; %s=%d; %s=%d", objArr3);
+            objArr3[10] = Integer.valueOf(this.awQ);
+            d.d(e.class, "init properties %d\n load properties: %s=%B; %s=%B; %s=%d; %s=%d; %s=%d", objArr3);
         }
     }
 
@@ -394,26 +394,26 @@ public class e {
         this();
     }
 
-    public static int a(int i) {
+    public static e EL() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.awT : (e) invokeV.objValue;
+    }
+
+    public static int cE(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
             if (i > 12) {
-                d.d(e.class, "require the count of network thread  is %d, what is more than the max valid count(%d), so adjust to %d auto", Integer.valueOf(i), 12, 12);
+                d.f(e.class, "require the count of network thread  is %d, what is more than the max valid count(%d), so adjust to %d auto", Integer.valueOf(i), 12, 12);
                 return 12;
             } else if (i <= 0) {
-                d.d(e.class, "require the count of network thread  is %d, what is less than the min valid count(%d), so adjust to %d auto", Integer.valueOf(i), 1, 1);
+                d.f(e.class, "require the count of network thread  is %d, what is less than the min valid count(%d), so adjust to %d auto", Integer.valueOf(i), 1, 1);
                 return 1;
             } else {
                 return i;
             }
         }
         return invokeI.intValue;
-    }
-
-    public static e a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.a : (e) invokeV.objValue;
     }
 }

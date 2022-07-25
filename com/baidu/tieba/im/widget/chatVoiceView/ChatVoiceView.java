@@ -38,12 +38,12 @@ import com.repackage.d67;
 import com.repackage.de5;
 import com.repackage.f67;
 import com.repackage.he5;
-import com.repackage.j65;
-import com.repackage.jd5;
+import com.repackage.k65;
+import com.repackage.kd5;
 import com.repackage.l77;
 import com.repackage.pi;
 import com.repackage.u57;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.OnClickListener {
@@ -96,7 +96,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
     }
 
     /* loaded from: classes3.dex */
-    public class b implements jd5<Boolean> {
+    public class b implements kd5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatVoiceView a;
@@ -120,7 +120,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -169,7 +169,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
     }
 
     /* loaded from: classes3.dex */
-    public class d implements jd5<Boolean> {
+    public class d implements kd5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatVoiceView a;
@@ -193,7 +193,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -242,7 +242,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
     }
 
     /* loaded from: classes3.dex */
-    public class f implements jd5<Boolean> {
+    public class f implements kd5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatVoiceView a;
@@ -266,7 +266,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -315,7 +315,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
     }
 
     /* loaded from: classes3.dex */
-    public class h implements jd5<Boolean> {
+    public class h implements kd5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatVoiceView a;
@@ -339,7 +339,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -370,7 +370,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         this.b = null;
         this.c = null;
         this.d = null;
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08c4, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08ce, (ViewGroup) this, true);
         e();
     }
 
@@ -420,13 +420,13 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09120d);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090eb4);
+            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0911e9);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090ead);
             this.a = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa8);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eb3);
-            this.d = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0919c7);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091fac);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eac);
+            this.d = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0919a2);
             f("");
         }
     }
@@ -440,7 +440,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
                 SkinManager.setBackgroundResource(this.g, R.drawable.selector_msg_text_bubble_me);
             }
             this.a.setAnimation(R.raw.im_voice_buble_anim);
-            ur4.d(this.b).v(R.color.CAM_X0105);
+            vr4.d(this.b).v(R.color.CAM_X0105);
         }
     }
 
@@ -528,9 +528,9 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
                 }
             }
             l();
-            if (j65.b().d()) {
-                j65.b().n(false);
-                j65.b().l(false);
+            if (k65.b().d()) {
+                k65.b().n(false);
+                k65.b().l(false);
             }
             if (i == 1) {
                 TBLottieAnimationView tBLottieAnimationView2 = this.a;
@@ -644,7 +644,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         }
         this.f = chatMessage;
         this.b.setText(VoiceManager.formatVoiceTime01(this.e.duration));
-        this.b.setContentDescription(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0534), VoiceManager.formatVoiceTime01(this.e.duration)));
+        this.b.setContentDescription(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0530), VoiceManager.formatVoiceTime01(this.e.duration)));
         setBubbleLength(this.e.duration);
         setTag(this.e);
         j(chatMessage);
@@ -685,9 +685,9 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
             z = true;
         }
         if (z) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08c4, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08ce, (ViewGroup) this, true);
         } else {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08d3, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08dd, (ViewGroup) this, true);
         }
         e();
     }

@@ -21,13 +21,9 @@ public final class g {
         }
     }
 
-    public static byte[] a(byte[] bArr, String str) {
-        return a(bArr, str, "RSA/ECB/PKCS1Padding");
-    }
-
     public static byte[] a(byte[] bArr, String str, String str2) {
         ByteArrayOutputStream byteArrayOutputStream;
-        X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(c.b().a(str));
+        X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(c.th().decode(str));
         KeyFactory keyFactory = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA);
         PublicKey generatePublic = keyFactory.generatePublic(x509EncodedKeySpec);
         Cipher cipher = Cipher.getInstance(str2);
@@ -50,14 +46,14 @@ public final class g {
                     bArr2 = byteArrayOutputStream.toByteArray();
                 } catch (Exception e) {
                     e = e;
-                    com.kwad.sdk.core.d.b.a(e);
-                    com.kwad.sdk.crash.utils.b.a(byteArrayOutputStream);
+                    com.kwad.sdk.core.e.b.printStackTrace(e);
+                    com.kwad.sdk.crash.utils.b.closeQuietly(byteArrayOutputStream);
                     return bArr2;
                 }
             } catch (Throwable th) {
                 th = th;
                 byteArrayOutputStream2 = byteArrayOutputStream;
-                com.kwad.sdk.crash.utils.b.a(byteArrayOutputStream2);
+                com.kwad.sdk.crash.utils.b.closeQuietly(byteArrayOutputStream2);
                 throw th;
             }
         } catch (Exception e2) {
@@ -65,10 +61,10 @@ public final class g {
             byteArrayOutputStream = null;
         } catch (Throwable th2) {
             th = th2;
-            com.kwad.sdk.crash.utils.b.a(byteArrayOutputStream2);
+            com.kwad.sdk.crash.utils.b.closeQuietly(byteArrayOutputStream2);
             throw th;
         }
-        com.kwad.sdk.crash.utils.b.a(byteArrayOutputStream);
+        com.kwad.sdk.crash.utils.b.closeQuietly(byteArrayOutputStream);
         return bArr2;
     }
 
@@ -80,13 +76,9 @@ public final class g {
         }
     }
 
-    public static String b(byte[] bArr, String str) {
-        return new String(b(bArr, str, "RSA/ECB/PKCS1Padding"), "UTF-8");
-    }
-
     public static byte[] b(byte[] bArr, String str, String str2) {
         ByteArrayOutputStream byteArrayOutputStream;
-        PKCS8EncodedKeySpec pKCS8EncodedKeySpec = new PKCS8EncodedKeySpec(c.b().a(str));
+        PKCS8EncodedKeySpec pKCS8EncodedKeySpec = new PKCS8EncodedKeySpec(c.th().decode(str));
         KeyFactory keyFactory = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA);
         PrivateKey generatePrivate = keyFactory.generatePrivate(pKCS8EncodedKeySpec);
         Cipher cipher = Cipher.getInstance(str2);
@@ -111,7 +103,7 @@ public final class g {
             } catch (Throwable th) {
                 th = th;
                 byteArrayOutputStream2 = byteArrayOutputStream;
-                com.kwad.sdk.crash.utils.b.a(byteArrayOutputStream2);
+                com.kwad.sdk.crash.utils.b.closeQuietly(byteArrayOutputStream2);
                 throw th;
             }
         } catch (Exception unused2) {
@@ -119,7 +111,15 @@ public final class g {
         } catch (Throwable th2) {
             th = th2;
         }
-        com.kwad.sdk.crash.utils.b.a(byteArrayOutputStream);
+        com.kwad.sdk.crash.utils.b.closeQuietly(byteArrayOutputStream);
         return bArr2;
+    }
+
+    public static byte[] d(byte[] bArr, String str) {
+        return a(bArr, str, "RSA/ECB/PKCS1Padding");
+    }
+
+    public static String e(byte[] bArr, String str) {
+        return new String(b(bArr, str, "RSA/ECB/PKCS1Padding"), "UTF-8");
     }
 }

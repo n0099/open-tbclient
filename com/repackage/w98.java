@@ -103,7 +103,7 @@ public class w98 extends an<py5, CardAppLegoViewHolder> implements j98, o98 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((CardAppLegoViewHolder) this.a.g).c((int) TimeUnit.SECONDS.toSeconds(1L));
+                ((CardAppLegoViewHolder) this.a.g).b((int) TimeUnit.SECONDS.toSeconds(1L));
             }
         }
     }
@@ -147,12 +147,12 @@ public class w98 extends an<py5, CardAppLegoViewHolder> implements j98, o98 {
             } else if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
                 ((CardAppLegoViewHolder) this.a.g).stopPlay();
             } else {
-                int e = ((CardAppLegoViewHolder) this.a.g).e();
-                if (!((CardAppLegoViewHolder) this.a.g).d()) {
-                    if (e != -1) {
+                int d = ((CardAppLegoViewHolder) this.a.g).d();
+                if (!((CardAppLegoViewHolder) this.a.g).c()) {
+                    if (d != -1) {
                         ((CardAppLegoViewHolder) this.a.g).stopPlay();
                     }
-                } else if (e == -1) {
+                } else if (d == -1) {
                     qg.a().removeCallbacks(this.a.m);
                     qg.a().postDelayed(this.a.m, 500L);
                 }
@@ -209,14 +209,14 @@ public class w98 extends an<py5, CardAppLegoViewHolder> implements j98, o98 {
                 CardAppLegoViewHolder M = M(viewGroup);
                 this.g = M;
                 if (M != null) {
-                    view2 = M.b();
+                    view2 = M.a();
                 }
             }
             View view3 = view2;
             if (view3 != null) {
                 view3 = S(i, view3, viewGroup, py5Var, (CardAppLegoViewHolder) view3.getTag());
                 if (m98.class.isAssignableFrom(view3.getClass())) {
-                    ((CardAppLegoViewHolder) this.g).f(((m98) view3).getVideoOrVrView());
+                    ((CardAppLegoViewHolder) this.g).e(((m98) view3).getVideoOrVrView());
                 }
             }
             return view3;
@@ -229,10 +229,10 @@ public class w98 extends an<py5, CardAppLegoViewHolder> implements j98, o98 {
         V v;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
-            if (view2 == null || view2.getTag() == null || (v = this.g) == 0 || this.l == null || !((CardAppLegoViewHolder) v).getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(((CardAppLegoViewHolder) this.g).getClass()) || !(view2.getTag(R.id.obfuscated_res_0x7f091ef7) instanceof AdvertAppInfo.ILegoAdvert)) {
+            if (view2 == null || view2.getTag() == null || (v = this.g) == 0 || this.l == null || !((CardAppLegoViewHolder) v).getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(((CardAppLegoViewHolder) this.g).getClass()) || !(view2.getTag(R.id.obfuscated_res_0x7f091efb) instanceof AdvertAppInfo.ILegoAdvert)) {
                 return true;
             }
-            return !this.l.isReusable((AdvertAppInfo.ILegoAdvert) view2.getTag(R.id.obfuscated_res_0x7f091ef7));
+            return !this.l.isReusable((AdvertAppInfo.ILegoAdvert) view2.getTag(R.id.obfuscated_res_0x7f091efb));
         }
         return invokeL.booleanValue;
     }
@@ -248,7 +248,7 @@ public class w98 extends an<py5, CardAppLegoViewHolder> implements j98, o98 {
             if (this.l == null || (view2 = (View) uc7.h().a(this.i, this.l, 2)) == null) {
                 return null;
             }
-            view2.setTag(R.id.obfuscated_res_0x7f091ef7, this.l);
+            view2.setTag(R.id.obfuscated_res_0x7f091efb, this.l);
             return new CardAppLegoViewHolder((pd7) view2);
         }
         return (CardAppLegoViewHolder) invokeL.objValue;
@@ -299,7 +299,7 @@ public class w98 extends an<py5, CardAppLegoViewHolder> implements j98, o98 {
                     if (this.g == 0) {
                         this.g = cardAppLegoViewHolder;
                     }
-                    sn4.d(py5Var);
+                    tn4.d(py5Var);
                     this.i.getLayoutMode().k(this.j == 1);
                     this.i.getLayoutMode().j(view2);
                     AdvertAppInfo c2 = py5Var.c();
@@ -309,7 +309,7 @@ public class w98 extends an<py5, CardAppLegoViewHolder> implements j98, o98 {
                     pd7Var.update(this.l);
                     pd7Var.setAfterClickSchemeListener(new a(this, c2, py5Var.c, py5Var.b));
                     if (m98.class.isAssignableFrom(view2.getClass())) {
-                        cardAppLegoViewHolder.f(((m98) view2).getVideoOrVrView());
+                        cardAppLegoViewHolder.e(((m98) view2).getVideoOrVrView());
                     }
                     return view2;
                 }

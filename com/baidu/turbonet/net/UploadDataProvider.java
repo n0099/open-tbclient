@@ -1,6 +1,5 @@
 package com.baidu.turbonet.net;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,16 +26,16 @@ public abstract class UploadDataProvider implements Closeable {
         }
     }
 
-    public abstract long c() throws IOException;
+    public abstract long a() throws IOException;
+
+    public abstract void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) throws IOException;
+
+    public abstract void c(UploadDataSink uploadDataSink) throws IOException;
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
-
-    public abstract void d(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) throws IOException;
-
-    public abstract void e(UploadDataSink uploadDataSink) throws IOException;
 }

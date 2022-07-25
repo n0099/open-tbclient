@@ -46,7 +46,7 @@ public class MaxHeightScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
             Resources resources = getContext().getResources();
-            return (((resources.getDisplayMetrics().heightPixels * f) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07099d)) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d3)) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d8);
+            return (((resources.getDisplayMetrics().heightPixels * f) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07098f)) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d1)) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d6);
         }
         return invokeF.floatValue;
     }

@@ -11,7 +11,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class IdentifierIdClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AAID_FLAG = "AAID";
@@ -131,7 +130,7 @@ public class IdentifierIdClient {
             try {
                 try {
                     Class<?> cls = Class.forName("android.os.SystemProperties");
-                    return (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class).invoke(cls, str, "0");
+                    return (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, "0");
                 } catch (Exception unused) {
                     IdentifierIdLog.e(TAG, "getProperty: invoke is error");
                     return str2;

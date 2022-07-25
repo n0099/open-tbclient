@@ -190,13 +190,13 @@ public class x48 {
             if (interceptable == null || interceptable.invokeLI(1048576, this, u48Var, i) == null) {
                 if (u48Var == null || i != 0) {
                     if (i == 1) {
-                        BdToast.b(this.a.a.getPageActivity(), this.a.a.getPageActivity().getText(R.string.obfuscated_res_0x7f0f07d2)).h();
+                        BdToast.b(this.a.a.getPageActivity(), this.a.a.getPageActivity().getText(R.string.obfuscated_res_0x7f0f07ce)).h();
                         return;
                     } else if (i == 3) {
-                        BdToast.b(this.a.a.getPageActivity(), this.a.a.getPageActivity().getText(R.string.obfuscated_res_0x7f0f07d4)).h();
+                        BdToast.b(this.a.a.getPageActivity(), this.a.a.getPageActivity().getText(R.string.obfuscated_res_0x7f0f07d0)).h();
                         return;
                     } else {
-                        BdToast.b(this.a.a.getPageActivity(), this.a.a.getPageActivity().getText(R.string.obfuscated_res_0x7f0f07d3)).h();
+                        BdToast.b(this.a.a.getPageActivity(), this.a.a.getPageActivity().getText(R.string.obfuscated_res_0x7f0f07cf)).h();
                         return;
                     }
                 }
@@ -520,64 +520,64 @@ public class x48 {
     public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06c3, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06cd, (ViewGroup) null);
             this.c = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0918a6);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091881);
             this.f = textView;
             textView.setOnClickListener(this.H);
-            TextView textView2 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091894);
+            TextView textView2 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09186f);
             this.g = textView2;
             textView2.setAlpha(0.85f);
             this.g.setOnClickListener(this.H);
-            ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091871);
+            ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09184c);
             this.h = imageView;
             imageView.setOnClickListener(this.H);
-            UserIconBox userIconBox = (UserIconBox) this.c.findViewById(R.id.obfuscated_res_0x7f091872);
+            UserIconBox userIconBox = (UserIconBox) this.c.findViewById(R.id.obfuscated_res_0x7f09184d);
             this.j = userIconBox;
             userIconBox.setOnClickListener(this.H);
             this.j.setAutoChangedStyle(false);
-            this.l = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091869);
-            FrameLayout frameLayout = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091868);
+            this.l = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091844);
+            FrameLayout frameLayout = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091843);
             this.k = frameLayout;
             frameLayout.setOnClickListener(this.H);
-            TextView textView3 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09186b);
+            TextView textView3 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091846);
             this.m = textView3;
             textView3.setAlpha(0.8f);
-            this.u = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091867);
-            this.i = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09186a);
-            this.o = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091861);
-            FrameLayout frameLayout2 = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091860);
+            this.u = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091842);
+            this.i = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091845);
+            this.o = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09183c);
+            FrameLayout frameLayout2 = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09183b);
             this.n = frameLayout2;
             frameLayout2.setOnClickListener(this.H);
-            TextView textView4 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091862);
+            TextView textView4 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09183d);
             this.p = textView4;
             textView4.setAlpha(0.8f);
-            this.v = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09185f);
-            this.r = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09186e);
-            FrameLayout frameLayout3 = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09186d);
+            this.v = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09183a);
+            this.r = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091849);
+            FrameLayout frameLayout3 = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091848);
             this.q = frameLayout3;
             frameLayout3.setOnClickListener(this.H);
-            TextView textView5 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09186f);
+            TextView textView5 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09184a);
             this.s = textView5;
             textView5.setAlpha(0.8f);
-            this.t = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09186c);
-            FollowUserSpinnerBtn followUserSpinnerBtn = (FollowUserSpinnerBtn) this.c.findViewById(R.id.obfuscated_res_0x7f0917f5);
+            this.t = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091847);
+            FollowUserSpinnerBtn followUserSpinnerBtn = (FollowUserSpinnerBtn) this.c.findViewById(R.id.obfuscated_res_0x7f0917d0);
             this.w = followUserSpinnerBtn;
             followUserSpinnerBtn.b(this.H);
             this.w.setOpenListener(this.Y);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f091858);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f091833);
             this.x = tBSpecificationBtn;
             tBSpecificationBtn.setOnClickListener(this.H);
-            wu4 wu4Var = new wu4();
-            wu4Var.p(R.color.CAM_X0101);
-            wu4Var.g(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds62));
-            wu4Var.u(R.drawable.ic_icon_pure_personalba_gift24_svg, TBSpecificationButtonConfig.IconType.SVG);
-            this.x.setConfig(wu4Var);
-            TbImageView tbImageView = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0918a8);
+            xu4 xu4Var = new xu4();
+            xu4Var.p(R.color.CAM_X0101);
+            xu4Var.g(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds62));
+            xu4Var.u(R.drawable.ic_icon_pure_personalba_gift24_svg, TBSpecificationButtonConfig.IconType.SVG);
+            this.x.setConfig(xu4Var);
+            TbImageView tbImageView = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091883);
             this.y = tbImageView;
             tbImageView.setOnClickListener(this.H);
-            this.z = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0918a7);
-            HeadPendantView headPendantView = (HeadPendantView) this.c.findViewById(R.id.obfuscated_res_0x7f091870);
+            this.z = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091882);
+            HeadPendantView headPendantView = (HeadPendantView) this.c.findViewById(R.id.obfuscated_res_0x7f09184b);
             this.A = headPendantView;
             headPendantView.setHasPendantStyle();
             this.A.setDefalutResid(R.drawable.pic_mycenter_avatar_def_i);
@@ -589,10 +589,10 @@ public class x48 {
             this.A.setAuthIconType(3);
             this.A.setShowSimpleIcon(false);
             this.A.setBigVIconResId(R.drawable.ic_icon_mask_shen20_n);
-            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f091873);
+            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f09184e);
             this.G = findViewById;
             findViewById.setAlpha(0.33f);
-            GodRecommendLayout godRecommendLayout = (GodRecommendLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091aa3);
+            GodRecommendLayout godRecommendLayout = (GodRecommendLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091a7d);
             this.C = godRecommendLayout;
             godRecommendLayout.setPageContext(this.a);
             this.C.setPageUniqueId(this.a.getUniqueId());
@@ -600,18 +600,18 @@ public class x48 {
             bl7 bl7Var = new bl7(this.a.getUniqueId());
             this.P = bl7Var;
             bl7Var.j(this.Z);
-            this.I = (ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f09180a);
-            this.J = this.c.findViewById(R.id.obfuscated_res_0x7f09180c);
+            this.I = (ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f0917e5);
+            this.J = this.c.findViewById(R.id.obfuscated_res_0x7f0917e7);
             this.K = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09042b);
             this.L = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09042a);
             this.J.setOnClickListener(this.H);
-            this.M = this.c.findViewById(R.id.obfuscated_res_0x7f09180b);
+            this.M = this.c.findViewById(R.id.obfuscated_res_0x7f0917e6);
             this.N = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090429);
             this.O = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090428);
             this.M.setOnClickListener(this.H);
-            this.D = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09185d);
-            this.E = (TBLottieAnimationView) this.c.findViewById(R.id.obfuscated_res_0x7f09133b);
-            this.B = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092356);
+            this.D = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091838);
+            this.E = (TBLottieAnimationView) this.c.findViewById(R.id.obfuscated_res_0x7f091317);
+            this.B = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092358);
             H(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -788,15 +788,15 @@ public class x48 {
         BaijiahaoInfo baijiahaoInfo = this.d.getBaijiahaoInfo();
         if (this.d.isNewGod() && !oi.isEmpty(this.d.getNewGodData().getFieldName())) {
             Resources resources = this.a.getResources();
-            intro = resources.getString(R.string.obfuscated_res_0x7f0f0dfb, this.d.getNewGodData().getFieldName() + oe5.c(this.d.getNewGodData().isVideoGod()));
+            intro = resources.getString(R.string.obfuscated_res_0x7f0f0de4, this.d.getNewGodData().getFieldName() + oe5.c(this.d.getNewGodData().isVideoGod()));
         } else if (this.d.showBazhuGrade()) {
-            intro = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0dfb, StringHelper.cutChineseAndEnglishWithSuffix(this.d.getBazhuGradeData().getDesc(), 32, StringHelper.STRING_MORE));
+            intro = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0de4, StringHelper.cutChineseAndEnglishWithSuffix(this.d.getBazhuGradeData().getDesc(), 32, StringHelper.STRING_MORE));
         } else {
             intro = this.d.getIntro();
             if (!oi.isEmpty(intro)) {
-                intro = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e50, intro);
+                intro = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e39, intro);
             } else if (this.b) {
-                intro = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e21, "o(〃'▽'〃)o");
+                intro = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e0a, "o(〃'▽'〃)o");
             }
         }
         if (!oi.isEmpty(intro)) {

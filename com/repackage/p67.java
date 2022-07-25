@@ -28,7 +28,7 @@ public class p67 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             if (c()) {
-                if (gd5.a()) {
+                if (hd5.a()) {
                     return true;
                 }
                 d(context);

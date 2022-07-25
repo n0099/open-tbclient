@@ -106,9 +106,9 @@ public class NewAnounceLayout extends CardBasicLayout {
             View findViewById = findViewById(R.id.obfuscated_res_0x7f09026b);
             this.f = findViewById;
             findViewById.setOnClickListener(this.k);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090985);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091cd9);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce3);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09097e);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091cdf);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce9);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09026d);
         }
     }
@@ -123,7 +123,7 @@ public class NewAnounceLayout extends CardBasicLayout {
             setGravity(17);
             setMinimumHeight(pi.f(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05f6, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0600, (ViewGroup) this, true);
             b();
         }
     }
@@ -174,7 +174,7 @@ public class NewAnounceLayout extends CardBasicLayout {
                 return;
             }
             this.h.setVisibility(8);
-            this.g.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0567));
+            this.g.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0563));
         }
     }
 

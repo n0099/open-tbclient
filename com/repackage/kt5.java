@@ -50,8 +50,8 @@ public class kt5 {
     public View b;
     public NavigationBar c;
     public ScrollBridgeWebview d;
-    public j55 e;
-    public k55 f;
+    public k55 e;
+    public l55 f;
     public boolean g;
     public String h;
     public int i;
@@ -90,7 +90,7 @@ public class kt5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 ei.a(this.a.w);
-                pi.O(this.b.a.getActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0446));
+                pi.O(this.b.a.getActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0445));
             }
         }
     }
@@ -521,9 +521,9 @@ public class kt5 {
             return;
         }
         this.j = true;
-        j55 j55Var = new j55(this.a.getActivity(), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070290));
-        this.e = j55Var;
-        j55Var.attachView(this.b, false);
+        k55 k55Var = new k55(this.a.getActivity(), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07028e));
+        this.e = k55Var;
+        k55Var.attachView(this.b, false);
         this.e.onChangeSkinType();
     }
 
@@ -531,11 +531,11 @@ public class kt5 {
         BaseFragment baseFragment;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (baseFragment = this.a) != null && baseFragment.isAdded()) {
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c2b);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17);
             if (this.f == null) {
-                k55 k55Var = new k55(this.a.getActivity(), new e(this));
-                this.f = k55Var;
-                k55Var.onChangeSkinType();
+                l55 l55Var = new l55(this.a.getActivity(), new e(this));
+                this.f = l55Var;
+                l55Var.onChangeSkinType();
             }
             this.d.setVisibility(8);
             this.f.m(string);
@@ -575,21 +575,21 @@ public class kt5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.j = false;
-            j55 j55Var = this.e;
-            if (j55Var != null) {
-                j55Var.dettachView(this.b);
+            k55 k55Var = this.e;
+            if (k55Var != null) {
+                k55Var.dettachView(this.b);
                 this.e = null;
             }
         }
     }
 
     public void m() {
-        k55 k55Var;
+        l55 l55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (k55Var = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (l55Var = this.f) == null) {
             return;
         }
-        k55Var.dettachView(this.b);
+        l55Var.dettachView(this.b);
         this.f = null;
     }
 
@@ -609,7 +609,7 @@ public class kt5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, baseFragment) == null) {
             this.a = baseFragment;
-            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092439);
             this.c = navigationBar;
             navigationBar.setVisibility(this.k ? 0 : 8);
             if (this.k) {
@@ -664,7 +664,7 @@ public class kt5 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
             if (str.contains("nohead:url") || str.contains("booktown")) {
                 if (!TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                    pi.N(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0e8d);
+                    pi.N(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0e76);
                 } else {
                     UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{str});
                 }
@@ -683,7 +683,7 @@ public class kt5 {
                 return false;
             }
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(DressupCenterActivityConfig.class)) {
-                pi.N(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0e8d);
+                pi.N(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0e76);
             } else {
                 UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{str});
             }
@@ -726,7 +726,7 @@ public class kt5 {
                 if (appResponseToIntentClass) {
                     new HotTopicActivityConfig(this.a.getActivity()).createNormalConfig(c2, c3, c4, null).start();
                 } else {
-                    rl4.p(this.a.getActivity(), c3, str);
+                    sl4.p(this.a.getActivity(), c3, str);
                 }
             }
             return true;
@@ -740,7 +740,7 @@ public class kt5 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
             if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_LEGO)) {
                 if (!(MessageManager.getInstance().findTask(2016447) != null)) {
-                    pi.N(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0e8d);
+                    pi.N(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0e76);
                 } else {
                     UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{str});
                 }
@@ -759,7 +759,7 @@ public class kt5 {
                 return false;
             }
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MembercenterActivityConfig.class)) {
-                pi.N(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0e8d);
+                pi.N(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0e76);
             } else {
                 UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{str});
             }
@@ -798,7 +798,7 @@ public class kt5 {
                         this.l.setForumName(optString5);
                         this.l.setThreadId(optString4);
                         this.l.setTitle(optString);
-                        String format = MessageFormat.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1144), optString, optString2);
+                        String format = MessageFormat.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f10f3), optString, optString2);
                         ShareItem shareItem = new ShareItem();
                         shareItem.u = optString;
                         shareItem.v = format;
@@ -809,7 +809,7 @@ public class kt5 {
                         }
                         ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.a.getActivity(), shareItem, true);
                         shareDialogConfig.setIsCopyLink(true);
-                        shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f066e, R.drawable.icon_unite_share_baf, new j(this));
+                        shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f066a, R.drawable.icon_unite_share_baf, new j(this));
                         shareDialogConfig.setCopyLinkListener(new a(this, shareItem));
                         this.a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
                     }

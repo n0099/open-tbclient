@@ -9,7 +9,6 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,11 +19,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.internal.api.SidSessionMeta;
 import com.fun.ad.sdk.internal.api.reporter.Reporter;
-import com.kuaishou.weapon.p0.C0453;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.kuaishou.weapon.p0.i1;
 import com.repackage.gi9;
 import com.repackage.md9;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -148,10 +149,29 @@ public class AdReporter<A> {
         }
     }
 
+    public final Object[] a(RippedAd rippedAd) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rippedAd)) == null) ? new Object[]{"corp", rippedAd.corporation, "title", rippedAd.title, "pkg", rippedAd.appPkg} : (Object[]) invokeL.objValue;
+    }
+
+    public final Object[] a(Object[]... objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, objArr)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (Object[] objArr2 : objArr) {
+                arrayList.addAll(Arrays.asList(objArr2));
+            }
+            return arrayList.toArray();
+        }
+        return (Object[]) invokeL.objValue;
+    }
+
     public List<Pair<String, Object>> onReport(A a2, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, a2, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, a2, str)) == null) {
             return null;
         }
         return (List) invokeLL.objValue;
@@ -159,89 +179,110 @@ public class AdReporter<A> {
 
     public void recordLoadFailed(Object obj, long j, SidSessionMeta sidSessionMeta) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{obj, Long.valueOf(j), sidSessionMeta}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{obj, Long.valueOf(j), sidSessionMeta}) == null) {
             a(null, "ld_err", j, sidSessionMeta, NotificationCompat.CATEGORY_ERROR, obj);
         }
     }
 
     public void recordLoadStart(long j, SidSessionMeta sidSessionMeta) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048581, this, j, sidSessionMeta) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048583, this, j, sidSessionMeta) == null) {
             a(null, "ld_start", j, sidSessionMeta, new Object[0]);
         }
     }
 
     public void recordLoadSucceed(A a2, long j, SidSessionMeta sidSessionMeta) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{a2, Long.valueOf(j), sidSessionMeta}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{a2, Long.valueOf(j), sidSessionMeta}) == null) {
             a(a2, "ld_succeed", j, sidSessionMeta, new Object[0]);
         }
     }
 
-    public void recordOnClicked(A a2, boolean z, long j, SidSessionMeta sidSessionMeta, String... strArr) {
+    public void recordOnClicked(A a2, boolean z, long j, SidSessionMeta sidSessionMeta, RippedAd rippedAd, String... strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{a2, Boolean.valueOf(z), Long.valueOf(j), sidSessionMeta, strArr}) == null) {
-            a(a2, z, "onclick", j, sidSessionMeta, a((strArr == null || strArr.length <= 0) ? "" : strArr[0]));
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{a2, Boolean.valueOf(z), Long.valueOf(j), sidSessionMeta, rippedAd, strArr}) == null) {
+            Object[] a3 = a((strArr == null || strArr.length <= 0) ? "" : strArr[0]);
+            if (rippedAd != null) {
+                a3 = a(a(rippedAd), a3);
+            }
+            a(a2, z, "onclick", j, sidSessionMeta, a3);
         }
     }
 
     public void recordOnClosed(A a2, long j, SidSessionMeta sidSessionMeta) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{a2, Long.valueOf(j), sidSessionMeta}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{a2, Long.valueOf(j), sidSessionMeta}) == null) {
             a(a2, "onclosed", j, sidSessionMeta, new Object[0]);
         }
     }
 
     public void recordOnPaidEvent(A a2, long j, SidSessionMeta sidSessionMeta, double d, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{a2, Long.valueOf(j), sidSessionMeta, Double.valueOf(d), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{a2, Long.valueOf(j), sidSessionMeta, Double.valueOf(d), str}) == null) {
             a(a2, "paid", j, sidSessionMeta, "rvn", Double.valueOf(d), "cry", str);
         }
     }
 
-    public void recordReward(A a2, boolean z, long j, SidSessionMeta sidSessionMeta, int i, String... strArr) {
+    public void recordReward(A a2, boolean z, long j, SidSessionMeta sidSessionMeta, int i, RippedAd rippedAd, String... strArr) {
+        Object[] objArr;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{a2, Boolean.valueOf(z), Long.valueOf(j), sidSessionMeta, Integer.valueOf(i), strArr}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{a2, Boolean.valueOf(z), Long.valueOf(j), sidSessionMeta, Integer.valueOf(i), rippedAd, strArr}) == null) {
             String str = (strArr == null || strArr.length <= 0) ? "" : strArr[0];
             if (TextUtils.isEmpty(str)) {
-                a(a2, "reward", j, sidSessionMeta, "valid", Boolean.valueOf(z), NotificationCompat.CATEGORY_ERROR, Integer.valueOf(i));
+                objArr = new Object[4];
+                i2 = 0;
             } else {
-                a(a2, "reward", j, sidSessionMeta, "valid", Boolean.valueOf(z), "tid", str, NotificationCompat.CATEGORY_ERROR, Integer.valueOf(i));
+                objArr = new Object[6];
+                objArr[0] = "tid";
+                objArr[1] = str;
+                i2 = 2;
             }
+            int i3 = i2 + 1;
+            objArr[i2] = "valid";
+            int i4 = i3 + 1;
+            objArr[i3] = Boolean.valueOf(z);
+            objArr[i4] = NotificationCompat.CATEGORY_ERROR;
+            objArr[i4 + 1] = Integer.valueOf(i);
+            a(a2, "reward", j, sidSessionMeta, rippedAd != null ? a(objArr, a(rippedAd)) : objArr);
         }
     }
 
     public void recordShowFailed(A a2, Object obj, long j, SidSessionMeta sidSessionMeta) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{a2, obj, Long.valueOf(j), sidSessionMeta}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{a2, obj, Long.valueOf(j), sidSessionMeta}) == null) {
             a(a2, "sh_failed", j, sidSessionMeta, NotificationCompat.CATEGORY_ERROR, obj);
         }
     }
 
     public void recordShowStart(A a2, long j, SidSessionMeta sidSessionMeta) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{a2, Long.valueOf(j), sidSessionMeta}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{a2, Long.valueOf(j), sidSessionMeta}) == null) {
             a(a2, "sh_start", j, sidSessionMeta, new Object[0]);
         }
     }
 
     public void recordShowStart(A a2, boolean z, long j, SidSessionMeta sidSessionMeta) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{a2, Boolean.valueOf(z), Long.valueOf(j), sidSessionMeta}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{a2, Boolean.valueOf(z), Long.valueOf(j), sidSessionMeta}) == null) {
             a(a2, z, "sh_start", j, sidSessionMeta, new Object[0]);
         }
     }
 
-    public void recordShowSucceed(A a2, boolean z, long j, SidSessionMeta sidSessionMeta, String... strArr) {
+    public void recordShowSucceed(A a2, boolean z, long j, SidSessionMeta sidSessionMeta, RippedAd rippedAd, String... strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{a2, Boolean.valueOf(z), Long.valueOf(j), sidSessionMeta, strArr}) == null) {
-            a(a2, z, "sh_succeed", j, sidSessionMeta, a((strArr == null || strArr.length <= 0) ? "" : strArr[0]));
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{a2, Boolean.valueOf(z), Long.valueOf(j), sidSessionMeta, rippedAd, strArr}) == null) {
+            Object[] a3 = a((strArr == null || strArr.length <= 0) ? "" : strArr[0]);
+            if (rippedAd != null) {
+                a3 = a(a(rippedAd), a3);
+            }
+            a(a2, z, "sh_succeed", j, sidSessionMeta, a3);
         }
     }
 
     public void recordWebViewClick(String str, long j, SidSessionMeta sidSessionMeta) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{str, Long.valueOf(j), sidSessionMeta}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{str, Long.valueOf(j), sidSessionMeta}) == null) {
             a(null, "w_jump", j, sidSessionMeta, "j_url", str);
         }
     }
@@ -262,7 +303,7 @@ public class AdReporter<A> {
         String[] split;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             boolean z3 = false;
             if (TextUtils.isEmpty(str)) {
                 objArr = new Object[8];
@@ -284,7 +325,7 @@ public class AdReporter<A> {
             if (md9.a == null) {
                 String str2 = null;
                 try {
-                    Object invoke = Class.forName("android.os.SystemProperties").getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(null, "ro.secure");
+                    Object invoke = Class.forName("android.os.SystemProperties").getMethod("get", String.class).invoke(null, "ro.secure");
                     if (invoke != null) {
                         str2 = (String) invoke;
                     }
@@ -305,7 +346,7 @@ public class AdReporter<A> {
                         if (i6 >= length) {
                             z2 = false;
                             break;
-                        } else if (new File(split[i6], C0453.f723).exists()) {
+                        } else if (new File(split[i6], i1.w).exists()) {
                             z2 = true;
                             break;
                         } else {

@@ -439,7 +439,7 @@ public class ji6 extends jx5<ThreadData> implements hy5, Object {
             this.i.getPendantView().setDrawBorder(false);
         }
         this.i.setAfterClickListener(this.J);
-        this.p = h2.findViewById(R.id.obfuscated_res_0x7f0907ca);
+        this.p = h2.findViewById(R.id.obfuscated_res_0x7f0907c8);
         this.x = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f09051d);
         PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) h2.findViewById(R.id.obfuscated_res_0x7f090514);
         this.j = playVoiceBntNew;
@@ -447,7 +447,7 @@ public class ji6 extends jx5<ThreadData> implements hy5, Object {
         TextView textView = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f090513);
         this.y = textView;
         textView.setVisibility(8);
-        this.B = h2.findViewById(R.id.obfuscated_res_0x7f0907ce);
+        this.B = h2.findViewById(R.id.obfuscated_res_0x7f0907cc);
         this.z = (ConstrainImageGroup) h2.findViewById(R.id.obfuscated_res_0x7f090518);
         this.z.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
         this.z.setChildClickListener(this.H);
@@ -490,15 +490,15 @@ public class ji6 extends jx5<ThreadData> implements hy5, Object {
         ThreadGodReplyLayout threadGodReplyLayout = (ThreadGodReplyLayout) h2.findViewById(R.id.obfuscated_res_0x7f090508);
         this.m = threadGodReplyLayout;
         threadGodReplyLayout.setOnClickListener(this.H);
-        TbImageView tbImageView = (TbImageView) h2.findViewById(R.id.obfuscated_res_0x7f090b79);
+        TbImageView tbImageView = (TbImageView) h2.findViewById(R.id.obfuscated_res_0x7f090b72);
         this.q = tbImageView;
         tbImageView.setPageId(f());
-        TbImageView tbImageView2 = (TbImageView) h2.findViewById(R.id.obfuscated_res_0x7f090b78);
+        TbImageView tbImageView2 = (TbImageView) h2.findViewById(R.id.obfuscated_res_0x7f090b71);
         this.C = tbImageView2;
         if (tbImageView2 != null) {
             tbImageView2.setPageId(f());
         }
-        View findViewById = h2.findViewById(R.id.obfuscated_res_0x7f09204a);
+        View findViewById = h2.findViewById(R.id.obfuscated_res_0x7f09204e);
         this.F = findViewById;
         findViewById.setOnClickListener(new a(this));
         this.k.setOnSelectStatusChangeListener(new b(this));
@@ -663,7 +663,7 @@ public class ji6 extends jx5<ThreadData> implements hy5, Object {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048586, this, view2, list, i, threadData) == null) {
             if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-                pi.N(this.w.getPageActivity(), R.string.obfuscated_res_0x7f0f0e8a);
+                pi.N(this.w.getPageActivity(), R.string.obfuscated_res_0x7f0f0e73);
                 return;
             }
             ArrayList<String> arrayList = new ArrayList<>();
@@ -883,7 +883,7 @@ public class ji6 extends jx5<ThreadData> implements hy5, Object {
         ux5.l(this.x, this.v.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
         ux5.l(this.y, this.v.getId(), R.color.CAM_X0107, R.color.CAM_X0109);
         ux5.l(this.m.getGodReplyContent(), this.v.getId(), R.color.CAM_X0106, R.color.CAM_X0109);
-        io4 cartoonThreadData = this.v.getCartoonThreadData();
+        jo4 cartoonThreadData = this.v.getCartoonThreadData();
         if (cartoonThreadData != null) {
             if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
                 ViewHelper.skipToLoginActivity(this.c);
@@ -894,11 +894,11 @@ public class ji6 extends jx5<ThreadData> implements hy5, Object {
             }
         }
         ThreadData threadData2 = this.v;
-        fo4 fo4Var = threadData2.bookChapterData;
-        if (threadData2.isBookChapter == 1 && fo4Var != null && TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-            String str = fo4Var.a;
-            long j = fo4Var.b;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, new np4()));
+        go4 go4Var = threadData2.bookChapterData;
+        if (threadData2.isBookChapter == 1 && go4Var != null && TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
+            String str = go4Var.a;
+            long j = go4Var.b;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, new op4()));
             return;
         }
         PbActivityConfig addLocateParam = new PbActivityConfig(this.w.getPageActivity()).createFromThreadCfg(this.v, null, "frs_page", 18003, true, false, false).addLocateParam("");
@@ -979,7 +979,7 @@ public class ji6 extends jx5<ThreadData> implements hy5, Object {
                 }
             }
             ArrayList<MediaData> medias = threadData.getMedias();
-            if (zm4.c().g() && ListUtils.getCount(medias) != 0) {
+            if (an4.c().g() && ListUtils.getCount(medias) != 0) {
                 LinkedList linkedList = new LinkedList();
                 for (int i = 0; i < medias.size(); i++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);

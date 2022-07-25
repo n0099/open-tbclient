@@ -120,7 +120,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
                 if (ni.z()) {
                     this.a.c.b(this.a.b.getItem(i), i);
                 } else {
-                    pi.N(this.a.getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0c2b);
+                    pi.N(this.a.getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0c17);
                 }
             }
         }
@@ -197,7 +197,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
             if (getPageContext() == null && getPageContext().getPageActivity() == null) {
                 return;
             }
-            pi.N(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f04f7);
+            pi.N(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f04f3);
         }
     }
 
@@ -277,7 +277,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02cd, viewGroup, false);
             this.d = (CloudMusicData.MusicTagList) getArguments().getSerializable("music_list_key");
-            this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f090637);
+            this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f090636);
             yu8 yu8Var = new yu8(getPageContext());
             this.b = yu8Var;
             this.a.setAdapter((ListAdapter) yu8Var);
@@ -293,7 +293,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
             pbListView.a();
             this.e.p(R.color.CAM_X0201);
             this.e.d(TbadkCoreApplication.getInst().getSkinType());
-            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07026e)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c45), null);
+            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07026c)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c31), null);
             this.g = a2;
             a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             CloudMusicData.MusicTagList musicTagList = this.d;
@@ -347,7 +347,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bdListView) == null) {
             if (!ni.z()) {
-                pi.N(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0c2b);
+                pi.N(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0c17);
                 return;
             }
             vu8 vu8Var = this.c;

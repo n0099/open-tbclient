@@ -22,13 +22,13 @@ public final class ft9<T> extends gt9<T> {
 
         /* renamed from: com.repackage.ft9$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0641a implements hs9 {
+        public class C0481a implements hs9 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ gt9.c a;
             public final /* synthetic */ Long b;
 
-            public C0641a(a aVar, gt9.c cVar, Long l) {
+            public C0481a(a aVar, gt9.c cVar, Long l) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,7 +83,7 @@ public final class ft9<T> extends gt9<T> {
         public bs9 call(gt9.c<T> cVar, Long l, xr9.a aVar) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, cVar, l, aVar)) == null) ? aVar.c(new C0641a(this, cVar, l), this.a, this.b) : (bs9) invokeLLL.objValue;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, cVar, l, aVar)) == null) ? aVar.c(new C0481a(this, cVar, l), this.a, this.b) : (bs9) invokeLLL.objValue;
         }
     }
 

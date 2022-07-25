@@ -198,14 +198,14 @@ public class k96 {
                 kn7.a("【表情云同步】：4 - 收藏表情：下载本地没有的表情");
                 ArrayList arrayList2 = new ArrayList();
                 for (CollectEmotionData collectEmotionData2 : arrayList) {
-                    p45 p45Var = new p45();
-                    p45Var.f = collectEmotionData2.pkgId;
-                    p45Var.a = collectEmotionData2.pid;
-                    p45Var.d = collectEmotionData2.picUrl;
-                    p45Var.b = collectEmotionData2.width;
-                    p45Var.c = collectEmotionData2.height;
-                    p45Var.e = collectEmotionData2.thumbnail;
-                    arrayList2.add(p45Var);
+                    q45 q45Var = new q45();
+                    q45Var.f = collectEmotionData2.pkgId;
+                    q45Var.a = collectEmotionData2.pid;
+                    q45Var.d = collectEmotionData2.picUrl;
+                    q45Var.b = collectEmotionData2.width;
+                    q45Var.c = collectEmotionData2.height;
+                    q45Var.e = collectEmotionData2.thumbnail;
+                    arrayList2.add(q45Var);
                 }
                 this.b.post(new b(this, arrayList2, list));
                 return;

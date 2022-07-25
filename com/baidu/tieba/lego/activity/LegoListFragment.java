@@ -44,9 +44,9 @@ import com.repackage.ee7;
 import com.repackage.fe7;
 import com.repackage.h9;
 import com.repackage.id7;
-import com.repackage.j55;
 import com.repackage.k55;
 import com.repackage.kc7;
+import com.repackage.l55;
 import com.repackage.lc7;
 import com.repackage.nd7;
 import com.repackage.ni;
@@ -98,8 +98,8 @@ public class LegoListFragment extends BaseFragment {
     public yd7 i;
     public wd7 j;
     public ee7 k;
-    public k55 l;
-    public j55 m;
+    public l55 l;
+    public k55 m;
     public boolean n;
     public kc7 o;
     public RelativeLayout p;
@@ -319,7 +319,7 @@ public class LegoListFragment extends BaseFragment {
                 } else if (this.a.getPageContext() == null || this.a.getPageContext().getResources() == null) {
                 } else {
                     LegoListFragment legoListFragment3 = this.a;
-                    legoListFragment3.showNetRefreshView(legoListFragment3.getView(), this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c2b), false);
+                    legoListFragment3.showNetRefreshView(legoListFragment3.getView(), this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c17), false);
                 }
             }
         }
@@ -335,7 +335,7 @@ public class LegoListFragment extends BaseFragment {
                 } else if (this.a.getPageContext() == null || this.a.getPageContext().getResources() == null) {
                 } else {
                     LegoListFragment legoListFragment2 = this.a;
-                    legoListFragment2.showNetRefreshView(legoListFragment2.getView(), this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c2a, str2, Integer.valueOf(i)), false);
+                    legoListFragment2.showNetRefreshView(legoListFragment2.getView(), this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c16, str2, Integer.valueOf(i)), false);
                 }
             }
         }
@@ -381,7 +381,7 @@ public class LegoListFragment extends BaseFragment {
             this.a.k.c(2, this.a.i.a, this.a.i.b, 1, "");
             this.a.e2();
             LegoListFragment legoListFragment = this.a;
-            legoListFragment.u2(legoListFragment.getView(), false, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ac));
+            legoListFragment.u2(legoListFragment.getView(), false, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702aa));
         }
     }
 
@@ -1094,7 +1094,7 @@ public class LegoListFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (ni.z()) {
-                u2(getView(), false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ac));
+                u2(getView(), false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702aa));
             }
             this.c.setViewForeground();
         }
@@ -1137,22 +1137,22 @@ public class LegoListFragment extends BaseFragment {
     }
 
     public final void d2(View view2) {
-        j55 j55Var;
+        k55 k55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, view2) == null) || (j55Var = this.m) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, view2) == null) || (k55Var = this.m) == null) {
             return;
         }
-        j55Var.dettachView(view2);
+        k55Var.dettachView(view2);
         this.m = null;
     }
 
     public final void e2() {
-        k55 k55Var;
+        l55 l55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (k55Var = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (l55Var = this.l) == null) {
             return;
         }
-        k55Var.dettachView(getView());
+        l55Var.dettachView(getView());
         this.l = null;
     }
 
@@ -1353,7 +1353,7 @@ public class LegoListFragment extends BaseFragment {
                         Rect rect4 = this.u.d;
                         Rect rect5 = this.v;
                         float f2 = this.w / (rect5.right - rect5.left);
-                        this.D = pi.f(getActivity(), R.dimen.obfuscated_res_0x7f070232);
+                        this.D = pi.f(getActivity(), R.dimen.obfuscated_res_0x7f070230);
                         Rect rect6 = this.v;
                         float f3 = f2 * (rect6.bottom - rect6.top);
                         TbImageView tbImageView2 = new TbImageView(getActivity());
@@ -1487,9 +1487,9 @@ public class LegoListFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048608, this, view2, str, z) == null) {
             if (this.l == null) {
-                this.l = new k55(getPageContext().getPageActivity(), new e(this));
+                this.l = new l55(getPageContext().getPageActivity(), new e(this));
             }
-            this.l.k(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070255));
+            this.l.k(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070252));
             this.l.m(str);
             this.l.attachView(view2, z);
             this.l.p();
@@ -1508,9 +1508,9 @@ public class LegoListFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{view2, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             if (this.m == null) {
                 if (i2 < 0) {
-                    this.m = new j55(getActivity());
+                    this.m = new k55(getActivity());
                 } else {
-                    this.m = new j55(getActivity(), i2);
+                    this.m = new k55(getActivity(), i2);
                 }
                 this.m.onChangeSkinType();
             }

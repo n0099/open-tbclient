@@ -34,15 +34,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ia5;
+import com.repackage.ja5;
 import com.repackage.pi;
 import com.repackage.sg8;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import com.repackage.vx8;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class SelectTagListView extends LinearLayout implements ia5, View.OnClickListener, AutoChangeLineView.c {
+public class SelectTagListView extends LinearLayout implements ja5, View.OnClickListener, AutoChangeLineView.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<SelectTagActivity> a;
@@ -161,7 +161,7 @@ public class SelectTagListView extends LinearLayout implements ia5, View.OnClick
                 }
                 textView.setCompoundDrawablePadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
                 textView.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X008), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X006), 0);
-                ur4 d = ur4.d(textView);
+                vr4 d = vr4.d(textView);
                 d.v(R.color.CAM_X0304);
                 d.z(R.dimen.T_X08);
                 d.n(R.string.J_X01);
@@ -211,7 +211,7 @@ public class SelectTagListView extends LinearLayout implements ia5, View.OnClick
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, i, str)) == null) {
                 if (this.a.n.contains(str)) {
-                    ur4 d = ur4.d(textView);
+                    vr4 d = vr4.d(textView);
                     d.v(R.color.CAM_X0304);
                     d.z(R.dimen.T_X08);
                     d.n(R.string.J_X01);
@@ -219,7 +219,7 @@ public class SelectTagListView extends LinearLayout implements ia5, View.OnClick
                     d.k(R.color.CAM_X0302);
                     d.f(R.color.CAM_X0905);
                 } else {
-                    ur4 d2 = ur4.d(textView);
+                    vr4 d2 = vr4.d(textView);
                     d2.v(R.color.CAM_X0105);
                     d2.z(R.dimen.T_X08);
                     d2.n(R.string.J_X01);
@@ -628,7 +628,7 @@ public class SelectTagListView extends LinearLayout implements ia5, View.OnClick
         this.b = navigationBar;
         this.n = new ArrayList();
         this.o = new ArrayList<>();
-        LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d089e, (ViewGroup) this.e, true);
+        LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08a8, (ViewGroup) this.e, true);
         p();
         t();
         r();
@@ -637,7 +637,7 @@ public class SelectTagListView extends LinearLayout implements ia5, View.OnClick
         m();
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean J0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -660,7 +660,7 @@ public class SelectTagListView extends LinearLayout implements ia5, View.OnClick
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.n : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -680,12 +680,12 @@ public class SelectTagListView extends LinearLayout implements ia5, View.OnClick
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.m = (AutoChangeLineView) this.e.findViewById(R.id.obfuscated_res_0x7f090cc4);
+            this.m = (AutoChangeLineView) this.e.findViewById(R.id.obfuscated_res_0x7f090cbd);
             q();
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public void n(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
@@ -694,7 +694,7 @@ public class SelectTagListView extends LinearLayout implements ia5, View.OnClick
             v();
             u();
             m();
-            ur4 d2 = ur4.d(this.p);
+            vr4 d2 = vr4.d(this.p);
             d2.v(R.color.CAM_X0105);
             d2.f(R.color.CAM_X0209);
             this.m.setLabels(this.n, this.v);
@@ -721,7 +721,7 @@ public class SelectTagListView extends LinearLayout implements ia5, View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.b.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f009b));
-            this.c = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0418));
+            this.c = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0417));
         }
     }
 
@@ -736,23 +736,23 @@ public class SelectTagListView extends LinearLayout implements ia5, View.OnClick
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.j = (RelativeLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0916a3);
-            EditText editText = (EditText) this.e.findViewById(R.id.obfuscated_res_0x7f090ed8);
+            this.j = (RelativeLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09167e);
+            EditText editText = (EditText) this.e.findViewById(R.id.obfuscated_res_0x7f090ed1);
             this.p = editText;
             editText.setMaxLines(1);
-            this.r = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f090ed1);
+            this.r = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f090eca);
             this.p.setOnClickListener(new d(this));
             this.p.setOnEditorActionListener(new e(this));
             this.p.addTextChangedListener(new f(this));
             this.p.setFilters(new InputFilter[]{new vx8.a(this.u, new g(this))});
             this.r.setOnClickListener(new h(this));
-            ur4 d2 = ur4.d(this.j);
+            vr4 d2 = vr4.d(this.j);
             d2.n(R.string.J_X07);
             d2.f(R.color.CAM_X0209);
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -768,7 +768,7 @@ public class SelectTagListView extends LinearLayout implements ia5, View.OnClick
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             List<String> list = this.n;
             if (list != null && list.size() != 0) {
-                ur4.d(this.c).x(R.color.CAM_X0302);
+                vr4.d(this.c).x(R.color.CAM_X0302);
             } else {
                 this.c.setTextColor(sg8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
@@ -805,10 +805,10 @@ public class SelectTagListView extends LinearLayout implements ia5, View.OnClick
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f092444);
-            EMTextView eMTextView = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f092442);
+            this.f = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f092446);
+            EMTextView eMTextView = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f092444);
             this.g = eMTextView;
-            ur4 d2 = ur4.d(eMTextView);
+            vr4 d2 = vr4.d(eMTextView);
             d2.A(R.string.F_X02);
             d2.z(R.dimen.T_X06);
             this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
@@ -819,8 +819,8 @@ public class SelectTagListView extends LinearLayout implements ia5, View.OnClick
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.l = (AutoChangeLineView) this.e.findViewById(R.id.obfuscated_res_0x7f091f2d);
-            ScrollView scrollView = (ScrollView) this.e.findViewById(R.id.obfuscated_res_0x7f091f20);
+            this.l = (AutoChangeLineView) this.e.findViewById(R.id.obfuscated_res_0x7f091f31);
+            ScrollView scrollView = (ScrollView) this.e.findViewById(R.id.obfuscated_res_0x7f091f24);
             this.k = scrollView;
             scrollView.setOnTouchListener(new i(this));
             this.l.setOnLabelClickListener(new j(this));
@@ -830,12 +830,12 @@ public class SelectTagListView extends LinearLayout implements ia5, View.OnClick
     public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.h = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f090725);
-            this.i = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f091aac);
-            ur4 d2 = ur4.d(this.h);
+            this.h = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f090724);
+            this.i = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f091a86);
+            vr4 d2 = vr4.d(this.h);
             d2.A(R.string.F_X02);
             d2.z(R.dimen.T_X06);
-            ur4 d3 = ur4.d(this.i);
+            vr4 d3 = vr4.d(this.i);
             d3.A(R.string.F_X02);
             d3.z(R.dimen.T_X06);
             this.h.setTextColor(SkinManager.getColor(R.color.CAM_X0105));

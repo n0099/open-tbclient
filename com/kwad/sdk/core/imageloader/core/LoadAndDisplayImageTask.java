@@ -185,7 +185,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
         try {
             return this.configuration.diskCache.save(this.uri, stream, this);
         } finally {
-            b.a(stream);
+            b.closeQuietly(stream);
         }
     }
 

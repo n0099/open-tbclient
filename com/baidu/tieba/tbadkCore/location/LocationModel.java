@@ -33,7 +33,7 @@ import com.repackage.jf;
 import com.repackage.ni;
 import com.repackage.nj8;
 import com.repackage.wh8;
-import com.repackage.xt4;
+import com.repackage.yt4;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class LocationModel extends BdBaseModel {
@@ -477,7 +477,7 @@ public class LocationModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             nj8.a().f(z);
-            xt4.k().u("no_longer_show_address", nj8.a().d());
+            yt4.k().u("no_longer_show_address", nj8.a().d());
         }
     }
 

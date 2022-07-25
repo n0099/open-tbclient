@@ -2,11 +2,11 @@ package com.baidu.pass.biometrics.face.liveness.c;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
-import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,6 @@ public class c {
         }
     }
 
-    @RequiresApi(api = 17)
     public static Bitmap a(Context context, Bitmap bitmap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -49,9 +48,11 @@ public class c {
             ScriptIntrinsicBlur create2 = ScriptIntrinsicBlur.create(create, Element.U8_4(create));
             Allocation createFromBitmap = Allocation.createFromBitmap(create, createScaledBitmap);
             Allocation createFromBitmap2 = Allocation.createFromBitmap(create, createBitmap);
-            create2.setRadius(15.0f);
-            create2.setInput(createFromBitmap);
-            create2.forEach(createFromBitmap2);
+            if (Build.VERSION.SDK_INT >= 17) {
+                create2.setRadius(15.0f);
+                create2.setInput(createFromBitmap);
+                create2.forEach(createFromBitmap2);
+            }
             createFromBitmap2.copyTo(createBitmap);
             return createBitmap;
         }

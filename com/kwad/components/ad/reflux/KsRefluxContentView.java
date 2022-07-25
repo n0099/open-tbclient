@@ -15,19 +15,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.d.b;
+import com.kwad.sdk.core.e.b;
 /* loaded from: classes5.dex */
 public class KsRefluxContentView extends FrameLayout implements GestureDetector.OnGestureListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public GestureDetector a;
-    public a b;
+    public GestureDetector kE;
+    public a kF;
 
     /* loaded from: classes5.dex */
     public interface a {
-        boolean a();
+        boolean eC();
 
-        boolean b();
+        boolean eD();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,7 +48,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
                 return;
             }
         }
-        a(context);
+        L(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,7 +70,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
                 return;
             }
         }
-        a(context);
+        L(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -92,7 +92,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
                 return;
             }
         }
-        a(context);
+        L(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -115,13 +115,13 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
                 return;
             }
         }
-        a(context);
+        L(context);
     }
 
-    private void a(@NonNull Context context) {
+    private void L(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
-            this.a = new GestureDetector(context, this);
+            this.kE = new GestureDetector(context, this);
         }
     }
 
@@ -130,13 +130,13 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            a aVar = this.b;
-            if (aVar == null || aVar.a()) {
-                b.a("KsRefluxContentView", "dispatchTouchEvent consumed");
+            a aVar = this.kF;
+            if (aVar == null || aVar.eC()) {
+                b.d("KsRefluxContentView", "dispatchTouchEvent consumed");
                 return super.dispatchTouchEvent(motionEvent);
             }
-            b.a("KsRefluxContentView", "dispatchTouchEvent mGestureDetector onTouchEvent");
-            this.a.onTouchEvent(motionEvent);
+            b.d("KsRefluxContentView", "dispatchTouchEvent mGestureDetector onTouchEvent");
+            this.kE.onTouchEvent(motionEvent);
             return true;
         }
         return invokeL.booleanValue;
@@ -147,7 +147,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            b.a("KsRefluxContentView", "onDown");
+            b.d("KsRefluxContentView", "onDown");
             return false;
         }
         return invokeL.booleanValue;
@@ -158,10 +158,10 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            b.a("KsRefluxContentView", "onFling");
-            a aVar = this.b;
+            b.d("KsRefluxContentView", "onFling");
+            a aVar = this.kF;
             if (aVar != null) {
-                return aVar.b();
+                return aVar.eD();
             }
             return false;
         }
@@ -172,7 +172,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     public void onLongPress(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, motionEvent) == null) {
-            b.a("KsRefluxContentView", "onLongPress");
+            b.d("KsRefluxContentView", "onLongPress");
         }
     }
 
@@ -181,10 +181,10 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            b.a("KsRefluxContentView", "onScroll");
-            a aVar = this.b;
+            b.d("KsRefluxContentView", "onScroll");
+            a aVar = this.kF;
             if (aVar != null) {
-                return aVar.b();
+                return aVar.eD();
             }
             return false;
         }
@@ -195,7 +195,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     public void onShowPress(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, motionEvent) == null) {
-            b.a("KsRefluxContentView", "onShowPress");
+            b.d("KsRefluxContentView", "onShowPress");
         }
     }
 
@@ -204,10 +204,10 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
-            b.a("KsRefluxContentView", "onSingleTapUp");
-            a aVar = this.b;
+            b.d("KsRefluxContentView", "onSingleTapUp");
+            a aVar = this.kF;
             if (aVar != null) {
-                return aVar.b();
+                return aVar.eD();
             }
             return false;
         }
@@ -217,7 +217,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     public void setContentViewListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.b = aVar;
+            this.kF = aVar;
         }
     }
 }

@@ -47,9 +47,9 @@ public class w58 extends jx5<p48> {
         }
         View h = h();
         this.i = h;
-        this.j = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f09193a);
-        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091939);
-        this.l = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f09193b);
+        this.j = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f091915);
+        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091914);
+        this.l = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f091916);
         this.i.setOnClickListener(this);
     }
 
@@ -57,7 +57,7 @@ public class w58 extends jx5<p48> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06d8 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06e2 : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5

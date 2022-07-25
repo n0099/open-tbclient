@@ -19,7 +19,7 @@ public class ImageViewAware extends ViewAware {
 
     public static int getImageViewFieldValue(Object obj, String str) {
         try {
-            int intValue = ((Integer) q.a(obj, str)).intValue();
+            int intValue = ((Integer) q.c(obj, str)).intValue();
             if (intValue <= 0 || intValue >= Integer.MAX_VALUE) {
                 return 0;
             }

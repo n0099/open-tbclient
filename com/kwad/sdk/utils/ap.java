@@ -1,95 +1,92 @@
 package com.kwad.sdk.utils;
 
-import android.content.Context;
-import android.os.Environment;
+import android.os.Build;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import java.io.File;
 /* loaded from: classes5.dex */
 public final class ap {
-    @NonNull
-    public static String a(Context context) {
-        File file;
-        String str = "";
-        try {
-            str = Environment.getExternalStorageState();
-        } catch (IncompatibleClassChangeError | NullPointerException unused) {
-        }
-        String str2 = null;
-        if ("mounted".equals(str) || !Environment.isExternalStorageRemovable()) {
-            try {
-                file = context.getExternalFilesDir(null);
-            } catch (Exception e) {
-                com.kwad.sdk.core.d.b.a(e);
-                file = null;
-            }
-            if (file != null) {
-                str2 = file.getPath();
-            }
-        }
-        if (TextUtils.isEmpty(str2)) {
-            str2 = context.getFilesDir().getPath();
-        }
-        return str2 + File.separator + "ksadsdk";
-    }
+    public static String anZ;
+    public static String aoa;
 
-    public static String a(Context context, String str) {
-        if (context == null) {
-            return "";
+    public static boolean aY(String str) {
+        String upperCase;
+        String str2 = anZ;
+        if (str2 != null) {
+            return str2.contains(str);
         }
-        String f = f(context);
-        return f + File.separator + "ksad/download/js/" + str;
-    }
-
-    public static File b(Context context) {
-        File file;
-        String str = "";
-        try {
-            str = Environment.getExternalStorageState();
-        } catch (IncompatibleClassChangeError | NullPointerException unused) {
-        }
-        String str2 = null;
-        if ("mounted".equals(str) || !Environment.isExternalStorageRemovable()) {
-            try {
-                file = context.getExternalCacheDir();
-            } catch (Exception e) {
-                com.kwad.sdk.core.d.b.a(e);
-                file = null;
+        String str3 = ay.get("ro.build.version.opporom");
+        aoa = str3;
+        if (TextUtils.isEmpty(str3)) {
+            String str4 = ay.get("ro.vivo.os.version");
+            aoa = str4;
+            if (TextUtils.isEmpty(str4)) {
+                String str5 = ay.get("ro.build.version.emui");
+                aoa = str5;
+                if (TextUtils.isEmpty(str5)) {
+                    String str6 = ay.get("ro.miui.ui.version.name");
+                    aoa = str6;
+                    if (TextUtils.isEmpty(str6)) {
+                        String str7 = ay.get("ro.product.system.manufacturer");
+                        aoa = str7;
+                        if (TextUtils.isEmpty(str7)) {
+                            String str8 = ay.get("ro.smartisan.version");
+                            aoa = str8;
+                            if (TextUtils.isEmpty(str8)) {
+                                String str9 = "SAMSUNG";
+                                if (!ay.get("ro.product.manufacturer").toUpperCase().contains("SAMSUNG")) {
+                                    String str10 = Build.DISPLAY;
+                                    aoa = str10;
+                                    str9 = "FLYME";
+                                    if (!str10.toUpperCase().contains("FLYME")) {
+                                        aoa = "unknown";
+                                        upperCase = Build.MANUFACTURER.toUpperCase();
+                                    }
+                                }
+                                anZ = str9;
+                                return anZ.contains(str);
+                            }
+                            upperCase = "SMARTISAN";
+                        } else {
+                            upperCase = "OnePlus";
+                        }
+                    } else {
+                        upperCase = "MIUI";
+                    }
+                } else {
+                    upperCase = "EMUI";
+                }
+            } else {
+                upperCase = "VIVO";
             }
-            if (file != null) {
-                str2 = file.getPath();
-            }
-        }
-        if (TextUtils.isEmpty(str2)) {
-            str2 = context.getCacheDir().getPath();
-        }
-        return new File(str2 + File.separator + "ksadsdk");
-    }
-
-    public static File c(Context context) {
-        String a = a(context);
-        return new File(a + File.separator + "Download");
-    }
-
-    public static File d(Context context) {
-        String str;
-        if (com.kwad.b.kwai.a.b.booleanValue()) {
-            str = a(context);
         } else {
-            str = context.getFilesDir().getAbsolutePath() + File.separator + "ksadsdk";
+            upperCase = "OPPO";
         }
-        return new File(str + File.separator + "ksadlog");
+        anZ = upperCase;
+        return anZ.contains(str);
     }
 
-    public static String e(Context context) {
-        return b(context).getPath() + "/cookie";
+    public static String getName() {
+        if (anZ == null) {
+            aY("");
+        }
+        return anZ;
     }
 
-    public static String f(Context context) {
-        if (context == null) {
-            return "";
+    public static String getVersion() {
+        if (aoa == null) {
+            aY("");
         }
-        String path = context.getFilesDir().getPath();
-        return path + File.separator + "ksadsdk";
+        return aoa;
+    }
+
+    public static boolean zP() {
+        return aY("EMUI");
+    }
+
+    public static boolean zQ() {
+        return aY("MIUI");
+    }
+
+    public static boolean zR() {
+        return aY("FLYME");
     }
 }

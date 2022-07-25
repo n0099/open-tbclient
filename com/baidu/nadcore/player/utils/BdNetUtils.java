@@ -186,10 +186,10 @@ public class BdNetUtils {
     public static void i(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, context, str) == null) {
-            StringBuilder sb = new StringBuilder(context.getString(R.string.obfuscated_res_0x7f0f0bc1));
+            StringBuilder sb = new StringBuilder(context.getString(R.string.obfuscated_res_0x7f0f0bad));
             if (!TextUtils.isEmpty(str)) {
                 sb.append("，\n");
-                sb.append(context.getString(R.string.obfuscated_res_0x7f0f0bf6));
+                sb.append(context.getString(R.string.obfuscated_res_0x7f0f0be2));
                 sb.append(str);
                 sb.append("MB");
             }

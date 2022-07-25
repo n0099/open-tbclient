@@ -65,7 +65,7 @@ public class j38 extends an<PersonPostModel.PostInfoList, PersonCommentHolder> {
     public PersonCommentHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PersonCommentHolder(LayoutInflater.from(this.j.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06d6, viewGroup, false), this.j, this.k) : (PersonCommentHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PersonCommentHolder(LayoutInflater.from(this.j.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06e0, viewGroup, false), this.j, this.k) : (PersonCommentHolder) invokeL.objValue;
     }
 
     public View a0(int i, View view2, ViewGroup viewGroup, PersonPostModel.PostInfoList postInfoList, PersonCommentHolder personCommentHolder) {
@@ -76,7 +76,7 @@ public class j38 extends an<PersonPostModel.PostInfoList, PersonCommentHolder> {
                 if (this.i == null) {
                     this.i = postInfoList.user_portrait;
                 }
-                personCommentHolder.e(postInfoList, false, this.i);
+                personCommentHolder.d(postInfoList, false, this.i);
                 ArrayList<String[]> arrayList = new ArrayList<>();
                 int length = postInfoList.content.length;
                 for (int i2 = 0; i2 < length; i2++) {
@@ -108,7 +108,7 @@ public class j38 extends an<PersonPostModel.PostInfoList, PersonCommentHolder> {
                 SkinManager.setViewTextColor(personCommentHolder.b, R.color.common_color_10039, 1);
                 int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
                 personCommentHolder.b.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
-                personCommentHolder.c(TbadkCoreApplication.getInst().getSkinType());
+                personCommentHolder.b(TbadkCoreApplication.getInst().getSkinType());
             }
             return view2;
         }

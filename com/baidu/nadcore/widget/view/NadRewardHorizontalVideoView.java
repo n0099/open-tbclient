@@ -93,7 +93,7 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, layoutInflater, pn0Var) == null) {
-            layoutInflater.inflate((pn0Var == null || (num = (Integer) zx0.b(pn0Var.a, AdBaseModel.STYLE.VIDEO)) == null) ? R.layout.obfuscated_res_0x7f0d05cd : num.intValue(), this);
+            layoutInflater.inflate((pn0Var == null || (num = (Integer) zx0.b(pn0Var.a, AdBaseModel.STYLE.VIDEO)) == null) ? R.layout.obfuscated_res_0x7f0d05d7 : num.intValue(), this);
         }
     }
 
@@ -167,6 +167,6 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
                 return;
             }
         }
-        this.u = (HorizontalVideoTailView) findViewById(R.id.obfuscated_res_0x7f09153c);
+        this.u = (HorizontalVideoTailView) findViewById(R.id.obfuscated_res_0x7f091517);
     }
 }

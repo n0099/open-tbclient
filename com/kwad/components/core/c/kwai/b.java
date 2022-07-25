@@ -19,31 +19,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.core.c.kwai.a;
 import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.utils.bf;
+import com.kwad.sdk.utils.bj;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class b extends AlertDialog {
     public static /* synthetic */ Interceptable $ic;
     @Nullable
-    public static b a;
+    public static b DG;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public final C0509b b;
-    public com.kwad.components.core.c.kwai.a c;
-    public boolean d;
+    public final C0354b DH;
+    public com.kwad.components.core.c.kwai.a DK;
+    public boolean DL;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable
-        public Context a;
-        public AdTemplate b;
-        public String c;
+        public DialogInterface.OnShowListener DN;
         @Nullable
-        public DialogInterface.OnShowListener d;
+        public DialogInterface.OnDismissListener DO;
+        public AdTemplate adTemplate;
         @Nullable
-        public DialogInterface.OnDismissListener e;
+        public Context context;
+        public String url;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -59,21 +59,11 @@ public final class b extends AlertDialog {
             }
         }
 
-        public final a a(Context context) {
+        public final a K(AdTemplate adTemplate) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                this.a = context;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public final a a(@Nullable DialogInterface.OnDismissListener onDismissListener) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onDismissListener)) == null) {
-                this.e = onDismissListener;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, adTemplate)) == null) {
+                this.adTemplate = adTemplate;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -82,60 +72,70 @@ public final class b extends AlertDialog {
         public final a a(@Nullable DialogInterface.OnShowListener onShowListener) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onShowListener)) == null) {
-                this.d = onShowListener;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onShowListener)) == null) {
+                this.DN = onShowListener;
                 return this;
             }
             return (a) invokeL.objValue;
         }
 
-        public final a a(AdTemplate adTemplate) {
+        public final a ah(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, adTemplate)) == null) {
-                this.b = adTemplate;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+                this.context = context;
                 return this;
             }
             return (a) invokeL.objValue;
         }
 
-        public final a a(String str) {
+        public final a ak(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.c = str;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                this.url = str;
                 return this;
             }
             return (a) invokeL.objValue;
         }
 
-        public final C0509b a() {
+        public final a c(@Nullable DialogInterface.OnDismissListener onDismissListener) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, onDismissListener)) == null) {
+                this.DO = onDismissListener;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public final C0354b ms() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                if (com.kwad.components.core.a.c.booleanValue() && (this.a == null || this.b == null || TextUtils.isEmpty(this.c))) {
+                if (com.kwad.components.core.a.aw.booleanValue() && (this.context == null || this.adTemplate == null || TextUtils.isEmpty(this.url))) {
                     throw new IllegalArgumentException("param is error, please check it");
                 }
-                return new C0509b(this, (byte) 0);
+                return new C0354b(this, (byte) 0);
             }
-            return (C0509b) invokeV.objValue;
+            return (C0354b) invokeV.objValue;
         }
     }
 
     /* renamed from: com.kwad.components.core.c.kwai.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0509b {
+    public static class C0354b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Context a;
-        public final AdTemplate b;
-        public String c;
         @Nullable
-        public DialogInterface.OnShowListener d;
+        public DialogInterface.OnShowListener DN;
         @Nullable
-        public DialogInterface.OnDismissListener e;
+        public DialogInterface.OnDismissListener DO;
+        public final AdTemplate adTemplate;
+        public Context context;
+        public String url;
 
-        public C0509b(a aVar) {
+        public C0354b(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -150,26 +150,26 @@ public final class b extends AlertDialog {
                     return;
                 }
             }
-            this.a = aVar.a;
-            this.b = aVar.b;
-            this.c = aVar.c;
-            this.d = aVar.d;
-            this.e = aVar.e;
+            this.context = aVar.context;
+            this.adTemplate = aVar.adTemplate;
+            this.url = aVar.url;
+            this.DN = aVar.DN;
+            this.DO = aVar.DO;
         }
 
-        public /* synthetic */ C0509b(a aVar, byte b) {
+        public /* synthetic */ C0354b(a aVar, byte b) {
             this(aVar);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(Activity activity, C0509b c0509b) {
+    public b(Activity activity, C0354b c0354b) {
         super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, c0509b};
+            Object[] objArr = {activity, c0354b};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -180,22 +180,46 @@ public final class b extends AlertDialog {
                 return;
             }
         }
-        this.d = false;
+        this.DL = false;
         setOwnerActivity(activity);
-        this.b = c0509b;
-        c0509b.a = Wrapper.wrapContextIfNeed(c0509b.a);
+        this.DH = c0354b;
+        c0354b.context = Wrapper.wrapContextIfNeed(c0354b.context);
         if (com.kwad.sdk.b.kwai.a.a(activity)) {
             getWindow().addFlags(1024);
         }
-        setOnShowListener(c0509b.d);
-        setOnDismissListener(c0509b.e);
+        setOnShowListener(c0354b.DN);
+        setOnDismissListener(c0354b.DO);
     }
 
-    public static boolean a() {
+    public static boolean a(C0354b c0354b) {
+        InterceptResult invokeL;
+        Activity dB;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, c0354b)) == null) {
+            b bVar = DG;
+            if ((bVar != null && bVar.isShowing()) || (dB = bj.dB(c0354b.context)) == null || dB.isFinishing()) {
+                return false;
+            }
+            com.kwad.sdk.kwai.kwai.c.rd().dismiss();
+            try {
+                b bVar2 = new b(dB, c0354b);
+                DG = bVar2;
+                bVar2.show();
+                com.kwad.sdk.core.report.a.c(c0354b.adTemplate, 86, (JSONObject) null);
+                return true;
+            } catch (Throwable th) {
+                com.kwad.sdk.core.e.b.printStackTrace(th);
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean mq() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            b bVar = a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            b bVar = DG;
             if (bVar != null) {
                 return bVar.isShowing();
             }
@@ -204,50 +228,20 @@ public final class b extends AlertDialog {
         return invokeV.booleanValue;
     }
 
-    public static boolean a(C0509b c0509b) {
-        InterceptResult invokeL;
-        Activity b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c0509b)) == null) {
-            b bVar = a;
-            if ((bVar != null && bVar.isShowing()) || (b = bf.b(c0509b.a)) == null || b.isFinishing()) {
-                return false;
-            }
-            com.kwad.sdk.kwai.kwai.b.a().d();
-            try {
-                b bVar2 = new b(b, c0509b);
-                a = bVar2;
-                bVar2.show();
-                com.kwad.sdk.core.report.a.c(c0509b.b, 86, (JSONObject) null);
-                return true;
-            } catch (Throwable th) {
-                com.kwad.sdk.core.d.b.a(th);
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void a(boolean z) {
+    public final void ai(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.d = z;
+            this.DL = z;
             dismiss();
         }
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public final void dismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.dismiss();
-            a = null;
+            DG = null;
         }
     }
 
@@ -255,7 +249,13 @@ public final class b extends AlertDialog {
     public final boolean isShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? super.isShowing() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.isShowing() : invokeV.booleanValue;
+    }
+
+    public final boolean mr() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.DL : invokeV.booleanValue;
     }
 
     @Override // android.app.Dialog
@@ -263,7 +263,7 @@ public final class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onBackPressed();
-            com.kwad.sdk.core.report.a.m(this.b.b);
+            com.kwad.sdk.core.report.a.aB(this.DH.adTemplate);
         }
     }
 
@@ -272,13 +272,13 @@ public final class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            if (this.c == null) {
-                com.kwad.components.core.c.kwai.a aVar = new com.kwad.components.core.c.kwai.a(this, this.b);
-                this.c = aVar;
-                aVar.setChangeListener(new a.InterfaceC0508a(this) { // from class: com.kwad.components.core.c.kwai.b.1
+            if (this.DK == null) {
+                com.kwad.components.core.c.kwai.a aVar = new com.kwad.components.core.c.kwai.a(this, this.DH);
+                this.DK = aVar;
+                aVar.setChangeListener(new a.InterfaceC0353a(this) { // from class: com.kwad.components.core.c.kwai.b.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ b a;
+                    public final /* synthetic */ b DM;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -295,19 +295,19 @@ public final class b extends AlertDialog {
                                 return;
                             }
                         }
-                        this.a = this;
+                        this.DM = this;
                     }
 
-                    @Override // com.kwad.components.core.c.kwai.a.InterfaceC0508a
-                    public final void a() {
+                    @Override // com.kwad.components.core.c.kwai.a.InterfaceC0353a
+                    public final void mp() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.a.dismiss();
+                            this.DM.dismiss();
                         }
                     }
                 });
             }
-            setContentView(this.c);
+            setContentView(this.DK);
             setCanceledOnTouchOutside(true);
             getWindow().getDecorView().setPadding(0, 0, 0, 0);
             getWindow().setBackgroundDrawable(new ColorDrawable(0));
@@ -320,7 +320,7 @@ public final class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
-            a = null;
+            DG = null;
         }
     }
 
@@ -329,7 +329,7 @@ public final class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onStart();
-            b bVar = a;
+            b bVar = DG;
             if (bVar != null) {
                 bVar.setTitle((CharSequence) null);
             }
@@ -343,7 +343,7 @@ public final class b extends AlertDialog {
             try {
                 super.show();
             } catch (Exception e) {
-                com.kwad.sdk.core.d.b.b(e);
+                com.kwad.sdk.core.e.b.printStackTraceOnly(e);
             }
         }
     }

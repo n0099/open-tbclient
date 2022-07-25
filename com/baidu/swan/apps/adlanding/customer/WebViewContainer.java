@@ -14,8 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.om1;
-import com.repackage.yd3;
+import com.repackage.pm1;
+import com.repackage.zd3;
+import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 /* loaded from: classes2.dex */
 public class WebViewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -38,7 +39,7 @@ public class WebViewContainer extends FrameLayout {
     public float p;
     public int q;
     public int r;
-    public om1 s;
+    public pm1 s;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -214,7 +215,7 @@ public class WebViewContainer extends FrameLayout {
             if (overScroller == null || this.f < this.g) {
                 return false;
             }
-            overScroller.fling(0, (int) this.c, 0, i, 0, 0, -500, 10000);
+            overScroller.fling(0, (int) this.c, 0, i, 0, 0, ErrorCode.SERVER_ERROR, 10000);
             invalidate();
             return true;
         }
@@ -328,17 +329,17 @@ public class WebViewContainer extends FrameLayout {
         }
     }
 
-    public void setInternalWebView(om1 om1Var) {
+    public void setInternalWebView(pm1 pm1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, om1Var) == null) {
-            this.s = om1Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, pm1Var) == null) {
+            this.s = pm1Var;
         }
     }
 
     public void setMinFlingVelocity(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.m = yd3.g(i);
+            this.m = zd3.g(i);
         }
     }
 

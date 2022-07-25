@@ -89,9 +89,9 @@ public class oo6 implements io6 {
         this.a = context;
         this.g = mo6Var;
         this.b = mo6Var.d();
-        View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07f9, (ViewGroup) null);
+        View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0803, (ViewGroup) null);
         this.d = inflate;
-        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f092148);
+        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f09214a);
         TabMenuPopView tabMenuPopView = (TabMenuPopView) this.d.findViewById(R.id.obfuscated_res_0x7f090587);
         this.f = tabMenuPopView;
         tabMenuPopView.setOnItemClickCallBack(this.h);

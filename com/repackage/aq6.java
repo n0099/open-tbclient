@@ -143,16 +143,16 @@ public class aq6 extends b9<BaseFragmentActivity> {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, forumDetailActivityConfig));
             }
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f09224e || logicField == LogicField.LIKE_BTN) {
+            if (id == R.id.obfuscated_res_0x7f092250 || logicField == LogicField.LIKE_BTN) {
                 if (this.a.a.x3()) {
                     return;
                 }
                 if (!ni.z()) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                 } else if (!ViewHelper.checkUpIsLogin(this.a.mContext.getPageActivity())) {
                     TiebaStatic.log(new StatisticItem("c10517").param("obj_locate", 1).param("fid", this.a.a.d()));
                 } else {
-                    Object tag = view2.getTag(R.id.obfuscated_res_0x7f090f73);
+                    Object tag = view2.getTag(R.id.obfuscated_res_0x7f090f6c);
                     if ((tag instanceof Boolean) && ((Boolean) tag).booleanValue()) {
                         kn6.d(this.a.a.d(), this.a.a.c());
                     }
@@ -165,12 +165,12 @@ public class aq6 extends b9<BaseFragmentActivity> {
                     statisticItem2.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
                     TiebaStatic.log(statisticItem2);
                 }
-            } else if (id == R.id.obfuscated_res_0x7f09228b || logicField == LogicField.SIGN_BTN) {
+            } else if (id == R.id.obfuscated_res_0x7f09228d || logicField == LogicField.SIGN_BTN) {
                 if (this.a.a.x3()) {
                     return;
                 }
                 if (!ni.z()) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                 } else if (ViewHelper.checkUpIsLogin(this.a.mContext.getPageActivity())) {
                     if (!this.a.y()) {
                         this.a.z0();
@@ -179,12 +179,12 @@ public class aq6 extends b9<BaseFragmentActivity> {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SupplementSignActivityConfig(this.a.a.getPageContext().getPageActivity(), ng.e(this.a.a.d(), 0), 24002)));
                     }
                 }
-            } else if (id == R.id.obfuscated_res_0x7f090b05) {
+            } else if (id == R.id.obfuscated_res_0x7f090afe) {
                 if (!ViewHelper.checkUpIsLogin(this.a.mContext.getPageActivity()) || Q0 == null || Q0.getGameUrl() == null) {
                     return;
                 }
                 UrlManager.getInstance().dealOneLink((TbPageContext) this.a.getPageContext(), new String[]{Q0.getGameUrl()}, true);
-            } else if (id == R.id.obfuscated_res_0x7f090aa8) {
+            } else if (id == R.id.obfuscated_res_0x7f090aa1) {
                 if (Q0 == null || Q0.getUserData() == null || !Q0.getUserData().isBawu()) {
                     return;
                 }
@@ -192,16 +192,16 @@ public class aq6 extends b9<BaseFragmentActivity> {
                 if (oi.isEmpty(bawuCenterUrl)) {
                     return;
                 }
-                rl4.o(this.a.getPageContext().getPageActivity(), bawuCenterUrl);
+                sl4.o(this.a.getPageContext().getPageActivity(), bawuCenterUrl);
                 if (Q0.getForum() != null) {
                     TiebaStatic.log(new StatisticItem("c10502").param("fid", Q0.getForum().getId()).param("uid", Q0.getUserData().getUserId()));
                 }
-            } else if (id == R.id.obfuscated_res_0x7f09128d || logicField == LogicField.LEVEL_AND_LEVEL_NAME) {
+            } else if (id == R.id.obfuscated_res_0x7f091269 || logicField == LogicField.LEVEL_AND_LEVEL_NAME) {
                 if (this.a.a.x3() || this.a.i != 0 || !this.a.D() || this.a.c == null) {
                     return;
                 }
                 this.a.c.S(view2, false);
-            } else if (id == R.id.obfuscated_res_0x7f090b10) {
+            } else if (id == R.id.obfuscated_res_0x7f090b09) {
                 if (Q0 == null || Q0.getForum() == null || TextUtils.isEmpty(Q0.getForum().getId())) {
                     return;
                 }
@@ -211,8 +211,8 @@ public class aq6 extends b9<BaseFragmentActivity> {
                 StatisticItem statisticItem3 = new StatisticItem("c13666");
                 statisticItem3.param("fid", Q0.getForum().getId());
                 TiebaStatic.log(statisticItem3);
-            } else if (id != R.id.obfuscated_res_0x7f090b5f) {
-                if (id != R.id.obfuscated_res_0x7f090b5e || !ViewHelper.checkUpIsLogin(this.a.mContext.getPageActivity()) || Q0 == null || Q0.getForum() == null || TextUtils.isEmpty(Q0.getForum().getId())) {
+            } else if (id != R.id.obfuscated_res_0x7f090b58) {
+                if (id != R.id.obfuscated_res_0x7f090b57 || !ViewHelper.checkUpIsLogin(this.a.mContext.getPageActivity()) || Q0 == null || Q0.getForum() == null || TextUtils.isEmpty(Q0.getForum().getId())) {
                     return;
                 }
                 UrlManager urlManager = UrlManager.getInstance();
@@ -720,7 +720,7 @@ public class aq6 extends b9<BaseFragmentActivity> {
         if (!(interceptable == null || interceptable.invokeI(1048605, this, i) == null) || (iq6Var = this.c) == null || iq6Var.h() == null) {
             return;
         }
-        View findViewById = this.c.h().findViewById(R.id.obfuscated_res_0x7f0907c1);
+        View findViewById = this.c.h().findViewById(R.id.obfuscated_res_0x7f0907bf);
         if (findViewById != null) {
             findViewById.setVisibility(i);
         }

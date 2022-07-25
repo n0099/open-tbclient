@@ -131,7 +131,7 @@ public class ReadProgessDelegetAdapter extends an<fz6, ViewHolder> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fz6Var, viewHolder})) == null) {
             cy5.b().a(new StatisticItem("c11272"));
             viewHolder.a.i(fz6Var);
-            return viewHolder.b();
+            return viewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

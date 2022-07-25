@@ -203,7 +203,7 @@ public class HotUserRankView {
                     this.a.a.finish();
                 } else if (view2 == this.a.l) {
                     if (TextUtils.isEmpty(this.a.m)) {
-                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0a27);
+                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0a13);
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(this.a.a.getPageContext(), new String[]{this.a.m});
@@ -363,20 +363,20 @@ public class HotUserRankView {
         this.a = baseFragmentActivity;
         View inflate = LayoutInflater.from(baseFragmentActivity).inflate(R.layout.obfuscated_res_0x7f0d003b, (ViewGroup) null);
         this.b = inflate;
-        NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f09158d);
+        NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f091568);
         this.c = navigationBar;
         View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.k = addSystemImageButton;
         addSystemImageButton.setOnClickListener(this.s);
-        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f08a1));
+        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f088c));
         this.l = addTextButton;
         addTextButton.setOnClickListener(this.s);
-        TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091ede);
+        TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091ee2);
         this.d = tbTabLayout;
         tbTabLayout.setTabTextSize(pi.f(baseFragmentActivity, R.dimen.tbds46));
-        this.e = this.b.findViewById(R.id.obfuscated_res_0x7f091ec0);
-        this.f = this.b.findViewById(R.id.obfuscated_res_0x7f091ec1);
-        CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f09244c);
+        this.e = this.b.findViewById(R.id.obfuscated_res_0x7f091ec4);
+        this.f = this.b.findViewById(R.id.obfuscated_res_0x7f091ec5);
+        CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f09244e);
         this.g = customViewPager;
         customViewPager.addOnPageChangeListener(this.t);
         this.g.setViewPagerScroll(0);
@@ -386,8 +386,8 @@ public class HotUserRankView {
         this.d.setupWithViewPager(this.g);
         this.j = new r56(this.a.getPageContext(), this.b.findViewById(R.id.obfuscated_res_0x7f0903df));
         this.a.registerListener(this.u);
-        this.n = this.b.findViewById(R.id.obfuscated_res_0x7f0922fb);
-        this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0922fc);
+        this.n = this.b.findViewById(R.id.obfuscated_res_0x7f0922fd);
+        this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0922fe);
         this.p = this.b.findViewById(R.id.obfuscated_res_0x7f0903e0);
     }
 
@@ -407,7 +407,7 @@ public class HotUserRankView {
             SkinManager.setBackgroundColor(this.d, R.color.CAM_X0207);
             SkinManager.setViewTextColorSelector(this.l, R.color.CAM_X0105, R.color.cp_cont_b_alpha50);
             this.j.d(i);
-            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f081088, R.color.CAM_X0302, null);
+            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f08108c, R.color.CAM_X0302, null);
             int f = pi.f(this.a, R.dimen.tbds63);
             int f2 = pi.f(this.a, R.dimen.tbds2);
             if (pureDrawable != null) {

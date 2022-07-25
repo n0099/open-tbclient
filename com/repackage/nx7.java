@@ -75,9 +75,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
-import com.repackage.er4;
-import com.repackage.fu4;
+import com.repackage.dr4;
+import com.repackage.fr4;
+import com.repackage.gu4;
 import com.repackage.lj5;
 import com.repackage.ls7;
 import com.repackage.oj5;
@@ -95,24 +95,24 @@ public class nx7 implements KeyboardEventLayout.a {
     public static final int t0;
     public static int u0;
     public transient /* synthetic */ FieldHolder $fh;
-    public au4 A;
+    public bu4 A;
     public qx7 B;
     public View C;
     public MorePopupWindow D;
     public View E;
-    public er4 F;
+    public fr4 F;
     public View G;
     public BlankView H;
     public View I;
     public Dialog J;
-    public cr4 K;
+    public dr4 K;
     public View.OnClickListener L;
-    public er4 M;
+    public fr4 M;
     public boolean N;
     public ProgressBar O;
     public NewSubPbActivity.r0 P;
     public NewSubPbActivity.r0 Q;
-    public r35 R;
+    public s35 R;
     public int S;
     public ArrayList<PostData> T;
     public zr7 U;
@@ -146,7 +146,7 @@ public class nx7 implements KeyboardEventLayout.a {
     public ImageView l;
     public boolean l0;
     public View m;
-    public fu4.g m0;
+    public gu4.g m0;
     public TextView n;
     public MaskView n0;
     public LinearLayout o;
@@ -199,7 +199,7 @@ public class nx7 implements KeyboardEventLayout.a {
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
                 String JsonArrayToString = StringHelper.JsonArrayToString(jSONArray);
                 if (this.b.Q != null) {
-                    this.b.Q.a(new Object[]{this.a.get(R.id.obfuscated_res_0x7f091eef), this.a.get(R.id.obfuscated_res_0x7f091f0c), this.a.get(R.id.obfuscated_res_0x7f091ef0), this.a.get(R.id.obfuscated_res_0x7f091ef1), JsonArrayToString});
+                    this.b.Q.a(new Object[]{this.a.get(R.id.obfuscated_res_0x7f091ef3), this.a.get(R.id.obfuscated_res_0x7f091f10), this.a.get(R.id.obfuscated_res_0x7f091ef4), this.a.get(R.id.obfuscated_res_0x7f091ef5), JsonArrayToString});
                 }
             }
         }
@@ -318,9 +318,9 @@ public class nx7 implements KeyboardEventLayout.a {
                     if (sparseArray == null) {
                         return true;
                     }
-                    PostData postData2 = sparseArray.get(R.id.obfuscated_res_0x7f091eed) instanceof PostData ? (PostData) sparseArray.get(R.id.obfuscated_res_0x7f091eed) : null;
-                    boolean z = this.a.c0(sparseArray.get(R.id.obfuscated_res_0x7f091ef0) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091ef0)).booleanValue() : false) && TbadkCoreApplication.isLogin();
-                    this.a.c0.q(sparseArray, this.a.f0.F0(), z, this.a.l0 && postData2 != null && postData2.l0, this.a.f0.n0());
+                    PostData postData2 = sparseArray.get(R.id.obfuscated_res_0x7f091ef1) instanceof PostData ? (PostData) sparseArray.get(R.id.obfuscated_res_0x7f091ef1) : null;
+                    boolean z = this.a.c0(sparseArray.get(R.id.obfuscated_res_0x7f091ef4) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091ef4)).booleanValue() : false) && TbadkCoreApplication.isLogin();
+                    this.a.c0.q(sparseArray, this.a.f0.F0(), z, this.a.l0 && postData2 != null && postData2.f0, this.a.f0.n0());
                     if (z) {
                         this.a.c0.D().setVisibility(0);
                         this.a.c0.D().setTag(postData.J());
@@ -374,9 +374,9 @@ public class nx7 implements KeyboardEventLayout.a {
                 }
                 SparseArray sparseArray = (SparseArray) view2.getTag();
                 if (sparseArray != null) {
-                    String str = (String) sparseArray.get(R.id.obfuscated_res_0x7f091f1d);
-                    String str2 = (String) sparseArray.get(R.id.obfuscated_res_0x7f091f1c);
-                    String str3 = (String) sparseArray.get(R.id.obfuscated_res_0x7f091f1b);
+                    String str = (String) sparseArray.get(R.id.obfuscated_res_0x7f091f21);
+                    String str2 = (String) sparseArray.get(R.id.obfuscated_res_0x7f091f20);
+                    String str3 = (String) sparseArray.get(R.id.obfuscated_res_0x7f091f1f);
                     if (str != null) {
                         this.a.R.W(str2);
                         this.a.R.V(str, str3);
@@ -634,7 +634,7 @@ public class nx7 implements KeyboardEventLayout.a {
                 if (sparseArray == null) {
                     return;
                 }
-                this.a.j0(((Integer) sparseArray.get(R.id.obfuscated_res_0x7f091ef1)).intValue(), (String) sparseArray.get(R.id.obfuscated_res_0x7f091eef), ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f091f0c)).intValue(), ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091ef0)).booleanValue(), false);
+                this.a.j0(((Integer) sparseArray.get(R.id.obfuscated_res_0x7f091ef5)).intValue(), (String) sparseArray.get(R.id.obfuscated_res_0x7f091ef3), ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f091f10)).intValue(), ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091ef4)).booleanValue(), false);
             }
         }
     }
@@ -674,7 +674,7 @@ public class nx7 implements KeyboardEventLayout.a {
                 if (sparseArray == null || this.a.P == null) {
                     return;
                 }
-                this.a.P.a(new Object[]{sparseArray.get(R.id.obfuscated_res_0x7f091f0c), sparseArray.get(R.id.obfuscated_res_0x7f091efa), sparseArray.get(R.id.obfuscated_res_0x7f091efd), sparseArray.get(R.id.obfuscated_res_0x7f091efb), sparseArray.get(R.id.obfuscated_res_0x7f091efc)});
+                this.a.P.a(new Object[]{sparseArray.get(R.id.obfuscated_res_0x7f091f10), sparseArray.get(R.id.obfuscated_res_0x7f091efe), sparseArray.get(R.id.obfuscated_res_0x7f091f01), sparseArray.get(R.id.obfuscated_res_0x7f091eff), sparseArray.get(R.id.obfuscated_res_0x7f091f00)});
             }
         }
     }
@@ -716,13 +716,13 @@ public class nx7 implements KeyboardEventLayout.a {
                 if (sparseArray == null) {
                     return;
                 }
-                this.b.f.h3(this.a, (String) sparseArray.get(R.id.obfuscated_res_0x7f091f40), sparseArray);
+                this.b.f.h3(this.a, (String) sparseArray.get(R.id.obfuscated_res_0x7f091f44), sparseArray);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class n implements cr4.e {
+    public class n implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SparseArray a;
@@ -747,20 +747,20 @@ public class nx7 implements KeyboardEventLayout.a {
             this.a = sparseArray;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 if (this.b.Q != null) {
-                    this.b.Q.a(new Object[]{this.a.get(R.id.obfuscated_res_0x7f091eef), this.a.get(R.id.obfuscated_res_0x7f091f0c), this.a.get(R.id.obfuscated_res_0x7f091ef0), this.a.get(R.id.obfuscated_res_0x7f091ef1)});
+                    this.b.Q.a(new Object[]{this.a.get(R.id.obfuscated_res_0x7f091ef3), this.a.get(R.id.obfuscated_res_0x7f091f10), this.a.get(R.id.obfuscated_res_0x7f091ef4), this.a.get(R.id.obfuscated_res_0x7f091ef5)});
                 }
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class o implements cr4.e {
+    public class o implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -780,11 +780,11 @@ public class nx7 implements KeyboardEventLayout.a {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -821,7 +821,7 @@ public class nx7 implements KeyboardEventLayout.a {
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
                 String JsonArrayToString = StringHelper.JsonArrayToString(jSONArray);
                 if (this.b.Q != null) {
-                    this.b.Q.a(new Object[]{this.a.get(R.id.obfuscated_res_0x7f091eef), this.a.get(R.id.obfuscated_res_0x7f091f0c), this.a.get(R.id.obfuscated_res_0x7f091ef0), this.a.get(R.id.obfuscated_res_0x7f091ef1), JsonArrayToString});
+                    this.b.Q.a(new Object[]{this.a.get(R.id.obfuscated_res_0x7f091ef3), this.a.get(R.id.obfuscated_res_0x7f091f10), this.a.get(R.id.obfuscated_res_0x7f091ef4), this.a.get(R.id.obfuscated_res_0x7f091ef5), JsonArrayToString});
                 }
             }
         }
@@ -910,24 +910,24 @@ public class nx7 implements KeyboardEventLayout.a {
         this.s0 = new e(this);
         this.f = newSubPbActivity;
         this.L = onClickListener;
-        this.a = (SubPbView) LayoutInflater.from(newSubPbActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d060c, (ViewGroup) null);
-        this.c = LayoutInflater.from(this.f.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d060b, (ViewGroup) null);
-        this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091590);
-        this.W = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091e59);
-        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091e5a);
+        this.a = (SubPbView) LayoutInflater.from(newSubPbActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0616, (ViewGroup) null);
+        this.c = LayoutInflater.from(this.f.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0615, (ViewGroup) null);
+        this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09156b);
+        this.W = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091e5d);
+        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091e5e);
         this.V = textView;
         textView.setOnClickListener(this.L);
-        this.X = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091e5c);
-        ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091e5b);
+        this.X = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091e60);
+        ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091e5f);
         this.Y = imageView;
         imageView.setOnClickListener(this.L);
         this.X.setOnClickListener(this.L);
-        this.g = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f092439);
+        this.g = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f09243b);
         Y();
         W();
-        this.j = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091e4c);
-        this.d = (BdTypeListView) this.a.findViewById(R.id.obfuscated_res_0x7f0915ce);
-        ThreadSkinView threadSkinView = (ThreadSkinView) LayoutInflater.from(this.f.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0837, (ViewGroup) null);
+        this.j = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091e50);
+        this.d = (BdTypeListView) this.a.findViewById(R.id.obfuscated_res_0x7f0915a9);
+        ThreadSkinView threadSkinView = (ThreadSkinView) LayoutInflater.from(this.f.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0841, (ViewGroup) null);
         this.z = threadSkinView;
         this.d.addHeaderView(threadSkinView);
         this.d.addHeaderView(this.c);
@@ -952,11 +952,11 @@ public class nx7 implements KeyboardEventLayout.a {
         vz7Var.n();
         this.e.f(this.m0);
         this.e.H(TbadkCoreApplication.getInst().getSkinType());
-        this.O = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f0919c7);
-        this.n0 = (MaskView) this.a.findViewById(R.id.obfuscated_res_0x7f09141d);
-        this.b0 = this.a.findViewById(R.id.obfuscated_res_0x7f09241f);
-        this.Z = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091714);
-        ImageView imageView2 = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09083d);
+        this.O = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f0919a2);
+        this.n0 = (MaskView) this.a.findViewById(R.id.obfuscated_res_0x7f0913f9);
+        this.b0 = this.a.findViewById(R.id.obfuscated_res_0x7f092421);
+        this.Z = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0916ef);
+        ImageView imageView2 = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09083b);
         this.a0 = imageView2;
         imageView2.setVisibility(0);
         this.a0.setOnClickListener(this.L);
@@ -970,7 +970,7 @@ public class nx7 implements KeyboardEventLayout.a {
         if (view2 != null) {
             view2.setVisibility(4);
         }
-        View a2 = uk4.b().a(this.f.getActivity(), 4);
+        View a2 = vk4.b().a(this.f.getActivity(), 4);
         this.r = a2;
         if (a2 != null) {
             a2.setVisibility(8);
@@ -1020,8 +1020,8 @@ public class nx7 implements KeyboardEventLayout.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            r35 r35Var = this.R;
-            if (r35Var == null || r35Var.a() == null) {
+            s35 s35Var = this.R;
+            if (s35Var == null || s35Var.a() == null) {
                 return 0;
             }
             return this.R.a().getHeight();
@@ -1118,7 +1118,7 @@ public class nx7 implements KeyboardEventLayout.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (this.A == null) {
-                this.A = new au4(this.f.getPageContext());
+                this.A = new bu4(this.f.getPageContext());
             }
             this.A.h(true);
         }
@@ -1150,10 +1150,10 @@ public class nx7 implements KeyboardEventLayout.a {
                 }
             }
         }
-        kp4 kp4Var = new kp4();
-        kp4Var.j(sparseArray2);
-        this.j0.E(new String[]{this.f.getString(R.string.obfuscated_res_0x7f0f04b3), this.f.getString(R.string.obfuscated_res_0x7f0f04b4), this.f.getString(R.string.obfuscated_res_0x7f0f04b5), this.f.getString(R.string.obfuscated_res_0x7f0f04b6), this.f.getString(R.string.obfuscated_res_0x7f0f04b7)});
-        this.j0.D(kp4Var);
+        lp4 lp4Var = new lp4();
+        lp4Var.j(sparseArray2);
+        this.j0.E(new String[]{this.f.getString(R.string.obfuscated_res_0x7f0f04b2), this.f.getString(R.string.obfuscated_res_0x7f0f04b3), this.f.getString(R.string.obfuscated_res_0x7f0f04b4), this.f.getString(R.string.obfuscated_res_0x7f0f04b5), this.f.getString(R.string.obfuscated_res_0x7f0f04b6)});
+        this.j0.D(lp4Var);
         this.j0.G("4");
         this.j0.F(new a(this, sparseArray));
     }
@@ -1167,7 +1167,7 @@ public class nx7 implements KeyboardEventLayout.a {
     public void G0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            Z(NoDataViewFactory.e.d(null, this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0f9b)));
+            Z(NoDataViewFactory.e.d(null, this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0f84)));
             this.W.setVisibility(8);
         }
     }
@@ -1184,7 +1184,7 @@ public class nx7 implements KeyboardEventLayout.a {
             if (z) {
                 Z(NoDataViewFactory.e.d("", str));
             } else {
-                Z(NoDataViewFactory.e.d(str, this.f.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f9b)));
+                Z(NoDataViewFactory.e.d(str, this.f.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f84)));
             }
             this.W.setVisibility(8);
         }
@@ -1196,20 +1196,20 @@ public class nx7 implements KeyboardEventLayout.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.d : (ListView) invokeV.objValue;
     }
 
-    public void I0(er4.c cVar, boolean z) {
+    public void I0(fr4.c cVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048593, this, cVar, z) == null) {
-            er4 er4Var = this.M;
-            if (er4Var != null) {
-                er4Var.e();
+            fr4 fr4Var = this.M;
+            if (fr4Var != null) {
+                fr4Var.e();
                 this.M = null;
             }
-            er4 er4Var2 = new er4(this.f.getPageContext().getPageActivity());
-            this.M = er4Var2;
+            fr4 fr4Var2 = new fr4(this.f.getPageContext().getPageActivity());
+            this.M = fr4Var2;
             if (z) {
-                er4Var2.j(new String[]{this.f.getPageContext().getString(R.string.obfuscated_res_0x7f0f1098)}, cVar);
+                fr4Var2.j(new String[]{this.f.getPageContext().getString(R.string.obfuscated_res_0x7f0f1054)}, cVar);
             } else {
-                er4Var2.j(new String[]{this.f.getPageContext().getString(R.string.obfuscated_res_0x7f0f1098), this.f.getPageContext().getString(R.string.obfuscated_res_0x7f0f1099)}, cVar);
+                fr4Var2.j(new String[]{this.f.getPageContext().getString(R.string.obfuscated_res_0x7f0f1054), this.f.getPageContext().getString(R.string.obfuscated_res_0x7f0f1055)}, cVar);
             }
             this.M.c(this.f.getPageContext());
             this.M.m();
@@ -1242,10 +1242,10 @@ public class nx7 implements KeyboardEventLayout.a {
                 }
             }
         }
-        kp4 kp4Var = new kp4();
-        kp4Var.j(sparseArray2);
-        this.i0.y(new String[]{this.f.getString(R.string.obfuscated_res_0x7f0f04b3), this.f.getString(R.string.obfuscated_res_0x7f0f04b4), this.f.getString(R.string.obfuscated_res_0x7f0f04b5), this.f.getString(R.string.obfuscated_res_0x7f0f04b6), this.f.getString(R.string.obfuscated_res_0x7f0f04b7)});
-        this.i0.x(kp4Var);
+        lp4 lp4Var = new lp4();
+        lp4Var.j(sparseArray2);
+        this.i0.y(new String[]{this.f.getString(R.string.obfuscated_res_0x7f0f04b2), this.f.getString(R.string.obfuscated_res_0x7f0f04b3), this.f.getString(R.string.obfuscated_res_0x7f0f04b4), this.f.getString(R.string.obfuscated_res_0x7f0f04b5), this.f.getString(R.string.obfuscated_res_0x7f0f04b6)});
+        this.i0.x(lp4Var);
         this.i0.A("4");
         this.i0.z(new p(this, sparseArray));
     }
@@ -1293,24 +1293,24 @@ public class nx7 implements KeyboardEventLayout.a {
         }
         this.U = zr7Var;
         if (zr7Var.i() != null) {
-            this.U.i().l0 = true;
+            this.U.i().f0 = true;
         }
         View view3 = this.c;
         if (view3 != null) {
             view3.setVisibility(0);
         }
-        this.n.setText(R.string.obfuscated_res_0x7f0f1551);
+        this.n.setText(R.string.obfuscated_res_0x7f0f1500);
         if (zr7Var.i() != null) {
             int B = zr7Var.i().B();
             this.S = B;
             if (B > 0) {
-                this.k.setCenterTextTitle(String.format(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f1228), Integer.valueOf(this.S)));
+                this.k.setCenterTextTitle(String.format(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f11d7), Integer.valueOf(this.S)));
                 NewSubPbActivity newSubPbActivity = this.f;
                 if (newSubPbActivity != null) {
                     this.V.setText(newSubPbActivity.c3());
                 }
             } else {
-                this.k.setCenterTextTitle(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0a3a));
+                this.k.setCenterTextTitle(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0a26));
             }
             String str = this.f.t3() ? "PB" : null;
             if (zr7Var.i().R() != null) {
@@ -1431,28 +1431,28 @@ public class nx7 implements KeyboardEventLayout.a {
                 this.r.setVisibility(8);
             } else {
                 this.r.setVisibility(0);
-                tk4 tk4Var = new tk4();
-                tk4Var.a = metaData.getAlaUserData();
-                tk4Var.b = 4;
-                this.r.setTag(tk4Var);
+                uk4 uk4Var = new uk4();
+                uk4Var.a = metaData.getAlaUserData();
+                uk4Var.b = 4;
+                this.r.setTag(uk4Var);
             }
         }
         if (metaData.isBigV()) {
             SkinManager.setViewTextColor(this.q, (int) R.color.cp_cont_r);
         } else if (UbsABTestHelper.isPBPlanA()) {
-            ur4.d(this.q).v(R.color.CAM_X0108);
+            vr4.d(this.q).v(R.color.CAM_X0108);
         } else {
-            ur4.d(this.q).v(R.color.CAM_X0106);
+            vr4.d(this.q).v(R.color.CAM_X0106);
         }
         this.p.setVisibility(0);
         this.p.setUserId(metaData.getUserId());
         this.p.setUserName(metaData.getUserName());
-        this.p.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a4);
+        this.p.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a8);
         UtilHelper.showHeadImageViewBigV(this.p, metaData);
         this.p.J(metaData.getAvater(), 28, false);
-        this.o.setTag(R.id.obfuscated_res_0x7f091f3d, metaData.getUserId());
-        this.o.setTag(R.id.obfuscated_res_0x7f091f45, metaData.getUserName());
-        this.o.setTag(R.id.obfuscated_res_0x7f091f47, metaData.getVirtualUserUrl());
+        this.o.setTag(R.id.obfuscated_res_0x7f091f41, metaData.getUserId());
+        this.o.setTag(R.id.obfuscated_res_0x7f091f49, metaData.getUserName());
+        this.o.setTag(R.id.obfuscated_res_0x7f091f4b, metaData.getVirtualUserUrl());
     }
 
     public MorePopupWindow O() {
@@ -1483,9 +1483,9 @@ public class nx7 implements KeyboardEventLayout.a {
             return;
         }
         if (z) {
-            this.c0.A().setText(R.string.obfuscated_res_0x7f0f0fb3);
+            this.c0.A().setText(R.string.obfuscated_res_0x7f0f0f9c);
         } else {
-            this.c0.A().setText(R.string.obfuscated_res_0x7f0f0a80);
+            this.c0.A().setText(R.string.obfuscated_res_0x7f0f0a6c);
         }
     }
 
@@ -1517,12 +1517,12 @@ public class nx7 implements KeyboardEventLayout.a {
     }
 
     public void T() {
-        au4 au4Var;
+        bu4 bu4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048611, this) == null) || (au4Var = this.A) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048611, this) == null) || (bu4Var = this.A) == null) {
             return;
         }
-        au4Var.h(false);
+        bu4Var.h(false);
     }
 
     public void U() {
@@ -1538,13 +1538,13 @@ public class nx7 implements KeyboardEventLayout.a {
     }
 
     public void V() {
-        r35 r35Var;
+        s35 s35Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048613, this) == null) || this.V == null || (r35Var = this.R) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048613, this) == null) || this.V == null || (s35Var = this.R) == null) {
             return;
         }
-        if (r35Var.w()) {
-            this.V.setText(R.string.obfuscated_res_0x7f0f0510);
+        if (s35Var.w()) {
+            this.V.setText(R.string.obfuscated_res_0x7f0f050c);
         } else {
             this.V.setText(this.f.c3());
         }
@@ -1553,30 +1553,30 @@ public class nx7 implements KeyboardEventLayout.a {
     public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091e5d);
+            LinearLayout linearLayout = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091e61);
             this.o = linearLayout;
             linearLayout.setOnClickListener(this.L);
-            HeadImageView headImageView = (HeadImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0918ce);
+            HeadImageView headImageView = (HeadImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0918a9);
             this.p = headImageView;
             headImageView.setRadius(pi.f(this.f.getActivity(), R.dimen.tbds45));
             this.p.setClickable(false);
-            this.q = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09232d);
-            ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09233c);
+            this.q = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09232f);
+            ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09233e);
             this.s = imageView;
             imageView.setVisibility(8);
-            this.t = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0909bf);
-            this.u = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09208f);
-            EllipsizeRichTextView ellipsizeRichTextView = (EllipsizeRichTextView) this.c.findViewById(R.id.obfuscated_res_0x7f0906bd);
+            this.t = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0909b8);
+            this.u = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092093);
+            EllipsizeRichTextView ellipsizeRichTextView = (EllipsizeRichTextView) this.c.findViewById(R.id.obfuscated_res_0x7f0906bc);
             this.v = ellipsizeRichTextView;
             ellipsizeRichTextView.setOnClickListener(this.L);
             SkinManager.setViewTextColor(this.v, (int) R.color.CAM_X0105);
             this.v.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
             this.v.setLineSpacing(0.0f, 1.25f);
-            TbImageView tbImageView = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091e4d);
+            TbImageView tbImageView = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091e51);
             this.w = tbImageView;
             tbImageView.setOnClickListener(this.L);
             this.y = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09013e);
-            this.x = (PlayVoiceBntNew) this.c.findViewById(R.id.obfuscated_res_0x7f09247e);
+            this.x = (PlayVoiceBntNew) this.c.findViewById(R.id.obfuscated_res_0x7f092480);
             this.c.setOnTouchListener(this.q0);
             this.c.setOnClickListener(this.L);
         }
@@ -1593,9 +1593,9 @@ public class nx7 implements KeyboardEventLayout.a {
     public void Y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
-            int f2 = pi.f(this.f.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070308);
+            int f2 = pi.f(this.f.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070306);
             int f3 = pi.f(this.f.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701d4);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f092439);
             this.k = navigationBar;
             this.m = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new i(this));
             ImageView backImageView = this.k.getBackImageView();
@@ -1617,7 +1617,7 @@ public class nx7 implements KeyboardEventLayout.a {
             this.k.hideBottomLine();
             TextView textView = new TextView(this.f);
             this.n = textView;
-            ur4 d2 = ur4.d(textView);
+            vr4 d2 = vr4.d(textView);
             d2.v(R.color.CAM_X0304);
             d2.z(R.dimen.T_X07);
             d2.A(R.string.F_X01);
@@ -1630,10 +1630,10 @@ public class nx7 implements KeyboardEventLayout.a {
     public final void Z(NoDataViewFactory.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048617, this, eVar) == null) {
-            NoDataViewFactory.c a2 = NoDataViewFactory.c.a(new NoDataViewFactory.b(this.f.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f9a), this.i));
+            NoDataViewFactory.c a2 = NoDataViewFactory.c.a(new NoDataViewFactory.b(this.f.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f83), this.i));
             if (this.h == null) {
                 Activity pageActivity = this.f.getPageContext().getPageActivity();
-                this.h = NoDataViewFactory.a(pageActivity, this.j, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NETERROR, pi.f(pageActivity, R.dimen.obfuscated_res_0x7f07028a)), eVar, a2);
+                this.h = NoDataViewFactory.a(pageActivity, this.j, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NETERROR, pi.f(pageActivity, R.dimen.obfuscated_res_0x7f070288)), eVar, a2);
             }
             this.d.setVisibility(8);
             this.O.setVisibility(8);
@@ -1653,15 +1653,15 @@ public class nx7 implements KeyboardEventLayout.a {
         }
     }
 
-    public void a0(r35 r35Var) {
+    public void a0(s35 s35Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048619, this, r35Var) == null) || r35Var == null || r35Var.a() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048619, this, s35Var) == null) || s35Var == null || s35Var.a() == null) {
             return;
         }
-        this.R = r35Var;
+        this.R = s35Var;
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        this.j.addView(r35Var.a(), layoutParams);
+        this.j.addView(s35Var.a(), layoutParams);
         this.R.R(new c(this));
     }
 
@@ -1704,9 +1704,9 @@ public class nx7 implements KeyboardEventLayout.a {
             if (subPbView != null) {
                 subPbView.f();
             }
-            r35 r35Var = this.R;
-            if (r35Var != null) {
-                r35Var.D();
+            s35 s35Var = this.R;
+            if (s35Var != null) {
+                s35Var.D();
             }
         }
     }
@@ -1746,8 +1746,8 @@ public class nx7 implements KeyboardEventLayout.a {
             this.f.getLayoutMode().j(this.G);
             SkinManager.setViewTextColor(this.v, (int) R.color.CAM_X0105);
             this.v.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
-            r35 r35Var = this.R;
-            if (r35Var != null && r35Var.a() != null) {
+            s35 s35Var = this.R;
+            if (s35Var != null && s35Var.a() != null) {
                 this.R.a().w(i2);
             }
             this.B.d(i2);
@@ -1755,15 +1755,15 @@ public class nx7 implements KeyboardEventLayout.a {
             SkinManager.setViewTextColor(this.V, (int) R.color.CAM_X0110);
             SkinManager.setViewTextColor(this.t, (int) R.color.CAM_X0302);
             if (UbsABTestHelper.isPBPlanA()) {
-                ur4.d(this.q).A(R.string.F_X02);
-                ur4.d(this.q).v(R.color.CAM_X0108);
+                vr4.d(this.q).A(R.string.F_X02);
+                vr4.d(this.q).v(R.color.CAM_X0108);
             } else {
-                ur4.d(this.q).A(R.string.F_X01);
+                vr4.d(this.q).A(R.string.F_X01);
                 SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0106);
             }
             this.V.setAlpha(0.95f);
             if (this.C != null) {
-                ga5.a(this.f.getPageContext(), this.C);
+                ha5.a(this.f.getPageContext(), this.C);
             }
             px7 px7Var = this.k0;
             if (px7Var != null) {
@@ -1773,7 +1773,7 @@ public class nx7 implements KeyboardEventLayout.a {
             SkinManager.setBackgroundColor(this.b0, R.color.CAM_X0203);
             WebPManager.setPureDrawable(this.a0, R.drawable.obfuscated_res_0x7f08097a, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
             this.Z.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(pi.f(this.f, R.dimen.tbds47), SkinManager.getColor(R.color.CAM_X0209)));
-            ur4.d(this.W).f(R.color.CAM_X0208);
+            vr4.d(this.W).f(R.color.CAM_X0208);
         }
     }
 
@@ -1787,20 +1787,20 @@ public class nx7 implements KeyboardEventLayout.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048628, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             SparseArray<Object> sparseArray = new SparseArray<>();
-            sparseArray.put(R.id.obfuscated_res_0x7f091eef, str);
-            sparseArray.put(R.id.obfuscated_res_0x7f091ef1, Integer.valueOf(i2));
-            sparseArray.put(R.id.obfuscated_res_0x7f091f0c, Integer.valueOf(i3));
-            sparseArray.put(R.id.obfuscated_res_0x7f091ef0, Boolean.valueOf(z));
-            int i4 = (i3 != 1002 || z) ? R.string.obfuscated_res_0x7f0f0494 : R.string.obfuscated_res_0x7f0f0fd3;
+            sparseArray.put(R.id.obfuscated_res_0x7f091ef3, str);
+            sparseArray.put(R.id.obfuscated_res_0x7f091ef5, Integer.valueOf(i2));
+            sparseArray.put(R.id.obfuscated_res_0x7f091f10, Integer.valueOf(i3));
+            sparseArray.put(R.id.obfuscated_res_0x7f091ef4, Boolean.valueOf(z));
+            int i4 = (i3 != 1002 || z) ? R.string.obfuscated_res_0x7f0f0493 : R.string.obfuscated_res_0x7f0f0fbc;
             if (i2 == 0) {
-                i4 = (i3 != 1002 || z) ? R.string.obfuscated_res_0x7f0f049d : R.string.obfuscated_res_0x7f0f0fd7;
+                i4 = (i3 != 1002 || z) ? R.string.obfuscated_res_0x7f0f049c : R.string.obfuscated_res_0x7f0f0fc0;
             }
-            cr4 cr4Var = new cr4(this.f.getPageContext().getPageActivity());
-            this.K = cr4Var;
-            cr4Var.setMessageId(i4);
+            dr4 dr4Var = new dr4(this.f.getPageContext().getPageActivity());
+            this.K = dr4Var;
+            dr4Var.setMessageId(i4);
             this.K.setYesButtonTag(sparseArray);
-            this.K.setPositiveButton(R.string.obfuscated_res_0x7f0f04e5, new n(this, sparseArray));
-            this.K.setNegativeButton(R.string.obfuscated_res_0x7f0f04e0, new o(this));
+            this.K.setPositiveButton(R.string.obfuscated_res_0x7f0f04e1, new n(this, sparseArray));
+            this.K.setNegativeButton(R.string.obfuscated_res_0x7f0f04dc, new o(this));
             this.K.setCancelable(true);
             this.K.create(this.f.getPageContext());
             if (z2) {
@@ -1826,7 +1826,7 @@ public class nx7 implements KeyboardEventLayout.a {
         if (interceptable == null || interceptable.invokeLZ(1048629, this, sparseArray, z) == null) {
             boolean z2 = true;
             if (this.J == null) {
-                Dialog dialog = new Dialog(this.f.getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003a0);
+                Dialog dialog = new Dialog(this.f.getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003a3);
                 this.J = dialog;
                 dialog.setCanceledOnTouchOutside(true);
                 this.J.setCancelable(true);
@@ -1837,26 +1837,26 @@ public class nx7 implements KeyboardEventLayout.a {
                 attributes.width = (int) (pi.k(this.f.getPageContext().getPageActivity()) * 0.9d);
                 this.J.getWindow().setAttributes(attributes);
             }
-            TextView textView = (TextView) this.J.findViewById(R.id.obfuscated_res_0x7f090747);
-            TextView textView2 = (TextView) this.J.findViewById(R.id.obfuscated_res_0x7f0909f2);
-            TextView textView3 = (TextView) this.J.findViewById(R.id.obfuscated_res_0x7f09079c);
-            int intValue = sparseArray.get(R.id.obfuscated_res_0x7f091ee9) instanceof Integer ? ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f091ee9)).intValue() : -1;
-            if (!"".equals(sparseArray.get(R.id.obfuscated_res_0x7f091eef)) && intValue != 2) {
+            TextView textView = (TextView) this.J.findViewById(R.id.obfuscated_res_0x7f090746);
+            TextView textView2 = (TextView) this.J.findViewById(R.id.obfuscated_res_0x7f0909eb);
+            TextView textView3 = (TextView) this.J.findViewById(R.id.obfuscated_res_0x7f09079a);
+            int intValue = sparseArray.get(R.id.obfuscated_res_0x7f091eed) instanceof Integer ? ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f091eed)).intValue() : -1;
+            if (!"".equals(sparseArray.get(R.id.obfuscated_res_0x7f091ef3)) && intValue != 2) {
                 SparseArray sparseArray2 = (SparseArray) textView.getTag();
                 if (sparseArray2 == null) {
                     sparseArray2 = new SparseArray();
                     textView.setTag(sparseArray2);
                 }
                 textView.setVisibility(0);
-                sparseArray2.put(R.id.obfuscated_res_0x7f091eef, sparseArray.get(R.id.obfuscated_res_0x7f091eef));
-                sparseArray2.put(R.id.obfuscated_res_0x7f091ef1, sparseArray.get(R.id.obfuscated_res_0x7f091ef1));
-                sparseArray2.put(R.id.obfuscated_res_0x7f091ef0, sparseArray.get(R.id.obfuscated_res_0x7f091ef0));
-                sparseArray2.put(R.id.obfuscated_res_0x7f091f0c, sparseArray.get(R.id.obfuscated_res_0x7f091f0c));
+                sparseArray2.put(R.id.obfuscated_res_0x7f091ef3, sparseArray.get(R.id.obfuscated_res_0x7f091ef3));
+                sparseArray2.put(R.id.obfuscated_res_0x7f091ef5, sparseArray.get(R.id.obfuscated_res_0x7f091ef5));
+                sparseArray2.put(R.id.obfuscated_res_0x7f091ef4, sparseArray.get(R.id.obfuscated_res_0x7f091ef4));
+                sparseArray2.put(R.id.obfuscated_res_0x7f091f10, sparseArray.get(R.id.obfuscated_res_0x7f091f10));
                 textView.setOnClickListener(new k(this));
             } else {
                 textView.setVisibility(8);
             }
-            if ("".equals(sparseArray.get(R.id.obfuscated_res_0x7f091efa)) && "".equals(sparseArray.get(R.id.obfuscated_res_0x7f091efb))) {
+            if ("".equals(sparseArray.get(R.id.obfuscated_res_0x7f091efe)) && "".equals(sparseArray.get(R.id.obfuscated_res_0x7f091eff))) {
                 textView2.setVisibility(8);
             } else {
                 SparseArray sparseArray3 = (SparseArray) textView2.getTag();
@@ -1865,14 +1865,14 @@ public class nx7 implements KeyboardEventLayout.a {
                     textView2.setTag(sparseArray3);
                 }
                 textView2.setVisibility(0);
-                sparseArray3.put(R.id.obfuscated_res_0x7f091efa, sparseArray.get(R.id.obfuscated_res_0x7f091efa));
-                sparseArray3.put(R.id.obfuscated_res_0x7f091efb, sparseArray.get(R.id.obfuscated_res_0x7f091efb));
-                sparseArray3.put(R.id.obfuscated_res_0x7f091efc, sparseArray.get(R.id.obfuscated_res_0x7f091efc));
-                sparseArray3.put(R.id.obfuscated_res_0x7f091f0c, sparseArray.get(R.id.obfuscated_res_0x7f091f0c));
-                sparseArray3.put(R.id.obfuscated_res_0x7f091efd, sparseArray.get(R.id.obfuscated_res_0x7f091efd));
+                sparseArray3.put(R.id.obfuscated_res_0x7f091efe, sparseArray.get(R.id.obfuscated_res_0x7f091efe));
+                sparseArray3.put(R.id.obfuscated_res_0x7f091eff, sparseArray.get(R.id.obfuscated_res_0x7f091eff));
+                sparseArray3.put(R.id.obfuscated_res_0x7f091f00, sparseArray.get(R.id.obfuscated_res_0x7f091f00));
+                sparseArray3.put(R.id.obfuscated_res_0x7f091f10, sparseArray.get(R.id.obfuscated_res_0x7f091f10));
+                sparseArray3.put(R.id.obfuscated_res_0x7f091f01, sparseArray.get(R.id.obfuscated_res_0x7f091f01));
                 textView2.setOnClickListener(new l(this));
             }
-            if (!(((sparseArray.get(R.id.obfuscated_res_0x7f091f44) instanceof Boolean) && ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091f44)).booleanValue()) ? false : false)) {
+            if (!(((sparseArray.get(R.id.obfuscated_res_0x7f091f48) instanceof Boolean) && ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091f48)).booleanValue()) ? false : false)) {
                 textView3.setVisibility(8);
             } else {
                 SparseArray sparseArray4 = (SparseArray) textView3.getTag();
@@ -1882,16 +1882,16 @@ public class nx7 implements KeyboardEventLayout.a {
                 }
                 textView3.setVisibility(0);
                 if (z) {
-                    textView3.setText(R.string.obfuscated_res_0x7f0f14aa);
+                    textView3.setText(R.string.obfuscated_res_0x7f0f1459);
                 } else {
-                    textView3.setText(R.string.obfuscated_res_0x7f0f0b1f);
+                    textView3.setText(R.string.obfuscated_res_0x7f0f0b0b);
                 }
-                sparseArray4.put(R.id.obfuscated_res_0x7f091f04, sparseArray.get(R.id.obfuscated_res_0x7f091f04));
-                sparseArray4.put(R.id.obfuscated_res_0x7f091f40, sparseArray.get(R.id.obfuscated_res_0x7f091f40));
-                sparseArray4.put(R.id.obfuscated_res_0x7f091f41, sparseArray.get(R.id.obfuscated_res_0x7f091f41));
-                sparseArray4.put(R.id.obfuscated_res_0x7f091f42, sparseArray.get(R.id.obfuscated_res_0x7f091f42));
+                sparseArray4.put(R.id.obfuscated_res_0x7f091f08, sparseArray.get(R.id.obfuscated_res_0x7f091f08));
+                sparseArray4.put(R.id.obfuscated_res_0x7f091f44, sparseArray.get(R.id.obfuscated_res_0x7f091f44));
+                sparseArray4.put(R.id.obfuscated_res_0x7f091f45, sparseArray.get(R.id.obfuscated_res_0x7f091f45));
+                sparseArray4.put(R.id.obfuscated_res_0x7f091f46, sparseArray.get(R.id.obfuscated_res_0x7f091f46));
+                sparseArray4.put(R.id.obfuscated_res_0x7f091f47, sparseArray.get(R.id.obfuscated_res_0x7f091f47));
                 sparseArray4.put(R.id.obfuscated_res_0x7f091f43, sparseArray.get(R.id.obfuscated_res_0x7f091f43));
-                sparseArray4.put(R.id.obfuscated_res_0x7f091f3f, sparseArray.get(R.id.obfuscated_res_0x7f091f3f));
                 textView3.setOnClickListener(new m(this, z));
             }
             sg.j(this.J, this.f.getPageContext());
@@ -1973,7 +1973,7 @@ public class nx7 implements KeyboardEventLayout.a {
         if (this.f0.N0()) {
             this.g0 = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds562) + UtilHelper.getStatusBarHeight();
         } else {
-            this.g0 = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070255);
+            this.g0 = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070252);
         }
         this.b.addView(this.H, 0, new LinearLayout.LayoutParams(-1, this.g0));
         this.H.setVisibility(0);
@@ -1981,7 +1981,7 @@ public class nx7 implements KeyboardEventLayout.a {
         this.a.setBlankView(this.H);
     }
 
-    public void r0(fu4.g gVar) {
+    public void r0(gu4.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048637, this, gVar) == null) {
             this.m0 = gVar;
@@ -2092,69 +2092,69 @@ public class nx7 implements KeyboardEventLayout.a {
                     }
                     int i3 = postData.B() == 1 ? 0 : 1;
                     if (z) {
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091f0c, Integer.valueOf(i2));
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091efd, postData.J());
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091f10, Integer.valueOf(i2));
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091f01, postData.J());
                         if (postData.s() != null) {
-                            sparseArray2.put(R.id.obfuscated_res_0x7f091efa, postData.s().getUserName());
-                            sparseArray2.put(R.id.obfuscated_res_0x7f091efb, postData.s().getName_show());
-                            sparseArray2.put(R.id.obfuscated_res_0x7f091efc, postData.s().getPortrait());
+                            sparseArray2.put(R.id.obfuscated_res_0x7f091efe, postData.s().getUserName());
+                            sparseArray2.put(R.id.obfuscated_res_0x7f091eff, postData.s().getName_show());
+                            sparseArray2.put(R.id.obfuscated_res_0x7f091f00, postData.s().getPortrait());
                         }
                         z5 = true;
                     } else {
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091efa, "");
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091efb, "");
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091efc, "");
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091efe, "");
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091eff, "");
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091f00, "");
                         z5 = false;
                     }
                     if (z2) {
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091f0c, Integer.valueOf(i2));
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091ef0, Boolean.TRUE);
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091ef1, Integer.valueOf(i3));
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091eef, postData.J());
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091f10, Integer.valueOf(i2));
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091ef4, Boolean.TRUE);
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091ef5, Integer.valueOf(i3));
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091ef3, postData.J());
                         z5 = true;
                     } else {
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091ef0, Boolean.FALSE);
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091ef1, 0);
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091eef, "");
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091ef4, Boolean.FALSE);
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091ef5, 0);
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091ef3, "");
                     }
-                    sparseArray2.put(R.id.obfuscated_res_0x7f091f30, Boolean.valueOf(z5));
-                    sparseArray2.put(R.id.obfuscated_res_0x7f091efd, postData.J());
+                    sparseArray2.put(R.id.obfuscated_res_0x7f091f34, Boolean.valueOf(z5));
+                    sparseArray2.put(R.id.obfuscated_res_0x7f091f01, postData.J());
                     if (z) {
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091f30, Boolean.TRUE);
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091f0c, Integer.valueOf(i2));
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091f34, Boolean.TRUE);
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091f10, Integer.valueOf(i2));
                         if (postData.s() != null) {
-                            sparseArray2.put(R.id.obfuscated_res_0x7f091efa, postData.s().getUserName());
-                            sparseArray2.put(R.id.obfuscated_res_0x7f091efb, postData.s().getName_show());
-                            sparseArray2.put(R.id.obfuscated_res_0x7f091efc, postData.s().getPortrait());
+                            sparseArray2.put(R.id.obfuscated_res_0x7f091efe, postData.s().getUserName());
+                            sparseArray2.put(R.id.obfuscated_res_0x7f091eff, postData.s().getName_show());
+                            sparseArray2.put(R.id.obfuscated_res_0x7f091f00, postData.s().getPortrait());
                         }
                     } else {
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091f30, Boolean.FALSE);
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091f34, Boolean.FALSE);
                     }
                     if (z3) {
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091f44, Boolean.TRUE);
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091f04, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091f48, Boolean.TRUE);
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091f08, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
                         if (postData.s() != null) {
-                            sparseArray2.put(R.id.obfuscated_res_0x7f091f40, postData.s().getUserId());
-                            sparseArray2.put(R.id.obfuscated_res_0x7f091f41, postData.s().getUserName());
-                            sparseArray2.put(R.id.obfuscated_res_0x7f091f3f, postData.s().getName_show());
+                            sparseArray2.put(R.id.obfuscated_res_0x7f091f44, postData.s().getUserId());
+                            sparseArray2.put(R.id.obfuscated_res_0x7f091f45, postData.s().getUserName());
+                            sparseArray2.put(R.id.obfuscated_res_0x7f091f43, postData.s().getName_show());
                         }
                         if (this.U.l() != null) {
-                            sparseArray2.put(R.id.obfuscated_res_0x7f091f43, this.U.l().getId());
+                            sparseArray2.put(R.id.obfuscated_res_0x7f091f47, this.U.l().getId());
                         }
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091f42, postData.J());
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091f46, postData.J());
                     } else {
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091f44, Boolean.FALSE);
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091f48, Boolean.FALSE);
                     }
                     if (z2) {
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091f2e, Boolean.TRUE);
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091f0c, Integer.valueOf(i2));
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091ef0, Boolean.valueOf(z4));
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091ef1, Integer.valueOf(i3));
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091eef, postData.J());
-                        sparseArray2.put(R.id.obfuscated_res_0x7f091f01, Boolean.valueOf(postData.g0()));
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091f32, Boolean.TRUE);
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091f10, Integer.valueOf(i2));
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091ef4, Boolean.valueOf(z4));
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091ef5, Integer.valueOf(i3));
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091ef3, postData.J());
+                        sparseArray2.put(R.id.obfuscated_res_0x7f091f05, Boolean.valueOf(postData.g0()));
                         return;
                     }
-                    sparseArray2.put(R.id.obfuscated_res_0x7f091f2e, Boolean.FALSE);
+                    sparseArray2.put(R.id.obfuscated_res_0x7f091f32, Boolean.FALSE);
                     return;
                 }
                 z2 = true;
@@ -2171,8 +2171,8 @@ public class nx7 implements KeyboardEventLayout.a {
                 }
                 if (z2) {
                 }
-                sparseArray2.put(R.id.obfuscated_res_0x7f091f30, Boolean.valueOf(z5));
-                sparseArray2.put(R.id.obfuscated_res_0x7f091efd, postData.J());
+                sparseArray2.put(R.id.obfuscated_res_0x7f091f34, Boolean.valueOf(z5));
+                sparseArray2.put(R.id.obfuscated_res_0x7f091f01, postData.J());
                 if (z) {
                 }
                 if (z3) {
@@ -2192,8 +2192,8 @@ public class nx7 implements KeyboardEventLayout.a {
         }
         if (z2) {
         }
-        sparseArray2.put(R.id.obfuscated_res_0x7f091f30, Boolean.valueOf(z5));
-        sparseArray2.put(R.id.obfuscated_res_0x7f091efd, postData.J());
+        sparseArray2.put(R.id.obfuscated_res_0x7f091f34, Boolean.valueOf(z5));
+        sparseArray2.put(R.id.obfuscated_res_0x7f091f01, postData.J());
         if (z) {
         }
         if (z3) {
@@ -2216,13 +2216,13 @@ public class nx7 implements KeyboardEventLayout.a {
             if (morePopupWindow != null) {
                 sg.d(morePopupWindow, this.f.getPageContext().getPageActivity());
             }
-            er4 er4Var = this.F;
-            if (er4Var != null) {
-                er4Var.e();
+            fr4 fr4Var = this.F;
+            if (fr4Var != null) {
+                fr4Var.e();
             }
-            cr4 cr4Var = this.K;
-            if (cr4Var != null) {
-                cr4Var.dismiss();
+            dr4 dr4Var = this.K;
+            if (dr4Var != null) {
+                dr4Var.dismiss();
             }
             Dialog dialog = this.J;
             if (dialog != null) {
@@ -2306,8 +2306,8 @@ public class nx7 implements KeyboardEventLayout.a {
             this.c.setTag(sparseArray);
         }
         sparseArray.clear();
-        sparseArray.put(R.id.obfuscated_res_0x7f091eed, postData);
-        sparseArray.put(R.id.obfuscated_res_0x7f091f06, Boolean.FALSE);
+        sparseArray.put(R.id.obfuscated_res_0x7f091ef1, postData);
+        sparseArray.put(R.id.obfuscated_res_0x7f091f0a, Boolean.FALSE);
         u(postData, i2, sparseArray);
         this.q.setText((CharSequence) null);
         this.t.setVisibility(8);
@@ -2345,7 +2345,7 @@ public class nx7 implements KeyboardEventLayout.a {
             }
             if (z && z2) {
                 NewSubPbActivity newSubPbActivity = this.f;
-                newSubPbActivity.showToast(newSubPbActivity.getResources().getString(R.string.obfuscated_res_0x7f0f04ad));
+                newSubPbActivity.showToast(newSubPbActivity.getResources().getString(R.string.obfuscated_res_0x7f0f04ac));
             } else if (str == null || !z2) {
             } else {
                 this.f.showToast(str);

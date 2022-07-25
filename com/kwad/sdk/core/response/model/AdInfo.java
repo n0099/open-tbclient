@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.download.center.clearcache.DiskManagerSharedPrefsUtils;
 import com.ksad.json.annotation.KsJson;
-import com.kwad.sdk.utils.z;
+import com.kwad.sdk.utils.ab;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +20,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
     public int progress;
     public long soFarBytes;
     public long totalBytes;
+    public String trace;
     @NonNull
     public AdBaseInfo adBaseInfo = new AdBaseInfo();
     @NonNull
@@ -97,6 +98,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         public long creativeId;
         public int ecpm;
         public int enableSkipAd;
+        public boolean extraClickReward;
         public int industryFirstLevelId;
         public String installAppLabel;
         public int itemType;
@@ -211,7 +213,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
                     jSONObject2.put("height", this.height);
                     jSONObject.put("materialSize", jSONObject2);
                 } catch (JSONException e) {
-                    com.kwad.sdk.core.d.b.a(e);
+                    com.kwad.sdk.core.e.b.printStackTrace(e);
                 }
             }
         }
@@ -255,12 +257,14 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         public int imageDisplaySecond;
         public int logoPosition;
         public int mute;
+        public int skipSecond;
         public String skipTips;
         public int skipType;
         public String speakerIconUrl;
         public String speakerMuteIconUrl;
         public int videoDisplaySecond;
         public int fullScreenClickSwitch = 0;
+        public int skipButtonPosition = 0;
         public int splashShowClickButtonSwitch = 1;
     }
 
@@ -387,6 +391,6 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
     @Override // com.kwad.sdk.core.response.kwai.a
     public void afterParseJson(@Nullable JSONObject jSONObject) {
         super.afterParseJson(jSONObject);
-        this.downloadId = z.a(this.adConversionInfo.appDownloadUrl);
+        this.downloadId = ab.dI(this.adConversionInfo.appDownloadUrl);
     }
 }

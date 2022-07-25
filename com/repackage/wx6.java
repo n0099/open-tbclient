@@ -222,17 +222,17 @@ public class wx6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         }
 
         @Override // com.repackage.tw.b
-        public void a(nn4 nn4Var, View view2) {
+        public void a(on4 on4Var, View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, nn4Var, view2) == null) || nn4Var == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, on4Var, view2) == null) || on4Var == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09232d) {
-                nn4Var.objType = 3;
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09230c) {
-                nn4Var.objType = 4;
+            if (view2.getId() == R.id.obfuscated_res_0x7f09232f) {
+                on4Var.objType = 3;
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09230e) {
+                on4Var.objType = 4;
             } else {
-                nn4Var.objType = 1;
+                on4Var.objType = 1;
             }
         }
     }
@@ -352,8 +352,8 @@ public class wx6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
     public final void c0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            vy5.i0 = "c13388";
-            vy5.j0 = "c13389";
+            vy5.c0 = "c13388";
+            vy5.d0 = "c13389";
         }
     }
 
@@ -397,7 +397,7 @@ public class wx6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
             bVar.n(nxVar);
             bVar.m(new zx(this.j.getPageActivity()));
             ThreadCardViewHolder<vy5> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.j(BaseCardInfo.SupportType.FULL, viewGroup));
-            threadCardViewHolder.k(this.i);
+            threadCardViewHolder.j(this.i);
             V(new d(this));
             return threadCardViewHolder;
         }
@@ -418,19 +418,19 @@ public class wx6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vy5Var, threadCardViewHolder})) == null) {
-            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || vy5Var.a == null) {
+            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || vy5Var.a == null) {
                 return null;
             }
             vy5Var.I(vy5Var.position + 1);
             vy5Var.a.statFloor = vy5Var.m();
-            threadCardViewHolder.q(false).u(this.l);
-            threadCardViewHolder.g(vy5Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.o);
+            threadCardViewHolder.p(false).u(this.l);
+            threadCardViewHolder.f(vy5Var);
+            threadCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().p(this.o);
             cy5.b().a(vy5Var.B());
             ak5.c().i("page_recommend", "show_", vy5Var.B());
             e0(vy5Var.a, vy5Var.m());
-            return threadCardViewHolder.b();
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }
@@ -454,9 +454,9 @@ public class wx6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         long parseLong = Long.parseLong(threadData.getTid());
         String str4 = threadData.getSmartApp().name;
         long fid = threadData.getFid();
-        xt4.k().x("smart_app_tid", parseLong);
-        xt4.k().y("smart_app_name", str4);
-        xt4.k().y("smart_app_id", str);
+        yt4.k().x("smart_app_tid", parseLong);
+        yt4.k().y("smart_app_name", str4);
+        yt4.k().y("smart_app_id", str);
         if (StringUtils.isNull(str)) {
             return;
         }
@@ -464,7 +464,7 @@ public class wx6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
             if (StringUtils.isNull(str3)) {
                 return;
             }
-            rl4.o(view2.getContext(), str3);
+            sl4.o(view2.getContext(), str3);
         }
         ux5.a(threadData.getTid());
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("fid", fid).param("tid", parseLong).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", str4).param("obj_id", l.longValue()).param("obj_source", "index_card").param("obj_param1", threadData.getSmartApp().is_game.intValue()));

@@ -76,14 +76,14 @@ public class ServiceAreaView extends FrameLayout {
                     th8Var = new th8();
                     th8Var.b = new ArrayList();
                 }
-                if (!ListUtils.isEmpty(th8Var.b) && (uh8Var = th8Var.b.get(0)) != null && getResources().getString(R.string.obfuscated_res_0x7f0f089c).equals(uh8Var.c) && getResources().getString(R.string.obfuscated_res_0x7f0f089c).equals(uh8Var.b)) {
+                if (!ListUtils.isEmpty(th8Var.b) && (uh8Var = th8Var.b.get(0)) != null && getResources().getString(R.string.obfuscated_res_0x7f0f0887).equals(uh8Var.c) && getResources().getString(R.string.obfuscated_res_0x7f0f0887).equals(uh8Var.b)) {
                     th8Var.a--;
                     th8Var.b.remove(0);
                 }
                 th8Var.a++;
                 uh8 uh8Var2 = new uh8();
-                uh8Var2.c = getResources().getString(R.string.obfuscated_res_0x7f0f089c);
-                uh8Var2.b = getResources().getString(R.string.obfuscated_res_0x7f0f089c);
+                uh8Var2.c = getResources().getString(R.string.obfuscated_res_0x7f0f0887);
+                uh8Var2.b = getResources().getString(R.string.obfuscated_res_0x7f0f0887);
                 th8Var.b.add(0, uh8Var2);
             }
             if (th8Var == null) {

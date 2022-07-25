@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
@@ -40,14 +40,14 @@ public class la7 {
     public RelativeLayout e;
     public BdSwipeRefreshLayout f;
     public BdTypeRecyclerView g;
-    public gu4 h;
+    public hu4 h;
     public PbListView i;
     public NoDataView j;
     public boolean k;
     public ua7 l;
     public e m;
     public View.OnClickListener n;
-    public final fu4.g o;
+    public final gu4.g o;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -87,7 +87,7 @@ public class la7 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements fu4.g {
+    public class b implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ la7 a;
@@ -110,7 +110,7 @@ public class la7 {
             this.a = la7Var;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -229,9 +229,9 @@ public class la7 {
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            gu4 gu4Var = this.h;
-            if (gu4Var != null) {
-                gu4Var.H(i);
+            hu4 hu4Var = this.h;
+            if (hu4Var != null) {
+                hu4Var.H(i);
             }
             NoNetworkView noNetworkView = this.d;
             if (noNetworkView != null) {
@@ -293,9 +293,9 @@ public class la7 {
             return;
         }
         if (this.h == null) {
-            gu4 gu4Var = new gu4(tbPageContext);
-            this.h = gu4Var;
-            gu4Var.f(this.o);
+            hu4 hu4Var = new hu4(tbPageContext);
+            this.h = hu4Var;
+            hu4Var.f(this.o);
         }
         this.h.b0(tbPageContext.getUniqueId());
         if (this.i == null) {
@@ -310,11 +310,11 @@ public class la7 {
         this.i.E(SkinManager.getColor(R.color.CAM_X0109));
         this.i.A(R.color.CAM_X0110);
         this.i.B(this.n);
-        NoNetworkView noNetworkView = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f091609);
+        NoNetworkView noNetworkView = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0915e4);
         this.d = noNetworkView;
         noNetworkView.d(this.a, TbadkCoreApplication.getInst().getSkinType());
-        this.e = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0906a0);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092437);
+        this.e = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09069f);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092439);
         this.c = navigationBar;
         navigationBar.showBottomLine();
         this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -341,9 +341,9 @@ public class la7 {
             if (ua7Var != null) {
                 ua7Var.d();
             }
-            gu4 gu4Var = this.h;
-            if (gu4Var != null) {
-                gu4Var.Z();
+            hu4 hu4Var = this.h;
+            if (hu4Var != null) {
+                hu4Var.Z();
             }
         }
     }
@@ -378,7 +378,7 @@ public class la7 {
         } else {
             this.i.L(0);
             this.i.f();
-            this.i.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e7));
+            this.i.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09d3));
             this.i.B(null);
         }
         if (ListUtils.isEmpty(arrayList)) {

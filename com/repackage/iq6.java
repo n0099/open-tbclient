@@ -69,7 +69,7 @@ public abstract class iq6 {
     public PopupWindow M;
     public BarImageView N;
     public UserIconBox O;
-    public ArrayList<zn4> P;
+    public ArrayList<ao4> P;
     public zp6 Q;
     public yp6 R;
     public FrsLikeRecommendLayout S;
@@ -342,8 +342,8 @@ public abstract class iq6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, textView, textView2) == null) {
             textView.setText(String.valueOf(this.d0));
-            String string = this.a.getString(R.string.obfuscated_res_0x7f0f05d1);
-            String string2 = this.a.getString(R.string.obfuscated_res_0x7f0f0aa4);
+            String string = this.a.getString(R.string.obfuscated_res_0x7f0f05cd);
+            String string2 = this.a.getString(R.string.obfuscated_res_0x7f0f0a90);
             int i = this.e0;
             if (i >= 10000) {
                 if (i % 10000 == 0) {

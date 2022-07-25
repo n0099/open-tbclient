@@ -1,9 +1,11 @@
 package com.repackage;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,45 +14,53 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public final class nd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755473388, "Lcom/repackage/nd3;")) == null) {
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755473388, "Lcom/repackage/nd3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755473388, "Lcom/repackage/nd3;");
+                return;
+            }
+        }
+        boolean z = sg1.a;
+    }
+
+    public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLI(65537, null, context, drawable, mode, i) == null) || context == null || drawable == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        int d = d(context);
+        if (i >= 0 && i < 255) {
+            d = Color.argb((Color.alpha(d) * i) / 255, Color.red(d), Color.green(d), Color.blue(d));
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755473388, "Lcom/repackage/nd3;");
+        drawable.setColorFilter(d, mode);
+    }
+
+    public static void b(Context context, Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, drawable) == null) {
+            c(context, drawable, 255);
         }
     }
 
-    public static Context a() {
-        InterceptResult invokeV;
+    public static void c(Context context, Drawable drawable, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? AppRuntime.getAppContext() : (Context) invokeV.objValue;
-    }
-
-    public static boolean b(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) ? c().getBoolean(str, z) : invokeLZ.booleanValue;
-    }
-
-    public static SharedPreferences c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                a = PreferenceManager.getDefaultSharedPreferences(a());
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeLLI(65539, null, context, drawable, i) == null) {
+            a(context, drawable, PorterDuff.Mode.SRC_ATOP, i);
         }
-        return (SharedPreferences) invokeV.objValue;
+    }
+
+    public static int d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? context.getResources().getColor(R.color.obfuscated_res_0x7f0603ea) : invokeL.intValue;
     }
 }

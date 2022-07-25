@@ -17,22 +17,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.ad.reward.a.a;
-import com.kwad.components.ad.reward.i.w;
-import com.kwad.components.core.h.e;
+import com.kwad.components.ad.reward.k.u;
+import com.kwad.components.core.i.e;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class b extends e implements a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.kwad.components.ad.reward.a.a a;
-    public int[] b;
-    public AdTemplate c;
-    public a d;
+    public AdTemplate mAdTemplate;
+    public int[] oi;
+    public com.kwad.components.ad.reward.a.a oy;
+    public a oz;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void b();
+        void gn();
     }
 
     public b() {
@@ -67,18 +67,18 @@ public final class b extends e implements a.b {
     private void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, aVar) == null) {
-            this.d = aVar;
+            this.oz = aVar;
         }
     }
 
-    @Override // com.kwad.components.core.h.e
+    @Override // com.kwad.components.core.i.e
     public final View a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, layoutInflater, viewGroup)) == null) {
             getDialog().requestWindowFeature(1);
-            com.kwad.components.ad.reward.a.a aVar = new com.kwad.components.ad.reward.a.a(layoutInflater.getContext(), viewGroup, this.b);
-            this.a = aVar;
+            com.kwad.components.ad.reward.a.a aVar = new com.kwad.components.ad.reward.a.a(layoutInflater.getContext(), viewGroup, this.oi);
+            this.oy = aVar;
             aVar.a(this);
             Window window = getDialog().getWindow();
             if (window != null) {
@@ -88,11 +88,11 @@ public final class b extends e implements a.b {
                 window.setDimAmount(0.0f);
                 window.setBackgroundDrawable(new ColorDrawable(0));
             }
-            this.a.b(w.a(this.c));
+            this.oy.b(u.D(this.mAdTemplate));
             getDialog().setOnKeyListener(new DialogInterface.OnKeyListener(this) { // from class: com.kwad.components.ad.reward.a.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ b a;
+                public final /* synthetic */ b oA;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -109,7 +109,7 @@ public final class b extends e implements a.b {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.oA = this;
                 }
 
                 @Override // android.content.DialogInterface.OnKeyListener
@@ -119,25 +119,25 @@ public final class b extends e implements a.b {
                     return (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, dialogInterface, i, keyEvent)) == null) ? i == 4 && keyEvent.getAction() == 0 : invokeLIL.booleanValue;
                 }
             });
-            return this.a.a();
+            return this.oy.fR();
         }
         return (View) invokeLL.objValue;
     }
 
     @Override // com.kwad.components.ad.reward.a.a.b
-    public final void a() {
+    public final void gn() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             dismiss();
-            a aVar = this.d;
+            a aVar = this.oz;
             if (aVar != null) {
-                aVar.b();
+                aVar.gn();
             }
         }
     }
 
     @Override // com.kwad.components.ad.reward.a.a.b
-    public final void b() {
+    public final void go() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             dismiss();
@@ -155,14 +155,14 @@ public final class b extends e implements a.b {
                     try {
                         String string = arguments.getString("key_template_json");
                         AdTemplate adTemplate = new AdTemplate();
-                        this.c = adTemplate;
+                        this.mAdTemplate = adTemplate;
                         adTemplate.parseJson(new JSONObject(string));
                     } catch (Exception e) {
-                        com.kwad.sdk.core.d.b.b(e);
+                        com.kwad.sdk.core.e.b.printStackTraceOnly(e);
                     }
                 }
                 if (arguments.containsKey("key_end_location")) {
-                    this.b = arguments.getIntArray("key_end_location");
+                    this.oi = arguments.getIntArray("key_end_location");
                 }
             }
         }

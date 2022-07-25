@@ -1,11 +1,7 @@
 package com.repackage;
 
-import java.net.MalformedURLException;
+import com.repackage.xs2;
 /* loaded from: classes6.dex */
 public interface oh1 {
-    String a();
-
-    boolean b();
-
-    String c(String str) throws MalformedURLException;
+    void a(String str, xs2.k kVar);
 }

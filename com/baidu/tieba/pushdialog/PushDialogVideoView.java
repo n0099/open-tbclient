@@ -756,7 +756,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (!ni.z()) {
-                pi.L(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f0c2b));
+                pi.L(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f0c17));
             } else if (this.f.isPlaying()) {
                 D();
             } else if (this.r) {
@@ -1031,24 +1031,24 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             int k = pi.k(context) - pi.f(context, R.dimen.tbds132);
             this.c = k;
             this.d = (int) (k * 0.5625f);
-            e68 control = ((TbVideoViewContainer) findViewById(R.id.obfuscated_res_0x7f09236d)).getControl();
+            e68 control = ((TbVideoViewContainer) findViewById(R.id.obfuscated_res_0x7f09236f)).getControl();
             this.f = control;
             control.setPlayMode("2");
             this.f.setStageType(null);
             p68 p68Var = new p68((ViewGroup) findViewById(R.id.obfuscated_res_0x7f0902e4));
             this.g = p68Var;
             p68Var.f(this.E);
-            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0918c5);
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0918a0);
             this.h = progressBar;
             progressBar.setMax(this.c);
             this.h.setProgress(0);
             this.i = findViewById(R.id.obfuscated_res_0x7f090380);
-            this.j = findViewById(R.id.obfuscated_res_0x7f091236);
-            this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e99);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0922c6);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091a23);
-            this.p = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923fb);
-            this.q = (PbVideoWifiTipLayout) findViewById(R.id.obfuscated_res_0x7f09125b);
+            this.j = findViewById(R.id.obfuscated_res_0x7f091212);
+            this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e92);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0922c8);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0919fd);
+            this.p = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923fd);
+            this.q = (PbVideoWifiTipLayout) findViewById(R.id.obfuscated_res_0x7f091237);
             this.p.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             CallStateReceiver callStateReceiver = new CallStateReceiver();
             this.t = callStateReceiver;

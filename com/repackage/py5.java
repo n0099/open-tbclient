@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class py5 extends BaseCardInfo implements cz5, bp4 {
+/* loaded from: classes7.dex */
+public class py5 extends BaseCardInfo implements cz5, cp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AdvertAppInfo a;
@@ -54,7 +54,7 @@ public class py5 extends BaseCardInfo implements cz5, bp4 {
         }
     }
 
-    @Override // com.repackage.bp4
+    @Override // com.repackage.cp4
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public class py5 extends BaseCardInfo implements cz5, bp4 {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    @Override // com.repackage.bp4
+    @Override // com.repackage.cp4
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -123,14 +123,14 @@ public class py5 extends BaseCardInfo implements cz5, bp4 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.bp4
+    @Override // com.repackage.cp4
     public AdvertAppInfo q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (AdvertAppInfo) invokeV.objValue;
     }
 
-    @Override // com.repackage.bp4
+    @Override // com.repackage.cp4
     public void setPosition(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {

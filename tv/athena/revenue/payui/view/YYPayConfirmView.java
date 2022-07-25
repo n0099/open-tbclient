@@ -120,20 +120,20 @@ public class YYPayConfirmView extends LinearLayout implements sz9 {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, nz9.a.a(this.i))).inflate(R.layout.obfuscated_res_0x7f0d0667, (ViewGroup) this, true);
+            LayoutInflater.from(new ContextThemeWrapper(context, nz9.a.a(this.i))).inflate(R.layout.obfuscated_res_0x7f0d0671, (ViewGroup) this, true);
             Button button = (Button) findViewById(R.id.obfuscated_res_0x7f09040c);
             this.g = button;
             button.setOnClickListener(new a(this));
-            GridView gridView = (GridView) findViewById(R.id.obfuscated_res_0x7f090c9d);
+            GridView gridView = (GridView) findViewById(R.id.obfuscated_res_0x7f090c96);
             this.d = gridView;
             gridView.setSelector(new ColorDrawable(0));
             uz9 uz9Var = new uz9(context, this.l, this.i);
             this.j = uz9Var;
             this.d.setAdapter((ListAdapter) uz9Var);
             this.d.setVisibility(b() ? 0 : 8);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092220);
-            this.f = findViewById(R.id.obfuscated_res_0x7f091b4b);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0922a1);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092222);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091b25);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0922a3);
         }
     }
 

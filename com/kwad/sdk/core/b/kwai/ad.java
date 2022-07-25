@@ -29,13 +29,34 @@ public final class ad implements com.kwad.sdk.core.d<AdStyleInfo.PlayEndInfo.AdW
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "typeLandscape", adWebCardInfo.typeLandscape);
-        com.kwad.sdk.utils.r.a(jSONObject, "typePortrait", adWebCardInfo.typePortrait);
-        com.kwad.sdk.utils.r.a(jSONObject, "cardUrl", adWebCardInfo.cardUrl);
-        com.kwad.sdk.utils.r.a(jSONObject, "cardData", adWebCardInfo.cardData);
-        com.kwad.sdk.utils.r.a(jSONObject, "cardShowPlayCount", adWebCardInfo.cardShowPlayCount);
-        com.kwad.sdk.utils.r.a(jSONObject, "cardShowTime", adWebCardInfo.cardShowTime);
-        com.kwad.sdk.utils.r.a(jSONObject, "cardDelayTime", adWebCardInfo.cardDelayTime);
+        long j = adWebCardInfo.typeLandscape;
+        if (j != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "typeLandscape", j);
+        }
+        long j2 = adWebCardInfo.typePortrait;
+        if (j2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "typePortrait", j2);
+        }
+        String str = adWebCardInfo.cardUrl;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "cardUrl", adWebCardInfo.cardUrl);
+        }
+        String str2 = adWebCardInfo.cardData;
+        if (str2 != null && !str2.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "cardData", adWebCardInfo.cardData);
+        }
+        int i = adWebCardInfo.cardShowPlayCount;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "cardShowPlayCount", i);
+        }
+        long j3 = adWebCardInfo.cardShowTime;
+        if (j3 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "cardShowTime", j3);
+        }
+        long j4 = adWebCardInfo.cardDelayTime;
+        if (j4 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "cardDelayTime", j4);
+        }
         return jSONObject;
     }
 

@@ -2,6 +2,7 @@ package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -132,7 +133,7 @@ public class GetChargeOrderStatusResponse implements IBaseJsonResponse {
                     if (this.cmd == optInt) {
                         this.uid = jSONObject.optLong("uid");
                         this.seq = jSONObject.optString("seq");
-                        this.result = jSONObject.optInt("result");
+                        this.result = jSONObject.optInt(TiebaStatic.LogFields.RESULT);
                         this.message = jSONObject.optString("message");
                         this.appId = jSONObject.optInt(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
                         this.usedChannel = jSONObject.optInt("usedChannel");

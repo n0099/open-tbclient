@@ -176,7 +176,7 @@ public class pf7 extends an<uf7, SearchSuggestLiveViewHolder> {
     public SearchSuggestLiveViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) ? new SearchSuggestLiveViewHolder(LayoutInflater.from(this.i).inflate(R.layout.obfuscated_res_0x7f0d0756, viewGroup, false)) : (SearchSuggestLiveViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) ? new SearchSuggestLiveViewHolder(LayoutInflater.from(this.i).inflate(R.layout.obfuscated_res_0x7f0d0760, viewGroup, false)) : (SearchSuggestLiveViewHolder) invokeL.objValue;
     }
 
     public View e0(int i, View view2, ViewGroup viewGroup, uf7 uf7Var, SearchSuggestLiveViewHolder searchSuggestLiveViewHolder) {
@@ -188,7 +188,7 @@ public class pf7 extends an<uf7, SearchSuggestLiveViewHolder> {
             }
             f0(searchSuggestLiveViewHolder);
             WebPManager.setPureDrawable(searchSuggestLiveViewHolder.c, R.drawable.obfuscated_res_0x7f080a29, R.color.CAM_X0109, null);
-            ur4 d = ur4.d(searchSuggestLiveViewHolder.e);
+            vr4 d = vr4.d(searchSuggestLiveViewHolder.e);
             d.n(R.string.J_X01);
             d.f(R.color.CAM_X0308);
             lf7.a(searchSuggestLiveViewHolder.b, uf7Var.g(), uf7Var.a());
@@ -203,14 +203,14 @@ public class pf7 extends an<uf7, SearchSuggestLiveViewHolder> {
     public final void f0(SearchSuggestLiveViewHolder searchSuggestLiveViewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, searchSuggestLiveViewHolder) == null) {
-            ur4 d = ur4.d(searchSuggestLiveViewHolder.b);
+            vr4 d = vr4.d(searchSuggestLiveViewHolder.b);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X06);
-            ur4 d2 = ur4.d(searchSuggestLiveViewHolder.f);
+            vr4 d2 = vr4.d(searchSuggestLiveViewHolder.f);
             d2.v(R.color.CAM_X0101);
             d2.z(R.dimen.T_X10);
             SkinManager.setBackgroundResource(searchSuggestLiveViewHolder.a, R.drawable.addresslist_item_bg);
-            ur4.d(searchSuggestLiveViewHolder.g).f(R.color.CAM_X0203);
+            vr4.d(searchSuggestLiveViewHolder.g).f(R.color.CAM_X0203);
         }
     }
 

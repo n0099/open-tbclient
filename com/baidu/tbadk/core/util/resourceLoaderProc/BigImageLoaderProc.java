@@ -25,12 +25,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cg;
 import com.repackage.hg;
 import com.repackage.hi;
-import com.repackage.kd5;
 import com.repackage.kg;
+import com.repackage.ld5;
 import com.repackage.mg;
-import com.repackage.mt4;
-import com.repackage.nd5;
 import com.repackage.ni;
+import com.repackage.nt4;
+import com.repackage.od5;
 import com.repackage.pi;
 import com.repackage.ub;
 import com.repackage.yb;
@@ -135,7 +135,7 @@ public class BigImageLoaderProc implements kg<ym> {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str != null && kd5.a(str)) {
+            if (str != null && ld5.a(str)) {
                 String[] split2 = str.split("/");
                 if (split2.length > 3) {
                     try {
@@ -175,7 +175,7 @@ public class BigImageLoaderProc implements kg<ym> {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (str != null && kd5.a(str)) {
+            if (str != null && ld5.a(str)) {
                 int lastIndexOf = str.lastIndexOf("/");
                 int lastIndexOf2 = str.lastIndexOf(".");
                 int lastIndexOf3 = str.lastIndexOf(".jpg");
@@ -377,8 +377,8 @@ public class BigImageLoaderProc implements kg<ym> {
                 } else {
                     str3 = TbConfig.IMAGE_ADDRESS + ((str + "&imgtype=0") + "&qulity=" + TbImageHelper.getInstance().getUrlQuality());
                 }
-                nd5.e(booleanValue, str3, str);
-                Pair<Boolean, String> d = nd5.d(str3);
+                od5.e(booleanValue, str3, str);
+                Pair<Boolean, String> d = od5.d(str3);
                 if (((Boolean) d.first).booleanValue()) {
                     str4 = (String) d.second;
                     z = true;
@@ -394,7 +394,7 @@ public class BigImageLoaderProc implements kg<ym> {
                 boolean needCache = webClient.needCache();
                 if (webClient.IsRequestSuccess() && webClient.errorCode == -11) {
                     BdLog.e("BIGIMAGE imagesize too big");
-                    mt4.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
+                    nt4.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
                 }
                 if (webClient.responseCode == 302 && (17 == getProcType() || 18 == getProcType() || 13 == getProcType() || 14 == getProcType())) {
                     try {
@@ -409,7 +409,7 @@ public class BigImageLoaderProc implements kg<ym> {
                 if (webClient.IsRequestSuccess() || webClient.responseCode == 302) {
                     bitmap = BitmapHelper.Bytes2Bitmap(downloadImageBytes);
                     if (z && bitmap == null) {
-                        nd5.b(str4);
+                        od5.b(str4);
                         downloadImageBytes = webClient.downloadImageBytes(str3, !booleanValue);
                         needCache = webClient.needCache();
                         if (downloadImageBytes != null && webClient.IsRequestSuccess()) {

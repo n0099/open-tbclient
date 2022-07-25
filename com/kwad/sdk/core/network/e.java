@@ -3,58 +3,58 @@ package com.kwad.sdk.core.network;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import com.kwad.sdk.service.ServiceProvider;
-import com.kwad.sdk.utils.ap;
-import com.kwad.sdk.utils.at;
+import com.kwad.sdk.utils.as;
+import com.kwad.sdk.utils.ax;
 import java.io.File;
 import java.nio.charset.Charset;
 /* loaded from: classes5.dex */
 public class e {
-    public static volatile e a;
-    public String b = c();
-
-    public static e a() {
-        if (a == null) {
-            synchronized (e.class) {
-                if (a == null) {
-                    a = new e();
-                }
-            }
-        }
-        return a;
-    }
+    public static volatile e XW;
+    public String XX = tA();
 
     @WorkerThread
-    public static void b(String str) {
+    public static void bV(String str) {
         try {
-            com.kwad.sdk.utils.o.a(new File(ap.e(((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).a())), str, Charset.forName("UTF-8"), false);
+            com.kwad.sdk.utils.o.a(new File(as.dc(((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext())), str, Charset.forName("UTF-8"), false);
         } catch (Exception e) {
-            com.kwad.sdk.core.d.b.b(e);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
         }
     }
 
     @Nullable
     @WorkerThread
-    public static String c() {
+    public static String tA() {
         try {
-            return com.kwad.sdk.utils.o.a(new File(ap.e(((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).a())), Charset.forName("UTF-8"));
+            return com.kwad.sdk.utils.o.a(new File(as.dc(((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext())), Charset.forName("UTF-8"));
         } catch (Exception e) {
-            com.kwad.sdk.core.d.b.b(e);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
             return null;
         }
     }
 
+    public static e ty() {
+        if (XW == null) {
+            synchronized (e.class) {
+                if (XW == null) {
+                    XW = new e();
+                }
+            }
+        }
+        return XW;
+    }
+
     @WorkerThread
-    public final void a(String str) {
-        if (at.a(this.b, str)) {
+    public final void bU(String str) {
+        if (ax.V(this.XX, str)) {
             return;
         }
-        this.b = str;
-        b(str);
+        this.XX = str;
+        bV(str);
     }
 
     @Nullable
     @WorkerThread
-    public final String b() {
-        return this.b;
+    public final String tz() {
+        return this.XX;
     }
 }

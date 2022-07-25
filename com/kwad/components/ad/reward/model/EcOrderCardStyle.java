@@ -73,11 +73,11 @@ public final class EcOrderCardStyle {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, adInfo)) == null) {
-            if (com.kwad.components.ad.reward.kwai.b.d(adInfo) || com.kwad.components.ad.reward.kwai.b.c(adInfo)) {
-                AdProductInfo bd = com.kwad.sdk.core.response.a.a.bd(adInfo);
-                boolean hasSpike = bd.hasSpike();
-                boolean hasCoupon = bd.hasCoupon();
-                return (hasSpike && hasCoupon) ? SPIKE_AND_COUPON : hasSpike ? SPIKE : hasCoupon ? COUPON : bd.hasOriginalPrice() ? NO_SPIKE_AND_NO_COUPON : DEFAULT;
+            if (com.kwad.components.ad.reward.kwai.b.j(adInfo) || com.kwad.components.ad.reward.kwai.b.i(adInfo)) {
+                AdProductInfo bN = com.kwad.sdk.core.response.a.a.bN(adInfo);
+                boolean hasSpike = bN.hasSpike();
+                boolean hasCoupon = bN.hasCoupon();
+                return (hasSpike && hasCoupon) ? SPIKE_AND_COUPON : hasSpike ? SPIKE : hasCoupon ? COUPON : bN.hasOriginalPrice() ? NO_SPIKE_AND_NO_COUPON : DEFAULT;
             }
             return null;
         }

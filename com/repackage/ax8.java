@@ -56,12 +56,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.PermissionRequest;
 import com.baidubce.auth.NTLMEngineImpl;
 import com.google.protobuf.CodedInputStream;
 import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class ax8 implements ia5, View.OnClickListener {
+public class ax8 implements ja5, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static int M = 4;
     public transient /* synthetic */ FieldHolder $fh;
@@ -221,7 +222,7 @@ public class ax8 implements ia5, View.OnClickListener {
                         }
                     }
                 }
-                BdToast b = BdToast.b(this.a.f, this.a.f.getString(R.string.obfuscated_res_0x7f0f14e2));
+                BdToast b = BdToast.b(this.a.f, this.a.f.getString(R.string.obfuscated_res_0x7f0f1491));
                 b.f(BdToast.ToastIcon.FAILURE);
                 b.h();
                 return false;
@@ -490,7 +491,7 @@ public class ax8 implements ia5, View.OnClickListener {
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean J0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -536,8 +537,8 @@ public class ax8 implements ia5, View.OnClickListener {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
             permissionJudgePolicy.clearRequestPermissionList();
-            permissionJudgePolicy.appendRequestPermission(this.f, "android.permission.CAMERA");
-            permissionJudgePolicy.appendRequestPermission(this.f, "android.permission.RECORD_AUDIO");
+            permissionJudgePolicy.appendRequestPermission(this.f, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+            permissionJudgePolicy.appendRequestPermission(this.f, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
             permissionJudgePolicy.appendRequestPermission(this.f, "android.permission.WRITE_EXTERNAL_STORAGE");
             return permissionJudgePolicy.startRequestPermission(this.f);
         }
@@ -550,7 +551,7 @@ public class ax8 implements ia5, View.OnClickListener {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
             permissionJudgePolicy.clearRequestPermissionList();
-            permissionJudgePolicy.appendRequestPermission(this.f, "android.permission.CAMERA");
+            permissionJudgePolicy.appendRequestPermission(this.f, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
             permissionJudgePolicy.appendRequestPermission(this.f, "android.permission.WRITE_EXTERNAL_STORAGE");
             return permissionJudgePolicy.startRequestPermission(this.f);
         }
@@ -674,12 +675,12 @@ public class ax8 implements ia5, View.OnClickListener {
             } else if (k()) {
                 return c(imageFileInfo);
             } else {
-                String format = String.format(this.f.getString(R.string.obfuscated_res_0x7f0f0a94), Integer.valueOf(l));
+                String format = String.format(this.f.getString(R.string.obfuscated_res_0x7f0f0a80), Integer.valueOf(l));
                 if (l == M) {
                     BdTopToast bdTopToast = new BdTopToast(this.f);
                     bdTopToast.i(false);
                     bdTopToast.h(format);
-                    bdTopToast.j((ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f091e6a));
+                    bdTopToast.j((ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f091e6e));
                 } else {
                     this.f.showToast(format);
                 }
@@ -716,7 +717,7 @@ public class ax8 implements ia5, View.OnClickListener {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.r : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -859,7 +860,7 @@ public class ax8 implements ia5, View.OnClickListener {
         this.f.finish();
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public void n(int i) {
         ww8 ww8Var;
         Interceptable interceptable = $ic;
@@ -985,7 +986,7 @@ public class ax8 implements ia5, View.OnClickListener {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.g : (yw8) invokeV.objValue;
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

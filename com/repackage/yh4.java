@@ -1,98 +1,25 @@
 package com.repackage;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
+import android.view.MotionEvent;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.swan.videoplayer.SwanVideoView;
+import com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout;
+import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.z93;
 /* loaded from: classes7.dex */
-public class yh4 implements View.OnClickListener {
+public final class yh4 implements MediaGestureLayout.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public RelativeLayout b;
-    public TextView c;
-    public ImageView d;
-    public String e;
-
-    /* loaded from: classes7.dex */
-    public class a implements z93.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yh4 a;
-
-        public a(yh4 yh4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yh4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yh4Var;
-        }
-
-        @Override // com.repackage.z93.b
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.j();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yh4 a;
-
-        public b(yh4 yh4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yh4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yh4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
-                this.a.d();
-            }
-        }
-    }
+    public Context a;
+    public MediaGestureLayout b;
+    public MediaGestureLayout.c c;
 
     public yh4(Context context) {
         Interceptable interceptable = $ic;
@@ -110,106 +37,83 @@ public class yh4 implements View.OnClickListener {
             }
         }
         this.a = context;
-        e();
+        g(context);
     }
 
-    public RelativeLayout a() {
+    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
+    public void a(MotionEvent motionEvent) {
+        MediaGestureLayout.c cVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) || (cVar = this.c) == null) {
+            return;
+        }
+        cVar.a(motionEvent);
+    }
+
+    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
+    public void b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode) {
+        MediaGestureLayout.c cVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, mediaGestureMode) == null) || (cVar = this.c) == null) {
+            return;
+        }
+        cVar.b(motionEvent, mediaGestureMode);
+    }
+
+    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
+    public void c(int i) {
+        MediaGestureLayout.c cVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (cVar = this.c) == null) {
+            return;
+        }
+        cVar.c(i);
+    }
+
+    public void d(SwanVideoView swanVideoView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, swanVideoView) == null) {
+            this.b.h(swanVideoView);
+        }
+    }
+
+    public void e(vh4 vh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, vh4Var) == null) {
+            this.b.g(vh4Var);
+        }
+    }
+
+    public ViewGroup f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (RelativeLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (ViewGroup) invokeV.objValue;
     }
 
-    public void b() {
-        ImageView imageView;
+    public final void g(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (imageView = this.d) != null && imageView.getVisibility() == 0) {
-            this.d.setVisibility(8);
+        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
+            this.a = context;
+            MediaGestureLayout mediaGestureLayout = new MediaGestureLayout(context);
+            this.b = mediaGestureLayout;
+            mediaGestureLayout.setMediaGestureListener(this);
         }
     }
 
-    public void c() {
+    public void h(MediaGestureLayout.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            g03.M().postDelayed(new b(this), 3000L);
+        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
+            this.c = cVar;
         }
     }
 
-    public void d() {
-        TextView textView;
+    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
+    public void onDoubleTap(MotionEvent motionEvent) {
+        MediaGestureLayout.c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (textView = this.c) != null && textView.getVisibility() == 0) {
-            this.c.setVisibility(8);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07e5, (ViewGroup) null);
-            this.b = relativeLayout;
-            relativeLayout.setVisibility(8);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091e93);
-            this.c = textView;
-            textView.setVisibility(8);
-            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091e92);
-            this.d = imageView;
-            imageView.setOnClickListener(this);
-            this.d.setVisibility(8);
-            z93.e().d("#com.baidu.swan.videoplayer&MediaMuteViewLayer", new a(this));
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            z93.e().i("#com.baidu.swan.videoplayer&MediaMuteViewLayer");
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.e = str;
-            TextView textView = this.c;
-            if (textView != null) {
-                textView.setText(str);
-            }
-        }
-    }
-
-    public void h() {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (imageView = this.d) != null && imageView.getVisibility() == 8) {
-            this.d.setVisibility(0);
-            c();
-        }
-    }
-
-    public void i(boolean z) {
-        RelativeLayout relativeLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || (relativeLayout = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent) == null) || (cVar = this.c) == null) {
             return;
         }
-        relativeLayout.setVisibility(z ? 0 : 8);
-    }
-
-    public void j() {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || TextUtils.isEmpty(this.e) || (textView = this.c) == null || textView.getVisibility() != 8) {
-            return;
-        }
-        this.c.setVisibility(0);
-        c();
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091e92) {
-            j();
-        }
+        cVar.onDoubleTap(motionEvent);
     }
 }

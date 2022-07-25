@@ -179,7 +179,7 @@ public class PBDrawVideo implements g {
             if ((eVar2 == null || (c0Var = eVar2.a) == null || !c0Var.b()) ? false : true) {
                 c0 c0Var2 = this.c.a;
                 if (((c0Var2 == null || !c0Var2.b()) ? "" : c0Var2.c.getLoad_type()).equals("video")) {
-                    View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08d8, (ViewGroup) null);
+                    View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08e2, (ViewGroup) null);
                     this.j = inflate;
                     VideoView videoView = (VideoView) inflate.findViewById(R.id.obfuscated_res_0x7f0924f4);
                     this.i = videoView;

@@ -80,7 +80,7 @@ public class VoteAreaLayout extends CardBasicLayout {
                     MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                     return;
                 }
-                pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f081f);
+                pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f081b);
             }
         }
     }
@@ -129,7 +129,7 @@ public class VoteAreaLayout extends CardBasicLayout {
             setGravity(16);
             setMinimumHeight(pi.f(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08b1, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08bb, (ViewGroup) this, true);
             b();
         }
     }

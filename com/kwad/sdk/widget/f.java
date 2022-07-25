@@ -7,23 +7,26 @@ import android.view.View;
 import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
 public final class f implements GestureDetector.OnGestureListener, View.OnTouchListener {
-    public View a;
-    public GestureDetector b;
-    public MotionEvent c;
-    public c d;
+    public MotionEvent arc;
+    public c ard;
+    public GestureDetector kE;
+    public View mView;
 
     public f(Context context, @NonNull View view2, c cVar) {
-        this.a = view2;
+        this.mView = view2;
         view2.setOnTouchListener(this);
-        this.b = new GestureDetector(context, this);
-        this.d = cVar;
+        this.kE = new GestureDetector(context, this);
+        this.ard = cVar;
     }
 
-    public f(@NonNull View view2, c cVar) {
-        this.a = view2;
+    public f(View view2, c cVar) {
+        if (view2 == null) {
+            return;
+        }
+        this.mView = view2;
         view2.setOnTouchListener(this);
-        this.b = new GestureDetector(view2.getContext(), this);
-        this.d = cVar;
+        this.kE = new GestureDetector(view2.getContext(), this);
+        this.ard = cVar;
     }
 
     public static boolean a(MotionEvent motionEvent, MotionEvent motionEvent2) {
@@ -36,11 +39,11 @@ public final class f implements GestureDetector.OnGestureListener, View.OnTouchL
         boolean z = false;
         if (action != 0) {
             if (action == 1) {
-                MotionEvent motionEvent3 = this.c;
+                MotionEvent motionEvent3 = this.arc;
                 if (motionEvent3 != null && a(motionEvent3, motionEvent)) {
-                    c cVar = this.d;
+                    c cVar = this.ard;
                     if (cVar != null) {
-                        cVar.b(view2);
+                        cVar.g(view2);
                     }
                     z = true;
                 }
@@ -49,7 +52,7 @@ public final class f implements GestureDetector.OnGestureListener, View.OnTouchL
             return z;
         }
         motionEvent2 = MotionEvent.obtain(motionEvent);
-        this.c = motionEvent2;
+        this.arc = motionEvent2;
         return z;
     }
 
@@ -78,9 +81,9 @@ public final class f implements GestureDetector.OnGestureListener, View.OnTouchL
 
     @Override // android.view.GestureDetector.OnGestureListener
     public final boolean onSingleTapUp(MotionEvent motionEvent) {
-        c cVar = this.d;
+        c cVar = this.ard;
         if (cVar != null) {
-            cVar.a_(this.a);
+            cVar.f(this.mView);
             return true;
         }
         return false;
@@ -88,7 +91,7 @@ public final class f implements GestureDetector.OnGestureListener, View.OnTouchL
 
     @Override // android.view.View.OnTouchListener
     public final boolean onTouch(View view2, MotionEvent motionEvent) {
-        boolean onTouchEvent = this.b.onTouchEvent(motionEvent);
+        boolean onTouchEvent = this.kE.onTouchEvent(motionEvent);
         StringBuilder sb = new StringBuilder("onTouch, ");
         sb.append(motionEvent.getAction());
         sb.append("， handled： ");

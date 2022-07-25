@@ -64,9 +64,9 @@ public class z98 extends an<ni8, PbAppEmptyHolder> implements o98 {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ni8Var, pbAppEmptyHolder})) == null) {
             AdvertAppInfo advertAppInfo = ni8Var.getAdvertAppInfo();
             if (advertAppInfo != null) {
-                sn4.g(advertAppInfo.i, ni8Var.getPosition(), advertAppInfo.c == -1001);
+                tn4.g(advertAppInfo.i, ni8Var.getPosition(), advertAppInfo.c == -1001);
             }
-            return pbAppEmptyHolder.b();
+            return pbAppEmptyHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

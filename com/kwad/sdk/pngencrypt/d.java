@@ -3,49 +3,49 @@ package com.kwad.sdk.pngencrypt;
 import com.kwad.sdk.pngencrypt.ChunkReader;
 /* loaded from: classes5.dex */
 public abstract class d extends ChunkReader {
-    public final DeflatedChunksSet e;
-    public boolean f;
-    public boolean g;
-    public byte[] h;
-    public int i;
+    public final DeflatedChunksSet akb;
+    public boolean akc;
+    public boolean akd;
+    public byte[] ake;
+    public int akf;
 
     public d(int i, String str, long j, DeflatedChunksSet deflatedChunksSet) {
         super(i, str, j, ChunkReader.ChunkReaderMode.PROCESS);
-        this.f = false;
-        this.g = false;
-        this.i = -1;
-        this.e = deflatedChunksSet;
+        this.akc = false;
+        this.akd = false;
+        this.akf = -1;
+        this.akb = deflatedChunksSet;
         deflatedChunksSet.a(this);
-    }
-
-    public final void a(int i) {
-        this.i = i;
     }
 
     @Override // com.kwad.sdk.pngencrypt.ChunkReader
     public final void a(int i, byte[] bArr, int i2, int i3) {
-        if (this.g && i < 4) {
+        if (this.akd && i < 4) {
             while (i < 4 && i3 > 0) {
-                this.h[i] = bArr[i2];
+                this.ake[i] = bArr[i2];
                 i++;
                 i2++;
                 i3--;
             }
         }
         if (i3 > 0) {
-            this.e.a(bArr, i2, i3);
-            if (this.f) {
-                System.arraycopy(bArr, i2, a().d, this.b, i3);
+            this.akb.c(bArr, i2, i3);
+            if (this.akc) {
+                System.arraycopy(bArr, i2, xT().data, this.aju, i3);
             }
         }
     }
 
+    public final void bg(int i) {
+        this.akf = i;
+    }
+
     @Override // com.kwad.sdk.pngencrypt.ChunkReader
-    public void c() {
-        int c;
-        if (!this.g || this.i < 0 || (c = n.c(this.h, 0)) == this.i) {
+    public void xU() {
+        int g;
+        if (!this.akd || this.akf < 0 || (g = n.g(this.ake, 0)) == this.akf) {
             return;
         }
-        com.kwad.sdk.core.d.b.a(new PngjException("bad chunk sequence for fDAT chunk " + c + " expected " + this.i));
+        com.kwad.sdk.core.e.b.printStackTrace(new PngjException("bad chunk sequence for fDAT chunk " + g + " expected " + this.akf));
     }
 }

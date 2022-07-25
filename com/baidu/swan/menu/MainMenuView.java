@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n64;
+import com.repackage.o64;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class MainMenuView extends BaseMenuView {
@@ -31,7 +31,7 @@ public class MainMenuView extends BaseMenuView {
     public MenuContentAdapter j;
     public RecyclerView k;
     public MenuContentAdapter l;
-    public List<List<n64>> m;
+    public List<List<o64>> m;
     public View n;
     public boolean o;
 
@@ -74,7 +74,7 @@ public class MainMenuView extends BaseMenuView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<List<n64>> list = this.m;
+            List<List<o64>> list = this.m;
             return list != null && list.size() > 1;
         }
         return invokeV.booleanValue;
@@ -141,7 +141,7 @@ public class MainMenuView extends BaseMenuView {
         }
     }
 
-    public final void g(List<List<n64>> list, boolean z, int i) {
+    public final void g(List<List<o64>> list, boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{list, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             this.m = list;
@@ -168,7 +168,7 @@ public class MainMenuView extends BaseMenuView {
         }
     }
 
-    public void update(List<List<n64>> list, View view2, boolean z, int i) {
+    public void update(List<List<o64>> list, View view2, boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{list, view2, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             setMode();
@@ -224,13 +224,13 @@ public class MainMenuView extends BaseMenuView {
         this.i = recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.i.setPadding(0, (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f0700e0), 0, 0);
+        this.i.setPadding(0, (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f0700de), 0, 0);
         this.f.addView(this.i, layoutParams);
         View view2 = new View(context);
         this.h = view2;
         view2.setVisibility(8);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, 1);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070418);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070416);
         layoutParams2.leftMargin = dimensionPixelSize;
         layoutParams2.rightMargin = dimensionPixelSize;
         this.f.addView(this.h, layoutParams2);

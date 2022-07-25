@@ -14,19 +14,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.core.l.p;
+import com.kwad.components.core.m.p;
 import com.kwad.sdk.api.core.ApiWebView;
 import com.kwad.sdk.api.loader.Wrapper;
 /* loaded from: classes5.dex */
 public class b extends ApiWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public com.kwad.components.core.webview.kwai.a b;
+    public boolean KH;
+    public com.kwad.components.core.webview.kwai.a KI;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
-        super(a(Wrapper.unwrapContextIfNeed(context)));
+        super(aw(Wrapper.unwrapContextIfNeed(context)));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,13 +42,13 @@ public class b extends ApiWebView {
                 return;
             }
         }
-        this.a = true;
-        b();
+        this.KH = true;
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context, AttributeSet attributeSet) {
-        super(a(Wrapper.unwrapContextIfNeed(context)), attributeSet);
+        super(aw(Wrapper.unwrapContextIfNeed(context)), attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,13 +65,13 @@ public class b extends ApiWebView {
                 return;
             }
         }
-        this.a = true;
-        b();
+        this.KH = true;
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context, AttributeSet attributeSet, int i) {
-        super(a(Wrapper.unwrapContextIfNeed(context)), attributeSet, i);
+        super(aw(Wrapper.unwrapContextIfNeed(context)), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,14 +88,14 @@ public class b extends ApiWebView {
                 return;
             }
         }
-        this.a = true;
-        b();
+        this.KH = true;
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @RequiresApi(api = 21)
     public b(Context context, AttributeSet attributeSet, int i, int i2) {
-        super(a(Wrapper.unwrapContextIfNeed(context)), attributeSet, i, i2);
+        super(aw(Wrapper.unwrapContextIfNeed(context)), attributeSet, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,13 +112,13 @@ public class b extends ApiWebView {
                 return;
             }
         }
-        this.a = true;
-        b();
+        this.KH = true;
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context, AttributeSet attributeSet, int i, boolean z) {
-        super(a(Wrapper.unwrapContextIfNeed(context)), attributeSet, i, z);
+        super(aw(Wrapper.unwrapContextIfNeed(context)), attributeSet, i, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,11 +135,11 @@ public class b extends ApiWebView {
                 return;
             }
         }
-        this.a = true;
-        b();
+        this.KH = true;
+        init();
     }
 
-    public static Context a(Context context) {
+    public static Context aw(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
@@ -149,19 +149,27 @@ public class b extends ApiWebView {
         return (Context) invokeL.objValue;
     }
 
-    private void b() {
+    private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            p.a(this);
+            p.b(this);
             com.kwad.components.core.webview.kwai.a aVar = new com.kwad.components.core.webview.kwai.a();
-            this.b = aVar;
+            this.KI = aVar;
             setWebViewClient(aVar);
         }
     }
 
-    public final void a() {
+    @Override // android.webkit.WebView
+    public void destroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.KH) {
+            super.destroy();
+        }
+    }
+
+    public final void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ViewParent parent = getParent();
             if (parent instanceof ViewGroup) {
                 ((ViewGroup) parent).removeView(this);
@@ -171,25 +179,17 @@ public class b extends ApiWebView {
         }
     }
 
-    @Override // android.webkit.WebView
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a) {
-            super.destroy();
-        }
-    }
-
     public void setEnableDestroy(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.a = z;
+            this.KH = z;
         }
     }
 
     public void setNeedHybridLoad(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b.a(z);
+            this.KI.setNeedHybridLoad(z);
         }
     }
 }

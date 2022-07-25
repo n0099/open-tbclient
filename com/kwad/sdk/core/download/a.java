@@ -9,18 +9,18 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidubce.http.Headers;
 import com.ksad.download.DownloadTask;
-import com.kwad.sdk.core.network.n;
-import com.kwad.sdk.core.network.p;
+import com.kwad.sdk.core.network.o;
+import com.kwad.sdk.core.network.q;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.export.proxy.AdDownloadProxy;
 import com.kwad.sdk.service.ServiceProvider;
-import com.kwad.sdk.utils.ac;
-import com.kwad.sdk.utils.af;
-import com.kwad.sdk.utils.ap;
+import com.kwad.sdk.utils.ab;
+import com.kwad.sdk.utils.ae;
+import com.kwad.sdk.utils.ai;
+import com.kwad.sdk.utils.as;
 import com.kwad.sdk.utils.t;
 import com.kwad.sdk.utils.u;
-import com.kwad.sdk.utils.z;
 import java.io.BufferedInputStream;
 import java.io.Closeable;
 import java.io.File;
@@ -44,30 +44,30 @@ import java.util.zip.GZIPInputStream;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
 public final class a {
-    public static volatile boolean a;
+    public static AdDownloadProxy WK;
     @SuppressLint({"StaticFieldLeak"})
-    public static Context b;
-    public static AdDownloadProxy c;
-    public static final String d = ap.a(((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).a()) + "/downloadFileSync/.temp";
-    public static final ExecutorService e = com.kwad.sdk.core.threads.b.j();
+    public static Context mContext;
+    public static volatile boolean mHasInit;
+    public static final String WL = as.cX(((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext()) + "/downloadFileSync/.temp";
+    public static final ExecutorService WG = com.kwad.sdk.core.threads.b.vq();
 
     /* renamed from: com.kwad.sdk.core.download.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0539a implements c {
-        public final OutputStream a;
+    public static class C0386a implements c {
+        public final OutputStream WM;
 
-        public C0539a(File file, boolean z) {
-            this.a = new FileOutputStream(file, z);
-        }
-
-        @Override // com.kwad.sdk.core.download.a.c
-        public final void a(byte[] bArr, int i, int i2) {
-            this.a.write(bArr, 0, i2);
+        public C0386a(File file, boolean z) {
+            this.WM = new FileOutputStream(file, z);
         }
 
         @Override // java.io.Closeable, java.lang.AutoCloseable
         public final void close() {
-            this.a.close();
+            this.WM.close();
+        }
+
+        @Override // com.kwad.sdk.core.download.a.c
+        public final void write(byte[] bArr, int i, int i2) {
+            this.WM.write(bArr, 0, i2);
         }
     }
 
@@ -77,7 +77,7 @@ public final class a {
 
     /* loaded from: classes5.dex */
     public interface c extends Closeable {
-        void a(byte[] bArr, int i, int i2);
+        void write(byte[] bArr, int i, int i2);
     }
 
     public static InputStream a(Map<String, List<String>> map, InputStream inputStream) {
@@ -109,16 +109,10 @@ public final class a {
         return inputStream;
     }
 
-    @Nullable
-    public static String a(AdInfo adInfo) {
-        AdDownloadProxy adDownloadProxy;
-        return (b == null || (adDownloadProxy = c) == null) ? "" : adDownloadProxy.getDownloadFilePath(DownloadParams.transform(adInfo));
-    }
-
     public static URLConnection a(String str, int i, int i2, boolean z) {
         try {
             URLConnection openConnection = new URL(str).openConnection();
-            p.a(openConnection);
+            q.wrapHttpURLConnection(openConnection);
             openConnection.setRequestProperty("Accept-Language", "zh-CN");
             openConnection.setConnectTimeout(10000);
             if (i2 > 0) {
@@ -129,114 +123,67 @@ public final class a {
             openConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
             openConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
             return openConnection;
-        } catch (MalformedURLException e2) {
-            com.kwad.sdk.core.d.b.a(e2);
+        } catch (MalformedURLException e) {
+            com.kwad.sdk.core.e.b.printStackTrace(e);
             return null;
-        }
-    }
-
-    public static void a(int i, AdTemplate adTemplate) {
-        d dVar = (d) ServiceProvider.a(d.class);
-        if (dVar != null) {
-            dVar.a(1, adTemplate);
         }
     }
 
     public static synchronized void a(Context context, @NonNull File file, boolean z) {
         synchronized (a.class) {
             if (context != null) {
-                if (!a) {
-                    b = context;
+                if (!mHasInit) {
+                    mContext = context;
                     com.ksad.download.d.a(context, file, new com.kwad.sdk.core.download.a.a(context));
-                    e.a().a(context);
-                    com.ksad.download.d.a().a(new com.kwad.sdk.core.download.b());
+                    e.sV().init(context);
+                    com.ksad.download.d.N().a(new com.kwad.sdk.core.download.b());
                     com.ksad.download.b.a(new com.ksad.download.a() { // from class: com.kwad.sdk.core.download.a.1
                         @Override // com.ksad.download.a
                         public final void a(DownloadTask downloadTask, String str) {
-                            if (af.d(a.b, str)) {
-                                com.kwad.sdk.core.download.c.f(z.a(downloadTask.getUrl()));
+                            if (ai.X(a.mContext, str)) {
+                                com.kwad.sdk.core.download.c.bJ(ab.dI(downloadTask.getUrl()));
                             }
                         }
                     });
-                    c = new com.kwad.sdk.core.download.b.a(z && a(context));
-                    a = true;
+                    WK = new com.kwad.sdk.core.download.b.a(z && bo(context));
+                    mHasInit = true;
                 }
             }
         }
     }
 
-    public static void a(@NonNull AdInfo adInfo, boolean z) {
-        Context context = b;
-        if (context == null) {
-            return;
-        }
-        if (!ac.b(context)) {
-            Context context2 = b;
-            t.a(context2, u.a(context2));
-            return;
-        }
-        DownloadParams transform = DownloadParams.transform(adInfo);
-        transform.requestInstallPermission = false;
-        c.startDownload(b, transform.mDownloadid, transform);
-    }
-
-    public static void a(String str) {
-        if (b == null || c == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        c.pauseDownload(b, str, null);
-    }
-
-    public static boolean a(Context context) {
-        try {
-            new NotificationCompat.Builder(context, "");
-            return true;
-        } catch (Throwable unused) {
-            return false;
-        }
-    }
-
-    public static boolean a(String str, File file) {
-        try {
-            return a(str, file, (b) null, 0);
-        } catch (Throwable th) {
-            com.kwad.sdk.core.d.b.b(th);
-            return false;
-        }
-    }
-
     public static boolean a(String str, File file, b bVar, int i) {
-        C0539a c0539a;
-        C0539a c0539a2 = null;
+        C0386a c0386a;
+        C0386a c0386a2 = null;
         try {
-            c0539a = new C0539a(file, false);
+            c0386a = new C0386a(file, false);
         } catch (Throwable th) {
             th = th;
         }
         try {
-            boolean a2 = a(str, (String) null, c0539a, (b) null, 0);
-            com.kwad.sdk.crash.utils.b.a(c0539a);
-            return a2;
+            boolean a = a(str, (String) null, c0386a, (b) null, 0);
+            com.kwad.sdk.crash.utils.b.closeQuietly(c0386a);
+            return a;
         } catch (Throwable th2) {
             th = th2;
-            c0539a2 = c0539a;
-            com.kwad.sdk.crash.utils.b.a(c0539a2);
+            c0386a2 = c0386a;
+            com.kwad.sdk.crash.utils.b.closeQuietly(c0386a2);
             throw th;
         }
     }
 
     public static boolean a(String str, File file, b bVar, int i, boolean z) {
-        C0539a c0539a = null;
+        C0386a c0386a = null;
         try {
-            C0539a c0539a2 = new C0539a(file, true);
+            C0386a c0386a2 = new C0386a(file, true);
             try {
-                boolean a2 = a(str, (String) null, (c) c0539a2, (b) null, -1, file.length(), -1L, true);
-                com.kwad.sdk.crash.utils.b.a(c0539a2);
-                return a2;
+                boolean a = a(str, (String) null, (c) c0386a2, (b) null, -1, file.length(), -1L, true);
+                com.kwad.sdk.crash.utils.b.closeQuietly(c0386a2);
+                return a;
             } catch (Throwable th) {
                 th = th;
-                c0539a = c0539a2;
-                com.kwad.sdk.crash.utils.b.a(c0539a);
+                c0386a = c0386a2;
+                com.kwad.sdk.crash.utils.b.closeQuietly(c0386a);
                 throw th;
             }
         } catch (Throwable th2) {
@@ -258,18 +205,18 @@ public final class a {
         }
         try {
             if (httpURLConnection != null) {
-                boolean a2 = a(httpURLConnection, str2, cVar, bVar, i, j, -1L, z);
-                com.kwad.sdk.crash.utils.b.a(cVar);
+                boolean a = a(httpURLConnection, str2, cVar, bVar, i, j, -1L, z);
+                com.kwad.sdk.crash.utils.b.closeQuietly(cVar);
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
                 }
-                return a2;
+                return a;
             }
             throw new IOException("Fail to createUrlConnection");
         } catch (Throwable th2) {
             th = th2;
             httpURLConnection2 = httpURLConnection;
-            com.kwad.sdk.crash.utils.b.a(cVar);
+            com.kwad.sdk.crash.utils.b.closeQuietly(cVar);
             if (httpURLConnection2 != null) {
                 httpURLConnection2.disconnect();
             }
@@ -302,34 +249,34 @@ public final class a {
                     }
                     throw new IOException(th.getClass().getName() + ":" + th.getMessage(), th);
                 } finally {
-                    com.kwad.sdk.crash.utils.b.a(cVar);
-                    com.kwad.sdk.crash.utils.b.a(inputStream);
+                    com.kwad.sdk.crash.utils.b.closeQuietly(cVar);
+                    com.kwad.sdk.crash.utils.b.closeQuietly(inputStream);
                     if (httpURLConnection != null) {
                         httpURLConnection.disconnect();
                     }
-                    com.kwad.sdk.crash.utils.b.a(fileOutputStream);
+                    com.kwad.sdk.crash.utils.b.closeQuietly(fileOutputStream);
                     if (file != null) {
                         file.delete();
                     }
                 }
             }
         }
-        httpURLConnection.setRequestProperty("User-Agent", n.c());
-        httpURLConnection.setRequestProperty("BrowserUa", n.d());
-        httpURLConnection.setRequestProperty("SystemUa", n.a());
+        httpURLConnection.setRequestProperty("User-Agent", o.getUserAgent());
+        httpURLConnection.setRequestProperty("BrowserUa", o.tD());
+        httpURLConnection.setRequestProperty("SystemUa", o.tC());
         httpURLConnection.setRequestProperty("Accept-Encoding", "gzip");
         if (!TextUtils.isEmpty(str)) {
             httpURLConnection.setRequestProperty("Host", str);
             httpURLConnection.setInstanceFollowRedirects(false);
             if (httpURLConnection.getResponseCode() == 302) {
-                boolean a2 = a(httpURLConnection.getHeaderField(Headers.LOCATION), (String) null, cVar, bVar, i);
-                com.kwad.sdk.crash.utils.b.a(cVar);
-                com.kwad.sdk.crash.utils.b.a((Closeable) null);
+                boolean a = a(httpURLConnection.getHeaderField(Headers.LOCATION), (String) null, cVar, bVar, i);
+                com.kwad.sdk.crash.utils.b.closeQuietly(cVar);
+                com.kwad.sdk.crash.utils.b.closeQuietly((Closeable) null);
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
                 }
-                com.kwad.sdk.crash.utils.b.a((Closeable) null);
-                return a2;
+                com.kwad.sdk.crash.utils.b.closeQuietly((Closeable) null);
+                return a;
             }
         }
         InputStream bufferedInputStream = new BufferedInputStream(httpURLConnection.getInputStream());
@@ -341,8 +288,8 @@ public final class a {
                 bufferedInputStream = a(hashMap, bufferedInputStream2);
                 if (contentLength <= 0) {
                     Random random = new Random(System.currentTimeMillis());
-                    new File(d).mkdirs();
-                    file = new File(d, random.nextInt() + ".tmp");
+                    new File(WL).mkdirs();
+                    file = new File(WL, random.nextInt() + ".tmp");
                     try {
                         fileOutputStream = new FileOutputStream(file);
                         try {
@@ -356,8 +303,8 @@ public final class a {
                                 i2 += read;
                                 fileOutputStream.write(bArr, 0, read);
                             }
-                            com.kwad.sdk.crash.utils.b.a(bufferedInputStream);
-                            com.kwad.sdk.crash.utils.b.a(fileOutputStream);
+                            com.kwad.sdk.crash.utils.b.closeQuietly(bufferedInputStream);
+                            com.kwad.sdk.crash.utils.b.closeQuietly(fileOutputStream);
                             inputStream = new BufferedInputStream(new FileInputStream(file));
                             try {
                                 hashMap.put("Content-Length", Collections.singletonList(String.valueOf(i2)));
@@ -388,7 +335,7 @@ public final class a {
                     if (read2 == -1) {
                         break;
                     }
-                    cVar.a(bArr2, 0, read2);
+                    cVar.write(bArr2, 0, read2);
                 }
                 return true;
             } catch (Throwable th5) {
@@ -404,7 +351,60 @@ public final class a {
         }
     }
 
-    public static void b(@NonNull AdInfo adInfo) {
-        a(adInfo, false);
+    public static void b(int i, AdTemplate adTemplate) {
+        d dVar = (d) ServiceProvider.get(d.class);
+        if (dVar != null) {
+            dVar.a(1, adTemplate);
+        }
+    }
+
+    public static void b(@NonNull AdInfo adInfo, boolean z) {
+        Context context = mContext;
+        if (context == null) {
+            return;
+        }
+        if (!ae.isNetworkConnected(context)) {
+            Context context2 = mContext;
+            t.z(context2, u.cj(context2));
+            return;
+        }
+        DownloadParams transform = DownloadParams.transform(adInfo);
+        transform.requestInstallPermission = false;
+        WK.startDownload(mContext, transform.mDownloadid, transform);
+    }
+
+    public static void bD(String str) {
+        if (mContext == null || WK == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        WK.pauseDownload(mContext, str, null);
+    }
+
+    public static boolean bo(Context context) {
+        try {
+            new NotificationCompat.Builder(context, "");
+            return true;
+        } catch (Throwable unused) {
+            return false;
+        }
+    }
+
+    public static boolean c(String str, File file) {
+        try {
+            return a(str, file, (b) null, 0);
+        } catch (Throwable th) {
+            com.kwad.sdk.core.e.b.printStackTraceOnly(th);
+            return false;
+        }
+    }
+
+    @Nullable
+    public static String w(AdInfo adInfo) {
+        AdDownloadProxy adDownloadProxy;
+        return (mContext == null || (adDownloadProxy = WK) == null) ? "" : adDownloadProxy.getDownloadFilePath(DownloadParams.transform(adInfo));
+    }
+
+    public static void x(@NonNull AdInfo adInfo) {
+        b(adInfo, false);
     }
 }

@@ -5,6 +5,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sofire.b.l;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +29,7 @@ public class ApkInfo {
     public int duration;
     public Context hostContext;
     public int initStatus;
-    public List<PluginloaderIntentFilter> intentFilters;
+    public List<l> intentFilters;
     public boolean isMem;
     public boolean isNextLoad;
     public int isOnce;

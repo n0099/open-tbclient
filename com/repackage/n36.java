@@ -207,13 +207,13 @@ public class n36 extends l36 implements NetModel.k {
         }
     }
 
-    public final void r(List<i05> list, boolean z) {
+    public final void r(List<j05> list, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048583, this, list, z) == null) {
             ArrayList arrayList = new ArrayList();
-            for (i05 i05Var : list) {
-                if (i05Var != null && i05Var.b != null) {
-                    arrayList.add(j36.b(i05Var));
+            for (j05 j05Var : list) {
+                if (j05Var != null && j05Var.b != null) {
+                    arrayList.add(j36.b(j05Var));
                 }
             }
             this.d.addAll(arrayList);
@@ -266,7 +266,7 @@ public class n36 extends l36 implements NetModel.k {
             }
             if (!ListUtils.isEmpty(s36Var.b)) {
                 for (j36 j36Var : s36Var.b) {
-                    if (j36Var != null && (itemData = j36Var.a) != null && !this.f.contains(itemData.pkgName) && b55.e(j36Var.a.pkgName) == null) {
+                    if (j36Var != null && (itemData = j36Var.a) != null && !this.f.contains(itemData.pkgName) && c55.e(j36Var.a.pkgName) == null) {
                         this.e.add(j36Var);
                     }
                 }
@@ -282,7 +282,7 @@ public class n36 extends l36 implements NetModel.k {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<Integer, Integer, List<i05>> {
+    public class b extends BdAsyncTask<Integer, Integer, List<j05>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
@@ -310,11 +310,11 @@ public class n36 extends l36 implements NetModel.k {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public List<i05> doInBackground(Integer... numArr) {
+        public List<j05> doInBackground(Integer... numArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, numArr)) == null) {
-                List<i05> d = k36.e().d();
+                List<j05> d = k36.e().d();
                 ArrayList arrayList = new ArrayList(15);
                 if (this.b.b >= d.size()) {
                     return arrayList;
@@ -322,33 +322,33 @@ public class n36 extends l36 implements NetModel.k {
                 int i = this.b.b;
                 while (i < d.size()) {
                     n36.h(this.b);
-                    i05 i05Var = d.get(i);
-                    if (i05Var != null && !oi.isEmpty(i05Var.a) && !oi.isEmpty(i05Var.c)) {
-                        ItemData d2 = d(i05Var.c);
-                        i05Var.b = d2;
+                    j05 j05Var = d.get(i);
+                    if (j05Var != null && !oi.isEmpty(j05Var.a) && !oi.isEmpty(j05Var.c)) {
+                        ItemData d2 = d(j05Var.c);
+                        j05Var.b = d2;
                         if (d2 != null && d2.apkDetail != null) {
-                            PackageInfo e = b55.e(i05Var.a);
-                            if (e != null && e.versionCode >= i05Var.b.apkDetail.version_code.intValue()) {
-                                k36.e().c(i05Var.a);
+                            PackageInfo e = c55.e(j05Var.a);
+                            if (e != null && e.versionCode >= j05Var.b.apkDetail.version_code.intValue()) {
+                                k36.e().c(j05Var.a);
                                 n36.i(this.b);
                             } else {
-                                DownloadData j = b55.j(i05Var.b);
-                                if (b55.c(j) == 6 && !b55.b(j.getId()) && i05Var.d != 2) {
-                                    k36.e().c(i05Var.a);
+                                DownloadData j = c55.j(j05Var.b);
+                                if (c55.c(j) == 6 && !c55.b(j.getId()) && j05Var.d != 2) {
+                                    k36.e().c(j05Var.a);
                                     n36.i(this.b);
-                                } else if (i05Var.d == 2 && !c15.q().s(i05Var.a) && b55.d(i05Var.a, i05Var.b.appId) == 6) {
-                                    k36.e().c(i05Var.a);
+                                } else if (j05Var.d == 2 && !d15.q().s(j05Var.a) && c55.d(j05Var.a, j05Var.b.appId) == 6) {
+                                    k36.e().c(j05Var.a);
                                     n36.i(this.b);
                                 } else {
-                                    arrayList.add(i05Var);
-                                    this.b.f.add(i05Var.a);
+                                    arrayList.add(j05Var);
+                                    this.b.f.add(j05Var.a);
                                     if (arrayList.size() >= 15) {
                                         break;
                                     }
                                 }
                             }
                         } else {
-                            k36.e().c(i05Var.a);
+                            k36.e().c(j05Var.a);
                             n36.i(this.b);
                         }
                     }
@@ -367,7 +367,7 @@ public class n36 extends l36 implements NetModel.k {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(List<i05> list) {
+        public void onPostExecute(List<j05> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 this.b.r(list, this.a);

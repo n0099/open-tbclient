@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q55;
+import com.repackage.r55;
 /* loaded from: classes3.dex */
 public class ConsumptionRecordsActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -42,14 +42,14 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         }
     }
 
-    public final void n0(q55 q55Var, FragmentTabIndicator fragmentTabIndicator, String str) {
+    public final void n0(r55 r55Var, FragmentTabIndicator fragmentTabIndicator, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, q55Var, fragmentTabIndicator, str) == null) || q55Var == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, r55Var, fragmentTabIndicator, str) == null) || r55Var == null) {
             return;
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
-        bVar.c = q55Var.a;
-        fragmentTabIndicator.setText(q55Var.b);
+        bVar.c = r55Var.a;
+        fragmentTabIndicator.setText(r55Var.b);
         if (!TextUtils.isEmpty(str)) {
             fragmentTabIndicator.setText(str);
         }
@@ -91,10 +91,10 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d01f3);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09158d);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091568);
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0435));
+            this.a.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0434));
             s0();
         }
     }
@@ -108,31 +108,31 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
     public final void s0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091ab6);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091a90);
             this.b = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.b.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
             SigleRecordsFragment sigleRecordsFragment = new SigleRecordsFragment();
             this.c = sigleRecordsFragment;
             sigleRecordsFragment.K1(1);
-            q55 q55Var = new q55();
-            q55Var.a = this.c;
-            q55Var.b = R.string.obfuscated_res_0x7f0f05cf;
-            n0(q55Var, p0(getPageContext().getPageActivity()), null);
+            r55 r55Var = new r55();
+            r55Var.a = this.c;
+            r55Var.b = R.string.obfuscated_res_0x7f0f05cb;
+            n0(r55Var, p0(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment2 = new SigleRecordsFragment();
             this.d = sigleRecordsFragment2;
             sigleRecordsFragment2.K1(2);
-            q55 q55Var2 = new q55();
-            q55Var2.a = this.d;
-            q55Var2.b = R.string.obfuscated_res_0x7f0f08e2;
-            n0(q55Var2, p0(getPageContext().getPageActivity()), null);
+            r55 r55Var2 = new r55();
+            r55Var2.a = this.d;
+            r55Var2.b = R.string.obfuscated_res_0x7f0f08cd;
+            n0(r55Var2, p0(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment3 = new SigleRecordsFragment();
             this.e = sigleRecordsFragment3;
             sigleRecordsFragment3.K1(3);
-            q55 q55Var3 = new q55();
-            q55Var3.a = this.e;
-            q55Var3.b = R.string.obfuscated_res_0x7f0f0f6d;
-            n0(q55Var3, p0(getPageContext().getPageActivity()), null);
+            r55 r55Var3 = new r55();
+            r55Var3.a = this.e;
+            r55Var3.b = R.string.obfuscated_res_0x7f0f0f56;
+            n0(r55Var3, p0(getPageContext().getPageActivity()), null);
             this.b.n(3);
             this.b.setCurrentTab(o0(getIntent().getIntExtra(ConsumptionRecordsActivityConfig.JUMP_FRAGMENT_TYPE, 1)));
         }

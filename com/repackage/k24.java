@@ -1,118 +1,27 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class k24 {
+public class k24 {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<h24> a;
-    public static ArrayList<Integer> b;
-    public static final k24 c;
+    public static volatile j24 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755610780, "Lcom/repackage/k24;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static synchronized j24 a() {
+        InterceptResult invokeV;
+        j24 j24Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (k24.class) {
+                if (a == null) {
+                    a = new j24();
+                }
+                j24Var = a;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755610780, "Lcom/repackage/k24;");
-                return;
-            }
+            return j24Var;
         }
-        c = new k24();
-        a = new ArrayList<>();
-        b = new ArrayList<>();
-    }
-
-    public k24() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final void a(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || b.contains(Integer.valueOf(i))) {
-            return;
-        }
-        b.add(Integer.valueOf(i));
-    }
-
-    public final h24 b(JSRuntime jsRuntime) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsRuntime)) == null) {
-            Intrinsics.checkNotNullParameter(jsRuntime, "jsRuntime");
-            h24 h24Var = new h24(jsRuntime);
-            a.add(h24Var);
-            return h24Var;
-        }
-        return (h24) invokeL.objValue;
-    }
-
-    public final boolean c(h24 socket) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socket)) == null) {
-            Intrinsics.checkNotNullParameter(socket, "socket");
-            return !a.contains(socket);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? b.contains(Integer.valueOf(i)) : invokeI.booleanValue;
-    }
-
-    public final void e(h24 socket) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, socket) == null) {
-            Intrinsics.checkNotNullParameter(socket, "socket");
-            if (a.contains(socket)) {
-                g(socket.B());
-                a.remove(socket);
-            }
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            Iterator<h24> it = a.iterator();
-            while (it.hasNext()) {
-                it.next().close();
-            }
-        }
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            b.remove(Integer.valueOf(i));
-        }
+        return (j24) invokeV.objValue;
     }
 }

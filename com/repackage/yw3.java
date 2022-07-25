@@ -1,124 +1,84 @@
 package com.repackage;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+@Autowired
 /* loaded from: classes7.dex */
-public class yw3 implements zo3 {
+public class yw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public yw3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.zo3
-    public long a() {
+    @Inject(force = false)
+    public static ox3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? t24.A().n() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? dn5.a() : (ox3) invokeV.objValue;
     }
 
-    @Override // com.repackage.zo3
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            et3.b(z ? "gdtvideo" : "video", null);
-        }
-    }
-
-    @Override // com.repackage.zo3
-    public boolean c() {
+    @Inject(force = false)
+    public static tx3 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? t24.A().C() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new cx3() : (tx3) invokeV.objValue;
     }
 
-    @Override // com.repackage.zo3
-    public boolean d() {
+    @Inject(force = false)
+    public static sx3 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? t24.A().B() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new bx3() : (sx3) invokeV.objValue;
     }
 
-    @Override // com.repackage.zo3
-    public String e() {
+    @Inject(force = false)
+    public static px3 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? t24.A().v() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? iq3.a() : (px3) invokeV.objValue;
     }
 
-    @Override // com.repackage.zo3
-    public long f() {
+    @Inject(force = false)
+    public static rx3 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? t24.A().o() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? nq3.a() : (rx3) invokeV.objValue;
     }
 
-    @Override // com.repackage.zo3
-    public String g() {
+    @Inject(force = false)
+    public static qx3 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? t24.A().z() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? kq3.a() : (qx3) invokeV.objValue;
     }
 
-    @Override // com.repackage.zo3
-    public long h() {
+    @Inject(force = false)
+    public static ux3 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? t24.A().p() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new dx3() : (ux3) invokeV.objValue;
     }
 
-    @Override // com.repackage.zo3
-    public Long i() {
+    @Inject(force = false)
+    public static vx3 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? t24.A().w() : (Long) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new ex3() : (vx3) invokeV.objValue;
     }
 
-    @Override // com.repackage.zo3
-    public boolean j() {
+    @Inject(force = false)
+    public static wx3 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? t24.A().q() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new fx3() : (wx3) invokeV.objValue;
     }
 
-    @Override // com.repackage.zo3
-    public boolean k() {
+    @Inject(force = false)
+    public static xx3 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? t24.A().u() : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.zo3
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? t24.A().x() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.zo3
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? t24.A().y() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? new gx3() : (xx3) invokeV.objValue;
     }
 }

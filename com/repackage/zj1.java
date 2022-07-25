@@ -1,7 +1,8 @@
 package com.repackage;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface zj1 {
-    ac3 a(Context context, String str, String str2, String str3, String str4, String str5);
+    boolean a(@NonNull JSONObject jSONObject);
 }

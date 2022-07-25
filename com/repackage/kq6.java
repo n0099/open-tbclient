@@ -143,7 +143,7 @@ public class kq6 extends kx5<pd6> {
                 return;
             }
             if (StringUtils.isNull(pd6Var.mGroupTitle)) {
-                this.j.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f10a5));
+                this.j.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1061));
             } else {
                 this.j.setText(pd6Var.mGroupTitle);
             }

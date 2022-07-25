@@ -18,8 +18,8 @@ public class x66 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<nn> a;
-    public ArrayList<jq4> b;
-    public dq4 c;
+    public ArrayList<kq4> b;
+    public eq4 c;
     public z66 d;
     public boolean e;
 
@@ -60,13 +60,13 @@ public class x66 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (z66) invokeV.objValue;
     }
 
-    public dq4 c() {
+    public eq4 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (dq4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (eq4) invokeV.objValue;
     }
 
-    public ArrayList<jq4> d() {
+    public ArrayList<kq4> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
@@ -99,14 +99,14 @@ public class x66 {
         this.b = new ArrayList<>();
         if (!ListUtils.isEmpty(dataRes.resource_list)) {
             for (GeneralResource generalResource : dataRes.resource_list) {
-                jq4 jq4Var = new jq4();
-                jq4Var.c(generalResource);
-                this.b.add(jq4Var);
+                kq4 kq4Var = new kq4();
+                kq4Var.c(generalResource);
+                this.b.add(kq4Var);
             }
         }
-        dq4 dq4Var = new dq4();
-        this.c = dq4Var;
-        dq4Var.i(dataRes.recommend_forum_info);
+        eq4 eq4Var = new eq4();
+        this.c = eq4Var;
+        eq4Var.i(dataRes.recommend_forum_info);
         if (dataRes.hot_userrank_entry != null) {
             z66 z66Var = new z66();
             this.d = z66Var;

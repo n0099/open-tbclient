@@ -1,160 +1,128 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.swan.game.ad.utils.NetworkUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.sapi2.ecommerce.activity.AddressEditActivity;
+import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.el2;
-import java.io.IOException;
 import okhttp3.Response;
-import okhttp3.ResponseBody;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class n73 {
+public class n73 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j73 a;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ SwanInterfaceType e;
 
-        public a(j73 j73Var) {
+        public a(int i, String str, String str2, String str3, SwanInterfaceType swanInterfaceType) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j73Var};
+                Object[] objArr = {Integer.valueOf(i), str, str2, str3, swanInterfaceType};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = j73Var;
+            this.a = i;
+            this.b = str;
+            this.c = str2;
+            this.d = str3;
+            this.e = swanInterfaceType;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                o63.k("4165", this.a.f());
+                int i = this.a;
+                boolean z = (i == 2000 || i == 0) ? false : true;
+                String n = b73.n(h03.K().k());
+                JSONObject jSONObject = new JSONObject();
+                id3.f(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, h03.K().getAppId());
+                id3.f(jSONObject, "hostName", pj2.n().a());
+                id3.f(jSONObject, "network", hg4.e());
+                id3.f(jSONObject, "launchid", h03.K().q().W().V());
+                if (z) {
+                    id3.f(jSONObject, "response", this.b);
+                    id3.f(jSONObject, "statusCode", this.c);
+                    id3.f(jSONObject, "request_url", this.d);
+                }
+                n73.d(n, this.e.getClassify(), this.e.getInterfaceName(), this.a, jSONObject, z);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755516633, "Lcom/repackage/n73;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755516633, "Lcom/repackage/n73;");
-                return;
-            }
-        }
-        a = rg1.a;
-    }
-
-    public static String a(Response response) {
-        InterceptResult invokeL;
-        ResponseBody body;
-        String str;
+    public static void a(SwanInterfaceType swanInterfaceType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, response)) == null) {
-            if (response == null || (body = response.body()) == null) {
-                return "";
+        if (interceptable == null || interceptable.invokeL(65536, null, swanInterfaceType) == null) {
+            c(swanInterfaceType, 2000, null, null);
+        }
+    }
+
+    public static void b(SwanInterfaceType swanInterfaceType, int i, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{swanInterfaceType, Integer.valueOf(i), str, str2, str3}) == null) {
+            cd3.j(new a(i, str3, str2, str, swanInterfaceType), "onInterfaceStabilityStatistic");
+        }
+    }
+
+    public static void c(SwanInterfaceType swanInterfaceType, int i, String str, Response response) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(65538, null, swanInterfaceType, i, str, response) == null) {
+            String str3 = null;
+            if (response != null) {
+                String valueOf = String.valueOf(response.code());
+                str3 = response.request().url().toString();
+                str2 = valueOf;
+            } else {
+                str2 = null;
             }
-            JSONObject jSONObject = null;
+            b(swanInterfaceType, i, str3, str2, str);
+        }
+    }
+
+    public static void d(String str, String str2, String str3, int i, JSONObject jSONObject, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, Integer.valueOf(i), jSONObject, Boolean.valueOf(z)}) == null) {
+            JSONObject jSONObject2 = new JSONObject();
             try {
-                str = body.string();
-            } catch (IOException e) {
-                if (a) {
+                jSONObject2.put("from", str);
+                jSONObject2.put("type", str2);
+                if (!TextUtils.isEmpty(str3)) {
+                    jSONObject2.put("page", str3);
+                }
+                jSONObject2.put("value", String.valueOf(i));
+                if (jSONObject != null) {
+                    jSONObject2.put("ext", jSONObject);
+                }
+                p63.k("874", jSONObject2);
+                if (z) {
+                    p63.i("2486", AddressEditActivity.CHINA_REGION_CODE, jSONObject2);
+                }
+            } catch (JSONException e) {
+                if (i03.v) {
                     e.printStackTrace();
                 }
-                str = null;
             }
-            if (str == null) {
-                return "";
-            }
-            try {
-                jSONObject = new JSONObject(str);
-            } catch (JSONException e2) {
-                if (a) {
-                    e2.printStackTrace();
-                }
-            }
-            return jSONObject == null ? "" : jSONObject.optString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, "");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void b(String str, int i, String str2, int i2, String str3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3}) == null) || TextUtils.equals(str, "getLocation")) {
-            return;
-        }
-        c(str, i, str2, i2, str3, null);
-    }
-
-    public static void c(String str, int i, String str2, int i2, String str3, Response response) {
-        pz1 H;
-        nm1 o3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, response}) == null) {
-            j73 j73Var = new j73();
-            h03 b0 = h03.b0();
-            if (b0 == null || (H = ul2.U().H()) == null || (o3 = H.o3()) == null) {
-                return;
-            }
-            String n = o3.n();
-            el2.a W = b0.W();
-            String Z = b0.Z();
-            String appId = b0.getAppId();
-            String W2 = W.W();
-            String v1 = W.v1();
-            String i3 = m93.i(ul2.U().M(), W.G());
-            String a2 = a(response);
-            String d = NetworkUtils.d();
-            j73Var.a = a73.n(W.G());
-            j73Var.c = b0.W().T();
-            j73Var.d = b0.W().V();
-            j73Var.f = appId;
-            j73Var.a("name", Z);
-            j73Var.a("apiName", str);
-            j73Var.a("errorCode", String.valueOf(i));
-            j73Var.a("errorMsg", str2);
-            j73Var.a("pagePath", n);
-            if (i2 != -1) {
-                j73Var.a("oldErrorCode", String.valueOf(i2));
-            }
-            j73Var.a("oldErrorMsg", str3);
-            j73Var.a("scheme", W2);
-            j73Var.a("appVersion", v1);
-            j73Var.a("swan", i3);
-            j73Var.a(BaseJsonData.TAG_REQUESTID, a2);
-            j73Var.a("net", d);
-            if (q74.b() != null) {
-                j73Var.a("SDKVersion", q74.b().b());
-                j73Var.a("hostName", q74.b().c());
-            }
-            bd3.j(new a(j73Var), "monitor");
         }
     }
 }

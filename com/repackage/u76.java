@@ -511,7 +511,7 @@ public class u76 implements r76, PreViewPickCoverView.c, xv8, OnChangeStickerLis
             if (this.k == null) {
                 MultiMediaData multiMediaData = new MultiMediaData();
                 this.k = multiMediaData;
-                multiMediaData.setExt("text", n99.l(R.string.obfuscated_res_0x7f0f14a7));
+                multiMediaData.setExt("text", n99.l(R.string.obfuscated_res_0x7f0f1456));
                 this.i.add(this.k);
                 this.j.e(-1);
             } else {
@@ -660,7 +660,7 @@ public class u76 implements r76, PreViewPickCoverView.c, xv8, OnChangeStickerLis
         if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{multiMediaData, Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
             MultiMediaData multiMediaData2 = this.k;
             if (multiMediaData2 != null) {
-                multiMediaData2.setExt("text", n99.l(R.string.obfuscated_res_0x7f0f14a7));
+                multiMediaData2.setExt("text", n99.l(R.string.obfuscated_res_0x7f0f1456));
             }
             this.k = null;
             this.e.h();

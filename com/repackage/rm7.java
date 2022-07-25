@@ -20,10 +20,10 @@ public class rm7 extends an<hn7, b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<HotTopicDetailActivity> i;
-    public jm4<hn7> j;
+    public km4<hn7> j;
 
     /* loaded from: classes7.dex */
-    public class a implements jm4<hn7> {
+    public class a implements km4<hn7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rm7 a;
@@ -47,7 +47,7 @@ public class rm7 extends an<hn7, b> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: a */
         public void d(View view2, hn7 hn7Var, int i, long j) {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class rm7 extends an<hn7, b> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: b */
         public void c(View view2, hn7 hn7Var, int i, long j) {
             Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class rm7 extends an<hn7, b> {
             this.a = hotTopicDetailSpecialItem;
         }
 
-        public void c(hn7 hn7Var) {
+        public void b(hn7 hn7Var) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, hn7Var) == null) || hn7Var == null) {
                 return;
@@ -102,24 +102,24 @@ public class rm7 extends an<hn7, b> {
             this.a.a(hn7Var);
         }
 
-        public void d(int i) {
+        public void c(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 this.a.c(i);
             }
         }
 
-        public void e(String str) {
+        public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
                 this.a.setCurrentTopicId(str);
             }
         }
 
-        public void f(jm4<hn7> jm4Var) {
+        public void e(km4<hn7> km4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, jm4Var) == null) {
-                this.a.setOnItemCoverListener(jm4Var);
+            if (interceptable == null || interceptable.invokeL(1048579, this, km4Var) == null) {
+                this.a.setOnItemCoverListener(km4Var);
             }
         }
     }
@@ -155,9 +155,9 @@ public class rm7 extends an<hn7, b> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             b bVar = new b(new HotTopicDetailSpecialItem(viewGroup.getContext()));
-            bVar.e(this.i.getOrignalPage().C1());
-            bVar.f(this.j);
-            bVar.d(TbadkCoreApplication.getInst().getSkinType());
+            bVar.d(this.i.getOrignalPage().C1());
+            bVar.e(this.j);
+            bVar.c(TbadkCoreApplication.getInst().getSkinType());
             return bVar;
         }
         return (b) invokeL.objValue;
@@ -173,9 +173,9 @@ public class rm7 extends an<hn7, b> {
             if (hn7Var == null || bVar == null) {
                 return null;
             }
-            bVar.c(hn7Var);
-            bVar.d(TbadkCoreApplication.getInst().getSkinType());
-            return bVar.b();
+            bVar.b(hn7Var);
+            bVar.c(TbadkCoreApplication.getInst().getSkinType());
+            return bVar.a();
         }
         return (View) invokeCommon.objValue;
     }

@@ -13,20 +13,20 @@ import com.kwad.sdk.api.SdkConfig;
 import com.kwad.sdk.components.d;
 import com.kwad.sdk.components.f;
 import com.kwad.sdk.core.a.h;
-import com.kwad.sdk.core.d.b;
-import com.kwad.sdk.utils.as;
-import com.kwad.sdk.utils.at;
-import com.kwad.sdk.utils.av;
+import com.kwad.sdk.core.e.b;
+import com.kwad.sdk.utils.ax;
+import com.kwad.sdk.utils.az;
+import com.kwad.sdk.utils.w;
 import com.yxcorp.kuaishou.addfp.KWEGIDDFP;
 import com.yxcorp.kuaishou.addfp.ResponseDfpCallback;
 /* loaded from: classes5.dex */
 public class a extends d implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
-    public long c;
-    public String d;
+    public String Et;
+    public long Eu;
+    public String Ev;
+    public Context mContext;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class a extends d implements f {
         }
     }
 
-    private void a(Context context) {
+    private void ai(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, context) == null) {
-            b.c("EncryptComponentsImpl", "初次获取Gid: initGId");
+        if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
+            b.i("EncryptComponentsImpl", "初次获取Gid: initGId");
             KWEGIDDFP.instance().getEGidByCallback(context, false, new ResponseDfpCallback(this) { // from class: com.kwad.components.core.d.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ a a;
+                public final /* synthetic */ a Ew;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -66,7 +66,7 @@ public class a extends d implements f {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.Ew = this;
                 }
 
                 @Override // com.yxcorp.kuaishou.addfp.ResponseDfpCallback
@@ -81,8 +81,8 @@ public class a extends d implements f {
                 public final void onSuccess(String str, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-                        b.a("SDKPrivateSafetyData", "deviceInfo：" + str2);
-                        this.a.b(str2);
+                        b.d("SDKPrivateSafetyData", "deviceInfo：" + str2);
+                        this.Ew.am(str2);
                     }
                 }
             });
@@ -90,129 +90,129 @@ public class a extends d implements f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(String str) {
+    public void am(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, str) == null) || this.a == null || at.a(str) || at.a(f(), str)) {
+        if (!(interceptable == null || interceptable.invokeL(65539, this, str) == null) || this.mContext == null || ax.dT(str) || ax.V(nf(), str)) {
             return;
         }
-        this.d = str;
-        as.j(this.a, str);
+        this.Ev = str;
+        w.K(this.mContext, str);
     }
 
-    private void c() {
+    private void na() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            String c = as.c(this.a);
-            String e = av.e();
-            if (TextUtils.isEmpty(c)) {
-                as.e(this.a, e);
-            } else if (TextUtils.equals(c, e)) {
+            String co = w.co(this.mContext);
+            String AE = az.AE();
+            if (TextUtils.isEmpty(co)) {
+                w.E(this.mContext, AE);
+            } else if (TextUtils.equals(co, AE)) {
             } else {
-                this.b = "";
-                this.c = 0L;
-                this.d = "";
-                as.d(this.a, "");
-                as.a(this.a, this.c);
-                as.j(this.a, this.d);
-                as.e(this.a, e);
+                this.Et = "";
+                this.Eu = 0L;
+                this.Ev = "";
+                w.D(this.mContext, "");
+                w.f(this.mContext, this.Eu);
+                w.K(this.mContext, this.Ev);
+                w.E(this.mContext, AE);
             }
         }
     }
 
-    private String d() {
+    private String nd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                this.b = as.a(this.a);
+            if (TextUtils.isEmpty(this.Et)) {
+                this.Et = w.cl(this.mContext);
             }
-            return this.b;
+            return this.Et;
         }
         return (String) invokeV.objValue;
     }
 
-    private long e() {
+    private long ne() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            if (this.c == 0) {
-                this.c = as.b(this.a);
+            if (this.Eu == 0) {
+                this.Eu = w.cm(this.mContext);
             }
-            return this.c;
+            return this.Eu;
         }
         return invokeV.longValue;
     }
 
-    private String f() {
+    private String nf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            if (TextUtils.isEmpty(this.d)) {
-                this.d = as.d(this.a);
+            if (TextUtils.isEmpty(this.Ev)) {
+                this.Ev = w.cp(this.mContext);
             }
-            return this.d;
+            return this.Ev;
         }
         return (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.components.f
-    public final String a() {
-        InterceptResult invokeV;
+    public final void an(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (com.kwad.sdk.core.config.d.D() || System.currentTimeMillis() >= e() || TextUtils.isEmpty(d())) ? f() : "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.kwad.sdk.components.f
-    public final void a(long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || this.a == null || j <= 0 || j == e()) {
-            return;
-        }
-        this.c = j;
-        as.a(this.a, j);
-    }
-
-    @Override // com.kwad.sdk.components.f
-    public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.a == null || at.a(str) || at.a(d(), str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.mContext == null || ax.dT(str) || ax.V(nd(), str)) {
             return;
         }
         try {
-            this.b = str;
-            as.d(this.a, str);
-            KWEGIDDFP.instance().setEgid(this.a, str);
+            this.Et = str;
+            w.D(this.mContext, str);
+            KWEGIDDFP.instance().setEgid(this.mContext, str);
         } catch (Throwable th) {
             b.e("EncryptComponentsImpl", "setEGid error : " + th);
         }
-    }
-
-    @Override // com.kwad.sdk.components.f
-    public final h b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new com.kwad.sdk.core.a.a() : (h) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.components.a
     public Class getComponentsType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f.class : (Class) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.components.a
     public void init(Context context, SdkConfig sdkConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, context, sdkConfig) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, sdkConfig) == null) {
             try {
-                this.a = context;
-                c();
-                a(context);
+                this.mContext = context;
+                na();
+                ai(context);
             } catch (Throwable th) {
                 b.e("EncryptComponentsImpl", "initGId error : " + th);
             }
         }
+    }
+
+    @Override // com.kwad.sdk.components.f
+    public final void m(long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJ(1048579, this, j) == null) || this.mContext == null || j <= 0 || j == ne()) {
+            return;
+        }
+        this.Eu = j;
+        w.f(this.mContext, j);
+    }
+
+    @Override // com.kwad.sdk.components.f
+    public final String nb() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (com.kwad.sdk.core.config.d.rW() || System.currentTimeMillis() >= ne() || TextUtils.isEmpty(nd())) ? nf() : "" : (String) invokeV.objValue;
+    }
+
+    @Override // com.kwad.sdk.components.f
+    public final h nc() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new com.kwad.sdk.core.a.a() : (h) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.components.d, com.kwad.sdk.components.a

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Singleton
 @Service
 /* loaded from: classes6.dex */
-public class jn5 implements ol1 {
+public class jn5 implements pl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,14 +29,14 @@ public class jn5 implements ol1 {
         }
     }
 
-    @Override // com.repackage.ol1
+    @Override // com.repackage.pl1
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
         }
     }
 
-    @Override // com.repackage.ol1
+    @Override // com.repackage.pl1
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

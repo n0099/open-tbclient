@@ -198,14 +198,14 @@ public class bw8 extends BaseAdapter {
             if (view2 == null) {
                 view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0170, (ViewGroup) null);
                 cVar = new c(this);
-                cVar.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092150);
+                cVar.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092152);
                 cVar.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903d6);
-                cVar.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092138);
-                cVar.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09160e);
+                cVar.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09213a);
+                cVar.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915e9);
                 cVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0903bd);
-                cVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09214d);
+                cVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09214f);
                 cVar.f = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903ce);
-                cVar.g = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f09214f);
+                cVar.g = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f092151);
                 cVar.h = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0903d2);
                 view2.setTag(cVar);
             } else {
@@ -242,7 +242,7 @@ public class bw8 extends BaseAdapter {
                     }
                 }
                 if (this.a.get(i2).isSelect) {
-                    cVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081025);
+                    cVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081028);
                 } else {
                     cVar.a.setBackgroundResource(R.color.transparent);
                 }
@@ -266,7 +266,7 @@ public class bw8 extends BaseAdapter {
                     }
                 }
                 if (this.a.get(i3).isSelect) {
-                    cVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f081025);
+                    cVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f081028);
                 } else {
                     cVar.b.setBackgroundResource(R.color.transparent);
                 }

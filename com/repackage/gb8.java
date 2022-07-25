@@ -98,7 +98,7 @@ public class gb8 extends kb8 {
             super.b();
             SkinManager.setViewTextColor(this.i, R.color.CAM_X0620, 1);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
-            SkinManager.setBackgroundResource(this.j, R.drawable.obfuscated_res_0x7f081168, TbadkCoreApplication.getInst().getSkinType());
+            SkinManager.setBackgroundResource(this.j, R.drawable.obfuscated_res_0x7f08116c, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -118,12 +118,12 @@ public class gb8 extends kb8 {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f09233a);
+            HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f09233c);
             this.h = headImageView;
             headImageView.setDefaultResource(R.drawable.icon_default_avatar100);
             this.h.setDefaultBgResource(R.color.CAM_X0205);
             this.h.setIsRound(true);
-            this.i = (TextView) a(R.id.obfuscated_res_0x7f09232d);
+            this.i = (TextView) a(R.id.obfuscated_res_0x7f09232f);
             this.j = (TextView) a(R.id.obfuscated_res_0x7f090054);
         }
     }

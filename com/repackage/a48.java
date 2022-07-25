@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 /* loaded from: classes5.dex */
 public class a48 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -87,7 +87,7 @@ public class a48 implements View.OnClickListener {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && (socketResponsedMessage instanceof ResponseApplyMessage) && ((ResponseApplyMessage) socketResponsedMessage).getError() != 0) {
-                this.a.d.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.a.d.getResources().getString(R.string.obfuscated_res_0x7f0f0c2b) : socketResponsedMessage.getErrorString());
+                this.a.d.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.a.d.getResources().getString(R.string.obfuscated_res_0x7f0f0c17) : socketResponsedMessage.getErrorString());
             }
         }
     }
@@ -122,7 +122,7 @@ public class a48 implements View.OnClickListener {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
                 if (z && i != 2260104) {
                     if (StringUtils.isNull(str)) {
-                        pi.O(this.a.d.getPageActivity(), this.a.d.getString(i == 0 ? R.string.obfuscated_res_0x7f0f0fb1 : R.string.obfuscated_res_0x7f0f0faf));
+                        pi.O(this.a.d.getPageActivity(), this.a.d.getString(i == 0 ? R.string.obfuscated_res_0x7f0f0f9a : R.string.obfuscated_res_0x7f0f0f98));
                     } else {
                         pi.O(this.a.d.getPageActivity(), str);
                     }
@@ -136,7 +136,7 @@ public class a48 implements View.OnClickListener {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements cr4.e {
+    public class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a48 a;
@@ -159,18 +159,18 @@ public class a48 implements View.OnClickListener {
             this.a = a48Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.m.removeFans(this.a.h);
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements cr4.e {
+    public class d implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -190,17 +190,17 @@ public class a48 implements View.OnClickListener {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class e implements cr4.e {
+    public class e implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a48 a;
@@ -223,10 +223,10 @@ public class a48 implements View.OnClickListener {
             this.a = a48Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 a48 a48Var = this.a;
                 if (a48Var.h > 0) {
                     if (a48Var.e.getMaskType() == 1) {
@@ -235,13 +235,13 @@ public class a48 implements View.OnClickListener {
                         this.a.e.addToBlackList(this.a.h);
                     }
                 }
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class f implements cr4.e {
+    public class f implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -261,11 +261,11 @@ public class a48 implements View.OnClickListener {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -320,10 +320,10 @@ public class a48 implements View.OnClickListener {
                         return;
                     }
                     TbPageContext tbPageContext2 = this.a.d;
-                    tbPageContext2.showToast(tbPageContext2.getString(R.string.obfuscated_res_0x7f0f0fb6));
+                    tbPageContext2.showToast(tbPageContext2.getString(R.string.obfuscated_res_0x7f0f0f9f));
                     return;
                 }
-                this.a.d.showToast(StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString()) ? this.a.d.getResources().getString(R.string.obfuscated_res_0x7f0f0c2b) : responseUpdateMaskInfoMessage.getErrorString());
+                this.a.d.showToast(StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString()) ? this.a.d.getResources().getString(R.string.obfuscated_res_0x7f0f0c17) : responseUpdateMaskInfoMessage.getErrorString());
             }
         }
     }
@@ -366,7 +366,7 @@ public class a48 implements View.OnClickListener {
                 if (error == 0) {
                     this.a.f(false);
                 } else {
-                    errorString = StringUtils.isNull(responseDeleteFriendMessage.getErrorString()) ? this.a.d.getResources().getString(R.string.obfuscated_res_0x7f0f0c2b) : responseDeleteFriendMessage.getErrorString();
+                    errorString = StringUtils.isNull(responseDeleteFriendMessage.getErrorString()) ? this.a.d.getResources().getString(R.string.obfuscated_res_0x7f0f0c17) : responseDeleteFriendMessage.getErrorString();
                 }
                 this.a.d.showToast(errorString);
             }
@@ -551,17 +551,17 @@ public class a48 implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.g == null) {
             return;
         }
-        cr4 cr4Var = new cr4(this.d.getPageActivity());
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0427, new e(this));
-        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new f(this));
+        dr4 dr4Var = new dr4(this.d.getPageActivity());
+        dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0426, new e(this));
+        dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new f(this));
         if (this.e.getMaskType() == 1) {
             format = String.format(this.d.getString(R.string.obfuscated_res_0x7f0f0313), this.g);
         } else {
             format = String.format(this.d.getString(R.string.obfuscated_res_0x7f0f0315), this.g);
         }
-        cr4Var.setMessage(format);
-        cr4Var.create(this.d);
-        cr4Var.show();
+        dr4Var.setMessage(format);
+        dr4Var.create(this.d);
+        dr4Var.show();
     }
 
     public final void j(boolean z, boolean z2, int i2, boolean z3) {
@@ -589,12 +589,12 @@ public class a48 implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.h == 0) {
             return;
         }
-        cr4 cr4Var = new cr4(this.d.getPageActivity());
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0427, new c(this));
-        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new d(this));
-        cr4Var.setMessage(String.format(this.d.getString(R.string.obfuscated_res_0x7f0f0fae), this.g));
-        cr4Var.create(this.d);
-        cr4Var.show();
+        dr4 dr4Var = new dr4(this.d.getPageActivity());
+        dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0426, new c(this));
+        dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new d(this));
+        dr4Var.setMessage(String.format(this.d.getString(R.string.obfuscated_res_0x7f0f0f97), this.g));
+        dr4Var.create(this.d);
+        dr4Var.show();
     }
 
     @Override // android.view.View.OnClickListener
@@ -616,7 +616,7 @@ public class a48 implements View.OnClickListener {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(this.d.getPageActivity(), String.valueOf(this.h), this.g, this.i, null, false, null)));
         } else if (this.a.j() != null && view2.getId() == this.a.j().getId()) {
             if (!ni.z()) {
-                this.d.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                this.d.showToast(R.string.obfuscated_res_0x7f0f0c17);
                 return;
             }
             w38 w38Var = this.b;
@@ -643,7 +643,7 @@ public class a48 implements View.OnClickListener {
         } else if (this.a.k() == null || view2.getId() != this.a.k().getId()) {
         } else {
             if (!ni.z()) {
-                pi.N(this.d.getPageActivity(), R.string.obfuscated_res_0x7f0f0c2b);
+                pi.N(this.d.getPageActivity(), R.string.obfuscated_res_0x7f0f0c17);
             } else {
                 k();
             }

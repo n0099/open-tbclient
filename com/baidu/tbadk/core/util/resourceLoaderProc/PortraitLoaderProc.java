@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gg;
 import com.repackage.hg;
-import com.repackage.l45;
+import com.repackage.m45;
 import com.repackage.ym;
 /* loaded from: classes3.dex */
 public class PortraitLoaderProc extends AbstractImageLoaderProc {
@@ -155,7 +155,7 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
             if (ymVar.u()) {
                 ymVar.A(i);
                 ymVar.z(i2);
-                l45.k().b(str, ymVar);
+                m45.k().b(str, ymVar);
             }
         }
     }
@@ -186,7 +186,7 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
                 return null;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            ym l = l45.k().l(str);
+            ym l = m45.k().l(str);
             if (z) {
                 gg.i(l != null, System.currentTimeMillis() - currentTimeMillis);
             }

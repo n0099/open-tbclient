@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dm7;
 import com.repackage.fm7;
 import com.repackage.hm7;
-import com.repackage.jl4;
+import com.repackage.kl4;
 import com.repackage.wh8;
 import com.repackage.xl7;
 /* loaded from: classes3.dex */
@@ -143,7 +143,7 @@ public class Static {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<jl4> run(CustomMessage<BaseActivity> customMessage) {
+        public CustomResponsedMessage<kl4> run(CustomMessage<BaseActivity> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
@@ -173,7 +173,7 @@ public class Static {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<jl4> run(CustomMessage<BaseFragmentActivity> customMessage) {
+        public CustomResponsedMessage<kl4> run(CustomMessage<BaseFragmentActivity> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {

@@ -59,7 +59,7 @@ public class fr5 extends an<or5, ConcernTabRecommendTitleView.ViewHolder> {
             if (viewHolder == null || or5Var == null) {
                 return null;
             }
-            return viewHolder.b();
+            return viewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

@@ -9,12 +9,12 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static com.kwai.sodler.lib.c.b a(@NonNull com.kwai.sodler.lib.a.f fVar) {
+    public static com.kwai.sodler.lib.c.b k(@NonNull com.kwai.sodler.lib.a.f fVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, fVar)) == null) {
-            fVar.b().g().a(fVar);
-            return fVar.r();
+            fVar.Fk().Fb().e(fVar);
+            return fVar.Fv();
         }
         return (com.kwai.sodler.lib.c.b) invokeL.objValue;
     }

@@ -47,13 +47,13 @@ public class MyEmotionManagerFragment extends BaseFragment implements go7<Pair<L
 
         /* renamed from: com.baidu.tieba.newfaceshop.nativemotionmanager.MyEmotionManagerFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0219a implements Runnable {
+        public class RunnableC0233a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
             public final /* synthetic */ a b;
 
-            public RunnableC0219a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public RunnableC0233a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements go7<Pair<L
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                jn7.b().a(new RunnableC0219a(this, customResponsedMessage));
+                jn7.b().a(new RunnableC0233a(this, customResponsedMessage));
             }
         }
     }

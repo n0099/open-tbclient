@@ -93,7 +93,7 @@ public class rr8 extends BaseAdapter implements View.OnClickListener {
     public final void b(a aVar, View view2, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, view2, viewGroup) == null) {
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f9a);
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f93);
             aVar.a = tbImageView;
             tbImageView.setIsRound(true);
             aVar.a.setDrawerType(1);
@@ -101,7 +101,7 @@ public class rr8 extends BaseAdapter implements View.OnClickListener {
             aVar.a.setBorderWidth(pi.f(viewGroup.getContext(), R.dimen.obfuscated_res_0x7f070224));
             aVar.a.setConrers(15);
             aVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
-            aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09225d);
+            aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09225f);
         }
     }
 
@@ -109,7 +109,7 @@ public class rr8 extends BaseAdapter implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getItem(0) != null && getItem(0).getType() == 3) {
             this.c = 0;
-            this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b1a);
+            this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b06);
         }
     }
 
@@ -117,7 +117,7 @@ public class rr8 extends BaseAdapter implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && getItem(0) != null && getItem(0).getType() == 3) {
             this.c = 1;
-            this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b18);
+            this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b04);
             notifyDataSetChanged();
         }
     }
@@ -190,20 +190,20 @@ public class rr8 extends BaseAdapter implements View.OnClickListener {
                 aVar = new a(this);
                 int itemViewType = getItemViewType(i);
                 if (itemViewType == 0) {
-                    view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d04fd, (ViewGroup) null);
+                    view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0507, (ViewGroup) null);
                     b(aVar, view2, viewGroup);
-                    ProgressBar progressBar = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f090fa9);
+                    ProgressBar progressBar = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f090fa2);
                     aVar.b = progressBar;
                     progressBar.setVisibility(4);
                     SkinManager.setViewTextColor(aVar.c, (int) R.color.CAM_X0101);
                 } else if (itemViewType == 1) {
-                    view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d04fd, (ViewGroup) null);
+                    view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0507, (ViewGroup) null);
                     b(aVar, view2, viewGroup);
-                    aVar.b = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f090fa9);
+                    aVar.b = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f090fa2);
                     aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f0802fd);
                     SkinManager.setViewTextColor(aVar.c, (int) R.color.CAM_X0101);
                 } else if (itemViewType == 2) {
-                    view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d04fc, (ViewGroup) null);
+                    view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0506, (ViewGroup) null);
                     b(aVar, view2, viewGroup);
                     SkinManager.setViewTextColor(aVar.c, (int) R.color.CAM_X0101);
                 }
@@ -246,7 +246,7 @@ public class rr8 extends BaseAdapter implements View.OnClickListener {
                     }
                 }
                 aVar.a.setTag(sr8Var);
-                aVar.a.setTag(R.id.obfuscated_res_0x7f091ab4, aVar);
+                aVar.a.setTag(R.id.obfuscated_res_0x7f091a8e, aVar);
                 aVar.a.setOnClickListener(this);
                 aVar.c.setText(sr8Var.b());
                 aVar.d = i;
@@ -270,7 +270,7 @@ public class rr8 extends BaseAdapter implements View.OnClickListener {
     public void onClick(View view2) {
         VideoEffectLayout.h hVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090f9a && (view2.getTag() instanceof sr8)) {
+        if ((interceptable == null || interceptable.invokeL(1048588, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090f93 && (view2.getTag() instanceof sr8)) {
             sr8 sr8Var = (sr8) view2.getTag();
             if (sr8Var.getType() == 3 && (sr8Var.c() instanceof MusicData)) {
                 StatisticItem statisticItem = new StatisticItem("c12423");
@@ -278,15 +278,15 @@ public class rr8 extends BaseAdapter implements View.OnClickListener {
                 statisticItem.param("obj_locate", this.a.indexOf(sr8Var) + 1);
                 statisticItem.param("obj_source", 1);
                 TiebaStatic.log(statisticItem);
-                if (view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b18).equals(sr8Var.b()) && (hVar = this.d) != null) {
-                    hVar.j1(sr8Var, view2.getTag(R.id.obfuscated_res_0x7f091ab4));
+                if (view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b04).equals(sr8Var.b()) && (hVar = this.d) != null) {
+                    hVar.j1(sr8Var, view2.getTag(R.id.obfuscated_res_0x7f091a8e));
                     this.c = this.a.indexOf(sr8Var);
                     this.b = sr8Var.b();
                 }
                 if (!TextUtils.isEmpty(sr8Var.b()) && sr8Var.b().equals(this.b)) {
                     return;
                 }
-                if (!sr8Var.b().equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b18))) {
+                if (!sr8Var.b().equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b04))) {
                     this.c = this.a.indexOf(sr8Var);
                 }
             } else {
@@ -296,7 +296,7 @@ public class rr8 extends BaseAdapter implements View.OnClickListener {
             notifyDataSetChanged();
             VideoEffectLayout.h hVar2 = this.d;
             if (hVar2 != null) {
-                hVar2.j1(sr8Var, view2.getTag(R.id.obfuscated_res_0x7f091ab4));
+                hVar2.j1(sr8Var, view2.getTag(R.id.obfuscated_res_0x7f091a8e));
             }
         }
     }

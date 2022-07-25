@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.td5;
+import com.repackage.ud5;
 import tbclient.SearchPostForum.DataReq;
 import tbclient.SearchPostForum.SearchPostForumReqIdl;
 /* loaded from: classes3.dex */
@@ -46,7 +46,7 @@ public class SearchPostForumRequestMessage extends NetMessage {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.word = get_word();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    td5.a(builder, true);
+                    ud5.a(builder, true);
                 }
                 SearchPostForumReqIdl.Builder builder2 = new SearchPostForumReqIdl.Builder();
                 builder2.data = builder.build(false);

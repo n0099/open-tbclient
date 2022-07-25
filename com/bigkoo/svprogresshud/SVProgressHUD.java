@@ -340,7 +340,7 @@ public class SVProgressHUD {
     public void setCancelable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
-            View findViewById = this.rootView.findViewById(R.id.obfuscated_res_0x7f091e6e);
+            View findViewById = this.rootView.findViewById(R.id.obfuscated_res_0x7f091e72);
             if (z) {
                 findViewById.setOnTouchListener(this.onCancelableTouchListener);
             } else {
@@ -487,7 +487,7 @@ public class SVProgressHUD {
         }
         LayoutInflater from = LayoutInflater.from(context);
         this.decorView = (ViewGroup) ((Activity) context).getWindow().getDecorView().findViewById(16908290);
-        ViewGroup viewGroup = (ViewGroup) from.inflate(R.layout.obfuscated_res_0x7f0d04ea, (ViewGroup) null, false);
+        ViewGroup viewGroup = (ViewGroup) from.inflate(R.layout.obfuscated_res_0x7f0d04f4, (ViewGroup) null, false);
         this.rootView = viewGroup;
         viewGroup.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
     }

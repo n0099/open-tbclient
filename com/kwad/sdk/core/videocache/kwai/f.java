@@ -2,18 +2,13 @@ package com.kwad.sdk.core.videocache.kwai;
 
 import android.net.Uri;
 import android.text.TextUtils;
-import com.kwad.sdk.utils.z;
+import com.kwad.sdk.utils.ab;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.HashMap;
 import java.util.Set;
 /* loaded from: classes5.dex */
 public final class f implements c {
-    public static String b(String str) {
-        int lastIndexOf = str.lastIndexOf(46);
-        return (lastIndexOf == -1 || lastIndexOf <= str.lastIndexOf(47) || (lastIndexOf + 2) + 4 <= str.length()) ? "" : str.substring(lastIndexOf + 1, str.length());
-    }
-
-    public static String c(String str) {
+    public static String cI(String str) {
         Uri parse = Uri.parse(str);
         if (parse.getHost() == null || !parse.getHost().contains("yximgs.com")) {
             return str;
@@ -35,14 +30,19 @@ public final class f implements c {
         return buildUpon.toString();
     }
 
+    public static String getExtension(String str) {
+        int lastIndexOf = str.lastIndexOf(46);
+        return (lastIndexOf == -1 || lastIndexOf <= str.lastIndexOf(47) || (lastIndexOf + 2) + 4 <= str.length()) ? "" : str.substring(lastIndexOf + 1, str.length());
+    }
+
     @Override // com.kwad.sdk.core.videocache.kwai.c
-    public final String a(String str) {
-        String c = c(str);
-        String b = b(c);
-        String a = z.a(c);
-        if (TextUtils.isEmpty(b)) {
-            return a;
+    public final String generate(String str) {
+        String cI = cI(str);
+        String extension = getExtension(cI);
+        String dI = ab.dI(cI);
+        if (TextUtils.isEmpty(extension)) {
+            return dI;
         }
-        return a + "." + b;
+        return dI + "." + extension;
     }
 }

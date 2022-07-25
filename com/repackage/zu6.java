@@ -70,8 +70,8 @@ public class zu6 {
                     this.a.f.a(cv6Var);
                 }
                 this.a.d();
-                xt4.k().w("key_game_video_tab_has_choosed_sub_class_id", cv6Var.a);
-                xt4.k().y("key_game_video_tab_has_choosed_sub_class_name", cv6Var.b);
+                yt4.k().w("key_game_video_tab_has_choosed_sub_class_id", cv6Var.a);
+                yt4.k().y("key_game_video_tab_has_choosed_sub_class_name", cv6Var.b);
                 TiebaStatic.log(new StatisticItem("c13485").param("obj_type", cv6Var.a));
             }
         }
@@ -130,12 +130,12 @@ public class zu6 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0371, (ViewGroup) null);
             this.b = inflate;
-            this.c = (GameVideoGridView) inflate.findViewById(R.id.obfuscated_res_0x7f090dd9);
+            this.c = (GameVideoGridView) inflate.findViewById(R.id.obfuscated_res_0x7f090dd2);
             this.d = new uu6(this.a, 101, this.g);
             this.c.setNumColumns(4);
             this.c.setAdapter((ListAdapter) this.d);
             this.c.setOnItemClickListener(this.h);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dda);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dd3);
             f();
         }
     }

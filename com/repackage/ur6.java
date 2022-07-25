@@ -136,8 +136,8 @@ public class ur6 extends BaseAdapter {
             } else {
                 view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0378, (ViewGroup) null);
                 bVar = new b(this, null);
-                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fa9);
-                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f0907b7);
+                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fae);
+                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f0907b5);
                 view2.setTag(bVar);
             }
             SkinManager.setBackgroundResource(view2, R.drawable.list_item_selector);
@@ -145,7 +145,7 @@ public class ur6 extends BaseAdapter {
             SkinManager.setBackgroundColor(bVar.b, R.color.CAM_X0204);
             vr6 item = getItem(i);
             if (getItemViewType(i) == 1) {
-                bVar.a.setText(R.string.obfuscated_res_0x7f0f0475);
+                bVar.a.setText(R.string.obfuscated_res_0x7f0f0474);
                 bVar.b.setVisibility(4);
             } else {
                 if (item != null) {

@@ -19,27 +19,27 @@ public class bx {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f869a;
+    public Context f149a;
 
     /* renamed from: a  reason: collision with other field name */
-    public al.a f870a;
+    public al.a f150a;
 
     /* renamed from: a  reason: collision with other field name */
-    public cm f871a;
+    public cm f151a;
 
     /* renamed from: a  reason: collision with other field name */
-    public cn f872a;
+    public cn f152a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f873a;
+    public final String f153a;
     public al.a b;
 
     /* renamed from: b  reason: collision with other field name */
-    public final String f874b;
+    public final String f154b;
     public al.a c;
 
     /* renamed from: c  reason: collision with other field name */
-    public final String f875c;
+    public final String f155c;
     public final String d;
     public String e;
     public String f;
@@ -59,14 +59,14 @@ public class bx {
                 return;
             }
         }
-        this.f873a = "push_stat_sp";
-        this.f874b = "upload_time";
-        this.f875c = DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM;
+        this.f153a = "push_stat_sp";
+        this.f154b = "upload_time";
+        this.f155c = DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM;
         this.d = "check_time";
-        this.f870a = new by(this);
+        this.f150a = new by(this);
         this.b = new bz(this);
         this.c = new ca(this);
-        this.f869a = context;
+        this.f149a = context;
     }
 
     public static bx a(Context context) {
@@ -88,14 +88,14 @@ public class bx {
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? com.xiaomi.push.service.ba.a(this.f869a).a(ho.bn.a(), true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? com.xiaomi.push.service.ba.a(this.f149a).a(ho.bn.a(), true) : invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, str) == null) {
-            SharedPreferences.Editor edit = this.f869a.getSharedPreferences("push_stat_sp", 0).edit();
+            SharedPreferences.Editor edit = this.f149a.getSharedPreferences("push_stat_sp", 0).edit();
             edit.putLong(str, System.currentTimeMillis());
             t.a(edit);
         }
@@ -105,11 +105,11 @@ public class bx {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? this.f869a.getDatabasePath(cb.f879a).getAbsolutePath() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? this.f149a.getDatabasePath(cb.f159a).getAbsolutePath() : (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m1153a() {
+    public String m215a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (String) invokeV.objValue;
@@ -118,33 +118,33 @@ public class bx {
     public void a(cj.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            cj.a(this.f869a).a(aVar);
+            cj.a(this.f149a).a(aVar);
         }
     }
 
     public void a(hn hnVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hnVar) == null) && a() && com.xiaomi.push.service.bz.a(hnVar.e())) {
-            a(cg.a(this.f869a, c(), hnVar));
+            a(cg.a(this.f149a, c(), hnVar));
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && a() && !TextUtils.isEmpty(str)) {
-            a(co.a(this.f869a, str));
+            a(co.a(this.f149a, str));
         }
     }
 
     public void a(String str, String str2, Boolean bool) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, bool) == null) || this.f871a == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, bool) == null) || this.f151a == null) {
             return;
         }
         if (bool.booleanValue()) {
-            this.f871a.a(this.f869a, str2, str);
+            this.f151a.a(this.f149a, str2, str);
         } else {
-            this.f871a.b(this.f869a, str2, str);
+            this.f151a.b(this.f149a, str2, str);
         }
     }
 

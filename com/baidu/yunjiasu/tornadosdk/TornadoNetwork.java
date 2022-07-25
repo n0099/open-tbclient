@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
-import com.kuaishou.weapon.p0.C0455;
+import com.kuaishou.weapon.p0.n0;
 import com.xiaomi.mipush.sdk.MiPushClient;
 import java.lang.reflect.Method;
 import java.net.Inet4Address;
@@ -494,7 +494,7 @@ public final class TornadoNetwork {
                     String interfaceName = linkProperties.getInterfaceName();
                     Intrinsics.checkNotNull(interfaceName);
                     Intrinsics.checkNotNullExpressionValue(interfaceName, "lp.interfaceName!!");
-                    if (StringsKt__StringsJVMKt.startsWith(interfaceName, C0455.f727, true)) {
+                    if (StringsKt__StringsJVMKt.startsWith(interfaceName, n0.a, true)) {
                         continue;
                     }
                 }

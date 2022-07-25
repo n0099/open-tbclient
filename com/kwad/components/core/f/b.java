@@ -13,7 +13,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context) {
+    public static boolean al(Context context) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public final class b {
                     try {
                         aVar.parseJson(new JSONObject(string));
                     } catch (Exception e) {
-                        com.kwad.sdk.core.d.b.b(e);
+                        com.kwad.sdk.core.e.b.printStackTraceOnly(e);
                     }
                 }
-                z = aVar.a(d.S(), d.T());
-                com.kwad.sdk.core.d.b.a("LocalAdForceActiveHelper", "addCount contains success: " + z);
+                z = aVar.h(d.sg(), d.sh());
+                com.kwad.sdk.core.e.b.d("LocalAdForceActiveHelper", "addCount contains success: " + z);
             } else {
-                com.kwad.sdk.core.d.b.a("LocalAdForceActiveHelper", "addCount not contains");
-                aVar.a();
+                com.kwad.sdk.core.e.b.d("LocalAdForceActiveHelper", "addCount not contains");
+                aVar.ni();
                 z = true;
             }
             if (z) {

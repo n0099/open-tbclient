@@ -109,7 +109,7 @@ public class bs5 extends an<ds5, AlaSubListLiveDoubleViewHolder> {
             Z(ds5Var);
             alaSubListLiveDoubleViewHolder.a.i(ds5Var);
             alaSubListLiveDoubleViewHolder.a.s(this.j);
-            return alaSubListLiveDoubleViewHolder.b();
+            return alaSubListLiveDoubleViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

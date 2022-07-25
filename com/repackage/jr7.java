@@ -62,14 +62,14 @@ public class jr7 {
     public transient /* synthetic */ FieldHolder $fh;
     public bv7 A;
     public List<MuteUser> B;
-    public sp4 C;
+    public tp4 C;
     public List<ThreadData> D;
     public AlaLiveInfoCoreData E;
     public ArrayList<ni8> F;
     public ni8 G;
     public TwzhiboAnti H;
-    public List<mq4> I;
-    public List<mq4> J;
+    public List<nq4> I;
+    public List<nq4> J;
     public cs7 K;
     public PostData L;
     public nr7 M;
@@ -79,7 +79,7 @@ public class jr7 {
     public String Q;
     public List<RecommendTopicData.RecommendTopicListData> R;
     public HashSet<String> S;
-    public List<eo4> T;
+    public List<fo4> T;
     public int U;
     public hz7 V;
     public PostData W;
@@ -114,23 +114,23 @@ public class jr7 {
     public boolean m0;
     public ForumData n;
     public boolean n0;
-    public mq4 o;
+    public nq4 o;
     public boolean o0;
     public ThreadData p;
-    public vw4 p0;
+    public ww4 p0;
     public ArrayList<PostData> q;
     public int q0;
     public HashMap<String, MetaData> r;
     public List<nn> r0;
-    public op4 s;
+    public pp4 s;
     public boolean s0;
     public AntiData t;
-    public n05 u;
+    public o05 u;
     public int v;
     public int w;
     public int x;
     public String y;
-    public rp4 z;
+    public sp4 z;
 
     public jr7() {
         Interceptable interceptable = $ic;
@@ -162,26 +162,26 @@ public class jr7 {
         this.q0 = 0;
         this.s0 = false;
         this.n = new ForumData();
-        this.o = new mq4();
+        this.o = new nq4();
         this.p = new ThreadData();
         this.q = new ArrayList<>();
         this.r = new HashMap<>();
-        this.s = new op4();
+        this.s = new pp4();
         this.t = new AntiData();
-        this.u = new n05();
+        this.u = new o05();
         this.v = 0;
         this.w = 0;
         this.a = new UserData();
         this.B = new ArrayList();
-        this.z = new rp4();
-        this.C = new sp4();
+        this.z = new sp4();
+        this.C = new tp4();
         this.A = new bv7();
         this.H = new TwzhiboAnti();
         this.K = new cs7();
         this.d0 = new pu7();
         this.R = new ArrayList();
         this.S = new HashSet<>();
-        this.p0 = new vw4();
+        this.p0 = new ww4();
     }
 
     public nr7 A() {
@@ -258,10 +258,10 @@ public class jr7 {
         }
     }
 
-    public sp4 E() {
+    public tp4 E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.C : (sp4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.C : (tp4) invokeV.objValue;
     }
 
     public void E0(String str) {
@@ -279,20 +279,20 @@ public class jr7 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.q : (ArrayList) invokeV.objValue;
     }
 
-    public void F0(op4 op4Var, int i) {
+    public void F0(pp4 pp4Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, op4Var, i) == null) {
-            this.s.k(op4Var.a());
-            this.s.p(op4Var.g());
-            this.s.q(op4Var.h());
-            this.s.o(op4Var.e());
-            this.s.n(op4Var.d());
+        if (interceptable == null || interceptable.invokeLI(1048587, this, pp4Var, i) == null) {
+            this.s.k(pp4Var.a());
+            this.s.p(pp4Var.g());
+            this.s.q(pp4Var.h());
+            this.s.o(pp4Var.e());
+            this.s.n(pp4Var.d());
             if (i == 0) {
-                this.s = op4Var;
+                this.s = pp4Var;
             } else if (i == 1) {
-                this.s.l(op4Var.b());
+                this.s.l(pp4Var.b());
             } else if (i == 2) {
-                this.s.m(op4Var.c());
+                this.s.m(pp4Var.c());
             }
         }
     }
@@ -439,7 +439,7 @@ public class jr7 {
                     }
                     ThreadData threadData = this.p;
                     if (threadData != null && threadData.getAnchorInfoData() != null && this.p.getAnchorInfoData().getGroup_id() != 0) {
-                        str = PreferencesUtil.LEFT_MOUNT + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e5f) + "] " + str;
+                        str = PreferencesUtil.LEFT_MOUNT + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e48) + "] " + str;
                     }
                     ThreadData threadData2 = this.p;
                     if (threadData2 != null && threadData2.getThreadVideoInfo() != null && !oi.isEmpty(this.p.getThreadVideoInfo().thumbnail_url)) {
@@ -552,10 +552,10 @@ public class jr7 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.c0 : (List) invokeV.objValue;
     }
 
-    public vw4 Z() {
+    public ww4 Z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.p0 : (vw4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.p0 : (ww4) invokeV.objValue;
     }
 
     public void a() {
@@ -570,8 +570,8 @@ public class jr7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            op4 op4Var = this.s;
-            return op4Var != null && op4Var.b() == 1;
+            pp4 pp4Var = this.s;
+            return pp4Var != null && pp4Var.b() == 1;
         }
         return invokeV.booleanValue;
     }
@@ -745,7 +745,7 @@ public class jr7 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.s0 : invokeV.booleanValue;
     }
 
-    public List<eo4> f() {
+    public List<fo4> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.T : (List) invokeV.objValue;
@@ -777,10 +777,10 @@ public class jr7 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? O() != null && O().isUgcThreadType() : invokeV.booleanValue;
     }
 
-    public mq4 h() {
+    public nq4 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.o : (mq4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.o : (nq4) invokeV.objValue;
     }
 
     public boolean h0() {
@@ -892,7 +892,7 @@ public class jr7 {
         return (interceptable == null || (invokeZ = interceptable.invokeZ(1048645, this, z)) == null) ? (this.x == 2 && z) || this.x == 1 : invokeZ.booleanValue;
     }
 
-    public List<mq4> p() {
+    public List<nq4> p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) ? this.J : (List) invokeV.objValue;
@@ -1024,20 +1024,20 @@ public class jr7 {
         if (!(interceptable == null || interceptable.invokeL(1048661, this, floatingIcon) == null) || floatingIcon == null || (floatingIconItem = floatingIcon.pbpage) == null) {
             return;
         }
-        vw4 vw4Var = this.p0;
-        vw4Var.b = floatingIconItem.icon_url;
-        vw4Var.c = floatingIconItem.fold_lottie;
-        vw4Var.d = floatingIconItem.unfold_lottie;
-        vw4Var.e = floatingIconItem.float_type;
-        vw4Var.f = floatingIconItem.fold_name;
-        vw4Var.g = floatingIconItem.unfold_name;
-        vw4Var.a = floatingIconItem.url;
-        vw4Var.j = floatingIconItem.scheme;
-        vw4Var.k = floatingIconItem.package_name;
-        vw4Var.l = floatingIconItem.deeplink;
-        vw4Var.h = floatingIconItem.view_statistics_url;
-        vw4Var.i = floatingIconItem.click_statistics_url;
-        vw4Var.r = floatingIconItem.display_ad_icon;
+        ww4 ww4Var = this.p0;
+        ww4Var.b = floatingIconItem.icon_url;
+        ww4Var.c = floatingIconItem.fold_lottie;
+        ww4Var.d = floatingIconItem.unfold_lottie;
+        ww4Var.e = floatingIconItem.float_type;
+        ww4Var.f = floatingIconItem.fold_name;
+        ww4Var.g = floatingIconItem.unfold_name;
+        ww4Var.a = floatingIconItem.url;
+        ww4Var.j = floatingIconItem.scheme;
+        ww4Var.k = floatingIconItem.package_name;
+        ww4Var.l = floatingIconItem.deeplink;
+        ww4Var.h = floatingIconItem.view_statistics_url;
+        ww4Var.i = floatingIconItem.click_statistics_url;
+        ww4Var.r = floatingIconItem.display_ad_icon;
     }
 
     @NonNull
@@ -1176,9 +1176,9 @@ public class jr7 {
                     this.I = new ArrayList();
                 }
                 for (SimpleForum simpleForum : dataRes.repost_recommend_forum_list) {
-                    mq4 mq4Var = new mq4();
-                    mq4Var.j(simpleForum);
-                    this.I.add(mq4Var);
+                    nq4 nq4Var = new nq4();
+                    nq4Var.j(simpleForum);
+                    this.I.add(nq4Var);
                 }
             }
             if (ListUtils.getCount(dataRes.from_forum_list) > 0) {
@@ -1187,9 +1187,9 @@ public class jr7 {
                 }
                 for (SimpleForum simpleForum2 : dataRes.from_forum_list) {
                     if (simpleForum2 != null) {
-                        mq4 mq4Var2 = new mq4();
-                        mq4Var2.j(simpleForum2);
-                        this.J.add(mq4Var2);
+                        nq4 nq4Var2 = new nq4();
+                        nq4Var2.j(simpleForum2);
+                        this.J.add(nq4Var2);
                     }
                 }
             }
@@ -1206,10 +1206,10 @@ public class jr7 {
                 int i3 = 1;
                 for (ThreadInfo threadInfo : dataRes.bjh_recommend) {
                     if (threadInfo != null && !p0(threadInfo) && !f0(threadInfo)) {
-                        eo4 eo4Var = new eo4();
-                        eo4Var.k(i3);
-                        eo4Var.parserProtobuf(threadInfo);
-                        this.T.add(eo4Var);
+                        fo4 fo4Var = new fo4();
+                        fo4Var.k(i3);
+                        fo4Var.parserProtobuf(threadInfo);
+                        this.T.add(fo4Var);
                         i3++;
                     }
                 }
@@ -1278,10 +1278,10 @@ public class jr7 {
         }
     }
 
-    public op4 y() {
+    public pp4 y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) ? this.s : (op4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) ? this.s : (pp4) invokeV.objValue;
     }
 
     public void y0(int i) {
@@ -1297,10 +1297,10 @@ public class jr7 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048666, this)) == null) ? this.G : (ni8) invokeV.objValue;
     }
 
-    public void z0(mq4 mq4Var) {
+    public void z0(nq4 nq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048667, this, mq4Var) == null) {
-            this.o = mq4Var;
+        if (interceptable == null || interceptable.invokeL(1048667, this, nq4Var) == null) {
+            this.o = nq4Var;
         }
     }
 }

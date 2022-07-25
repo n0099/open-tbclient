@@ -31,12 +31,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b97;
 import com.repackage.bb;
-import com.repackage.cr4;
 import com.repackage.de5;
+import com.repackage.dr4;
 import com.repackage.ep8;
 import com.repackage.f67;
 import com.repackage.he5;
-import com.repackage.jd5;
+import com.repackage.kd5;
 import com.repackage.qg;
 import com.repackage.r97;
 import com.repackage.t77;
@@ -93,7 +93,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
     }
 
     /* loaded from: classes3.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalTalkSettingActivity a;
@@ -116,17 +116,17 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             this.a = personalTalkSettingActivity;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c implements cr4.e {
+    public class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalTalkSettingActivity a;
@@ -166,7 +166,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         }
 
         /* loaded from: classes3.dex */
-        public class b implements jd5<Boolean> {
+        public class b implements kd5<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
@@ -190,14 +190,14 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.jd5
+            @Override // com.repackage.kd5
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
                     this.a.a.closeLoadingDialog();
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new ClearChatMsgResponsedMessage());
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f04ad, false);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f04ac, false);
                     MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(String.valueOf(this.a.a.e), 2, null, 1)));
                 }
             }
@@ -221,11 +221,11 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             this.a = personalTalkSettingActivity;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 this.a.showLoadingDialog(null);
                 he5.c(new a(this), new b(this));
                 r97.a("c14632");
@@ -478,18 +478,18 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f092325) {
+            if (id == R.id.obfuscated_res_0x7f092327) {
                 PersonalTalkSettingModel personalTalkSettingModel = this.b;
                 if (personalTalkSettingModel == null || personalTalkSettingModel.L() == null) {
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getContext(), String.valueOf(this.e), this.b.L().name)));
                 r97.a("c14629");
-            } else if (id == R.id.obfuscated_res_0x7f091e1b) {
-                cr4 cr4Var = new cr4(getPageContext().getPageActivity());
-                cr4Var.setMessage(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0fb4)).setPositiveButton(R.string.obfuscated_res_0x7f0f0262, new c(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(this)).create(getPageContext());
-                cr4Var.show();
-            } else if (id != R.id.obfuscated_res_0x7f091e1c) {
+            } else if (id == R.id.obfuscated_res_0x7f091e21) {
+                dr4 dr4Var = new dr4(getPageContext().getPageActivity());
+                dr4Var.setMessage(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0f9d)).setPositiveButton(R.string.obfuscated_res_0x7f0f0262, new c(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(this)).create(getPageContext());
+                dr4Var.show();
+            } else if (id != R.id.obfuscated_res_0x7f091e22) {
                 if (id != R.id.obfuscated_res_0x7f09011b || (ep8Var = this.d) == null || this.b == null) {
                     return;
                 }

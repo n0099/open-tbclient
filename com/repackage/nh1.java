@@ -1,7 +1,11 @@
 package com.repackage;
 
-import com.repackage.ws2;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface nh1 {
-    void a(String str, ws2.k kVar);
+    List<f23> a(f13 f13Var);
+
+    List<f23> b(f13 f13Var);
+
+    List<f23> c(f13 f13Var);
 }

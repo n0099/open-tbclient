@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br4;
+import com.repackage.cr4;
 import com.repackage.te;
 import com.repackage.vq7;
 import com.squareup.wire.Wire;
@@ -140,8 +140,8 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements vq
             if (bArr == null || bArr.length <= 0) {
                 return;
             }
-            br4.f();
-            te<byte[]> d = br4.d("tb.pb_normal");
+            cr4.f();
+            te<byte[]> d = cr4.d("tb.pb_normal");
             d.remove("chosen_pb_page_cache");
             d.g("chosen_pb_page_cache", bArr);
         }

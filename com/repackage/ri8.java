@@ -310,9 +310,9 @@ public class ri8 {
                     WriteImagesInfo writeImagesInfo = writeData.getWriteImagesInfo();
                     if (writeImagesInfo != null) {
                         writeImagesInfo.needImageParallel = UploadPicParallelSwitch.isOn();
-                        writeImagesInfo.imageChunkSize = xt4.k().l("key_upload_pic_chunk_size", 0);
-                        writeImagesInfo.imageUploadConcurrency = xt4.k().l("key_upload_pic_parallel_count", 0);
-                        writeImagesInfo.imageChunkRetry = xt4.k().l("key_upload_pic_chunk_retry", 0);
+                        writeImagesInfo.imageChunkSize = yt4.k().l("key_upload_pic_chunk_size", 0);
+                        writeImagesInfo.imageUploadConcurrency = yt4.k().l("key_upload_pic_parallel_count", 0);
+                        writeImagesInfo.imageChunkRetry = yt4.k().l("key_upload_pic_chunk_retry", 0);
                         if (writeImagesInfo.imageUploadConcurrency < 1) {
                             writeImagesInfo.imageUploadConcurrency = 1;
                         }
@@ -381,16 +381,16 @@ public class ri8 {
                     str = returnVoiceMd5;
                 } else {
                     lk8.a("发帖：发送声音 开始");
-                    jw4 jw4Var = new jw4(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
-                    jw4Var.a("type", 1);
+                    kw4 kw4Var = new kw4(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
+                    kw4Var.a("type", 1);
                     String storeFile = FileHelper.getStoreFile(voice, 1);
                     jk8.r(writeData, FileHelper.getFileSize(storeFile));
-                    hx4 d = jw4Var.d(storeFile);
+                    ix4 d = kw4Var.d(storeFile);
                     if (d != null && d.d()) {
-                        gx4 a2 = d.a();
+                        hx4 a2 = d.a();
                         if (a2 != null) {
                             String b2 = a2.b();
-                            gw4.b(writeData.getVoice(), b2);
+                            hw4.b(writeData.getVoice(), b2);
                             writeData.setReturnVoiceMd5(b2);
                             jk8.i(writeData, d);
                             lk8.a("发帖：发送声音 完成 1");
@@ -433,7 +433,7 @@ public class ri8 {
                         jk8.g(writeData, e);
                         if (e == null) {
                             this.b.setError_code(-53);
-                            this.b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14de));
+                            this.b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f148d));
                             lk8.a("发帖：开始上传视频 失败 1");
                             return false;
                         } else if (e.isSuccess()) {
@@ -520,12 +520,12 @@ public class ri8 {
                 if (writeData.getType() != 6) {
                     if (writeData.getType() == 7 && TextUtils.isEmpty(writeData.getTitle()) && TextUtils.isEmpty(str) && TextUtils.isEmpty(imagesCodeForPost) && TextUtils.isEmpty(this.d) && writeData.getVideoInfo() == null) {
                         this.b.setError_code(-53);
-                        this.b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1023));
+                        this.b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f100c));
                         return false;
                     }
                     if ((!(writeData.getType() == 0 || writeData.getType() == 9) || TextUtils.isEmpty(writeData.getTitle())) && TextUtils.isEmpty(str) && TextUtils.isEmpty(imagesCodeForPost) && TextUtils.isEmpty(this.d) && writeData.getVideoInfo() == null && writeData.getType() != 7 && !writeData.isLinkThread() && writeData.getWriteVoteData() == null) {
                         this.b.setError_code(-53);
-                        this.b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1023));
+                        this.b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f100c));
                         return false;
                     }
                 }
@@ -629,7 +629,7 @@ public class ri8 {
                         if (writeData.isFrsReply()) {
                             this.a.addPostData("st_param", "frs");
                         }
-                        if (j35.a().b() == 1) {
+                        if (k35.a().b() == 1) {
                             this.a.addPostData("ptype", "4");
                         }
                         if (!StringUtils.isNull(writeData.sourceFrom)) {
@@ -943,10 +943,10 @@ public class ri8 {
         this.b.setError_msg(qk8Var.c());
         this.b.setError_data(qk8Var.b());
         if (this.b.error_code != 0 && !ni.z()) {
-            this.b.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0c2b));
+            this.b.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0c17));
         } else if (this.b.error_code != 0 && writeData.isHasImages()) {
             if (oi.isEmpty(this.d + writeData.getImagesCodeForPost())) {
-                this.b.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f08df));
+                this.b.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f08ca));
             }
         }
         try {

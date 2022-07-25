@@ -29,11 +29,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k45;
-import com.repackage.o45;
+import com.repackage.l45;
+import com.repackage.p45;
 import com.repackage.pi;
-import com.repackage.uu4;
-import com.repackage.x45;
+import com.repackage.vu4;
+import com.repackage.y45;
 import com.repackage.ym;
 /* loaded from: classes4.dex */
 public class PreviewVideoView extends FrameLayout {
@@ -47,7 +47,7 @@ public class PreviewVideoView extends FrameLayout {
     public TBSpecificationBtn d;
     public TBSpecificationBtn e;
     public float f;
-    public o45 g;
+    public p45 g;
     public Paint h;
     public Paint i;
     public String j;
@@ -122,7 +122,7 @@ public class PreviewVideoView extends FrameLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements k45 {
+    public class c implements l45 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PreviewVideoView a;
@@ -145,7 +145,7 @@ public class PreviewVideoView extends FrameLayout {
             this.a = previewVideoView;
         }
 
-        @Override // com.repackage.k45
+        @Override // com.repackage.l45
         public void a(ym ymVar, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, ymVar, str, z) == null) || this.a.a == null || ymVar == null) {
@@ -223,7 +223,7 @@ public class PreviewVideoView extends FrameLayout {
             m = pi.f(getContext(), R.dimen.tbds866);
             n = pi.k(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
             e(context);
-            this.g = new o45();
+            this.g = new p45();
             TbImageView tbImageView = new TbImageView(context);
             this.a = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -235,16 +235,16 @@ public class PreviewVideoView extends FrameLayout {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(pi.f(context, R.dimen.tbds94), pi.f(context, R.dimen.tbds94));
             layoutParams.gravity = 53;
             addView(this.c, layoutParams);
-            uu4 uu4Var = new uu4();
-            uu4Var.q();
+            vu4 vu4Var = new vu4();
+            vu4Var.q();
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(pi.f(context, R.dimen.tbds96), pi.f(context, R.dimen.tbds48));
             layoutParams2.gravity = 83;
             layoutParams2.bottomMargin = pi.f(context, R.dimen.M_H_X002);
             layoutParams2.leftMargin = pi.f(context, R.dimen.M_W_X003);
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
             this.d = tBSpecificationBtn;
-            tBSpecificationBtn.setConfig(uu4Var);
-            this.d.setText(context.getString(R.string.obfuscated_res_0x7f0f051e));
+            tBSpecificationBtn.setConfig(vu4Var);
+            this.d.setText(context.getString(R.string.obfuscated_res_0x7f0f051a));
             this.d.setTextSize(R.dimen.T_X10);
             addView(this.d, layoutParams2);
             FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(pi.f(context, R.dimen.tbds96), pi.f(context, R.dimen.tbds48));
@@ -253,8 +253,8 @@ public class PreviewVideoView extends FrameLayout {
             layoutParams3.rightMargin = pi.f(context, R.dimen.M_W_X003);
             TBSpecificationBtn tBSpecificationBtn2 = new TBSpecificationBtn(context);
             this.e = tBSpecificationBtn2;
-            tBSpecificationBtn2.setConfig(uu4Var);
-            this.e.setText(context.getString(R.string.obfuscated_res_0x7f0f0459));
+            tBSpecificationBtn2.setConfig(vu4Var);
+            this.e.setText(context.getString(R.string.obfuscated_res_0x7f0f0458));
             this.e.setTextSize(R.dimen.T_X10);
             addView(this.e, layoutParams3);
             this.h = new Paint();
@@ -292,7 +292,7 @@ public class PreviewVideoView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setFilePath(this.j);
-            ImageOperation g = x45.g(n, m);
+            ImageOperation g = y45.g(n, m);
             imageFileInfo.clearPageActions();
             imageFileInfo.addPageAction(g);
             this.a.setTag(imageFileInfo.toCachedKey(false));

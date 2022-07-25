@@ -27,11 +27,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class py8 implements ry8, MultiImagePagerAdapter.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class py8 implements ry8, MultiImagePagerAdapter.c {
     public MultiImagePagerAdapter c;
     public int d;
     public ForumWriteData e;
-    public cr4 f;
+    public dr4 f;
     public StickerModel g;
     public int h;
     public WriteImagesInfo i;
@@ -48,7 +48,7 @@ public class py8 implements ry8, MultiImagePagerAdapter.c {
     public HashMap<String, String> k;
     public PermissionJudgePolicy l;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public class py8 implements ry8, MultiImagePagerAdapter.c {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,8 +133,8 @@ public class py8 implements ry8, MultiImagePagerAdapter.c {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class c implements cr4.e {
+    /* loaded from: classes7.dex */
+    public class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -161,10 +161,10 @@ public class py8 implements ry8, MultiImagePagerAdapter.c {
             this.b = z;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 if (this.c.f != null) {
                     this.c.f.dismiss();
                 }
@@ -176,8 +176,8 @@ public class py8 implements ry8, MultiImagePagerAdapter.c {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class d implements cr4.e {
+    /* loaded from: classes7.dex */
+    public class d implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ py8 a;
@@ -200,18 +200,18 @@ public class py8 implements ry8, MultiImagePagerAdapter.c {
             this.a = py8Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) || this.a.f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) || this.a.f == null) {
                 return;
             }
             this.a.f.dismiss();
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class e implements cr4.e {
+    /* loaded from: classes7.dex */
+    public class e implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Bitmap a;
@@ -236,10 +236,10 @@ public class py8 implements ry8, MultiImagePagerAdapter.c {
             this.a = bitmap;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 if (this.b.f != null) {
                     this.b.f.dismiss();
                 }
@@ -248,8 +248,8 @@ public class py8 implements ry8, MultiImagePagerAdapter.c {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class f implements cr4.e {
+    /* loaded from: classes7.dex */
+    public class f implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ py8 a;
@@ -272,10 +272,10 @@ public class py8 implements ry8, MultiImagePagerAdapter.c {
             this.a = py8Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) || this.a.f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) || this.a.f == null) {
                 return;
             }
             this.a.f.dismiss();
@@ -317,7 +317,7 @@ public class py8 implements ry8, MultiImagePagerAdapter.c {
         }
         if (!ni.z()) {
             if (this.a.getContext() != null) {
-                pi.N(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c2b);
+                pi.N(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c17);
                 return;
             }
             return;
@@ -408,9 +408,9 @@ public class py8 implements ry8, MultiImagePagerAdapter.c {
             return;
         }
         if (this.f == null) {
-            cr4 cr4Var = new cr4(this.a.getPageActivity());
-            this.f = cr4Var;
-            cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0cf9);
+            dr4 dr4Var = new dr4(this.a.getPageActivity());
+            this.f = dr4Var;
+            dr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0ce5);
             this.f.setPositiveButton(R.string.obfuscated_res_0x7f0f0262, new c(this, i, z));
             this.f.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new d(this));
             this.f.create(this.a);
@@ -427,9 +427,9 @@ public class py8 implements ry8, MultiImagePagerAdapter.c {
                 return false;
             }
             if (this.f == null) {
-                cr4 cr4Var = new cr4(this.a.getPageActivity());
-                this.f = cr4Var;
-                cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0cf9);
+                dr4 dr4Var = new dr4(this.a.getPageActivity());
+                this.f = dr4Var;
+                dr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0ce5);
                 this.f.setPositiveButton(R.string.obfuscated_res_0x7f0f0262, new e(this, bitmap));
                 this.f.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new f(this));
                 this.f.create(this.a);

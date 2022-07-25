@@ -53,11 +53,11 @@ public class zk5 extends xa {
                 this.a = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
                 if (addressListData != null) {
                     for (ll5 ll5Var : addressListData.a()) {
-                        List<az4> a = ll5Var.a();
+                        List<bz4> a = ll5Var.a();
                         ArrayList arrayList = new ArrayList();
-                        for (az4 az4Var : a) {
-                            if (!this.a && az4Var.h() == 1) {
-                                arrayList.add(az4Var);
+                        for (bz4 bz4Var : a) {
+                            if (!this.a && bz4Var.h() == 1) {
+                                arrayList.add(bz4Var);
                             }
                         }
                         a.removeAll(arrayList);

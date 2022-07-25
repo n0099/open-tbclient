@@ -185,10 +185,10 @@ public class FrsFoldingView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0293, (ViewGroup) this, true);
             this.h = inflate;
-            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0909da);
-            this.e = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f0917ea);
-            this.f = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f09063c);
-            this.g = (ImageView) this.h.findViewById(R.id.obfuscated_res_0x7f0909d8);
+            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0909d3);
+            this.e = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f0917c5);
+            this.f = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f09063b);
+            this.g = (ImageView) this.h.findViewById(R.id.obfuscated_res_0x7f0909d1);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
@@ -204,7 +204,7 @@ public class FrsFoldingView extends LinearLayout {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.h.findViewById(R.id.obfuscated_res_0x7f0909d8).setOnClickListener(new a(this));
+            this.h.findViewById(R.id.obfuscated_res_0x7f0909d1).setOnClickListener(new a(this));
         }
     }
 

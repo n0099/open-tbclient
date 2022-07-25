@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-    public static final Boolean a;
+    public static final Boolean aw;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -24,6 +24,6 @@ public final class a {
                 return;
             }
         }
-        a = Boolean.FALSE;
+        aw = Boolean.FALSE;
     }
 }

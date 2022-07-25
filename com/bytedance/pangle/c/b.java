@@ -3,6 +3,7 @@ package com.bytedance.pangle.c;
 import android.os.Build;
 import android.os.Process;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.devices.IDevices;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -62,7 +63,7 @@ public final class b {
         c.put("x86_64", 64);
         c.put("x86", 32);
         c.put("mips64", 64);
-        c.put("mips", 32);
+        c.put(IDevices.ABI_MIPS, 32);
         a = c();
     }
 
@@ -113,7 +114,7 @@ public final class b {
                                 }
                                 break;
                             case 3351711:
-                                if (str2.equals("mips")) {
+                                if (str2.equals(IDevices.ABI_MIPS)) {
                                     c2 = 6;
                                     break;
                                 }
@@ -161,7 +162,7 @@ public final class b {
                                 a(a2, "mips64", linkedList, hashSet);
                                 break;
                             case 6:
-                                a(a2, "mips", linkedList, hashSet);
+                                a(a2, IDevices.ABI_MIPS, linkedList, hashSet);
                                 break;
                         }
                     }

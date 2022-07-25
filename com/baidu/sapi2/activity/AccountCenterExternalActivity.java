@@ -1,6 +1,5 @@
 package com.baidu.sapi2.activity;
 
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -332,7 +331,6 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
             Intent intent = new Intent(this, AccountCenterActivity.class);
             intent.setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
             intent.putExtra("action", SlideActiviy.SLIDE_ACTION_QUIT);
-            PendingIntent.getActivity(getApplicationContext(), 0, intent, 134217728);
             startActivity(intent);
         }
     }

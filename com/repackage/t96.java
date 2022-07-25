@@ -62,7 +62,7 @@ public class t96 extends PopupWindow implements View.OnClickListener {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                int top = this.a.d.findViewById(R.id.obfuscated_res_0x7f090def).getTop();
+                int top = this.a.d.findViewById(R.id.obfuscated_res_0x7f090de8).getTop();
                 int y = (int) motionEvent.getY();
                 if (motionEvent.getAction() == 1 && y < top) {
                     this.a.dismiss();
@@ -105,12 +105,12 @@ public class t96 extends PopupWindow implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0246, (ViewGroup) null);
             this.d = inflate;
-            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09228d);
-            this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09225b);
-            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09220d);
-            this.g = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090def);
-            this.e = this.d.findViewById(R.id.obfuscated_res_0x7f0912b2);
-            this.f = this.d.findViewById(R.id.obfuscated_res_0x7f0912b3);
+            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09228f);
+            this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09225d);
+            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09220f);
+            this.g = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090de8);
+            this.e = this.d.findViewById(R.id.obfuscated_res_0x7f09128e);
+            this.f = this.d.findViewById(R.id.obfuscated_res_0x7f09128f);
             if (i == 1) {
                 SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
             } else {

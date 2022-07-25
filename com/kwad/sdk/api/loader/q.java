@@ -1,31 +1,82 @@
 package com.kwad.sdk.api.loader;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.security.DigestInputStream;
-import java.security.MessageDigest;
+import android.content.ComponentCallbacks;
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.content.res.Resources;
+import com.kwad.sdk.api.core.ResContext;
 /* loaded from: classes5.dex */
-public final class q {
-    public static final char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+public final class q extends ContextWrapper implements ResContext {
+    public Resources.Theme SF;
+    public final Context a;
+    public int c;
 
-    public static String a(File file) {
+    public q(Context context) {
+        super(context);
+        this.c = -1;
+        this.a = context;
+        this.c = ((Integer) Reflect.b(context).bd("getThemeResId").a).intValue();
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public final Context getApplicationContext() {
+        return Wrapper.wrapContextIfNeed(super.getApplicationContext());
+    }
+
+    @Override // android.content.ContextWrapper
+    public final Context getBaseContext() {
+        return Wrapper.wrapContextIfNeed(super.getBaseContext());
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public final ClassLoader getClassLoader() {
+        return Wrapper.replaceExternalClassLoader(super.getClassLoader());
+    }
+
+    @Override // com.kwad.sdk.api.core.ResContext
+    public final Context getDelegatedContext() {
+        return this.a;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public final Resources getResources() {
+        return Wrapper.replaceExternalResources(super.getResources());
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public final Object getSystemService(String str) {
+        return Wrapper.wrapSystemService(super.getSystemService(str), str, this);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public final Resources.Theme getTheme() {
+        Resources.Theme theme;
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            while (new DigestInputStream(new FileInputStream(file), messageDigest).read(new byte[1024]) != -1) {
-            }
-            byte[] digest = messageDigest.digest();
-            StringBuilder sb = new StringBuilder(digest.length * 2);
-            for (byte b : digest) {
-                int i = b & 255;
-                if (i < 16) {
-                    sb.append("0");
-                }
-                sb.append(Integer.toHexString(i));
-            }
-            return sb.toString();
+            theme = super.getTheme();
         } catch (Exception e) {
             e.printStackTrace();
-            return "";
+            theme = null;
         }
+        Resources.Theme theme2 = this.SF;
+        if (theme2 == null || theme2 == theme) {
+            this.SF = Wrapper.replaceTheme(theme, this.SF, this.c);
+        }
+        return this.SF;
+    }
+
+    @Override // android.content.Context
+    public final void registerComponentCallbacks(ComponentCallbacks componentCallbacks) {
+        this.a.registerComponentCallbacks(componentCallbacks);
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public final void setTheme(int i) {
+        this.c = i;
+        super.setTheme(i);
+    }
+
+    @Override // android.content.Context
+    public final void unregisterComponentCallbacks(ComponentCallbacks componentCallbacks) {
+        this.a.unregisterComponentCallbacks(componentCallbacks);
     }
 }

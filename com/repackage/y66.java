@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class y66 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dq4 a;
+    public eq4 a;
     public ArrayList<nn> b;
     public boolean c;
     public boolean d;
@@ -37,6 +37,6 @@ public class y66 {
         this.f = 0;
         this.h = true;
         this.b = new ArrayList<>();
-        this.a = new dq4();
+        this.a = new eq4();
     }
 }

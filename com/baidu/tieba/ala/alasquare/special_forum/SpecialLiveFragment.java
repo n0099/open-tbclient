@@ -403,7 +403,7 @@ public class SpecialLiveFragment extends BaseFragment {
                         AntiHelper.u(this.a.b, signMessage.mSignErrorString);
                         return;
                     } else {
-                        pi.O(this.a.b, this.a.b.getString(R.string.obfuscated_res_0x7f0f11d0, Integer.valueOf(signData2.sign_bonus_point)));
+                        pi.O(this.a.b, this.a.b.getString(R.string.obfuscated_res_0x7f0f117f, Integer.valueOf(signData2.sign_bonus_point)));
                         return;
                     }
                 }
@@ -446,7 +446,7 @@ public class SpecialLiveFragment extends BaseFragment {
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 this.a.l.setClickable(true);
                 if (this.a.A.getErrorCode() == 22) {
-                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f0819);
+                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f0815);
                 } else if (AntiHelper.m(this.a.A.getErrorCode(), this.a.A.getErrorString())) {
                     AntiHelper.u(this.a.b, this.a.A.getErrorString());
                 } else if (this.a.A.getErrorCode() != 0) {
@@ -460,7 +460,7 @@ public class SpecialLiveFragment extends BaseFragment {
                         pi.N(this.a.b, R.string.obfuscated_res_0x7f0f02b6);
                         return;
                     }
-                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c2b);
+                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c17);
                 }
             }
         }
@@ -706,7 +706,7 @@ public class SpecialLiveFragment extends BaseFragment {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData) && (signData = (SignData) customResponsedMessage.getData()) != null && this.a.G.equals(signData.forumId) && signData.is_signed == 1) {
                 this.a.K = 3;
                 this.a.y2(false);
-                pi.O(this.a.getPageContext().getPageActivity(), this.a.b.getString(R.string.obfuscated_res_0x7f0f11d0, Integer.valueOf(signData.sign_bonus_point)));
+                pi.O(this.a.getPageContext().getPageActivity(), this.a.b.getString(R.string.obfuscated_res_0x7f0f117f, Integer.valueOf(signData.sign_bonus_point)));
             }
         }
     }
@@ -785,7 +785,7 @@ public class SpecialLiveFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!ni.z()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                     return;
                 }
                 if (!TbadkCoreApplication.isLogin()) {
@@ -1032,7 +1032,7 @@ public class SpecialLiveFragment extends BaseFragment {
     public final void c2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070308);
+            int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070306);
             if (UtilHelper.canUseStyleImmersiveSticky() && this.f.getLayoutParams() != null) {
                 ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight();
@@ -1083,7 +1083,7 @@ public class SpecialLiveFragment extends BaseFragment {
             hideLoadingView(this.c);
             this.d.setVisibility(8);
             if (TextUtils.isEmpty(str)) {
-                showNetRefreshView(this.c, this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11e7), true);
+                showNetRefreshView(this.c, this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1196), true);
             } else {
                 showNetRefreshView(this.c, str, true);
             }
@@ -1159,7 +1159,7 @@ public class SpecialLiveFragment extends BaseFragment {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             TabData tabData = new TabData();
             tabData.tabId = -901;
-            tabData.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11ca);
+            tabData.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1179);
             return tabData;
         }
         return (TabData) invokeV.objValue;
@@ -1171,7 +1171,7 @@ public class SpecialLiveFragment extends BaseFragment {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             SpecialLiveTabInfo specialLiveTabInfo = new SpecialLiveTabInfo();
             specialLiveTabInfo.tabId = -901;
-            specialLiveTabInfo.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11ca);
+            specialLiveTabInfo.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1179);
             return specialLiveTabInfo;
         }
         return (SpecialLiveTabInfo) invokeV.objValue;
@@ -1183,7 +1183,7 @@ public class SpecialLiveFragment extends BaseFragment {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             TabData tabData = new TabData();
             tabData.tabId = -903;
-            tabData.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11cf);
+            tabData.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f117e);
             return tabData;
         }
         return (TabData) invokeV.objValue;
@@ -1195,7 +1195,7 @@ public class SpecialLiveFragment extends BaseFragment {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             SpecialLiveTabInfo specialLiveTabInfo = new SpecialLiveTabInfo();
             specialLiveTabInfo.tabId = -903;
-            specialLiveTabInfo.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11cf);
+            specialLiveTabInfo.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f117e);
             return specialLiveTabInfo;
         }
         return (SpecialLiveTabInfo) invokeV.objValue;
@@ -1262,7 +1262,7 @@ public class SpecialLiveFragment extends BaseFragment {
             this.b = getPageContext().getPageActivity();
             this.G = arguments.getString("forum_id");
             String string = arguments.getString("forum_name");
-            String string2 = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0650);
+            String string2 = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f064c);
             if (!TextUtils.isEmpty(string)) {
                 this.H = string;
                 StringBuilder sb = new StringBuilder();
@@ -1290,38 +1290,38 @@ public class SpecialLiveFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0790, (ViewGroup) null);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d079a, (ViewGroup) null);
             this.c = inflate;
-            this.d = (AppBarLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ddb);
-            this.e = (CollapsingToolbarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091ddc);
-            this.f = this.c.findViewById(R.id.obfuscated_res_0x7f091e39);
-            this.h = (ObservedChangeFrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0912f0);
+            this.d = (AppBarLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091de1);
+            this.e = (CollapsingToolbarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091de2);
+            this.f = this.c.findViewById(R.id.obfuscated_res_0x7f091e3f);
+            this.h = (ObservedChangeFrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0912cc);
             this.E = BdUniqueId.gen();
-            this.i = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090bfe);
-            this.j = this.c.findViewById(R.id.obfuscated_res_0x7f090bfb);
-            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090c05);
+            this.i = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090bf7);
+            this.j = this.c.findViewById(R.id.obfuscated_res_0x7f090bf4);
+            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090bfe);
             this.k = textView;
             textView.setText(this.I);
-            TextView textView2 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090bfc);
+            TextView textView2 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090bf5);
             this.l = textView2;
             textView2.setOnClickListener(new o(this));
-            this.m = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090c02);
-            this.n = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09159b);
-            this.p = this.c.findViewById(R.id.obfuscated_res_0x7f09159f);
-            this.o = this.c.findViewById(R.id.obfuscated_res_0x7f091597);
-            TextView textView3 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09159e);
+            this.m = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090bfb);
+            this.n = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091576);
+            this.p = this.c.findViewById(R.id.obfuscated_res_0x7f09157a);
+            this.o = this.c.findViewById(R.id.obfuscated_res_0x7f091572);
+            TextView textView3 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091579);
             this.q = textView3;
             textView3.setText(this.I);
-            ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09158c);
+            ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091567);
             this.r = imageView;
             imageView.setOnClickListener(new p(this));
-            this.s = (ScrollHorizontalTabView) this.c.findViewById(R.id.obfuscated_res_0x7f091c90);
-            this.t = (CustomViewPager) this.c.findViewById(R.id.obfuscated_res_0x7f091dde);
+            this.s = (ScrollHorizontalTabView) this.c.findViewById(R.id.obfuscated_res_0x7f091c96);
+            this.t = (CustomViewPager) this.c.findViewById(R.id.obfuscated_res_0x7f091de4);
             r2();
             this.s.setViewPager(this.t);
             this.s.setScrollTabPageListener(new a(this));
             this.d.addOnOffsetChangedListener((AppBarLayout.OnOffsetChangedListener) new b(this));
-            this.g = this.c.findViewById(R.id.obfuscated_res_0x7f091e0c);
+            this.g = this.c.findViewById(R.id.obfuscated_res_0x7f091e12);
             this.h.setOnSizeChangeListener(new c(this));
             c2();
             this.y = new ArrayList();
@@ -1526,7 +1526,7 @@ public class SpecialLiveFragment extends BaseFragment {
             TextView textView = this.l;
             int i2 = R.drawable.frs_attention_btn_bg_selector;
             SkinManager.setBackgroundResource(textView, R.drawable.frs_attention_btn_bg_selector);
-            int f2 = pi.f(this.b, R.dimen.obfuscated_res_0x7f070232);
+            int f2 = pi.f(this.b, R.dimen.obfuscated_res_0x7f070230);
             String string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f02a7);
             int i3 = this.K;
             int i4 = R.color.CAM_X0101;
@@ -1539,7 +1539,7 @@ public class SpecialLiveFragment extends BaseFragment {
                     TiebaStatic.log(statisticItem);
                 }
             } else if (i3 == 2) {
-                string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1191);
+                string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1140);
                 drawable = SkinManager.getDrawable(R.drawable.icon_public_sign_blue_s);
                 this.l.setClickable(true);
                 if (!z) {
@@ -1549,7 +1549,7 @@ public class SpecialLiveFragment extends BaseFragment {
                 }
             } else {
                 if (i3 == 3) {
-                    string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11b0);
+                    string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f115f);
                     this.l.setClickable(false);
                     i2 = R.drawable.special_sign_btn_signed_bg;
                     i4 = R.color.CAM_X0109;

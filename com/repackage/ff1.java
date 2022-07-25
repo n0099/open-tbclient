@@ -1,59 +1,188 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.HandlerThread;
+import android.content.Context;
+import android.os.Build;
+import android.provider.Settings;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.util.DeviceId;
+import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.searchbox.common.security.DeviceIdBag;
+import com.baidu.searchbox.common.security.DeviceInfoManager;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ff1 extends HandlerThread {
-    public static /* synthetic */ Interceptable $ic;
-    public static ff1 a;
-    public static Handler b;
+public class ff1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = false;
+    public static boolean b = false;
+    public static String c = null;
+    public static String d = "";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ff1() {
-        super("BackgroundThread", 10);
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], ((Integer) objArr[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+                return !he1.f(context).d() ? "" : DeviceId.getCUID(context);
+            } catch (Throwable th) {
+                tf1.d(th);
+                return "";
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    public static Handler a() {
-        InterceptResult invokeV;
-        Handler handler;
+    public static String b(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (ff1.class) {
-                b();
-                handler = b;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            try {
+            } catch (Throwable th) {
+                tf1.d(th);
             }
-            return handler;
+            if (f(context)) {
+                return d(DeviceInfoManager.INSTANCE.getAndroidId(context, AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO, str));
+            }
+            if (!he1.f(context).d()) {
+                return d;
+            }
+            if (!TextUtils.isEmpty(d)) {
+                return d;
+            }
+            if (tf1.n(context)) {
+                String string = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+                d = string;
+                if (TextUtils.isEmpty(string)) {
+                    d = "";
+                }
+                return d;
+            }
+            return "";
         }
-        return (Handler) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public static void b() {
+    public static String c(Context context, boolean z, boolean z2, String str) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a == null) {
-            ff1 ff1Var = new ff1();
-            a = ff1Var;
-            ff1Var.start();
-            b = new Handler(a.getLooper());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2), str})) == null) {
+            try {
+                if (f(context)) {
+                    return d(DeviceInfoManager.INSTANCE.getOAID(AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO, str));
+                }
+                if (!he1.f(context).d()) {
+                    return bg1.b(String.valueOf(-1000), z2);
+                }
+                if (z && !TextUtils.isEmpty(c)) {
+                    return c;
+                }
+                if (!tf1.n(context)) {
+                    return bg1.b(String.valueOf(-1002), z2);
+                }
+                String a2 = cg1.b().a();
+                if (TextUtils.isEmpty(a2)) {
+                    return bg1.b(String.valueOf(-1003), z2);
+                }
+                c = a2;
+                return a2;
+            } catch (Throwable th) {
+                tf1.d(th);
+                return "";
+            }
         }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static String d(DeviceIdBag deviceIdBag) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, deviceIdBag)) == null) {
+            if (deviceIdBag == null) {
+                return "";
+            }
+            if (deviceIdBag.errorCode == 3) {
+                return String.valueOf(-1004);
+            }
+            return TextUtils.isEmpty(deviceIdBag.deviceId) ? "" : deviceIdBag.deviceId;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            try {
+                if (f(context)) {
+                    return d(DeviceInfoManager.INSTANCE.getManufacturer(AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO, str));
+                }
+                return Build.MANUFACTURER;
+            } catch (Throwable th) {
+                tf1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if (!a) {
+                if ("com.baidu.searchbox".equals(context.getPackageName())) {
+                    b = true;
+                }
+                a = true;
+            }
+            return b;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String g(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
+            try {
+                if (f(context)) {
+                    return d(DeviceInfoManager.INSTANCE.getModel(AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO, str));
+                }
+                return Build.MODEL;
+            } catch (Throwable th) {
+                tf1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String h(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
+            try {
+                if (f(context)) {
+                    return d(DeviceInfoManager.INSTANCE.getOperator(context, AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO, str, true));
+                }
+                if (he1.f(context).d()) {
+                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+                    if (telephonyManager != null) {
+                        return telephonyManager.getSimOperator();
+                    }
+                    return String.valueOf(-1003);
+                }
+                return "";
+            } catch (Throwable th) {
+                tf1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
     }
 }

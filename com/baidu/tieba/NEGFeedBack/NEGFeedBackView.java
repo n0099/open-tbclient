@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.h9;
 import com.repackage.hj5;
-import com.repackage.kp4;
+import com.repackage.lp4;
 import com.repackage.pi;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -80,11 +80,11 @@ public class NEGFeedBackView extends AppCompatImageView {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(ArrayList<Integer> arrayList, String str, kp4 kp4Var);
+        void a(ArrayList<Integer> arrayList, String str, lp4 lp4Var);
 
-        void b(kp4 kp4Var, CompoundButton compoundButton, boolean z);
+        void b(lp4 lp4Var, CompoundButton compoundButton, boolean z);
 
-        void c(kp4 kp4Var);
+        void c(lp4 lp4Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -208,10 +208,10 @@ public class NEGFeedBackView extends AppCompatImageView {
         }
     }
 
-    public void setData(kp4 kp4Var) {
+    public void setData(lp4 lp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, kp4Var) == null) {
-            this.h.v(kp4Var);
+        if (interceptable == null || interceptable.invokeL(1048586, this, lp4Var) == null) {
+            this.h.v(lp4Var);
         }
     }
 

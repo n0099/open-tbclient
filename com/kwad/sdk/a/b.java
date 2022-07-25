@@ -1,7 +1,7 @@
 package com.kwad.sdk.a;
 
 import com.kuaishou.weapon.p0.IWeaponInitParams;
-import com.kwad.sdk.utils.av;
+import com.kwad.sdk.utils.az;
 /* loaded from: classes5.dex */
 public final class b implements IWeaponInitParams {
     @Override // com.kuaishou.weapon.p0.IWeaponInitParams
@@ -16,7 +16,7 @@ public final class b implements IWeaponInitParams {
 
     @Override // com.kuaishou.weapon.p0.IWeaponInitParams
     public final String getDeviceId() {
-        return av.u();
+        return az.getDeviceId();
     }
 
     @Override // com.kuaishou.weapon.p0.IWeaponInitParams

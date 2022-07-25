@@ -131,8 +131,8 @@ public class bt6 extends an<qy5, ThreadCardViewHolder<qy5>> implements ck5 {
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, nnVar) == null) && (nnVar instanceof qy5) && (view2.getTag() instanceof ThreadCardViewHolder)) {
             qy5 qy5Var = (qy5) nnVar;
             qy5Var.f = 1;
-            ThreadCardUtils.jumpToPB((nn4) qy5Var, view2.getContext(), 1, false);
-            ((ThreadCardViewHolder) view2.getTag()).c().o(new ny.a(1));
+            ThreadCardUtils.jumpToPB((on4) qy5Var, view2.getContext(), 1, false);
+            ((ThreadCardViewHolder) view2.getTag()).b().o(new ny.a(1));
         }
     }
 
@@ -151,10 +151,10 @@ public class bt6 extends an<qy5, ThreadCardViewHolder<qy5>> implements ck5 {
             bVar.n(new rw(this.j.getPageActivity()));
             bVar.h(new ax(this.j.getPageActivity()));
             ey eyVar = new ey(this.j.getPageActivity());
-            tn4 tn4Var = new tn4();
-            tn4Var.b = 1;
-            tn4Var.h = 1;
-            eyVar.w(tn4Var);
+            un4 un4Var = new un4();
+            un4Var.b = 1;
+            un4Var.h = 1;
+            eyVar.w(un4Var);
             eyVar.y(9);
             eyVar.D(4);
             eyVar.z(1);
@@ -164,7 +164,7 @@ public class bt6 extends an<qy5, ThreadCardViewHolder<qy5>> implements ck5 {
             cy k = bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.l);
             k.r(1);
             ThreadCardViewHolder<qy5> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.k(this.i);
+            threadCardViewHolder.j(this.i);
             V(new b(this));
             return threadCardViewHolder;
         }
@@ -178,19 +178,19 @@ public class bt6 extends an<qy5, ThreadCardViewHolder<qy5>> implements ck5 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qy5Var, threadCardViewHolder})) == null) {
-            if (qy5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null) {
+            if (qy5Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null) {
                 return null;
             }
             qy5Var.I(qy5Var.position + 1);
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.c().b(this.k);
-            threadCardViewHolder.u(true, Align.ALIGN_RIGHT_TOP);
-            threadCardViewHolder.l();
-            threadCardViewHolder.g(qy5Var);
+            threadCardViewHolder.b().q(i);
+            threadCardViewHolder.b().b(this.k);
+            threadCardViewHolder.t(true, Align.ALIGN_RIGHT_TOP);
+            threadCardViewHolder.k();
+            threadCardViewHolder.f(qy5Var);
             cy5.b().a(qy5Var.d("c12351"));
-            threadCardViewHolder.c().p(this.m);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            return threadCardViewHolder.b();
+            threadCardViewHolder.b().p(this.m);
+            threadCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }
@@ -199,11 +199,11 @@ public class bt6 extends an<qy5, ThreadCardViewHolder<qy5>> implements ck5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, qy5Var) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f09202a) {
+            if (id == R.id.obfuscated_res_0x7f09202e) {
                 vs6.b(view2, qy5Var, 2);
-            } else if (id == R.id.obfuscated_res_0x7f09230c || id == R.id.obfuscated_res_0x7f09232d) {
+            } else if (id == R.id.obfuscated_res_0x7f09230e || id == R.id.obfuscated_res_0x7f09232f) {
                 vs6.b(view2, qy5Var, 1);
-            } else if (id == R.id.obfuscated_res_0x7f0906e3 || id == R.id.obfuscated_res_0x7f0903cc) {
+            } else if (id == R.id.obfuscated_res_0x7f0906e2 || id == R.id.obfuscated_res_0x7f0903cc) {
                 vs6.b(view2, qy5Var, 3);
             }
         }

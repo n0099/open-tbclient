@@ -63,9 +63,9 @@ public class qt6 extends an<zt6, ThreadCardViewHolder<zt6>> implements ck5 {
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void a(ArrayList<Integer> arrayList, String str, kp4 kp4Var) {
+        public void a(ArrayList<Integer> arrayList, String str, lp4 lp4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, arrayList, str, kp4Var) == null) || arrayList == null || kp4Var == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, arrayList, str, lp4Var) == null) || arrayList == null || lp4Var == null) {
                 return;
             }
             CustomMessage customMessage = new CustomMessage(2921425, this.a.j.getUniqueId());
@@ -77,16 +77,16 @@ public class qt6 extends an<zt6, ThreadCardViewHolder<zt6>> implements ck5 {
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void b(kp4 kp4Var, CompoundButton compoundButton, boolean z) {
+        public void b(lp4 lp4Var, CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kp4Var, compoundButton, z) == null) {
+            if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lp4Var, compoundButton, z) == null) {
             }
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void c(kp4 kp4Var) {
+        public void c(lp4 lp4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kp4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lp4Var) == null) {
             }
         }
     }
@@ -203,13 +203,13 @@ public class qt6 extends an<zt6, ThreadCardViewHolder<zt6>> implements ck5 {
             bVar.l().e(0);
             bVar.l().h(0);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.k));
-            threadCardViewHolder.k(this.i);
-            sx q = threadCardViewHolder.q(false);
-            q.u(this.m);
-            q.s(false);
-            q.t(this.a.getString(R.string.obfuscated_res_0x7f0f0421));
-            q.w(true);
-            q.g = true;
+            threadCardViewHolder.j(this.i);
+            sx p = threadCardViewHolder.p(false);
+            p.u(this.m);
+            p.s(false);
+            p.t(this.a.getString(R.string.obfuscated_res_0x7f0f0420));
+            p.w(true);
+            p.g = true;
             return threadCardViewHolder;
         }
         return (ThreadCardViewHolder) invokeL.objValue;
@@ -222,19 +222,19 @@ public class qt6 extends an<zt6, ThreadCardViewHolder<zt6>> implements ck5 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zt6Var, threadCardViewHolder})) == null) {
-            if (zt6Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null) {
+            if (zt6Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null) {
                 return null;
             }
             StatisticItem statisticItem = new StatisticItem("c13565");
             statisticItem.param("obj_source", zt6Var.g() ? 1 : 2);
             cy5.b().a(statisticItem);
-            threadCardViewHolder.c().q(i);
-            if (threadCardViewHolder.c() instanceof bk5) {
-                threadCardViewHolder.c().b(this.l);
+            threadCardViewHolder.b().q(i);
+            if (threadCardViewHolder.b() instanceof bk5) {
+                threadCardViewHolder.b().b(this.l);
             }
-            threadCardViewHolder.g(zt6Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            return threadCardViewHolder.b();
+            threadCardViewHolder.f(zt6Var);
+            threadCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

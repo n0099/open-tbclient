@@ -52,8 +52,8 @@ public class Enums {
         public static final LastLoginType CHOICE_SHARE;
         public static final LastLoginType CHOICE_SHARE_V2;
         public static final LastLoginType FACE;
-        public static final LastLoginType GLORY;
         public static final LastLoginType HISTORY;
+        public static final LastLoginType HONOR;
         public static final LastLoginType HUAWEI;
         public static final LastLoginType IQIYI;
         public static final LastLoginType MEIZU;
@@ -99,7 +99,7 @@ public class Enums {
             WEIBO = new LastLoginType("WEIBO", 6, "weibo", 5);
             QQ = new LastLoginType(Constants.SOURCE_QQ, 7, LoginConstants.QQ_LOGIN, 6);
             HUAWEI = new LastLoginType("HUAWEI", 8, RomUtils.MANUFACTURER_HUAWEI, 10);
-            GLORY = new LastLoginType("GLORY", 9, "huawei_glory", 23);
+            HONOR = new LastLoginType("HONOR", 9, "honor", 23);
             CFO = new LastLoginType("CFO", 10, "cfo", 60);
             YY = new LastLoginType("YY", 11, "yy", 100);
             XIAOMI = new LastLoginType("XIAOMI", 12, RomUtils.MANUFACTURER_XIAOMI, 13);
@@ -116,7 +116,7 @@ public class Enums {
             IQIYI = new LastLoginType("IQIYI", 23, "iqiyi", 22);
             LastLoginType lastLoginType = new LastLoginType("OTHER", 24, ImageViewerConfig.FROM_OTHER, -1);
             OTHER = lastLoginType;
-            $VALUES = new LastLoginType[]{NONE, PWD, SMS, FACE, TOUCHID, WECHAT, WEIBO, QQ, HUAWEI, GLORY, CFO, YY, XIAOMI, MEIZU, SLIENT_SHARE, CHOICE_SHARE, CHOICE_SHARE_V2, ONEKEYLOGIN_CM, ONEKEYLOGIN_CU, ONEKEYLOGIN_CT, SWITCH, QR, HISTORY, IQIYI, lastLoginType};
+            $VALUES = new LastLoginType[]{NONE, PWD, SMS, FACE, TOUCHID, WECHAT, WEIBO, QQ, HUAWEI, HONOR, CFO, YY, XIAOMI, MEIZU, SLIENT_SHARE, CHOICE_SHARE, CHOICE_SHARE_V2, ONEKEYLOGIN_CM, ONEKEYLOGIN_CU, ONEKEYLOGIN_CT, SWITCH, QR, HISTORY, IQIYI, lastLoginType};
         }
 
         public LastLoginType(String str, int i, String str2, int i2) {

@@ -4,30 +4,30 @@ import android.content.Context;
 import androidx.annotation.Nullable;
 /* loaded from: classes5.dex */
 public abstract class i<T> {
-    public boolean a;
-    public boolean b = false;
+    public boolean Dv;
+    public boolean anc = false;
 
     public i(boolean z) {
-        this.a = z;
+        this.Dv = z;
+    }
+
+    public final void aD(boolean z) {
+        this.Dv = z;
     }
 
     @Nullable
-    public final T a(Context context) {
-        if (this.a && !this.b) {
+    public final T bZ(Context context) {
+        if (this.Dv && !this.anc) {
             try {
-                return b(context);
+                return ca(context);
             } catch (Throwable th) {
-                com.kwad.sdk.core.d.b.b(th);
+                com.kwad.sdk.core.e.b.printStackTraceOnly(th);
                 return null;
             }
         }
         return null;
     }
 
-    public final void a(boolean z) {
-        this.a = z;
-    }
-
     @Nullable
-    public abstract T b(Context context);
+    public abstract T ca(Context context);
 }

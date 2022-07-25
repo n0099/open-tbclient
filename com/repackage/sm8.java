@@ -13,7 +13,7 @@ public class sm8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public aq4 b;
+    public bq4 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public sm8(MainTabActivity mainTabActivity, al8 al8Var) {
@@ -43,16 +43,16 @@ public class sm8 extends CustomMessageListener {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
             return;
         }
-        if (this.b != null || (customResponsedMessage.getData() instanceof aq4)) {
+        if (this.b != null || (customResponsedMessage.getData() instanceof bq4)) {
             if (customResponsedMessage.getData() != null) {
-                this.b = (aq4) customResponsedMessage.getData();
+                this.b = (bq4) customResponsedMessage.getData();
             }
             if (this.b == null || !TbadkCoreApplication.isLogin()) {
                 return;
             }
             yk8 yk8Var = this.a.x;
-            aq4 aq4Var = this.b;
-            yk8Var.j(aq4Var.a, aq4Var.b, aq4Var.c);
+            bq4 bq4Var = this.b;
+            yk8Var.j(bq4Var.a, bq4Var.b, bq4Var.c);
         }
     }
 }

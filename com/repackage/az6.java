@@ -472,7 +472,7 @@ public class az6 {
         if (builder.age_sex == null) {
             builder.age_sex = builder2.age_sex;
             if (builder2.age_sex != null) {
-                xt4.k().u("has_requested_new_user_guide", true);
+                yt4.k().u("has_requested_new_user_guide", true);
             }
         }
         if (builder2.interestion != null && builder != null && (list = builder.interestion) != null && list.size() == 0) {
@@ -582,7 +582,7 @@ public class az6 {
             String lengthLimitName = threadData.getLengthLimitName();
             String formatTimeForHomeC = StringHelper.getFormatTimeForHomeC(threadData.getLast_time_int() * 1000);
             if (!TextUtils.isEmpty(lengthLimitName) && !TextUtils.isEmpty(formatTimeForHomeC)) {
-                lengthLimitName = lengthLimitName + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1115) + "   " + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc) + formatTimeForHomeC;
+                lengthLimitName = lengthLimitName + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10d1) + "   " + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa5) + formatTimeForHomeC;
             }
             threadData.setThreadExtendInfo(lengthLimitName);
         }

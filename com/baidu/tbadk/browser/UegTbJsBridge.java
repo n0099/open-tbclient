@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bx4;
+import com.repackage.cx4;
 import com.repackage.dj8;
 import com.repackage.ei;
 import com.repackage.hj8;
 import com.repackage.ho;
-import com.repackage.l85;
+import com.repackage.m85;
 import com.repackage.xo8;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -75,7 +75,7 @@ public class UegTbJsBridge implements dj8 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             hj8 hj8Var = new hj8();
             try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, bx4.b()));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, cx4.b()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -162,7 +162,7 @@ public class UegTbJsBridge implements dj8 {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
             hj8 hj8Var = new hj8();
             if (z) {
-                l85.d();
+                m85.d();
             }
             return hj8Var;
         }
@@ -176,7 +176,7 @@ public class UegTbJsBridge implements dj8 {
             hj8 hj8Var = new hj8();
             ReadRecordsData readRecordsData = new ReadRecordsData(str, str2, str3, str4, str5);
             readRecordsData.C(true);
-            l85.e(str2, readRecordsData);
+            m85.e(str2, readRecordsData);
             return hj8Var;
         }
         return (hj8) invokeLLLLL.objValue;

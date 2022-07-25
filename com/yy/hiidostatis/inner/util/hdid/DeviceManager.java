@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.transition.Transition;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.utility.LocalConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -163,7 +162,7 @@ public final class DeviceManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             try {
-                return Coder.encryptMD5(UUID.randomUUID().toString() + System.currentTimeMillis() + System.nanoTime() + new Random().nextInt(LocalConstant.NEXTSUFFIX));
+                return Coder.encryptMD5(UUID.randomUUID().toString() + System.currentTimeMillis() + System.nanoTime() + new Random().nextInt(10000000));
             } catch (Throwable unused) {
                 return UUID.randomUUID().toString().replace("-", "");
             }

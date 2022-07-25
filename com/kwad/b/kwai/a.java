@@ -8,10 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-    public static final Boolean a;
-    public static final Boolean b;
-    public static final Boolean c;
-    public static final Boolean d;
+    public static final Boolean CK;
+    public static final Boolean CM;
+    public static final Boolean QK;
+    public static final Boolean QL;
+    public static final Boolean aw;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,10 +28,12 @@ public final class a {
                 return;
             }
         }
-        a = Boolean.TRUE;
-        Boolean bool = Boolean.FALSE;
-        b = bool;
-        c = bool;
-        d = Boolean.TRUE;
+        Boolean bool = Boolean.TRUE;
+        CK = bool;
+        QK = bool;
+        Boolean bool2 = Boolean.FALSE;
+        aw = bool2;
+        CM = bool2;
+        QL = Boolean.TRUE;
     }
 }

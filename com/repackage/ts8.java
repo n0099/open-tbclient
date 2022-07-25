@@ -32,9 +32,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 /* loaded from: classes7.dex */
-public class ts8 extends n15 {
+public class ts8 extends o15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NewWriteModel b;
@@ -74,10 +74,10 @@ public class ts8 extends n15 {
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.e
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, fy4 fy4Var, WriteData writeData, AntiData antiData) {
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, gy4 gy4Var, WriteData writeData, AntiData antiData) {
             String str;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, fy4Var, writeData, antiData}) == null) || this.a.b == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, gy4Var, writeData, antiData}) == null) || this.a.b == null) {
                 return;
             }
             if (this.a.a() != null) {
@@ -98,7 +98,7 @@ public class ts8 extends n15 {
                 this.a.q();
                 this.a.p();
                 if (writeData2 != null) {
-                    String string = this.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0fbb);
+                    String string = this.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0fa4);
                     if (postWriteCallBackData != null) {
                         str2 = postWriteCallBackData.getPreMsg();
                         String colorMsg = postWriteCallBackData.getColorMsg();
@@ -112,12 +112,12 @@ public class ts8 extends n15 {
                         rk8.b(this.a.getContext().getPageActivity(), string, str2, str);
                     }
                 }
-            } else if (writeData2 != null && fy4Var != null && !TextUtils.isEmpty(fy4Var.d())) {
-                writeData2.setVcodeMD5(fy4Var.b());
-                writeData2.setVcodeUrl(fy4Var.c());
-                writeData2.setVcodeExtra(fy4Var.a());
-                if (ve5.b(fy4Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.e.getPageActivity(), 12006, writeData2, false, fy4Var.d())));
+            } else if (writeData2 != null && gy4Var != null && !TextUtils.isEmpty(gy4Var.d())) {
+                writeData2.setVcodeMD5(gy4Var.b());
+                writeData2.setVcodeUrl(gy4Var.c());
+                writeData2.setVcodeExtra(gy4Var.a());
+                if (ve5.b(gy4Var.d())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.e.getPageActivity(), 12006, writeData2, false, gy4Var.d())));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.e.getPageActivity(), writeData2, 12006)));
                 }
@@ -140,7 +140,7 @@ public class ts8 extends n15 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -160,11 +160,11 @@ public class ts8 extends n15 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -353,8 +353,8 @@ public class ts8 extends n15 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (a() != null) {
-                a().A(new j15(9, -1, Boolean.TRUE));
-                a().A(new j15(4, -1, ""));
+                a().A(new k15(9, -1, Boolean.TRUE));
+                a().A(new k15(4, -1, ""));
                 a().o();
             }
             d dVar = this.j;
@@ -424,10 +424,10 @@ public class ts8 extends n15 {
     public final void x(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            cr4 cr4Var = new cr4(getContext().getPageActivity());
-            cr4Var.setMessage(str);
-            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f099e, new b(this));
-            cr4Var.create(getContext()).show();
+            dr4 dr4Var = new dr4(getContext().getPageActivity());
+            dr4Var.setMessage(str);
+            dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0989, new b(this));
+            dr4Var.create(getContext()).show();
         }
     }
 

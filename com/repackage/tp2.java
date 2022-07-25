@@ -1,100 +1,99 @@
 package com.repackage;
 
 import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class tp2 extends e23 {
+public class tp2 extends vp2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sp2 c;
-    public wp2 d;
-    public vp2 e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755283141, "Lcom/repackage/tp2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755283141, "Lcom/repackage/tp2;");
+                return;
+            }
+        }
+        boolean z = sg1.a;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tp2(e13 e13Var) {
-        super(e13Var, "/swanAPI/vrvideo");
+    public tp2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.repackage.e23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.vp2
+    public boolean a(qp2 qp2Var, sp2 sp2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
-            hx1.b("VrVideoPlayerAction", "handle entity: ", unitedSchemeEntity);
-            return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{qp2Var, sp2Var, context, unitedSchemeEntity, callbackHandler, i03Var})) == null) {
+            ix1.i("vrvideo", "open, video id:" + sp2Var.j + " slave id: " + sp2Var.c);
+            d(qp2Var, sp2Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return invokeLLLL.booleanValue;
+        return invokeCommon.booleanValue;
     }
 
-    @Override // com.repackage.e23
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, h03 h03Var) {
+    @Override // com.repackage.vp2
+    public qp2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
-        char c;
-        boolean c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, h03Var)) == null) {
-            hx1.b("VrVideoPlayerAction", "handleSubAction subAction : " + str + "params : ", e23.a(unitedSchemeEntity, "params"));
-            int hashCode = str.hashCode();
-            if (hashCode == 533456719) {
-                if (str.equals("/swanAPI/vrvideo/open")) {
-                    c = 0;
-                }
-                c = 65535;
-            } else if (hashCode != 1626770505) {
-                if (hashCode == 1722535054 && str.equals("/swanAPI/vrvideo/update")) {
-                    c = 1;
-                }
-                c = 65535;
-            } else {
-                if (str.equals("/swanAPI/vrvideo/remove")) {
-                    c = 2;
-                }
-                c = 65535;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return null;
             }
-            if (c == 0) {
-                if (this.c == null) {
-                    this.c = new sp2("/swanAPI/vrvideo/open");
-                }
-                c2 = this.c.c(context, unitedSchemeEntity, callbackHandler, h03Var);
-            } else if (c == 1) {
-                if (this.d == null) {
-                    this.d = new wp2("/swanAPI/vrvideo/update");
-                }
-                c2 = this.d.c(context, unitedSchemeEntity, callbackHandler, h03Var);
-            } else if (c != 2) {
-                c2 = false;
-            } else {
-                if (this.e == null) {
-                    this.e = new vp2("/swanAPI/vrvideo/remove");
-                }
-                c2 = this.e.c(context, unitedSchemeEntity, callbackHandler, h03Var);
+            gn2 f = hn2.f(str, str2, str3);
+            if (f == null) {
+                return new qp2(context, sp2.h(jSONObject, new sp2()));
             }
-            return c2 || super.i(context, unitedSchemeEntity, callbackHandler, str, h03Var);
+            if (f.i() instanceof qp2) {
+                return (qp2) f.i();
+            }
+            return null;
         }
-        return invokeLLLLL.booleanValue;
+        return (qp2) invokeLLLLL.objValue;
+    }
+
+    public final void d(qp2 qp2Var, sp2 sp2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, qp2Var, sp2Var, unitedSchemeEntity, callbackHandler) == null) {
+            qp2Var.g(sp2Var);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        }
     }
 }

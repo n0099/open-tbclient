@@ -1,43 +1,90 @@
 package com.repackage;
 
 import android.os.Bundle;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface f42 {
-    public static final f42 a = new a();
+public final class f42 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public g42 a;
 
-    /* loaded from: classes6.dex */
-    public static class a implements f42 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755757875, "Lcom/repackage/f42;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755757875, "Lcom/repackage/f42;");
+                return;
             }
         }
+        b = sg1.a;
+    }
 
-        @Override // com.repackage.f42
-        public boolean a(PrefetchEvent prefetchEvent, PMSAppInfo pMSAppInfo, Bundle bundle) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, prefetchEvent, pMSAppInfo, bundle)) == null) ? pMSAppInfo != null && pMSAppInfo.appCategory == 0 : invokeLLL.booleanValue;
+    public f42() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = g42.a;
+    }
+
+    public final void a(@NonNull hx2 hx2Var, @NonNull PrefetchEvent prefetchEvent, @Nullable PMSAppInfo pMSAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, hx2Var, prefetchEvent, pMSAppInfo) == null) {
+            Bundle bundle = new Bundle();
+            bundle.setClassLoader(PrefetchEvent.class.getClassLoader());
+            bundle.putParcelable("swan_app_bundle_prefetch", prefetchEvent);
+            if (pMSAppInfo == null) {
+                pMSAppInfo = d84.i().u(prefetchEvent.appId);
+            }
+            if (pMSAppInfo == null) {
+                return;
+            }
+            bundle.putParcelable("swan_app_prefetch_pms_info", pMSAppInfo);
+            if (this.a.a(prefetchEvent, pMSAppInfo, bundle)) {
+                yw2 e = yw2.e();
+                ax2 ax2Var = new ax2(120, bundle);
+                ax2Var.b(hx2Var.b);
+                ax2Var.p(false);
+                e.h(ax2Var);
+            }
         }
     }
 
-    boolean a(PrefetchEvent prefetchEvent, PMSAppInfo pMSAppInfo, Bundle bundle);
+    public void b(@NonNull PrefetchEvent prefetchEvent, @NonNull hx2 hx2Var, @Nullable PMSAppInfo pMSAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, prefetchEvent, hx2Var, pMSAppInfo) == null) {
+            a(hx2Var, prefetchEvent, pMSAppInfo);
+            hx2Var.j0(prefetchEvent);
+            if (b) {
+                Log.d("PrefetchMessenger", "onPrefetchReady event: " + prefetchEvent);
+                Log.d("PrefetchMessenger", "onPrefetchReady client id: " + hx2Var.b.index);
+            }
+        }
+    }
 }

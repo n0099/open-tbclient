@@ -170,22 +170,17 @@ public class FaceActionLive {
                         if (index == 0) {
                             return;
                         }
-                        int i = -1;
                         byte[] modelContent = FileUitls.getModelContent(this.val$context, this.val$eyecloseModel);
                         byte[] modelContent2 = FileUitls.getModelContent(this.val$context, this.val$mouthcloseModel);
                         if (modelContent.length == 0 || modelContent2.length == 0) {
                             return;
                         }
-                        try {
-                            i = this.this$0.nativeActionLiveModelInit(index, modelContent, modelContent2);
-                        } catch (Throwable th) {
-                            th.printStackTrace();
-                        }
+                        int nativeActionLiveModelInit = this.this$0.nativeActionLiveModelInit(index, modelContent, modelContent2);
                         Callback callback2 = this.val$callback;
-                        if (i == 0) {
-                            callback2.onResponse(i, "动作活体模型加载成功");
+                        if (nativeActionLiveModelInit == 0) {
+                            callback2.onResponse(nativeActionLiveModelInit, "动作活体模型加载成功");
                         } else {
-                            callback2.onResponse(i, "动作活体模型加载失败");
+                            callback2.onResponse(nativeActionLiveModelInit, "动作活体模型加载失败");
                         }
                     }
                 }
@@ -203,11 +198,7 @@ public class FaceActionLive {
         if (index == 0) {
             return;
         }
-        try {
-            nativeActionLoadConfig(index, bDFaceSDKActionConfig);
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
+        nativeActionLoadConfig(index, bDFaceSDKActionConfig);
     }
 
     public int uninitActionLiveModel() {
@@ -218,12 +209,7 @@ public class FaceActionLive {
             if (index == 0) {
                 return -1;
             }
-            try {
-                return nativeUninitActionLiveModel(index);
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return -1;
-            }
+            return nativeUninitActionLiveModel(index);
         }
         return invokeV.intValue;
     }

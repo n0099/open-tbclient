@@ -250,7 +250,7 @@ public class z47 extends b9<OfficialBarTipActivity> {
         this.h = false;
         this.i = null;
         this.k = false;
-        officialBarTipActivity.setContentView(R.layout.obfuscated_res_0x7f0d0643);
+        officialBarTipActivity.setContentView(R.layout.obfuscated_res_0x7f0d064d);
         this.f = officialBarTipActivity;
         p(officialBarTipActivity);
         q(officialBarTipActivity);
@@ -272,16 +272,16 @@ public class z47 extends b9<OfficialBarTipActivity> {
     public final void o(OfficialBarTipActivity officialBarTipActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, officialBarTipActivity) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) officialBarTipActivity.findViewById(R.id.obfuscated_res_0x7f0920a6);
+            RelativeLayout relativeLayout = (RelativeLayout) officialBarTipActivity.findViewById(R.id.obfuscated_res_0x7f0920aa);
             this.i = relativeLayout;
-            TextView textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090752);
+            TextView textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090751);
             this.l = textView;
             textView.setOnClickListener(new c(this, officialBarTipActivity));
-            this.j = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091cf2);
+            this.j = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091cf8);
             int f = pi.f(this.f.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070225);
             Drawable drawable = SkinManager.getDrawable(R.drawable.btn_bgb_choice_n);
             drawable.setBounds(0, 0, f, f);
-            this.j.setText(this.f.getPageContext().getString(R.string.obfuscated_res_0x7f0f10ec));
+            this.j.setText(this.f.getPageContext().getString(R.string.obfuscated_res_0x7f0f10a8));
             this.j.setCompoundDrawables(drawable, null, null, null);
             this.j.setOnClickListener(new d(this));
         }
@@ -310,21 +310,21 @@ public class z47 extends b9<OfficialBarTipActivity> {
     public final void p(OfficialBarTipActivity officialBarTipActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, officialBarTipActivity) == null) {
-            NavigationBar navigationBar = (NavigationBar) officialBarTipActivity.findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) officialBarTipActivity.findViewById(R.id.obfuscated_res_0x7f092439);
             this.c = navigationBar;
-            navigationBar.setCenterTextTitle(officialBarTipActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f122c));
+            navigationBar.setCenterTextTitle(officialBarTipActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f11db));
             this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this, officialBarTipActivity));
             this.c.showBottomLine();
-            ViewGroup viewGroup = (ViewGroup) officialBarTipActivity.findViewById(R.id.obfuscated_res_0x7f091b72);
+            ViewGroup viewGroup = (ViewGroup) officialBarTipActivity.findViewById(R.id.obfuscated_res_0x7f091b4c);
             this.g = viewGroup;
-            this.e = (NoNetworkView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091607);
+            this.e = (NoNetworkView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0915e2);
             View inflate = LayoutInflater.from(this.f.getBaseContext()).inflate(R.layout.obfuscated_res_0x7f0d03b5, (ViewGroup) null);
             this.m = inflate;
             inflate.setVisibility(8);
             TextView textView = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f090259);
             this.n = textView;
             textView.setVisibility(8);
-            TextView textView2 = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f09081f);
+            TextView textView2 = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f09081d);
             this.o = textView2;
             textView2.setVisibility(0);
             this.m = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.m, (View.OnClickListener) null);
@@ -335,11 +335,11 @@ public class z47 extends b9<OfficialBarTipActivity> {
     public final void q(OfficialBarTipActivity officialBarTipActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, officialBarTipActivity) == null) {
-            this.a = (BdListView) officialBarTipActivity.findViewById(R.id.obfuscated_res_0x7f0914c4);
+            this.a = (BdListView) officialBarTipActivity.findViewById(R.id.obfuscated_res_0x7f09149f);
             OfficialBarTipListAdapter officialBarTipListAdapter = new OfficialBarTipListAdapter(officialBarTipActivity);
             this.b = officialBarTipListAdapter;
             this.a.setAdapter((ListAdapter) officialBarTipListAdapter);
-            this.d = NoDataViewFactory.a(officialBarTipActivity.getPageContext().getPageActivity(), this.g, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0cbf), null);
+            this.d = NoDataViewFactory.a(officialBarTipActivity.getPageContext().getPageActivity(), this.g, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0cab), null);
         }
     }
 
@@ -375,7 +375,7 @@ public class z47 extends b9<OfficialBarTipActivity> {
             this.n.setVisibility(8);
             this.b.s(false);
             this.b.notifyDataSetChanged();
-            this.o.setText(officialBarTipActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f051e));
+            this.o.setText(officialBarTipActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f051a));
             this.h = false;
         }
     }
@@ -409,7 +409,7 @@ public class z47 extends b9<OfficialBarTipActivity> {
             }
             Drawable drawable2 = SkinManager.getDrawable(R.drawable.btn_bgb_choice_n);
             drawable2.setBounds(0, 0, f, f);
-            this.j.setText(this.f.getPageContext().getString(R.string.obfuscated_res_0x7f0f10ec));
+            this.j.setText(this.f.getPageContext().getString(R.string.obfuscated_res_0x7f0f10a8));
             this.j.setCompoundDrawables(drawable2, null, null, null);
             t(false);
             this.k = false;

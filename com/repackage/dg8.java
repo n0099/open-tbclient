@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lq4;
+import com.repackage.mq4;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class dg8 {
@@ -35,15 +35,15 @@ public class dg8 {
     public class a extends ig<ym> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lq4 a;
+        public final /* synthetic */ mq4 a;
         public final /* synthetic */ dg8 b;
 
-        public a(dg8 dg8Var, lq4 lq4Var) {
+        public a(dg8 dg8Var, mq4 mq4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dg8Var, lq4Var};
+                Object[] objArr = {dg8Var, mq4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,7 +54,7 @@ public class dg8 {
                 }
             }
             this.b = dg8Var;
-            this.a = lq4Var;
+            this.a = mq4Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -103,8 +103,8 @@ public class dg8 {
         this.a = new NewStyleStampDialogView(TbadkCoreApplication.getInst().getContext());
     }
 
-    public static /* synthetic */ void c(dr4 dr4Var, TbPageContext tbPageContext, View view2) {
-        dr4Var.a();
+    public static /* synthetic */ void c(er4 er4Var, TbPageContext tbPageContext, View view2) {
+        er4Var.a();
         if (tbPageContext != null) {
             UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{"https://tieba.baidu.com/mo/q/icon/panelIcon?opacity=0&user_id=" + TbadkCoreApplication.getCurrentAccount()});
             h();
@@ -125,12 +125,12 @@ public class dg8 {
         }
     }
 
-    public /* synthetic */ void d(dr4 dr4Var, lq4 lq4Var, Activity activity, View view2) {
-        lq4.a i;
-        dr4Var.a();
+    public /* synthetic */ void d(er4 er4Var, mq4 mq4Var, Activity activity, View view2) {
+        mq4.a i;
+        er4Var.a();
         fg8 fg8Var = new fg8();
         NewStyleStampDialogView newStyleStampDialogView = this.a;
-        if (newStyleStampDialogView != null && lq4Var != null && (i = newStyleStampDialogView.i(lq4Var.a())) != null) {
+        if (newStyleStampDialogView != null && mq4Var != null && (i = newStyleStampDialogView.i(mq4Var.a())) != null) {
             fg8Var.g(i.c());
             fg8Var.h(i.b());
         }
@@ -138,47 +138,47 @@ public class dg8 {
         j();
     }
 
-    public final void e(lq4 lq4Var) {
-        List<lq4.a> a2;
+    public final void e(mq4 mq4Var) {
+        List<mq4.a> a2;
         ym ymVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lq4Var) == null) || (a2 = lq4Var.a()) == null || a2.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mq4Var) == null) || (a2 = mq4Var.a()) == null || a2.size() <= 0) {
             return;
         }
-        for (lq4.a aVar : a2) {
+        for (mq4.a aVar : a2) {
             if (!StringUtils.isNull(aVar.c()) && ((ymVar = (ym) jg.h().n(aVar.c(), 10, new Object[0])) == null || !ymVar.w())) {
                 jg.h().m(aVar.c(), 10, null, c);
             }
         }
     }
 
-    public void f(lq4 lq4Var) {
-        lq4.a i;
+    public void f(mq4 mq4Var) {
+        mq4.a i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lq4Var) == null) || (i = this.a.i(lq4Var.a())) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mq4Var) == null) || (i = this.a.i(mq4Var.a())) == null) {
             return;
         }
-        this.b = new a(this, lq4Var);
+        this.b = new a(this, mq4Var);
         ym ymVar = (ym) jg.h().n(i.c(), 10, new Object[0]);
         if (ymVar != null && ymVar.w()) {
-            g(lq4Var);
-            e(lq4Var);
+            g(mq4Var);
+            e(mq4Var);
             return;
         }
         jg.h().m(i.c(), 10, this.b, c);
     }
 
-    public final void g(final lq4 lq4Var) {
+    public final void g(final mq4 mq4Var) {
         final Activity currentActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, lq4Var) == null) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, mq4Var) == null) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null) {
             return;
         }
         final TbPageContext pageContext = currentActivity instanceof TbPageContextSupport ? ((TbPageContextSupport) currentActivity).getPageContext() : null;
-        this.a.setStampData(lq4Var);
-        final dr4 dr4Var = new dr4(currentActivity);
-        dr4Var.c(this.a);
-        dr4Var.d();
+        this.a.setStampData(mq4Var);
+        final er4 er4Var = new er4(currentActivity);
+        er4Var.c(this.a);
+        er4Var.d();
         this.a.getImgStampDialogCancelView().setOnClickListener(new View.OnClickListener() { // from class: com.repackage.zf8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -187,7 +187,7 @@ public class dg8 {
             public final void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                    dr4.this.a();
+                    er4.this.a();
                 }
             }
         });
@@ -199,7 +199,7 @@ public class dg8 {
             public final void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                    dg8.c(dr4.this, pageContext, view2);
+                    dg8.c(er4.this, pageContext, view2);
                 }
             }
         });
@@ -211,7 +211,7 @@ public class dg8 {
             public final void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                    dg8.this.d(dr4Var, lq4Var, currentActivity, view2);
+                    dg8.this.d(er4Var, mq4Var, currentActivity, view2);
                 }
             }
         });

@@ -1,48 +1,38 @@
 package com.kwad.sdk.collector;
 
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.kwad.sdk.utils.ag;
+import com.kwad.sdk.utils.ah;
+import com.kwad.sdk.utils.aj;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public final class f {
     @Nullable
-    public static JSONArray a(Context context) {
-        List<g> c = c(context);
-        c.add(b(context));
-        return g.a(c);
+    public static JSONArray aL(Context context) {
+        List<g> aN = aN(context);
+        aN.add(aM(context));
+        return g.l(aN);
     }
 
-    public static g b(Context context) {
-        boolean a = ag.a(context);
-        com.kwad.sdk.core.d.b.a("InfoCollector", "queryAccessibilityServicePermission result: " + a);
-        return new g("android.permission.BIND_ACCESSIBILITY_SERVICE", a ? g.b : g.c);
+    public static g aM(Context context) {
+        boolean cF = aj.cF(context);
+        com.kwad.sdk.core.e.b.d("InfoCollector", "queryAccessibilityServicePermission result: " + cF);
+        return new g(com.kuaishou.weapon.p0.h.k, cF ? g.PERMISSION_GRANTED : g.PERMISSION_DENIED);
     }
 
     @NonNull
-    public static List<g> c(Context context) {
-        String[] strArr;
+    public static List<g> aN(Context context) {
+        String[] cE;
         ArrayList arrayList = new ArrayList();
-        if (context == null) {
-            return arrayList;
-        }
-        try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 4096);
-            if (packageInfo != null && (strArr = packageInfo.requestedPermissions) != null) {
-                for (String str : strArr) {
-                    int a = ag.a(context, str);
-                    arrayList.add(new g(str, a == 0 ? g.b : a == -1 ? g.c : g.a));
-                }
+        if (context != null && (cE = ah.cE(context)) != null) {
+            for (String str : cE) {
+                int Y = aj.Y(context, str);
+                arrayList.add(new g(str, Y == 0 ? g.PERMISSION_GRANTED : Y == -1 ? g.PERMISSION_DENIED : g.SP));
             }
-            return arrayList;
-        } catch (PackageManager.NameNotFoundException e) {
-            com.kwad.sdk.core.d.b.a(e);
-            return arrayList;
         }
+        return arrayList;
     }
 }

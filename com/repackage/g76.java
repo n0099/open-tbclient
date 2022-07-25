@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class g76 extends e85<lo4, z46> {
+public class g76 extends f85<mo4, z46> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
@@ -82,7 +82,7 @@ public class g76 extends e85<lo4, z46> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log("c13386");
-                this.b.q.dispatchMvcEvent(new x75(15, this.a, null, null));
+                this.b.q.dispatchMvcEvent(new y75(15, this.a, null, null));
             }
         }
     }
@@ -91,15 +91,15 @@ public class g76 extends e85<lo4, z46> {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lo4 a;
+        public final /* synthetic */ mo4 a;
         public final /* synthetic */ g76 b;
 
-        public b(g76 g76Var, lo4 lo4Var) {
+        public b(g76 g76Var, mo4 mo4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g76Var, lo4Var};
+                Object[] objArr = {g76Var, mo4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -110,7 +110,7 @@ public class g76 extends e85<lo4, z46> {
                 }
             }
             this.b = g76Var;
-            this.a = lo4Var;
+            this.a = mo4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -120,9 +120,9 @@ public class g76 extends e85<lo4, z46> {
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("info_forum_image_rect", this.b.m());
                 bundle.putParcelable("info_forum_name_rect", this.b.n());
-                x75 x75Var = new x75(1, this.a, null, null);
-                x75Var.g(bundle);
-                this.b.q.dispatchMvcEvent(x75Var);
+                y75 y75Var = new y75(1, this.a, null, null);
+                y75Var.g(bundle);
+                this.b.q.dispatchMvcEvent(y75Var);
             }
         }
     }
@@ -131,15 +131,15 @@ public class g76 extends e85<lo4, z46> {
     public class c implements View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lo4 a;
+        public final /* synthetic */ mo4 a;
         public final /* synthetic */ g76 b;
 
-        public c(g76 g76Var, lo4 lo4Var) {
+        public c(g76 g76Var, mo4 mo4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g76Var, lo4Var};
+                Object[] objArr = {g76Var, mo4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -150,7 +150,7 @@ public class g76 extends e85<lo4, z46> {
                 }
             }
             this.b = g76Var;
-            this.a = lo4Var;
+            this.a = mo4Var;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -158,7 +158,7 @@ public class g76 extends e85<lo4, z46> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                this.b.q.dispatchMvcEvent(new x75(12, this.a, null, null));
+                this.b.q.dispatchMvcEvent(new y75(12, this.a, null, null));
                 return true;
             }
             return invokeL.booleanValue;
@@ -225,21 +225,21 @@ public class g76 extends e85<lo4, z46> {
             }
         }
         this.q = viewEventCenter;
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091b73);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091b4d);
         this.f = findViewById;
-        this.g = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f09155e);
-        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091314);
-        this.i = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0918eb);
-        this.j = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0921d3);
-        this.k = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090820);
-        this.l = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091d86);
-        this.m = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090c91);
-        this.n = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0916a7);
-        this.r = this.f.findViewById(R.id.obfuscated_res_0x7f0908c0);
-        this.s = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0921fb);
-        this.o = (BarImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0909fc);
-        this.t = this.f.findViewById(R.id.obfuscated_res_0x7f090a6f);
-        this.p = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090a2e);
+        this.g = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091539);
+        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0912f0);
+        this.i = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0918c6);
+        this.j = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0921d5);
+        this.k = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09081e);
+        this.l = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091d8c);
+        this.m = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090c8a);
+        this.n = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091682);
+        this.r = this.f.findViewById(R.id.obfuscated_res_0x7f0908be);
+        this.s = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0921fd);
+        this.o = (BarImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0909f5);
+        this.t = this.f.findViewById(R.id.obfuscated_res_0x7f090a68);
+        this.p = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090a27);
         this.o.setPlaceHolder(1);
         this.o.setStrokeColorResId(R.color.CAM_X0201);
     }
@@ -267,16 +267,16 @@ public class g76 extends e85<lo4, z46> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.h85
+    @Override // com.repackage.i85
     /* renamed from: o */
-    public void f(lo4 lo4Var) {
+    public void f(mo4 mo4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, lo4Var) == null) {
-            super.f(lo4Var);
-            if (lo4Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, mo4Var) == null) {
+            super.f(mo4Var);
+            if (mo4Var == null) {
                 return;
             }
-            r(lo4Var);
+            r(mo4Var);
             SkinManager.setBackgroundColor(this.r, R.color.CAM_X0205);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f0808ed, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
@@ -288,7 +288,7 @@ public class g76 extends e85<lo4, z46> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, tbPageContext, i)) == null) {
-            ga5.a(tbPageContext, c());
+            ha5.a(tbPageContext, c());
             return true;
         }
         return invokeLI.booleanValue;
@@ -303,7 +303,7 @@ public class g76 extends e85<lo4, z46> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.h85
+    @Override // com.repackage.i85
     /* renamed from: q */
     public void h(z46 z46Var) {
         Interceptable interceptable = $ic;
@@ -317,10 +317,10 @@ public class g76 extends e85<lo4, z46> {
         }
     }
 
-    public final void r(lo4 lo4Var) {
+    public final void r(mo4 mo4Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, lo4Var) == null) || lo4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mo4Var) == null) || mo4Var == null) {
             return;
         }
         z46 z46Var = (z46) d();
@@ -328,8 +328,8 @@ public class g76 extends e85<lo4, z46> {
         int i2 = 0;
         this.f.setVisibility(0);
         this.g.setVisibility(0);
-        if (lo4Var instanceof c56) {
-            c56 c56Var = (c56) lo4Var;
+        if (mo4Var instanceof c56) {
+            c56 c56Var = (c56) mo4Var;
             this.g.setText(c56Var.o());
             this.l.setVisibility(c56Var.G() == 0 ? 8 : 0);
             if (c56Var.m() == 0) {
@@ -349,7 +349,7 @@ public class g76 extends e85<lo4, z46> {
             } else {
                 SkinManager.setBackgroundColor(this.t, R.color.transparent);
             }
-            this.p.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f088d), StringHelper.numberUniformFormatExtraWithRoundInt(c56Var.A())));
+            this.p.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0878), StringHelper.numberUniformFormatExtraWithRoundInt(c56Var.A())));
             SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0109);
             if (YYLiveUtil.isLiveRoom(c56Var.o())) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
@@ -390,12 +390,12 @@ public class g76 extends e85<lo4, z46> {
             }
             i2 = i;
             this.k.setOnClickListener(new a(this, c56Var));
-        } else if (lo4Var instanceof cq4) {
-            cq4 cq4Var = (cq4) lo4Var;
-            this.g.setText(cq4Var.k());
+        } else if (mo4Var instanceof dq4) {
+            dq4 dq4Var = (dq4) mo4Var;
+            this.g.setText(dq4Var.k());
             this.l.setVisibility(8);
             this.m.setVisibility(8);
-            if (YYLiveUtil.isLiveRoom(cq4Var.k())) {
+            if (YYLiveUtil.isLiveRoom(dq4Var.k())) {
                 StatisticItem statisticItem2 = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
                 TiebaStaticHelper.addYYParam(statisticItem2);
                 TiebaStatic.log(statisticItem2);
@@ -405,8 +405,8 @@ public class g76 extends e85<lo4, z46> {
         SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
         this.s.setVisibility(8);
-        this.f.setOnClickListener(new b(this, lo4Var));
-        this.f.setOnLongClickListener(new c(this, lo4Var));
+        this.f.setOnClickListener(new b(this, mo4Var));
+        this.f.setOnLongClickListener(new c(this, mo4Var));
         p(this.g, i2);
     }
 }

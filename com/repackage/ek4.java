@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public class ek4 extends yj4 {
+public class ek4 extends zj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,7 +26,7 @@ public class ek4 extends yj4 {
         }
     }
 
-    @Override // com.repackage.xj4
+    @Override // com.repackage.yj4
     public String a(String[] strArr, Map<String, String> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class ek4 extends yj4 {
                 return null;
             }
             String substring = strArr[0].substring(1);
-            StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/topicdetail");
-            sb.append("?topic_id=");
+            StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/pb");
+            sb.append("?tid=");
             sb.append(substring);
             c(strArr, sb, map, 1);
             return sb.toString();
@@ -44,10 +44,10 @@ public class ek4 extends yj4 {
         return (String) invokeLL.objValue;
     }
 
-    @Override // com.repackage.xj4
+    @Override // com.repackage.yj4
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "o" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "t" : (String) invokeV.objValue;
     }
 }

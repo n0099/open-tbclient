@@ -43,8 +43,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cn;
-import com.repackage.fu4;
 import com.repackage.gf;
+import com.repackage.gu4;
 import com.repackage.h66;
 import com.repackage.i76;
 import java.util.ArrayList;
@@ -55,8 +55,8 @@ public class d76 implements EnterForumAdView.c {
     public static boolean R;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
-    public fu4.g B;
-    public fu4.g C;
+    public gu4.g B;
+    public gu4.g C;
     public AbsListView.OnScrollListener D;
     public View.OnClickListener E;
     public int F;
@@ -73,15 +73,15 @@ public class d76 implements EnterForumAdView.c {
     public boolean Q;
     public Context a;
     public final EnterForumFragment b;
-    public gu4 c;
+    public hu4 c;
     public BdListView d;
     public t46 e;
     public List<c56> f;
-    public dq4 g;
+    public eq4 g;
     public ViewEventCenter h;
     public CommonTipView i;
     public View j;
-    public k55 k;
+    public l55 k;
     public View l;
     public EnterForumAdView m;
     public View n;
@@ -99,19 +99,19 @@ public class d76 implements EnterForumAdView.c {
     public boolean z;
 
     /* loaded from: classes5.dex */
-    public class a implements fu4.g {
+    public class a implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d76 a;
 
         /* renamed from: com.repackage.d76$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0613a implements Runnable {
+        public class RunnableC0458a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0613a(a aVar) {
+            public RunnableC0458a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -156,7 +156,7 @@ public class d76 implements EnterForumAdView.c {
             this.a = d76Var;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.P) {
@@ -177,7 +177,7 @@ public class d76 implements EnterForumAdView.c {
                     this.a.p0();
                     return;
                 }
-                qg.a().post(new RunnableC0613a(this));
+                qg.a().post(new RunnableC0458a(this));
             }
         }
     }
@@ -265,8 +265,8 @@ public class d76 implements EnterForumAdView.c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
-                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d083f, (ViewGroup) null);
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920b7)).setText(this.a.q);
+                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0849, (ViewGroup) null);
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920bb)).setText(this.a.q);
                 this.a.b.getPageContext().getLayoutMode().j(inflate);
                 return inflate;
             }
@@ -573,7 +573,7 @@ public class d76 implements EnterForumAdView.c {
                 if (z != null) {
                     z.setAlpha(abs);
                 }
-                View findViewById = this.b.b.u1().getRootView().findViewById(R.id.obfuscated_res_0x7f091edc);
+                View findViewById = this.b.b.u1().getRootView().findViewById(R.id.obfuscated_res_0x7f091ee0);
                 if (findViewById != null) {
                     findViewById.setAlpha(abs);
                 }
@@ -804,12 +804,12 @@ public class d76 implements EnterForumAdView.c {
 
             /* renamed from: com.repackage.d76$n$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0614a implements Runnable {
+            public class RunnableC0459a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0614a(a aVar) {
+                public RunnableC0459a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -872,7 +872,7 @@ public class d76 implements EnterForumAdView.c {
                     this.a.a.c.z();
                     this.a.a.d.z();
                     this.a.a.c.C(0, -this.a.a.c.p(), 0, 0);
-                    qg.a().postDelayed(new RunnableC0614a(this), 0L);
+                    qg.a().postDelayed(new RunnableC0459a(this), 0L);
                     this.a.a.d.setVisibility(0);
                 }
             }
@@ -960,10 +960,10 @@ public class d76 implements EnterForumAdView.c {
                 if (this.b.b.isPrimary() && this.a != 1 && i == 0) {
                     for (int i4 = i; i4 < i + i2; i4++) {
                         Object itemAtPosition = this.b.d.getItemAtPosition(i4);
-                        if (itemAtPosition != null && (itemAtPosition instanceof lo4)) {
-                            lo4 lo4Var = (lo4) itemAtPosition;
-                            if (lo4Var.c() == 1 && this.b.d.getItemAtPosition(i4) == ListUtils.getItem(this.b.f, 0)) {
-                                this.b.D0(lo4Var, this.b.d.getChildAt(i4).findViewById(R.id.obfuscated_res_0x7f090a2e));
+                        if (itemAtPosition != null && (itemAtPosition instanceof mo4)) {
+                            mo4 mo4Var = (mo4) itemAtPosition;
+                            if (mo4Var.c() == 1 && this.b.d.getItemAtPosition(i4) == ListUtils.getItem(this.b.f, 0)) {
+                                this.b.D0(mo4Var, this.b.d.getChildAt(i4).findViewById(R.id.obfuscated_res_0x7f090a27));
                             }
                         }
                     }
@@ -1364,23 +1364,23 @@ public class d76 implements EnterForumAdView.c {
             this.o.q();
             this.o.t();
             this.o.setCancelable(false);
-            xt4.k().u("has_guide_popup_window_been_shown", true);
+            yt4.k().u("has_guide_popup_window_been_shown", true);
             sg.i(this.o, this.b.getFragmentActivity());
         }
     }
 
-    public void D0(lo4 lo4Var, View view2) {
+    public void D0(mo4 mo4Var, View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, lo4Var, view2) == null) || !TbadkCoreApplication.isLogin() || R || this.b.getActivity() == null || this.b.getPageContext() == null || !(lo4Var instanceof c56)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, mo4Var, view2) == null) || !TbadkCoreApplication.isLogin() || R || this.b.getActivity() == null || this.b.getPageContext() == null || !(mo4Var instanceof c56)) {
             return;
         }
-        c56 c56Var = (c56) lo4Var;
-        if (c56Var.F() != 0 && c56Var.E() != 0 && !xt4.k().q("enter_forum_new_forum_long_press_guide", "").equals(c56Var.getId())) {
-            this.q = R.string.obfuscated_res_0x7f0f046a;
-        } else if (xt4.k().m("enter_forum_long_press_guide", 0L) != 0) {
+        c56 c56Var = (c56) mo4Var;
+        if (c56Var.F() != 0 && c56Var.E() != 0 && !yt4.k().q("enter_forum_new_forum_long_press_guide", "").equals(c56Var.getId())) {
+            this.q = R.string.obfuscated_res_0x7f0f0469;
+        } else if (yt4.k().m("enter_forum_long_press_guide", 0L) != 0) {
             return;
         } else {
-            this.q = R.string.obfuscated_res_0x7f0f0679;
+            this.q = R.string.obfuscated_res_0x7f0f0675;
         }
         if (view2 != null) {
             R = true;
@@ -1398,10 +1398,10 @@ public class d76 implements EnterForumAdView.c {
             this.p.l(true);
             this.p.m(this.b.getActivity());
             int i2 = this.q;
-            if (i2 == R.string.obfuscated_res_0x7f0f046a) {
-                xt4.k().y("enter_forum_new_forum_long_press_guide", c56Var.getId());
-            } else if (i2 == R.string.obfuscated_res_0x7f0f0679) {
-                xt4.k().x("enter_forum_long_press_guide", 1L);
+            if (i2 == R.string.obfuscated_res_0x7f0f0469) {
+                yt4.k().y("enter_forum_new_forum_long_press_guide", c56Var.getId());
+            } else if (i2 == R.string.obfuscated_res_0x7f0f0675) {
+                yt4.k().x("enter_forum_long_press_guide", 1L);
             }
             qg.a().postDelayed(new e(this), 5000L);
         }
@@ -1424,10 +1424,10 @@ public class d76 implements EnterForumAdView.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
             if (this.k == null) {
-                this.k = new k55(this.b.getPageContext().getContext(), new b(this));
+                this.k = new l55(this.b.getPageContext().getContext(), new b(this));
             }
             this.l = view2;
-            this.k.k(this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ad));
+            this.k.k(this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ab));
             this.k.attachView(view2, false);
             this.k.p();
             this.d.setVisibility(8);
@@ -1524,7 +1524,7 @@ public class d76 implements EnterForumAdView.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            b56 b56Var = new b56(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f88), false, true);
+            b56 b56Var = new b56(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f71), false, true);
             b56Var.g = R.dimen.M_W_X004;
             b56Var.h = R.dimen.tbds112;
             b56Var.j = R.dimen.M_W_X005;
@@ -1543,10 +1543,10 @@ public class d76 implements EnterForumAdView.c {
         return invokeV.intValue;
     }
 
-    public k55 T() {
+    public l55 T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.k : (k55) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.k : (l55) invokeV.objValue;
     }
 
     public void U() {
@@ -1562,9 +1562,9 @@ public class d76 implements EnterForumAdView.c {
     public void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            k55 k55Var = this.k;
-            if (k55Var != null) {
-                k55Var.dettachView(this.l);
+            l55 l55Var = this.k;
+            if (l55Var != null) {
+                l55Var.dettachView(this.l);
                 this.k = null;
                 this.l = null;
             }
@@ -1592,7 +1592,7 @@ public class d76 implements EnterForumAdView.c {
     public void X(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, view2) == null) {
-            EnterForumAdView enterForumAdView = (EnterForumAdView) view2.getRootView().findViewById(R.id.obfuscated_res_0x7f0908b4);
+            EnterForumAdView enterForumAdView = (EnterForumAdView) view2.getRootView().findViewById(R.id.obfuscated_res_0x7f0908b2);
             this.m = enterForumAdView;
             if (enterForumAdView != null) {
                 r0();
@@ -1611,7 +1611,7 @@ public class d76 implements EnterForumAdView.c {
             i76 i76Var = new i76();
             this.r = i76Var;
             i76Var.a(new s(this));
-            this.d = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f0912dd);
+            this.d = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f0912b9);
             w0(0);
             this.d.setBackgroundColor(0);
             this.d.setVerticalScrollBarEnabled(false);
@@ -1623,14 +1623,14 @@ public class d76 implements EnterForumAdView.c {
             if (this.b.w1() != null) {
                 this.b.w1().R(this);
             }
-            gu4 gu4Var = new gu4(this.b.getPageContext());
-            this.c = gu4Var;
-            gu4Var.B(new u(this));
+            hu4 hu4Var = new hu4(this.b.getPageContext());
+            this.c = hu4Var;
+            hu4Var.B(new u(this));
             this.c.a0(true);
             this.c.f(this.C);
-            gu4 gu4Var2 = this.c;
-            if (gu4Var2 != null) {
-                gu4Var2.b0(this.b.getUniqueId());
+            hu4 hu4Var2 = this.c;
+            if (hu4Var2 != null) {
+                hu4Var2.b0(this.b.getUniqueId());
             }
             this.d.setPullRefresh(this.c);
             FrameLayout frameLayout = new FrameLayout(this.b.getPageContext().getPageActivity());
@@ -1639,7 +1639,7 @@ public class d76 implements EnterForumAdView.c {
             frameLayout.addView(view3, new FrameLayout.LayoutParams(-1, this.x));
             this.d.getAdapter2().g(frameLayout, 0);
             this.j = new View(this.b.getActivity());
-            this.j.setLayoutParams(new AbsListView.LayoutParams(-1, pi.f(this.b.getActivity(), R.dimen.obfuscated_res_0x7f0702d4)));
+            this.j.setLayoutParams(new AbsListView.LayoutParams(-1, pi.f(this.b.getActivity(), R.dimen.obfuscated_res_0x7f0702d2)));
             this.j.setBackgroundResource(R.color.CAM_X0201);
             this.c.T(this.E);
             this.c.getView().setOnClickListener(this.E);
@@ -1657,7 +1657,7 @@ public class d76 implements EnterForumAdView.c {
     public final boolean a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? TbadkCoreApplication.isLogin() && !xt4.k().h("has_guide_popup_window_been_shown", false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? TbadkCoreApplication.isLogin() && !yt4.k().h("has_guide_popup_window_been_shown", false) : invokeV.booleanValue;
     }
 
     public boolean b0() {
@@ -1679,10 +1679,10 @@ public class d76 implements EnterForumAdView.c {
                 return;
             }
             if (z) {
-                this.j.getLayoutParams().height = pi.f(this.a, R.dimen.obfuscated_res_0x7f0702d4);
+                this.j.getLayoutParams().height = pi.f(this.a, R.dimen.obfuscated_res_0x7f0702d2);
                 return;
             }
-            this.j.getLayoutParams().height = pi.f(this.a, R.dimen.obfuscated_res_0x7f0702d4) + TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+            this.j.getLayoutParams().height = pi.f(this.a, R.dimen.obfuscated_res_0x7f0702d2) + TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
         }
     }
 
@@ -1699,13 +1699,13 @@ public class d76 implements EnterForumAdView.c {
             if (t46Var != null) {
                 t46Var.h(i2);
             }
-            gu4 gu4Var = this.c;
-            if (gu4Var != null) {
-                gu4Var.H(i2);
+            hu4 hu4Var = this.c;
+            if (hu4Var != null) {
+                hu4Var.H(i2);
             }
-            k55 k55Var = this.k;
-            if (k55Var != null) {
-                k55Var.onChangeSkinType();
+            l55 l55Var = this.k;
+            if (l55Var != null) {
+                l55Var.onChangeSkinType();
             }
             GuidePopupWindow guidePopupWindow = this.o;
             if (guidePopupWindow != null) {
@@ -1747,7 +1747,7 @@ public class d76 implements EnterForumAdView.c {
                     BdListView bdListView = this.d;
                     if (bdListView != null) {
                         Object itemAtPosition = this.d.getItemAtPosition(bdListView.getLastVisiblePosition());
-                        if (itemAtPosition != null && (itemAtPosition instanceof lo4) && ((lo4) itemAtPosition).c() == 5) {
+                        if (itemAtPosition != null && (itemAtPosition instanceof mo4) && ((mo4) itemAtPosition).c() == 5) {
                             this.e.o();
                         }
                     }
@@ -1773,15 +1773,15 @@ public class d76 implements EnterForumAdView.c {
     public void i0() {
         EnterForumFragment enterForumFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048607, this) == null) || TbadkCoreApplication.getCurrentAccount() != null || !xt4.k().h("enter_forum_login_tip", true) || (enterForumFragment = this.b) == null || enterForumFragment.getActivity() == null || this.b.v1() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048607, this) == null) || TbadkCoreApplication.getCurrentAccount() != null || !yt4.k().h("enter_forum_login_tip", true) || (enterForumFragment = this.b) == null || enterForumFragment.getActivity() == null || this.b.v1() == null) {
             return;
         }
         if (this.i == null) {
             this.i = new CommonTipView(this.b.getActivity());
         }
-        this.i.setText(R.string.obfuscated_res_0x7f0f0570);
+        this.i.setText(R.string.obfuscated_res_0x7f0f056c);
         this.i.k(this.b.v1(), TbadkCoreApplication.getInst().getSkinType());
-        xt4.k().u("enter_forum_login_tip", false);
+        yt4.k().u("enter_forum_login_tip", false);
     }
 
     public final void j0() {
@@ -1813,27 +1813,27 @@ public class d76 implements EnterForumAdView.c {
         }
     }
 
-    public void l0(List<c56> list, dq4 dq4Var, boolean z) {
+    public void l0(List<c56> list, eq4 eq4Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048610, this, list, dq4Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(1048610, this, list, eq4Var, z) == null) {
             this.m.setAdData();
             EnterForumDelegateStatic.e.H(this.a);
             this.f = list;
-            this.g = dq4Var;
+            this.g = eq4Var;
             ArrayList arrayList = new ArrayList();
             boolean z2 = !ListUtils.isEmpty(list);
             boolean z3 = !ListUtils.isEmpty(list);
             if (!TbadkCoreApplication.isLogin()) {
                 x46 x46Var = new x46();
-                x46Var.setTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b33));
+                x46Var.setTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b1f));
                 x46Var.g();
                 arrayList.add(x46Var);
             } else {
-                lo4 lo4Var = new lo4();
-                lo4Var.d(4);
-                arrayList.add(lo4Var);
+                mo4 mo4Var = new mo4();
+                mo4Var.d(4);
+                arrayList.add(mo4Var);
                 if (z3) {
-                    b56 b56Var = new b56(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b3d), z2, false);
+                    b56 b56Var = new b56(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b29), z2, false);
                     d56 d56Var = new d56();
                     d56Var.d = b56Var;
                     d56Var.e = list;
@@ -2005,7 +2005,7 @@ public class d76 implements EnterForumAdView.c {
             if (z != null) {
                 z.setAlpha(abs2);
             }
-            View findViewById = this.b.u1().getRootView().findViewById(R.id.obfuscated_res_0x7f091edc);
+            View findViewById = this.b.u1().getRootView().findViewById(R.id.obfuscated_res_0x7f091ee0);
             if (findViewById != null) {
                 findViewById.setAlpha(abs2);
             }
@@ -2043,7 +2043,7 @@ public class d76 implements EnterForumAdView.c {
         this.d.setLayoutParams(marginLayoutParams);
     }
 
-    public void v0(fu4.g gVar) {
+    public void v0(gu4.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048621, this, gVar) == null) {
             this.B = gVar;

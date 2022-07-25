@@ -1,10 +1,6 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,72 +9,67 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zm2 implements gq2 {
+public class zm2 implements hq2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
-    public en2 d;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755107278, "Lcom/repackage/zm2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755107278, "Lcom/repackage/zm2;");
-                return;
-            }
-        }
-        boolean z = rg1.a;
-    }
+    public bn2 a;
+    public int b;
+    public int c;
+    public int d;
+    public float e;
 
     public zm2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = "";
-        this.c = false;
+        this.b = 0;
+        this.c = -16777216;
+        this.d = -1;
+        this.e = 0.0f;
     }
 
-    @Override // com.repackage.gq2
+    @Override // com.repackage.hq2
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has(CriusAttrConstants.POSITION) && jSONObject.has("iconPath")) {
-            String optString = jSONObject.optString("controlId");
-            this.a = optString;
-            if (TextUtils.isEmpty(optString)) {
-                this.a = jSONObject.optString("id");
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("radius")) {
+            bn2 bn2Var = new bn2();
+            this.a = bn2Var;
+            bn2Var.a(jSONObject);
+            if (this.a.isValid()) {
+                this.b = vm2.a(jSONObject.optString("color"), 0);
+                this.c = vm2.a(jSONObject.optString("fillColor"), -16777216);
+                this.d = jSONObject.optInt("radius", -1);
+                this.e = Math.abs(vm2.b(jSONObject.optDouble("strokeWidth", 0.0d)));
             }
-            en2 en2Var = new en2();
-            this.d = en2Var;
-            en2Var.a(jSONObject.optJSONObject(CriusAttrConstants.POSITION));
-            this.b = jSONObject.optString("iconPath");
-            this.c = jSONObject.optBoolean("clickable");
         }
     }
 
-    @Override // com.repackage.gq2
+    @Override // com.repackage.hq2
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            en2 en2Var = this.d;
-            return (en2Var == null || !en2Var.isValid() || TextUtils.isEmpty(this.b)) ? false : true;
+            bn2 bn2Var = this.a;
+            return (bn2Var == null || !bn2Var.isValid() || this.d == -1) ? false : true;
         }
         return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "coordinate ->" + this.a + "color ->" + this.b + "fillColor ->" + this.c + "radius ->" + this.d + "strokeWidth ->" + this.e;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 /* loaded from: classes6.dex */
 public class ok7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
@@ -147,7 +147,7 @@ public class ok7 extends BaseAdapter {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements cr4.e {
+    public class d implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ok7 a;
@@ -170,11 +170,11 @@ public class ok7 extends BaseAdapter {
             this.a = ok7Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.a.a, 1, false, 6);
                 memberPayActivityConfig.setSceneId("4009001001");
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_TAILS_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
@@ -184,7 +184,7 @@ public class ok7 extends BaseAdapter {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements cr4.e {
+    public class e implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -204,11 +204,11 @@ public class ok7 extends BaseAdapter {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -481,8 +481,8 @@ public class ok7 extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || (a2 = h9.a(this.a)) == null) {
             return;
         }
-        cr4 cr4Var = new cr4(a2.getPageActivity());
-        cr4Var.setButtonTextColor(R.color.CAM_X0305);
-        cr4Var.setMessage(str).setNegativeButton(this.a.getString(R.string.obfuscated_res_0x7f0f036a), new e(this)).setPositiveButton(this.a.getString(R.string.obfuscated_res_0x7f0f0ce3), new d(this)).create(a2).show();
+        dr4 dr4Var = new dr4(a2.getPageActivity());
+        dr4Var.setButtonTextColor(R.color.CAM_X0305);
+        dr4Var.setMessage(str).setNegativeButton(this.a.getString(R.string.obfuscated_res_0x7f0f036a), new e(this)).setPositiveButton(this.a.getString(R.string.obfuscated_res_0x7f0f0ccf), new d(this)).create(a2).show();
     }
 }

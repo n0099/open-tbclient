@@ -56,8 +56,8 @@ public class dc6 extends an<lc6, CardViewHolder<pc6>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lc6Var, cardViewHolder})) == null) {
-            cardViewHolder.c().i(lc6Var);
-            return cardViewHolder.b();
+            cardViewHolder.b().i(lc6Var);
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

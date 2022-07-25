@@ -127,13 +127,13 @@ public class cu8 {
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 this.a.c.h(str);
                 this.a.d.coverPath = str;
-                o45 o45Var = new o45();
+                p45 p45Var = new p45();
                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                 imageFileInfo.setFilePath(str);
-                ImageOperation g = x45.g(pi.k(this.a.a.getPageActivity()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2), pi.f(this.a.a.getPageActivity(), R.dimen.tbds866));
+                ImageOperation g = y45.g(pi.k(this.a.a.getPageActivity()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2), pi.f(this.a.a.getPageActivity(), R.dimen.tbds866));
                 imageFileInfo.clearPageActions();
                 imageFileInfo.addPageAction(g);
-                o45Var.d(imageFileInfo, null, false);
+                p45Var.d(imageFileInfo, null, false);
             }
         }
     }

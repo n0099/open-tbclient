@@ -221,7 +221,7 @@ public class WorkPostNotifyFlutterData {
             videoInfo.postType = writeData.getType();
             videoInfo.videoUrl = videoInfo2.getVideoUrl();
             NewWriteThreadData4Flutter.Location location = new NewWriteThreadData4Flutter.Location();
-            location.name = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f151d);
+            location.name = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14cc);
             NewWriteThreadData4Flutter.Author author = new NewWriteThreadData4Flutter.Author();
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
             if (currentAccountInfo != null) {

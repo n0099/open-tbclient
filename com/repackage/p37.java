@@ -50,7 +50,7 @@ public class p37 {
             }
         }
         this.b = view2;
-        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090b11);
+        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090b0a);
         this.c = bdTypeRecyclerView;
         bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(bdTypeRecyclerView.getContext()));
         this.c.setFadingEdgeLength(0);
@@ -66,7 +66,7 @@ public class p37 {
         this.c.setNextPage(this.d);
         this.d.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.d.f();
-        this.d.C(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f09e7));
+        this.d.C(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f09d3));
         c();
         this.a = new n37(tbPageContext, this.c);
     }

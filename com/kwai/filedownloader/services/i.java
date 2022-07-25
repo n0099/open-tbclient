@@ -3,9 +3,9 @@ package com.kwai.filedownloader.services;
 import android.os.IBinder;
 /* loaded from: classes5.dex */
 public interface i {
-    void e();
+    void EC();
 
-    IBinder f();
+    IBinder ED();
 
-    void g();
+    void onDestroy();
 }

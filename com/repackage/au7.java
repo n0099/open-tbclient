@@ -51,7 +51,7 @@ public class au7 extends du7<ir7, PbChildTitleViewHolder> {
     public PbChildTitleViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbChildTitleViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0674, viewGroup, false)) : (PbChildTitleViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbChildTitleViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d067e, viewGroup, false)) : (PbChildTitleViewHolder) invokeL.objValue;
     }
 
     public View c0(int i, View view2, ViewGroup viewGroup, ir7 ir7Var, PbChildTitleViewHolder pbChildTitleViewHolder) {
@@ -59,8 +59,8 @@ public class au7 extends du7<ir7, PbChildTitleViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ir7Var, pbChildTitleViewHolder})) == null) {
             super.S(i, view2, viewGroup, ir7Var, pbChildTitleViewHolder);
-            pbChildTitleViewHolder.c(ir7Var);
-            pbChildTitleViewHolder.e();
+            pbChildTitleViewHolder.b(ir7Var);
+            pbChildTitleViewHolder.d();
             return view2;
         }
         return (View) invokeCommon.objValue;

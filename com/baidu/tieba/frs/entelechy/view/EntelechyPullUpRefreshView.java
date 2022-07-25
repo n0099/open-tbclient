@@ -74,7 +74,7 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
             return;
         }
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040639, R.attr.obfuscated_res_0x7f04063a});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04063b, R.attr.obfuscated_res_0x7f04063c});
             this.e = obtainStyledAttributes.getResourceId(1, R.drawable.icon_frs_reload);
             this.f = obtainStyledAttributes.getBoolean(0, false);
             obtainStyledAttributes.recycle();
@@ -89,7 +89,7 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
             addView(this.a);
         }
         this.b = new TbImageView(context);
-        int f = pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cd);
+        int f = pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cb);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(f, f);
         layoutParams.topMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
         this.b.setLayoutParams(layoutParams);

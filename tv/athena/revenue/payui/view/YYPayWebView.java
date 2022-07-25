@@ -298,7 +298,7 @@ public class YYPayWebView extends LinearLayout implements qz9, h0a.e {
     public final void i(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, attributeSet) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d066a, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0674, (ViewGroup) this, true);
             WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f0924ca);
             this.b = webView;
             this.e = context;

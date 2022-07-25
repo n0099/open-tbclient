@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cd5;
+import com.repackage.dd5;
 import com.repackage.ge5;
 import com.repackage.pi;
 import com.repackage.ty8;
@@ -84,7 +84,7 @@ public class StickerView extends ImageView {
     public final boolean b(ty8 ty8Var, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ty8Var, motionEvent)) == null) ? ge5.e(cd5.d(ty8Var.c(), ty8Var.b()), motionEvent.getX(), motionEvent.getY()) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ty8Var, motionEvent)) == null) ? ge5.e(dd5.d(ty8Var.c(), ty8Var.b()), motionEvent.getX(), motionEvent.getY()) : invokeLL.booleanValue;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -95,7 +95,7 @@ public class StickerView extends ImageView {
             return;
         }
         ty8Var.a(canvas);
-        float[] d = cd5.d(this.b.c(), this.b.b());
+        float[] d = dd5.d(this.b.c(), this.b.b());
         float f = d[0];
         float f2 = d[1];
         float f3 = d[2];

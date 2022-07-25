@@ -9,7 +9,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.mutiprocess.SubProcessManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -171,7 +170,7 @@ public class ForumSquareModel extends BdBaseModel {
                 if (!StringUtils.isNull(this.a.mErrorString)) {
                     str = this.a.mErrorString;
                 } else {
-                    str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c2b);
+                    str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                 }
                 ErrorData errorData = new ErrorData();
                 errorData.setError_code(this.a.mErrorCode);
@@ -326,7 +325,7 @@ public class ForumSquareModel extends BdBaseModel {
             if (count <= i) {
                 return 0;
             }
-            int max = Math.max(count + SubProcessManager.PROVIDER_ERROR_UNSUPPORT_OPERATION, 30);
+            int max = Math.max(count - 300, 30);
             int i2 = (count - max) / 2;
             int i3 = i2 + max;
             if (i2 <= 20 || i3 >= count - 20) {

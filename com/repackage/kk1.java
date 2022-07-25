@@ -1,22 +1,19 @@
 package com.repackage;
-
-import com.baidu.webkit.sdk.VideoPlayerFactory;
-import com.repackage.iz1;
 /* loaded from: classes6.dex */
 public interface kk1 {
-    int a();
+    void a(String str, pn2 pn2Var);
 
-    VideoPlayerFactory b();
+    int getDuration();
 
-    int c();
+    boolean isPlaying();
 
-    void d(boolean z);
+    void onRelease();
 
-    boolean e();
+    void pause();
 
-    boolean f();
+    void play();
 
-    void g(int i);
+    void seek(int i);
 
-    void h(iz1.c cVar);
+    void stop();
 }

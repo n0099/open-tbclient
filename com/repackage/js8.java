@@ -155,12 +155,12 @@ public class js8 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
-                View inflate = LayoutInflater.from(this.a.g).inflate(R.layout.obfuscated_res_0x7f0d08b9, (ViewGroup) null);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09211e);
-                TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09211d);
+                View inflate = LayoutInflater.from(this.a.g).inflate(R.layout.obfuscated_res_0x7f0d08c3, (ViewGroup) null);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092120);
+                TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09211f);
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
                 SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0101);
-                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092118)).setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809bf, SkinManager.getColor(R.color.CAM_X0101), null));
+                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09211a)).setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809bf, SkinManager.getColor(R.color.CAM_X0101), null));
                 textView.setText(this.a.a);
                 if (!StringUtils.isNull(this.a.b)) {
                     textView2.setText(this.a.b);

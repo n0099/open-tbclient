@@ -74,8 +74,8 @@ public class h97 implements i97 {
         if (childAt == null || childAt2 == null) {
             return;
         }
-        TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.obfuscated_res_0x7f091fa5);
-        TbRichTextView tbRichTextView2 = (TbRichTextView) childAt2.findViewById(R.id.obfuscated_res_0x7f091fa5);
+        TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.obfuscated_res_0x7f091fa9);
+        TbRichTextView tbRichTextView2 = (TbRichTextView) childAt2.findViewById(R.id.obfuscated_res_0x7f091fa9);
         if (chatMessageArr == null || chatMessageArr.length <= 1) {
             return;
         }

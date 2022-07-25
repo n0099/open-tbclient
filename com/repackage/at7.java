@@ -98,10 +98,10 @@ public class at7 extends an<vy5, ThreadCardViewHolder<vy5>> {
                 vy5 vy5Var = (vy5) nnVar;
                 vy5Var.f = 1;
                 if (this.a.m != null) {
-                    this.a.m.a(threadCardViewHolder.b(), vy5Var);
+                    this.a.m.a(threadCardViewHolder.a(), vy5Var);
                 }
-                ThreadCardUtils.jumpToPB((nn4) vy5Var, view2.getContext(), vy5Var.C, false);
-                threadCardViewHolder.c().o(new ny.a(1));
+                ThreadCardUtils.jumpToPB((on4) vy5Var, view2.getContext(), vy5Var.C, false);
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -146,7 +146,7 @@ public class at7 extends an<vy5, ThreadCardViewHolder<vy5>> {
             cy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.l);
             k.r(0);
             ThreadCardViewHolder<vy5> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.k(this.i);
+            threadCardViewHolder.j(this.i);
             V(new b(this));
             return threadCardViewHolder;
         }
@@ -160,16 +160,16 @@ public class at7 extends an<vy5, ThreadCardViewHolder<vy5>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vy5Var, threadCardViewHolder})) == null) {
-            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || vy5Var.a == null) {
+            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || vy5Var.a == null) {
                 return null;
             }
             vy5Var.I(vy5Var.position + 1);
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.g(vy5Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.m);
+            threadCardViewHolder.b().q(i);
+            threadCardViewHolder.f(vy5Var);
+            threadCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().p(this.m);
             fy7.n(vy5Var, this.j);
-            return threadCardViewHolder.b();
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }
@@ -177,11 +177,11 @@ public class at7 extends an<vy5, ThreadCardViewHolder<vy5>> {
     public final void d0(View view2, vy5 vy5Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, view2, vy5Var) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f09202a) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09202e) {
                 fy7.m(vy5Var, 1, this.j);
             } else if (view2 instanceof TbImageView) {
                 fy7.m(vy5Var, 3, this.j);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09202b || view2.getId() == R.id.obfuscated_res_0x7f09201d) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09202f || view2.getId() == R.id.obfuscated_res_0x7f092021) {
                 fy7.m(vy5Var, 1, this.j);
             }
         }

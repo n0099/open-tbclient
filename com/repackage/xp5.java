@@ -63,7 +63,7 @@ public class xp5 extends an<or5, LiveTabConcernTitleView.ViewHolder> {
             }
             liveTabConcernTitleView.i(or5Var);
             viewHolder.a.j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            return viewHolder.b();
+            return viewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

@@ -36,15 +36,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bs6;
-import com.repackage.cr4;
-import com.repackage.cu4;
+import com.repackage.dr4;
+import com.repackage.du4;
 import com.repackage.pi;
 import com.repackage.rr6;
 import com.repackage.tr6;
 import com.repackage.vr6;
 import com.repackage.wr6;
-import com.repackage.xo4;
 import com.repackage.yo4;
+import com.repackage.zo4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
@@ -62,7 +62,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public long j;
     public int k;
     public String l;
-    public xo4 m;
+    public yo4 m;
     public bs6 n;
     public int o;
     public int p;
@@ -78,18 +78,18 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public CustomMessageListener z;
 
     /* loaded from: classes3.dex */
-    public class a implements cr4.e {
+    public class a implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
         public final /* synthetic */ GiftTabActivity b;
 
-        public a(GiftTabActivity giftTabActivity, cr4 cr4Var) {
+        public a(GiftTabActivity giftTabActivity, dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {giftTabActivity, cr4Var};
+                Object[] objArr = {giftTabActivity, dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -100,31 +100,31 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 }
             }
             this.b = giftTabActivity;
-            this.a = cr4Var;
+            this.a = dr4Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.dismiss();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
         public final /* synthetic */ GiftTabActivity b;
 
-        public b(GiftTabActivity giftTabActivity, cr4 cr4Var) {
+        public b(GiftTabActivity giftTabActivity, dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {giftTabActivity, cr4Var};
+                Object[] objArr = {giftTabActivity, dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -135,31 +135,31 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 }
             }
             this.b = giftTabActivity;
-            this.a = cr4Var;
+            this.a = dr4Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.dismiss();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c implements cr4.e {
+    public class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
         public final /* synthetic */ GiftTabActivity b;
 
-        public c(GiftTabActivity giftTabActivity, cr4 cr4Var) {
+        public c(GiftTabActivity giftTabActivity, dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {giftTabActivity, cr4Var};
+                Object[] objArr = {giftTabActivity, dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -170,13 +170,13 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 }
             }
             this.b = giftTabActivity;
-            this.a = cr4Var;
+            this.a = dr4Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.dismiss();
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.b.getActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 17)));
             }
@@ -184,18 +184,18 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements cr4.e {
+    public class d implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
         public final /* synthetic */ GiftTabActivity b;
 
-        public d(GiftTabActivity giftTabActivity, cr4 cr4Var) {
+        public d(GiftTabActivity giftTabActivity, dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {giftTabActivity, cr4Var};
+                Object[] objArr = {giftTabActivity, dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -206,31 +206,31 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 }
             }
             this.b = giftTabActivity;
-            this.a = cr4Var;
+            this.a = dr4Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.dismiss();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class e implements cr4.e {
+    public class e implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
         public final /* synthetic */ GiftTabActivity b;
 
-        public e(GiftTabActivity giftTabActivity, cr4 cr4Var) {
+        public e(GiftTabActivity giftTabActivity, dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {giftTabActivity, cr4Var};
+                Object[] objArr = {giftTabActivity, dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -241,13 +241,13 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 }
             }
             this.b = giftTabActivity;
-            this.a = cr4Var;
+            this.a = dr4Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.dismiss();
                 if (StringUtils.isNull(this.b.l)) {
                     return;
@@ -294,7 +294,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     return;
                 }
                 if (!pi.D()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                 } else if (!TbadkCoreApplication.isLogin()) {
                     TbadkCoreApplication.getInst().login(this.a.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.a.getPageContext().getPageActivity())));
                 } else {
@@ -310,9 +310,9 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                         this.a.m.n = this.a.j;
                         this.a.m.p = this.a.f;
                         this.a.m.o = this.a.g;
-                        xo4 xo4Var = this.a.m;
+                        yo4 yo4Var = this.a.m;
                         GiftTabActivity giftTabActivity4 = this.a;
-                        xo4Var.r = giftTabActivity4.p;
+                        yo4Var.r = giftTabActivity4.p;
                         giftTabActivity4.c.B(this.a.a.C(), this.a.a.B(), this.a.d, this.a.f, this.a.g, this.a.i, this.a.j);
                     }
                 }
@@ -452,16 +452,16 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         }
 
         @Override // com.repackage.wr6.e
-        public void a(int i, String str, boolean z, String str2, int i2, yo4 yo4Var, ArrayList<tr6> arrayList, ArrayList<rr6> arrayList2, ArrayList<vr6> arrayList3) {
+        public void a(int i, String str, boolean z, String str2, int i2, zo4 zo4Var, ArrayList<tr6> arrayList, ArrayList<rr6> arrayList2, ArrayList<vr6> arrayList3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z), str2, Integer.valueOf(i2), yo4Var, arrayList, arrayList2, arrayList3}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z), str2, Integer.valueOf(i2), zo4Var, arrayList, arrayList2, arrayList3}) == null) {
                 if (i != 0 && !StringUtils.isNull(str)) {
                     this.a.showToast(str);
                 }
                 this.a.l = str2;
                 if (this.a.a != null) {
                     this.a.a.I = i2;
-                    this.a.a.J = yo4Var;
+                    this.a.a.J = zo4Var;
                     this.a.a.Q(z, arrayList, arrayList2, arrayList3);
                     this.a.a.M(str2);
                 }
@@ -500,7 +500,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 this.a.a.G();
                 if (i != 0) {
                     if (StringUtils.isNull(str)) {
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                     } else {
                         this.a.showToast(str);
                     }
@@ -519,7 +519,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.a.a.G();
-                this.a.showToast(R.string.obfuscated_res_0x7f0f07b9);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f07b5);
             }
         }
 
@@ -529,10 +529,10 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
                 this.a.a.G();
                 if (i != 0) {
-                    new cu4().b(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1111));
+                    new du4().b(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f10cd));
                     return;
                 }
-                new cu4().c(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1112));
+                new du4().c(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f10ce));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001369, this.a.m));
                 Intent intent = new Intent();
                 intent.putExtra("success", true);
@@ -578,7 +578,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 if (this.a.n != null && str.equalsIgnoreCase(this.a.n.b())) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001369, this.a.m));
                 }
-                new cu4().c(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1112));
+                new du4().c(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f10ce));
                 Intent intent = new Intent();
                 intent.putExtra("success", true);
                 this.a.setResult(-1, intent);
@@ -725,60 +725,60 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         }
     }
 
-    public final boolean W1(xo4 xo4Var, int i2) {
+    public final boolean W1(yo4 yo4Var, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xo4Var, i2)) == null) {
-            if (xo4Var == null || i2 <= 0) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yo4Var, i2)) == null) {
+            if (yo4Var == null || i2 <= 0) {
                 return false;
             }
-            int i3 = xo4Var.f;
+            int i3 = yo4Var.f;
             if (i3 == 1) {
                 long currentTimeMillis = System.currentTimeMillis() / 1000;
-                if (currentTimeMillis < xo4Var.h) {
-                    new cu4().b(getResources().getString(R.string.obfuscated_res_0x7f0f07b2));
+                if (currentTimeMillis < yo4Var.h) {
+                    new du4().b(getResources().getString(R.string.obfuscated_res_0x7f0f07ae));
                     return false;
-                } else if (currentTimeMillis > xo4Var.i) {
-                    new cu4().b(getResources().getString(R.string.obfuscated_res_0x7f0f07b1));
+                } else if (currentTimeMillis > yo4Var.i) {
+                    new du4().b(getResources().getString(R.string.obfuscated_res_0x7f0f07ad));
                     return false;
                 }
             } else if (i3 != 2) {
                 if (i3 != 4) {
                     if (i3 == 5 && this.k < i2) {
-                        cr4 cr4Var = new cr4(getActivity());
-                        cr4Var.setMessageShowCenter(true);
+                        dr4 dr4Var = new dr4(getActivity());
+                        dr4Var.setMessageShowCenter(true);
                         if (this.k <= 0) {
-                            cr4Var.setTitle(R.string.obfuscated_res_0x7f0f082b);
+                            dr4Var.setTitle(R.string.obfuscated_res_0x7f0f0827);
                         } else {
-                            cr4Var.setTitle(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f0add), Integer.valueOf(this.k)));
+                            dr4Var.setTitle(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f0ac9), Integer.valueOf(this.k)));
                         }
-                        cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f07c8);
-                        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new d(this, cr4Var));
-                        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f07a5, new e(this, cr4Var));
-                        cr4Var.create(getPageContext());
-                        cr4Var.show();
+                        dr4Var.setMessageId(R.string.obfuscated_res_0x7f0f07c4);
+                        dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new d(this, dr4Var));
+                        dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f07a1, new e(this, dr4Var));
+                        dr4Var.create(getPageContext());
+                        dr4Var.show();
                         return false;
                     }
                 } else if (TbadkCoreApplication.getCurrentMemberType() >= 2) {
                     return true;
                 } else {
-                    cr4 cr4Var2 = new cr4(getActivity());
-                    cr4Var2.setButtonTextColor(R.color.CAM_X0305);
-                    cr4Var2.setTitle(R.string.obfuscated_res_0x7f0f0ce7);
-                    cr4Var2.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(this, cr4Var2));
-                    cr4Var2.setPositiveButton(R.string.obfuscated_res_0x7f0f0ce3, new c(this, cr4Var2));
-                    cr4Var2.create(getPageContext());
-                    cr4Var2.show();
+                    dr4 dr4Var2 = new dr4(getActivity());
+                    dr4Var2.setButtonTextColor(R.color.CAM_X0305);
+                    dr4Var2.setTitle(R.string.obfuscated_res_0x7f0f0cd3);
+                    dr4Var2.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(this, dr4Var2));
+                    dr4Var2.setPositiveButton(R.string.obfuscated_res_0x7f0f0ccf, new c(this, dr4Var2));
+                    dr4Var2.create(getPageContext());
+                    dr4Var2.show();
                     return false;
                 }
-            } else if (xo4Var.k < i2) {
-                cr4 cr4Var3 = new cr4(getActivity());
-                cr4Var3.setMessageShowCenter(true);
-                cr4Var3.setTitle(R.string.obfuscated_res_0x7f0f07af);
-                cr4Var3.setMessage(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f09e1), Integer.valueOf(xo4Var.k)));
-                cr4Var3.setNegativeButton(R.string.obfuscated_res_0x7f0f099e, new a(this, cr4Var3));
-                cr4Var3.create(getPageContext());
-                cr4Var3.show();
+            } else if (yo4Var.k < i2) {
+                dr4 dr4Var3 = new dr4(getActivity());
+                dr4Var3.setMessageShowCenter(true);
+                dr4Var3.setTitle(R.string.obfuscated_res_0x7f0f07ab);
+                dr4Var3.setMessage(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f09cb), Integer.valueOf(yo4Var.k)));
+                dr4Var3.setNegativeButton(R.string.obfuscated_res_0x7f0f0989, new a(this, dr4Var3));
+                dr4Var3.create(getPageContext());
+                dr4Var3.show();
                 return false;
             }
             return true;
@@ -865,7 +865,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             GiftTabView giftTabView = new GiftTabView(this, this.t);
             this.a = giftTabView;
             TextView textView = giftTabView.p;
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f07bb);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f07b7);
             Object[] objArr = new Object[1];
             objArr[0] = TextUtils.isEmpty(this.h) ? this.g : this.h;
             textView.setText(String.format(string, objArr));

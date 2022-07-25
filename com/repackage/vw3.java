@@ -1,37 +1,40 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.res.Resources;
-import android.view.ViewGroup;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.res.ui.FullScreenFloatView;
-import com.baidu.swan.games.inspector.SwanInspectorEndpoint;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lz2;
-import com.repackage.ww3;
+import org.apache.http.cookie.ClientCookie;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class vw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FullScreenFloatView a;
+    public String a;
+    public String b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
 
     /* loaded from: classes7.dex */
-    public class a implements FullScreenFloatView.c {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ vw3 b;
+        public boolean a;
+        public String b;
 
-        public a(vw3 vw3Var, Activity activity) {
+        public a(boolean z, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vw3Var, activity};
+                Object[] objArr = {Boolean.valueOf(z), str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,77 +44,125 @@ public class vw3 {
                     return;
                 }
             }
-            this.b = vw3Var;
-            this.a = activity;
+            this.a = false;
+            this.a = z;
+            this.b = str;
         }
 
-        @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
-        public void a() {
+        public static a c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new a(false, "未启用真机调试") : (a) invokeV.objValue;
         }
 
-        @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
-        public void onClick() {
+        public String a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.b.d(this.a);
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+        }
+
+        public boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.booleanValue;
         }
     }
 
-    public vw3() {
+    public vw3(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public final void b(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            FullScreenFloatView a2 = qy2.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
-            this.a = a2;
-            a2.setFloatButtonText(activity.getString(R.string.obfuscated_res_0x7f0f0170));
-            this.a.setFloatImageBackground(R.drawable.obfuscated_res_0x7f08015c);
-            this.a.setAutoAttachEnable(false);
-            this.a.setDragImageListener(new a(this, activity));
-            this.a.setVisibility(0);
+        this.a = null;
+        this.b = null;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+        this.f = false;
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("inspector")) != null) {
+            this.a = optJSONObject.optString("hostname", null);
+            this.b = optJSONObject.optString(ClientCookie.PORT_ATTR, null);
+            this.c = optJSONObject.optBoolean("breakOnStart", false);
         }
-    }
-
-    public void c(ww3.c cVar, Activity activity) {
-        a04 a04Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, activity) == null) && activity != null && this.a == null) {
-            if (uw3.f((cVar == null || (a04Var = cVar.c) == null) ? null : a04Var.f).b()) {
-                b(activity);
-            }
+        SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext());
+        boolean z = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_ENABLED", false);
+        this.f = z;
+        if (z) {
+            this.a = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_HOSTNAME", this.a);
+            this.b = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_PORT", this.b);
+            this.c = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_BREAK_FIRST_ENABLED", this.c);
+            this.d = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_DEBUGGER_DISABLED", this.d);
         }
-    }
-
-    public final void d(Activity activity) {
-        h03 M;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || (M = h03.M()) == null || M.Y() == null) {
+        String str = this.a;
+        if (str == null || str.trim().equals("")) {
             return;
         }
-        Resources resources = activity.getResources();
-        String u = SwanInspectorEndpoint.v().u(resources);
-        lz2.a aVar = new lz2.a(activity);
-        aVar.V(resources.getString(R.string.obfuscated_res_0x7f0f01d6));
-        aVar.x(u);
-        aVar.n(new pf3());
-        aVar.m(false);
-        aVar.O(R.string.obfuscated_res_0x7f0f019d, null);
-        aVar.X();
+        this.e = true;
+    }
+
+    public static a f(vw3 vw3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, vw3Var)) == null) ? vw3Var == null ? a.c() : vw3Var.e() : (a) invokeL.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.a);
+            if (this.b != null) {
+                str = ":" + this.b;
+            } else {
+                str = "";
+            }
+            sb.append(str);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ks1.f(i03.g0()) : invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public a e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!this.f && c()) {
+                return new a(false, "线上包禁用真机调试");
+            }
+            boolean z = this.e;
+            return new a(z, !z ? "未启用真机调试" : this.f ? "使用了 debug 面板配置" : "启用了真机调试");
+        }
+        return (a) invokeV.objValue;
     }
 }

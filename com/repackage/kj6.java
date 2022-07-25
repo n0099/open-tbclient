@@ -72,7 +72,7 @@ public class kj6 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements jd5<GameForumGuideTabResIdl> {
+    public class b implements kd5<GameForumGuideTabResIdl> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ kj6 a;
@@ -96,7 +96,7 @@ public class kj6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(GameForumGuideTabResIdl gameForumGuideTabResIdl) {
             Interceptable interceptable = $ic;

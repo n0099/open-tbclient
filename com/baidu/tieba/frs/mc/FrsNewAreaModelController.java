@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.br6;
 import com.repackage.d9;
 import com.repackage.dh8;
-import com.repackage.mt4;
+import com.repackage.nt4;
 import com.repackage.oi;
 import com.repackage.op6;
 import com.repackage.pi;
@@ -415,7 +415,7 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.k
         objArr[1] = requestData != null ? requestData.E() : null;
         objArr[2] = "seq_id";
         objArr[3] = Long.valueOf(mvcSocketResponsedMessage.sequenceID);
-        mt4.a("frs", j2, cmd, "socket_resp", error, errorString, objArr);
+        nt4.a("frs", j2, cmd, "socket_resp", error, errorString, objArr);
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.l
@@ -455,6 +455,6 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.k
         Object[] objArr = new Object[2];
         objArr[0] = TiebaStatic.Params.H5_FORUM_NAME;
         objArr[1] = requestData != null ? requestData.E() : null;
-        mt4.a("frs", j2, cmd, "http_resp", error, errorString, objArr);
+        nt4.a("frs", j2, cmd, "http_resp", error, errorString, objArr);
     }
 }

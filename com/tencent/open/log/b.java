@@ -15,7 +15,7 @@ import com.tencent.open.utils.l;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static SimpleDateFormat a;
@@ -43,7 +43,7 @@ public class b {
                 return;
             }
         }
-        a = d.C0852d.a("yy.MM.dd.HH");
+        a = d.C0701d.a("yy.MM.dd.HH");
     }
 
     public b(File file, int i, int i2, int i3, String str, long j, int i4, String str2, long j2) {

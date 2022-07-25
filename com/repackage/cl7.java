@@ -62,11 +62,11 @@ public class cl7 {
                     Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", 0));
                     if (LoginPassV6Switch.KEY.equals(optString)) {
                         SwitchManager.getInstance().turn(optString, valueOf.intValue());
-                        nw4.a();
+                        ow4.a();
                     }
                     if (TextUtils.equals(LowVersionLoginPassV6Switch.KEY, optString)) {
                         SwitchManager.getInstance().turn(optString, valueOf.intValue());
-                        nw4.a();
+                        ow4.a();
                     }
                 }
             }

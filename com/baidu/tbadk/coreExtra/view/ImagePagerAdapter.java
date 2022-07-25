@@ -204,8 +204,8 @@ public class ImagePagerAdapter extends PagerAdapter {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
             if (this.n && i == getCount() - 1 && i != 0) {
                 View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0154, (ViewGroup) null);
-                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e33)).setImageDrawable(SkinManager.getDrawable(R.drawable.big_image_next_default));
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09204b)).setText(this.o);
+                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e2c)).setImageDrawable(SkinManager.getDrawable(R.drawable.big_image_next_default));
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09204f)).setText(this.o);
                 viewGroup.addView(inflate);
                 inflate.setOnClickListener(this.d);
                 return inflate;

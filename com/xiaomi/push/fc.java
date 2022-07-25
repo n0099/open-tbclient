@@ -15,19 +15,19 @@ public class fc implements bg.b.a {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fw f1072a;
+    public fw f352a;
 
     /* renamed from: a  reason: collision with other field name */
-    public XMPushService f1073a;
+    public XMPushService f353a;
 
     /* renamed from: a  reason: collision with other field name */
-    public bg.b f1074a;
+    public bg.b f354a;
 
     /* renamed from: a  reason: collision with other field name */
-    public bg.c f1075a;
+    public bg.c f355a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f1076a;
+    public boolean f356a;
 
     public fc(XMPushService xMPushService, bg.b bVar) {
         Interceptable interceptable = $ic;
@@ -44,16 +44,16 @@ public class fc implements bg.b.a {
                 return;
             }
         }
-        this.f1076a = false;
-        this.f1073a = xMPushService;
-        this.f1075a = bg.c.b;
-        this.f1074a = bVar;
+        this.f356a = false;
+        this.f353a = xMPushService;
+        this.f355a = bg.c.b;
+        this.f354a = bVar;
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f1074a.b(this);
+            this.f354a.b(this);
         }
     }
 
@@ -70,24 +70,24 @@ public class fc implements bg.b.a {
             return;
         }
         b();
-        if (!this.f1076a || this.a == 11) {
+        if (!this.f356a || this.a == 11) {
             return;
         }
-        fa m1268a = fh.m1266a().m1268a();
-        int i = fe.a[this.f1075a.ordinal()];
+        fa m330a = fh.m328a().m330a();
+        int i = fe.a[this.f355a.ordinal()];
         if (i != 1) {
             if (i == 3) {
                 ezVar = ez.H;
             }
-            if (m1268a != null) {
-                m1268a.b(this.f1072a.m1292a());
-                m1268a.d(this.f1074a.f1656b);
-                m1268a.f1061b = 1;
+            if (m330a != null) {
+                m330a.b(this.f352a.m354a());
+                m330a.d(this.f354a.f936b);
+                m330a.f341b = 1;
                 try {
-                    m1268a.a((byte) Integer.parseInt(this.f1074a.g));
+                    m330a.a((byte) Integer.parseInt(this.f354a.g));
                 } catch (NumberFormatException unused) {
                 }
-                fh.m1266a().a(m1268a);
+                fh.m328a().a(m330a);
                 return;
             }
             return;
@@ -100,24 +100,24 @@ public class fc implements bg.b.a {
         } else {
             try {
                 ff.a c = ff.c(fh.a().a());
-                m1268a.f1058a = c.a.a();
-                m1268a.c(c.f1077a);
+                m330a.f338a = c.a.a();
+                m330a.c(c.f357a);
             } catch (NullPointerException unused2) {
-                m1268a = null;
+                m330a = null;
             }
-            if (m1268a != null) {
+            if (m330a != null) {
             }
         }
-        m1268a.f1058a = ezVar.a();
-        if (m1268a != null) {
+        m330a.f338a = ezVar.a();
+        if (m330a != null) {
         }
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f1074a.a(this);
-            this.f1072a = this.f1073a.m1527a();
+            this.f354a.a(this);
+            this.f352a = this.f353a.m589a();
         }
     }
 
@@ -125,12 +125,12 @@ public class fc implements bg.b.a {
     public void a(bg.c cVar, bg.c cVar2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cVar2, i) == null) {
-            if (!this.f1076a && cVar == bg.c.b) {
-                this.f1075a = cVar2;
+            if (!this.f356a && cVar == bg.c.b) {
+                this.f355a = cVar2;
                 this.a = i;
-                this.f1076a = true;
+                this.f356a = true;
             }
-            this.f1073a.a(new fd(this, 4));
+            this.f353a.a(new fd(this, 4));
         }
     }
 }

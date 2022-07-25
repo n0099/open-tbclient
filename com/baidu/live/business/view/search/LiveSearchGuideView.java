@@ -48,9 +48,9 @@ public class LiveSearchGuideView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d051a, this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091309);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09130a);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0524, this);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912e5);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e6);
         }
     }
 

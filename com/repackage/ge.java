@@ -13,7 +13,6 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.rp.service.Service;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -426,7 +425,7 @@ public class ge implements Executor {
                 this.g.add(dVar);
                 this.f.remove(dVar);
                 n.execute(dVar);
-                this.j.sendMessageDelayed(this.j.obtainMessage(1, dVar), Service.TRIGGER_INTERVAL);
+                this.j.sendMessageDelayed(this.j.obtainMessage(1, dVar), 180000L);
                 int g = dVar.g();
                 if (g == 1) {
                     this.d++;

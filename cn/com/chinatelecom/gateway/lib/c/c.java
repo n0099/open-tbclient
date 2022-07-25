@@ -1,138 +1,106 @@
 package cn.com.chinatelecom.gateway.lib.c;
 
 import android.content.Context;
-import android.provider.Settings;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.net.Network;
+import cn.com.chinatelecom.gateway.lib.CtAuth;
+import cn.com.chinatelecom.gateway.lib.PreCodeListener;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.MessageDigest;
-import java.util.UUID;
 /* loaded from: classes.dex */
-public class c {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "cn.com.chinatelecom.gateway.lib.c.c";
-    public static String b = "";
+public final class c implements m {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public /* synthetic */ String c;
+    public /* synthetic */ Context d;
+    public /* synthetic */ String e;
+    public /* synthetic */ String f;
+    public /* synthetic */ String g;
+    public /* synthetic */ String h;
+    public /* synthetic */ PreCodeListener i;
+    public /* synthetic */ a j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1293515390, "Lcn/com/chinatelecom/gateway/lib/c/c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1293515390, "Lcn/com/chinatelecom/gateway/lib/c/c;");
-        }
-    }
-
-    public c() {
+    public c(a aVar, String str, Context context, String str2, String str3, String str4, String str5, PreCodeListener preCodeListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar, str, context, str2, str3, str4, str5, preCodeListener};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.j = aVar;
+        this.c = str;
+        this.d = context;
+        this.e = str2;
+        this.f = str3;
+        this.g = str4;
+        this.h = str5;
+        this.i = preCodeListener;
+        this.a = false;
+        this.b = false;
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    @Override // cn.com.chinatelecom.gateway.lib.c.m
+    public final synchronized void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String uuid = UUID.randomUUID().toString();
-            try {
-                uuid = UUID.nameUUIDFromBytes((uuid + System.currentTimeMillis() + Math.random()).getBytes("utf8")).toString();
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-            return !TextUtils.isEmpty(uuid) ? uuid.replace("-", "") : uuid;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                String b2 = b(context);
-                b = b2;
-                if (TextUtils.isEmpty(b2)) {
-                    String c = c(context);
-                    b = c;
-                    a(context, c);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                this.a = true;
+                if (!this.b) {
+                    cn.com.chinatelecom.gateway.lib.b.d.a(this.c, "{\"result\":80000,\"msg\":\"请求超时\"}", "");
+                    CtAuth.postResult(this.d, "{\"result\":80000,\"msg\":\"请求超时\"}", this.c, this.i);
                 }
             }
-            return b;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    @Override // cn.com.chinatelecom.gateway.lib.c.m
+    public final synchronized void a(int i, String str, long j) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-            try {
-                byte[] bytes = str.getBytes();
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(bytes);
-                byte[] digest = messageDigest.digest();
-                char[] cArr2 = new char[digest.length * 2];
-                int i = 0;
-                for (byte b2 : digest) {
-                    int i2 = i + 1;
-                    cArr2[i] = cArr[(b2 >>> 4) & 15];
-                    i = i2 + 1;
-                    cArr2[i2] = cArr[b2 & 15];
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)}) == null) {
+            synchronized (this) {
+                if (!this.a && !this.b) {
+                    this.b = true;
+                    cn.com.chinatelecom.gateway.lib.b.a a = cn.com.chinatelecom.gateway.lib.b.d.a(this.c);
+                    a.h("switchToMobile_L  onFail()  expendTime : " + j).a(i).f(str).a(j);
+                    CtAuth.postResult(this.d, p.a(i, str), this.c, this.i);
+                    str2 = a.a;
+                    CtAuth.info(str2, "Switching network failed (L), errorMsg :" + str + " , expendTime ：" + j);
                 }
-                return new String(cArr2);
-            } catch (Exception unused) {
-                return null;
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public static void a(Context context, String str) {
+    @Override // cn.com.chinatelecom.gateway.lib.c.m
+    public final void a(Network network, long j) {
+        String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) || TextUtils.isEmpty(str) || context == null) {
-            return;
-        }
-        b.a(context, "key_d_i_u", str);
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? b.b(context, "key_d_i_u", "") : (String) invokeL.objValue;
-    }
-
-    public static String c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            try {
-                String string = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
-                String lowerCase = !TextUtils.isEmpty(string) ? string.toLowerCase() : UUID.randomUUID().toString();
-                return TextUtils.isEmpty(lowerCase) ? "default" : a(lowerCase + "default");
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, network, j) == null) {
+            str = a.a;
+            CtAuth.info(str, "Switching network successfully (L) , expendTime ：" + j);
+            if (this.a || this.b) {
+                return;
+            }
+            cn.com.chinatelecom.gateway.lib.b.d.a(this.c).a(j);
+            String a = a.a(this.j, this.d, this.e, this.f, this.g, network, this.h, this.c);
+            synchronized (this) {
+                if (!this.a && !this.b) {
+                    this.b = true;
+                    CtAuth.postResult(this.d, a, this.c, this.i);
+                }
             }
         }
-        return (String) invokeL.objValue;
     }
 }

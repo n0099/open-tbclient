@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class m08 extends an<x05, PersonInfoUserPicViewHolder> {
+public class m08 extends an<y05, PersonInfoUserPicViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
@@ -49,22 +49,22 @@ public class m08 extends an<x05, PersonInfoUserPicViewHolder> {
     public PersonInfoUserPicViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PersonInfoUserPicViewHolder(LayoutInflater.from(this.i.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0867, (ViewGroup) null)) : (PersonInfoUserPicViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PersonInfoUserPicViewHolder(LayoutInflater.from(this.i.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0871, (ViewGroup) null)) : (PersonInfoUserPicViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.an
     /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, x05 x05Var, PersonInfoUserPicViewHolder personInfoUserPicViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, y05 y05Var, PersonInfoUserPicViewHolder personInfoUserPicViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, x05Var, personInfoUserPicViewHolder})) == null) {
-            if (personInfoUserPicViewHolder == null || x05Var == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, y05Var, personInfoUserPicViewHolder})) == null) {
+            if (personInfoUserPicViewHolder == null || y05Var == null) {
                 return null;
             }
-            personInfoUserPicViewHolder.f(this.j);
-            personInfoUserPicViewHolder.c(x05Var);
-            return personInfoUserPicViewHolder.b();
+            personInfoUserPicViewHolder.e(this.j);
+            personInfoUserPicViewHolder.b(y05Var);
+            return personInfoUserPicViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

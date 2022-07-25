@@ -162,7 +162,7 @@ public class qx8 {
                     errorData.setError_msg(netWork.getErrorString());
                 }
                 if (errorData.error_code != 0 && !ni.z()) {
-                    errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0c2b));
+                    errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0c17));
                 }
                 ox8Var.a = errorData;
                 try {

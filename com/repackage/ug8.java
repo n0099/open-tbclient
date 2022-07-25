@@ -261,7 +261,7 @@ public class ug8 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            long m = xt4.k().m("key_frs_cache_time", 604800000L);
+            long m = yt4.k().m("key_frs_cache_time", 604800000L);
             if (m < 0) {
                 return 604800000L;
             }

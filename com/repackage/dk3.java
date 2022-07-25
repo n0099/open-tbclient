@@ -1,16 +1,17 @@
 package com.repackage;
 
+import android.content.SharedPreferences;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class dk3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(long j) {
+    public static SharedPreferences a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65536, null, j) == null) {
-            ck3.a().edit().putLong("latest_update_time", j).apply();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new qg4("swan_config_sp_name") : (SharedPreferences) invokeV.objValue;
     }
 }

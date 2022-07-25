@@ -3,11 +3,11 @@ package com.kwai.filedownloader;
 import java.util.List;
 /* loaded from: classes5.dex */
 public interface w {
-    void a();
+    void Df();
 
-    void a(List<Integer> list);
+    int Dg();
 
-    boolean a(int i);
+    void E(List<Integer> list);
 
-    int b();
+    boolean ca(int i);
 }

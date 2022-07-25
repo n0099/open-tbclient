@@ -273,7 +273,7 @@ public class to8 implements View.OnClickListener, qo8 {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ur4 d = ur4.d(this.b);
+            vr4 d = vr4.d(this.b);
             d.n(R.string.J_X14);
             d.f(R.color.CAM_X0204);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
@@ -296,7 +296,7 @@ public class to8 implements View.OnClickListener, qo8 {
     }
 
     public void i(ShareDialogConfig.From from) {
-        by4 sharePanelConfData;
+        cy4 sharePanelConfData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, from) == null) && (sharePanelConfData = TbSingleton.getInstance().getSharePanelConfData()) != null && sharePanelConfData.d(from) && sharePanelConfData.c() && !oi.isEmpty(sharePanelConfData.b())) {
             this.c.setText(sharePanelConfData.b());
@@ -329,16 +329,16 @@ public class to8 implements View.OnClickListener, qo8 {
             ShareItem shareItem2 = shareDialogConfig.shareItem;
             if (!shareItem2.k0) {
                 if (shareItem2.l0) {
-                    this.c.setText(R.string.obfuscated_res_0x7f0f145f);
+                    this.c.setText(R.string.obfuscated_res_0x7f0f140e);
                 } else {
-                    this.c.setText(R.string.obfuscated_res_0x7f0f1460);
+                    this.c.setText(R.string.obfuscated_res_0x7f0f140f);
                 }
             } else {
                 String sharePanelText = TbSingleton.getInstance().getSharePanelText();
                 if (!TextUtils.isEmpty(sharePanelText)) {
                     this.c.setText(sharePanelText);
                 } else {
-                    this.c.setText(R.string.obfuscated_res_0x7f0f1461);
+                    this.c.setText(R.string.obfuscated_res_0x7f0f1410);
                 }
             }
             if (shareDialogConfig.isShowNovelMask()) {
@@ -368,7 +368,7 @@ public class to8 implements View.OnClickListener, qo8 {
             if (context instanceof Activity) {
                 sg.i(this.g, (Activity) context);
             }
-            ur4 d = ur4.d(this.b);
+            vr4 d = vr4.d(this.b);
             d.n(R.string.J_X14);
             d.f(R.color.CAM_X0212);
             Window window = this.g.getWindow();

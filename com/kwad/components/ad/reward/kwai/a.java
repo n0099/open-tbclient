@@ -7,28 +7,29 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.ksad.annotation.invoker.InvokeBy;
 import com.kwad.sdk.core.config.item.d;
-import com.kwad.sdk.core.config.item.e;
-import com.kwad.sdk.core.config.item.i;
-import com.kwad.sdk.core.config.item.n;
+import com.kwad.sdk.core.config.item.f;
+import com.kwad.sdk.core.config.item.j;
+import com.kwad.sdk.core.config.item.o;
 /* loaded from: classes5.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-    public static i a;
-    public static i b;
-    public static i c;
-    public static d d;
-    public static n e;
-    public static n f;
-    public static i g;
-    public static i h;
-    public static i i;
-    public static i j;
-    public static i k;
-    public static e l;
-    public static d m;
-    public static i n;
-    public static d o;
-    public static d p;
+    public static j nR;
+    public static j nS;
+    public static j nT;
+    public static d nU;
+    public static o nV;
+    public static o nW;
+    public static j nX;
+    public static j nY;
+    public static j nZ;
+    public static j oa;
+    public static j ob;
+    public static f oc;
+    public static d od;
+    public static j oe;
+    public static d of;
+    public static d og;
+    public static j oh;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,26 +45,27 @@ public final class a {
                 return;
             }
         }
-        a = new i("rewardSkipType", 0);
-        b = new i("rewardActiveAppTaskMinSecond", 15);
-        c = new i("rewardContentDetainType", 0);
-        d = new d("forceGetAudioFocus", false);
-        e = new n("rewardSkipTips", "");
-        f = new n("fullscreenSkipTips", "");
-        g = new i("ecRewardAdOrderSwitch", 0);
-        h = new i("ecRewardAdFanSwitch", 0);
-        i = new i("ecRewardAdKwaishopStyle", 0);
-        j = new i("xdtCouponShowDuration", 3000);
-        k = new i("jinniuCloseDialogStyle", 1);
-        l = new e("interactionTimeInRewardedVideo", 0.0f);
-        m = new d("autoJumpInRewardedVideo", false);
-        n = new i("advanceJumpDirectDeliveryMaxCount", 0);
-        o = new d("rewardReflowPageShowSwitch", false);
-        p = new d("advanceJumpDirectDeliverySwitch", false);
+        nR = new j("rewardSkipType", 0);
+        nS = new j("rewardActiveAppTaskMinSecond", 15);
+        nT = new j("rewardContentDetainType", 0);
+        nU = new d("forceGetAudioFocus", false);
+        nV = new o("rewardSkipTips", "");
+        nW = new o("fullscreenSkipTips", "");
+        nX = new j("ecRewardAdOrderSwitch", 0);
+        nY = new j("ecRewardAdFanSwitch", 0);
+        nZ = new j("ecRewardAdKwaishopStyle", 0);
+        oa = new j("xdtCouponShowDuration", 3000);
+        ob = new j("jinniuCloseDialogStyle", 1);
+        oc = new f("interactionTimeInRewardedVideo", 0.0f);
+        od = new d("autoJumpInRewardedVideo", false);
+        oe = new j("advanceJumpDirectDeliveryMaxCount", 0);
+        of = new d("rewardReflowPageShowSwitch", false);
+        og = new d("advanceJumpDirectDeliverySwitch", false);
+        oh = new j("shortVideoFollowRewardPlayStyle", 0);
     }
 
     @InvokeBy(invokerClass = com.kwad.sdk.core.config.d.class, methodId = "initConfigList")
-    public static void a() {
+    public static void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
         }

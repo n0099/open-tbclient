@@ -318,20 +318,20 @@ public class qq5 implements cp5 {
         this.r = new c(this);
         this.c = tbPageContext;
         this.p = i;
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07f4, (ViewGroup) null, false);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07fe, (ViewGroup) null, false);
         this.d = inflate;
-        TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e5e);
+        TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e57);
         this.e = tbImageView;
         tbImageView.setBorderSurroundContent(true);
         this.e.setDrawBorder(true);
         this.e.setPlaceHolder(2);
         this.e.setBorderWidth(pi.f(tbPageContext.getPageActivity(), R.dimen.tbds1));
-        this.f = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f0921ec);
-        this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0921f9);
-        this.i = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0921eb);
-        this.j = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f091314);
-        this.k = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f091325);
-        this.h = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f0921ee);
+        this.f = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f0921ee);
+        this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0921fb);
+        this.i = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0921ed);
+        this.j = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f0912f0);
+        this.k = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f091301);
+        this.h = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f0921f0);
         this.d.setOnClickListener(this.r);
         this.q = ((pi.k(TbadkCoreApplication.getInst()) - u) - (v * 2)) / 2;
     }

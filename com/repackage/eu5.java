@@ -93,7 +93,7 @@ public class eu5 extends an<uu5, CardViewHolder<aw5>> {
             return;
         }
         iv5 iv5Var = uu5Var.c().h;
-        rl4.y(this.i.getPageActivity(), true, iv5Var.b, iv5Var.a);
+        sl4.y(this.i.getPageActivity(), true, iv5Var.b, iv5Var.a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -112,12 +112,12 @@ public class eu5 extends an<uu5, CardViewHolder<aw5>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uu5Var, cardViewHolder})) == null) {
-            if (cardViewHolder.c() == null) {
+            if (cardViewHolder.b() == null) {
                 return null;
             }
-            a0(uu5Var, cardViewHolder.c());
-            cardViewHolder.c().h().setOnClickListener(new a(this, uu5Var));
-            return cardViewHolder.c().h();
+            a0(uu5Var, cardViewHolder.b());
+            cardViewHolder.b().h().setOnClickListener(new a(this, uu5Var));
+            return cardViewHolder.b().h();
         }
         return (View) invokeCommon.objValue;
     }

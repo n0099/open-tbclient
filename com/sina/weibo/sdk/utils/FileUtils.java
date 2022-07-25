@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.sapi2.activity.ImageClipActivity;
+import com.baidu.sapi2.result.GetCertStatusResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,7 +125,7 @@ public class FileUtils {
             if ((Build.VERSION.SDK_INT >= 19) && DocumentsContract.isDocumentUri(context, uri)) {
                 if (isExternalStorageDocument(uri)) {
                     String[] split = DocumentsContract.getDocumentId(uri).split(":");
-                    if ("primary".equalsIgnoreCase(split[0])) {
+                    if (GetCertStatusResult.VALUE_PRIMARY_REAL_NAME.equalsIgnoreCase(split[0])) {
                         return Environment.getExternalStorageDirectory() + "/" + split[1];
                     }
                 } else if (isDownloadsDocument(uri)) {

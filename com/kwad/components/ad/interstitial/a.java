@@ -30,25 +30,25 @@ public class a extends com.kwad.sdk.components.d implements com.kwad.components.
         }
     }
 
-    @Override // com.kwad.components.ad.a.e
-    public final void a(@NonNull KsScene ksScene, @NonNull KsLoadManager.InterstitialAdListener interstitialAdListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, ksScene, interstitialAdListener) == null) {
-            e.a(ksScene, interstitialAdListener);
-        }
-    }
-
     @Override // com.kwad.sdk.components.a
     public Class getComponentsType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.kwad.components.ad.a.e.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwad.components.ad.a.e.class : (Class) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.components.a
     public void init(Context context, SdkConfig sdkConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, sdkConfig) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sdkConfig) == null) {
+        }
+    }
+
+    @Override // com.kwad.components.ad.a.e
+    public final void loadInterstitialAd(@NonNull KsScene ksScene, @NonNull KsLoadManager.InterstitialAdListener interstitialAdListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ksScene, interstitialAdListener) == null) {
+            e.loadInterstitialAd(ksScene, interstitialAdListener);
         }
     }
 }

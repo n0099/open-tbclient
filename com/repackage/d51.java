@@ -194,8 +194,8 @@ public class d51 extends z41 {
                 return;
             }
         }
-        this.f = (TextView) a(R.id.obfuscated_res_0x7f090961);
-        this.g = (RelativeLayout) a(R.id.obfuscated_res_0x7f09152d);
+        this.f = (TextView) a(R.id.obfuscated_res_0x7f09095a);
+        this.g = (RelativeLayout) a(R.id.obfuscated_res_0x7f091508);
         view2.setBackgroundColor(0);
         this.h = yj0.a(this.g, IDownloadViewCreator.ViewType.FEED_DOWNLOAD_VIEW);
         this.g.setOnClickListener(new a(this));

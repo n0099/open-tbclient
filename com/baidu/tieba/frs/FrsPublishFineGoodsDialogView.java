@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cs4;
+import com.repackage.as4;
+import com.repackage.ds4;
 import com.repackage.pi;
 import com.repackage.zc6;
-import com.repackage.zr4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class FrsPublishFineGoodsDialogView extends LinearLayout {
@@ -28,10 +28,10 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
     public TextView d;
     public TextView e;
     public LocalBannerLayout f;
-    public cs4 g;
+    public ds4 g;
 
     /* loaded from: classes3.dex */
-    public class a implements cs4 {
+    public class a implements ds4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsPublishFineGoodsDialogView a;
@@ -54,15 +54,15 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
             this.a = frsPublishFineGoodsDialogView;
         }
 
-        @Override // com.repackage.cs4
-        public void a(int i, zr4 zr4Var) {
+        @Override // com.repackage.ds4
+        public void a(int i, as4 as4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, zr4Var) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, as4Var) == null) {
                 this.a.c(i);
             }
         }
 
-        @Override // com.repackage.cs4
+        @Override // com.repackage.ds4
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -97,14 +97,14 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d033d, this);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090ab1);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090aaa);
             this.a = linearLayout;
-            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090ba3);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090ba2);
+            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090b9c);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090b9b);
             this.f = (LocalBannerLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090305);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09210e);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092110);
             this.e = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f0659);
+            textView.setText(R.string.obfuscated_res_0x7f0f0655);
             ArrayList arrayList = new ArrayList();
             arrayList.add(new zc6(String.valueOf((int) R.drawable.pic_good_guide1)));
             arrayList.add(new zc6(String.valueOf((int) R.drawable.pic_good_guide2)));
@@ -122,14 +122,14 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == 0 || i == 3) {
+                this.c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06f4));
+                this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06f3));
+            } else if (i == 1) {
+                this.c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06f6));
+                this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06f5));
+            } else if (i == 2) {
                 this.c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06f8));
                 this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06f7));
-            } else if (i == 1) {
-                this.c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06fa));
-                this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06f9));
-            } else if (i == 2) {
-                this.c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06fc));
-                this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06fb));
             }
         }
     }

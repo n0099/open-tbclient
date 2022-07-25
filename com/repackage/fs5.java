@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
@@ -41,7 +41,7 @@ public class fs5 {
     public AlaNewSquareSubListModel.b h;
     public View.OnClickListener i;
     public ls5 j;
-    public fu4.g k;
+    public gu4.g k;
 
     /* loaded from: classes6.dex */
     public class a implements BdListView.p {
@@ -123,7 +123,7 @@ public class fs5 {
                 this.a.c.e().smoothScrollToPosition(0);
             }
             if (ListUtils.getCount(this.a.d.N()) == 0) {
-                this.a.c.u(this.a.b.getString(R.string.obfuscated_res_0x7f0f0c45), this.a.i, true);
+                this.a.c.u(this.a.b.getString(R.string.obfuscated_res_0x7f0f0c31), this.a.i, true);
                 this.a.c.o(8);
                 return;
             }
@@ -141,7 +141,7 @@ public class fs5 {
             this.a.c.g();
             is5 is5Var = this.a.c;
             if (TextUtils.isEmpty(str)) {
-                str = this.a.b.getString(R.string.obfuscated_res_0x7f0f0c45);
+                str = this.a.b.getString(R.string.obfuscated_res_0x7f0f0c31);
             }
             is5Var.u(str, this.a.i, true);
             this.a.c.o(8);
@@ -229,7 +229,7 @@ public class fs5 {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements fu4.g {
+    public class e implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fs5 a;
@@ -252,7 +252,7 @@ public class fs5 {
             this.a = fs5Var;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.d == null) {

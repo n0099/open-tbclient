@@ -51,11 +51,11 @@ public class LoadingUtil {
             LayoutInflater from = LayoutInflater.from(context);
             SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
             if (confignation != null && (confignation.isDarkMode || confignation.isNightMode)) {
-                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04c6, (ViewGroup) null);
+                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04d0, (ViewGroup) null);
             } else {
-                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04c5, (ViewGroup) null);
+                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04cf, (ViewGroup) null);
             }
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091c5b)).setText(str);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091c54)).setText(str);
             return inflate;
         }
         return (View) invokeLL.objValue;

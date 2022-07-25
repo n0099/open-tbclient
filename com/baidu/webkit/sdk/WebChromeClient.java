@@ -14,6 +14,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -212,7 +213,7 @@ public class WebChromeClient {
                     jSONObject.put("msg", str);
                 }
                 if (i == 0 && str2 != null) {
-                    jSONObject.put("result", str2);
+                    jSONObject.put(TiebaStatic.LogFields.RESULT, str2);
                 }
             } catch (JSONException e) {
                 if (DEBUG) {

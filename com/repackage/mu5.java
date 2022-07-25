@@ -106,7 +106,7 @@ public class mu5 extends an<cv5, CardViewHolder<aw5>> {
             StatisticItem statisticItem = new StatisticItem("c13333");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
-            String q = xt4.k().q("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
+            String q = yt4.k().q("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
             if (q == null) {
                 return;
             }
@@ -123,7 +123,7 @@ public class mu5 extends an<cv5, CardViewHolder<aw5>> {
                 sb.insert(0, "&");
             }
             sb.insert(0, q);
-            rl4.o(this.i.getPageActivity(), sb.toString());
+            sl4.o(this.i.getPageActivity(), sb.toString());
         }
     }
 
@@ -143,12 +143,12 @@ public class mu5 extends an<cv5, CardViewHolder<aw5>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cv5Var, cardViewHolder})) == null) {
-            if (cardViewHolder.c() == null) {
+            if (cardViewHolder.b() == null) {
                 return null;
             }
-            a0(cv5Var, cardViewHolder.c());
-            cardViewHolder.c().h().setOnClickListener(new a(this));
-            return cardViewHolder.c().h();
+            a0(cv5Var, cardViewHolder.b());
+            cardViewHolder.b().h().setOnClickListener(new a(this));
+            return cardViewHolder.b().h();
         }
         return (View) invokeCommon.objValue;
     }

@@ -46,13 +46,13 @@ public abstract class nu9<E> extends pu9<E> {
         }
     }
 
-    public final LinkedQueueNode<E> d() {
+    public final LinkedQueueNode<E> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (LinkedQueueNode) rv9.a.f(this, b) : (LinkedQueueNode) invokeV.objValue;
     }
 
-    public final void e(LinkedQueueNode<E> linkedQueueNode) {
+    public final void d(LinkedQueueNode<E> linkedQueueNode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
             this.consumerNode = linkedQueueNode;

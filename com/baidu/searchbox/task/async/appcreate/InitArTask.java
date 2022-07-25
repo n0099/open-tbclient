@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d15;
+import com.repackage.e15;
 import com.repackage.ed0;
 /* loaded from: classes2.dex */
 public class InitArTask extends LaunchTask {
@@ -37,7 +37,7 @@ public class InitArTask extends LaunchTask {
             ed0.r(BdUploadHandler.MEDIA_SOURCE_KEY);
             ed0.j(context);
             ed0.u(false);
-            d15.a();
+            e15.a();
         }
     }
 

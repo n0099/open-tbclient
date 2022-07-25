@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class st5 extends cd6<qq4, FrsPageAlaVideoHolder> implements hy5, ck5 {
+public class st5 extends cd6<rq4, FrsPageAlaVideoHolder> implements hy5, ck5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public cu5 t;
@@ -56,10 +56,10 @@ public class st5 extends cd6<qq4, FrsPageAlaVideoHolder> implements hy5, ck5 {
             CustomMessage customMessage;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f091251) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f09122d) {
                     customMessage = new CustomMessage(2921018);
-                } else if (view2.getId() != R.id.obfuscated_res_0x7f090524 && view2.getId() != R.id.obfuscated_res_0x7f090520 && view2.getId() != R.id.obfuscated_res_0x7f09230c) {
-                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f09238b ? new CustomMessage(2921019) : null;
+                } else if (view2.getId() != R.id.obfuscated_res_0x7f090524 && view2.getId() != R.id.obfuscated_res_0x7f090520 && view2.getId() != R.id.obfuscated_res_0x7f09230e) {
+                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f09238d ? new CustomMessage(2921019) : null;
                 } else {
                     customMessage = new CustomMessage(2921016);
                 }
@@ -142,30 +142,30 @@ public class st5 extends cd6<qq4, FrsPageAlaVideoHolder> implements hy5, ck5 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.cd6, com.repackage.an
     /* renamed from: o0 */
-    public View S(int i, View view2, ViewGroup viewGroup, qq4 qq4Var, FrsPageAlaVideoHolder frsPageAlaVideoHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, rq4 rq4Var, FrsPageAlaVideoHolder frsPageAlaVideoHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qq4Var, frsPageAlaVideoHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rq4Var, frsPageAlaVideoHolder})) == null) {
             TiebaStatic.log("c11842");
             CustomMessage customMessage = new CustomMessage(2921017);
             FrsViewData frsViewData = this.j;
             int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
-            ThreadData threadData = qq4Var.s;
+            ThreadData threadData = rq4Var.s;
             threadData.statFloor = (i + 1) - topThreadSize;
             customMessage.setData(threadData);
             this.k.sendMessage(customMessage);
-            if (qq4Var != null) {
+            if (rq4Var != null) {
                 cu5 cu5Var = frsPageAlaVideoHolder.b;
                 if (cu5Var instanceof bk5) {
                     cu5Var.b(this.v);
                 }
                 frsPageAlaVideoHolder.b.a(this.u);
                 frsPageAlaVideoHolder.b.W(b0());
-                frsPageAlaVideoHolder.b.i(qq4Var.s);
-                qq4Var.s.updateShowStatus();
+                frsPageAlaVideoHolder.b.i(rq4Var.s);
+                rq4Var.s.updateShowStatus();
             }
             this.m = (tn) viewGroup;
-            return frsPageAlaVideoHolder.b();
+            return frsPageAlaVideoHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

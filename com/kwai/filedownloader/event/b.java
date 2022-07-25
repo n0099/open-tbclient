@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Runnable a;
-    public final String b;
+    public final String alB;
+    public Runnable avJ;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -27,13 +27,13 @@ public abstract class b {
                 return;
             }
         }
-        this.a = null;
-        this.b = str;
+        this.avJ = null;
+        this.alB = str;
     }
 
-    public final String b() {
+    public final String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.alB : (String) invokeV.objValue;
     }
 }

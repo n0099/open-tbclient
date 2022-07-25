@@ -29,9 +29,9 @@ public final class t implements com.kwad.sdk.core.d<AdInfo.AdMaterialInfo> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "materialType", adMaterialInfo.materialType);
-        com.kwad.sdk.utils.r.a(jSONObject, "videoVoice", adMaterialInfo.videoVoice);
-        com.kwad.sdk.utils.r.a(jSONObject, "materialFeature", adMaterialInfo.materialFeatureList);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "materialType", adMaterialInfo.materialType);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "videoVoice", adMaterialInfo.videoVoice);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "materialFeature", adMaterialInfo.materialFeatureList);
         return jSONObject;
     }
 

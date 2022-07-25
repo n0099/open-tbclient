@@ -3,6 +3,7 @@ package com.repackage;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -91,7 +92,7 @@ public class ui8 {
             if (!z2 || j2 > 3000) {
                 vg vgVar = new vg("dbg");
                 vgVar.b("act", "frs");
-                vgVar.b("result", z2 ? "0" : "1");
+                vgVar.b(TiebaStatic.LogFields.RESULT, z2 ? "0" : "1");
                 vgVar.b("isHttp", z ? "1" : "0");
                 vgVar.b("timeCost", String.valueOf(j2));
                 vgVar.b(StatConstants.KEY_EXT_ERR_CODE, String.valueOf(i));

@@ -1,92 +1,60 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Color;
 import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.Overlay;
-import com.baidu.mapapi.map.OverlayOptions;
-import com.baidu.mapapi.model.LatLngBounds;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class d64 implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPolylineClickListener {
+public class d64 extends c64 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int g;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaiduMap a;
-    public List<OverlayOptions> b;
-    public List<Overlay> c;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755815473, "Lcom/repackage/d64;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755815473, "Lcom/repackage/d64;");
+                return;
+            }
+        }
+        g = Color.parseColor("#26c56c");
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d64(BaiduMap baiduMap) {
+        super(baiduMap);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {baiduMap};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((BaiduMap) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.a = baiduMap;
-        if (0 == 0) {
-            this.b = new ArrayList();
-        }
-        if (this.c == null) {
-            this.c = new ArrayList();
-        }
     }
 
-    public final void a() {
+    @Override // com.repackage.c64
+    public int f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
-            return;
-        }
-        c();
-        if (b() != null) {
-            this.b.addAll(b());
-        }
-        for (OverlayOptions overlayOptions : this.b) {
-            this.c.add(this.a.addOverlay(overlayOptions));
-        }
-    }
-
-    public abstract List<OverlayOptions> b();
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == null) {
-            return;
-        }
-        for (Overlay overlay : this.c) {
-            overlay.remove();
-        }
-        this.b.clear();
-        this.c.clear();
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a == null || this.c.size() <= 0) {
-            return;
-        }
-        LatLngBounds.Builder builder = new LatLngBounds.Builder();
-        for (Overlay overlay : this.c) {
-            if (overlay instanceof Marker) {
-                builder.include(((Marker) overlay).getPosition());
-            }
-        }
-        this.a.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? g : invokeV.intValue;
     }
 }

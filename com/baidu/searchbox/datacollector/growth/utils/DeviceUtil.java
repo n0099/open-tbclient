@@ -8,7 +8,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.p0.h;
 import com.repackage.n10;
 import com.repackage.p10;
 /* loaded from: classes2.dex */
@@ -118,7 +118,7 @@ public class DeviceUtil {
             if (i >= 29) {
                 return "";
             }
-            if (i < 23 || context.checkSelfPermission(PermissionChecker.READ_PHONE_STATE) == 0) {
+            if (i < 23 || context.checkSelfPermission(h.c) == 0) {
                 String str = null;
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");

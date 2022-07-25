@@ -1,6 +1,5 @@
 package com.kwad.components.ad.reward.model;
 
-import android.text.SpannableString;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
@@ -10,8 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.ad.reward.i.w;
-import com.kwad.components.core.widget.f;
+import com.kwad.components.ad.reward.k.u;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
@@ -23,27 +21,26 @@ import java.util.List;
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public List<String> d;
-    public String e;
-    public String f;
-    public String g;
-    public SpannableString h;
-    public String i;
-    public String j;
-    public int k;
-    public boolean l;
-    public String m;
-    public String n;
-    public String o;
-    public List<String> p;
-    public String q;
+    public String kY;
+    public String liveStartTime;
     @Nullable
-    public AdTemplate r;
+    public com.kwad.components.core.c.a.c mApkDownloadHelper;
+    public String np;
+    public List<String> oW;
+    public String oX;
+    public String oY;
+    public String oZ;
+    public String originPrice;
+    public boolean pa;
+    public String pb;
+    public String pc;
+    public String pd;
+    public List<String> pe;
     @Nullable
-    public com.kwad.components.core.c.a.b s;
+    public AdTemplate pf;
+    public int playableStyle;
+    public String price;
+    public String title;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -58,118 +55,98 @@ public final class a {
                 return;
             }
         }
-        this.n = "查看详情";
-        this.o = "立即预约";
+        this.pc = "查看详情";
+        this.pd = "立即预约";
+    }
+
+    private void S(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
+            this.oY = str;
+        }
+    }
+
+    private void T(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
+            this.oZ = str;
+        }
     }
 
     @Nullable
-    public static a a(w wVar, boolean z) {
+    public static a a(u uVar, boolean z) {
         InterceptResult invokeLZ;
-        AdTemplate a;
+        AdTemplate adTemplate;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, wVar, z)) == null) {
-            if (wVar == null || (a = wVar.a()) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, uVar, z)) == null) {
+            if (uVar == null || (adTemplate = uVar.getAdTemplate()) == null) {
                 return null;
             }
-            AdInfo i = d.i(a);
+            AdInfo bQ = d.bQ(adTemplate);
             a aVar = new a();
-            aVar.b = com.kwad.sdk.core.response.a.a.aC(i);
-            aVar.a = com.kwad.sdk.core.response.a.a.aE(i);
-            aVar.c = com.kwad.sdk.core.response.a.a.z(i);
-            aVar.d = com.kwad.sdk.core.response.a.c.f(a);
-            aVar.e = com.kwad.sdk.core.response.a.a.H(i);
-            aVar.k = d.b(a, z);
-            aVar.r = a;
-            aVar.s = wVar.b();
+            aVar.title = com.kwad.sdk.core.response.a.a.bl(bQ);
+            aVar.kY = com.kwad.sdk.core.response.a.a.bn(bQ);
+            aVar.np = com.kwad.sdk.core.response.a.a.ad(bQ);
+            aVar.oW = com.kwad.sdk.core.response.a.c.bH(adTemplate);
+            aVar.oX = com.kwad.sdk.core.response.a.a.al(bQ);
+            aVar.playableStyle = d.f(adTemplate, z);
+            aVar.pf = adTemplate;
+            aVar.mApkDownloadHelper = uVar.getApkDownloadHelper();
             return aVar;
         }
         return (a) invokeLZ.objValue;
     }
 
     @Nullable
-    public static a a(AdTemplate adTemplate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, adTemplate)) == null) {
-            if (adTemplate == null) {
-                return null;
-            }
-            AdInfo i = d.i(adTemplate);
-            a aVar = new a();
-            aVar.b = com.kwad.sdk.core.response.a.a.aY(i);
-            aVar.a = com.kwad.sdk.core.response.a.a.aZ(i);
-            aVar.h = com.kwad.sdk.core.response.a.a.a(i, f.a);
-            aVar.c = com.kwad.sdk.core.response.a.a.aX(i);
-            aVar.e = com.kwad.sdk.core.response.a.a.aU(i) ? com.kwad.components.ad.c.b.a() : com.kwad.components.ad.c.b.d();
-            return aVar;
-        }
-        return (a) invokeL.objValue;
-    }
-
-    private void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
-            this.i = str;
-        }
-    }
-
-    @Nullable
-    public static a b(AdTemplate adTemplate) {
+    public static a v(AdTemplate adTemplate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, adTemplate)) == null) {
             if (adTemplate == null) {
                 return null;
             }
-            AdInfo i = d.i(adTemplate);
-            AdProductInfo bd = com.kwad.sdk.core.response.a.a.bd(i);
+            AdInfo bQ = d.bQ(adTemplate);
+            AdProductInfo bN = com.kwad.sdk.core.response.a.a.bN(bQ);
             a aVar = new a();
-            String name = bd.getName();
-            aVar.b = name;
+            String name = bN.getName();
+            aVar.title = name;
             if (TextUtils.isEmpty(name)) {
-                aVar.b = com.kwad.sdk.core.response.a.a.B(i);
+                aVar.title = com.kwad.sdk.core.response.a.a.af(bQ);
             }
-            aVar.a = bd.getIcon();
-            aVar.c = com.kwad.sdk.core.response.a.a.z(i);
-            aVar.e = com.kwad.components.ad.c.b.b();
-            aVar.f = bd.getPrice();
-            aVar.g = bd.getOriginPrice();
+            aVar.kY = bN.getIcon();
+            aVar.np = com.kwad.sdk.core.response.a.a.ad(bQ);
+            aVar.oX = com.kwad.components.ad.c.b.ai();
+            aVar.price = bN.getPrice();
+            aVar.originPrice = bN.getOriginPrice();
             return aVar;
         }
         return (a) invokeL.objValue;
     }
 
-    private void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, str) == null) {
-            this.j = str;
-        }
-    }
-
     @Nullable
-    public static a c(AdTemplate adTemplate) {
+    public static a w(AdTemplate adTemplate) {
         InterceptResult invokeL;
         CouponInfo firstCouponList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, adTemplate)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, adTemplate)) == null) {
             if (adTemplate == null) {
                 return null;
             }
-            AdInfo i = d.i(adTemplate);
-            AdProductInfo bd = com.kwad.sdk.core.response.a.a.bd(i);
+            AdInfo bQ = d.bQ(adTemplate);
+            AdProductInfo bN = com.kwad.sdk.core.response.a.a.bN(bQ);
             a aVar = new a();
-            String name = bd.getName();
-            aVar.b = name;
+            String name = bN.getName();
+            aVar.title = name;
             if (TextUtils.isEmpty(name)) {
-                aVar.b = com.kwad.sdk.core.response.a.a.B(i);
+                aVar.title = com.kwad.sdk.core.response.a.a.af(bQ);
             }
-            aVar.a = bd.getIcon();
-            aVar.c = com.kwad.sdk.core.response.a.a.z(i);
-            aVar.f = bd.getPrice();
-            aVar.g = bd.getOriginPrice();
-            if (!bd.isCouponListEmpty() && (firstCouponList = bd.getFirstCouponList()) != null) {
-                aVar.b(CouponInfo.jinniuFormatCoupon(firstCouponList));
-                aVar.a(firstCouponList.getFormattedJinniuPrefix());
+            aVar.kY = bN.getIcon();
+            aVar.np = com.kwad.sdk.core.response.a.a.ad(bQ);
+            aVar.price = bN.getPrice();
+            aVar.originPrice = bN.getOriginPrice();
+            if (!bN.isCouponListEmpty() && (firstCouponList = bN.getFirstCouponList()) != null) {
+                aVar.T(CouponInfo.jinniuFormatCoupon(firstCouponList));
+                aVar.S(firstCouponList.getFormattedJinniuPrefix());
             }
             return aVar;
         }
@@ -177,150 +154,144 @@ public final class a {
     }
 
     @Nullable
-    public static a d(AdTemplate adTemplate) {
+    public static a x(AdTemplate adTemplate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, adTemplate)) == null) {
-            AdMatrixInfo.MerchantLiveReservationInfo C = com.kwad.sdk.core.response.a.b.C(adTemplate);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, adTemplate)) == null) {
+            AdMatrixInfo.MerchantLiveReservationInfo bA = com.kwad.sdk.core.response.a.b.bA(adTemplate);
             a aVar = new a();
-            aVar.a = C.userHeadUrl;
-            aVar.q = C.liveStartTime;
-            aVar.b = C.title;
-            aVar.l = C.needShowSubscriberCount();
-            aVar.m = C.getFormattedLiveSubscribeCount();
-            aVar.p = C.bookUserUrlList;
-            AdMatrixInfo.MerchantLiveReservationInfo.LiveReservationPlayEndInfo liveReservationPlayEndInfo = C.playEndCard;
-            aVar.n = liveReservationPlayEndInfo.detailBtnTitle;
-            aVar.o = liveReservationPlayEndInfo.reservationBtnTitle;
-            aVar.r = adTemplate;
+            aVar.kY = bA.userHeadUrl;
+            aVar.liveStartTime = bA.liveStartTime;
+            aVar.title = bA.title;
+            aVar.pa = bA.needShowSubscriberCount();
+            aVar.pb = bA.getFormattedLiveSubscribeCount();
+            aVar.pe = bA.bookUserUrlList;
+            AdMatrixInfo.MerchantLiveReservationInfo.LiveReservationPlayEndInfo liveReservationPlayEndInfo = bA.playEndCard;
+            aVar.pc = liveReservationPlayEndInfo.detailBtnTitle;
+            aVar.pd = liveReservationPlayEndInfo.reservationBtnTitle;
+            aVar.pf = adTemplate;
             return aVar;
         }
         return (a) invokeL.objValue;
     }
 
-    public final String a() {
+    public final String eL() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.kY : (String) invokeV.objValue;
     }
 
-    public final String b() {
+    public final String fO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public final SpannableString g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.h : (SpannableString) invokeV.objValue;
-    }
-
-    public final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.j : (String) invokeV.objValue;
-    }
-
-    public final String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.np : (String) invokeV.objValue;
     }
 
     @Nullable
-    public final AdTemplate j() {
+    public final AdTemplate gA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.r : (AdTemplate) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pf : (AdTemplate) invokeV.objValue;
     }
 
-    @Nullable
-    public final com.kwad.components.core.c.a.b k() {
+    public final List<String> gB() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.s : (com.kwad.components.core.c.a.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.oW : (List) invokeV.objValue;
     }
 
-    public final List<String> l() {
+    public final boolean gC() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.d : (List) invokeV.objValue;
-    }
-
-    public final boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            List<String> list = this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            List<String> list = this.oW;
             return list == null || list.size() == 0;
         }
         return invokeV.booleanValue;
     }
 
-    public final int n() {
+    public final int gD() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.playableStyle : invokeV.intValue;
     }
 
-    public final String o() {
+    public final String gE() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.m : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.pb : (String) invokeV.objValue;
     }
 
-    public final String p() {
+    public final String gF() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.n : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.pc : (String) invokeV.objValue;
     }
 
-    public final String q() {
+    public final String gG() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.o : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.pd : (String) invokeV.objValue;
     }
 
-    public final boolean r() {
+    public final boolean gH() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.l : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.pa : invokeV.booleanValue;
     }
 
-    public final List<String> s() {
+    public final List<String> gI() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.p : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.pe : (List) invokeV.objValue;
     }
 
-    public final String t() {
+    public final String gJ() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.q : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.liveStartTime : (String) invokeV.objValue;
+    }
+
+    @Nullable
+    public final com.kwad.components.core.c.a.c getApkDownloadHelper() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mApkDownloadHelper : (com.kwad.components.core.c.a.c) invokeV.objValue;
+    }
+
+    public final String getOriginPrice() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.originPrice : (String) invokeV.objValue;
+    }
+
+    public final String getPrice() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.price : (String) invokeV.objValue;
+    }
+
+    public final String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.title : (String) invokeV.objValue;
+    }
+
+    public final String gx() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.oX : (String) invokeV.objValue;
+    }
+
+    public final String gy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.oZ : (String) invokeV.objValue;
+    }
+
+    public final String gz() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.oY : (String) invokeV.objValue;
     }
 }

@@ -41,7 +41,7 @@ public class do6 {
                 statisticItem.param(TiebaStatic.Params.RECOM_AB_TAG, threadData.mRecomAbTag);
             }
             statisticItem.param(TiebaStatic.Params.RECOM_TYPE, threadData.getRecomCardType());
-            u85.a(statisticItem, tbPageTag);
+            v85.a(statisticItem, tbPageTag);
         }
     }
 
@@ -105,10 +105,10 @@ public class do6 {
             statisticItem.addParam(TiebaStatic.Params.FID_2, str);
             statisticItem.addParam("order_id", threadData.tiebaPlusOrderId);
             TiebaStatic.log(statisticItem);
-            pk4.a(pk4.e, pk4.b, threadData.tiebaPlusOrderId, threadData.tiebaPlusToken, threadData.tiebaPlusExtraParam, threadData.statFloor);
+            qk4.a(qk4.e, qk4.b, threadData.tiebaPlusOrderId, threadData.tiebaPlusToken, threadData.tiebaPlusExtraParam, threadData.statFloor);
         }
         if (threadData.getRecomSource() != null && threadData.getRecomSource().startsWith("manual")) {
-            pk4.a(pk4.l, pk4.b, threadData.tiebaPlusOrderId, threadData.tiebaPlusToken, threadData.tiebaPlusExtraParam, threadData.statFloor);
+            qk4.a(qk4.l, qk4.b, threadData.tiebaPlusOrderId, threadData.tiebaPlusToken, threadData.tiebaPlusExtraParam, threadData.statFloor);
         }
         if (TextUtils.isEmpty(threadData.tiePlusMonitorClickUrl)) {
             return;
@@ -416,10 +416,10 @@ public class do6 {
             statisticItem.addParam(TiebaStatic.Params.FID_2, str);
             statisticItem.addParam("order_id", threadData.tiebaPlusOrderId);
             TiebaStatic.log(statisticItem);
-            pk4.a(pk4.d, pk4.b, threadData.tiebaPlusOrderId, threadData.tiebaPlusToken, threadData.tiebaPlusExtraParam, threadData.statFloor);
+            qk4.a(qk4.d, qk4.b, threadData.tiebaPlusOrderId, threadData.tiebaPlusToken, threadData.tiebaPlusExtraParam, threadData.statFloor);
         }
         if (threadData.getRecomSource() != null && threadData.getRecomSource().startsWith("manual")) {
-            pk4.a(pk4.k, pk4.b, threadData.tiebaPlusOrderId, threadData.tiebaPlusToken, threadData.tiebaPlusExtraParam, threadData.statFloor);
+            qk4.a(qk4.k, qk4.b, threadData.tiebaPlusOrderId, threadData.tiebaPlusToken, threadData.tiebaPlusExtraParam, threadData.statFloor);
         }
         if (TextUtils.isEmpty(threadData.tiePlusMonitorShowUrl)) {
             return;

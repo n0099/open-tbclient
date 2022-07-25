@@ -122,11 +122,11 @@ public class b96 extends BaseAdapter {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            int k = (pi.k(this.a) - pi.f(this.a, R.dimen.obfuscated_res_0x7f07027b)) / 4;
+            int k = (pi.k(this.a) - pi.f(this.a, R.dimen.obfuscated_res_0x7f070279)) / 4;
             if (view2 == null) {
                 b bVar = new b(this, null);
                 View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d027e, (ViewGroup) null);
-                bVar.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e33);
+                bVar.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e2c);
                 inflate.setTag(bVar);
                 inflate.setLayoutParams(new AbsListView.LayoutParams(k, k));
                 view2 = inflate;

@@ -185,7 +185,7 @@ public class kx7 {
                         this.a.y.setVisibility(4);
                     } else {
                         this.a.y.setVisibility(0);
-                        TbPageTag l = u85.l(this.a.p.getContext());
+                        TbPageTag l = v85.l(this.a.p.getContext());
                         if (this.a.B != null && l != null) {
                             hx7.a("c14277", this.a.C, this.a.B.Q(), TbadkCoreApplication.getCurrentAccount(), l.locatePage);
                         }
@@ -357,18 +357,18 @@ public class kx7 {
         this.F = new f(this);
         this.G = new g(this);
         this.p = pbFragment;
-        this.u = pi.f(pbFragment.getContext(), R.dimen.obfuscated_res_0x7f070308);
+        this.u = pi.f(pbFragment.getContext(), R.dimen.obfuscated_res_0x7f070306);
         this.v = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0701b2);
         pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds_6);
         int k = pi.k(TbadkCoreApplication.getInst());
         int f2 = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds40);
-        int f3 = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070234) + ((int) (k * 0.07d));
+        int f3 = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070231) + ((int) (k * 0.07d));
         this.w = f3;
         if (f3 - f2 > 0) {
             this.w = f3 - f2;
         }
         this.x = (k - (this.w * 2)) - pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds89);
-        NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f092437);
+        NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f092439);
         this.a = navigationBar;
         navigationBar.setOnClickListener(new a(this));
         this.a.hideBottomLine();
@@ -412,10 +412,10 @@ public class kx7 {
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if ((!this.s || TbadkCoreApplication.isLogin()) && !xt4.k().h("show_share", false)) {
-                View inflate = LayoutInflater.from(this.p.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0840, (ViewGroup) null);
+            if ((!this.s || TbadkCoreApplication.isLogin()) && !yt4.k().h("show_share", false)) {
+                View inflate = LayoutInflater.from(this.p.getContext()).inflate(R.layout.obfuscated_res_0x7f0d084a, (ViewGroup) null);
                 View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0902a8);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920b7);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920bb);
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) findViewById.getLayoutParams();
                 layoutParams.gravity = 5;
                 if (!TbadkCoreApplication.isLogin()) {
@@ -423,7 +423,7 @@ public class kx7 {
                 } else {
                     layoutParams.rightMargin = pi.f(this.p.getContext(), R.dimen.obfuscated_res_0x7f0701aa);
                 }
-                textView.setText(R.string.obfuscated_res_0x7f0f1173);
+                textView.setText(R.string.obfuscated_res_0x7f0f1122);
                 textView.setOnClickListener(this.G);
                 this.t = new PopupWindow(inflate, -2, -2);
             }
@@ -503,13 +503,13 @@ public class kx7 {
             boolean z8 = zu7Var.u;
             yu7Var.w = z8;
             if (z8) {
-                yu7Var.k().setText(R.string.obfuscated_res_0x7f0f0fd6);
+                yu7Var.k().setText(R.string.obfuscated_res_0x7f0f0fbf);
                 this.n.E(false);
             }
         }
         this.n.C(zu7Var == null ? false : zu7Var.v);
         if (!TbSingleton.getInstance().mCanCallFans && this.p.F() != null && this.p.F().R1() != null && this.p.F().R1().Q() != null && this.p.F().R1().Q().equals(TbSingleton.getInstance().mCallFansTid)) {
-            this.n.h().setText(R.string.obfuscated_res_0x7f0f0829);
+            this.n.h().setText(R.string.obfuscated_res_0x7f0f0825);
         }
         L();
         this.n.T(zu7Var != null ? zu7Var.w : false);
@@ -522,7 +522,7 @@ public class kx7 {
             if (!TextUtils.isEmpty(str) && !this.b) {
                 this.c.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f03c7, UtilHelper.getFixedBarText(str, 7, false)));
                 z(true);
-                zm4.c().h(str);
+                an4.c().h(str);
                 return;
             }
             z(false);
@@ -535,9 +535,9 @@ public class kx7 {
             NavigationBar.ControlAlign controlAlign = NavigationBar.ControlAlign.HORIZONTAL_RIGHT;
             this.b = z;
             if (this.d == null && this.e == null) {
-                View addCustomView = this.a.addCustomView(controlAlign, R.layout.obfuscated_res_0x7f0d05eb, this.p.h2);
+                View addCustomView = this.a.addCustomView(controlAlign, R.layout.obfuscated_res_0x7f0d05f5, this.p.h2);
                 this.d = addCustomView;
-                this.e = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091583);
+                this.e = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09155e);
                 int i = this.u;
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i, i);
                 layoutParams.rightMargin = this.v;
@@ -573,8 +573,8 @@ public class kx7 {
             return;
         }
         if (z) {
-            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f063b));
-            ((uu4) this.z.getStyleConfig()).t(R.color.CAM_X0109);
+            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0637));
+            ((vu4) this.z.getStyleConfig()).t(R.color.CAM_X0109);
             return;
         }
         tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f02a7));
@@ -594,15 +594,15 @@ public class kx7 {
         } else {
             this.j.setVisibility(0);
             this.l = str;
-            ThreadCardUtils.cutAndSetTextByMaxLine(this.k, str, R.string.obfuscated_res_0x7f0f0650, R.dimen.tbds0, 1, this.x, false);
-            zm4.c().h(str);
+            ThreadCardUtils.cutAndSetTextByMaxLine(this.k, str, R.string.obfuscated_res_0x7f0f064c, R.dimen.tbds0, 1, this.x, false);
+            an4.c().h(str);
             this.j.J(str3, 10, false);
         }
         View view2 = this.y;
         if (view2 != null && this.B != null) {
-            view2.setTag(R.id.obfuscated_res_0x7f090a3f, str);
-            this.y.setTag(R.id.obfuscated_res_0x7f090a2a, str2);
-            this.y.setTag(R.id.obfuscated_res_0x7f09203a, this.B.Q());
+            view2.setTag(R.id.obfuscated_res_0x7f090a38, str);
+            this.y.setTag(R.id.obfuscated_res_0x7f090a23, str2);
+            this.y.setTag(R.id.obfuscated_res_0x7f09203e, this.B.Q());
             this.A = z;
         }
         y();
@@ -692,9 +692,9 @@ public class kx7 {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER, R.layout.obfuscated_res_0x7f0d05e6, (View.OnClickListener) null);
+            LinearLayout linearLayout = (LinearLayout) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER, R.layout.obfuscated_res_0x7f0d05f0, (View.OnClickListener) null);
             this.i = linearLayout;
-            BarImageView barImageView = (BarImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091779);
+            BarImageView barImageView = (BarImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091754);
             this.j = barImageView;
             barImageView.setShowOval(true);
             this.j.setShowOuterBorder(false);
@@ -702,7 +702,7 @@ public class kx7 {
             this.j.setStrokeWith(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.j.setStrokeColorResId(R.color.CAM_X0401);
             this.j.setOnClickListener(this.p.h2);
-            TextView textView = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09177a);
+            TextView textView = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091755);
             this.k = textView;
             textView.setOnClickListener(this.p.h2);
             if (this.i.getLayoutParams() != null && (this.i.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) && this.w > 0 && this.x > 0) {
@@ -791,7 +791,7 @@ public class kx7 {
             return;
         }
         if (!TextUtils.isEmpty(this.l)) {
-            ur4 d2 = ur4.d(this.i);
+            vr4 d2 = vr4.d(this.i);
             d2.n(R.string.J_X07);
             d2.f(R.color.CAM_X0209);
             return;

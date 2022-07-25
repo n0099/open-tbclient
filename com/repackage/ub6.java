@@ -87,7 +87,7 @@ public class ub6 {
                     }
                 }
                 if (TextUtils.isEmpty(str)) {
-                    str = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0572);
+                    str = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f056e);
                 }
                 if (this.a.b != null) {
                     this.a.b.B(str);

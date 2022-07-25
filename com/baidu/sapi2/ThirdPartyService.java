@@ -11,8 +11,8 @@ import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.sapi2.activity.social.BaseSSOLoginActivity;
 import com.baidu.sapi2.activity.social.CFOSSOLoginActivity;
 import com.baidu.sapi2.activity.social.FacebookSSOLoginActivity;
-import com.baidu.sapi2.activity.social.GlorySSOLoginActivity;
 import com.baidu.sapi2.activity.social.GoogleSSOLoginActivity;
+import com.baidu.sapi2.activity.social.HonorSSOLoginActivity;
 import com.baidu.sapi2.activity.social.HuaweiSSOLoginActivity;
 import com.baidu.sapi2.activity.social.MeizuSSOLoginActivity;
 import com.baidu.sapi2.activity.social.QQOauthLoginActivity;
@@ -29,6 +29,7 @@ import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.share.face.FaceLoginService;
 import com.baidu.sapi2.shell.listener.ThirdLoginCallback;
 import com.baidu.sapi2.shell.response.SapiAccountResponse;
+import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.ParamsUtil;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
@@ -268,66 +269,87 @@ public class ThirdPartyService implements AbstractThirdPartyService {
         }
         this.a = System.currentTimeMillis();
         SapiStatUtil.statThirdLoginEnter(socialType);
-        boolean z2 = context instanceof Activity;
-        if (socialType == SocialType.SINA_WEIBO_SSO) {
-            intent = new Intent(context, SinaSSOLoginActivity.class);
-            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.WEIBO;
-        } else if (socialType == SocialType.HUAWEI) {
-            intent = new Intent(context, HuaweiSSOLoginActivity.class);
-            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.HUAWEI;
-        } else if (socialType == SocialType.WEIXIN) {
-            d = false;
-            intent = new Intent(context, WXLoginActivity.class);
-            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.WECHAT;
-        } else if (socialType == SocialType.QQ_SSO) {
-            intent = new Intent(context, QQSSOLoginActivity.class);
-            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.QQ;
-        } else if (socialType == SocialType.MEIZU) {
-            intent = new Intent(context, MeizuSSOLoginActivity.class);
-            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.MEIZU;
-        } else if (socialType == SocialType.FACEBOOK) {
-            intent = new Intent(context, FacebookSSOLoginActivity.class);
-            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.OTHER;
-        } else if (socialType == SocialType.XIAOMI) {
-            intent = new Intent(context, XiaomiSSOLoginActivity.class);
-            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.XIAOMI;
-        } else if (socialType == SocialType.TWITTER) {
-            intent = new Intent(context, TwitterSSOLoginActivity.class);
-            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.OTHER;
-        } else if (socialType == SocialType.GOOGLE) {
-            intent = new Intent(context, GoogleSSOLoginActivity.class);
-            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.OTHER;
-        } else if (socialType == SocialType.GLORY) {
-            intent = new Intent(context, GlorySSOLoginActivity.class);
-            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.GLORY;
-        } else if (socialType == SocialType.YY) {
-            intent = new Intent(context, YYSSOLoginActivity.class);
-            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.YY;
-        } else if (socialType == SocialType.QQ_SSO_BACKGROUND) {
-            loadQQLogin(context, i);
-            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.QQ;
-            return;
-        } else if (socialType == SocialType.WEIXIN_BACKGROUND) {
-            loadWechatLogin(context, i);
-            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.WECHAT;
-            return;
-        } else if (socialType == SocialType.CFO) {
-            loadCFOSSOLogin(context, i);
-            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.CFO;
-            return;
-        } else {
-            throw new IllegalArgumentException(socialType.getName() + " type login not support");
+        try {
+            if (SapiAccountManager.getInstance() != null && SapiAccountManager.getInstance().getConfignation() != null) {
+                SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
+                if (confignation.context == null) {
+                    return;
+                }
+                if (context.getPackageName() != null && !context.getPackageName().equals(confignation.context.getPackageName())) {
+                    context = confignation.context;
+                }
+                boolean z2 = context instanceof Activity;
+                if (socialType == SocialType.SINA_WEIBO_SSO) {
+                    intent = new Intent(context, SinaSSOLoginActivity.class);
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.WEIBO;
+                } else if (socialType == SocialType.HUAWEI) {
+                    intent = new Intent(context, HuaweiSSOLoginActivity.class);
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.HUAWEI;
+                } else if (socialType == SocialType.WEIXIN) {
+                    d = false;
+                    intent = new Intent(context, WXLoginActivity.class);
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.WECHAT;
+                } else if (socialType == SocialType.QQ_SSO) {
+                    intent = new Intent(context, QQSSOLoginActivity.class);
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.QQ;
+                } else if (socialType == SocialType.MEIZU) {
+                    intent = new Intent(context, MeizuSSOLoginActivity.class);
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.MEIZU;
+                } else if (socialType == SocialType.FACEBOOK) {
+                    intent = new Intent(context, FacebookSSOLoginActivity.class);
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.OTHER;
+                } else if (socialType == SocialType.XIAOMI) {
+                    intent = new Intent(context, XiaomiSSOLoginActivity.class);
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.XIAOMI;
+                } else if (socialType == SocialType.TWITTER) {
+                    intent = new Intent(context, TwitterSSOLoginActivity.class);
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.OTHER;
+                } else if (socialType == SocialType.GOOGLE) {
+                    intent = new Intent(context, GoogleSSOLoginActivity.class);
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.OTHER;
+                } else if (socialType == SocialType.HONOR) {
+                    intent = new Intent(context, HonorSSOLoginActivity.class);
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.HONOR;
+                } else if (socialType == SocialType.YY) {
+                    intent = new Intent(context, YYSSOLoginActivity.class);
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.YY;
+                } else if (socialType == SocialType.QQ_SSO_BACKGROUND) {
+                    loadQQLogin(context, i);
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.QQ;
+                    return;
+                } else if (socialType == SocialType.WEIXIN_BACKGROUND) {
+                    loadWechatLogin(context, i);
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.WECHAT;
+                    return;
+                } else if (socialType == SocialType.CFO) {
+                    loadCFOSSOLogin(context, i);
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.CFO;
+                    return;
+                } else {
+                    throw new IllegalArgumentException(socialType.getName() + " type login not support");
+                }
+                intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i);
+                intent.putExtra(BaseSSOLoginActivity.m, z);
+                if (!TextUtils.isEmpty(str)) {
+                    intent.putExtra("extraJson", str);
+                }
+                if (!z2) {
+                    intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+                    context.startActivity(intent);
+                    return;
+                }
+                ((Activity) context).startActivityForResult(intent, 2001);
+            }
+        } catch (Exception unused) {
+            WebAuthResult webAuthResult = new WebAuthResult();
+            webAuthResult.setResultCode(13);
+            webAuthResult.setResultMsg(WebAuthResult.ERROR_MSG_CONTEXT_ERROR);
+            CoreViewRouter coreViewRouter = CoreViewRouter.getInstance();
+            if (coreViewRouter == null || coreViewRouter.getWebAuthListener() == null) {
+                return;
+            }
+            CoreViewRouter.getInstance().getWebAuthListener().onFailure(webAuthResult);
+            CoreViewRouter.getInstance().release();
         }
-        intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i);
-        intent.putExtra(BaseSSOLoginActivity.m, z);
-        if (!TextUtils.isEmpty(str)) {
-            intent.putExtra("extraJson", str);
-        }
-        if (!z2) {
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            context.startActivity(intent);
-            return;
-        }
-        ((Activity) context).startActivityForResult(intent, 2001);
     }
 }

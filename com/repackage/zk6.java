@@ -175,7 +175,7 @@ public class zk6 {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) || threadData == null) {
             return;
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new dv4(4, threadData.getPositionInFrsItemTab(), 1)));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ev4(4, threadData.getPositionInFrsItemTab(), 1)));
     }
 
     public void c(FrsItemTabFragment frsItemTabFragment, BdTypeRecyclerView bdTypeRecyclerView) {

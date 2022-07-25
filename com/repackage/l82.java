@@ -1,15 +1,13 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class l82 implements m82 {
+public class l82 implements t72 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,28 +25,27 @@ public abstract class l82 implements m82 {
         }
     }
 
-    @Override // com.repackage.m82
-    @Nullable
-    public V8EngineConfiguration.CodeCacheSetting b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.t72
+    @SuppressLint({"BDThrowableCheck"})
+    public y72 a(x72 x72Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, x72Var)) == null) {
+            int type = x72Var.getType();
+            if (type != 1) {
+                if (type != 2) {
+                    if (type != 3) {
+                        if (!sg1.a) {
+                            return new o82();
+                        }
+                        throw new IllegalArgumentException("invalid model object:" + x72Var);
+                    }
+                    return new c22();
+                }
+                return qj2.b();
+            }
+            return new o82();
         }
-        return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
-    }
-
-    @Override // com.repackage.m82
-    public void c(p72 p72Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p72Var) == null) {
-        }
-    }
-
-    @Override // com.repackage.m82
-    public void d(p72 p72Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p72Var) == null) {
-        }
+        return (y72) invokeL.objValue;
     }
 }

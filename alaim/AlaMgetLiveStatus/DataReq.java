@@ -23,7 +23,7 @@ public final class DataReq extends Message {
     @ProtoField(tag = 1)
 
     /* renamed from: common  reason: collision with root package name */
-    public final CommonReq f1743common;
+    public final CommonReq f1023common;
     @ProtoField(label = Message.Label.REPEATED, tag = 2, type = Message.Datatype.INT64)
     public final List<Long> live_ids;
 
@@ -34,7 +34,7 @@ public final class DataReq extends Message {
         public Long audience_count;
 
         /* renamed from: common  reason: collision with root package name */
-        public CommonReq f1744common;
+        public CommonReq f1024common;
         public List<Long> live_ids;
 
         public Builder() {
@@ -72,7 +72,7 @@ public final class DataReq extends Message {
             if (dataReq == null) {
                 return;
             }
-            this.f1744common = dataReq.f1743common;
+            this.f1024common = dataReq.f1023common;
             this.live_ids = Message.copyOf(dataReq.live_ids);
             this.audience_count = dataReq.audience_count;
         }
@@ -133,7 +133,7 @@ public final class DataReq extends Message {
             }
         }
         if (z) {
-            this.f1743common = builder.f1744common;
+            this.f1023common = builder.f1024common;
             List<Long> list = builder.live_ids;
             if (list == null) {
                 this.live_ids = DEFAULT_LIVE_IDS;
@@ -149,7 +149,7 @@ public final class DataReq extends Message {
                 return;
             }
         }
-        this.f1743common = builder.f1744common;
+        this.f1023common = builder.f1024common;
         this.live_ids = Message.immutableCopyOf(builder.live_ids);
         this.audience_count = builder.audience_count;
     }

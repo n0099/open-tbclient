@@ -1,32 +1,24 @@
 package com.kwad.sdk.utils;
 
-import android.os.Handler;
-import android.os.Message;
-import java.lang.ref.WeakReference;
+import com.baidu.searchbox.player.widget.BdPlayerProgressView;
+import java.util.Formatter;
+import java.util.Locale;
 /* loaded from: classes5.dex */
-public final class bc extends Handler {
-    public WeakReference<a> a;
-
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(Message message);
-    }
-
-    public bc(a aVar) {
-        this.a = new WeakReference<>(aVar);
-    }
-
-    @Override // android.os.Handler
-    public final void handleMessage(Message message) {
-        a aVar;
+public final class bc {
+    public static String v(long j) {
+        if (j <= 0 || j >= 86400000) {
+            return BdPlayerProgressView.DEFAULT_TIME_TEXT;
+        }
         try {
+            long j2 = j / 1000;
+            long j3 = j2 % 60;
+            long j4 = (j2 / 60) % 60;
+            long j5 = j2 / 3600;
+            Formatter formatter = new Formatter(new StringBuilder(), Locale.getDefault());
+            return j5 > 0 ? formatter.format("%d:%02d:%02d", Long.valueOf(j5), Long.valueOf(j4), Long.valueOf(j3)).toString() : formatter.format("%02d:%02d", Long.valueOf(j4), Long.valueOf(j3)).toString();
         } catch (Exception e) {
-            com.kwad.sdk.core.d.b.a(e);
+            com.kwad.sdk.core.e.b.printStackTrace(e);
+            return "";
         }
-        if (this.a == null || (aVar = this.a.get()) == null) {
-            return;
-        }
-        aVar.a(message);
-        super.handleMessage(message);
     }
 }

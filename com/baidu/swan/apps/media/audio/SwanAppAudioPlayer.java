@@ -24,33 +24,33 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import com.repackage.b72;
-import com.repackage.be3;
-import com.repackage.d93;
-import com.repackage.fn2;
+import com.repackage.c72;
+import com.repackage.ce3;
+import com.repackage.e93;
 import com.repackage.gn2;
-import com.repackage.h03;
-import com.repackage.in2;
-import com.repackage.n73;
-import com.repackage.nn2;
-import com.repackage.od3;
-import com.repackage.pj2;
-import com.repackage.rg1;
-import com.repackage.ul2;
+import com.repackage.hn2;
+import com.repackage.i03;
+import com.repackage.jn2;
+import com.repackage.o73;
+import com.repackage.on2;
+import com.repackage.pd3;
+import com.repackage.qj2;
+import com.repackage.sg1;
+import com.repackage.vl2;
 import java.io.IOException;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class SwanAppAudioPlayer implements fn2 {
+public class SwanAppAudioPlayer implements gn2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public MediaPlayer b;
-    public in2 c;
+    public jn2 c;
     public d d;
-    public nn2 e;
+    public on2 e;
     public PlayerStatus f;
     public UserStatus g;
     public AudioManager h;
@@ -272,7 +272,7 @@ public class SwanAppAudioPlayer implements fn2 {
         public void onAudioFocusChange(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                be3.e0(new a(this, i));
+                ce3.e0(new a(this, i));
             }
         }
 
@@ -352,7 +352,7 @@ public class SwanAppAudioPlayer implements fn2 {
                 if (i2 == -1007) {
                     str = "10004";
                 }
-                n73.b("audio", 2008, "audio fail, src: " + this.a.c.c, Integer.parseInt(str), "");
+                o73.b("audio", 2008, "audio fail, src: " + this.a.c.c, Integer.parseInt(str), "");
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.putOpt(StatConstants.KEY_EXT_ERR_CODE, str);
@@ -481,7 +481,7 @@ public class SwanAppAudioPlayer implements fn2 {
                 return;
             }
         }
-        l = rg1.a;
+        l = sg1.a;
     }
 
     public SwanAppAudioPlayer(String str) {
@@ -500,19 +500,19 @@ public class SwanAppAudioPlayer implements fn2 {
             }
         }
         this.a = "";
-        this.c = new in2();
+        this.c = new jn2();
         this.f = PlayerStatus.NONE;
         this.g = UserStatus.OPEN;
         this.k = false;
         this.a = str;
-        gn2.a(this);
+        hn2.a(this);
     }
 
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.g = UserStatus.PLAY;
-            if (pj2.f().b()) {
+            if (qj2.f().b()) {
                 return;
             }
             if (l) {
@@ -526,9 +526,9 @@ public class SwanAppAudioPlayer implements fn2 {
                 if (dVar != null) {
                     dVar.sendEmptyMessage(0);
                 }
-                nn2 nn2Var = this.e;
-                if (nn2Var != null) {
-                    nn2Var.a("onPlay");
+                on2 on2Var = this.e;
+                if (on2Var != null) {
+                    on2Var.a("onPlay");
                 }
             } else if (playerStatus == PlayerStatus.IDLE) {
                 v().prepareAsync();
@@ -566,7 +566,7 @@ public class SwanAppAudioPlayer implements fn2 {
                 dVar.removeMessages(0);
                 this.d = null;
             }
-            gn2.k(this);
+            hn2.k(this);
         }
     }
 
@@ -598,9 +598,9 @@ public class SwanAppAudioPlayer implements fn2 {
                 Log.d("SwanAppAudioPlayer", "===seekTo ->" + i);
             }
             v().seekTo((int) (i * 1000));
-            nn2 nn2Var = this.e;
-            if (nn2Var != null) {
-                nn2Var.a("onSeeking");
+            on2 on2Var = this.e;
+            if (on2Var != null) {
+                on2Var.a("onSeeking");
             }
         }
     }
@@ -609,23 +609,23 @@ public class SwanAppAudioPlayer implements fn2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             try {
-                str = ul2.U().G().a(str);
+                str = vl2.U().G().a(str);
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
                 HashMap hashMap = new HashMap();
-                String b2 = od3.b();
-                if (!TextUtils.isEmpty(b2) && od3.c(str)) {
+                String b2 = pd3.b();
+                if (!TextUtils.isEmpty(b2) && pd3.c(str)) {
                     if (l) {
                         Log.d("SwanAppAudioPlayer", "set referer for AudioPlayer; referer is" + b2);
                     }
                     hashMap.put("Referer", b2);
                 }
-                String g0 = b72.U().g0();
+                String g0 = c72.U().g0();
                 if (!TextUtils.isEmpty(g0)) {
                     hashMap.put("User-Agent", g0);
                 }
-                String j = d93.l().j(str);
+                String j = e93.l().j(str);
                 if (!TextUtils.isEmpty(j)) {
                     hashMap.put("Cookie", j);
                     if (l) {
@@ -635,7 +635,7 @@ public class SwanAppAudioPlayer implements fn2 {
                 v().setDataSource(AppRuntime.getAppContext(), Uri.parse(str), hashMap);
                 this.f = PlayerStatus.IDLE;
             } catch (IOException unused) {
-                n73.b("audio", 1001, "src replace fail, src is" + str, -1, "");
+                o73.b("audio", 1001, "src replace fail, src is" + str, -1, "");
                 if (l) {
                     Log.e("SwanAppAudioPlayer", "set data source fail");
                 }
@@ -683,16 +683,16 @@ public class SwanAppAudioPlayer implements fn2 {
             if (dVar != null) {
                 dVar.sendEmptyMessage(0);
             }
-            nn2 nn2Var = this.e;
-            if (nn2Var != null) {
-                nn2Var.a("onPlay");
+            on2 on2Var = this.e;
+            if (on2Var != null) {
+                on2Var.a("onPlay");
             }
             K();
             int i = this.c.d;
             if (i > 0) {
                 E(i);
             }
-            if (pj2.f().b()) {
+            if (qj2.f().b()) {
                 z();
             }
         }
@@ -712,9 +712,9 @@ public class SwanAppAudioPlayer implements fn2 {
                 if (dVar != null) {
                     dVar.removeMessages(0);
                 }
-                nn2 nn2Var = this.e;
-                if (nn2Var != null) {
-                    nn2Var.a(MissionEvent.MESSAGE_STOP);
+                on2 on2Var = this.e;
+                if (on2Var != null) {
+                    on2Var.a(MissionEvent.MESSAGE_STOP);
                 }
             }
         }
@@ -745,21 +745,21 @@ public class SwanAppAudioPlayer implements fn2 {
         }
     }
 
-    @Override // com.repackage.fn2
+    @Override // com.repackage.gn2
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.c.b : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.fn2
+    @Override // com.repackage.gn2
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.fn2
+    @Override // com.repackage.gn2
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -769,14 +769,14 @@ public class SwanAppAudioPlayer implements fn2 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.fn2
+    @Override // com.repackage.gn2
     public Object i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this : invokeV.objValue;
     }
 
-    @Override // com.repackage.fn2
+    @Override // com.repackage.gn2
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
@@ -790,14 +790,14 @@ public class SwanAppAudioPlayer implements fn2 {
         }
     }
 
-    @Override // com.repackage.fn2
+    @Override // com.repackage.gn2
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             if (l) {
                 Log.d("SwanAppAudioPlayer", "--onForegroundChanged -> " + z);
             }
-            h03 M = h03.M();
+            i03 M = i03.M();
             if (M == null || !M.w0()) {
                 return;
             }
@@ -809,7 +809,7 @@ public class SwanAppAudioPlayer implements fn2 {
         }
     }
 
-    @Override // com.repackage.fn2
+    @Override // com.repackage.gn2
     public boolean onBackPressed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -819,14 +819,14 @@ public class SwanAppAudioPlayer implements fn2 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.fn2
+    @Override // com.repackage.gn2
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             if (l) {
                 Log.d("SwanAppAudioPlayer", "--onDestroy");
             }
-            h03 M = h03.M();
+            i03 M = i03.M();
             if (M == null || !M.w0()) {
                 return;
             }
@@ -834,30 +834,30 @@ public class SwanAppAudioPlayer implements fn2 {
         }
     }
 
-    public in2 u() {
+    public jn2 u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.c : (in2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.c : (jn2) invokeV.objValue;
     }
 
-    public void update(in2 in2Var) {
+    public void update(jn2 jn2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, in2Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, jn2Var) == null) {
             if (l) {
-                Log.d("SwanAppAudioPlayer", "===update -> " + in2Var);
+                Log.d("SwanAppAudioPlayer", "===update -> " + jn2Var);
             }
             String str = this.c.c;
-            this.c = in2Var;
-            nn2 nn2Var = this.e;
-            if (nn2Var != null) {
-                nn2Var.d(in2Var.j);
+            this.c = jn2Var;
+            on2 on2Var = this.e;
+            if (on2Var != null) {
+                on2Var.d(jn2Var.j);
             }
             K();
-            if (TextUtils.equals(in2Var.c, str)) {
+            if (TextUtils.equals(jn2Var.c, str)) {
                 return;
             }
             if (l) {
-                Log.d("SwanAppAudioPlayer", "update src: " + in2Var.c);
+                Log.d("SwanAppAudioPlayer", "update src: " + jn2Var.c);
             }
             this.k = true;
             B();
@@ -888,7 +888,7 @@ public class SwanAppAudioPlayer implements fn2 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            h03 M = h03.M();
+            i03 M = i03.M();
             boolean booleanValue = M == null ? false : M.U().c("key_audio_is_mix_with_other", Boolean.FALSE).booleanValue();
             if (l) {
                 Log.d("SwanAppAudioPlayer", "   isMixWithOther -> " + booleanValue);
@@ -898,19 +898,19 @@ public class SwanAppAudioPlayer implements fn2 {
         return invokeV.booleanValue;
     }
 
-    public void x(in2 in2Var, CallbackHandler callbackHandler) {
+    public void x(jn2 jn2Var, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048600, this, in2Var, callbackHandler) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048600, this, jn2Var, callbackHandler) == null) {
             if (l) {
                 Log.d("SwanAppAudioPlayer", "===openPlayer");
             }
             this.g = UserStatus.OPEN;
-            this.c = in2Var;
-            if (in2Var.j != null) {
+            this.c = jn2Var;
+            if (jn2Var.j != null) {
                 try {
-                    this.e = new nn2(callbackHandler, new JSONObject(this.c.j));
+                    this.e = new on2(callbackHandler, new JSONObject(this.c.j));
                 } catch (JSONException unused) {
-                    n73.b("audio", UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, "Audio callback is not jsonObject", -1, "");
+                    o73.b("audio", UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, "Audio callback is not jsonObject", -1, "");
                     if (l) {
                         Log.e("SwanAppAudioPlayer", "Audio callback is not jsonObject");
                     }
@@ -937,9 +937,9 @@ public class SwanAppAudioPlayer implements fn2 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && v().isPlaying()) {
             v().pause();
-            nn2 nn2Var = this.e;
-            if (nn2Var != null) {
-                nn2Var.a(MissionEvent.MESSAGE_PAUSE);
+            on2 on2Var = this.e;
+            if (on2Var != null) {
+                on2Var.a(MissionEvent.MESSAGE_PAUSE);
             }
             d dVar = this.d;
             if (dVar != null) {

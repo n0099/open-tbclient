@@ -4,31 +4,31 @@ import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class e extends a<Float> {
-    public e(String str, float f) {
-        super(str, Float.valueOf(f));
-    }
-
-    @Override // com.kwad.sdk.core.config.item.b
-    public final void a(@NonNull SharedPreferences.Editor editor) {
-        editor.putFloat(a(), b().floatValue());
+public final class e extends a<Double> {
+    public e(String str, Double d) {
+        super(str, d);
     }
 
     @Override // com.kwad.sdk.core.config.item.b
     public final void a(@NonNull SharedPreferences sharedPreferences) {
-        a((e) Float.valueOf(sharedPreferences.getFloat(a(), c().floatValue())));
+        setValue(Double.valueOf(Double.parseDouble(sharedPreferences.getString(getKey(), sx().toString()))));
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void a(JSONObject jSONObject) {
-        a((e) (jSONObject != null ? Float.valueOf((float) jSONObject.optDouble(a(), c().floatValue())) : c()));
+    public final void b(@NonNull SharedPreferences.Editor editor) {
+        editor.putString(getKey(), getValue().toString());
+    }
+
+    @Override // com.kwad.sdk.core.config.item.b
+    public final void e(JSONObject jSONObject) {
+        setValue(jSONObject != null ? Double.valueOf(jSONObject.optDouble(getKey(), sx().doubleValue())) : sx());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.config.item.b
     @NonNull
-    /* renamed from: d */
-    public final Float b() {
-        return (Float) super.b();
+    /* renamed from: sz */
+    public final Double getValue() {
+        return (Double) super.getValue();
     }
 }

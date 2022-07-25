@@ -103,7 +103,7 @@ public final class MediaDataBox implements Box {
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "mdat" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TYPE : (String) invokeV.objValue;
     }
 
     @Override // com.coremedia.iso.boxes.Box

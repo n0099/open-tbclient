@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class uk8 implements rt4 {
+public class uk8 implements st4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public tk8 a;
@@ -32,7 +32,7 @@ public class uk8 implements rt4 {
         }
     }
 
-    @Override // com.repackage.rt4
+    @Override // com.repackage.st4
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
@@ -45,7 +45,7 @@ public class uk8 implements rt4 {
         }
     }
 
-    @Override // com.repackage.rt4
+    @Override // com.repackage.st4
     public void b(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
@@ -53,7 +53,7 @@ public class uk8 implements rt4 {
         }
     }
 
-    @Override // com.repackage.rt4
+    @Override // com.repackage.st4
     public void c(Context context, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
@@ -61,14 +61,14 @@ public class uk8 implements rt4 {
         }
     }
 
-    @Override // com.repackage.rt4
+    @Override // com.repackage.st4
     public Class<?> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? MainTabActivity.class : (Class) invokeV.objValue;
     }
 
-    @Override // com.repackage.rt4
+    @Override // com.repackage.st4
     public void e(Context context, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
@@ -76,7 +76,7 @@ public class uk8 implements rt4 {
         }
     }
 
-    @Override // com.repackage.rt4
+    @Override // com.repackage.st4
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class uk8 implements rt4 {
         }
     }
 
-    @Override // com.repackage.rt4
+    @Override // com.repackage.st4
     public int getCurrentTabType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -54,7 +54,7 @@ public class xh0 implements IComponentFactory {
                 return null;
             }
             ImageView imageView = new ImageView(context);
-            imageView.setId(R.id.obfuscated_res_0x7f091513);
+            imageView.setId(R.id.obfuscated_res_0x7f0914ee);
             imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d71));
             imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             imageView.setContentDescription("不感兴趣");

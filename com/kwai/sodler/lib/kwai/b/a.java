@@ -30,24 +30,24 @@ import java.util.WeakHashMap;
 /* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "com.kwai.sodler.lib.kwai.b.a";
-    public static final ThreadLocal<C0571a> b;
-    public static final List<String> c;
-    public static Map<Context, Context> d;
+    public static final String CLAZZ_NAME = "com.kwai.sodler.lib.kwai.b.a";
+    public static final ThreadLocal<C0419a> sAutoUnWrapModelTL;
+    public static final List<String> sAutoUnWrapStackList;
+    public static Map<Context, Context> sResContextCache;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwai.sodler.lib.kwai.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0571a {
+    public static class C0419a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<Context> a;
-        public int b;
-        public StackTraceElement[] c;
-        public int d;
-        public long e;
+        public WeakReference<Context> axK;
+        public int axL;
+        public StackTraceElement[] axM;
+        public int axN;
+        public long axO;
 
-        public C0571a() {
+        public C0419a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,37 +60,37 @@ public class a {
                     return;
                 }
             }
-            this.a = new WeakReference<>(null);
-            this.b = 0;
-            this.c = null;
-            this.d = 0;
+            this.axK = new WeakReference<>(null);
+            this.axL = 0;
+            this.axM = null;
+            this.axN = 0;
         }
 
-        public /* synthetic */ C0571a(byte b) {
+        public /* synthetic */ C0419a(byte b) {
             this();
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-                this.a = new WeakReference<>(null);
-                this.b = 0;
-                this.c = null;
-                this.d = 0;
-                this.e = 0L;
-            }
-        }
-
-        public static /* synthetic */ int c(C0571a c0571a) {
-            int i = c0571a.b;
-            c0571a.b = i + 1;
+        public static /* synthetic */ int c(C0419a c0419a) {
+            int i = c0419a.axL;
+            c0419a.axL = i + 1;
             return i;
         }
 
-        public static /* synthetic */ int g(C0571a c0571a) {
-            int i = c0571a.d;
-            c0571a.d = i + 1;
+        /* JADX INFO: Access modifiers changed from: private */
+        public void clear() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+                this.axK = new WeakReference<>(null);
+                this.axL = 0;
+                this.axM = null;
+                this.axN = 0;
+                this.axO = 0L;
+            }
+        }
+
+        public static /* synthetic */ int g(C0419a c0419a) {
+            int i = c0419a.axN;
+            c0419a.axN = i + 1;
             return i;
         }
     }
@@ -108,9 +108,9 @@ public class a {
                 return;
             }
         }
-        b = new ThreadLocal<>();
-        c = new ArrayList();
-        d = new WeakHashMap();
+        sAutoUnWrapModelTL = new ThreadLocal<>();
+        sAutoUnWrapStackList = new ArrayList();
+        sResContextCache = new WeakHashMap();
     }
 
     public a() {
@@ -127,18 +127,168 @@ public class a {
         }
     }
 
-    @Nullable
-    public static Context a(@Nullable Context context, String str) {
+    public static Resources.Theme a(Resources.Theme theme, Resources.Theme theme2, int i, String str) {
+        InterceptResult invokeLLIL;
+        Resources resources;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65538, null, theme, theme2, i, str)) == null) {
+            com.kwai.sodler.lib.kwai.a eS = eS(str);
+            if (eS == null || !eS.isLoaded() || (resources = eS.getResources()) == null) {
+                return theme;
+            }
+            if (theme2 == null) {
+                Resources.Theme newTheme = resources.newTheme();
+                newTheme.applyStyle(i, true);
+                return newTheme;
+            }
+            return theme2;
+        }
+        return (Resources.Theme) invokeLLIL.objValue;
+    }
+
+    public static Resources a(Resources resources, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            com.kwai.sodler.lib.kwai.a a2 = a(str);
-            if (a2 != null && a2.d()) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, resources, str)) == null) {
+            com.kwai.sodler.lib.kwai.a eS = eS(str);
+            if (eS == null || !eS.isLoaded()) {
+                StringBuilder sb = new StringBuilder("replaceExternalResources pluginId: ");
+                sb.append(str);
+                sb.append(" , plugin: ");
+                sb.append(eS);
+                sb.append(", isLoaded(): false");
+                return resources;
+            }
+            Resources resources2 = eS.getResources();
+            StringBuilder sb2 = new StringBuilder("replaceExternalResources pluginId: ");
+            sb2.append(str);
+            sb2.append(", wrappedResources: ");
+            sb2.append(resources2);
+            return resources2 != null ? resources2 : resources;
+        }
+        return (Resources) invokeLL.objValue;
+    }
+
+    public static LayoutInflater a(LayoutInflater layoutInflater, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, layoutInflater, str)) == null) {
+            com.kwai.sodler.lib.kwai.a eS = eS(str);
+            if (eS == null || !eS.isLoaded()) {
+                return layoutInflater;
+            }
+            Context context = layoutInflater.getContext();
+            if (context instanceof b) {
+                return layoutInflater;
+            }
+            Context ae = ae(context, str);
+            return ae instanceof b ? layoutInflater.cloneInContext(ae) : layoutInflater;
+        }
+        return (LayoutInflater) invokeLL.objValue;
+    }
+
+    public static void a(Context context, Context context2) {
+        Application dH;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, context2) == null) {
+            sResContextCache.put(context, context2);
+            if (!(context instanceof Activity) || (dH = dH(context)) == null) {
+                return;
+            }
+            dH.registerActivityLifecycleCallbacks(new com.kwad.sdk.core.kwai.a(context, dH) { // from class: com.kwai.sodler.lib.kwai.b.a.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Application axJ;
+                public final /* synthetic */ Context gC;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {context, dH};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.gC = context;
+                    this.axJ = dH;
+                }
+
+                @Override // com.kwad.sdk.core.kwai.a, android.app.Application.ActivityLifecycleCallbacks
+                public final void onActivityDestroyed(@NonNull Activity activity) {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, activity) == null) && activity == this.gC) {
+                        this.axJ.unregisterActivityLifecycleCallbacks(this);
+                        a.onDestroy(this.gC);
+                    }
+                }
+            });
+        }
+    }
+
+    public static boolean a(Context context, C0419a c0419a) {
+        InterceptResult invokeLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, c0419a)) == null) {
+            Context context2 = sResContextCache.get(context);
+            String name = context2 != null ? context2.getClass().getName() : "";
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            if (!Arrays.equals(stackTrace, c0419a.axM)) {
+                if (c0419a.axM != null) {
+                    c0419a.clear();
+                    return false;
+                }
+                c0419a.axM = stackTrace;
+                int i = 0;
+                int i2 = 0;
+                while (i < stackTrace.length) {
+                    StackTraceElement stackTraceElement = stackTrace[i];
+                    String className = stackTraceElement.getClassName();
+                    for (String str2 : getAutoUnWrapStackList()) {
+                        str = className.contains(str2) ? "needAutoUnWrap true 命中白名单" : "needAutoUnWrap true 命中白名单";
+                    }
+                    String methodName = stackTraceElement.getMethodName();
+                    i++;
+                    if (i < stackTrace.length && CLAZZ_NAME.equals(className) && Wrapper.METHOD_WRAP_CONTEXT.equals(methodName)) {
+                        StackTraceElement stackTraceElement2 = stackTrace[i];
+                        if (TextUtils.equals(name, stackTraceElement2.getClassName()) && Wrapper.METHOD_GET_BASE_CONTEXT.equals(stackTraceElement2.getMethodName()) && (i2 = i2 + 1) >= 5) {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+            C0419a.g(c0419a);
+            c0419a.axM = stackTrace;
+            if (c0419a.axN < 5) {
+                return false;
+            }
+            str = "needAutoUnWrap true 连续相同堆栈";
+            Log.d("Solder.PluginWrapper", str);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Nullable
+    public static Context ae(@Nullable Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
+            com.kwai.sodler.lib.kwai.a eS = eS(str);
+            if (eS != null && eS.isLoaded()) {
                 if (context == null) {
                     return null;
                 }
-                if (!(context instanceof b) && !d(context)) {
-                    Context context2 = d.get(context);
+                if (!(context instanceof b) && !returnUnWrappedContext(context)) {
+                    Context context2 = sResContextCache.get(context);
                     if (context instanceof ContextThemeWrapper) {
                         if (context2 == null) {
                             context2 = new c((ContextThemeWrapper) context, str);
@@ -171,216 +321,96 @@ public class a {
         return (Context) invokeLL.objValue;
     }
 
-    public static Resources.Theme a(Resources.Theme theme, Resources.Theme theme2, int i, String str) {
-        InterceptResult invokeLLIL;
-        Resources b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65539, null, theme, theme2, i, str)) == null) {
-            com.kwai.sodler.lib.kwai.a a2 = a(str);
-            if (a2 == null || !a2.d() || (b2 = a2.b()) == null) {
-                return theme;
-            }
-            if (theme2 == null) {
-                Resources.Theme newTheme = b2.newTheme();
-                newTheme.applyStyle(i, true);
-                return newTheme;
-            }
-            return theme2;
-        }
-        return (Resources.Theme) invokeLLIL.objValue;
-    }
-
-    public static Resources a(Resources resources, String str) {
+    public static ClassLoader b(ClassLoader classLoader, String str) {
         InterceptResult invokeLL;
+        com.kwai.sodler.lib.kwai.kwai.b Ff;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources, str)) == null) {
-            com.kwai.sodler.lib.kwai.a a2 = a(str);
-            if (a2 == null || !a2.d()) {
-                StringBuilder sb = new StringBuilder("replaceExternalResources pluginId: ");
-                sb.append(str);
-                sb.append(" , plugin: ");
-                sb.append(a2);
-                sb.append(", isLoaded(): false");
-                return resources;
-            }
-            Resources b2 = a2.b();
-            StringBuilder sb2 = new StringBuilder("replaceExternalResources pluginId: ");
-            sb2.append(str);
-            sb2.append(", wrappedResources: ");
-            sb2.append(b2);
-            return b2 != null ? b2 : resources;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, classLoader, str)) == null) {
+            com.kwai.sodler.lib.kwai.a eS = eS(str);
+            return (eS == null || !eS.isLoaded() || (Ff = eS.Ff()) == null) ? classLoader : Ff;
         }
-        return (Resources) invokeLL.objValue;
+        return (ClassLoader) invokeLL.objValue;
     }
 
-    public static LayoutInflater a(LayoutInflater layoutInflater, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, layoutInflater, str)) == null) {
-            com.kwai.sodler.lib.kwai.a a2 = a(str);
-            if (a2 == null || !a2.d()) {
-                return layoutInflater;
-            }
-            Context context = layoutInflater.getContext();
-            if (context instanceof b) {
-                return layoutInflater;
-            }
-            Context a3 = a(context, str);
-            return a3 instanceof b ? layoutInflater.cloneInContext(a3) : layoutInflater;
-        }
-        return (LayoutInflater) invokeLL.objValue;
-    }
-
-    public static com.kwai.sodler.lib.kwai.a a(String str) {
+    @Nullable
+    public static Application dH(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            com.kwai.sodler.lib.a.a a2 = i.a().d().a(str);
-            if (a2 != null && a2.d() && (a2 instanceof com.kwai.sodler.lib.kwai.a)) {
-                return (com.kwai.sodler.lib.kwai.a) a2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            Context unwrapContextIfNeed = unwrapContextIfNeed(context);
+            for (int i = 0; i < 15; i++) {
+                unwrapContextIfNeed = unwrapContextIfNeed.getApplicationContext();
+                if (unwrapContextIfNeed instanceof b) {
+                    unwrapContextIfNeed = ((b) unwrapContextIfNeed).getDelegatedContext();
+                }
+                if (unwrapContextIfNeed instanceof Application) {
+                    return (Application) unwrapContextIfNeed;
+                }
+            }
+            return null;
+        }
+        return (Application) invokeL.objValue;
+    }
+
+    public static com.kwai.sodler.lib.kwai.a eS(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            com.kwai.sodler.lib.a.a eQ = i.EU().EY().eQ(str);
+            if (eQ != null && eQ.isLoaded() && (eQ instanceof com.kwai.sodler.lib.kwai.a)) {
+                return (com.kwai.sodler.lib.kwai.a) eQ;
             }
             return null;
         }
         return (com.kwai.sodler.lib.kwai.a) invokeL.objValue;
     }
 
-    public static ClassLoader a(ClassLoader classLoader, String str) {
-        InterceptResult invokeLL;
-        com.kwai.sodler.lib.kwai.kwai.b a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, classLoader, str)) == null) {
-            com.kwai.sodler.lib.kwai.a a3 = a(str);
-            return (a3 == null || !a3.d() || (a2 = a3.a()) == null) ? classLoader : a2;
-        }
-        return (ClassLoader) invokeLL.objValue;
-    }
-
-    public static Object a(Object obj, String str, Context context) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, obj, str, context)) == null) {
-            if ("layout_inflater".equals(str) && (obj instanceof LayoutInflater)) {
-                LayoutInflater layoutInflater = (LayoutInflater) obj;
-                return layoutInflater.getContext() instanceof b ? layoutInflater : layoutInflater.cloneInContext(context);
-            }
-            return obj;
-        }
-        return invokeLLL.objValue;
-    }
-
-    public static List<String> a() {
+    public static List<String> getAutoUnWrapStackList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (c.isEmpty()) {
-                c.add("com.sensorsdata.analytics.android.sdk");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (sAutoUnWrapStackList.isEmpty()) {
+                sAutoUnWrapStackList.add("com.sensorsdata.analytics.android.sdk");
             }
-            return c;
+            return sAutoUnWrapStackList;
         }
         return (List) invokeV.objValue;
     }
 
-    public static void a(Context context) {
+    public static void onDestroy(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
-            d.remove(context);
+        if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
+            sResContextCache.remove(context);
         }
     }
 
-    public static void a(Context context, Context context2) {
-        Application c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, context, context2) == null) {
-            d.put(context, context2);
-            if (!(context instanceof Activity) || (c2 = c(context)) == null) {
-                return;
-            }
-            c2.registerActivityLifecycleCallbacks(new com.kwad.sdk.core.kwai.a(context, c2) { // from class: com.kwai.sodler.lib.kwai.b.a.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Context a;
-                public final /* synthetic */ Application b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {context, c2};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = context;
-                    this.b = c2;
-                }
-
-                @Override // com.kwad.sdk.core.kwai.a, android.app.Application.ActivityLifecycleCallbacks
-                public final void onActivityDestroyed(@NonNull Activity activity) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, activity) == null) && activity == this.a) {
-                        this.b.unregisterActivityLifecycleCallbacks(this);
-                        a.a(this.a);
-                    }
-                }
-            });
-        }
-    }
-
-    public static boolean a(Context context, C0571a c0571a) {
-        InterceptResult invokeLL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, c0571a)) == null) {
-            Context context2 = d.get(context);
-            String name = context2 != null ? context2.getClass().getName() : "";
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            if (!Arrays.equals(stackTrace, c0571a.c)) {
-                if (c0571a.c != null) {
-                    c0571a.a();
-                    return false;
-                }
-                c0571a.c = stackTrace;
-                int i = 0;
-                int i2 = 0;
-                while (i < stackTrace.length) {
-                    StackTraceElement stackTraceElement = stackTrace[i];
-                    String className = stackTraceElement.getClassName();
-                    for (String str2 : a()) {
-                        str = className.contains(str2) ? "needAutoUnWrap true 命中白名单" : "needAutoUnWrap true 命中白名单";
-                    }
-                    String methodName = stackTraceElement.getMethodName();
-                    i++;
-                    if (i < stackTrace.length && a.equals(className) && Wrapper.METHOD_WRAP_CONTEXT.equals(methodName)) {
-                        StackTraceElement stackTraceElement2 = stackTrace[i];
-                        if (TextUtils.equals(name, stackTraceElement2.getClassName()) && Wrapper.METHOD_GET_BASE_CONTEXT.equals(stackTraceElement2.getMethodName()) && (i2 = i2 + 1) >= 5) {
-                            return true;
-                        }
-                    }
-                }
-                return false;
-            }
-            C0571a.g(c0571a);
-            c0571a.c = stackTrace;
-            if (c0571a.d < 5) {
-                return false;
-            }
-            str = "needAutoUnWrap true 连续相同堆栈";
-            Log.d("Solder.PluginWrapper", str);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static Context b(Context context) {
+    public static boolean returnUnWrappedContext(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
+            C0419a c0419a = sAutoUnWrapModelTL.get();
+            if (c0419a == null) {
+                sAutoUnWrapModelTL.set(new C0419a((byte) 0));
+            } else if (c0419a.axK.get() != context || Math.abs(System.currentTimeMillis() - c0419a.axO) >= 150) {
+                c0419a.clear();
+                c0419a.axK = new WeakReference(context);
+                c0419a.axO = System.currentTimeMillis();
+            } else {
+                C0419a.c(c0419a);
+                if (c0419a.axL >= (context instanceof Application ? 15 : 5) && a(context, c0419a)) {
+                    c0419a.clear();
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static Context unwrapContextIfNeed(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
             b bVar = context instanceof b ? (b) context : null;
             Context context2 = context;
             while (context2 instanceof ContextWrapper) {
@@ -389,56 +419,26 @@ public class a {
                 }
                 if (context2 instanceof b) {
                     bVar = (b) context2;
-                    context2 = bVar.a();
+                    context2 = bVar.getDelegatedContext();
                 } else {
                     context2 = ((ContextWrapper) context2).getBaseContext();
                 }
             }
-            return bVar != null ? bVar.a() : context;
+            return bVar != null ? bVar.getDelegatedContext() : context;
         }
         return (Context) invokeL.objValue;
     }
 
-    @Nullable
-    public static Application c(Context context) {
-        InterceptResult invokeL;
+    public static Object wrapSystemService(Object obj, String str, Context context) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
-            Context b2 = b(context);
-            for (int i = 0; i < 15; i++) {
-                b2 = b2.getApplicationContext();
-                if (b2 instanceof b) {
-                    b2 = ((b) b2).a();
-                }
-                if (b2 instanceof Application) {
-                    return (Application) b2;
-                }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65551, null, obj, str, context)) == null) {
+            if ("layout_inflater".equals(str) && (obj instanceof LayoutInflater)) {
+                LayoutInflater layoutInflater = (LayoutInflater) obj;
+                return layoutInflater.getContext() instanceof b ? layoutInflater : layoutInflater.cloneInContext(context);
             }
-            return null;
+            return obj;
         }
-        return (Application) invokeL.objValue;
-    }
-
-    public static boolean d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
-            C0571a c0571a = b.get();
-            if (c0571a == null) {
-                b.set(new C0571a((byte) 0));
-            } else if (c0571a.a.get() != context || Math.abs(System.currentTimeMillis() - c0571a.e) >= 150) {
-                c0571a.a();
-                c0571a.a = new WeakReference(context);
-                c0571a.e = System.currentTimeMillis();
-            } else {
-                C0571a.c(c0571a);
-                if (c0571a.b >= (context instanceof Application ? 15 : 5) && a(context, c0571a)) {
-                    c0571a.a();
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return invokeLLL.objValue;
     }
 }

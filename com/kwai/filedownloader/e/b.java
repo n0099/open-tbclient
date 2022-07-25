@@ -21,11 +21,11 @@ public final class b {
     /* loaded from: classes5.dex */
     public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
-        public static final AtomicInteger a;
+        public static final AtomicInteger awJ;
         public transient /* synthetic */ FieldHolder $fh;
-        public final String b;
-        public final ThreadGroup c;
-        public final AtomicInteger d;
+        public final ThreadGroup group;
+        public final String namePrefix;
+        public final AtomicInteger threadNumber;
 
         static {
             InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public final class b {
                     return;
                 }
             }
-            a = new AtomicInteger(1);
+            awJ = new AtomicInteger(1);
         }
 
         public a(String str) {
@@ -58,9 +58,9 @@ public final class b {
                     return;
                 }
             }
-            this.d = new AtomicInteger(1);
-            this.c = Thread.currentThread().getThreadGroup();
-            this.b = f.f(str);
+            this.threadNumber = new AtomicInteger(1);
+            this.group = Thread.currentThread().getThreadGroup();
+            this.namePrefix = f.eI(str);
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -68,8 +68,8 @@ public final class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                ThreadGroup threadGroup = this.c;
-                Thread thread = new Thread(threadGroup, runnable, "ksad-" + this.b + this.d.getAndIncrement(), 0L);
+                ThreadGroup threadGroup = this.group;
+                Thread thread = new Thread(threadGroup, runnable, "ksad-" + this.namePrefix + this.threadNumber.getAndIncrement(), 0L);
                 if (thread.isDaemon()) {
                     thread.setDaemon(false);
                 }
@@ -82,16 +82,10 @@ public final class b {
         }
     }
 
-    public static ThreadPoolExecutor a(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, str)) == null) ? a(i, new LinkedBlockingQueue(), str) : (ThreadPoolExecutor) invokeIL.objValue;
-    }
-
     public static ThreadPoolExecutor a(int i, LinkedBlockingQueue<Runnable> linkedBlockingQueue, String str) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65537, null, i, linkedBlockingQueue, str)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65536, null, i, linkedBlockingQueue, str)) == null) {
             ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i, 15L, TimeUnit.SECONDS, linkedBlockingQueue, new a(str));
             threadPoolExecutor.allowCoreThreadTimeOut(true);
             return threadPoolExecutor;
@@ -99,9 +93,15 @@ public final class b {
         return (ThreadPoolExecutor) invokeILL.objValue;
     }
 
-    public static ThreadPoolExecutor a(String str) {
+    public static ThreadPoolExecutor eC(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? new ThreadPoolExecutor(0, Integer.MAX_VALUE, 15L, TimeUnit.SECONDS, new SynchronousQueue(), new a(str)) : (ThreadPoolExecutor) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new ThreadPoolExecutor(0, Integer.MAX_VALUE, 15L, TimeUnit.SECONDS, new SynchronousQueue(), new a(str)) : (ThreadPoolExecutor) invokeL.objValue;
+    }
+
+    public static ThreadPoolExecutor l(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, str)) == null) ? a(i, new LinkedBlockingQueue(), str) : (ThreadPoolExecutor) invokeIL.objValue;
     }
 }

@@ -108,12 +108,12 @@ public class sv6 {
         }
     }
 
-    public void e(jm4 jm4Var) {
+    public void e(km4 km4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jm4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, km4Var) == null) {
             for (an anVar : this.b) {
                 if (anVar instanceof lv6) {
-                    ((lv6) anVar).b0(jm4Var);
+                    ((lv6) anVar).b0(km4Var);
                 }
             }
         }

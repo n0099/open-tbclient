@@ -303,7 +303,7 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
     public void j(LayoutInflater layoutInflater, pn0 pn0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, layoutInflater, pn0Var) == null) {
-            layoutInflater.inflate((pn0Var == null || pn0Var.a(AdBaseModel.STYLE.VIDEO) == 0) ? R.layout.obfuscated_res_0x7f0d05af : pn0Var.a(AdBaseModel.STYLE.VIDEO), this);
+            layoutInflater.inflate((pn0Var == null || pn0Var.a(AdBaseModel.STYLE.VIDEO) == 0) ? R.layout.obfuscated_res_0x7f0d05b9 : pn0Var.a(AdBaseModel.STYLE.VIDEO), this);
         }
     }
 
@@ -311,10 +311,10 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
     public void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            this.m = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091534);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f091533);
-            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f091532);
-            this.q = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09153a);
+            this.m = (AdImageView) findViewById(R.id.obfuscated_res_0x7f09150f);
+            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f09150e);
+            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f09150d);
+            this.q = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091515);
         }
     }
 
@@ -330,8 +330,8 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
                     int i = nn0Var.j.b;
                     if (i != 0) {
                         this.n.setText(String.format(Locale.ENGLISH, "%02d:%02d", Integer.valueOf((i / 60) % 60), Integer.valueOf(i % 60)));
-                        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070585);
-                        int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070584);
+                        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070583);
+                        int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070581);
                         this.n.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
                         this.n.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                         this.n.setCompoundDrawablePadding(dimensionPixelSize2);

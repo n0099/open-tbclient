@@ -7,7 +7,6 @@ import android.os.Message;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.mutiprocess.SubProcessManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
 import com.baidu.tbadk.core.util.FileHelper;
@@ -134,7 +133,7 @@ public class ClearTempService extends BdBaseService {
             try {
                 File[] listFiles = file.listFiles();
                 long time = new Date().getTime();
-                int length = listFiles.length > 500 ? listFiles.length + SubProcessManager.PROVIDER_ERROR_UNSUPPORT_OPERATION : 0;
+                int length = listFiles.length > 500 ? listFiles.length - 300 : 0;
                 if (listFiles != null) {
                     for (int i = 0; i < listFiles.length && !this.interrupted; i++) {
                         File file2 = listFiles[i];

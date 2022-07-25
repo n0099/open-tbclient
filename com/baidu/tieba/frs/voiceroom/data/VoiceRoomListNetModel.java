@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.t75;
 import com.repackage.tq6;
+import com.repackage.u75;
 import com.repackage.uq6;
 /* loaded from: classes3.dex */
 public class VoiceRoomListNetModel extends NetAutoModel<tq6, uq6, BaseFragment> {
@@ -31,7 +31,7 @@ public class VoiceRoomListNetModel extends NetAutoModel<tq6, uq6, BaseFragment> 
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                super((TbPageContext) objArr[0], (t75) objArr[1]);
+                super((TbPageContext) objArr[0], (u75) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -98,33 +98,33 @@ public abstract class o3 implements h7 {
         if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), textureData, Integer.valueOf(i2)}) == null) || textureData == null) {
             return;
         }
-        if (!textureData.a()) {
+        if (!textureData.isPrepared()) {
             textureData.prepare();
         }
         if (textureData.getType() == TextureData.TextureDataType.Custom) {
-            textureData.c(i);
+            textureData.b(i);
             return;
         }
-        Pixmap d = textureData.d();
-        boolean h2 = textureData.h();
-        if (textureData.e() != d.h()) {
-            Pixmap pixmap = new Pixmap(d.n(), d.l(), textureData.e());
+        Pixmap c = textureData.c();
+        boolean g = textureData.g();
+        if (textureData.d() != c.h()) {
+            Pixmap pixmap = new Pixmap(c.n(), c.l(), textureData.d());
             pixmap.o(Pixmap.Blending.None);
-            pixmap.a(d, 0, 0, 0, 0, d.n(), d.l());
-            if (textureData.h()) {
-                d.dispose();
+            pixmap.a(c, 0, 0, 0, 0, c.n(), c.l());
+            if (textureData.g()) {
+                c.dispose();
             }
-            d = pixmap;
-            h2 = true;
+            c = pixmap;
+            g = true;
         }
         e1.e.g(3317, 1);
-        if (textureData.g()) {
-            w5.a(i, d, d.n(), d.l());
+        if (textureData.f()) {
+            w5.a(i, c, c.n(), c.l());
         } else {
-            e1.e.q(i, i2, d.j(), d.n(), d.l(), 0, d.i(), d.k(), d.m());
+            e1.e.q(i, i2, c.j(), c.n(), c.l(), 0, c.i(), c.k(), c.m());
         }
-        if (h2) {
-            d.dispose();
+        if (g) {
+            c.dispose();
         }
     }
 

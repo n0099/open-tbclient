@@ -1,230 +1,206 @@
 package com.repackage;
 
-import android.app.ActivityManager;
+import android.app.Application;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Process;
-import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class p65 {
+public class p65 implements o65 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ArrayList<String> a;
-    public static String b;
-    public static String c;
-    public static boolean d;
-    public static String e;
-    public static String f;
-    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public n65 b;
+    public Application c;
+    public String d;
+    public final u65 e;
+    public final v65 f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755457950, "Lcom/repackage/p65;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p65 this$0;
+
+        public b(p65 p65Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p65Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755457950, "Lcom/repackage/p65;");
+            this.this$0 = p65Var;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            l65 a;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null) {
+                return;
+            }
+            if (!q65.i()) {
+                String c = q65.c();
+                q65.m(c + " Process Not In WhiteList，No Receive");
+            } else if ("intent.action.ACTION.TB.MUTI_PROCESS".equals(intent.getAction()) && (a = this.this$0.e.a(intent)) != null) {
+                int myPid = Process.myPid();
+                int pid = a.getPid();
+                if (a == null || a.getType() != 1) {
+                    if (a.getType() == 2) {
+                        if (myPid != pid) {
+                            return;
+                        }
+                    } else if (a.getType() == 3 && !q65.l()) {
+                        return;
+                    }
+                } else if (myPid == pid) {
+                    return;
+                }
+                if (this.this$0.b != null) {
+                    this.this$0.b.a(a);
+                }
+            }
+        }
+
+        public /* synthetic */ b(p65 p65Var, a aVar) {
+            this(p65Var);
+        }
+    }
+
+    public p65(Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {application};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ArrayList<>();
-        d = false;
+        this.d = null;
+        this.e = new u65();
+        this.f = new v65();
+        this.c = application;
     }
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
+    private void registerReceiver() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (!d) {
-                r(context);
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            try {
+                unregisterReceiver();
+                this.a = new b(this, null);
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.setPriority(1000);
+                intentFilter.addAction("intent.action.ACTION.TB.MUTI_PROCESS");
+                this.c.registerReceiver(this.a, intentFilter);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return d;
         }
-        return invokeL.booleanValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    private void unregisterReceiver() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? e : (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                b = d(TbadkCoreApplication.getInst().getApp());
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            try {
+                if (this.a == null || this.c == null) {
+                    return;
+                }
+                this.c.unregisterReceiver(this.a);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return b;
+        }
+    }
+
+    @Override // com.repackage.o65
+    public void a(l65 l65Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, l65Var) == null) {
+            f(l65Var);
+        }
+    }
+
+    @Override // com.repackage.o65
+    public void b(n65 n65Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n65Var) == null) {
+            this.b = n65Var;
+        }
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Application application;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.d == null && (application = this.c) != null) {
+                this.d = application.getPackageName();
+            }
+            return this.d;
         }
         return (String) invokeV.objValue;
     }
 
-    public static String d(Context context) {
-        InterceptResult invokeL;
-        ActivityManager activityManager;
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
+    public final void f(l65 l65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (context == null || (activityManager = (ActivityManager) context.getSystemService("activity")) == null || (runningAppProcesses = activityManager.getRunningAppProcesses()) == null) {
-                return null;
-            }
-            int myPid = Process.myPid();
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.processName;
+        if (interceptable == null || interceptable.invokeL(1048579, this, l65Var) == null) {
+            if (l65Var != null) {
+                try {
+                    Intent intent = new Intent();
+                    intent.setPackage(e());
+                    intent.setAction("intent.action.ACTION.TB.MUTI_PROCESS");
+                    this.f.a(intent, l65Var);
+                    this.c.sendBroadcast(intent);
+                    return;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return;
                 }
             }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f : (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? g : (String) invokeV.objValue;
-    }
-
-    public static void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            String packageName = TbadkCoreApplication.getInst().getPackageName();
-            String str = packageName + ":swan";
-            c = str;
-            a.clear();
-            a.add(packageName);
-            a.add(packageName + ":remote");
-            a.add(packageName + ":cdnTachometer");
-            a.add(packageName + ":daemon");
-            a.add(packageName + ":third");
-            a.add(packageName + ":pluginInstaller");
-            a.add(packageName + ":xiaoying");
-            a.add(packageName + ":media");
-            a.add(packageName + ":kmyas__");
-            a.add(packageName + ":guardService");
-            a.add(packageName + ":warkup");
-            a.add(str);
-            a.add(packageName + ":bdservice_v1");
-            a.add(packageName + ":live");
-            m("initProcess-->CurrentProcessName=" + c());
+            throw new NullPointerException("send multi-process message is null");
         }
     }
 
-    public static boolean h(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.o65
+    public void startService() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            return str != null && str.equalsIgnoreCase(c());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? j(c()) : invokeV.booleanValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:10:0x0018  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            Iterator<String> it = a.iterator();
-            while (it.hasNext()) {
-                if (str.equalsIgnoreCase(it.next()) || str.toLowerCase().startsWith(c)) {
-                    return true;
-                }
-                while (it.hasNext()) {
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? d : invokeV.booleanValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? h(TbadkCoreApplication.getInst().getPackageName()) : invokeV.booleanValue;
-    }
-
-    public static void m(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65549, null, str) == null) && TbadkCoreApplication.getInst().isDebugMode()) {
-            Log.e("MutiProcess", str);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            registerReceiver();
         }
     }
 
-    public static void n(String str) {
+    public void stopService() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
-            e = str;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            unregisterReceiver();
         }
-    }
-
-    public static void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65551, null, z) == null) {
-            d = z;
-        }
-    }
-
-    public static void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
-            f = str;
-        }
-    }
-
-    public static void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
-            g = str;
-        }
-    }
-
-    public static void r(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65554, null, context) == null) || context == null) {
-            return;
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true)));
     }
 }

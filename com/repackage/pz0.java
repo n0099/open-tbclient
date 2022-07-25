@@ -1,7 +1,7 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface pz0 {
     void a(@NonNull Runnable runnable, @NonNull String str, int i, long j);
 

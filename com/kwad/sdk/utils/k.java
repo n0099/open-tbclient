@@ -3,28 +3,28 @@ package com.kwad.sdk.utils;
 import com.kwad.sdk.core.response.model.AdTemplate;
 /* loaded from: classes5.dex */
 public final class k {
-    public static long a = -1;
+    public static long and = -1;
 
-    public static void a(AdTemplate adTemplate) {
+    public static void ch(AdTemplate adTemplate) {
         if (adTemplate != null) {
-            adTemplate.mVisibleTimeParam = a;
-            adTemplate.mOutClickTimeParam = a;
+            adTemplate.mVisibleTimeParam = and;
+            adTemplate.mOutClickTimeParam = and;
         }
     }
 
-    public static void b(AdTemplate adTemplate) {
+    public static void ci(AdTemplate adTemplate) {
         if (adTemplate != null) {
             adTemplate.mOutClickTimeParam = System.currentTimeMillis();
         }
     }
 
-    public static void c(AdTemplate adTemplate) {
+    public static void cj(AdTemplate adTemplate) {
         if (adTemplate != null) {
             adTemplate.mVisibleTimeParam = System.currentTimeMillis();
         }
     }
 
-    public static long d(AdTemplate adTemplate) {
+    public static long ck(AdTemplate adTemplate) {
         if (adTemplate == null) {
             return System.currentTimeMillis();
         }

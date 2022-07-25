@@ -1,51 +1,24 @@
 package com.repackage;
 
-import android.util.Log;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fl2;
+import com.repackage.q63;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class u63 {
+public class u63 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j73 a;
-
-        public a(j73 j73Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j73Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j73Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                o63.k("1719", this.a.f());
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -60,20 +33,64 @@ public final class u63 {
                 return;
             }
         }
-        a = rg1.a;
+        a = sg1.a;
+        b = pj2.g0().v() * 1024;
     }
 
-    public static void onEvent(j73 j73Var) {
+    public static boolean a(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, j73Var) == null) {
-            if (j73Var == null) {
-                if (a) {
-                    Log.w("SwanAppPermissionDialogUbc", "event is null");
-                    return;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? !TextUtils.isEmpty(str) && str.getBytes().length > b : invokeL.booleanValue;
+    }
+
+    public static boolean b(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (c()) {
+                boolean a2 = a(str);
+                if (a2) {
+                    d(str);
                 }
-                return;
+                return a2;
             }
-            bd3.j(new a(j73Var), "SwanAppPermissionDialogUbc");
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b > 0 : invokeV.booleanValue;
+    }
+
+    public static void d(@NonNull String str) {
+        i03 b0;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || (b0 = i03.b0()) == null) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            fl2.a W = b0.W();
+            SwanCoreVersion M = vl2.U().M();
+            int k = b0.k();
+            jSONObject.putOpt("scheme", W.W());
+            jSONObject.putOpt("swanjs", n93.i(M, k));
+            if (str != null && str.length() > 1024) {
+                jSONObject.putOpt("params", str.substring(0, 1024));
+            }
+            q63.b bVar = new q63.b(10020);
+            bVar.j(ce3.n().e());
+            bVar.i(jSONObject.toString());
+            bVar.h(b0.getAppId());
+            bVar.m();
+            ix1.k("SwanAppParamChecker", "10020, params: " + str);
+        } catch (JSONException e) {
+            if (a) {
+                e.printStackTrace();
+            }
         }
     }
 }

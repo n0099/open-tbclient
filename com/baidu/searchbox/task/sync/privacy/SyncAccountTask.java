@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cn4;
-import com.repackage.mt4;
+import com.repackage.dn4;
+import com.repackage.nt4;
 /* loaded from: classes2.dex */
 public class SyncAccountTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -36,12 +36,12 @@ public class SyncAccountTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-            mt4.a(DI.ACCOUNT, -1L, 0, "logo_activity_uninit_account", 0, "", new Object[0]);
+            nt4.a(DI.ACCOUNT, -1L, 0, "logo_activity_uninit_account", 0, "", new Object[0]);
             if (TbadkCoreApplication.getInst().getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists()) {
                 return;
             }
-            mt4.a(DI.ACCOUNT, -1L, 0, "logo_activity_sync_account", 0, "", new Object[0]);
-            TbadkCoreApplication.setCurrentAccount(cn4.e(), TbadkCoreApplication.getInst());
+            nt4.a(DI.ACCOUNT, -1L, 0, "logo_activity_sync_account", 0, "", new Object[0]);
+            TbadkCoreApplication.setCurrentAccount(dn4.e(), TbadkCoreApplication.getInst());
         }
     }
 

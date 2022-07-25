@@ -238,11 +238,11 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06c7, this);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06d1, this);
             this.e = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09066b);
-            this.d = (ListViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f09066c);
-            this.f = this.e.findViewById(R.id.obfuscated_res_0x7f0907ca);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09066a);
+            this.d = (ListViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f09066b);
+            this.f = this.e.findViewById(R.id.obfuscated_res_0x7f0907c8);
             this.d.setOffscreenPageLimit(1);
         }
     }
@@ -250,7 +250,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d06c7 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d06d1 : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

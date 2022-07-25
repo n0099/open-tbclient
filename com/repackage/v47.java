@@ -138,19 +138,19 @@ public abstract class v47 extends BaseAdapter {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
             a aVar = new a(this);
             aVar.a = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f0905d7);
-            aVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e72);
+            aVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e76);
             aVar.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905d5);
-            aVar.d = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a20);
+            aVar.d = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a19);
             aVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905db);
-            aVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091205);
+            aVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911e1);
             aVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905dc);
-            aVar.i = view2.findViewById(R.id.obfuscated_res_0x7f0912b0);
-            MessageRedDotView messageRedDotView = (MessageRedDotView) view2.findViewById(R.id.obfuscated_res_0x7f0915be);
+            aVar.i = view2.findViewById(R.id.obfuscated_res_0x7f09128c);
+            MessageRedDotView messageRedDotView = (MessageRedDotView) view2.findViewById(R.id.obfuscated_res_0x7f091599);
             aVar.h = messageRedDotView;
             messageRedDotView.setShadowEnabled(false);
-            aVar.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091505);
-            aVar.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d16);
-            aVar.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d0b);
+            aVar.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914e0);
+            aVar.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d1c);
+            aVar.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d11);
             aVar.b.setPlaceHolder(1);
             return aVar;
         }
@@ -286,10 +286,10 @@ public abstract class v47 extends BaseAdapter {
         }
         if (imMessageCenterShowItemData != null && imMessageCenterShowItemData.getRelation() == 3) {
             aVar.j.setVisibility(0);
-            ur4 d = ur4.d(aVar.j);
+            vr4 d = vr4.d(aVar.j);
             d.n(R.string.J_X04);
             d.f(R.color.CAM_X0202);
-            SkinManager.setViewTextColor((TextView) aVar.j.findViewById(R.id.obfuscated_res_0x7f091506), (int) R.color.CAM_X0108);
+            SkinManager.setViewTextColor((TextView) aVar.j.findViewById(R.id.obfuscated_res_0x7f0914e1), (int) R.color.CAM_X0108);
             return;
         }
         aVar.j.setVisibility(8);
@@ -361,7 +361,7 @@ public abstract class v47 extends BaseAdapter {
         if (interceptable == null || interceptable.invokeLL(1048594, this, aVar, imMessageCenterShowItemData) == null) {
             int unReadCount = imMessageCenterShowItemData.getUnReadCount();
             if (unReadCount > 0) {
-                if (py4.d().f() == 0) {
+                if (qy4.d().f() == 0) {
                     unReadCount = 0;
                 } else {
                     BasicNameValuePair t = t(imMessageCenterShowItemData, unReadCount, String.valueOf(unReadCount));

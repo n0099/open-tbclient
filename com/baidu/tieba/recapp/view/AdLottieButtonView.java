@@ -67,8 +67,8 @@ public class AdLottieButtonView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(this.c, this);
-            this.a = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0913b3);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091fe8);
+            this.a = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09138f);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091fec);
         }
     }
 

@@ -118,22 +118,22 @@ public class k36 {
         return (ContentValues) invokeL.objValue;
     }
 
-    public final i05 b(Cursor cursor) {
+    public final j05 b(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor)) == null) {
             if (cursor == null || cursor.isClosed()) {
                 return null;
             }
-            i05 i05Var = new i05();
-            i05Var.a = cursor.getString(cursor.getColumnIndex(EmotionResourceInfo.JSON_KEY_PKG_NAME));
+            j05 j05Var = new j05();
+            j05Var.a = cursor.getString(cursor.getColumnIndex(EmotionResourceInfo.JSON_KEY_PKG_NAME));
             cursor.getLong(cursor.getColumnIndex("download_time"));
-            i05Var.c = cursor.getString(cursor.getColumnIndex(WriteActivityConfig.ITEM_INFO));
-            i05Var.d = cursor.getInt(cursor.getColumnIndex("item_source"));
-            i05Var.e = cursor.getInt(cursor.getColumnIndex("storage_location"));
-            return i05Var;
+            j05Var.c = cursor.getString(cursor.getColumnIndex(WriteActivityConfig.ITEM_INFO));
+            j05Var.d = cursor.getInt(cursor.getColumnIndex("item_source"));
+            j05Var.e = cursor.getInt(cursor.getColumnIndex("storage_location"));
+            return j05Var;
         }
-        return (i05) invokeL.objValue;
+        return (j05) invokeL.objValue;
     }
 
     public synchronized boolean c(String str) {
@@ -155,7 +155,7 @@ public class k36 {
         return invokeL.booleanValue;
     }
 
-    public synchronized List<i05> d() {
+    public synchronized List<j05> d() {
         InterceptResult invokeV;
         LinkedList linkedList;
         Interceptable interceptable = $ic;
@@ -166,7 +166,7 @@ public class k36 {
                 linkedList = new LinkedList();
                 Cursor rawQuery = f.rawQuery(String.format("SELECT * FROM %s ORDER BY %s DESC", TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO, "download_time"), null);
                 while (rawQuery.moveToNext()) {
-                    i05 b = b(rawQuery);
+                    j05 b = b(rawQuery);
                     if (b != null) {
                         linkedList.add(b);
                     }

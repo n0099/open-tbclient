@@ -206,7 +206,7 @@ public class bf0 extends rg0 {
                     return true;
                 }
                 p31 p31Var = new p31(context);
-                p31Var.e(context.getString(R.string.obfuscated_res_0x7f0f0bba));
+                p31Var.e(context.getString(R.string.obfuscated_res_0x7f0f0ba6));
                 p31Var.c(false);
                 p31Var.d(false);
                 k01.b(p31Var);

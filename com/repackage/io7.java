@@ -37,10 +37,10 @@ public class io7 extends no7 {
             }
         }
         this.a = view2;
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090858);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090856);
         this.b = textView;
         textView.setText(str);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090859);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090857);
         c();
     }
 

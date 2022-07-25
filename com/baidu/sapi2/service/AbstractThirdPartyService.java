@@ -14,6 +14,8 @@ public interface AbstractThirdPartyService {
     public static final int RESULT_AUTH_FAILURE = 1002;
     public static final int RESULT_AUTH_SUCCESS = 1001;
     public static final int RESULT_AUTH_UNSUPPORT = -10;
+    public static final String RESULT_AUTH_UNSUPPORT_HONOR_LOWER_THAN_19_MSG = "系统版本小于19";
+    public static final String RESULT_AUTH_UNSUPPORT_HONOR_MSG = "不支持荣耀授权登录";
     public static final String RESULT_AUTH_UNSUPPORT_MSG = "不支持YY授权登录";
     public static final int RESULT_UNKNOW_ERROR = -1;
     public static final String RESULT_UNKNOW_ERROR_MSG = "未知错误";

@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lf5 implements ha5 {
+public class lf5 implements ia5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
@@ -47,8 +47,8 @@ public class lf5 implements ha5 {
     public final FloatWebLayout c;
     public final NestedScrollWebView d;
     public final FrameLayout e;
-    public k55 f;
-    public j55 g;
+    public l55 f;
+    public k55 g;
     public boolean h;
     public boolean i;
     public boolean j;
@@ -124,7 +124,7 @@ public class lf5 implements ha5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!ni.z()) {
-                    pi.N(this.a.a, R.string.obfuscated_res_0x7f0f0c2b);
+                    pi.N(this.a.a, R.string.obfuscated_res_0x7f0f0c17);
                 } else {
                     this.a.u();
                 }
@@ -315,14 +315,14 @@ public class lf5 implements ha5 {
         this.a = context;
         this.b = linearLayout;
         this.c = floatWebLayout;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d048f, (ViewGroup) linearLayout, true);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d048e, (ViewGroup) linearLayout, true);
         this.d = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f0924c5);
-        this.e = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09136b);
+        this.e = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091347);
         cj8 cj8Var = new cj8();
         this.m = cj8Var;
         cj8Var.a(new CommonTbJsBridge(context));
         this.m.a(new UegTbJsBridge(context));
-        rl4.g(context);
+        sl4.g(context);
         y();
     }
 
@@ -347,12 +347,12 @@ public class lf5 implements ha5 {
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            j55 j55Var = this.g;
-            if (j55Var == null || !j55Var.isViewAttached()) {
+            k55 k55Var = this.g;
+            if (k55Var == null || !k55Var.isViewAttached()) {
                 if (this.g == null) {
-                    j55 j55Var2 = new j55(this.a);
-                    this.g = j55Var2;
-                    j55Var2.r(TbadkCoreApplication.getInst().getSkinType());
+                    k55 k55Var2 = new k55(this.a);
+                    this.g = k55Var2;
+                    k55Var2.r(TbadkCoreApplication.getInst().getSkinType());
                     this.g.onChangeSkinType();
                 }
                 this.g.attachView(this.e, false);
@@ -364,24 +364,24 @@ public class lf5 implements ha5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.f == null) {
-                this.f = new k55(this.a, new b(this));
+                this.f = new l55(this.a, new b(this));
             }
-            this.f.n(this.a.getString(R.string.obfuscated_res_0x7f0f14e6));
-            this.f.g(this.a.getString(R.string.obfuscated_res_0x7f0f0f98));
+            this.f.n(this.a.getString(R.string.obfuscated_res_0x7f0f1495));
+            this.f.g(this.a.getString(R.string.obfuscated_res_0x7f0f0f81));
             this.f.i(R.drawable.new_pic_emotion_08);
             this.f.attachView(this.e, false);
             this.f.p();
         }
     }
 
-    @Override // com.repackage.ha5
+    @Override // com.repackage.ia5
     public void D(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean J0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -391,7 +391,7 @@ public class lf5 implements ha5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -401,7 +401,7 @@ public class lf5 implements ha5 {
         return (Intent) invokeV.objValue;
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public void n(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
@@ -451,7 +451,7 @@ public class lf5 implements ha5 {
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -499,21 +499,21 @@ public class lf5 implements ha5 {
     }
 
     public final void w() {
-        j55 j55Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (j55Var = this.g) == null) {
-            return;
-        }
-        j55Var.dettachView(this.e);
-    }
-
-    public final void x() {
         k55 k55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (k55Var = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (k55Var = this.g) == null) {
             return;
         }
         k55Var.dettachView(this.e);
+    }
+
+    public final void x() {
+        l55 l55Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (l55Var = this.f) == null) {
+            return;
+        }
+        l55Var.dettachView(this.e);
     }
 
     public void y() {

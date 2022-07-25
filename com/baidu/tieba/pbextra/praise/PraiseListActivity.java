@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a08;
 import com.repackage.b08;
 import com.repackage.oi;
-import com.repackage.sd5;
+import com.repackage.td5;
 import com.repackage.xz7;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -79,7 +79,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             if (oi.isEmpty(str)) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f0c2b);
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
             }
             this.b.o();
             this.b.m(str, this.a);
@@ -104,7 +104,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
                     finish();
                     return;
                 }
-                sd5.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.c.k(), null, "praise_list"));
+                td5.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.c.k(), null, "praise_list"));
             } else if (view2 != this.b.h() || this.b.k()) {
             } else {
                 this.b.n(true);
@@ -159,7 +159,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (j2 = this.c.j(i)) == null) {
             return;
         }
-        sd5.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), j2.c(), j2.b(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
+        td5.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), j2.c(), j2.b(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

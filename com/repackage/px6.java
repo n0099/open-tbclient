@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cy;
 import com.repackage.ny;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class px6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class px6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
     public tn n;
     public jy5<vy5> o;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends jy5<vy5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class px6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements xn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,10 +111,10 @@ public class px6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
                 vy5 vy5Var = (vy5) nnVar;
                 vy5Var.f = 1;
                 if (this.a.o != null) {
-                    this.a.o.a(threadCardViewHolder.b(), vy5Var);
+                    this.a.o.a(threadCardViewHolder.a(), vy5Var);
                 }
-                ThreadCardUtils.jumpToPB((nn4) vy5Var, view2.getContext(), 2, false);
-                threadCardViewHolder.c().o(new ny.a(1));
+                ThreadCardUtils.jumpToPB((on4) vy5Var, view2.getContext(), 2, false);
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -156,8 +156,8 @@ public class px6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
             vy5.X = "c10736";
             vy5.Y = "c10737";
             vy5.Z = "c10711";
-            vy5.g0 = "c10758";
-            vy5.h0 = "c10757";
+            vy5.a0 = "c10758";
+            vy5.b0 = "c10757";
         }
     }
 
@@ -176,7 +176,7 @@ public class px6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
             cy k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.n);
             k.r(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.k(this.i);
+            threadCardViewHolder.j(this.i);
             V(new b(this));
             return threadCardViewHolder;
         }
@@ -190,20 +190,20 @@ public class px6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vy5Var, threadCardViewHolder})) == null) {
-            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || vy5Var.a == null) {
+            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || vy5Var.a == null) {
                 return null;
             }
             vy5Var.I(vy5Var.position + 1);
             vy5Var.a.statFloor = vy5Var.m();
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.c().b(this.l);
-            threadCardViewHolder.g(vy5Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.o);
+            threadCardViewHolder.b().q(i);
+            threadCardViewHolder.b().b(this.l);
+            threadCardViewHolder.f(vy5Var);
+            threadCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().p(this.o);
             cy5.b().a(vy5Var.B());
             ak5.c().a(vy5Var.B());
             iz6.i(vy5Var.a, this.i, vy5Var.m());
-            return threadCardViewHolder.b();
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }
@@ -220,21 +220,21 @@ public class px6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         }
         int id = view2.getId();
         int i = 3;
-        if (view2.getId() == R.id.obfuscated_res_0x7f09202a || id == R.id.obfuscated_res_0x7f09203e) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f09202e || id == R.id.obfuscated_res_0x7f092042) {
             TiebaStatic.log(vy5Var.A());
             ak5.c().i("page_recommend", "clk_", vy5Var.A());
             iz6.c(vy5Var.a, vy5Var.o(), vy5Var.m(), 1);
-        } else if (id != R.id.obfuscated_res_0x7f090c84) {
-            if (id == R.id.obfuscated_res_0x7f090c7f) {
+        } else if (id != R.id.obfuscated_res_0x7f090c7d) {
+            if (id == R.id.obfuscated_res_0x7f090c78) {
                 StatisticItem statisticItem = new StatisticItem("c10760");
                 statisticItem.param("obj_locate", 2);
                 TiebaStatic.log(statisticItem);
                 i = 5;
                 iz6.c(vy5Var.a, vy5Var.o(), vy5Var.m(), 1);
             } else {
-                if (id != R.id.obfuscated_res_0x7f090c82 && id != R.id.obfuscated_res_0x7f090c83) {
+                if (id != R.id.obfuscated_res_0x7f090c7b && id != R.id.obfuscated_res_0x7f090c7c) {
                     if (view2 instanceof TbImageView) {
-                        if (view2.getTag(R.id.obfuscated_res_0x7f090c80) instanceof Integer) {
+                        if (view2.getTag(R.id.obfuscated_res_0x7f090c79) instanceof Integer) {
                             StatisticItem statisticItem2 = new StatisticItem("c10760");
                             statisticItem2.param("obj_locate", 3);
                             TiebaStatic.log(statisticItem2);

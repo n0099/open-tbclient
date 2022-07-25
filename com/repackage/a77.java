@@ -57,7 +57,7 @@ public class a77 extends ya {
                     sb.append(groupMids.valueAt(i));
                     sb.append("|");
                 }
-                mt4.a("im", socketMessage.getClientLogID(), 202003, "sendMsg", 0, null, "reason", "pull" + messageSyncMessage.getSyncTypeString(), "comment", sb.toString());
+                nt4.a("im", socketMessage.getClientLogID(), 202003, "sendMsg", 0, null, "reason", "pull" + messageSyncMessage.getSyncTypeString(), "comment", sb.toString());
             }
             return socketMessage;
         }

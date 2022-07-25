@@ -60,16 +60,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
-import com.repackage.fu4;
+import com.repackage.dr4;
+import com.repackage.gu4;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class l56 implements k45, w75 {
+public class l56 implements l45, x75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fu4.g A;
+    public gu4.g A;
     public EnterForumFragment a;
     public d76 b;
     public EnterForumModel c;
@@ -84,7 +84,7 @@ public class l56 implements k45, w75 {
     public boolean l;
     public LikeModel m;
     public ViewEventCenter n;
-    public au4 o;
+    public bu4 o;
     public int p;
     public h76 q;
     public boolean r;
@@ -98,7 +98,7 @@ public class l56 implements k45, w75 {
     public final EnterForumModel.f z;
 
     /* loaded from: classes6.dex */
-    public class a implements fu4.g {
+    public class a implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ l56 a;
@@ -121,7 +121,7 @@ public class l56 implements k45, w75 {
             this.a = l56Var;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -253,7 +253,7 @@ public class l56 implements k45, w75 {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements CustomMessageTask.CustomRunnable<ep4> {
+    public class e implements CustomMessageTask.CustomRunnable<fp4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ l56 a;
@@ -278,11 +278,11 @@ public class l56 implements k45, w75 {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<ep4> run(CustomMessage<ep4> customMessage) {
+        public CustomResponsedMessage<fp4> run(CustomMessage<fp4> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                ep4 ep4Var = new ep4();
+                fp4 fp4Var = new fp4();
                 ArrayList arrayList = new ArrayList();
                 if (this.a.c != null && this.a.c.E() != null && this.a.c.E().e() != null && ListUtils.getCount(this.a.c.E().e().b()) > 0) {
                     Iterator<c56> it = this.a.c.E().e().b().iterator();
@@ -296,9 +296,9 @@ public class l56 implements k45, w75 {
                             arrayList.add(hotTopicBussinessData);
                         }
                     }
-                    ep4Var.a(arrayList);
+                    fp4Var.a(arrayList);
                 }
-                return new CustomResponsedMessage<>(2016527, ep4Var);
+                return new CustomResponsedMessage<>(2016527, fp4Var);
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -403,7 +403,7 @@ public class l56 implements k45, w75 {
                     if (responsedMessage.getError() == 0) {
                         BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
                         bdTopToast.i(true);
-                        bdTopToast.h(this.a.j.getActivity().getString(R.string.obfuscated_res_0x7f0f09dd));
+                        bdTopToast.h(this.a.j.getActivity().getString(R.string.obfuscated_res_0x7f0f09c7));
                         bdTopToast.j((ViewGroup) currentActivity.findViewById(16908290));
                         return;
                     }
@@ -417,7 +417,7 @@ public class l56 implements k45, w75 {
     }
 
     /* loaded from: classes6.dex */
-    public class h implements cr4.e {
+    public class h implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c56 a;
@@ -442,23 +442,23 @@ public class l56 implements k45, w75 {
             this.a = c56Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 if (!pi.D()) {
-                    this.b.j.showToast(R.string.obfuscated_res_0x7f0f04a5);
+                    this.b.j.showToast(R.string.obfuscated_res_0x7f0f04a4);
                 } else {
                     new m(this.b, this.a).execute(new c56[0]);
                 }
                 TiebaStatic.eventStat(this.b.j.getPageContext().getPageActivity(), "recom_flist_unlike", "click", 1, new Object[0]);
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class i implements cr4.e {
+    public class i implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -478,11 +478,11 @@ public class l56 implements k45, w75 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -567,8 +567,8 @@ public class l56 implements k45, w75 {
                     a56 a56Var = eVar.d;
                     this.a.M(a56Var);
                     if (a56Var.g() > 0) {
-                        xt4.k().w("key_LIKE_forum_sort_state", a56Var.g());
-                        xt4.k().u("like_forum_sort_level", a56Var.g() == 2);
+                        yt4.k().w("key_LIKE_forum_sort_state", a56Var.g());
+                        yt4.k().u("like_forum_sort_level", a56Var.g() == 2);
                     }
                 } else if (i == 0 && !this.a.g) {
                     a56 a56Var2 = eVar.d;
@@ -590,11 +590,11 @@ public class l56 implements k45, w75 {
                 TiebaStatic.page(TiebaStatic.OpKey.OP_FORUM_ENTER, currentTimeMillis - this.a.k, this.a.c.G() - this.a.k, this.a.c.I(), this.a.c.H(), currentTimeMillis - this.a.c.F());
                 this.a.k = -1L;
             }
-            String string = this.a.j.getResources().getString(R.string.obfuscated_res_0x7f0f0572);
+            String string = this.a.j.getResources().getString(R.string.obfuscated_res_0x7f0f056e);
             a56 a56Var3 = eVar.d;
             if (a56Var3 != null && a56Var3.d() != null) {
                 HotSearchInfoData d = eVar.d.d();
-                xt4.k().y("hot_search_info", OrmObject.jsonStrWithObject(d));
+                yt4.k().y("hot_search_info", OrmObject.jsonStrWithObject(d));
                 if (d != null && d.A() != null) {
                     string = d.A();
                 }
@@ -703,7 +703,7 @@ public class l56 implements k45, w75 {
                     if (netWork.getNetContext().getResponse().isRequestSuccess()) {
                         this.c.l = true;
                         if (this.c.a.isAdded() && this.c.j != null) {
-                            this.c.j.showToast(this.c.j.getActivity().getString(k > 0 ? R.string.obfuscated_res_0x7f0f0578 : R.string.obfuscated_res_0x7f0f0574));
+                            this.c.j.showToast(this.c.j.getActivity().getString(k > 0 ? R.string.obfuscated_res_0x7f0f0574 : R.string.obfuscated_res_0x7f0f0570));
                         }
                         this.c.c.L(true);
                     } else if (this.c.j == null) {
@@ -711,7 +711,7 @@ public class l56 implements k45, w75 {
                         if (!StringUtils.isNull(this.a.getErrorString())) {
                             this.c.j.showToast(this.a.getErrorString());
                         } else if (this.c.a.isAdded()) {
-                            this.c.j.showToast(this.c.j.getActivity().getString(k > 0 ? R.string.obfuscated_res_0x7f0f0577 : R.string.obfuscated_res_0x7f0f0573));
+                            this.c.j.showToast(this.c.j.getActivity().getString(k > 0 ? R.string.obfuscated_res_0x7f0f0573 : R.string.obfuscated_res_0x7f0f056f));
                         }
                     }
                 }
@@ -811,7 +811,7 @@ public class l56 implements k45, w75 {
                     if (netWork.getNetContext().getResponse().isRequestSuccess()) {
                         this.c.l = true;
                         if (this.c.a.isAdded() && this.c.j != null) {
-                            this.c.j.showToast(this.c.j.getActivity().getString(R.string.obfuscated_res_0x7f0f14cd));
+                            this.c.j.showToast(this.c.j.getActivity().getString(R.string.obfuscated_res_0x7f0f147c));
                         }
                         TbadkCoreApplication.getInst().setLikeBarChanged(true);
                         this.c.Q(false, this.b.getId());
@@ -828,7 +828,7 @@ public class l56 implements k45, w75 {
                         if (!StringUtils.isNull(this.a.getErrorString())) {
                             this.c.j.showToast(this.a.getErrorString());
                         } else if (this.c.a.isAdded()) {
-                            this.c.j.showToast(this.c.j.getActivity().getString(R.string.obfuscated_res_0x7f0f04a5));
+                            this.c.j.showToast(this.c.j.getActivity().getString(R.string.obfuscated_res_0x7f0f04a4));
                         }
                     }
                 }
@@ -880,7 +880,7 @@ public class l56 implements k45, w75 {
         this.e = new xo8(this.j.getPageContext());
         this.m.setLoadDataCallBack(this.y);
         this.c.Z(this.z);
-        xt4.k().u("enter_forum_edit_mode", false);
+        yt4.k().u("enter_forum_edit_mode", false);
         x56.b().c(this.a.getFragmentActivity(), pi.s(this.a.getFragmentActivity()));
         E();
         D();
@@ -933,7 +933,7 @@ public class l56 implements k45, w75 {
     public final void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.o = new au4(this.j.getPageContext());
+            this.o = new bu4(this.j.getPageContext());
         }
     }
 
@@ -1042,7 +1042,7 @@ public class l56 implements k45, w75 {
             arrayList = e2.b();
         }
         w(arrayList, a56Var.f());
-        HotSearchInfoData hotSearchInfoData = (HotSearchInfoData) OrmObject.objectWithJsonStr(xt4.k().q("hot_search_info", ""), HotSearchInfoData.class);
+        HotSearchInfoData hotSearchInfoData = (HotSearchInfoData) OrmObject.objectWithJsonStr(yt4.k().q("hot_search_info", ""), HotSearchInfoData.class);
         if (hotSearchInfoData != null && hotSearchInfoData.A() != null) {
             T(hotSearchInfoData.A());
         }
@@ -1118,11 +1118,11 @@ public class l56 implements k45, w75 {
         if (!StringUtils.isNull(str)) {
             this.a.w1().T(str.trim());
         } else {
-            this.a.w1().T(this.j.getActivity().getString(R.string.obfuscated_res_0x7f0f0572));
+            this.a.w1().T(this.j.getActivity().getString(R.string.obfuscated_res_0x7f0f056e));
         }
     }
 
-    @Override // com.repackage.w75
+    @Override // com.repackage.x75
     public boolean T0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1147,36 +1147,36 @@ public class l56 implements k45, w75 {
         if (!(interceptable == null || interceptable.invokeL(1048598, this, c56Var) == null) || c56Var == null) {
             return;
         }
-        cr4 cr4Var = new cr4(this.j.getPageContext().getPageActivity());
-        cr4Var.setMessage(String.format(this.j.getPageContext().getString(R.string.obfuscated_res_0x7f0f02ae), c56Var.o()));
-        cr4Var.setPositiveButton(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f036b), new h(this, c56Var));
-        cr4Var.setNegativeButton(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f036a), new i(this));
-        cr4Var.setButtonTextColor(R.color.CAM_X0105);
-        cr4Var.create(this.j.getPageContext());
-        cr4Var.show();
+        dr4 dr4Var = new dr4(this.j.getPageContext().getPageActivity());
+        dr4Var.setMessage(String.format(this.j.getPageContext().getString(R.string.obfuscated_res_0x7f0f02ae), c56Var.o()));
+        dr4Var.setPositiveButton(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f036b), new h(this, c56Var));
+        dr4Var.setNegativeButton(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f036a), new i(this));
+        dr4Var.setButtonTextColor(R.color.CAM_X0105);
+        dr4Var.create(this.j.getPageContext());
+        dr4Var.show();
     }
 
-    @Override // com.repackage.k45
+    @Override // com.repackage.l45
     public void a(ym ymVar, String str, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLZ(1048599, this, ymVar, str, z) != null) || ymVar == null) {
         }
     }
 
-    @Override // com.repackage.w75
+    @Override // com.repackage.x75
     public BdUniqueId getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.j.getUniqueId() : (BdUniqueId) invokeV.objValue;
     }
 
-    @Override // com.repackage.w75
-    public boolean t0(x75 x75Var) {
+    @Override // com.repackage.x75
+    public boolean t0(y75 y75Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, x75Var)) == null) {
-            int b2 = x75Var.b();
-            n75 a2 = x75Var.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, y75Var)) == null) {
+            int b2 = y75Var.b();
+            o75 a2 = y75Var.a();
             switch (b2) {
                 case 1:
                     if (this.p == 2 || !(a2 instanceof c56)) {
@@ -1186,7 +1186,7 @@ public class l56 implements k45, w75 {
                     String o = c56Var.o();
                     if (oi.isForumName(o)) {
                         FrsActivityConfig callFrom = new FrsActivityConfig(this.j.getPageContext().getPageActivity()).createNormalCfg(o, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3);
-                        Object c2 = x75Var.c();
+                        Object c2 = y75Var.c();
                         if (c2 instanceof Bundle) {
                             Intent intent = callFrom.getIntent();
                             if (UbsABTestHelper.isEnterFrsNoAnmi()) {
@@ -1226,18 +1226,18 @@ public class l56 implements k45, w75 {
                     if (this.p == 2) {
                         return false;
                     }
-                    if (xt4.k().h("enter_forum_edit_mode", false)) {
+                    if (yt4.k().h("enter_forum_edit_mode", false)) {
                         return true;
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007009, 2));
-                    xt4.k().u("enter_forum_edit_mode", true);
+                    yt4.k().u("enter_forum_edit_mode", true);
                     if (this.a.getView() != null && this.a.getView().getParent() != null) {
                         this.a.getView().getParent().requestDisallowInterceptTouchEvent(true);
                     }
                     return true;
                 case 3:
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007011));
-                    xt4.k().u("enter_forum_edit_mode", false);
+                    yt4.k().u("enter_forum_edit_mode", false);
                     return true;
                 case 4:
                     if (a2 instanceof c56) {
@@ -1308,13 +1308,13 @@ public class l56 implements k45, w75 {
                     }
                     return true;
                 case 16:
-                    R((z46) x75Var.d());
+                    R((z46) y75Var.d());
                     break;
                 case 17:
-                    R((z46) x75Var.d());
+                    R((z46) y75Var.d());
                     break;
                 case 18:
-                    R((z46) x75Var.d());
+                    R((z46) y75Var.d());
                     break;
             }
             return false;
@@ -1331,15 +1331,15 @@ public class l56 implements k45, w75 {
         enterForumModel.cancelLoadData();
     }
 
-    public final void w(List<c56> list, dq4 dq4Var) {
+    public final void w(List<c56> list, eq4 eq4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048603, this, list, dq4Var) == null) || list == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048603, this, list, eq4Var) == null) || list == null) {
             return;
         }
         if (list.size() > 500) {
             list = list.subList(0, 500);
         }
-        this.b.l0(this.c.b0(list, ad5.a()), dq4Var, this.c.J());
+        this.b.l0(this.c.b0(list, bd5.a()), eq4Var, this.c.J());
     }
 
     public void x(boolean z) {

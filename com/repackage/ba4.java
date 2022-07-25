@@ -1,11 +1,9 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
-import java.io.Closeable;
+import java.nio.channels.ReadableByteChannel;
 /* loaded from: classes5.dex */
-public interface ba4 extends Closeable {
-    @Nullable
-    aa4 body();
+public interface ba4 {
+    long a();
 
-    int code();
+    ReadableByteChannel source();
 }

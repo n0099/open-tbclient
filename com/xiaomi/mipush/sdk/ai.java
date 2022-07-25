@@ -31,7 +31,7 @@ public class ai {
     public static <T extends iu<T, ?>> Cif a(Context context, T t, hj hjVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, t, hjVar)) == null) ? a(context, t, hjVar, !hjVar.equals(hj.a), context.getPackageName(), b.m1069a(context).m1070a()) : (Cif) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, t, hjVar)) == null) ? a(context, t, hjVar, !hjVar.equals(hj.a), context.getPackageName(), b.m131a(context).m132a()) : (Cif) invokeLLL.objValue;
     }
 
     public static <T extends iu<T, ?>> Cif a(Context context, T t, hj hjVar, boolean z, String str, String str2) {
@@ -49,20 +49,20 @@ public class ai {
             if (a != null) {
                 Cif cif = new Cif();
                 if (z) {
-                    String d = b.m1069a(context).d();
+                    String d = b.m131a(context).d();
                     if (TextUtils.isEmpty(d)) {
                         str3 = "regSecret is empty, return null";
                     } else {
                         try {
-                            a = com.xiaomi.push.i.b(bm.m1140a(d), a);
+                            a = com.xiaomi.push.i.b(bm.m202a(d), a);
                         } catch (Exception unused) {
                             com.xiaomi.channel.commonutils.logger.b.d("encryption error. ");
                         }
                     }
                 }
                 hy hyVar = new hy();
-                hyVar.f1273a = 5L;
-                hyVar.f1274a = "fakeid";
+                hyVar.f553a = 5L;
+                hyVar.f554a = "fakeid";
                 cif.a(hyVar);
                 cif.a(ByteBuffer.wrap(a));
                 cif.a(hjVar);
@@ -73,7 +73,7 @@ public class ai {
                 return cif;
             }
             str3 = "invoke convertThriftObjectToBytes method, return null.";
-            com.xiaomi.channel.commonutils.logger.b.m1027a(str3);
+            com.xiaomi.channel.commonutils.logger.b.m89a(str3);
             return null;
         }
         return (Cif) invokeCommon.objValue;
@@ -81,25 +81,25 @@ public class ai {
 
     public static iu a(Context context, Cif cif) {
         InterceptResult invokeLL;
-        byte[] m1409a;
+        byte[] m471a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, cif)) == null) {
-            if (cif.m1411b()) {
+            if (cif.m473b()) {
                 byte[] a = i.a(context, cif, e.b);
                 if (a == null) {
-                    a = bm.m1140a(b.m1069a(context).d());
+                    a = bm.m202a(b.m131a(context).d());
                 }
                 try {
-                    m1409a = com.xiaomi.push.i.a(a, cif.m1409a());
+                    m471a = com.xiaomi.push.i.a(a, cif.m471a());
                 } catch (Exception e) {
                     throw new u("the aes decrypt failed.", e);
                 }
             } else {
-                m1409a = cif.m1409a();
+                m471a = cif.m471a();
             }
-            iu a2 = a(cif.a(), cif.f1353b);
+            iu a2 = a(cif.a(), cif.f633b);
             if (a2 != null) {
-                it.a(a2, m1409a);
+                it.a(a2, m471a);
             }
             return a2;
         }

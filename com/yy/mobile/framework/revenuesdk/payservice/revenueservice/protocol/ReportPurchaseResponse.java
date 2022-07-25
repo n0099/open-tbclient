@@ -1,5 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -52,7 +53,7 @@ public class ReportPurchaseResponse implements IBaseJsonResponse {
                     if (this.cmd == optInt) {
                         this.uid = jSONObject.optLong("uid");
                         this.seq = jSONObject.optString("seq");
-                        this.result = jSONObject.optInt("result");
+                        this.result = jSONObject.optInt(TiebaStatic.LogFields.RESULT);
                         this.message = jSONObject.optString("message");
                         this.purchaseData = jSONObject.optString("purchaseData");
                         this.purchaseSign = jSONObject.optString("purchaseSign");

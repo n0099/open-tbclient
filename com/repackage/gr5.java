@@ -60,7 +60,7 @@ public class gr5 extends an<kr5, RecommendActivityView.ViewHolder> {
                 return null;
             }
             viewHolder.a.i(kr5Var);
-            return viewHolder.b();
+            return viewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

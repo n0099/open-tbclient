@@ -52,7 +52,7 @@ public class dv7 extends du7<bv7, PbPageNewsInfoHolder> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, bv7Var) == null) || bv7Var == null) {
                 return;
             }
-            fy7.a(this.a.o, bv7Var, bv7Var.h0, 5);
+            fy7.a(this.a.o, bv7Var, bv7Var.b0, 5);
         }
     }
 
@@ -90,7 +90,7 @@ public class dv7 extends du7<bv7, PbPageNewsInfoHolder> {
     public PbPageNewsInfoHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbPageNewsInfoHolder(this.j.getPageContext(), LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0696, viewGroup, false), this.p) : (PbPageNewsInfoHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbPageNewsInfoHolder(this.j.getPageContext(), LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06a0, viewGroup, false), this.p) : (PbPageNewsInfoHolder) invokeL.objValue;
     }
 
     public View d0(int i, View view2, ViewGroup viewGroup, bv7 bv7Var, PbPageNewsInfoHolder pbPageNewsInfoHolder) {
@@ -101,10 +101,10 @@ public class dv7 extends du7<bv7, PbPageNewsInfoHolder> {
             if (bv7Var == null) {
                 return view2;
             }
-            bv7Var.h0 = i + 1;
-            fy7.d(this.j.getUniqueId(), this.o, bv7Var, bv7Var.h0, 5);
-            pbPageNewsInfoHolder.i(bv7Var);
-            pbPageNewsInfoHolder.j(TbadkCoreApplication.getInst().getSkinType());
+            bv7Var.b0 = i + 1;
+            fy7.d(this.j.getUniqueId(), this.o, bv7Var, bv7Var.b0, 5);
+            pbPageNewsInfoHolder.h(bv7Var);
+            pbPageNewsInfoHolder.i(TbadkCoreApplication.getInst().getSkinType());
             return view2;
         }
         return (View) invokeCommon.objValue;

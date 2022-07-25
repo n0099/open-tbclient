@@ -184,7 +184,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
             this.b = context;
             LayoutInflater.from(context).inflate(getLayout(), this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091601);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0915dc);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905e0);
             setOnClickListener(this);
             if (attributeSet != null) {
@@ -228,7 +228,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d0620 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d062a : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -277,7 +277,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     return;
                 }
                 this.e = 1;
-                this.a.setText(R.string.obfuscated_res_0x7f0f0c64);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0c50);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
@@ -291,7 +291,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     return;
                 }
                 this.e = 2;
-                this.a.setText(R.string.obfuscated_res_0x7f0f0ccb);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0cb7);
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation2.setFillAfter(true);
                 alphaAnimation2.setDuration(500L);

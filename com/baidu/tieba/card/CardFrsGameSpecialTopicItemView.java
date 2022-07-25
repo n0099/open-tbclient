@@ -102,8 +102,8 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0904fa);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0904f7);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0904fb);
-            this.f = findViewById(R.id.obfuscated_res_0x7f0907cb);
-            this.g = findViewById(R.id.obfuscated_res_0x7f0907cc);
+            this.f = findViewById(R.id.obfuscated_res_0x7f0907c9);
+            this.g = findViewById(R.id.obfuscated_res_0x7f0907ca);
             int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.getLayoutParams();
             layoutParams.width = (dimensionPixelSize * 21) / 9;

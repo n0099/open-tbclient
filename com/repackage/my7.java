@@ -422,7 +422,7 @@ public class my7 {
                 ImageView imageView = new ImageView(this.a.d.getActivity());
                 if (this.a.K == null) {
                     try {
-                        this.a.K = BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getResources(), R.drawable.obfuscated_res_0x7f080e5a);
+                        this.a.K = BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getResources(), R.drawable.obfuscated_res_0x7f080e61);
                         imageView.setImageBitmap(this.a.K);
                     } catch (Throwable unused) {
                     }
@@ -836,7 +836,7 @@ public class my7 {
                 DecimalFormat decimalFormat = new DecimalFormat("0.0");
                 double intValue = ((this.a.g.video_length.intValue() * (1.0f - ((this.a.h.B0() * 1.0f) / (this.a.g.video_duration.intValue() * 1000)))) * 1.0f) / 1048576.0f;
                 if (intValue >= 0.1d) {
-                    pi.O(this.a.d.getPageContext().getPageActivity(), String.format(this.a.d.getPageContext().getString(R.string.obfuscated_res_0x7f0f0de3), decimalFormat.format(intValue)));
+                    pi.O(this.a.d.getPageContext().getPageActivity(), String.format(this.a.d.getPageContext().getString(R.string.obfuscated_res_0x7f0f0dcc), decimalFormat.format(intValue)));
                 }
             }
         }
@@ -1132,7 +1132,7 @@ public class my7 {
         this.S = new m(this, 2921414);
         this.d = pbFragment;
         this.b = kx7Var;
-        this.r = pi.f(pbFragment.getActivity(), R.dimen.obfuscated_res_0x7f070285);
+        this.r = pi.f(pbFragment.getActivity(), R.dimen.obfuscated_res_0x7f070283);
         V(videoInfo);
         T();
         MessageManager.getInstance().registerListener(this.P);
@@ -1259,7 +1259,7 @@ public class my7 {
         } else {
             this.i.i = this.d.T5();
         }
-        zp4 P5 = this.d.P5();
+        aq4 P5 = this.d.P5();
         if (P5 != null) {
             P5.d(this.i);
         }
@@ -1295,9 +1295,9 @@ public class my7 {
         NavigationBar navigationBar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, videoInfo) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0886, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0890, (ViewGroup) null);
             this.a = relativeLayout;
-            this.c = (CustomFrameLayout) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0917ac);
+            this.c = (CustomFrameLayout) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091787);
             int b0 = b0(videoInfo);
             int i2 = 0;
             this.y = ((double) this.u) <= (((double) pi.k(this.d.getActivity())) * 0.5625d) + 5.0d;
@@ -1343,7 +1343,7 @@ public class my7 {
                 }
                 navigationBar2.setStatusBarVisibility(i2);
             }
-            PbVideoWifiTipLayout pbVideoWifiTipLayout = (PbVideoWifiTipLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09125b);
+            PbVideoWifiTipLayout pbVideoWifiTipLayout = (PbVideoWifiTipLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091237);
             this.A = pbVideoWifiTipLayout;
             pbVideoWifiTipLayout.setOnPlayClickListener(new s(this));
             rc0 rc0Var = this.z;
@@ -1366,7 +1366,7 @@ public class my7 {
             if (P() == null) {
                 return false;
             }
-            return P().getBottom() > pi.i(P().getContext()) - pi.f(P().getContext(), R.dimen.obfuscated_res_0x7f0702d4);
+            return P().getBottom() > pi.i(P().getContext()) - pi.f(P().getContext(), R.dimen.obfuscated_res_0x7f0702d2);
         }
         return invokeV.booleanValue;
     }
@@ -1688,10 +1688,10 @@ public class my7 {
 
     public final void u0() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048610, this) == null) || xt4.k().h("show_video_pb_double_tap_tips", false)) {
+        if (!(interceptable == null || interceptable.invokeV(1048610, this) == null) || yt4.k().h("show_video_pb_double_tap_tips", false)) {
             return;
         }
-        xt4.k().u("show_video_pb_double_tap_tips", true);
+        yt4.k().u("show_video_pb_double_tap_tips", true);
         gf gfVar = new gf();
         gfVar.d(true);
         gfVar.h(false);

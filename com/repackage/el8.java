@@ -49,20 +49,20 @@ public class el8 {
         }
         String stringExtra = intent.getStringExtra(MainTabActivityConfig.PUSH_DES_PAGE);
         if (!TextUtils.isEmpty(stringExtra)) {
-            String string = this.a.getString(R.string.obfuscated_res_0x7f0f04c6);
-            yp4 yp4Var = new yp4();
+            String string = this.a.getString(R.string.obfuscated_res_0x7f0f04c5);
+            zp4 zp4Var = new zp4();
             Matcher matcher = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)").matcher(intent.getStringExtra("target_scheme"));
             int i = 1;
             if (matcher.find()) {
-                yp4Var.c = matcher.group(1);
+                zp4Var.c = matcher.group(1);
             }
             if (stringExtra.equals(string)) {
-                yp4Var.a = 1;
+                zp4Var.a = 1;
             } else {
-                yp4Var.a = 2;
-                yp4Var.b = stringExtra;
+                zp4Var.a = 2;
+                zp4Var.b = stringExtra;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, yp4Var));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, zp4Var));
             if (stringExtra.equals(string)) {
                 intent.putExtra("sub_locate_type", 1);
                 i = 2;
@@ -74,8 +74,8 @@ public class el8 {
                 FragmentTabHost.b j = al8Var.B().j(i);
                 if (j != null) {
                     Fragment fragment = j.c;
-                    if (fragment instanceof vm4) {
-                        ((vm4) fragment).e1(intent);
+                    if (fragment instanceof wm4) {
+                        ((wm4) fragment).e1(intent);
                     }
                 }
             }

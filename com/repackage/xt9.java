@@ -29,13 +29,13 @@ public final class xt9 extends xr9 {
 
         /* renamed from: com.repackage.xt9$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0775a implements hs9 {
+        public class C0621a implements hs9 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
             public final /* synthetic */ a b;
 
-            public C0775a(a aVar, b bVar) {
+            public C0621a(a aVar, b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +118,7 @@ public final class xt9 extends xr9 {
                     } while (this.d.decrementAndGet() > 0);
                     return rw9.c();
                 }
-                return rw9.a(new C0775a(this, bVar));
+                return rw9.a(new C0621a(this, bVar));
             }
             return (bs9) invokeLJ.objValue;
         }

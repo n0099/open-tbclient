@@ -35,7 +35,7 @@ import tbclient.Profile.UserGodInfo;
 import tbclient.ThreadInfo;
 import tbclient.User;
 import tbclient.UserDynamic;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class e48 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -129,28 +129,28 @@ public abstract class e48 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.r.clear();
-            r48 c = c(R.drawable.icon_starer_caise_heibai, R.string.obfuscated_res_0x7f0f0a80, 20);
+            r48 c = c(R.drawable.icon_starer_caise_heibai, R.string.obfuscated_res_0x7f0f0a6c, 20);
             this.v = c;
             c.b = new Bundle();
             this.v.b.putBoolean("person_center_item_red_tip", true);
             this.v.a.b = new Bundle();
             this.v.a.b.putSerializable(UserData.TYPE_USER, this.g);
             this.r.add(this.v);
-            r48 c2 = c(R.drawable.icon_lover_caise_heibai, R.string.obfuscated_res_0x7f0f0438, 24);
+            r48 c2 = c(R.drawable.icon_lover_caise_heibai, R.string.obfuscated_res_0x7f0f0437, 24);
             this.w = c2;
             c2.b = new Bundle();
             this.w.b.putBoolean("person_center_item_red_tip", true);
             this.w.a.b = new Bundle();
             this.w.a.b.putSerializable(UserData.TYPE_USER, this.g);
             this.r.add(this.w);
-            r48 c3 = c(R.drawable.icon_liwu_caise_heibai, R.string.obfuscated_res_0x7f0f07ac, 32);
+            r48 c3 = c(R.drawable.icon_liwu_caise_heibai, R.string.obfuscated_res_0x7f0f07a8, 32);
             this.u = c3;
             c3.b = new Bundle();
             this.u.b.putBoolean("person_center_item_red_tip", true);
             this.u.a.b = new Bundle();
             this.u.a.b.putSerializable(UserData.TYPE_USER, this.g);
             this.r.add(this.u);
-            r48 c4 = c(R.drawable.icon_lishi_caise_heibai, R.string.obfuscated_res_0x7f0f0840, 21);
+            r48 c4 = c(R.drawable.icon_lishi_caise_heibai, R.string.obfuscated_res_0x7f0f083c, 21);
             c4.a.b = new Bundle();
             c4.a.b.putSerializable(UserData.TYPE_USER, this.g);
             this.r.add(c4);
@@ -161,7 +161,7 @@ public abstract class e48 {
                 c5.a.b.putSerializable(UserData.TYPE_USER, this.g);
                 this.r.add(c5);
             }
-            r48 c6 = c(R.drawable.icon_vip_heibai, R.string.obfuscated_res_0x7f0f0aa2, 16);
+            r48 c6 = c(R.drawable.icon_vip_heibai, R.string.obfuscated_res_0x7f0f0a8e, 16);
             this.x = c6;
             c6.b = new Bundle();
             this.x.b.putBoolean("person_center_item_red_tip", true);
@@ -180,11 +180,11 @@ public abstract class e48 {
             c8.a.b = new Bundle();
             c8.a.b.putSerializable(UserData.TYPE_USER, this.g);
             this.r.add(c8);
-            r48 c9 = c(R.drawable.icon_xiaofeijilu_caise_heibai, R.string.obfuscated_res_0x7f0f0435, 17);
+            r48 c9 = c(R.drawable.icon_xiaofeijilu_caise_heibai, R.string.obfuscated_res_0x7f0f0434, 17);
             c9.a.b = new Bundle();
             c9.a.b.putSerializable(UserData.TYPE_USER, this.g);
             this.r.add(c9);
-            r48 c10 = c(R.drawable.icon_fuwu_caise_heibai, R.string.obfuscated_res_0x7f0f0e4e, 39);
+            r48 c10 = c(R.drawable.icon_fuwu_caise_heibai, R.string.obfuscated_res_0x7f0f0e37, 39);
             c10.a.b = new Bundle();
             c10.a.b.putString("key_service_centre", "");
             this.r.add(c10);

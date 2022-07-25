@@ -47,20 +47,20 @@ public class k27 {
         return invokeL.booleanValue;
     }
 
-    public static void c(nn4 nn4Var, Context context, int i, boolean z, Rect rect) {
+    public static void c(on4 on4Var, Context context, int i, boolean z, Rect rect) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{nn4Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect}) == null) || nn4Var == null || nn4Var.getThreadData() == null || context == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{on4Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect}) == null) || on4Var == null || on4Var.getThreadData() == null || context == null) {
             return;
         }
-        ThreadData threadData = nn4Var.getThreadData();
+        ThreadData threadData = on4Var.getThreadData();
         PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(threadData, null, "video_tab", 18003, true, false, false);
         createFromThreadCfg.setForumId(String.valueOf(threadData.getFid()));
         createFromThreadCfg.setFrom("from_video_tab");
         createFromThreadCfg.setForumName(threadData.getForum_name());
         createFromThreadCfg.setStartFrom(i);
         createFromThreadCfg.setVideoOriginArea(rect);
-        if (nn4Var.getPbInputLocate() != null) {
-            createFromThreadCfg.addLocateParam(nn4Var.getPbInputLocate());
+        if (on4Var.getPbInputLocate() != null) {
+            createFromThreadCfg.addLocateParam(on4Var.getPbInputLocate());
         }
         if (TbSingleton.getInstance().isPbPreloadSwitchOn() && b(threadData)) {
             createFromThreadCfg.setNeedPreLoad(true);

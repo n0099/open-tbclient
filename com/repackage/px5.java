@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class px5 extends jx5<e36> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +110,7 @@ public class px5 extends jx5<e36> {
             this.i.setBorderWidth(this.c.getResources().getDimensionPixelSize(R.dimen.tbds1));
             this.i.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds26));
             h().setOnClickListener(this);
-            this.v = view2.findViewById(R.id.obfuscated_res_0x7f0907ca);
+            this.v = view2.findViewById(R.id.obfuscated_res_0x7f0907c8);
         }
     }
 
@@ -128,7 +128,7 @@ public class px5 extends jx5<e36> {
         this.l.setText(e36Var.c().title_small);
         this.m.setText(String.valueOf(e36Var.c().game_score));
         t(e36Var);
-        this.t.setText(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f06ee, StringHelper.numberUniform(e36Var.c().game_score_num)));
+        this.t.setText(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f06ea, StringHelper.numberUniform(e36Var.c().game_score_num)));
     }
 
     public final void t(e36 e36Var) {

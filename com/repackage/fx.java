@@ -23,7 +23,7 @@ public class fx extends xw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NewGridImageLayout h;
-    public nn4 i;
+    public on4 i;
     public int j;
     public String k;
     public int l;
@@ -196,7 +196,7 @@ public class fx extends xw {
     }
 
     @Override // com.repackage.qw
-    public void m(jy5<nn4> jy5Var) {
+    public void m(jy5<on4> jy5Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, jy5Var) == null) {
             this.h.setSubClickListener(jy5Var);
@@ -221,14 +221,14 @@ public class fx extends xw {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: v */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, nn4Var) == null) {
-            this.i = nn4Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, on4Var) == null) {
+            this.i = on4Var;
             this.h.setFrom(this.k);
             this.h.setFromForPb(this.l);
             this.h.setTransmit(g().booleanValue());
-            this.h.a(nn4Var);
+            this.h.a(on4Var);
             this.h.setJumpToPbListener(new a(this));
         }
     }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.BookInfo;
 import tbclient.TbBookrack;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class q08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

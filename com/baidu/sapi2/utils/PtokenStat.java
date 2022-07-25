@@ -42,7 +42,7 @@ public class PtokenStat {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && TextUtils.isEmpty(SapiUtils.getCookiePtoken())) {
             HashMap hashMap = new HashMap();
-            hashMap.put(Config.DEVICE_PART, Build.MODEL);
+            hashMap.put(Config.DEVICE_PART, "android");
             hashMap.put("sys_version", Build.VERSION.RELEASE);
             SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
             hashMap.put("uid", currentAccount == null ? "uid_is_empty" : currentAccount.uid);

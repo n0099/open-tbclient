@@ -21,7 +21,8 @@ public class RoundRelativeLayout extends RelativeLayout {
     public float a;
     public Path b;
     public RectF c;
-    public float[] d;
+    public boolean d;
+    public float[] e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RoundRelativeLayout(Context context) {
@@ -42,7 +43,8 @@ public class RoundRelativeLayout extends RelativeLayout {
             }
         }
         this.a = 100.0f;
-        this.d = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
+        this.d = true;
+        this.e = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
         a();
     }
 
@@ -64,7 +66,7 @@ public class RoundRelativeLayout extends RelativeLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.addRoundRect(this.c, this.d, Path.Direction.CW);
+            this.b.addRoundRect(this.c, this.e, Path.Direction.CW);
         }
     }
 
@@ -74,7 +76,9 @@ public class RoundRelativeLayout extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) || b()) {
             return;
         }
-        canvas.clipPath(this.b);
+        if (this.d) {
+            canvas.clipPath(this.b);
+        }
         super.draw(canvas);
     }
 
@@ -94,10 +98,16 @@ public class RoundRelativeLayout extends RelativeLayout {
         if (interceptable != null && interceptable.invokeF(1048581, this, f) != null) {
             return;
         }
-        this.d = new float[8];
         int i = 0;
+        if (f == 0.0f) {
+            this.d = false;
+            invalidate();
+            return;
+        }
+        this.d = true;
+        this.e = new float[8];
         while (true) {
-            float[] fArr = this.d;
+            float[] fArr = this.e;
             if (i < fArr.length) {
                 fArr[i] = f;
                 i++;
@@ -114,10 +124,11 @@ public class RoundRelativeLayout extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, fArr) == null) || fArr == null || fArr.length <= 0) {
             return;
         }
-        this.d = new float[fArr.length];
+        this.e = new float[fArr.length];
         for (int i = 0; i < fArr.length; i++) {
-            this.d[i] = fArr[i];
+            this.e[i] = fArr[i];
         }
+        this.d = true;
         c();
         invalidate();
     }
@@ -142,7 +153,8 @@ public class RoundRelativeLayout extends RelativeLayout {
             }
         }
         this.a = 100.0f;
-        this.d = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
+        this.d = true;
+        this.e = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
         a();
     }
 
@@ -166,7 +178,8 @@ public class RoundRelativeLayout extends RelativeLayout {
             }
         }
         this.a = 100.0f;
-        this.d = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
+        this.d = true;
+        this.e = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
         a();
     }
 }

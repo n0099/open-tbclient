@@ -268,9 +268,9 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
                 return;
             }
             if (pi.D()) {
-                this.a.o(R.string.obfuscated_res_0x7f0f0c45);
+                this.a.o(R.string.obfuscated_res_0x7f0f0c31);
             } else {
-                this.a.o(R.string.obfuscated_res_0x7f0f0792);
+                this.a.o(R.string.obfuscated_res_0x7f0f078e);
             }
         }
     }

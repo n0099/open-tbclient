@@ -91,23 +91,23 @@ public class qf6 implements rd6.d {
         this.n = new a(this);
         this.a = tbPageContext;
         this.b = view2;
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092113);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906ae);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d17);
-        this.h = view2.findViewById(R.id.obfuscated_res_0x7f091d6e);
-        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b92);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092115);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906ad);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d1d);
+        this.h = view2.findViewById(R.id.obfuscated_res_0x7f091d74);
+        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b8b);
         ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090630);
         this.j = imageView;
         imageView.setOnClickListener(this.n);
-        ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ead);
+        ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ea6);
         this.k = imageView2;
         ViewGroup.LayoutParams layoutParams = imageView2.getLayoutParams();
         int k = pi.k(tbPageContext.getPageActivity()) - (pi.f(tbPageContext.getPageActivity(), R.dimen.tbds49) * 2);
         layoutParams.width = k;
         layoutParams.height = (int) (((k * 364) * 1.0f) / 980.0f);
         this.k.setLayoutParams(layoutParams);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a34);
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09122f);
+        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a0e);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09120b);
         this.m = findViewById;
         findViewById.setBackground(f());
         this.h.setBackground(f());
@@ -129,7 +129,7 @@ public class qf6 implements rd6.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.h.setBackground(new ColorDrawable(SkinManager.getColor(R.color.CAM_X0201)));
-            this.k.setImageResource(R.drawable.obfuscated_res_0x7f080f16);
+            this.k.setImageResource(R.drawable.obfuscated_res_0x7f080f1d);
         }
     }
 
@@ -138,7 +138,7 @@ public class qf6 implements rd6.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.h.setBackground(f());
-            this.k.setImageResource(R.drawable.obfuscated_res_0x7f080f15);
+            this.k.setImageResource(R.drawable.obfuscated_res_0x7f080f1c);
         }
     }
 

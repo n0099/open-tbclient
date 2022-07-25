@@ -7,7 +7,7 @@ import com.baidu.sapi2.SapiOptions;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kuaishou.weapon.p0.C0400;
+import com.kuaishou.weapon.p0.u;
 /* loaded from: classes.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
@@ -16,7 +16,7 @@ public final class a {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? context.getSharedPreferences(C0400.f426, 4).getString("s_e", "default") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? context.getSharedPreferences(u.x, 4).getString("s_e", "default") : (String) invokeL.objValue;
     }
 
     public static short a() {
@@ -31,7 +31,7 @@ public final class a {
     public static void a(Context context, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) {
-            SharedPreferences sharedPreferences = context.getSharedPreferences(C0400.f426, 4);
+            SharedPreferences sharedPreferences = context.getSharedPreferences(u.x, 4);
             String str = z ? SapiOptions.KEY_CACHE_ENABLED : "disabled";
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.putString("s_e", str);

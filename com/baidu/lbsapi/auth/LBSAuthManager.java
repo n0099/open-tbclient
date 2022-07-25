@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import com.kuaishou.weapon.p0.C0400;
+import com.kuaishou.weapon.p0.u;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -412,7 +412,7 @@ public class LBSAuthManager {
         } else {
             hashMap.put("cuid", str3);
         }
-        hashMap.put(C0400.f425, a.getPackageName());
+        hashMap.put(u.w, a.getPackageName());
         hashMap.put("version", VERSION);
         hashMap.put("macaddr", "");
         try {
@@ -471,7 +471,7 @@ public class LBSAuthManager {
         } else {
             hashMap.put("cuid", str3);
         }
-        hashMap.put(C0400.f425, a.getPackageName());
+        hashMap.put(u.w, a.getPackageName());
         hashMap.put("version", VERSION);
         hashMap.put("macaddr", "");
         try {
